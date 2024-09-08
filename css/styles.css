@@ -1,0 +1,42 @@
+.workbook_callout {
+  background-color: yellow;
+  border: 2px solid black;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.return_callout {
+  background-color: #b6dde8;
+  border: 2px solid black;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.info_callout {
+  background-color: #c2d69b;
+  border: 2px solid black;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.neave_note {
+  text-align: justify;     /* Justify the text */
+  font-family: serif;      /* Use a serif font */
+  margin-left: 20px;       /* Indent the paragraph */
+  margin-right: 20px;      /* Ensure spacing on the right */
+  line-height: 1.6;        /* Adjust line height for readability */
+  font-size: 16px;         /* Set a comfortable font size */
+  color: #333;             /* Optional: Set a text color (default to dark grey) */
+}
