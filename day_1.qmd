@@ -1,0 +1,7 @@
+# Day 1: The Overture and the Deming Story {.unnumbered}
+
+In summary, this book has no content whatsoever.
+
+```{r}
+1 + 1
+```

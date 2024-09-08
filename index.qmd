@@ -1,5 +1,11 @@
 # A. Please start here {.unnumbered}
 
+```{r message=FALSE, warning=FALSE}
+#| echo: false
+
+source(here::here("R/functions.R"))
+```
+
 ## Preface
 
 I began drafting some distance-learning material based on Dr Deming’s invaluable teaching as long ago as 1999. But various events, combined with lack of time, interrupted that work and, when I retired at the end of 2004, it had remained untouched for almost five years.
@@ -37,3 +43,208 @@ Adding to your learning by reading a book about a topic with which you are alrea
 In some areas, e.g., Mathematics, Engineering, and some Sciences, books may include questions and exercises at the end of each chapter, and they can help. But, as with homework, etc., such activity often takes place some time after the initial exposure to whatever is being studied, not during it—i.e., not as an integrated component of the learning process. It is when the activities do take place as a fully integral part of the learning process that I use the term “active learning.” And that’s quite different from weekly assignments or exercises at the end of a chapter: in active learning, the activities are carried out as and when they are most appropriate and helpful, not hours or days or even weeks or months later.
 
 The amount and extent of such activities can be highly variable depending upon the context. For instance, when covering relatively gentle background material, hardly any such activity may be needed. At the other extreme, there can be situations where the learning is almost entirely activity-based. So there will be some occasions during this course when the activities are nearly continuous: you will be reading material maybe even just a sentence at a time and then immediately “doing something” as a result of that sentence. On other occasions, you will simply be reading for quite a while. As you’d expect, most of the time, you’ll be somewhere between those two extremes.
+
+## Time management
+
+### Days
+
+It is because of this wide variety in the forms of learning that I have laid out this course in the form of 12 “days” rather than 12 chapters or 12 modules, etc. (I appreciate that it would be the rare student indeed for whom the “12 days” will be twelve consecutive days!) By a “day” I am envisaging a full working day of
+up to eight hours, though sometimes a little less. Of course, you individually or the group with whom you are working can adapt this timeframe as suits you. But if I were teaching you this material in person, naturally leaving suitable amounts of time for you to carry out the various activities, then this is the kind of timeframe that would seem reasonable to me.
+
+I also appreciate that it might not be possible or convenient for you to devote full days to this learning. For instance, if you are quite busy with other things then half-days are likely to be more suitable for you. Nevertheless, because of this context of “days”, I do often refer to “morning” or “afternoon”, etc—but you’ll
+easily be able to interpret such references in ways that are relevant to your particular schedule. Indeed, a “half-day” could well be an evening rather than a morning or afternoon—in which case I’d suggest your evening should start quite early unless you are a real “night-owl”!
+
+If at all possible, I recommend you do not attempt shorter sessions than half-days. This material is very much a case of “joined-up thinking”: it would not take kindly to being split up into lots of little bits and pieces. I would hate to try to teach it in, say, separate lessons or lectures typically of an hour or less. Fortunately, I never had to try! My seminars, both public and in-house, were always scheduled over one or more days, and even my University courses on Dr Deming’s work were presented as four-day seminars spread over two weekends.
+
+Obviously, what you decide upon will depend on whether you (and your colleagues if you are studying in a group) are already involved in other full- or part-time study or other kind of work. If you are in a group then naturally a schedule of regular meetings will need to be organised. But, even if you are studying this course on your own, you would be wise to consider upfront the kind of time you will have available and then come up with a regular schedule that you’ll be able to maintain. Many people who are in full-time work but who simultaneously take on a course of study, e.g. for some additional qualifications (like many Open University students in the UK), are rather used to doing their full-time work during the week and then studying at the weekends; so maybe for you to set aside Saturdays or Sundays for this course might be more practical and appealing. On the other hand, if currently you do not have any full-time commitments and therefore could consider taking on this course more intensively, you might consider two or even three “days” per week. But the latter would indeed be quite intensive! On the other hand, because of the “joined-up” nature of the material, I recommend that you should aim to cover no less than one day’s work per week if at all possible—i.e. covering the course over a three-month period—otherwise you’ll be in danger of losing the continuity and momentum which will help this learning to succeed. An obvious good compromise between
+those two possibilities would be six two-day weeks.
+
+### Too much time, too little time
+
+Let’s move on now to considering how to manage the time within each of our “days”. Again you can be quite flexible as suits you personally or the group with whom you are working. But I would advise that spending either considerably too little time or even too much time on anything here is likely to be unwise.
+
+If you spend too little time then obviously you are not giving the learning sufficient opportunity to “sink in”. Spending too little time is especially dangerous with Deming’s work, particularly when you are reading his own words—which will be happening quite a lot during the later stages of the course. He was brilliant at saying a great deal in very few words—but that has its pros and cons. This is not material for the speed-reader. This is material for the student who has the patience to ponder and dig deep: for there is plenty to uncover!
+
+I particularly recommend that you do not try to rush through the work on Days 4 and 5. This course contains two substantial projects. The First Project is designed to keep you busy throughout the afternoon of Day 4 and all of Day 5. Apart from being very important in its own right, essentially it also serves as a training-ground for the deepest-thinking part of the whole course: namely, the Second Project which takes
+up almost the whole of Days 10 and 11. Good work in the First Project will prove to be extremely helpful preparation for the Second Project.
+
+But again, don’t go to extremes. Rather less obviously, spending considerably too much time, conscientious as that would show you to be, also has its drawbacks. Again you would then be in danger of losing
+the continuity and momentum that I’ve already mentioned. I know that, almost certainly, there will be occasions when you reach something of a “mental block” and e.g. find you cannot make progress with a particular activity even after spending some reasonable amount of time on it. But, extensive and varied as
+Deming’s teaching is, you will increasingly discover that it does all fit together. That is indeed one of its
+tremendous strengths—it is not just some miscellaneous concoction of isolated ideas. So it is quite likely
+that, if you set aside that troublesome matter for the time being and move on to whatever follows, you may
+soon come across something that will “make the penny drop” regarding what you were puzzling over. So
+then you can go back and really get moving on that troublesome activity. Furthermore, as the course progresses, several of the activities will become increasingly open-ended. In some such cases it might be
+feasible for you either to just jot down a few quick notes or, at the other extreme, maybe develop an article
+for publication on the topic! But, while this course is in progress, I’d prefer you to aim at somewhere in
+between those extremes!
+
+One consequence of the “joined-up” nature of Deming’s work is that you will see literally hundreds of page
+references during this material, references both to elsewhere in the course and to other sources. You are
+not expected to follow up all of those references! They are there for your guidance and help, either during
+the course or later, simply as and when you feel you might find them most useful. I should also point out
+that the pages for each day, and in other sections such as this Welcome and the Appendix, are all numbered from page 1 upward rather than being continuous throughout the course. The reason is that, very
+early on while developing this material, I discovered that this made it much easier for me to find my way
+around—and I hope the same will prove to be true for you.
+
+### Detailed guidance
+
+I’ll begin here with a great big caveat: the following guidance is included for you very much on a “take it or
+leave it” basis. If you are experienced with distance-learning courses or other types of largely unsupervised study then you may well decide to “leave it”—and that’s fine by me since in that case you will already
+have become used to managing your own time and will know the speed and style of learning that works for
+you. So then you may feel that the kind of guidance I’ll describe here is too restrictive for you or maybe
+even patronising! No problem. As with all those page references just mentioned, please feel free to ignore
+my guidance unless you feel it will be helpful to you. On the other hand, if your past experience has been
+wholly or largely in the form of taught courses in schools and colleges etc, it can be quite tricky to handle a
+self-study course that leaves you on your own without the kind of supervision and timetabling which naturally accompanies taught courses. So, if that is your situation, I believe you may well find my guidance to be
+useful.
+
+As many people in my position would do, I’d invariably include some personal guidance about timings
+when writing up my own notes in preparation for delivering courses, seminars or conference presentations. 
+The timing for any particular section would not necessarily be reflected in the length of my notes for that
+section: some material can be dealt with quite quickly and easily while other material needs to be covered
+with greater deliberation. I found such indications of timing to be extremely useful—as long as I did indeed
+treat them just as approximate guidance rather than as anything more regimented! I have thus imagined
+myself presenting this course to you in person and similarly including some timing indications for my own
+guidance—except that now, of course, in practice that guidance is for you if you’d like it. In particular, if
+presenting the course in person I would need to allocate (following what I have just said) neither too little
+nor too much time for the activities, and I’m hoping you will find my guidance on timings to be particularly
+helpful with them. Also, returning to the reading-matter, you may often find yourself moving through it
+rather faster than I am indicating. But just zooming through it is not the object of the exercise: sufficient
+time is needed for it to penetrate! That may require reading some of the material relatively slowly and carefully, perhaps re-reading some of it, and maybe writing up a few notes on it. In my guidance I’ll try to leave
+you sufficient time for all of these as appropriate.
+
+As mentioned earlier, I have presumed your available time is up to eight hours per “day”, although with
+some days being a little shorter than that. Broadly speaking, the length of the days will tend to increase as
+we work through the course (although there will be exceptions). In particular, I am estimating that Day 1
+could take only about six hours whereas during the Second Project on Days 10 and 11 there is little doubt
+that the full eight hours per day will be needed to even begin to do it justice.
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#| column: margin
+
+create_clock(6, 00)
+
+create_clock(9, 30)
+```
+
+
+To be specific, I have imagined that we shall usually start at 9.00 am, will take an hour off for lunch, and will
+close at some time between 4.30 pm and 6.00 pm. (No coffee or tea breaks—I shall assume that liquid
+refreshment is on tap all day long!) A lunch-break is indicated in both the text and in the list of contents for
+each day by a red, white and blue box that you will not be able to miss! Little clock icons such as those I’m
+showing you against this paragraph will appear both on the opening page for each day against a description of the day’s contents and also at various places within the text. Again, treat these indications as rough
+guides rather than instructions. I believe they will help you to pace yourself appropriately through the reading and particularly when carrying out the activities. As indicated above, Day 1 is a little different regarding
+the overall length of the day, since there is much less in the way of activities on this opening day of the
+course than subsequently. So, in that initial case, I am permitting a later start!
+
+It is, of course, likely that your preferred starting-time will generally, if not always, differ from mine. So, if
+you want to keep an eye on my guidance about timing but also prefer to avoid having to keep carrying out
+simple arithmetic on the time-difference, it might be sensible to adjust a clock or watch in order to synchronise with my starting-time.
+
+## Self-study or group-learning
+
+Finally, while developing this course, I have primarily been thinking of it as being used for self-study so that,
+in particular, the activities are reasonable and feasible for an individual student to carry out. (I have special
+empathy for an individual student studying Dr Deming’s work alone because, back in 1985, I was one!)
+However, the course is just as suitable for study in small or medium-sized groups meeting together either
+physically or via the internet. (There are a few places in the material where I am clearly focusing on the
+individual student, but they should not cause members of study groups any difficulty.) An advantage of
+being an individual student rather than in a group is that you will, of course, be able to adjust the length of a
+“day” to one that suits you—but not forgetting what I’ve said about both too little or too much time.
+
+By “small” groups I am thinking of perhaps just two or three people, maybe four, who are reading through
+and discussing the material and carrying out all the activities together. Such small groups (again meeting
+physically or virtually) working together cooperatively throughout the entire course can be extremely successful and rewarding. Indeed the very concept of cooperation, working together, win–win is one of the
+many crucial themes in Dr Deming’s teaching. But, of course, people differ from one another. For example, some are naturally quite fast learners, some are not. Being in the latter category is not necessarily bad:
+slower learners may delve deeper into the learning compared with fast learners who might tend to skate
+over the surface. So you can see why I emphasised “cooperation” near the start of this paragraph!
+
+The other option for small groups is the same as I would recommend for medium-sized groups—say up to
+ten or twelve people—and that is to enjoy the best of both worlds with a mixture of self-study followed by
+meetings for discussion. (With larger groups it becomes increasingly difficult for everybody to participate in
+the discussions.) At the time of writing (July 2021) I have recently had the great pleasure of watching and
+listening to such an arrangement in action since the organiser of a study-group of a dozen students kindly
+videoed all the meetings and sent them to me. It worked fantastically well, despite having what I considered to be a very ambitious schedule of two meetings per week each lasting about 90 minutes and covering either a complete day of the 12 Days or, especially in the second half of the course, a half-day.
+
+## The "Overture"
+
+There is no need for me to summarise the content of the course here since that is provided on Day 1 pages
+16–19. However, the morning of Day 1 covers quite a wide range of topics, and so I will now give you a
+brief description of what you will find there. Incidentally, if you were wondering about my choice of title for
+this first half-day, you will find my explanation upfront on Day 1 page 1!
+
+**Deming (re)discovered** (Day 1 pages 2–4)
+
+This section contains a brief introduction to particular parts of the “Deming story” that are covered more
+fully during the afternoon. There is also a mention of Dr Deming’s celebrated four-day seminars which he
+presented on literally hundreds of occasions after being “rediscovered” in the West around 1980. The section ends with an indication of some useful Deming-interest contacts in the UK and elsewhere and also on
+the internet.
+
+**"Statistics? Oh no!"** (Day 1 pages 5–10)
+
+The subject of Statistics is hardly everybody’s favourite area of study! But the truth is that, in essence, Dr
+Deming’s life’s work was launched as the result of his learning from Dr Walter A Shewhart in the 1920s
+about a new, practical and illuminating approach to interpreting process-data. (By “process-data” I simply
+mean any data that are recorded over time at fairly regular intervals—daily, hourly, weekly, every minute,
+etc). That being the case, nobody can get very far into understanding Dr Deming’s work without knowing
+something about what Shewhart came up with.
+
+But, fear not—this does not have to involve you in any heavy Mathematics! In fact, during this course,
+computational work is only involved on Days 2 and 3—so those two Days are the only occasions during the
+course when you may need to use a calculator! But, even then, you are free to cut down such arithmetic to
+a bare minimum if you so wish: you will not be at any disadvantage as regards understanding the main
+content of this course if that is what you choose. The disadvantage would only arise when you subsequently try to put certain parts of the learning from the course into practice, as at that stage it would be
+very handy if you had learned how to study and interpret process-data in the way that Shewhart developed.
+The reason is that an essential component of putting what Deming taught into practice is the ability to
+improve processes (of whichever kinds are relevant in your work—administrative, service, production, management, financial, training, etc). And, of course, you will probably need to study and interpret some data
+from a process in order to help you to improve it.
+
+The delegates at my seminars came from all sorts of different backgrounds and experience: they ranged
+from the many who would prefer to run a mile away from anything “technical” to a group from the British
+Government’s Central Statistical Office! So I got used to catering for such a wide range of interests and
+abilities, and have also done so in this course. This section starting on Day 1 page 5 tells you how.
+
+**Helpful books and videos** (Day 1 pages 11–13)
+
+That title speaks for itself. The only essential additional source for the course is the prescribed text: my
+book The Deming Dimension which was first published in 1990—for some information about it please see
+pages 12–13 later in this Welcome section. However, as with pretty much any course on any subject, there
+are numerous other sources that can be helpful, and this section suggests and briefly describes a few of
+them.
+
+**Activities, Major Activities, Pauses for Thought, Projects and "Your Organisation"** (Day 1 pages 14–15)
+
+This section describes the various types of activities that make this course an active-learning course. Several of these, especially in the second half of the course, encourage you to relate what you are learning to
+what is happening in whatever company or other type of organisation you are currently working in—and
+also suggests what to do if you are not currently involved with any organisation.
+
+**Outline of the course** (Day 1 pages 16–19)
+
+This outline has already been mentioned Immediately beneath The "Overture" on the previous page.
+
+**Quality, theory, philosophy, management...** (Day 1 pages 20–22)
+
+This section introduces you to some of the terms and expressions that will occur quite frequently during the
+course and also provides you with your first three “Pauses for Thought”.
+
+**The attraction of Deming’s work** (Day 1 pages 23–26)
+
+So what’s so special about what Dr Deming taught? This and the following section should give you some
+ideas about that.
+
+**Deming is different** (Day 1 pages 27–28)
+
+And how! If perhaps you thought that what he taught was just a little bit different from what you may have
+learned elsewhere about quality and management, etc, this section might soon change your mind!
+
+**Some light relief!** (Day 1 page 29)
+
+Just in case you regard some of the previous section’s content to be a little crazy, here you’ll see some
+other illustrations which were originally regarded as crazy but turned out not to be so crazy after all.
+
+
+## Serving both the "Technophobes" *and* the "Technophiles"—
+
+

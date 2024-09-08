@@ -8,17 +8,12 @@ book:
   date: "8/19/2024"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
-
-bibliography: references.bib
+    - day_1.qmd
+    - day_2.qmd
 
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
 
 
 
