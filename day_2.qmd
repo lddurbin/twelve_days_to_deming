@@ -1,7 +1,7 @@
 # Day 2: The Experiment on Red Beads {.unnumbered}
 
-In summary, this book has no content whatsoever.
+### Run charts
 
-```{r}
-1 + 1
-```
+Before commencing our study of the Experiment on Red Beads, there is just one “technical” matter to
+introduce—even for those on Stats-level 0 (or 00)! It is the type of chart known by various names such as a
+*time series graph* or a *running record* or simply a *run chart*. We’ll call it a *run chart*.

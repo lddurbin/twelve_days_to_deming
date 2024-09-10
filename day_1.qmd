@@ -1,7 +1,56 @@
-# Day 1: The Overture and the Deming Story {.unnumbered}
+# Day 1: The "Overture" and the Deming Story {.unnumbered}
 
-In summary, this book has no content whatsoever.
 
-```{r}
-1 + 1
+```{r message=FALSE, warning=FALSE}
+#| echo: false
+
+source(here::here("R/functions.R"))
 ```
+
+:::: {.columns}
+
+::: {.column width="90%"}
+## Day 1 (morning): The "Overture"
+:::
+
+::: {.column width="10%"}
+<div style="margin-top: 10px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(9, 30)
+```
+</div>
+
+:::
+
+::::
+
+![Dr Deming and Dr Neave](images/day_1_fig_1.jpg){.lightbox}
+
+Why an “Overture” rather than an “Introduction”? Simply because this half-day contains much more than
+you would expect in a mere introduction to this structured active-learning course on the approach to management developed by Dr W Edwards Deming—pictured above left (aged 88) with me in 1989[^a] (*Such superscript letters as a refer to the “Approvals, Acknowledgements and Information” at the end of the file.*)
+
+Continuing the musical analogy, let’s suppose you’ve arranged an evening out at a theatre to enjoy some
+kind of musical production. Perhaps it’s a light modern musical or musical comedy; at the other extreme,
+maybe it’s grand opera! In past centuries, overtures were often regarded as no more than background
+music while the audience ambled in. These days, the overture is usually treated with greater respect, and
+rightly so. It sets the scene by including several of the main themes from the show, and gives some tasters
+of the moods and style of what is to follow. Now, it might just happen that you take such an instant dislike
+to those snippets that you decide to leave the theatre straightaway and spend the evening some other way
+—which, seeing the price of theatre tickets nowadays, could be a rather expensive decision! Hopefully
+though, you will instead like what you are hearing, and settle down to enjoy the show and have a very pleasant evening. But at least you will have had some prior warning in case the show is just not “your thing”.
+
+This Overture performs a similar function. It does indeed expose you to an initial “feel” of what is to follow,
+of both the nature and some of the content of the Deming approach itself and of the style of this course in
+the way it can help you to learn about it. And that is both sensible and necessary. One section of this
+Overture is headed “Deming is different”. Yes indeed, *very* different compared with other approaches to
+management, to quality, to people—so different that it honestly might not be to your taste. If that is the
+case then I don’t want to waste your time—that won’t be of any benefit to either you or me. So if, having
+“heard” the Overture, you really feel this is not for you then you can indeed decide to leave the theatre
+straightaway and, in this case, you will only have wasted a little time, not a lot of money! Otherwise, please
+stay and enjoy. Maybe, before long, you’ll find yourself climbing out of the audience to join those on the
+stage!
+
+
+## Deming (Re)Discovered
+
+[^a]: Photo by courtesy of SPC Press Inc.
