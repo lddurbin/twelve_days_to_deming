@@ -195,6 +195,18 @@ create_clock(9, 40)
 Not surprisingly, I soon began to present my own seminars on Dr Deming’s work and, largely with the help
 of people that I met at those early seminars and at the London four-day seminars, encouraged the formation of the British Deming Association in 1987. The BDA was a not-for-profit educational organisation having the aims of spreading awareness and aiding understanding of the Deming management philosophy.
 
+Regrettably, “not-for-profit” eventually became too accurate a description, and the BDA is no longer with
+us. However, over several years, it was effective at “getting the ball rolling” as regards stimulating interest
+in Dr Deming’s work both in the UK and elsewhere and providing facilities for genuine learning about it.
+I am glad to say that much of the BDA’s range of activities and learning has subsequently continued
+through various groups and internet links, some of which I’ll briefly introduce to you in what follows.
+
+Firstly, there are a number of references in this course to events that were organised by the BDA and to the
+substantial series of BDA Booklets that were written by groups and individuals in, or connected with, the
+Association. Those booklets, now renamed the “Deming A5 Booklets”, are obtainable from the Learning
+Store at the Deming Transformation Forum in the UK (<http://www.deming.org.uk>) which also supplies a range of
+other Deming-related materials including relevant books and DVDs. The Forum can be contacted for specific advice and assistance including mentoring for individuals and bespoke in-house seminars.
+
 
 [^a]: Photo by courtesy of SPC Press Inc.
 [^b]: Copyright© Deming Prize Committee. All Rights Reserved. <http://www.juse.or.jp/deming_en/>
