@@ -247,7 +247,7 @@ described at least some of his work as “statistical studies”. You know that 
 chart is a statistical tool. And, perhaps worst of all, you know that I used to teach Mathematical Statistics!
 
 I can heap yet more coals onto the fire by quoting the way that Dr Deming was introduced midway through
-*If Japan Can, Why Can’t We?* (see near the bottom of page 4). These are the words of the programme’s
+*If Japan Can, Why Can’t We?*. These are the words of the programme’s
 narrator, Lloyd Dobyns:
 
 >We have said several times that much of what the Japanese are doing [is what] we taught them to
