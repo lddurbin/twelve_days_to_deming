@@ -303,6 +303,7 @@ have drawn them up rather than you! (In connection with that description, some r
 as being the “Voice of the Process” and contrast it with the “Voice of the Customer” who might be speaking in a rather different language!) So please at least quickly browse through this material when you reach
 it, just to get an idea of what’s there for your future reference should you need it.
 
+<div id="para-page8">
 There is a further bonus available for the technophiles—the substantial final file: “S. Optional Extras”. This
 is entirely composed of material to do with control charting and some other statistical matters. I have
 intentionally described the “Optional Extras” as “All more or less to do with control charting”—both more
@@ -312,6 +313,7 @@ To ignore it will be no hindrance at all to your understanding the main content 
 to carry out the activities, etc. It is simply there for those who are toward that other end of the spectrum
 who might otherwise justifiably feel rather left out as regards what this course contains. If you feel unsure
 as to whether or not you want to check out this optional extra material, its first two pages provide a comprehensive introduction to what’s there.
+</div>
 
 ## Some important practical matters
 
@@ -537,7 +539,7 @@ few years. You’ll be taking a brief introductory look at that final phase towa
 Story” which is told during the afternoon of Day 1.
 </div>
 
-## The prescribed text: *The Deming Dimension*
+## The prescribed text: *The Deming Dimension* {#sec-page12}
 
 Most courses, of whatever type, require the use of one or more prescribed (i.e. essential) texts. Back in
 1989–90, with Dr Deming’s encouragement, I wrote my book: *The Deming Dimension*. It has been quite

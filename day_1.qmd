@@ -357,6 +357,237 @@ in more advanced Statistics courses. I can go further: *the bulk of material whi
 does not get mentioned in Dr Deming’s teaching—except, in some cases, for him to point out that it is
 unnecessary and misleading!* Quite some paradox. And it’s not the only one.
 
+How you react to that first paradox is likely to largely depend on whether or not you have any background
+in what I’m calling “conventional” or “traditional” Statistics. If you haven’t then I imagine you will welcome
+the paradox with open arms! But otherwise you may have more of a sense of puzzlement rather than relief.
+If that is the case then I can sympathise—because, in my own early days of learning about Dr Deming’s
+work, I was similarly mystified about this. So, to try to help, I have written some additional material just for
+you which I’ll point you toward at the end of this section. But for now, as implied above, there is another
+paradox to introduce, and I will deal with this second one right here in the main text.
+
+Let me emphasise even further Deming’s concentration on the importance of control charts. He was clear
+that it is generally desirable for *everyone* in an organisation to be able to use control charts and to communicate with them. And, even if that turns out not to be sensible or practical, he was also clear that, the
+more senior someone is in their organisation, the more essential such ability becomes. As far as he was
+concerned, the most important control charts should be right there on the Chief Executive’s desk.
+
+Yet in his seminars Deming didn’t teach the details of how to construct control charts! Paradox No. 2.
+
+Yes, he would usually draw up a chart once the results were obtained in his famous Red Beads Experiment
+which we shall describe and work with tomorrow on Day 2 of our course. But how? He would just write
+down a simple formula, insert some numbers that had been recorded during the experiment, and carry out
+a little arithmetic. But there was nothing about where the simple formula came from nor the fact that, with
+the large majority of processes, that same formula wouldn’t even be appropriate!
+
+So let’s shed some light on this second paradox. This is a quote from my brief discussion on the sixth of
+Deming’s famous 14 Points for Management: “Institute training” that you will see on Day 4 page 26 *[[WB 66]](workbook.qmd#sec-page66)*:
+
+>In Deming’s terminology, the purpose of ‘training’ is the acquisition of specific skills for specific
+tasks. Training is thus narrowly defined and finite in scale and scope. In contrast, as we shall see
+in Point 13, ‘education’ is the opposite: very non-specific, very broadly defined, and essentially infinite in scale and scope.
+
+Thus, in Deming’s terms, teaching and learning details about how to *construct* control charts is *training*.
+Teaching and learning how to interpret the charts once they are drawn, and then how to proceed intelligently on the basis of such interpretation, is *education*. His seminars were most definitely *education*; what
+he regarded as the simpler matter of training could be left to someone else. A couple of sentences from his diary entry for Monday 10 July 1950, regarding some lectures to the Japan Medical Association, will con-
+firm the point:
+
+><span class=deming_quote>Professor Masuyama and assistants will teach the statistical control of quality in the afternoon.
+I shall teach during the forenoon the theory of a system, and cooperation.</span>
+
+:::: {.columns}
+
+::: {.column width="90%"}
+So he regarded getting into some training, even on something as vital as the construction of control charts,
+would be inappropriate during his teaching—it would interrupt the flow of what was really important: education. But in one respect his approach was dangerous. <span class=deming_quote>“Professor Masuyama and assistants”</span> might
+have known what they were talking about but, sadly, many trainers who try to teach people about control
+charts do not. Please be warned that much of what is currently taught and practised concerning control
+charts is *not* wholly consistent with Shewhart’s teaching. For example, control charts are often regarded as
+primarily relevant to manufacturing processes and requiring data that satisfy certain statistical conditions,
+in particular that they are “normally distributed”. As previously, don’t worry if you do not know what that
+means, for the fact is that Shewhart’s teaching was *not* dependent on such restrictions (though some statisticians seem to wish—or even believe—that it was). Quite the opposite. Indeed, Dr Shewhart was speci-
+fic about the need to have statistical techniques which really work in practical situations rather than just
+depend on what he referred to as “a fine ancestry of highbrow statistical theorems”! (This quotation comes
+from page 18 of Shewhart’s 1931 book which, early this afternoon, you will see described in glowing terms
+by Dr Deming.) A good way of expressing this is that Shewhart saw the need for statistical techniques that
+are suitable for our data rather than the need for data that are suitable for our statistical techniques. Think
+about it! Makes good sense to me. And that is precisely what Dr Shewhart produced.
+
+:::
+
+::: {.column width="10%"}
+<div style="margin-top: 400px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(10, 00)
+```
+</div>
+
+:::
+
+::::
+
+### Control charts in this course
+
+So what does all this imply about my approach to control charts in this course? As in Dr Deming’s seminars, you will not have to construct any control charts if you’d prefer not to. However, you will see some
+control charts on Days 2 and 3, and so I shall include some relevant description there. But there is already
+plenty for you to do on both of those days, and so to insist that you also engage in any substantial training
+on control charts would be too much of a good thing! On the other hand, the educational aspect that I’ve
+already mentioned *is* absolutely vital. Repeating what I said above, that is to learn how to *interpret* the
+charts once they are drawn, and then how to proceed intelligently on the basis of that interpretation.
+
+On the other hand, you may of course *wish* to learn a little more or even a lot more about control charts. In
+that case I’ll mention three possibilities which will enable you to go “beyond the basics”, in addition to Don
+Wheeler’s book mentioned on page 5. The first is a small number of “Technical Aids” that appear in the
+material for Days 2 and 3. These will enable you to construct the control charts yourself rather than just
+use charts which other people have drawn up. The second possibility is an article which is freely available
+on the internet. Some time ago I was encouraged by a freelance writer named Mitch Beedie to write an
+introductory article on control charts. Mitch had found control charts extremely useful in his main areas of
+interest: environmental studies and energy conservation. But he said that he had found introductory literature on the topic quite difficult to understand until he had come across some of mine! He titled the article
+“Understanding Variation” and added the subtitle “The Springboard for Process Improvement”. I shall
+therefore shall refer to it in this course material as the “Springboard” article. You can reach it on the UK
+Deming Alliance’s website via the following link:
+
+<https://demingalliance.org/resources/articles/understanding-variation-the-springboard-for-process-improvement>
+
+And lastly, if you are *really* keen to have a comprehensive introduction to control charts—going well beyond
+what is necessary for this course—there is the fairly substantial section of “Optional Extras” described at
+the top of [page 8](index.qmd#para-page8) in the “Welcome” section. This optional material contains a variety of topics, all more or
+less connected with control charting. But I must emphasise that both this extra material and the Springboard article really are “optional extras”—take them or leave them as you prefer. However, if you decide to
+take them, please don’t count them as being within the recommended 12-day timeframe!
+
+So how can I guide you through these various possibilities? I’m going to ask you to choose which of four
+“Stats-levels” you feel is most suitable for you. Stats-level 0 refers to those who would prefer to avoid as
+much as possible of anything like even simple arithmetic or drawing very basic graphs. Stats-level 1 is for
+those who do not mind simple arithmetic and drawing basic graphs but who are not keen to go any further
+than that. Stats-level 2 applies to those who would like to delve into something about the ideas underlying
+the construction of control charts, but without getting in very deep. And Stats-level 3 is for those who are
+already looking forward to tackling my Optional Extras section!
+
+So which Stats-level are you?
+
+After you’ve answered that question, here’s my guidance for you:
+
+**Stats-level 0**: Don’t even bother with the few Technical Aids on Days 2 and 3. But you *will* be asked to
+look at some pictures!
+
+**Stats-level 1**: Work with the Technical Aids when they come, and have a go at constructing some of the
+charts yourself.
+
+**Stats-level 2**: As Stats-level 1 but also browse through the Springboard article when you feel like it and
+take time to go through it more thoroughly after Day 3 in order to consolidate your learning.
+
+**Stats-level 3**: As Stats-level 2 but take a look at what’s available in the Optional Extras section whenever
+you like (out of hours!). Remember that this extra material is only there for those who might be genuinely
+interested in some of it. Ignoring all of it will not harm your understanding of the rest of this course,
+although some of it might help to increase your confidence about dealing with control charts when the time
+comes that you need to. A sensible plan might therefore be to postpone the Optional Extras section until
+the main 12-day course is completed—unless you just can’t resist looking at some of it earlier than that!
+
+Having worked with some thousands of delegates at my seminars over the years, I am particularly conscious of the need to treat those on Stats-level 0 very gently! So there might be a case for going even further out in that direction and introducing a Stats-level 00! If you think that might apply to you then I should
+also raise the possibility of you even skipping some of the main text in the morning of Day 3 (but nothing
+else!)—I’ll guide you when you get there. Now, there are pros and cons in thinking of doing that, so please
+bear with me while I discuss them.
+
+As regards how knowledgeable somebody may become on control charts, it seems to me that there are
+three stages. The first stage is the *only* absolutely vital one for this course. This is where you get to understand *why* control charts are important and what it is that they are able to communicate to their users.
+Notice the “*why*” there rather than “*how*”. Getting as far as the “how” is the second stage. The third stage
+goes even further and really is concerned with a further “why”: why is the “how” what it is?!
+
+So the truth is that the first of the three stages is strictly all you need to know in order to be able to understand Dr Deming’s *theory* of management, which is primarily what this course is about. A later section of
+this Overture takes a careful look at words like “theory”, so I won’t expand on that right now except to
+make one crucial point. This is that, at least in Deming’s case, *theory* has a definite purpose—it is to guide
+better *practice*. So, in Deming’s case, theory should be respected by *practical* people (possibly unlike
+some other theories!). I am assuming that *you* are interested in better *practice* as well as learning the theory, so this will surely mean that, sooner or later, you *will* want to move onto the second stage: the “how”.
+
+*How* can a control chart tell you what you need to know? That’s where you encounter the snag about skipping parts of the main text in the morning of Day 3. For, whereas they may be skipped if you were only
+interested in theory, you *will* need to work through them when the time comes that you want to effectively
+turn some of the theory into practice—the “better practice” that I just mentioned.
+
+On the other hand, the third stage is *truly* optional as far as this course is concerned. Quite a lot of the
+“how” is largely common sense, but some of it does depend on more “academic” information, such as a
+few of the details needed to construct control charts. Faced with the choice, most people are content to
+go by what the “experts” tell them is the sensible way, especially if there is some mathematics involved in
+the whys and wherefores. So it is the second stage, the “how”, that is important to the *user* of control
+charts—how to interpret what the control chart is telling you—rather than the fine detail of *why* the control
+chart is constructed in the way that it is. If you want to watch television, do you really need to know why
+the television—or even the remote control—works? Most people are content to read the instruction book
+or, at least, the quick-start guide and do what they say. Some of that probably *is* common sense—but not
+all of it. If the television doesn’t work for some reason, do you want to learn enough so that you can figure
+out *why* it’s not working? No: you call in the engineer and trust that whoever responds to your call understands such things. That engineer has been educated and trained up to the third stage, whereas it is quite
+sufficient for you and the large majority to go no further than the second stage.
+
+So, in summary, unless you *really* want to limit yourself to Stats-level 00, do take at least a quick look at all
+of the main text (except possibly for the Technical Aids). Even if you do not intend to start working with
+control charts just yet, it would be a good idea for you to get some preliminary ideas about how to interpret
+them. Then, when the time comes, you could come back to the practical guidance on interpreting control
+charts (almost all of which is in the morning of Day 3) and study that more carefully then. However, if you
+*are* verging on Stats-level 00, be content to just skim through that material for now: I don’t want you to get
+so fed up with Day 3 that you feel discouraged and thus never move on to Day 4! I repeat: there won’t be
+*any* involvement with control chart calculations etc throughout all the rest of this course after Day 3.
+
+If you are following my timing guidance, the difference between Stats-level 0 (including 00, of course) and
+the rest creates a small problem: on both Days 2 and 3, those on Stats-level 0 will have less to do than
+everyone else. So alternative schedules will be provided on just those two days. On both days, the initial
+Contents page will relate only to Stats-level 0 and will then be followed by a similar but different page for
+Stats-levels 1–3. During the main text, the little clock icons for Stats-levels 1–3 will be on the right-hand
+side as you are already seeing today, while the clock icons for Stats-level 0 will be on the left-hand side.
+
+----------------------------------------------------------------------------
+
+That finishes this section; so now, if you wish, take a little time out to read my discussion in the Appendix
+on the former of the two paradoxes (which I described on page 7): I hope it will shed some light on the
+mystery. But, again: that discussion is *only* intended for those who are puzzled by the paradox. If instead
+you are simply content (and relieved!) by what the paradox has told you then please don’t bother with this
+extra reading—just carry straight on. Also, the discussion on the first paradox is likely to be of greatest
+interest to those who are familiar with the basics of “traditional” Statistics—for it includes one of Deming’s
+most powerful expressions of the *irrelevance* of several of those basics when studying process data.
+
+:::: {.columns}
+
+::: {.column width="90%"}
+So if you would now like to read about the first paradox on Appendix pages 2–6 and are also following my
+guidance on timings at all closely then please “stop the clock” whilst you are reading those pages.
+:::
+
+::: {.column width="10%"}
+<div style="margin-top: 40px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(10, 10)
+```
+</div>
+:::
+
+::::
+
+## HELPFUL BOOKS AND VIDEOS
+
+In that optional excursion into the Appendix to discuss the first paradox, I included a couple of recommendations of books which will be useful if at some stage you wish to learn more about control charts. And so
+this is an opportune time for me to also suggest some further reading along with video material which could
+be helpful in your learning about the more general main themes and content of this course.
+
+### The Deming Dimension
+
+There is some detailed information about *The Deming Dimension* on [pages 12–13](index.qmd#sec-page12) of the Welcome section
+in the “A. PLEASE START HERE” file.
+
+For brevity I shall henceforth refer to *The Deming Dimension* simply as *DemDim* (as do many of the people
+that I know—I guess it’s a sort of “in-joke” since, whatever else he was, Dr Deming was most certainly *not*
+dim!).
+
+*DemDim* has often been described as written in a “conversational style”. I hope and expect the same may
+be said of this course. The truth is that I feel incapable of writing in any other manner about this very
+human subject (unlike in the first half of my career life when my speciality was Mathematical Statistics!).
+
+Again as with other courses, although there is no requirement for you to provide yourself with anything
+other than the prescribed text, naturally there are further books centred on Dr Deming’s work, plus other
+materials, especially videos, which could be helpful from time to time. So, particularly in case you have
+access to a library which could obtain such items for you to borrow, I’ll briefly introduce and describe some
+possibilities over the next couple of pages. There is detailed information on everything mentioned here and
+later in the “R. References and Sources” file.
+
+### Other books
+
+As far as other books are concerned, I must of course begin with Dr Deming’s own famous *Out of the Crisis*
+(1986) and *The New Economics for Industry, Government, Education* (first published in 1993). However,
+neither book is really suitable for cover-to-cover reading by newcomers, although the reasons differ considerably between the two books.
 
 
 ### Videos {#sec-page13}
