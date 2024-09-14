@@ -9,11 +9,11 @@ source(here::here("R/functions.R"))
 
 :::: {.columns}
 
-::: {.column width="90%"}
+::: {.column width="85%"}
 ## DAY 1 (morning): THE “OVERTURE”
 :::
 
-::: {.column width="10%"}
+::: {.column width="15%"}
 <div style="margin-top: 10px">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(9, 30)
@@ -169,7 +169,7 @@ was at his final four-day seminar in Europe, held in Zurich in July 1993, just f
 
 :::: {.columns}
 
-::: {.column width="90%"}
+::: {.column width="85%"}
 I’ll briefly describe the style of the four-day seminars for you. Basically, except for the breaks, Dr Deming
 spoke from 9.00 to 4.00 each day (except for finishing a little earlier on the final day so that the delegates
 could get back home). Then the delegates would split into Working Groups to deliberate, often long into
@@ -179,7 +179,7 @@ organising a programme of feedback from the Groups to be presented the following
 before Dr Deming resumed his teaching. However, he was always there: watching, listening, learning.
 :::
 
-::: {.column width="10%"}
+::: {.column width="15%"}
 <div style="margin-top: 170px">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(9, 40)
@@ -327,7 +327,7 @@ any tables in order to use it! Don’t scorn its simplicity—try it out on some
 
 :::: {.columns}
 
-::: {.column width="90%"}
+::: {.column width="85%"}
 <span class=neave_note>A couple of points of clarification will be useful here. Firstly, the original editions of these little books of
 Statistics Tables were published as long ago as 1978 and 1981 respectively—long before I met Dr Deming or learned anything significant about his work. Not surprisingly therefore, those original editions contained little on control charts because, back then, I honestly had no idea of how important control charts
 are in practice. Second, I’ll remind you of something I mentioned on page 7 of the Welcome section:
@@ -338,7 +338,7 @@ the traditional language, and so, similarly to something that I said on page 5, 
 keep flitting between alternative terms for the same thing.</span>
 :::
 
-::: {.column width="10%"}
+::: {.column width="15%"}
 <div style="margin-top: 290px">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(9, 55)
@@ -395,7 +395,7 @@ I shall teach during the forenoon the theory of a system, and cooperation.</span
 
 :::: {.columns}
 
-::: {.column width="90%"}
+::: {.column width="85%"}
 So he regarded getting into some training, even on something as vital as the construction of control charts,
 would be inappropriate during his teaching—it would interrupt the flow of what was really important: education. But in one respect his approach was dangerous. <span class=deming_quote>“Professor Masuyama and assistants”</span> might
 have known what they were talking about but, sadly, many trainers who try to teach people about control
@@ -413,7 +413,7 @@ about it! Makes good sense to me. And that is precisely what Dr Shewhart produce
 
 :::
 
-::: {.column width="10%"}
+::: {.column width="15%"}
 <div style="margin-top: 400px">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(10, 00)
@@ -542,12 +542,12 @@ most powerful expressions of the *irrelevance* of several of those basics when s
 
 :::: {.columns}
 
-::: {.column width="90%"}
+::: {.column width="85%"}
 So if you would now like to read about the first paradox on Appendix pages 2–6 and are also following my
 guidance on timings at all closely then please “stop the clock” whilst you are reading those pages.
 :::
 
-::: {.column width="10%"}
+::: {.column width="15%"}
 <div style="margin-top: 40px">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(10, 10)
@@ -675,11 +675,11 @@ distributors, the former from the Deming Institute (see [page 4](#sec-page6)) an
 As you’d expect from the quantity concerned, the *Deming Library* would burn rather a hole in your pocket
 but *The Deming of America* is not overly expensive for this excellent hour-long programme.
 
-### And finaly...
+### And finally...
 
 :::: {.columns}
 
-::: {.column width="90%"}
+::: {.column width="85%"}
 If and when the time comes that you might like to learn more about the man as well as his message (for this
 final recommendation does both), treat yourself to *The World of W Edwards Deming*, the superb biography
 compiled and written by his faithful long-term secretary, the late Cecelia (Ceil) Kilian. This is where I discovered the various entries from his diary that I quote during this opening day of the course and also his
@@ -687,7 +687,7 @@ extremely illuminating <span class=deming_quote>“Summary of Teachings to Top M
 his work in that country in the summer of 1950—see today’s [page 35](#sec-page35).
 :::
 
-::: {.column width="10%"}
+::: {.column width="15%"}
 <div style="margin-top: 130px">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(10, 25)
@@ -755,7 +755,7 @@ colour-coding is needed for *Major* Activities or the Projects as they are heade
 
 :::: {.columns}
 
-::: {.column width="90%"}
+::: {.column width="85%"}
 Finally, particularly on Days 6, 8, 9 and 12, specific reference will be made to “your organisation”. Presumably, many people who work on this course are already (or have been) employed by some company or
 other type of organisation. If that is your case then, with respect to much of the learning which will develop
 on those occasions, I’d like you to actively think about what is going on (or went on) in that organisation.
@@ -769,7 +769,7 @@ be learning here. So, if you are not involved with an organisation in this way, 
 you with a “surrogate” organisation to use in your study!
 :::
 
-::: {.column width="10%"}
+::: {.column width="15%"}
 <div style="margin-top: 300px">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(10, 35)
@@ -882,6 +882,277 @@ to work on it to try to correct it. A noble aim. There was only one little troub
 did not work. Things got worse. … Sure we don’t like things which go wrong—but if we wade in
 at them without understanding then we make things worse.”</span>[^c]
 
+In the context of the Funnel Experiment, what’s missing is the understanding of what Deming meant by a
+“stable system”. The reason I want you to try out the Funnel Experiment for yourself on Day 3 is that, if
+I merely *tell* you about the kind of things that can happen, you might not believe me! But when they happen to you while you are carrying out the experiment, you’ll just *have* to believe them!
+
+When I met and began working with Dr Deming in 1985, besides the Red Beads Experiment the majority of
+the time in his four-day seminars involved his 14 Points (sometimes he called them “Obligations”) for Man-
+agement, along with the “Deadly Diseases” of Western Management that need to be cured, plus a long list
+of “Obstacles”—which we could regard as “minor diseases”, but diseases nonetheless. We shall study the
+14 Points and the Deadly Diseases on Days 4 and 5, and the Obstacles in the afternoon of Day 7.
+
+As a relief from the possible gloom to do with diseases, obstacles, and the fact that many managers certainly do *not* regard the 14 Points as “Obligations”, on Day 6 we return to the story-telling mode. The concentration there is on the way a particular company, Gallery Furniture in Houston, Texas, made a huge suc-
+cess of adopting the 14 Points and curing the Deadly Diseases during the 1990s, and of the resulting
+effects on its business. (You might like to check out <http://www.galleryfurniture.com> to see how the company is
+faring all these many years later.)
+
+Hopefully encouraged by that story, we return on Day 7 to many of the problematic matters that are raised
+in the 14 Points, etc. Day 7 includes numerous true stories to demonstrate the validity of what Deming
+taught about those matters: there are also a few such stories at the end of Day 6 to provide a stark contrast
+to what we will have been learning earlier about Gallery Furniture!
+
+The content of the four-day seminars as indicated so far began to change in 1987, first steadily but then, so
+it seemed, at an ever-increasing pace. Dr Deming was, of course, now in his late 80s, and so he must have
+begun to realise that his time was limited, and that he had much, much more to teach.
+
+Around that time there were three big new emphases that struck me as particularly important. They were:
+
+* the importance of genuine cooperation in business compared with competition and conflict;
+* the need for *innovation* rather than just improvement; and
+* “Joy in Work”, three little words which take the concept of “pride of workmanship” (featured in the
+12th of the 14 Points) a long stride further.
+
+We shall cover these three emphases on Day 8 (see also *DemDim* Part 3: “The New Climate”).
+
+On Day 9 we shall concentrate on two topics. Firstly, the concept of a “system”. Now this was absolutely
+fundamental in Deming’s thinking from his early learning with Dr Shewhart; indeed the need to regard “the
+organisation as a system” featured strongly in his teaching to the Japanese in the 1950s. But in retrospect
+it seems to me that, during the first couple of years that I knew him, he did not dwell as much on this as
+might have been expected. But he certainly did so by, say, 1988–89. And, as my second topic here, also in 1989 he started talking of “Profound Knowledge”: “Profound” indeed, deep not superficial, and “Knowledge”—knowledge and understanding as compared with mere information.
+
+Later in 1989 those two topics merged into his “System of Profound Knowledge”, much of whose content
+is encountered and studied during the Second Project on Days 10 and 11. Now, “System of Profound
+Knowledge” is a pretty scary phrase. In my own seminars, I rarely mentioned it until relatively late in the
+event, i.e. not before much else had already been covered. But then I always enjoyed seeing the sense of
+relief on my delegates’ faces when it began to dawn on them that they were already familiar with much of
+what is contained in the System of Profound Knowledge from what they had learned earlier in the seminar!
+Similarly, here the System of Profound Knowledge as such is largely left until quite late in the course. But,
+again as in the seminars, you will find that, by that time, much of it will not be new to you. That being the
+case, there will now be an even greater emphasis on the “system” nature of Deming’s teaching, i.e. the way
+that things link together, including the four parts of the System of Profound Knowledge: no longer just lots
+of “bits and pieces” but instead a strongly coordinated whole. I believe we should regard the System of
+Profound Knowledge as Dr Deming’s attempt to bring together and consolidate his whole long life’s learning as a rich legacy for us from which to continue learning after he was no longer with us.
+
+:::: {.columns}
+
+::: {.column width="85%"}
+And lastly, the process of beginning to bring it all together—and making it happen—is the subject of our
+12th and final day. And I must surely emphasise “beginning” to do that. You have already seen me using
+the phrase “lifelong learning” near the top of page 13. Believe me: if this is not lifelong learning then I cannot imagine what is. I hope you were not deluded by the title of this course to think that it will all be over by
+the end of the 12th day! Perhaps I should have simply titled Day 12 as “The End of the Beginning”.
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 100px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(10, 55)
+```
+</div>
+:::
+
+::::
+
+## QUALITY, THEORY, PHILOSOPHY, MANAGEMENT,...
+
+How can we describe Dr Deming and his work? Dr Deming is sometimes referred to as a “quality guru”
+and, in an unpublished booklet that I once read, as “the father figure of the modern quality revolution; perhaps the number one guru”. When I read that booklet, those attributions made me feel a little uneasy.
+However, if a “guru” is indeed, as quoted there, “a good man, a wise man and a teacher” then I have no
+problem with it, for I know that all three parts of that description were wholly appropriate to Dr Deming. It
+was the word “quality” that concerned me, for it occurred to me that, to my recollection, I didn’t hear Dr
+Deming refer to “quality” very much during the final few years of his life.
+
+However, rather than just depending on memory, I thought I should attempt to find some evidence. So
+I tried watching and listening carefully to ! *The Deming of America*—and carrying out some word-counts.
+Would you believe, throughout that hour-long video, Dr Deming only mentioned “quality” three times! The
+first mention was:
+
+<span class=deming_quote>“Our quality does not stand up. Not many years ago—70 years ago, 80 years ago—this country
+made half the manufactured product of the world.”</span>
+
+The second mention was in a phrase that I had heard from him time and time again:
+
+<span class=deming_quote>“Quality is made at the top.”</span>
+
+<div class=workbook_callout>Pause for Thought 1-a which follows is also (somewhat unsurprisingly!) on [Workbook page 1](workbook.html).</div>
+
+<div class=neave_note>The red box indicates there will now be a Pause for Thought or Activity which is immediately followed by
+some relevant commentary. My commentary will be in the subsequent shaded red box. So always try to
+avoid looking inside the shaded box—just a single sentence in this case—while you’re thinking about
+what the “request for action” is asking you to do. Preferably cover it up with something!</div>
+
+:::: {.columns}
+
+::: {.column width="85%"}
+<div class=thought_commentary>
+## PAUSE FOR THOUGHT 1–a
+
+<span class=deming_quote>“Quality is made at the top.”</span> Do you agree, and why?
+
+```{ojs}
+viewof thought_1a = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_1a" aria-expanded="false" aria-controls="collapse_1a">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_1a">
+The quality of what a company provides for its customers, product and/or service, results from how the
+top management runs the company—and how the company is run depends on top management’s values, principles, priorities and knowledge.
+</div>
+</div>
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 400px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(11, 10)
+```
+</div>
+:::
+
+::::
+
+And then, as a case in point, Dr Deming’s third and final mention of “quality” was:
+
+><span class=deming_quote>“Sure we want good results. But if you manage by results, quality goes down, morale goes down.”</span>
+
+<div class=workbook_callout>The following two Pauses for Thought are also on [Workbook page 2](workbook.html#sec-page2).</div>
+
+<div class=neave_note>Unlike a red box, a green box indicates an Activity or Pause for Thought with no associated box of commentary.</div>
+
+:::: {.columns}
+
+::: {.column width="85%"}
+<div class=thought>
+## PAUSE FOR THOUGHT 1-b
+
+Why do you think Dr Deming said that, if you manage by results, both quality and morale go down?
+
+```{ojs}
+viewof thought_1b = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<div class=activity_afterthought>(If you cannot think of reasons now, be sure that you will find plenty as the course progresses.)</div>
+</div>
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 400px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(11, 20)
+```
+</div>
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width="85%"}
+<div class=thought>
+## PAUSE FOR THOUGHT 1–c
+
+I well remember a time that I met up with an old acquaintance. I hadn’t seen him for a while, so he
+didn’t know of my change in career and interests (and university)—he thought I still lectured in Mathematical Statistics somewhere else. “So what Department are you in, here at this university?”, he asked.
+“The Quality Unit”, I said. His face dropped. “*Quality*? Ugh!”
+
+Why do you think that the word “Quality” might have provoked such a negative reaction?
+
+```{ojs}
+viewof thought_1c = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<div class=activity_afterthought>(For brief discussion see [Appendix page 6](appendix.html#sec-page6).)</div>
+</div>
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 580px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(11, 25)
+```
+</div>
+:::
+
+::::
+
+So, with only three “hits” for “quality” in the video, I thought it worth counting how many times Dr Deming
+said “management”. Rather more: 14! (And, of course, there were yet more if one also counted “manage”,
+“manager”, etc.) That’s more like it. Deming’s teaching, certainly during the time that I knew him, was not
+directly about *quality*: it was about *management* and, in particular, the kind of management which *produces*
+quality—in the broadest sense of those words.
+
+Interestingly, he came up with the word “theory” 11 times in the video. And that is how he most usually
+described his work, as:
+
+><span class=deming_quote>THEORY OF MANAGEMENT.</span>
+
+Now, “theory” is a word which tends to put some people off. They think of “theory as opposed to practice”, “it’s all right in theory but it won’t work in practice”, etc, i.e. their image is that theory and practice are
+at opposite ends of a spectrum. But that is not how Dr Deming used the word. As a neat indication of how
+he saw it, here is just part of a sentence from his 1960 book, *Sample Design in Business Research*:
+
+><span class=deming_quote>“... the theoretical statistician, one who guides his practice with the help of theory ...”</span>
+
+And this use of the word does not just apply to statisticians! In Deming’s mind, the very *purpose* of theory
+is to help guide better *practice*. And if a theory does not do that then it’s not good theory and it needs
+modifying or even abandoning (c.f. the Deming Cycle on [Day 11](day_11.html)).
+
+Dr Deming’s opening words in one of the many four-day seminars at which I was present summarised it
+pretty well. He rose slowly to his feet, smiled gently at the 600-strong audience, and said:
+
+><span class=deming_quote>“This may be a new experience: you have come to learn. You *may* have come for a formula. There
+is no formula. There is no Step 1, Step 2, Step 3, ... . We are going to learn a whole lot more.
+We’re going to learn *theory*. We’re going to learn *why* we have to do *what* we have to do.”</span>
+
+<span class=deming_quote>“ … why we have to do what we have to do.”</span> I think there could be no better description of what Dr Deming meant when he used that word “theory”. Theory helps us to understand and think logically: to get
+those little grey cells (as Hercule Poirot would call them) working for us more constructively and success-
+fully than ever before. Rather similarly I recall when, at another four-day seminar, Deming was answering a
+question from a delegate. I cannot remember the question but I certainly remember part of his answer. It
+was: <span class=deming_quote>“I do not want you to do something because ‘Deming said so’. I want you to do it because you
+understand *why* ‘Deming said so’.”</span>
+
+Another word that is often used to describe Deming’s work is “philosophy”: the Deming *philosophy* of management. If you don’t like the word “theory” then it’s pretty certain that you won’t be enthused by the word
+“philosophy” either! But what *is* a “philosophy”? A brief way of describing it is as a “way of thinking”. But
+surely what we *do* is largely governed by the way we *think*. So “philosophy” might be rather practical as
+well ...
+
+:::: {.columns}
+
+::: {.column width="85%"}
+Finally, just as a passing comment for now but of great relevance to what follows later in the course, here
+are two other word-counts from Dr Deming’s contributions to *The Deming of America*. He used the word
+“system” no less than 24 times, and the word “optimisation” 11 times (just as often as “theory”), invariably
+in the context of <span class=deming_quote>“optimisation of the system”</span>. As one of my main themes which are heard in this Overture,
+these words are of fundamental importance.
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 100px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(11, 35)
+```
+</div>
+:::
+
+::::
+
+## THE ATTRACTION OF DEMING’S WORK
+
+Let me tell you now what first really began to attract me seriously to Deming’s work. It wasn’t the statistical
+ideas (as you might have thought, because of my background as a statistician). It was the fact that his
+teaching was so *human*! I saw and heard so much genuine, warm respect and empathy for humanity, individually and collectively. It was from him that I first heard ideas like <span class=deming_quote>“a company’s most important asset is
+its people”</span>. But *he* really meant it (unlike some others from whom I’ve heard similar words). I heard scorn
+of management whose first reaction when anything goes wrong is to look around for whom to blame, the
+scapegoat. I heard passionate criticism of unemployment—or rather of management, and indeed government, that brings it about, be it accidental or intentional. It wasn’t that he was thinking about the cost of
+supporting the unemployed. In contrast, it was the cost of the waste of human potential and self-respect
+that concerned him. For confirmation, one could open his book *Out of the Crisis* at the very first page of its
+*Preface*—there’s no need to even get into the main text! Here’s a brief extract[^d] from that page (in which I
+wish the first few words were really true):
+
+><span class=deming_quote>“It is no longer socially acceptable to dump employees on to the heap of unemployed. Loss of
+market, and resulting unemployment, are not foreordained. They are not inevitable. They are manmade.”</span>
 
 
 ## The 1980s (first half): The West awakens {#sec-page37}
@@ -894,3 +1165,5 @@ subsequently based BDA Booklet A6: *Profound Knowledge* on the event. This quota
 is one of many from that day which I have included during this course. Copies of the BDA Booklets
 (which are now known as Deming A5 Booklets) are obtainable from the UK’s Deming Transformation
 Forum: <http://www.deming.org.uk>.
+[^d]: This and all other quotations from *Out of the Crisis* have been reproduced with the approval of the
+W Edwards Deming Institute and MIT Press. See <https://mitpress.mit.edu/contributors/w-edwards-deming>.

@@ -34,8 +34,7 @@
 .neave_note {
   text-align: justify;     /* Justify the text */
   font-family: serif;      /* Use a serif font */
-  margin-left: 20px;       /* Indent the paragraph */
-  margin-right: 20px;      /* Ensure spacing on the right */
+  margin: 20px;       
   line-height: 1.6;        /* Adjust line height for readability */
   font-size: 16px;         /* Set a comfortable font size */
   color: #333;             /* Optional: Set a text color (default to dark grey) */
@@ -44,4 +43,43 @@
 .deming_quote {
   color: #0000ff;
   font-weight: bold;
+}
+
+.thought {
+  border: 2px solid #008000;
+  padding: 10px;
+  margin: 20px;
+}
+
+.thought h2 {
+  color: #008000;
+  text-align: center;
+}
+
+.thought_commentary {
+  border: 2px solid #ff0000;
+  padding: 10px;
+  margin: 20px;
+}
+
+.thought_commentary h2 {
+  color: #ff0000;
+  text-align: center;
+}
+
+.thought_commentary .collapse {
+  background-color: #ffe0e0;
+  border: 2px solid #ff0000;
+  padding: 10px;
+  margin: 20px;
+}
+
+.cell {
+  margin: 20px;
+}
+
+.activity_afterthought {
+  font-style: italic;
+  text-align: right;
+  font-size: 16px;
 }

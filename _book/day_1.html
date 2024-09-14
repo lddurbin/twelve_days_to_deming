@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -71,6 +105,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css/styles.css">
@@ -155,10 +191,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-deming-dimension" id="toc-the-deming-dimension" class="nav-link" data-scroll-target="#the-deming-dimension">The Deming Dimension</a></li>
   <li><a href="#other-books" id="toc-other-books" class="nav-link" data-scroll-target="#other-books">Other books</a></li>
   <li><a href="#sec-page13" id="toc-sec-page13" class="nav-link" data-scroll-target="#sec-page13">Videos</a></li>
-  <li><a href="#and-finaly" id="toc-and-finaly" class="nav-link" data-scroll-target="#and-finaly">And finaly…</a></li>
+  <li><a href="#and-finally" id="toc-and-finally" class="nav-link" data-scroll-target="#and-finally">And finally…</a></li>
   </ul></li>
   <li><a href="#activities-major-activities-pauses-for-thought-projects-and-your-organisation" id="toc-activities-major-activities-pauses-for-thought-projects-and-your-organisation" class="nav-link" data-scroll-target="#activities-major-activities-pauses-for-thought-projects-and-your-organisation">ACTIVITIES, MAJOR ACTIVITIES, PAUSES FOR THOUGHT, PROJECTS AND “YOUR ORGANISATION”</a></li>
   <li><a href="#outline-of-the-course" id="toc-outline-of-the-course" class="nav-link" data-scroll-target="#outline-of-the-course">OUTLINE OF THE COURSE</a></li>
+  <li><a href="#quality-theory-philosophy-management" id="toc-quality-theory-philosophy-management" class="nav-link" data-scroll-target="#quality-theory-philosophy-management">QUALITY, THEORY, PHILOSOPHY, MANAGEMENT,…</a></li>
+  <li><a href="#the-attraction-of-demings-work" id="toc-the-attraction-of-demings-work" class="nav-link" data-scroll-target="#the-attraction-of-demings-work">THE ATTRACTION OF DEMING’S WORK</a></li>
   <li><a href="#sec-page37" id="toc-sec-page37" class="nav-link" data-scroll-target="#sec-page37">The 1980s (first half): The West awakens</a></li>
   </ul>
 </nav>
@@ -186,11 +224,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="columns">
-<div class="column" style="width:90%;">
+<div class="column" style="width:85%;">
 <section id="day-1-morning-the-overture" class="level2">
 <h2 class="anchored" data-anchor-id="day-1-morning-the-overture">DAY 1 (morning): THE “OVERTURE”</h2>
 </section>
-</div><div class="column" style="width:10%;">
+</div><div class="column" style="width:15%;">
 <div style="margin-top: 10px">
 <div class="cell">
 <div class="cell-output-display">
@@ -275,9 +313,9 @@ ul.task-list li input[type="checkbox"] {
 <p>My first direct contact with Dr Deming came in 1985, and in a wholly unexpected and very privileged fashion. In the Spring of that year, out of the blue I received a letter from a senior official of the George Washington University which, at that time, was administering the four-day seminars. The letter said that Dr Deming was coming to London that summer to present his four-day seminar in Britain for the first time, and had requested that I be invited to assist him at that seminar.</p>
 <p>The London four-day seminars became an annual event from 1985 to 1991 inclusive, and I had the same privilege of working with Dr Deming as his assistant at all of those seminars. I was also involved with him in many other events, both in this country and elsewhere, for the rest of his life. The last time I was with him was at his final four-day seminar in Europe, held in Zurich in July 1993, just five months before he died.</p>
 <div class="columns">
-<div class="column" style="width:90%;">
+<div class="column" style="width:85%;">
 <p>I’ll briefly describe the style of the four-day seminars for you. Basically, except for the breaks, Dr Deming spoke from 9.00 to 4.00 each day (except for finishing a little earlier on the final day so that the delegates could get back home). Then the delegates would split into Working Groups to deliberate, often long into the evening, on a choice from a large selection of topics and questions that Dr Deming had compiled. This is where assistants like myself would be busy helping the Working Groups, and then later designing and organising a programme of feedback from the Groups to be presented the following morning for the hour before Dr Deming resumed his teaching. However, he was always there: watching, listening, learning.</p>
-</div><div class="column" style="width:10%;">
+</div><div class="column" style="width:15%;">
 <div style="margin-top: 170px">
 <div class="cell">
 <div class="cell-output-display">
@@ -328,9 +366,9 @@ ul.task-list li input[type="checkbox"] {
 <p>So, what’s new? The majority of the added material focuses on a remarkable statistical technique which, to all intents and purposes, was unknown at the time of the original edition. At this time of writing it is still largely unknown, especially in academia—it hasn’t yet reached most of the introductory Statistics books and courses. But, during the second half of my career (mostly spent outside academia, unlike the first half), I found the <em>process behaviour chart</em> <span style="font-family: serif; color: #333; font-size: 16px">[see the small print below]</span> unbelievably useful due to its (I believe) unique combination of simplicity and effectiveness. Of course, you won’t find it on examination papers. But if you want to analyse and understand data out there in the ‘real world’, I believe you’ll find it invaluable. Many delegates, sent by their boss, would arrive at my public and in-house seminars in fear and trepidation: they’d never been able to ‘do Statistics’—they hated the subject! By the end of the day they could understand the process behaviour chart, and they could use it, and they could <em>communicate</em> with it. So here it is in this new edition of <em>Elementary Statistics Tables</em>—though you don’t even need any tables in order to use it! Don’t scorn its simplicity—try it out on some real process data, including some that you have not previously attempted to interpret.</p>
 </blockquote>
 <div class="columns">
-<div class="column" style="width:90%;">
+<div class="column" style="width:85%;">
 <p><span class="neave_note">A couple of points of clarification will be useful here. Firstly, the original editions of these little books of Statistics Tables were published as long ago as 1978 and 1981 respectively—long before I met Dr Deming or learned anything significant about his work. Not surprisingly therefore, those original editions contained little on control charts because, back then, I honestly had no idea of how important control charts are in practice. Second, I’ll remind you of something I mentioned on page 7 of the Welcome section: “process behaviour chart” is an alternative term for “control chart” which nowadays is preferred by many people who use the chart for the purposes relevant to Dr Deming’s teaching. Indeed, I also have generally used it in recent years because, compared with usual interpretations of the word “control”, it describes much better why the chart is so useful. The reason I’m calling it a control chart in this course is that I shall be including many direct quotations from both Drs Deming and Shewhart. Naturally, they used the traditional language, and so, similarly to something that I said on page 5, it didn’t seem sensible here to keep flitting between alternative terms for the same thing.</span></p>
-</div><div class="column" style="width:10%;">
+</div><div class="column" style="width:15%;">
 <div style="margin-top: 290px">
 <div class="cell">
 <div class="cell-output-display">
@@ -361,9 +399,9 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="deming_quote">Professor Masuyama and assistants will teach the statistical control of quality in the afternoon. I shall teach during the forenoon the theory of a system, and cooperation.</span></p>
 </blockquote>
 <div class="columns">
-<div class="column" style="width:90%;">
+<div class="column" style="width:85%;">
 <p>So he regarded getting into some training, even on something as vital as the construction of control charts, would be inappropriate during his teaching—it would interrupt the flow of what was really important: education. But in one respect his approach was dangerous. <span class="deming_quote">“Professor Masuyama and assistants”</span> might have known what they were talking about but, sadly, many trainers who try to teach people about control charts do not. Please be warned that much of what is currently taught and practised concerning control charts is <em>not</em> wholly consistent with Shewhart’s teaching. For example, control charts are often regarded as primarily relevant to manufacturing processes and requiring data that satisfy certain statistical conditions, in particular that they are “normally distributed”. As previously, don’t worry if you do not know what that means, for the fact is that Shewhart’s teaching was <em>not</em> dependent on such restrictions (though some statisticians seem to wish—or even believe—that it was). Quite the opposite. Indeed, Dr Shewhart was speci- fic about the need to have statistical techniques which really work in practical situations rather than just depend on what he referred to as “a fine ancestry of highbrow statistical theorems”! (This quotation comes from page 18 of Shewhart’s 1931 book which, early this afternoon, you will see described in glowing terms by Dr Deming.) A good way of expressing this is that Shewhart saw the need for statistical techniques that are suitable for our data rather than the need for data that are suitable for our statistical techniques. Think about it! Makes good sense to me. And that is precisely what Dr Shewhart produced.</p>
-</div><div class="column" style="width:10%;">
+</div><div class="column" style="width:15%;">
 <div style="margin-top: 400px">
 <div class="cell">
 <div class="cell-output-display">
@@ -401,9 +439,9 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <p>That finishes this section; so now, if you wish, take a little time out to read my discussion in the Appendix on the former of the two paradoxes (which I described on page 7): I hope it will shed some light on the mystery. But, again: that discussion is <em>only</em> intended for those who are puzzled by the paradox. If instead you are simply content (and relieved!) by what the paradox has told you then please don’t bother with this extra reading—just carry straight on. Also, the discussion on the first paradox is likely to be of greatest interest to those who are familiar with the basics of “traditional” Statistics—for it includes one of Deming’s most powerful expressions of the <em>irrelevance</em> of several of those basics when studying process data.</p>
 <div class="columns">
-<div class="column" style="width:90%;">
+<div class="column" style="width:85%;">
 <p>So if you would now like to read about the first paradox on Appendix pages 2–6 and are also following my guidance on timings at all closely then please “stop the clock” whilst you are reading those pages.</p>
-</div><div class="column" style="width:10%;">
+</div><div class="column" style="width:15%;">
 <div style="margin-top: 40px">
 <div class="cell">
 <div class="cell-output-display">
@@ -448,12 +486,12 @@ ul.task-list li input[type="checkbox"] {
 <p>However, my personal favourite amongst the American videos is <em>The Deming of America</em>. This video, which was made for PBS (America’s Public Broadcasting Service) in 1990 and 1991, i.e.&nbsp;around Dr Deming’s 90th birthday, is excellent. If you want to buy, or try to borrow through a library, a video on Dr Deming and his work, <em>The Deming of America</em> is my clear main recommendation. Having been filmed at that time, Dr Deming’s contributions to it are, of course, very representative of the nature and content of his teaching during the final years of his life. Also, unlike videos that come from some other sources, here he was given reasonable time and opportunity to make his points and emphases in ways that really can make an impact on viewers. What also helped was that its producer and interviewer, Priscilla Petty, showed some good understanding of Dr Deming’s work, a characteristic not shared by some of his other interviewers (and, if so, he certainly let them know it!). The video is also notable for the contributions made by many top Industrial leaders, demonstrating how important Dr Deming’s influence had been on them personally and to their companies. I shall quote from <em>The Deming of America</em> several times during this course.</p>
 <p>Having recently checked on the internet, I cannot find <em>Doctor’s Orders</em> anywhere, but <em>A Prophet Unheard</em> is available. Also, both the <em>Deming Library</em> collection and <em>The Deming of America</em> are available from official distributors, the former from the Deming Institute (see <a href="#sec-page6">page 4</a>) and the latter from <a href="http://www.PriscillaPetty.com" class="uri">http://www.PriscillaPetty.com</a>. As you’d expect from the quantity concerned, the <em>Deming Library</em> would burn rather a hole in your pocket but <em>The Deming of America</em> is not overly expensive for this excellent hour-long programme.</p>
 </section>
-<section id="and-finaly" class="level3">
-<h3 class="anchored" data-anchor-id="and-finaly">And finaly…</h3>
+<section id="and-finally" class="level3">
+<h3 class="anchored" data-anchor-id="and-finally">And finally…</h3>
 <div class="columns">
-<div class="column" style="width:90%;">
+<div class="column" style="width:85%;">
 <p>If and when the time comes that you might like to learn more about the man as well as his message (for this final recommendation does both), treat yourself to <em>The World of W Edwards Deming</em>, the superb biography compiled and written by his faithful long-term secretary, the late Cecelia (Ceil) Kilian. This is where I discovered the various entries from his diary that I quote during this opening day of the course and also his extremely illuminating <span class="deming_quote">“Summary of Teachings to Top Management and to Engineers in Japan”</span>, based on his work in that country in the summer of 1950—see today’s <a href="#sec-page35">page 35</a>.</p>
-</div><div class="column" style="width:10%;">
+</div><div class="column" style="width:15%;">
 <div style="margin-top: 130px">
 <div class="cell">
 <div class="cell-output-display">
@@ -479,9 +517,9 @@ ul.task-list li input[type="checkbox"] {
 <p>In the Second Project on Days 10 and 11 I shall be introducing you to what I regard as some of Dr Deming’s very best writing—concise but containing a wealth of learning. Here I shall simply ask you to read what he says—sometimes only a single sentence!—and then work on it an item at a time. The better you will have worked on the First Project and many of the other requests for action earlier in the course, the easier you will find that task to be. Following the pattern outlined above, there is still some help for you in the Appendix during the Second Project but not as much as in the First Project since, by then, you should largely be more able to stand on your own two feet! I shall, of course, give you the necessary page references whenever I have included my thoughts in the Appendix. However, except when I suggest otherwise, always do some work first <em>before</em> consulting the Appendix!</p>
 <p>All four types of request for action just discussed are clearly signalled in the text. On each day, the Pauses for Thought and Activities are sequentially labelled a, b, c, … and are colour-coded in green or red. The heading is printed in that colour and the corresponding material is enclosed in a similarly-coloured box. Red indicates that I have included some relevant discussion <em>immediately following</em> the request, and so warns you not to look ahead until you are ready. My discussion material is easily identified by being enclosed in a shaded red box. So (whether you are using a printed copy of the Workbook or of the complete material), if that discussion is visible on the same or the next page, it would make sense to cover it up whilst working on the request. Otherwise the discussion will be on the following page, so don’t turn to that page just yet. If the request is colour-coded green then there is no such discussion within the text. There is no need for you to memorise all these conventions right now: I’ll remind you when the time comes. No colour-coding is needed for <em>Major</em> Activities or the Projects as they are headed appropriately.</p>
 <div class="columns">
-<div class="column" style="width:90%;">
+<div class="column" style="width:85%;">
 <p>Finally, particularly on Days 6, 8, 9 and 12, specific reference will be made to “your organisation”. Presumably, many people who work on this course are already (or have been) employed by some company or other type of organisation. If that is your case then, with respect to much of the learning which will develop on those occasions, I’d like you to actively think about what is going on (or went on) in that organisation. Alternatively, if you haven’t yet been employed, but are a student at some college etc, you <em>could</em> possibly think about that educational institution. However, I believe you will learn more if you identify yourself as an employee or a manager rather than as a student. Therefore, if you do not fall naturally into such a role, I’d strongly recommend that you try to find a colleague or other friend who does, and who would be willing to spend some time with you now and again as you work through the course. The relevant requests for action will specifically ask you to consider what is happening in “your organisation” and relate it to what you will be learning here. So, if you are not involved with an organisation in this way, your recruit can then provide you with a “surrogate” organisation to use in your study!</p>
-</div><div class="column" style="width:10%;">
+</div><div class="column" style="width:15%;">
 <div style="margin-top: 300px">
 <div class="cell">
 <div class="cell-output-display">
@@ -519,6 +557,198 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p><span class="deming_quote">“ … the harder they tried, the worse were the effects. … When anything bad occurred, they went to work on it to try to correct it. A noble aim. There was only one little trouble—their noble efforts did not work. Things got worse. … Sure we don’t like things which go wrong—but if we wade in at them without understanding then we make things worse.”</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 </blockquote>
+<p>In the context of the Funnel Experiment, what’s missing is the understanding of what Deming meant by a “stable system”. The reason I want you to try out the Funnel Experiment for yourself on Day 3 is that, if I merely <em>tell</em> you about the kind of things that can happen, you might not believe me! But when they happen to you while you are carrying out the experiment, you’ll just <em>have</em> to believe them!</p>
+<p>When I met and began working with Dr Deming in 1985, besides the Red Beads Experiment the majority of the time in his four-day seminars involved his 14 Points (sometimes he called them “Obligations”) for Man- agement, along with the “Deadly Diseases” of Western Management that need to be cured, plus a long list of “Obstacles”—which we could regard as “minor diseases”, but diseases nonetheless. We shall study the 14 Points and the Deadly Diseases on Days 4 and 5, and the Obstacles in the afternoon of Day 7.</p>
+<p>As a relief from the possible gloom to do with diseases, obstacles, and the fact that many managers certainly do <em>not</em> regard the 14 Points as “Obligations”, on Day 6 we return to the story-telling mode. The concentration there is on the way a particular company, Gallery Furniture in Houston, Texas, made a huge suc- cess of adopting the 14 Points and curing the Deadly Diseases during the 1990s, and of the resulting effects on its business. (You might like to check out <a href="http://www.galleryfurniture.com" class="uri">http://www.galleryfurniture.com</a> to see how the company is faring all these many years later.)</p>
+<p>Hopefully encouraged by that story, we return on Day 7 to many of the problematic matters that are raised in the 14 Points, etc. Day 7 includes numerous true stories to demonstrate the validity of what Deming taught about those matters: there are also a few such stories at the end of Day 6 to provide a stark contrast to what we will have been learning earlier about Gallery Furniture!</p>
+<p>The content of the four-day seminars as indicated so far began to change in 1987, first steadily but then, so it seemed, at an ever-increasing pace. Dr Deming was, of course, now in his late 80s, and so he must have begun to realise that his time was limited, and that he had much, much more to teach.</p>
+<p>Around that time there were three big new emphases that struck me as particularly important. They were:</p>
+<ul>
+<li>the importance of genuine cooperation in business compared with competition and conflict;</li>
+<li>the need for <em>innovation</em> rather than just improvement; and</li>
+<li>“Joy in Work”, three little words which take the concept of “pride of workmanship” (featured in the 12th of the 14 Points) a long stride further.</li>
+</ul>
+<p>We shall cover these three emphases on Day 8 (see also <em>DemDim</em> Part 3: “The New Climate”).</p>
+<p>On Day 9 we shall concentrate on two topics. Firstly, the concept of a “system”. Now this was absolutely fundamental in Deming’s thinking from his early learning with Dr Shewhart; indeed the need to regard “the organisation as a system” featured strongly in his teaching to the Japanese in the 1950s. But in retrospect it seems to me that, during the first couple of years that I knew him, he did not dwell as much on this as might have been expected. But he certainly did so by, say, 1988–89. And, as my second topic here, also in 1989 he started talking of “Profound Knowledge”: “Profound” indeed, deep not superficial, and “Knowledge”—knowledge and understanding as compared with mere information.</p>
+<p>Later in 1989 those two topics merged into his “System of Profound Knowledge”, much of whose content is encountered and studied during the Second Project on Days 10 and 11. Now, “System of Profound Knowledge” is a pretty scary phrase. In my own seminars, I rarely mentioned it until relatively late in the event, i.e.&nbsp;not before much else had already been covered. But then I always enjoyed seeing the sense of relief on my delegates’ faces when it began to dawn on them that they were already familiar with much of what is contained in the System of Profound Knowledge from what they had learned earlier in the seminar! Similarly, here the System of Profound Knowledge as such is largely left until quite late in the course. But, again as in the seminars, you will find that, by that time, much of it will not be new to you. That being the case, there will now be an even greater emphasis on the “system” nature of Deming’s teaching, i.e.&nbsp;the way that things link together, including the four parts of the System of Profound Knowledge: no longer just lots of “bits and pieces” but instead a strongly coordinated whole. I believe we should regard the System of Profound Knowledge as Dr Deming’s attempt to bring together and consolidate his whole long life’s learning as a rich legacy for us from which to continue learning after he was no longer with us.</p>
+<div class="columns">
+<div class="column" style="width:85%;">
+<p>And lastly, the process of beginning to bring it all together—and making it happen—is the subject of our 12th and final day. And I must surely emphasise “beginning” to do that. You have already seen me using the phrase “lifelong learning” near the top of page 13. Believe me: if this is not lifelong learning then I cannot imagine what is. I hope you were not deluded by the title of this course to think that it will all be over by the end of the 12th day! Perhaps I should have simply titled Day 12 as “The End of the Beginning”.</p>
+</div><div class="column" style="width:15%;">
+<div style="margin-top: 100px">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day_1_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="quality-theory-philosophy-management" class="level2">
+<h2 class="anchored" data-anchor-id="quality-theory-philosophy-management">QUALITY, THEORY, PHILOSOPHY, MANAGEMENT,…</h2>
+<p>How can we describe Dr Deming and his work? Dr Deming is sometimes referred to as a “quality guru” and, in an unpublished booklet that I once read, as “the father figure of the modern quality revolution; perhaps the number one guru”. When I read that booklet, those attributions made me feel a little uneasy. However, if a “guru” is indeed, as quoted there, “a good man, a wise man and a teacher” then I have no problem with it, for I know that all three parts of that description were wholly appropriate to Dr Deming. It was the word “quality” that concerned me, for it occurred to me that, to my recollection, I didn’t hear Dr Deming refer to “quality” very much during the final few years of his life.</p>
+<p>However, rather than just depending on memory, I thought I should attempt to find some evidence. So I tried watching and listening carefully to ! <em>The Deming of America</em>—and carrying out some word-counts. Would you believe, throughout that hour-long video, Dr Deming only mentioned “quality” three times! The first mention was:</p>
+<p><span class="deming_quote">“Our quality does not stand up. Not many years ago—70 years ago, 80 years ago—this country made half the manufactured product of the world.”</span></p>
+<p>The second mention was in a phrase that I had heard from him time and time again:</p>
+<p><span class="deming_quote">“Quality is made at the top.”</span></p>
+<div class="workbook_callout">
+Pause for Thought 1-a which follows is also (somewhat unsurprisingly!) on <a href="workbook.html">Workbook page 1</a>.
+</div>
+<div class="neave_note">
+The red box indicates there will now be a Pause for Thought or Activity which is immediately followed by some relevant commentary. My commentary will be in the subsequent shaded red box. So always try to avoid looking inside the shaded box—just a single sentence in this case—while you’re thinking about what the “request for action” is asking you to do. Preferably cover it up with something!
+</div>
+</section>
+<div class="columns">
+<div class="column" style="width:85%;">
+<section id="pause-for-thought-1a" class="level2 thought_commentary">
+<h2 class="anchored" data-anchor-id="pause-for-thought-1a">PAUSE FOR THOUGHT 1–a</h2>
+<p><span class="deming_quote">“Quality is made at the top.”</span> Do you agree, and why?</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="992" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 991;"><span id="cb1-992"><a href="#cb1-992" aria-hidden="true" tabindex="-1"></a>viewof thought_1a <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">textarea</span>({<span class="dt">placeholder</span><span class="op">:</span> <span class="st">"Type your comments here."</span><span class="op">,</span> <span class="dt">rows</span><span class="op">:</span> <span class="dv">10</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_1a" aria-expanded="false" aria-controls="collapse_1a">
+Click this after writing your comments
+</button>
+<div id="collapse_1a" class="collapse">
+<p>The quality of what a company provides for its customers, product and/or service, results from how the top management runs the company—and how the company is run depends on top management’s values, principles, priorities and knowledge.</p>
+</div>
+</section>
+</div><div class="column" style="width:15%;">
+<div style="margin-top: 400px">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day_1_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>And then, as a case in point, Dr Deming’s third and final mention of “quality” was:</p>
+<blockquote class="blockquote">
+<p><span class="deming_quote">“Sure we want good results. But if you manage by results, quality goes down, morale goes down.”</span></p>
+</blockquote>
+<div class="workbook_callout">
+The following two Pauses for Thought are also on <a href="workbook.html#sec-page2">Workbook page 2</a>.
+</div>
+<div class="neave_note">
+Unlike a red box, a green box indicates an Activity or Pause for Thought with no associated box of commentary.
+</div>
+<div class="columns">
+<div class="column" style="width:85%;">
+<section id="pause-for-thought-1-b" class="level2 thought">
+<h2 class="anchored" data-anchor-id="pause-for-thought-1-b">PAUSE FOR THOUGHT 1-b</h2>
+<p>Why do you think Dr Deming said that, if you manage by results, both quality and morale go down?</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="1033" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1032;"><span id="cb2-1033"><a href="#cb2-1033" aria-hidden="true" tabindex="-1"></a>viewof thought_1b <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">textarea</span>({<span class="dt">placeholder</span><span class="op">:</span> <span class="st">"Type your comments here."</span><span class="op">,</span> <span class="dt">rows</span><span class="op">:</span> <span class="dv">10</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="activity_afterthought">
+(If you cannot think of reasons now, be sure that you will find plenty as the course progresses.)
+</div>
+</section>
+</div><div class="column" style="width:15%;">
+<div style="margin-top: 400px">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day_1_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:85%;">
+<section id="pause-for-thought-1c" class="level2 thought">
+<h2 class="anchored" data-anchor-id="pause-for-thought-1c">PAUSE FOR THOUGHT 1–c</h2>
+<p>I well remember a time that I met up with an old acquaintance. I hadn’t seen him for a while, so he didn’t know of my change in career and interests (and university)—he thought I still lectured in Mathematical Statistics somewhere else. “So what Department are you in, here at this university?”, he asked. “The Quality Unit”, I said. His face dropped. “<em>Quality</em>? Ugh!”</p>
+<p>Why do you think that the word “Quality” might have provoked such a negative reaction?</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="1063" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1062;"><span id="cb3-1063"><a href="#cb3-1063" aria-hidden="true" tabindex="-1"></a>viewof thought_1c <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">textarea</span>({<span class="dt">placeholder</span><span class="op">:</span> <span class="st">"Type your comments here."</span><span class="op">,</span> <span class="dt">rows</span><span class="op">:</span> <span class="dv">10</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="activity_afterthought">
+(For brief discussion see <a href="appendix.html#sec-page6">Appendix page 6</a>.)
+</div>
+</section>
+</div><div class="column" style="width:15%;">
+<div style="margin-top: 580px">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day_1_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>So, with only three “hits” for “quality” in the video, I thought it worth counting how many times Dr Deming said “management”. Rather more: 14! (And, of course, there were yet more if one also counted “manage”, “manager”, etc.) That’s more like it. Deming’s teaching, certainly during the time that I knew him, was not directly about <em>quality</em>: it was about <em>management</em> and, in particular, the kind of management which <em>produces</em> quality—in the broadest sense of those words.</p>
+<p>Interestingly, he came up with the word “theory” 11 times in the video. And that is how he most usually described his work, as:</p>
+<blockquote class="blockquote">
+<p><span class="deming_quote">THEORY OF MANAGEMENT.</span></p>
+</blockquote>
+<p>Now, “theory” is a word which tends to put some people off. They think of “theory as opposed to practice”, “it’s all right in theory but it won’t work in practice”, etc, i.e.&nbsp;their image is that theory and practice are at opposite ends of a spectrum. But that is not how Dr Deming used the word. As a neat indication of how he saw it, here is just part of a sentence from his 1960 book, <em>Sample Design in Business Research</em>:</p>
+<blockquote class="blockquote">
+<p><span class="deming_quote">“… the theoretical statistician, one who guides his practice with the help of theory …”</span></p>
+</blockquote>
+<p>And this use of the word does not just apply to statisticians! In Deming’s mind, the very <em>purpose</em> of theory is to help guide better <em>practice</em>. And if a theory does not do that then it’s not good theory and it needs modifying or even abandoning (c.f. the Deming Cycle on <a href="day_11.html">Day 11</a>).</p>
+<p>Dr Deming’s opening words in one of the many four-day seminars at which I was present summarised it pretty well. He rose slowly to his feet, smiled gently at the 600-strong audience, and said:</p>
+<blockquote class="blockquote">
+<p><span class="deming_quote">“This may be a new experience: you have come to learn. You <em>may</em> have come for a formula. There is no formula. There is no Step 1, Step 2, Step 3, … . We are going to learn a whole lot more. We’re going to learn <em>theory</em>. We’re going to learn <em>why</em> we have to do <em>what</em> we have to do.”</span></p>
+</blockquote>
+<p><span class="deming_quote">“ … why we have to do what we have to do.”</span> I think there could be no better description of what Dr Deming meant when he used that word “theory”. Theory helps us to understand and think logically: to get those little grey cells (as Hercule Poirot would call them) working for us more constructively and success- fully than ever before. Rather similarly I recall when, at another four-day seminar, Deming was answering a question from a delegate. I cannot remember the question but I certainly remember part of his answer. It was: <span class="deming_quote">“I do not want you to do something because ‘Deming said so’. I want you to do it because you understand <em>why</em> ‘Deming said so’.”</span></p>
+<p>Another word that is often used to describe Deming’s work is “philosophy”: the Deming <em>philosophy</em> of management. If you don’t like the word “theory” then it’s pretty certain that you won’t be enthused by the word “philosophy” either! But what <em>is</em> a “philosophy”? A brief way of describing it is as a “way of thinking”. But surely what we <em>do</em> is largely governed by the way we <em>think</em>. So “philosophy” might be rather practical as well …</p>
+<div class="columns">
+<div class="column" style="width:85%;">
+<p>Finally, just as a passing comment for now but of great relevance to what follows later in the course, here are two other word-counts from Dr Deming’s contributions to <em>The Deming of America</em>. He used the word “system” no less than 24 times, and the word “optimisation” 11 times (just as often as “theory”), invariably in the context of <span class="deming_quote">“optimisation of the system”</span>. As one of my main themes which are heard in this Overture, these words are of fundamental importance.</p>
+</div><div class="column" style="width:15%;">
+<div style="margin-top: 100px">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day_1_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="the-attraction-of-demings-work" class="level2">
+<h2 class="anchored" data-anchor-id="the-attraction-of-demings-work">THE ATTRACTION OF DEMING’S WORK</h2>
+<p>Let me tell you now what first really began to attract me seriously to Deming’s work. It wasn’t the statistical ideas (as you might have thought, because of my background as a statistician). It was the fact that his teaching was so <em>human</em>! I saw and heard so much genuine, warm respect and empathy for humanity, individually and collectively. It was from him that I first heard ideas like <span class="deming_quote">“a company’s most important asset is its people”</span>. But <em>he</em> really meant it (unlike some others from whom I’ve heard similar words). I heard scorn of management whose first reaction when anything goes wrong is to look around for whom to blame, the scapegoat. I heard passionate criticism of unemployment—or rather of management, and indeed government, that brings it about, be it accidental or intentional. It wasn’t that he was thinking about the cost of supporting the unemployed. In contrast, it was the cost of the waste of human potential and self-respect that concerned him. For confirmation, one could open his book <em>Out of the Crisis</em> at the very first page of its <em>Preface</em>—there’s no need to even get into the main text! Here’s a brief extract<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> from that page (in which I wish the first few words were really true):</p>
+<blockquote class="blockquote">
+<p><span class="deming_quote">“It is no longer socially acceptable to dump employees on to the heap of unemployed. Loss of market, and resulting unemployment, are not foreordained. They are not inevitable. They are manmade.”</span></p>
+</blockquote>
 </section>
 <section id="sec-page37" class="level2">
 <h2 class="anchored" data-anchor-id="sec-page37">The 1980s (first half): The West awakens</h2>
@@ -537,10 +767,22 @@ ul.task-list li input[type="checkbox"] {
 <li id="fn1"><p>Photo by courtesy of SPC Press Inc.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Copyright© Deming Prize Committee. All Rights Reserved. <a href="http://www.juse.or.jp/deming_en/" class="uri">http://www.juse.or.jp/deming_en/</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>On 6 July 1989 Dr Deming spoke at a meeting which was organised by the Association Française Edwards Deming and held at the Palace of Versailles. I was present, recorded the proceedings and subsequently based BDA Booklet A6: <em>Profound Knowledge</em> on the event. This quotation on page 18 is one of many from that day which I have included during this course. Copies of the BDA Booklets (which are now known as Deming A5 Booklets) are obtainable from the UK’s Deming Transformation Forum: <a href="http://www.deming.org.uk" class="uri">http://www.deming.org.uk</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>This and all other quotations from <em>Out of the Crisis</em> have been reproduced with the approval of the W Edwards Deming Institute and MIT Press. See <a href="https://mitpress.mit.edu/contributors/w-edwards-deming" class="uri">https://mitpress.mit.edu/contributors/w-edwards-deming</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiB0aG91Z2h0XzFhID0gSW5wdXRzLnRleHRhcmVhKHtwbGFjZWhvbGRlcjogXCJUeXBlIHlvdXIgY29tbWVudHMgaGVyZS5cIiwgcm93czogMTB9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHRob3VnaHRfMWIgPSBJbnB1dHMudGV4dGFyZWEoe3BsYWNlaG9sZGVyOiBcIlR5cGUgeW91ciBjb21tZW50cyBoZXJlLlwiLCByb3dzOiAxMH0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgdGhvdWdodF8xYyA9IElucHV0cy50ZXh0YXJlYSh7cGxhY2Vob2xkZXI6IFwiVHlwZSB5b3VyIGNvbW1lbnRzIGhlcmUuXCIsIHJvd3M6IDEwfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgndGhvdWdodF8xYScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd0aG91Z2h0XzFiJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3Rob3VnaHRfMWMnKSJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -963,7 +1205,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
