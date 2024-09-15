@@ -83,3 +83,22 @@
   text-align: right;
   font-size: 16px;
 }
+
+.separator {
+    height: 40px; /* Adjust the height of the separator here */
+    background-color: #FF0000; /* Default background color red */
+    border: 5px solid #000000;
+    padding: 5px;
+  }
+
+.separator_white {
+  background-color: #FFFFFF;
+  height: 20px;
+  padding: 5px;
+}
+
+.separator_blue {
+  background-color: #0000ff;
+  height: 10px;
+}
+
