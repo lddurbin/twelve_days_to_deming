@@ -52,7 +52,7 @@ stay and enjoy. Maybe, before long, you’ll find yourself climbing out of the a
 stage!
 
 
-## DEMING (RE)DISCOVERED
+## DEMING (RE)DISCOVERED {#sec-page2}
 
 ### The Deming Prize and the Nashua Corporation
 
@@ -1502,7 +1502,183 @@ gained his doctorate in Mathematical Physics from Yale in 1928.
 
 ### The 1920s: New statistics in manufacturing
 
+I have mentioned the 1920s several times during the Overture, and so you know what’s coming here. Yes:
+Dr Walter Shewhart at the Western Electric Company, and understanding variation. How did Deming get
+involved with Shewhart at this early stage? The answer is simple: by great good luck! But, without that
+great good luck, the industrial history of the world during the 20th Century may have turned out very differently.
 
+Just like many students these days, Mr Deming (as, of course, he still was at the time) had to “work his way
+through college”: he needed to find temporary jobs to raise money in order to finance his studies. And in
+the summers of 1925 and 1926 he just happened to obtain temporary employment at the Western Electric
+Company in Chicago. He heard about Shewhart’s work, he met him, he learned from him, and what he
+learned from Dr Shewhart turned out to form the foundation-stone upon which the whole of his life’s work
+was subsequently built.
+
+Shewhart, in so many ways, became Deming’s *mentor*. A mentor is a priceless asset: someone in whom
+we can trust, and from whom we can thus confidently learn. Deming had found his mentor, and he repeatedly attributed the source of much of his most important learning as being Walter Shewhart. Not just for
+the statistical aspects of the Deming philosophy but much else besides, including systems thinking, operational definitions, the well-known PDSA (Plan-Do-Study-Act) improvement cycle (which many call the *Deming* Cycle but to which he always referred as the " *Shewhart* Cycle), and much more. We shall learn about all
+of these topics during the course.
+
+But let me quote Deming directly from his dedication in the 1980 reprint of Shewhart’s famous 1931 book:
+*Economic Control of Quality of Manufactured Product*. He said: <span class=deming_quote>“Study of Dr Shewhart’s great book ... will
+bring better living to people the world over”</span>. And he praised certain chapters of that book as being <span class=deming_quote>“a masterpiece on the meaning of quality”</span>. It is notable that, whereas many speak of Deming in such terms as
+“the father of quality”, he referred to Shewhart in wholly similar terms. <span class=deming_quote>“To Shewhart,”</span> he continued, <span class=deming_quote>“quality control meant every activity and every technique that can contribute to better living ... His book emphasises the need for continual search for better knowledge about materials, how they behave in manufacture,
+and how the product behaves in use. Economic manufacture requires achievement of statistical control in
+the process and statistical control of measurements. It requires improvement of the process in every …
+feasible way.”</span>
+
+Even today, most people’s interpretation of that word “quality” is still hopelessly narrow and limited compared with Shewhart’s understanding in his great book from so long ago.
+
+Because of their importance, let us learn something of the circumstances in which Shewhart’s great discoveries took place, as that will help us to understand much better the prime purpose of those discoveries.
+
+People in the Western Electric Company at that time were heavily involved in the development of telephone
+technology and related equipment. They were investing massively to increase their knowledge and ability.
+Their improvement efforts paid handsome dividends for a considerable time. But gradually that improvement activity began to “run out of steam”: it was achieving less and less. They were still working as hard if
+not harder than before, spending much money, time, effort, and probably emotion (for improvement can
+get to you like that) on trying to make things better. Deming told the story during a presentation in Versailles, France in 1989 (which has already been introduced in the optional excursion into the Appendix from
+page 10). Here are two extracts (part of which you’ve already seen on page 18) from his account, and from
+which we shall quote more fully on Day 3:
+
+><span class=deming_quote>“ ... the harder they tried, the worse were the effects. The more they tried to shrink variation, the
+larger it got. They were naturally also interested in cutting costs. When anything bad occurred,
+they went to work on it to try to correct it. A noble aim. There was only one little trouble—their
+noble efforts did not work. Things got worse.”</span>
+
+As he explained it just a little later in his presentation:
+
+><span class=deming_quote>“ ... they were failing to understand the difference between common causes and special causes,
+and that mixing them up makes things worse. ... Sure we don’t like things which go wrong—but if
+we wade in at them without understanding</span> [*of the two types of variation*] <span class=deming_quote>then we make things worse.”</span>
+
+(The adjectives <span class=deming_quote>“common”</span> and <span class=deming_quote>“special”</span> in this context are defined on the next page.) So, with its purpose
+and ability to differentiate between the two types of variation, Shewhart’s *control chart* was actually created
+to provide guidance for *improvement*. What kinds of interpretations of data, and what kinds of resulting
+actions, will help you to *improve*? But, to many people, that’s still a new emphasis. Most people who use
+the control chart at all use it only for *monitoring purposes*, as a sort of *early-warning* device. If the data lie
+within the *control limits* which are the crucial feature of the chart, and continue to do so, all is regarded as
+being well, and people may relax and think of other things. But then if, say, the process starts to drift in
+some way, the control chart signals the onset of trouble, so that corrective action may be taken before the
+trouble becomes too serious. Now, I’m not saying that it’s wrong to use the control chart in that way. Of
+course not: it fulfils that role very well. I’m simply saying that if that’s *all* you are using the control chart for
+then you’re missing out on the main purpose for which Shewhart created it. His main purpose was to
+provide guidance for the type of actions that will lead to *improvement*, to making things *better*—not just to
+keeping things as they are, which is all that the monitoring use of the control chart provides and, indeed, all
+that it is *intended* to provide.
+
+:::: {.columns}
+
+::: {.column width="85%"}
+This difference in understanding of purpose is fundamental. Deming’s life’s work was all about providing
+guidance for decisions and actions which will lead to improvement, and to stop doing things which cause
+harm and make things worse. Shewhart’s breakthrough was the first massive stride on that great journey.
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 10px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(1, 40)
+```
+</div>
+:::
+
+::::
+
+### Shewhart’s breakthrough
+
+Earlier I described Shewhart’s work in the 1920s as a “crucially important breakthrough” in understanding
+variation. It would be unfair of me to express it in such radiant terms without providing you with a more
+comprehensive survey of that main theme from the Overture, along with some of its implications. But
+beware, these will just be the “bare bones”—and so it’s worth pointing out two facts about a skeleton: it
+usually (a) contains quite a *lot* of bones and (b) does not look very friendly! So, if you’re at all uneasy with
+some of what you read here, please be patient—I will soon provide you with plenty of flesh to put on those bones, particularly during the next two days of this course, and I think you’ll find it looking far more friendly
+with the flesh attached! (Stats-level 00 students—you *do* need to carefully read through what follows here!)
+
+So here are ten rather sizable “bare bones”. You’ve seen several fragments already, but hopefully this will
+join some of them together as well as adding plenty more. Take it steady—there’s a *lot* here.
+
+1. Good quality of a product or service surely implies that it can be described in such terms as reliable, dependable, predictable—no nasty surprises. The quality of a service or product depends on
+the processes used to make the product or carry out the service, and the management of those
+processes. The adjectives just used to represent good quality can largely be summed up by “low
+variation”. Recall the use of <span class=deming_quote>“uniformity”</span> in the inscription on the Deming Medal (today’s [page 2](#sec-page2)):
+uniformity implies *very* low variation! Processes that are exhibiting high levels of variation need to
+be improved: they are unreliable, not dependable—full of nasty surprises. Their variation needs to
+be reduced.
+2. Variation cannot be reduced if it is not understood. Shewhart’s “breakthrough in understanding
+variation” was that, fundamentally, processes suffer from just two types of variation. Correspondingly, there are two general types of *causes* of variation.
+
+3. One type of variation is inherent to the process and the circumstances in which it is being operated—the way it has been designed, built, set up, the way people have been trained to use it, and
+the environment in which it operates, including physical and cultural matters and management
+style. So these are all factors that are present for the relatively “long haul”—they are not just temporary (unless something is done about them). Shewhart called them “constant” causes—because
+they are constantly present. A careless mathematician might possibly misinterpret that adjective: in
+Mathematics, something being “constant” means that it is “not varying”, so the careless misinterpretation might be that they do not cause *any* variation! That’s obviously wrong: the truth is that
+they are one of the two types of *causes* of variation. The valid inference is instead that the nature of
+the resulting variation is unchanging because the causes of that variation are effectively unchanging. Deming referred to Shewhart’s <span class=deming_quote>“constant”</span> causes as “common” causes of variation.
+4. Whereas the common causes are always there (until the process gets changed in some way—
+hopefully improved!), the process’s variation may also sometimes be affected by additional causes
+that are not there all the time—perhaps some one-off happenings or a temporary change in something which has an important influence on how the process behaves. Of course, such additional
+causes may occur quite often, but if their effect is so small as not to materially affect the way the
+process behaves then obviously we can’t do much about them, and don’t need to. We can only
+notice them if there is something to be noticed, i.e. if we can recognise that the nature of the variation changes. Shewhart referred to such additional causes—ones which *do* noticeably affect the
+variation—as “assignable” causes of variation; Deming called them <span class=deming_quote>“special”</span> causes.
+5. Processes that are not suffering from such special causes, i.e. are exhibiting variation whose nature
+does not noticeably change, are said to be “in statistical control” or, more simply, “stable” or “predictable”. The “prediction” is that the nature of the variation will continue to be effectively the same
+into the future unless special causes arrive on the scene to change matters.
+6. Processes which are being affected by special causes are said to be “out of statistical control” or
+“unstable” or “unpredictable”—we cannot now predict with any justification how the variation will behave in the future. That will remain the case until the special causes are identified and either
+removed or, at least, have their effects negated or mitigated in some way.
+7. There are obvious ramifications regarding the vital matter of process improvement. If a process is
+out of statistical control then special causes are affecting it and it is necessary to identify those special causes and deal with them first. Otherwise, if you try to improve the process, how could you
+tell whether a subsequent change in the nature of the variation is actually due to the improvement
+attempt rather than to special-cause effects?
+8. On the other hand, if the process is in statistical control but you don’t like the amount of variation it
+is producing, the only way to reduce that variation is to improve the process itself. In other words,
+the need is to tackle some of the “long haul” common causes which otherwise will, of course,
+remain there and continue producing the amount of variation that you don’t like.
+9. The purpose of Shewhart’s control chart is to help us to discriminate between the two states: is the
+process in or out of statistical control? Without it, it’s often not as easy as it might sound.
+10. Quality tools and techniques, and the thinking underlying them, are often regarded as relevant only
+on the manufacturing “shop floor” and in administration processes and paperwork and the like.
+This is a bad mistake. They are, of course, very important in such contexts. But in a table on page
+27[37] of his final book: *The New Economics for Industry, Government, Education*, Dr Deming made
+the observation that only 3% of the potential gains from the “statistical control of quality”, i.e. acting
+based on understanding of the causes of variation, come from such areas. (<span class=neave_note>Recall from page 12 that
+those page numbers refer to page 27 of the Third Edition and page 37 of the Second Edition.</span>) He described
+the application of the statistical control of quality to overall business strategy and companywide
+systems such as personnel, training, purchasing, legal and financial matters etc, i.e. to the *management* of the organisation, as:
+
+><span class=deming_quote>“Here are the big gains, 97%, waiting.”[^e]</span>
+
+:::: {.columns}
+
+::: {.column width="85%"}
+If the 3% is big (and it is), the 97% is *massive*.
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 10px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(2, 20)
+```
+</div>
+:::
+
+::::
+
+### 1930s–1940s: New statistics in non-manufacturing
+
+So it did all start with some new statistical thinking and methods in a manufacturing context. Regrettably, a
+few generations later, some people still seem to think that was all Dr Deming’s work was about, and all that
+it is relevant to. Nothing could be further from the truth. For a start, apart from his temporary work at
+Western Electric, Deming was never employed in a primarily manufacturing environment. His first permanent employment was in USDA, the United States Department of Agriculture (OK: still “manufacturing” of a
+kind, but obviously a rather different type). His appointment there was as a Mathematical Physicist—that
+was still his main area of expertise back then. Twelve years later, in 1939, he was appointed Head Mathematician and Adviser in Sampling at the National Bureau of the Census—again, hardly manufacturing! His
+work there, particularly with the 1940 American Census, turned out to be supremely successful, and it was
+in this capacity that he first attracted some international attention. In fact his first visit to Japan, soon after
+the end of the Second World War, was primarily to work with the Japanese Census.
+
+### 1950s–1960s: <span class=deming_quote>“The theory of a system, and cooperation”</span>
+
+Does that heading seem familiar? I’ll remind you a little later of where you first saw it.
 
 
 ### The 1980s (first half): The West awakens {#sec-page37}
@@ -1517,3 +1693,6 @@ is one of many from that day which I have included during this course. Copies of
 Forum: <http://www.deming.org.uk>.
 [^d]: This and all other quotations from *Out of the Crisis* have been reproduced with the approval of the
 W Edwards Deming Institute and MIT Press. See <https://mitpress.mit.edu/contributors/w-edwards-deming>.
+[^e]: This and all other quotations from T*he New Economics for Industry, Government, Education* have
+been reproduced with the approval of the W Edwards Deming Institute and MIT Press. See
+<https://mitpress.mit.edu/contributors/w-edwards-deming>.
