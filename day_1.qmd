@@ -1680,6 +1680,201 @@ the end of the Second World War, was primarily to work with the Japanese Census.
 
 Does that heading seem familiar? I’ll remind you a little later of where you first saw it.
 
+:::: {.columns}
+
+::: {.column width=55%}
+A further visit to Japan, again to work with the Census, was planned for the early summer of 1950. By this
+time, Dr Deming’s name and reputation had become known to Ken-ichi Koyanagi, Managing Director of the
+Union of Japanese Scientists and Engineers. Accordingly, Koyanagi issued the all-important invitation for Dr Deming to also teach
+concepts and methods for the achievement of quality in *industry*.
+During that visit, his teaching not only reached hundreds of engineers, plant managers, research workers, and so on, but it also
+reached *top management*. A particularly famous meeting was
+held in July 1950 with the 21 top industrialists of the country present, a meeting later described as the occasion at which Dr Deming
+had in that one room " *80% of the industrial capital in Japan right there in front of him*. Deming regarded that as his breakthrough:
+that the top people came to listen and learn from him.
+:::
+
+::: {.column width=5%}
+
+:::
+
+::: {.column width=40%}
+![Ken-ichi Koyanagi with Dr Deming](images/day_1_fig_6.png){.lightbox}
+:::
+
+::::
+
+But there was another important reason why the Japanese lis-
+tened to, and learned from, Deming. Koyanagi expressed it well
+on page 8 of *The Deming Prize* (1960):
+
+>“Most of the Japanese were in a servile spirit as the vanquished, and among Allied personnel there were not a few
+with an air of importance <span class=neave_note>[which I imagine was something of an understatement]</span>. In striking contrast, Dr
+Deming showed his warm cordiality to every Japanese whom he met. ... His high personality deeply
+impressed all those who learned from him and became acquainted with him. ... The sincerity and
+enthusiasm with which he did his best for us still lives and will live forever in the memory of all concerned.”
+
+But *what* did the Japanese learn from him? *How* did he do his best for them? Was it just “Statistics”?
+That is what some well-known writers claim. For example, in the *Sunday Times* (London, 14 February
+1988), Tom Peters asked: “Should you follow W Edwards Deming, father of the Japanese quality revolution,
+through Statistical Process Control?”. Important though SPC is, I think it must have taken a little more than
+that! First let me show you a slightly longer version of the entry in Dr Deming’s diary that I quoted earlier
+(from page 6 of Ceil Kilian’s superb biography *The World of W Edwards Deming*[^f]):
+
+><span class=deming_quote>“The lectures are being held at the Japan Medical Association in Ochanomizu. ... Over 600 men had
+applied, and the limit was finally over-strained to 230. Professor Masuyama and assistants will
+teach the statistical control of quality in the afternoon. I shall teach during the forenoon *the theory of a system, and cooperation*.”</span>
+
+<span class=neave_note>[my italics].</span> There you are—that’s where this section’s heading came from: his own diary. Deming was content, on this occasion and presumably others, to leave the teaching of Statistics to his assistants, while he
+concentrated on the *really* important matters.
+
+What did he mean by <span class=deming_quote>“the theory of a system, and cooperation”</span>? There follows an abbreviated form of his
+own seven-point summary of his teaching in Japan during that summer; for the full version see *The World of W Edwards Deming* pages 24–27.
+
+:::: {.columns}
+
+::: {.column width="85%"}
+<span class=neave_note>The two diagrams shown on the next page, or close variants of them, will be seen again, particularly on
+Days 9 and 4 respectively. Their importance is indicated by the fact that they appear (one of them in
+slightly expanded form) as early as page 3[pages 3–4] in *Out of the Crisis*—right up front! I shall generally
+refer to the “flow diagram” which heads Deming’s list here as the “Organisation Viewed as a System”.
+More than once I heard Dr Deming describe this as the most important diagram that he had ever drawn
+throughout the whole of his life.</span>
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 100px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(2, 30)
+```
+</div>
+:::
+
+::::
+
+### <span class=deming_quote>A Summary of Teachings to Top Management and to Engineers in Japan</span>
+
+<span class=deming_quote>
+1. The flow diagram shown here was on the blackboard at every conference with top management:
+</span>
+
+```{r day1_flowchart1}
+library(DiagrammeR)
+
+grViz("
+  digraph flowchart {
+    graph [layout = dot, rankdir = LR]
+    
+    node [shape = box, style = filled, fillcolor = lightblue, fontname = Helvetica, fontsize = 12]
+    
+    subgraph cluster_suppliers {
+      label = 'Suppliers of materials and equipment'
+      A [label = 'A']
+      B [label = 'B']
+      C [label = 'C']
+      D [label = 'D']
+    }
+    
+    Receipt [label = 'Receipt and test of materials']
+    Production [label = 'Production, assembly, inspection']
+    Distribution [label = 'Distribution']
+    Consumers [label = 'Consumers']
+    Design [label = 'Design and redesign']
+    ConsumerResearch [label = 'Consumer research']
+    Tests [label = 'Tests of processes, machines, methods, costs']
+    
+    # Nodes and edges
+    A -> Receipt
+    B -> Receipt
+    C -> Receipt
+    D -> Receipt
+    Receipt -> Production
+    Production -> Distribution
+    Distribution -> Consumers
+    
+    Tests -> Production
+    Design -> Receipt
+    Design -> Production
+    ConsumerResearch -> Design
+    
+    # Additional arrows to reflect the original diagram
+    Tests -> Receipt
+    Tests -> Distribution
+    Design -> Distribution
+    ConsumerResearch -> Production
+  }
+")
+```
+
+<span class=deming_quote>
+2. Quality is determined by the management. Outgoing quality can not be better than the intentions of
+the management.</span> (Do you remember “Quality is made at the top” from the Overture?)
+
+<span class=deming_quote>3. The consumer is most important. What will help him in the future? Strive for long-term relationships with your customers.</span>
+
+<span class=deming_quote>4. Your supplier is your partner. Make him your partner. Work together on continual improvement of
+quality. Develop a long-term relationship with a supplier in a spirit of mutual trust and cooperation.
+Supplier and customer will both win.</span>
+
+<span class=deming_quote>5. Chain reaction from improvement of processes:</span>
+
+```{r day1_flowchart2}
+grViz("
+  digraph flowchart {
+    graph [layout = dot, rankdir = LR]
+    
+    node [shape = box, style = filled, fillcolor = lightblue, fontname = Helvetica, fontsize = 12]
+    
+    Improve [label = 'Improve processes and product']
+    Costs [label = 'Costs decrease']
+    Capture [label = 'Capture the market with better quality and lower price']
+    Stay [label = 'Stay in business']
+    Design [label = 'Provide jobs and more jobs']
+    
+    # Nodes and edges
+    Improve -> Costs
+    Costs -> Capture
+    Capture -> Stay
+    Stay -> Design
+  }
+")
+```
+
+<span class=neave_note>An updated version of the Chain Reaction appears on *Out of the Crisis* page 3 (both editions). There the
+final three steps stay the same. The first step becomes simply <span class=deming_quote>“Improve quality”</span>. But the second step is
+greatly expanded to show *why* costs decrease: <span class=deming_quote>“Costs decrease because of less rework, fewer mistakes, fewer delays, snags; better use of machine-time and materials”</span>. And a new step is inserted before “Capture the market …”: <span class=deming_quote>“Productivity improves”</span>.</span>
+
+<span class=deming_quote>6. Need for trust and cooperation between companies.</span>
+
+<span class=deming_quote>7. Development of trust and respect.</span>
+
+I think you will see some common themes running through that list. And it’s hardly just Statistics! The
+importance of the complete content of Deming’s list, as opposed to “just Statistics”, cannot be overemphasised. There is a great flavour of <span class=deming_quote>“the theory of a system, and cooperation”</span> throughout. And, in contrast to a widespread misconception about Deming’s work, it’s hardly just for manufacturing companies!
+
+So what were some of the consequences of Deming’s teaching to the Japanese in the summer of 1950?
+Let’s take the short term first. I’ll move to Chapter 7: “What Happened in Japan?” in Mrs Kilian’s *The World of W Edwards Deming*. This is from page 77 of her book:
+
+><span class=deming_quote>“Japanese manufacturers took those arguments seriously to the point of doing something about
+them with concerted effort. A little fire here, and a little there, would be too slow. Concerted effort
+meant cooperation amongst competitors, assistance to vendors, and—probably for the first time in
+Japan—immediate attention to the demands of the consumer, and need for consumer research on
+a continuing basis, with feedback for redesign. Results were spectacular, even after only one year,
+especially in productivity per man-hour, with little new machinery.”</span>
+
+And in the longer term? Well, as was reported in " *The Deming of America*:
+
+>“In 1960, the Prime Minister of Japan, acting on behalf of Emperor Hirohito, awarded Dr Deming
+Japan’s Second Order Medal of the Sacred Treasure. The citation on the medal attributes Japan’s
+industrial rebirth and its worldwide success to W Edwards Deming.”
+
+![](images/day_1_fig_7.png){.lightbox}
+Some of the matters raised in Deming’s <span class=deming_quote>“Summary of Teachings”</span> will be seen to have parallels in the Major
+Activity at the end of this afternoon. Before that, let’s continue with the story. But to where?
+
+### The 1970s: The wasted years
+
+
+
 
 ### The 1980s (first half): The West awakens {#sec-page37}
 

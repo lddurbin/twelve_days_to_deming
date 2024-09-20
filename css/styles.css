@@ -34,7 +34,8 @@
 .neave_note {
   text-align: justify;     /* Justify the text */
   font-family: serif;      /* Use a serif font */
-  margin: 20px;       
+  margin-top: 20px;       
+  margin-bottom: 20px;       
   line-height: 1.6;        /* Adjust line height for readability */
   font-size: 16px;         /* Set a comfortable font size */
   color: #333;             /* Optional: Set a text color (default to dark grey) */
