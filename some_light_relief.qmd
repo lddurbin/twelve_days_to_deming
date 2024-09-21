@@ -1,0 +1,75 @@
+---
+title: "SOME LIGHT RELIEF"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+source(here::here("R/functions.R"))
+```
+
+Let’s have a little light relief after all that heavy challenge! There are numerous websites containing quotations over many decades which we can now easily recognise as having been, let’s say, incorrect. Here are
+some of my favourites, in chronological order.
+
+The oldest in my list comes from an internal memo written by William Orton, President of Western Electric, the American communications company, in 1876:
+
+>“This ‘telephone’ has too many shortcomings to be seriously considered as a means of communication. The device is inherently of no value to us.”
+
+Next comes the well-known statement from Scottish mathematician and physicist, Lord Kelvin, in 1895:
+
+>“I can flatly state that heavier-than-air flying machines are impossible.”
+
+Jumping into the 20th Century we have David Sarnoff’s associates in response to his urgings for investment in radio some time in the 1920s:
+
+>“The wireless music box has no imaginable commercial value. Who would pay for a message sent to nobody in particular?”
+
+Then we have Harry, one of the four Warner Brothers, who in 1927 asked:
+
+>“Who the hell wants to hear actors talk?”
+
+Even Albert Einstein was not to be left out of my list. In 1932 he said:
+
+>“There is not the slightest indication that nuclear energy will ever be obtainable.”
+
+Moving into my own lifetime (just!) there was the famous prediction in 1943 by Thomas Watson, Chairman of IBM:
+
+>“I think there is a world market for maybe five computers.”
+
+On New Year’s Day 1962 the Beatles drove down to London during a blinding snowstorm to audition for the Decca Recording Company. It didn’t do them any good. While rejecting them, Decca’s Dick Rowe told their manager:
+
+>“We don’t like their sound, and guitar groups are on their way out, Mr Epstein.”
+
+Just room for one more on computers, 34 years after Mr Watson’s above. This was from Ken Olsen, President, Chairman and Founder of the Digital Equipment Corporation in 1977:
+
+>“There is no reason anyone would want a computer in their home.”
+
+Amusing, yes? But serious too. To put it bluntly and pragmatically, each quotation represents rejection or,
+at least, serious delay of a massive opportunity for profit! Why were the opportunities rejected? Simply
+because the proposals were too *different* from what people were used to and expected, too different from
+what was commonplace understanding and “knowledge” at the time.
+
+:::: {.columns}
+
+::: {.column width="85%"}
+And Dr Deming came up with a whole philosophy of management which is very different from what people
+are used to today, from that which is commonplace understanding and “knowledge” at this time. Are we
+going to laugh and reject that too?
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 10px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 30)
+```
+</div>
+:::
+
+::::

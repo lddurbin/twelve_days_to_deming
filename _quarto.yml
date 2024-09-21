@@ -3,14 +3,31 @@ echo: false
 project:
   type: book
 
+execute: 
+  echo: false
+  warning: false
+  message: false
+
 book:
   title: "12 Days to Deming"
   subtitle: "An active-learning course"
   author: "Henry R. Neave"
-  date: "8/19/2024"
+  reader-mode: true
+  
   chapters:
     - index.qmd
-    - day_1.qmd
+    - part: day_1.qmd
+      chapters:
+        - the_overture_and_the_deming_story.qmd
+        - deming_rediscovered.qmd
+        - statistics_oh_no.qmd
+        - helpful_books_and_videos.qmd
+        - activities_major_activities_pauses_for_thought_projects_and_your_organisation.qmd
+        - outline_of_the_course.qmd
+        - quality_theory_philosophy_management.qmd
+        - the_attraction_of_demings_work.qmd
+        - deming_is_different.qmd
+        - some_light_relief.qmd
 
 format:
   html:
@@ -20,7 +37,7 @@ format:
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-    number-sections: true
+    number-sections: false
 
 
 

@@ -52,7 +52,7 @@
   margin: 20px;
 }
 
-.thought h2 {
+.thought h1 {
   color: #008000;
   text-align: center;
 }
@@ -63,7 +63,7 @@
   margin: 20px;
 }
 
-.thought_commentary h2 {
+.thought_commentary h1 {
   color: #ff0000;
   text-align: center;
 }
@@ -116,7 +116,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for a bit of depth */
 }
 
-.major_activity_title h2 {
+.major_activity_title h1 {
   margin: 2px 0px 2px 0px;
   padding: 10px 30px 10px 45px; /* Padding for the button */
   border: 0px;

@@ -1,0 +1,108 @@
+---
+title: "DEMING IS DIFFERENT"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+source(here::here("R/functions.R"))
+```
+
+
+As I hope you may already have begun to appreciate, the Deming philosophy is different, and not just a little different, from what we hear elsewhere about management and quality and work and business—and
+people. And yet, as I hope you’ll also increasingly appreciate as we work through this course, it has a persuasive and inevitable logic about it.
+
+# How different?
+
+If you are still not persuaded that it’s *that* different, I think you will be after this couple of pages. I’m now
+going to throw at you a whole heap of “bits and pieces”—lots of themes for the Overture, with very little
+“musack” in between. Not, of course, that I’m expecting you to immediately accept all of these “bits and
+pieces” just because I’m including them here. Be sure, the arguments in their support will soon come; and,
+who knows, before long it may be you that will be providing them!
+
+* Dr Deming’s focus was on the longer rather than the shorter term. If you are looking for the next
+short-term quick fix, this is the wrong place. Besides which, this world has far too many of those
+already. (If, like the Japanese did in the 1950s, you become serious about what Deming had to
+teach, you will get some short-term benefits, but you should regard them as bonuses rather than
+expectations. To *aim* for them will take your eye off the longer term.)
+
+<div class=neave_note>
+From the 1990s, Japan (along with some other countries) has, as we know, suffered some economic
+problems. And certain people have pointed to those difficulties and said in effect: “There you are.
+I told you so. This Japan stuff (or quality stuff, or Deming stuff) doesn’t work, does it?”. Two brief
+facts should be observed. First, Deming’s teaching in Japan was almost entirely to their manufacturing industry (in addition to their Census) rather than to the financial sector or to government. Second, his main teaching to the Japanese was in the quite short period 1950–52. To point, far more
+than half a century later, to problems which, as I understand it, were primarily caused by parts of the
+Japanese picture with which Deming had little contact even that long while ago, and claim that consequently “Deming doesn’t work”, does seem to me to be a trifle unreasonable.
+</div>
+
+* He was concerned not with mere change but with transformation of <span class=deming_quote>Western style of management</span>
+(his own term for it).
+* He was working toward the very best imaginable way of managing, working, governing, *living*
+* His aim was to develop a management style, management environment, management system for
+the benefit, the *best* benefit and gain, of everyone concerned: employers, employees, suppliers,
+customers, shareholders, the environment—in the longer term, yes: you obviously can’t do all that
+overnight.
+* He was of course concerned, as I am, not only with painting the picture of this optimum system,
+but with enabling good *understanding* on the part of everyone involved as to *why* it is the best
+way of doing things. And I do mean “best”: I have already pointed out his fondness for the phrase
+<span class=deming_quote>“optimisation of the system”</span>—and “optimum” is Latin for “best”.
+
+# So what kind of environment is this Deming “optimum” system?
+
+* It’s certainly one in which far greater respect is paid to what psychologists call “intrinsic” motivation, as opposed to “extrinsic” motivation which is sadly far more familiar in modern management
+and government.
+* It’s an environment in which genuine fulfilment, and indeed joy, in learning and in work is crucial.
+* It’s one in which the emphasis is far more on driving fear *out* rather than driving it *in*—it is the latter which may currently be rather more familiar to you.
+* It’s one in which management and leadership are understood to be about *helping* people to do a
+better job, rather than merely trying to frighten or bribe them into it (which again, unfortunately, is
+likely to be more familiar to you).
+* It’s an environment in which the bad, destructive, wasteful aspects of competition and conflict are
+understood, so that these are increasingly replaced by the huge and multiplying benefits of genuine *cooperation* for mutual benefit of all concerned.
+* It’s an environment in which there is no place, no sense, nothing to be gained, by *ranking* people,
+groups, divisions, and indeed whole organisations, otherwise known as *league-tabling*, with punishment or reward depending upon the position in that league table.
+* It’s an environment in which there is no place, no sense, nothing to be gained, by practices such
+as lowest-tender contracting, management by objectives, merit pay, performance-related pay,
+pay for performance; and no place, no sense, nothing to be gained, by setting arbitrary numerical
+targets, goals, quotas, and again judging success or failure accordingly.
+* It’s an environment that brings things together, rather than splitting them up e.g. into individual
+cost-centres, profit-centres, and the like.
+* It’s an environment that essentially recognises and builds upon constructive and positive good
+sense, rather than merely expecting the worst and having to concentrate on protecting yourself
+against it. Rather than “making the best of a bad job”, let’s transform the “bad job” into a good
+one.
+
+Now, that was quite a mouthful. I know it—I warned you! But, a word of caution. I’m not arguing for the
+appropriateness of all of these things in *isolation.* (I think you can for some, but not for others.) And, of
+course, some—maybe many—aspects of what I have just thrown at you will not be practical in the circumstances in which you personally currently find yourself. I know that, too. But I will argue that they are all
+necessary features of that *optimum* system, that most profitable and advantageous environment, the *best*
+way of doing things. If we head out in this direction, wisely and with understanding, there will be much to
+gain along the way. And the further we go, the necessity to tackle those features I’ve just mentioned which
+haven’t yet been addressed will become ever more clear. For otherwise they will increasingly form wasteful, costly obstacles to continued progress.
+
+:::: {.columns}
+
+::: {.column width="85%"}
+<div class=neave_note>
+During these last few years it is notable that, at long last, some attitudes about targets seem to be changing. It was in 2012 that, in a BBC radio interview, I heard a manager talking about getting rid of numerical
+targets. The immediate challenge from the interviewer was “But, without targets, how can you know
+whether or not you are successful?”. (It occurs to me that that question could be worthy of a further
+“Pause for Thought”!) In contrast, nowadays it is becoming quite common for commentators to refer to
+the “target culture” in a highly negative and critical manner. Maybe some of the true stories which we
+shall see on Days 6 and 7 and other similar accounts have helped to change attitudes.
+
+But, in his four-day seminars 35 and more years ago, Dr Deming was *already* warning about the problems that numerical targets are bound to create (particularly in discussion on the 11th of his 14 Points). If
+only more people—especially those in management and government—had listened and learned.
+</div>
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 250px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 25)
+```
+</div>
+:::
+
+::::
