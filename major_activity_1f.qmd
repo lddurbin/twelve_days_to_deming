@@ -1,0 +1,129 @@
+---
+title: "MAJOR ACTIVITY 1-f"
+execute:
+  echo: false
+---
+  
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+source(here::here("R/functions.R"))
+```
+
+<div class=workbook_callout>
+Major Activity 1-f (pages 42-44) is also on [Workbook pages 5-7](workbook.html#sec-page5).
+</div>
+
+To complete this opening day of the course, take a few minutes to imagine yourself in each of the following
+ten pairs of opposite environments. Then compare and write down some features describing how you
+would behave and perform in those contrasting situations.
+
+* Your work is (a) greatly fulfilling and exciting, or it’s (b) dull and demoralising.
+
+```{ojs}
+viewof activity_1f_1a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_1b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```
+
+* You (a) trust your colleagues at work, or (b) distrust them.
+
+```{ojs}
+viewof activity_1f_2a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_2b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```
+
+* You had (a) inadequate schooling, or (b) a brilliant education.
+
+```{ojs}
+viewof activity_1f_3a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_3b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```
+
+* You (a) had wonderful parents, or (b) suffered abuse of various kinds throughout your childhood.
+
+```{ojs}
+viewof activity_1f_4a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_4b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```
+
+* You (a) trust, or (b) distrust your spouse or other partner.
+
+```{ojs}
+viewof activity_1f_5a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_5b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```
+
+* You live in (a) a third-world country, or in (b) one of the rich nations.
+
+```{ojs}
+viewof activity_1f_6a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_6b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```
+
+* You’re living at a time when your country is in a state of (a) peace, or (b) war.
+
+```{ojs}
+viewof activity_1f_7a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_7b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```
+
+* You are (a) rich or, at least, “comfortably off”, or (b) poverty-stricken.
+
+```{ojs}
+viewof activity_1f_8a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_8b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```
+
+* You’re in an environment of (a) conflict, competition, winners and losers; or (b) genuine mutual cooperation so that everybody gains.
+
+```{ojs}
+viewof activity_1f_9a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_9b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```
+
+* Your work is (a) greatly fulfilling and exciting, or it’s (b) dull and demoralising.
+
+```{ojs}
+viewof activity_1f_10a = Inputs.textarea({placeholder: "(a)", rows: 5})
+```
+
+
+```{ojs}
+viewof activity_1f_10b = Inputs.textarea({placeholder: "(b)", rows: 5})
+```

@@ -1,0 +1,64 @@
+---
+title: "INTRODUCTION TO THE MAJOR ACTIVITY"
+execute:
+  echo: false
+---
+  
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+source(here::here("R/functions.R"))
+```
+
+Let’s return to that <span class=deming_quote>“theory of a system”</span> which Dr Deming was teaching the Japanese in 1950.
+
+It’s not surprising that there should have been such a change or development of emphasis in Dr Deming’s
+teaching in the late 1980s. An inevitable consequence of Shewhart’s understanding of the two types of
+variation is that the vast majority of problems (or, if we think positively, of opportunities for improvement) lie
+in the *common* causes—the *system*, as Deming called it. When things go wrong, the fault rarely lies in individuals. The fault lies wholly or primarily in the system: the environment, the circumstances, the working
+conditions, the “company culture” within which individuals live, work, try to succeed, try to *survive*—yet so
+often a culture which repeatedly and consistently sabotages those aims and desires.! ! There is a pertinent
+change of detail in *Out of the Crisis* from Deming’s earlier teaching. In *If Japan Can, Why Can’t We?*, the
+narrator Lloyd Dobyns states: “But one part of Deming’s programme is not likely to please them [management]. He insists that management causes 85% of all the problems.” This relates to an observation from
+Dr Joseph Juran many years earlier concerning the relative prevalence of the two types of variation. But by
+1986, on *Out of the Crisis* page 270[315], Deming was instead saying:
+  
+><span class=deming_quote>“I should estimate that in my experience most troubles and most possibilities for improvement add
+up to proportions something like this:</span>
+>
+><span class=deming_quote>94% belong to the system (responsibility of management)</span>
+>
+><span class=deming_quote>6% special.”</span>
+  
+And toward the end of his life he was ruminating on the figures 98% and 2% respectively.
+
+Whichever figures we quote, the fact is that Deming’s thinking, as a natural consequence of Shewhart’s
+thinking on the two types of variation, leads to a vast change of emphasis from what is still commonplace
+in so much of modern management and government. It is still commonplace, maybe increasingly so, to be
+focused on blame or praise, punishment or reward, *judgment*—of the *individual*. Deming had come to
+realise that this focus is entirely misplaced. He had concluded that the vast majority of performance,
+behaviour, results, whatever, come from the *system* within which people live and work rather than from the
+people themselves. And, *if* that’s true, of course it follows that what can be achieved by such focus on
+judgment of the individual is *trivial*, let alone *negative*, compared with what can be achieved by focusing
+instead on improvement of the *system* within which the individual works and lives. This explains in large
+part why Deming was so critical of managing and judging—especially with reward and punishment involved
+—related to the achievement or otherwise of numerical targets, quotas, numerical objectives, numerical
+goals. And performance-related pay, ranking, rating, league-tabling, ... . It’s a long list.
+
+:::: {.columns}
+
+::: {.column width="85%"}
+But *could* it be true that the majority of behaviour and performance comes from the system, not the individual? For a long while, I could not get my head around that. And then eventually I started to ponder on
+such matters as those which follow. I invite you to try this too in the Major Activity which now completes
+this opening day of our *12 Days to Deming*.
+:::
+  
+::: {.column width="15%"}
+<div style="margin-top: 80px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(3, 40)
+```
+</div>
+:::
+  
+::::
