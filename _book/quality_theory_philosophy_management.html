@@ -424,33 +424,23 @@ Unlike a red box, a green box indicates an Activity or Pause for Thought with no
 </div>
 </div>
 <div class="cell hidden">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="205" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 204;"><span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a><span class="co">// Define the download function and bind it to the button</span></span>
-<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a>  download_button<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Access the latest values from each text area</span></span>
-<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> combinedText <span class="op">=</span> [</span>
-<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a>      viewof thought_1a<span class="op">.</span><span class="at">value</span><span class="op">,</span></span>
-<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a>      viewof thought_1b<span class="op">.</span><span class="at">value</span><span class="op">,</span></span>
-<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a>      viewof thought_1c<span class="op">.</span><span class="at">value</span></span>
-<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">.</span><span class="fu">join</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">---</span><span class="sc">\n\n</span><span class="st">"</span>)<span class="op">;</span></span>
-<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Create a Blob with the concatenated text</span></span>
-<span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> blob <span class="op">=</span> <span class="kw">new</span> <span class="bu">Blob</span>([combinedText]<span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">"text/plain"</span> })<span class="op">;</span></span>
-<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> url <span class="op">=</span> URL<span class="op">.</span><span class="fu">createObjectURL</span>(blob)<span class="op">;</span></span>
-<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Set up and trigger the download</span></span>
-<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> link <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"a"</span>)<span class="op">;</span></span>
-<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a>    link<span class="op">.</span><span class="at">href</span> <span class="op">=</span> url<span class="op">;</span></span>
-<span id="cb5-222"><a href="#cb5-222" aria-hidden="true" tabindex="-1"></a>    link<span class="op">.</span><span class="at">download</span> <span class="op">=</span> <span class="st">"all_comments.txt"</span><span class="op">;</span></span>
-<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a>    link<span class="op">.</span><span class="fu">click</span>()<span class="op">;</span></span>
-<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-225"><a href="#cb5-225" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Clean up the URL to release resources</span></span>
-<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a>    <span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> URL<span class="op">.</span><span class="fu">revokeObjectURL</span>(url)<span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
-<span id="cb5-227"><a href="#cb5-227" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb5-228"><a href="#cb5-228" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="207" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 206;"><span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { downloadNotes } <span class="im">from</span> <span class="st">"./js/functions.js"</span></span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a>download_button<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">downloadNotes</span>([viewof thought_1a<span class="op">,</span> viewof thought_1b<span class="op">,</span> viewof thought_1c]<span class="op">,</span> <span class="st">"custom_notes.txt"</span>)<span class="op">;</span></span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
-<div id="ojs-cell-5" data-nodetype="expression">
+<div>
+<div id="ojs-cell-5-1" data-nodetype="declaration">
 
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-5-2" data-nodetype="expression">
+
+</div>
 </div>
 </div>
 </div>
@@ -459,7 +449,7 @@ Unlike a red box, a green box indicates an Activity or Pause for Thought with no
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiB0aG91Z2h0XzFhID0gSW5wdXRzLnRleHRhcmVhKHtwbGFjZWhvbGRlcjogXCJUeXBlIHlvdXIgY29tbWVudHMgaGVyZS5cIiwgcm93czogMTB9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHRob3VnaHRfMWIgPSBJbnB1dHMudGV4dGFyZWEoe3BsYWNlaG9sZGVyOiBcIlR5cGUgeW91ciBjb21tZW50cyBoZXJlLlwiLCByb3dzOiAxMH0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgdGhvdWdodF8xYyA9IElucHV0cy50ZXh0YXJlYSh7cGxhY2Vob2xkZXI6IFwiVHlwZSB5b3VyIGNvbW1lbnRzIGhlcmUuXCIsIHJvd3M6IDEwfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIERvd25sb2FkIGJ1dHRvbiBlbGVtZW50XG5kb3dubG9hZF9idXR0b24gPSBodG1sYDxidXR0b24gY2xhc3M9XCJidG4gYnRuLXByaW1hcnlcIiB0eXBlPVwiYnV0dG9uXCI+RG93bmxvYWQgWW91ciBOb3RlczwvYnV0dG9uPmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gRGVmaW5lIHRoZSBkb3dubG9hZCBmdW5jdGlvbiBhbmQgYmluZCBpdCB0byB0aGUgYnV0dG9uXG57XG4gIGRvd25sb2FkX2J1dHRvbi5vbmNsaWNrID0gKCkgPT4ge1xuICAgIC8vIEFjY2VzcyB0aGUgbGF0ZXN0IHZhbHVlcyBmcm9tIGVhY2ggdGV4dCBhcmVhXG4gICAgY29uc3QgY29tYmluZWRUZXh0ID0gW1xuICAgICAgdmlld29mIHRob3VnaHRfMWEudmFsdWUsXG4gICAgICB2aWV3b2YgdGhvdWdodF8xYi52YWx1ZSxcbiAgICAgIHZpZXdvZiB0aG91Z2h0XzFjLnZhbHVlXG4gICAgXS5qb2luKFwiXFxuXFxuLS0tXFxuXFxuXCIpO1xuXG4gICAgLy8gQ3JlYXRlIGEgQmxvYiB3aXRoIHRoZSBjb25jYXRlbmF0ZWQgdGV4dFxuICAgIGNvbnN0IGJsb2IgPSBuZXcgQmxvYihbY29tYmluZWRUZXh0XSwgeyB0eXBlOiBcInRleHQvcGxhaW5cIiB9KTtcbiAgICBjb25zdCB1cmwgPSBVUkwuY3JlYXRlT2JqZWN0VVJMKGJsb2IpO1xuXG4gICAgLy8gU2V0IHVwIGFuZCB0cmlnZ2VyIHRoZSBkb3dubG9hZFxuICAgIGNvbnN0IGxpbmsgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiYVwiKTtcbiAgICBsaW5rLmhyZWYgPSB1cmw7XG4gICAgbGluay5kb3dubG9hZCA9IFwiYWxsX2NvbW1lbnRzLnR4dFwiO1xuICAgIGxpbmsuY2xpY2soKTtcblxuICAgIC8vIENsZWFuIHVwIHRoZSBVUkwgdG8gcmVsZWFzZSByZXNvdXJjZXNcbiAgICBzZXRUaW1lb3V0KCgpID0+IFVSTC5yZXZva2VPYmplY3RVUkwodXJsKSwgMTAwKTtcbiAgfTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgndGhvdWdodF8xYScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd0aG91Z2h0XzFiJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3Rob3VnaHRfMWMnKSJ9XX0=
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiB0aG91Z2h0XzFhID0gSW5wdXRzLnRleHRhcmVhKHtwbGFjZWhvbGRlcjogXCJUeXBlIHlvdXIgY29tbWVudHMgaGVyZS5cIiwgcm93czogMTB9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHRob3VnaHRfMWIgPSBJbnB1dHMudGV4dGFyZWEoe3BsYWNlaG9sZGVyOiBcIlR5cGUgeW91ciBjb21tZW50cyBoZXJlLlwiLCByb3dzOiAxMH0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgdGhvdWdodF8xYyA9IElucHV0cy50ZXh0YXJlYSh7cGxhY2Vob2xkZXI6IFwiVHlwZSB5b3VyIGNvbW1lbnRzIGhlcmUuXCIsIHJvd3M6IDEwfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIERvd25sb2FkIGJ1dHRvbiBlbGVtZW50XG5kb3dubG9hZF9idXR0b24gPSBodG1sYDxidXR0b24gY2xhc3M9XCJidG4gYnRuLXByaW1hcnlcIiB0eXBlPVwiYnV0dG9uXCI+RG93bmxvYWQgWW91ciBOb3RlczwvYnV0dG9uPmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuaW1wb3J0IHsgZG93bmxvYWROb3RlcyB9IGZyb20gXCIuL2pzL2Z1bmN0aW9ucy5qc1wiXG5cbmRvd25sb2FkX2J1dHRvbi5vbmNsaWNrID0gKCkgPT4ge1xuICBkb3dubG9hZE5vdGVzKFt2aWV3b2YgdGhvdWdodF8xYSwgdmlld29mIHRob3VnaHRfMWIsIHZpZXdvZiB0aG91Z2h0XzFjXSwgXCJjdXN0b21fbm90ZXMudHh0XCIpO1xufTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgndGhvdWdodF8xYScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd0aG91Z2h0XzFiJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3Rob3VnaHRfMWMnKSJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

@@ -204,29 +204,9 @@ download_button = html`<button class="btn btn-primary" type="button">Download Yo
 ```{ojs download_trigger}
 //| output: false
 
-// Define the download function and bind it to the button
-{
-  download_button.onclick = () => {
-    // Access the latest values from each text area
-    const combinedText = [
-      viewof thought_1a.value,
-      viewof thought_1b.value,
-      viewof thought_1c.value
-    ].join("\n\n---\n\n");
+import { downloadNotes } from "./js/functions.js"
 
-    // Create a Blob with the concatenated text
-    const blob = new Blob([combinedText], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-
-    // Set up and trigger the download
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "thoughts_1a_1b_1c.txt";
-    link.click();
-
-    // Clean up the URL to release resources
-    setTimeout(() => URL.revokeObjectURL(url), 100);
-  };
-}
+download_button.onclick = () => {
+  downloadNotes([viewof thought_1a, viewof thought_1b, viewof thought_1c], "thoughts_1a_1b_1c.txt");
+};
 ```
-
