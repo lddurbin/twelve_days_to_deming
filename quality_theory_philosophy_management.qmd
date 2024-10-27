@@ -194,3 +194,39 @@ create_clock(11, 35)
 :::
 
 ::::
+
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+
+```{ojs download_trigger}
+//| output: false
+
+// Define the download function and bind it to the button
+{
+  download_button.onclick = () => {
+    // Access the latest values from each text area
+    const combinedText = [
+      viewof thought_1a.value,
+      viewof thought_1b.value,
+      viewof thought_1c.value
+    ].join("\n\n---\n\n");
+
+    // Create a Blob with the concatenated text
+    const blob = new Blob([combinedText], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    // Set up and trigger the download
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "thoughts_1a_1b_1c.txt";
+    link.click();
+
+    // Clean up the URL to release resources
+    setTimeout(() => URL.revokeObjectURL(url), 100);
+  };
+}
+```
+
