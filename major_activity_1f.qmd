@@ -127,3 +127,20 @@ viewof activity_1f_10a = Inputs.textarea({placeholder: "(a)", rows: 5})
 ```{ojs}
 viewof activity_1f_10b = Inputs.textarea({placeholder: "(b)", rows: 5})
 ```
+
+
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+
+```{ojs download_trigger}
+//| output: false
+
+import { downloadNotes } from "./js/functions.js"
+
+download_button.onclick = () => {
+  downloadNotes([viewof activity_1f_1a, viewof activity_1f_1b, viewof activity_1f_2a, viewof activity_1f_2b, viewof activity_1f_3a, viewof activity_1f_3b, viewof activity_1f_4a, viewof activity_1f_4b, viewof activity_1f_5a, viewof activity_1f_5b, viewof activity_1f_6a, viewof activity_1f_6b, viewof activity_1f_7a, viewof activity_1f_7b, viewof activity_1f_8a, viewof activity_1f_8b, viewof activity_1f_9a, viewof activity_1f_9b, viewof activity_1f_10a, viewof activity_1f_10b], "major_activity_1f.txt");
+};
+```
