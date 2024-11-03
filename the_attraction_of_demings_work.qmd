@@ -178,6 +178,21 @@ that those which are below average should have something done to them to bring t
 The other half are above average already, so why aren’t the rest? Think about it!
 </div>
 
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+
+```{ojs download_trigger}
+//| output: false
+
+import { downloadNotes } from "./js/functions.js"
+
+download_button.onclick = () => {
+  downloadNotes([viewof activity_1d, viewof activity_1e_1, viewof activity_1e_2], "activities_1d_1e1_1e2.txt");
+};
+```
 
 <!--
 FOOTNOTES

@@ -379,6 +379,36 @@ Please note that I am not indicating my approval of this or any other such schem
 <p>Careless thought about the concept of “average” can have various peculiar consequences, either serious or humorous depending upon circumstances. I relate a few near the end of <em>DemDim</em> Chapter 10: “Failures with Figures”. For example, Dr Deming was once told of the occasion when the Trades Union Con- gress in Britain voted on the motion that no wage in the country should be below average. Apparently it failed by just three votes. Deming wryly commented: <span class="deming_quote">“How I wish it had succeeded!”</span>. The TUC may have been following the example of the Australian Minister of Labour who was quoted as having said in 1973 that “We look forward to the day when everybody will receive more than the average wage”. Even Jim McIngvale, who will tell the story of his company Gallery Furniture here on Day 6, confesses when he fell into the same trap: “Of the 80 salespeople we had, 10 to 15 turned over [<em>fired or quit</em>] every month—and management wondered why half were still below average” (Day 6 page 10).</p>
 <p>Sadly, in recent years, I have heard British politicians making what seem to be similar judgments not just about individuals but about hospitals and schools and branches of the police. The typical argument is that those which are below average should have something done to them to bring them above average. The other half are above average already, so why aren’t the rest? Think about it!</p>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="181" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 180;"><span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a><span class="co">// Download button element</span></span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>download_button <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;button class="btn btn-primary" type="button"&gt;Download Your Notes&lt;/button&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell hidden">
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="190" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 189;"><span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { downloadNotes } <span class="im">from</span> <span class="st">"./js/functions.js"</span></span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a>download_button<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">downloadNotes</span>([viewof activity_1d<span class="op">,</span> viewof activity_1e_1<span class="op">,</span> viewof activity_1e_2]<span class="op">,</span> <span class="st">"activities_1d_1e1_1e2.txt"</span>)<span class="op">;</span></span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-5-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-5-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
 <!--
 FOOTNOTES
 -->
@@ -393,7 +423,7 @@ FOOTNOTES
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBhY3Rpdml0eV8xZCA9IElucHV0cy50ZXh0YXJlYSh7cGxhY2Vob2xkZXI6IFwiVHlwZSB5b3VyIGNvbW1lbnRzIGhlcmUuXCIsIHJvd3M6IDMwfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBhY3Rpdml0eV8xZV8xID0gSW5wdXRzLm51bWJlcihbMTAsIDUwXSwge3N0ZXA6IDEsIGxhYmVsOiBcIkRpc3NhdGlzZmllZCBjYWxsZXJzXCIsIHBsYWNlaG9sZGVyOiAxMH0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgYWN0aXZpdHlfMWVfMiA9IElucHV0cy5udW1iZXIoWzEwLCAwXSwge3N0ZXA6IDEsIGxhYmVsOiBcIkRpc3NhdGlzZmllZCBjYWxsZXJzXCIsIHBsYWNlaG9sZGVyOiAxMH0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2FjdGl2aXR5XzFkJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2FjdGl2aXR5XzFlXzEnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnYWN0aXZpdHlfMWVfMicpIn1dfQ==
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBhY3Rpdml0eV8xZCA9IElucHV0cy50ZXh0YXJlYSh7cGxhY2Vob2xkZXI6IFwiVHlwZSB5b3VyIGNvbW1lbnRzIGhlcmUuXCIsIHJvd3M6IDMwfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBhY3Rpdml0eV8xZV8xID0gSW5wdXRzLm51bWJlcihbMTAsIDUwXSwge3N0ZXA6IDEsIGxhYmVsOiBcIkRpc3NhdGlzZmllZCBjYWxsZXJzXCIsIHBsYWNlaG9sZGVyOiAxMH0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgYWN0aXZpdHlfMWVfMiA9IElucHV0cy5udW1iZXIoWzEwLCAwXSwge3N0ZXA6IDEsIGxhYmVsOiBcIkRpc3NhdGlzZmllZCBjYWxsZXJzXCIsIHBsYWNlaG9sZGVyOiAxMH0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBEb3dubG9hZCBidXR0b24gZWxlbWVudFxuZG93bmxvYWRfYnV0dG9uID0gaHRtbGA8YnV0dG9uIGNsYXNzPVwiYnRuIGJ0bi1wcmltYXJ5XCIgdHlwZT1cImJ1dHRvblwiPkRvd25sb2FkIFlvdXIgTm90ZXM8L2J1dHRvbj5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbmltcG9ydCB7IGRvd25sb2FkTm90ZXMgfSBmcm9tIFwiLi9qcy9mdW5jdGlvbnMuanNcIlxuXG5kb3dubG9hZF9idXR0b24ub25jbGljayA9ICgpID0+IHtcbiAgZG93bmxvYWROb3Rlcyhbdmlld29mIGFjdGl2aXR5XzFkLCB2aWV3b2YgYWN0aXZpdHlfMWVfMSwgdmlld29mIGFjdGl2aXR5XzFlXzJdLCBcImFjdGl2aXRpZXNfMWRfMWUxXzFlMi50eHRcIik7XG59O1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdhY3Rpdml0eV8xZCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdhY3Rpdml0eV8xZV8xJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2FjdGl2aXR5XzFlXzInKSJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
