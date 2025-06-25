@@ -6,3 +6,9 @@ key
 upload.sh
 
 /.quarto/
+
+12-Days-to-Deming/
+
+.DS_Store
+
+_book/
