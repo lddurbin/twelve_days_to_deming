@@ -1,0 +1,69 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: 'release'
+        
+    - name: Setup Pandoc
+      uses: r-lib/actions/setup-pandoc@v2
+      
+    - name: Install Quarto
+      uses: quarto-dev/quarto-actions/install@v2
+      with:
+        version: latest
+        
+    - name: Install R dependencies
+      run: |
+        R -e "install.packages(c('renv', 'rmarkdown', 'knitr'), repos = 'https://cran.rstudio.com/')"
+        R -e "renv::restore()"
+        
+    - name: Build Quarto book
+      run: |
+        quarto render
+        echo "Build completed successfully"
+        
+    - name: Verify build output
+      run: |
+        if [ ! -d "_book" ]; then
+          echo "Error: _book directory not found after build"
+          exit 1
+        fi
+        echo "Build verification passed"
+        
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts
+        
+    - name: Deploy to server
+      run: |
+        echo "Starting deployment to server..."
+        scp -r -P 18765 _book/* u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
+        echo "Deployment completed successfully"
+        
+    - name: Cleanup SSH
+      run: |
+        rm -rf ~/.ssh/id_rsa
+        echo "SSH cleanup completed"
+        
+    - name: Deployment Summary
+      run: |
+        echo "✅ Build and deployment completed successfully!"
+        echo "📚 Quarto book built and deployed to deming.leedurbin.co.nz"
+        echo "🔄 Next deployment will occur on next push to main branch" 
