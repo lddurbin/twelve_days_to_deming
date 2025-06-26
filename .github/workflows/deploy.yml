@@ -18,10 +18,6 @@ jobs:
       with:
         r-version: 'release'
         
-    - name: Setup Rtools (Windows)
-      uses: r-lib/actions/setup-rtools@v2
-      if: runner.os == 'Windows'
-      
     - name: Setup Pandoc
       uses: r-lib/actions/setup-pandoc@v2
       
