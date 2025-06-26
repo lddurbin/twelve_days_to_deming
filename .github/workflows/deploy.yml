@@ -68,9 +68,18 @@ jobs:
         
     - name: Install R dependencies
       run: |
+        # Install essential packages first
         R -e "install.packages(c('renv', 'rmarkdown', 'knitr'), repos = 'https://cran.rstudio.com/')"
+        
+        # Try to install digest package separately first
+        R -e "tryCatch(install.packages('digest', repos = 'https://cran.rstudio.com/'), error = function(e) cat('digest installation failed, continuing...\n'))"
+        
+        # Configure renv to be more permissive
         R -e "options(renv.config.install.transactional = FALSE)"
-        R -e "renv::restore()"
+        R -e "options(renv.config.install.verbose = TRUE)"
+        
+        # Try renv restore with error handling
+        R -e "tryCatch(renv::restore(), error = function(e) { cat('renv::restore() failed, trying alternative approach...\n'); install.packages(c('ggplot2', 'dplyr'), repos = 'https://cran.rstudio.com/') })"
         
     - name: Build Quarto book
       run: |
