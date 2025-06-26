@@ -32,6 +32,17 @@ book:
         - content/days/day-01/11-deming-story.qmd
         - content/days/day-01/12-intro-activity.qmd
         - content/days/day-01/13-major-activity.qmd
+    - part: "Day 2: The Experiment on Red Beads"
+      chapters:
+        - content/days/day-02/index.qmd
+        - content/days/day-02/01-run-charts.qmd
+        - content/days/day-02/02-intro-to-the-red-beads-experiment.qmd
+        - content/days/day-02/03-a-brief-overview.qmd
+        - content/days/day-02/04-our-first-control-chart.qmd
+        - content/days/day-02/05-the-truth-the-whole-truth-and-nothing-but.qmd
+        - content/days/day-02/06-your-turn.qmd
+        - content/days/day-02/07-some-recollections.qmd
+        - content/days/day-02/08-major-activity.qmd
 
 format:
   html:

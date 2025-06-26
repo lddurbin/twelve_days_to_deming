@@ -1,5 +1,7 @@
-.workbook_callout {
-  background-color: yellow;
+
+/* ===== CALLOUT COMPONENTS ===== */
+/* Base callout styles */
+.callout {
   border: 2px solid black;
   text-align: center;
   height: 40px;
@@ -7,38 +9,28 @@
   font-size: 15px;
   margin-bottom: 15px;
   font-style: italic;
+}
+
+.workbook_callout {
+  background-color: yellow;
 }
 
 .return_callout {
   background-color: #b6dde8;
-  border: 2px solid black;
-  text-align: center;
-  height: 40px;
-  line-height: 40px;
-  font-size: 15px;
-  margin-bottom: 15px;
-  font-style: italic;
 }
 
 .info_callout {
   background-color: #c2d69b;
-  border: 2px solid black;
-  text-align: center;
-  height: 40px;
-  line-height: 40px;
-  font-size: 15px;
-  margin-bottom: 15px;
-  font-style: italic;
 }
 
+/* ===== CONTENT STYLES ===== */
 .neave_note {
-  text-align: justify;     /* Justify the text */
-  font-family: serif;      /* Use a serif font */
-  margin-top: 20px;       
-  margin-bottom: 20px;       
-  line-height: 1.6;        /* Adjust line height for readability */
-  font-size: 16px;         /* Set a comfortable font size */
-  color: #333;             /* Optional: Set a text color (default to dark grey) */
+  text-align: justify;
+  font-family: serif;
+  margin: 20px 0;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #333;
 }
 
 .deming_quote {
@@ -46,6 +38,7 @@
   font-weight: bold;
 }
 
+/* ===== THOUGHT COMPONENTS ===== */
 .thought {
   border: 2px solid #008000;
   padding: 10px;
@@ -75,6 +68,7 @@
   margin: 20px;
 }
 
+/* ===== LAYOUT COMPONENTS ===== */
 .cell {
   margin: 20px;
 }
@@ -85,12 +79,13 @@
   font-size: 16px;
 }
 
+/* ===== SEPARATOR COMPONENTS ===== */
 .separator {
-    height: 40px; /* Adjust the height of the separator here */
-    background-color: #FF0000; /* Default background color red */
-    border: 5px solid #000000;
-    padding: 5px;
-  }
+  height: 40px;
+  background-color: #FF0000;
+  border: 5px solid #000000;
+  padding: 5px;
+}
 
 .separator_white {
   background-color: #FFFFFF;
@@ -103,35 +98,33 @@
   height: 10px;
 }
 
+/* ===== MAJOR ACTIVITY TITLE ===== */
 .major_activity_title {
   background-color: #66ccff;
-  border-radius: 30px; /* Rounded corners */
-  border: 4px solid black; /* Thick black border */
+  border-radius: 30px;
+  border: 4px solid black;
   display: block;
-  width: fit-content; /* Fit button width to content */
-  margin-left: auto; /* Auto margin for horizontal centring */
-  margin-right: auto; /* Auto margin for horizontal centring */
-  margin-bottom: 20px;
-  margin-top: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for a bit of depth */
+  width: fit-content;
+  margin: 20px auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .major_activity_title h1 {
-  margin: 2px 0px 2px 0px;
-  padding: 10px 30px 10px 45px; /* Padding for the button */
-  border: 0px;
+  margin: 2px 0;
+  padding: 10px 30px 10px 45px;
+  border: 0;
   color: black;
-  font-family: 'DM Serif Display'; /* Use Google Font "Luckiest Guy" */
-  font-size: 24px; /* Font size */
-  font-weight: bold; /* Bold text */
+  font-family: 'DM Serif Display';
+  font-size: 24px;
+  font-weight: bold;
   text-align: center;
 }
 
-/* ===== MOBILE RESPONSIVE STYLES ===== */
+/* ===== RESPONSIVE DESIGN ===== */
 
-/* Mobile optimization for textareas and interactive elements */
+/* Mobile styles (max-width: 768px) */
 @media (max-width: 768px) {
-  /* Prevent zoom on iOS when focusing textareas */
+  /* Form elements */
   input[type="text"], 
   input[type="email"], 
   input[type="password"], 
@@ -140,7 +133,6 @@
     font-size: 16px !important;
   }
   
-  /* Improve textarea usability on mobile */
   textarea {
     min-height: 120px;
     padding: 12px;
@@ -151,19 +143,19 @@
     resize: vertical;
   }
   
-  /* Touch-friendly buttons and interactive elements */
+  /* Touch targets */
   button, 
   .major_activity_title,
   input[type="button"],
   input[type="submit"] {
-    min-height: 44px; /* Apple's recommended minimum touch target size */
+    min-height: 44px;
     min-width: 44px;
     padding: 12px 16px;
     border-radius: 8px;
     font-size: 16px;
   }
   
-  /* Scale down clock indicators for mobile */
+  /* Layout adjustments */
   .cell svg {
     transform: scale(0.7);
     transform-origin: center;
@@ -171,15 +163,12 @@
     display: block;
   }
   
-  /* Improve spacing for mobile reading */
   .cell {
     margin: 15px 10px;
   }
   
-  /* Adjust callout boxes for mobile */
-  .workbook_callout,
-  .return_callout,
-  .info_callout {
+  /* Callout adjustments */
+  .callout {
     height: auto;
     min-height: 40px;
     line-height: 1.4;
@@ -188,14 +177,14 @@
     font-size: 14px;
   }
   
-  /* Improve thought boxes on mobile */
+  /* Thought boxes */
   .thought,
   .thought_commentary {
     margin: 15px 10px;
     padding: 15px;
   }
   
-  /* Adjust major activity titles for mobile */
+  /* Activity titles */
   .major_activity_title {
     margin: 15px auto;
     border-radius: 20px;
@@ -206,16 +195,14 @@
     padding: 12px 20px;
   }
   
-  /* Improve typography for mobile reading */
+  /* Typography */
   body {
     font-size: 16px;
     line-height: 1.6;
   }
   
-  /* Better spacing for mobile */
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 20px;
-    margin-bottom: 15px;
+    margin: 20px 0 15px 0;
   }
   
   p {
@@ -223,9 +210,8 @@
   }
 }
 
-/* Tablet optimization */
+/* Tablet styles (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-  /* Slightly scale down clock indicators for tablets */
   .cell svg {
     transform: scale(0.85);
     transform-origin: center;
@@ -233,37 +219,33 @@
     display: block;
   }
   
-  /* Improve textarea sizing for tablets */
   textarea {
     min-height: 100px;
     padding: 10px;
   }
   
-  /* Adjust major activity titles for tablets */
   .major_activity_title h1 {
     font-size: 22px;
     padding: 12px 25px;
   }
 }
 
-/* Large screen optimization */
+/* Desktop styles (1025px+) */
 @media (min-width: 1025px) {
-  /* Ensure clock indicators are properly sized on large screens */
   .cell svg {
     margin: 20px auto;
     display: block;
   }
   
-  /* Improve textarea sizing for large screens */
   textarea {
     min-height: 80px;
     padding: 8px;
   }
 }
 
-/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+/* ===== ACCESSIBILITY ===== */
 
-/* Focus indicators for better accessibility */
+/* Focus indicators */
 textarea:focus,
 input:focus,
 button:focus,
@@ -272,7 +254,7 @@ button:focus,
   outline-offset: 2px;
 }
 
-/* High contrast mode support */
+/* High contrast mode */
 @media (prefers-contrast: high) {
   .deming_quote {
     color: #000080;
@@ -288,7 +270,7 @@ button:focus,
   }
 }
 
-/* Reduced motion support */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

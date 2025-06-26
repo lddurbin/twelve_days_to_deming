@@ -1,0 +1,39 @@
+---
+title: "04 Our First Control Chart"
+execute:
+  echo: false
+---
+
+```{r}
+# R setup for all chapters (edit as needed)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+# Section Heading
+
+Introductory or overview text goes here. Replace this with your chapter introduction.
+
+![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
+
+:::: {.columns}
+::: {.column width="85%"}
+Main content goes here. Use headings, lists, and paragraphs as needed.
+:::
+::: {.column width="15%"}
+<div style="margin-top: 10px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(HH, MM)  # Replace HH, MM with hour and minute
+```
+</div>
+:::
+::::
+
+<div class=workbook_callout>Workbook or activity callout here. (Optional)</div>
+<div class=neave_note>Optional Neave note or commentary.</div>
+
+<!--
+FOOTNOTES (if needed)
+-->
+
+[^a]: Example footnote. Replace or remove as needed. 
