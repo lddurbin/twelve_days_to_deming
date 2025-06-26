@@ -68,20 +68,19 @@ jobs:
         
     - name: Install R dependencies
       run: |
-        # Install essential packages in the default R library
+        # Disable renv for this session
+        export RENV_PROJECT=""
+        
+        # Install essential packages in the system R library
         R -e "install.packages(c('renv', 'rmarkdown', 'knitr', 'ggplot2', 'dplyr'), repos = 'https://cran.rstudio.com/')"
         
-        # Verify packages are installed
+        # Verify packages are installed and loadable
         R -e "library(knitr); library(rmarkdown); cat('Essential packages loaded successfully\n')"
-        
-        # Try renv restore if renv is available
-        R -e "if (requireNamespace('renv', quietly = TRUE)) { tryCatch(renv::restore(), error = function(e) cat('renv::restore() failed, using manually installed packages\n')) }"
         
     - name: Build Quarto book
       run: |
-        # Ensure R can find the packages
-        export R_LIBS_USER=$(R -e "cat(.libPaths()[1])" --slave)
-        echo "R library path: $R_LIBS_USER"
+        # Disable renv for the build process
+        export RENV_PROJECT=""
         
         # Build the book
         quarto render
