@@ -50,8 +50,8 @@ jobs:
           libcairo2-dev \
           libxt-dev \
           libfontconfig1-dev \
-          libtcl8.6-dev \
-          libtk8.6-dev \
+          tcl-dev \
+          tk-dev \
           libreadline-dev \
           libbz2-dev \
           liblzma-dev \
