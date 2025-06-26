@@ -1,20 +1,29 @@
 export function downloadNotes(inputs, fileName) {
-  // Combine values from all inputs
-  const combinedText = inputs.map(input => {
-    // Convert each input's value to a string and handle undefined/null gracefully
-    return (input !== undefined && input !== null) ? String(input.value) : "";
-  }).join("\n\n---\n\n"); // Optional separator for readability
-
-  // Create a Blob and set up download
-  const blob = new Blob([combinedText], { type: "text/plain" });
+  const combinedText = combineInputValues(inputs);
+  const blob = createTextBlob(combinedText);
   const url = URL.createObjectURL(blob);
+  
+  triggerDownload(url, fileName);
+  cleanupUrl(url);
+}
 
-  // Create a temporary link to download the file
+function combineInputValues(inputs) {
+  return inputs
+    .map(input => input?.value?.toString() || "")
+    .join("\n\n---\n\n");
+}
+
+function createTextBlob(content) {
+  return new Blob([content], { type: "text/plain" });
+}
+
+function triggerDownload(url, fileName) {
   const link = document.createElement("a");
   link.href = url;
   link.download = fileName;
   link.click();
+}
 
-  // Clean up the URL to release memory
+function cleanupUrl(url) {
   setTimeout(() => URL.revokeObjectURL(url), 100);
 }
