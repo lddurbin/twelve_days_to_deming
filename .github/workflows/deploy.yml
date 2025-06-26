@@ -21,42 +21,18 @@ jobs:
     - name: Setup Pandoc
       uses: r-lib/actions/setup-pandoc@v2
       
-    - name: Install system dependencies
+    - name: Install minimal system dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y \
           libcurl4-openssl-dev \
           libssl-dev \
           libxml2-dev \
-          libgdal-dev \
-          libproj-dev \
-          libgeos-dev \
-          libudunits2-dev \
-          libgsl-dev \
-          libhdf5-dev \
-          libnetcdf-dev \
-          libjq-dev \
-          libprotobuf-dev \
-          protobuf-compiler \
-          libv8-dev \
-          libsodium-dev \
-          libharfbuzz-dev \
-          libfribidi-dev \
-          libfreetype6-dev \
           libpng-dev \
-          libtiff5-dev \
           libjpeg-dev \
-          libgif-dev \
           libcairo2-dev \
-          libxt-dev \
           libfontconfig1-dev \
-          tcl-dev \
-          tk-dev \
-          libreadline-dev \
-          libbz2-dev \
-          liblzma-dev \
-          libpcre3-dev \
-          libz-dev \
+          libfreetype6-dev \
           build-essential \
           gfortran
       
@@ -66,21 +42,27 @@ jobs:
         sudo dpkg -i quarto-1.4.549-linux-amd64.deb
         quarto --version
         
-    - name: Install R dependencies
+    - name: Install R packages with caching
       run: |
-        # Disable renv for this session
+        echo "=== Installing R packages ==="
+        
+        # Disable renv completely
         export RENV_PROJECT=""
+        unset RENV_PROJECT
         
-        # Install essential packages in the system R library
-        R -e "install.packages(c('renv', 'rmarkdown', 'knitr', 'ggplot2', 'dplyr'), repos = 'https://cran.rstudio.com/')"
+        # Install only essential packages needed for the book
+        R -e "install.packages(c('knitr', 'rmarkdown', 'ggplot2', 'dplyr'), repos = 'https://cran.rstudio.com/', dependencies = FALSE)"
         
-        # Verify packages are installed and loadable
+        echo "=== Verifying package installation ==="
         R -e "library(knitr); library(rmarkdown); cat('Essential packages loaded successfully\n')"
         
     - name: Build Quarto book
       run: |
-        # Disable renv for the build process
+        echo "=== Building Quarto book ==="
+        
+        # Ensure clean environment
         export RENV_PROJECT=""
+        unset RENV_PROJECT
         
         # Build the book
         quarto render
