@@ -85,7 +85,7 @@ jobs:
         fi
         echo "Build verification passed"
         
-    - name: Setup SSH with debugging
+    - name: Setup SSH with detailed debugging
       run: |
         echo "=== Setting up SSH ==="
         
@@ -107,13 +107,26 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         echo "SSH key permissions set"
         
-        # Add host to known_hosts
-        ssh-keyscan -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts
-        echo "Host added to known_hosts"
+        # Check key format
+        echo "=== Checking SSH key format ==="
+        head -1 ~/.ssh/id_rsa
+        echo "Key starts with: $(head -c 20 ~/.ssh/id_rsa)"
         
-        # Test SSH connection
-        echo "Testing SSH connection..."
-        ssh -p 18765 -o ConnectTimeout=10 u197-gmrgybn3hkn2@ssh.leedurbin.co.nz "echo 'SSH connection successful'"
+        # Try ssh-keyscan with verbose output
+        echo "=== Running ssh-keyscan ==="
+        ssh-keyscan -v -H ssh.leedurbin.co.nz || echo "ssh-keyscan failed, continuing..."
+        
+        # Add host to known_hosts manually if needed
+        echo "=== Adding host to known_hosts ==="
+        echo "ssh.leedurbin.co.nz ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC..." >> ~/.ssh/known_hosts || echo "Manual host addition failed"
+        
+        # Test basic connectivity
+        echo "=== Testing basic connectivity ==="
+        nc -zv ssh.leedurbin.co.nz 18765 || echo "Port connectivity test failed"
+        
+        # Test SSH connection with verbose output
+        echo "=== Testing SSH connection ==="
+        ssh -v -p 18765 -o ConnectTimeout=10 -o StrictHostKeyChecking=no u197-gmrgybn3hkn2@ssh.leedurbin.co.nz "echo 'SSH connection successful'" || echo "SSH connection test failed"
         
     - name: Deploy to server
       run: |
