@@ -18,8 +18,51 @@ jobs:
       with:
         r-version: 'release'
         
+    - name: Setup Rtools (Windows)
+      uses: r-lib/actions/setup-rtools@v2
+      if: runner.os == 'Windows'
+      
     - name: Setup Pandoc
       uses: r-lib/actions/setup-pandoc@v2
+      
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libcurl4-openssl-dev \
+          libssl-dev \
+          libxml2-dev \
+          libgdal-dev \
+          libproj-dev \
+          libgeos-dev \
+          libudunits2-dev \
+          libgsl-dev \
+          libhdf5-dev \
+          libnetcdf-dev \
+          libjq-dev \
+          libprotobuf-dev \
+          protobuf-compiler \
+          libv8-dev \
+          libsodium-dev \
+          libharfbuzz-dev \
+          libfribidi-dev \
+          libfreetype6-dev \
+          libpng-dev \
+          libtiff5-dev \
+          libjpeg-dev \
+          libgif-dev \
+          libcairo2-dev \
+          libxt-dev \
+          libfontconfig1-dev \
+          libtcl8.6-dev \
+          libtk8.6-dev \
+          libreadline-dev \
+          libbz2-dev \
+          liblzma-dev \
+          libpcre3-dev \
+          libz-dev \
+          build-essential \
+          gfortran
       
     - name: Install Quarto
       run: |
@@ -30,6 +73,7 @@ jobs:
     - name: Install R dependencies
       run: |
         R -e "install.packages(c('renv', 'rmarkdown', 'knitr'), repos = 'https://cran.rstudio.com/')"
+        R -e "options(renv.config.install.transactional = FALSE)"
         R -e "renv::restore()"
         
     - name: Build Quarto book
