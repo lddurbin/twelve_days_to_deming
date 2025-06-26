@@ -7,7 +7,7 @@ execute:
 ```{r}
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
-source(here::here("R/functions.R"))
+source(here::here("R/functions/main-functions.R"))
 ```
 
 Let’s return to that <span class=deming_quote>“theory of a system”</span> which Dr Deming was teaching the Japanese in 1950.

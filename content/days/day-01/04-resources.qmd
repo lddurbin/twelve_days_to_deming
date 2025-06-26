@@ -7,7 +7,7 @@ execute:
 ```{r}
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
-source(here::here("R/functions.R"))
+source(here::here("R/functions/main-functions.R"))
 ```
 
 In that optional excursion into the Appendix to discuss the first paradox, I included a couple of recommendations of books which will be useful if at some stage you wish to learn more about control charts. And so

@@ -16,30 +16,32 @@ book:
   
   chapters:
     - index.qmd
-    - part: day_1.qmd
+    - part: "Day 1: The Overture"
       chapters:
-        - the_overture_and_the_deming_story.qmd
-        - deming_rediscovered.qmd
-        - statistics_oh_no.qmd
-        - helpful_books_and_videos.qmd
-        - activities_major_activities_pauses_for_thought_projects_and_your_organisation.qmd
-        - outline_of_the_course.qmd
-        - quality_theory_philosophy_management.qmd
-        - the_attraction_of_demings_work.qmd
-        - deming_is_different.qmd
-        - some_light_relief.qmd
-        - the_deming_story.qmd
-        - introduction_to_major_activity_1f.qmd
-        - major_activity_1f.qmd
+        - content/days/day-01/index.qmd
+        - content/days/day-01/01-overture.qmd
+        - content/days/day-01/02-rediscovered.qmd
+        - content/days/day-01/03-statistics.qmd
+        - content/days/day-01/04-resources.qmd
+        - content/days/day-01/05-activities.qmd
+        - content/days/day-01/06-outline.qmd
+        - content/days/day-01/07-quality-theory.qmd
+        - content/days/day-01/08-attraction.qmd
+        - content/days/day-01/09-different.qmd
+        - content/days/day-01/10-relief.qmd
+        - content/days/day-01/11-deming-story.qmd
+        - content/days/day-01/12-intro-activity.qmd
+        - content/days/day-01/13-major-activity.qmd
 
 format:
   html:
     theme: cosmo
-    css: css/styles.css
+    css: assets/styles/main.css
     header-includes:
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+      <script src="assets/scripts/functions.js"></script>
     number-sections: false
 
 

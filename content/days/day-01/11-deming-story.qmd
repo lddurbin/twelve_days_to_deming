@@ -7,7 +7,7 @@ execute:
 ```{r}
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
-source(here::here("R/functions.R"))
+source(here::here("R/functions/main-functions.R"))
 ```
 
 # Early 1900s: The story begins
@@ -234,7 +234,7 @@ had in that one room " *80% of the industrial capital in Japan right there in fr
 
 ::: {.column width=40%}
 
-![Ken-ichi Koyanagi with Dr Deming](images/day_1_fig_6.png){.lightbox}
+![Ken-ichi Koyanagi with Dr Deming](../../assets/images/day-01/day_1_fig_6.png){.lightbox}
 
 :::
 
@@ -378,7 +378,7 @@ And in the longer term? Well, as was reported in " *The Deming of America*:
 Japan’s Second Order Medal of the Sacred Treasure. The citation on the medal attributes Japan’s
 industrial rebirth and its worldwide success to W Edwards Deming.”
 
-![](images/day_1_fig_7.png){.lightbox}
+![](../../assets/images/day-01/day_1_fig_7.png){.lightbox}
 
 Some of the matters raised in Deming’s <span class=deming_quote>“Summary of Teachings”</span> will be seen to have parallels in the Major
 Activity at the end of this afternoon. Before that, let’s continue with the story. But to where?

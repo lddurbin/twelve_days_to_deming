@@ -7,11 +7,11 @@ execute:
 ```{r}
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
-source(here::here("R/functions.R"))
+source(here::here("R/functions/main-functions.R"))
 ```
 
 
-![Dr Deming and Dr Neave](images/day_1_fig_1.jpg){.lightbox}
+![Dr Deming and Dr Neave](../../assets/images/day-01/day_1_fig_1.jpg){.lightbox}
 
 :::: {.columns}
 

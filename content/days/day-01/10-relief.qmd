@@ -7,7 +7,7 @@ execute:
 ```{r}
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
-source(here::here("R/functions.R"))
+source(here::here("R/functions/main-functions.R"))
 ```
 
 Let’s have a little light relief after all that heavy challenge! There are numerous websites containing quotations over many decades which we can now easily recognise as having been, let’s say, incorrect. Here are

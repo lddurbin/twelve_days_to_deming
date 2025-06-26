@@ -7,7 +7,7 @@ execute:
 ```{r}
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
-source(here::here("R/functions.R"))
+source(here::here("R/functions/main-functions.R"))
 ```
 
 As you may already have gathered, in my seminars the delegates did much more than just listen to me! In

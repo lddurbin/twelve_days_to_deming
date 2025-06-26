@@ -7,7 +7,7 @@ execute:
 ```{r}
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
-source(here::here("R/functions.R"))
+source(here::here("R/functions/main-functions.R"))
 ```
 
 Let me tell you now what first really began to attract me seriously to Deming’s work. It wasn’t the statistical
@@ -187,7 +187,7 @@ download_button = html`<button class="btn btn-primary" type="button">Download Yo
 ```{ojs download_trigger}
 //| output: false
 
-import { downloadNotes } from "./js/functions.js"
+import { downloadNotes } from "../../../assets/scripts/functions.js"
 
 download_button.onclick = () => {
   downloadNotes([viewof activity_1d, viewof activity_1e_1, viewof activity_1e_2], "activities_1d_1e1_1e2.txt");

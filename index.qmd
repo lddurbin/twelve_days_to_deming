@@ -3,7 +3,7 @@
 ```{r message=FALSE, warning=FALSE}
 #| echo: false
 
-source(here::here("R/functions.R"))
+source(here::here("R/functions/main-functions.R"))
 ```
 
 ## Preface

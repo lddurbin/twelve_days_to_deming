@@ -7,7 +7,7 @@ execute:
 ```{r}
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
-source(here::here("R/functions.R"))
+source(here::here("R/functions/main-functions.R"))
 ```
 
 
@@ -29,13 +29,13 @@ as 1950 by JUSE, the Japanese Union of Scientists and Engineers.
 :::
   
 ::: {.column width="25%"}
-![William E Conway](images/day_1_fig_2.png){.lightbox}
+![William E Conway](../../assets/images/day-01/day_1_fig_2.png){.lightbox}
 
 :::
   
 ::::
   
-  ![](images/day_1_fig_3.jpg){width=50% .lightbox}
+  ![](../../assets/images/day-01/day_1_fig_3.jpg){width=50% .lightbox}
 
 The inscription near the bottom of the medal[^a] is a quotation from Dr Deming:
   
@@ -64,7 +64,7 @@ a “teacher” would have been a better description.
 :::
   
 ::: {.column width="25%"}
-![Dr Lloyd S Nelson](images/day_1_fig_4.png){.lightbox}
+![Dr Lloyd S Nelson](../../assets/images/day-01/day_1_fig_4.png){.lightbox}
 :::
   
 ::::
@@ -98,7 +98,7 @@ same as what most people mean by “flowcharting”.
 :::
   
 ::: {.column width="25%"}
-![Dr Walter A Shewhart](images/day_1_fig_5.png){.lightbox}
+![Dr Walter A Shewhart](../../assets/images/day-01/day_1_fig_5.png){.lightbox}
 :::
   
 ::::
