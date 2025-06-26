@@ -42,16 +42,17 @@ jobs:
         sudo dpkg -i quarto-1.4.549-linux-amd64.deb
         quarto --version
         
-    - name: Install R packages with caching
+    - name: Install R packages in system library
       run: |
         echo "=== Installing R packages ==="
         
-        # Disable renv completely
+        # Completely disable renv
         export RENV_PROJECT=""
         unset RENV_PROJECT
+        rm -rf renv/
         
-        # Install only essential packages needed for the book
-        R -e "install.packages(c('knitr', 'rmarkdown', 'ggplot2', 'dplyr'), repos = 'https://cran.rstudio.com/', dependencies = FALSE)"
+        # Install packages with dependencies in system library
+        R -e "install.packages(c('knitr', 'rmarkdown', 'ggplot2', 'dplyr'), repos = 'https://cran.rstudio.com/')"
         
         echo "=== Verifying package installation ==="
         R -e "library(knitr); library(rmarkdown); cat('Essential packages loaded successfully\n')"
@@ -60,7 +61,7 @@ jobs:
       run: |
         echo "=== Building Quarto book ==="
         
-        # Ensure clean environment
+        # Ensure clean environment without renv
         export RENV_PROJECT=""
         unset RENV_PROJECT
         
