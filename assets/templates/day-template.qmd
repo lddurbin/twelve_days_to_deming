@@ -1,0 +1,19 @@
+---
+title: "DAY X: DAY TITLE HERE"
+execute:
+  echo: false
+---
+
+# Day Overview
+
+Brief summary of the day's focus, learning objectives, or key themes.
+
+## Table of Contents
+
+- [Section 1](01-section.qmd)
+- [Section 2](02-section.qmd)
+- [Activity](05-activity.qmd)
+- [Major Activity](13-major-activity.qmd)
+
+<div class=workbook_callout>Day-level workbook or activity callout. (Optional)</div>
+<div class=neave_note>Optional Neave note or day-level commentary.</div> 

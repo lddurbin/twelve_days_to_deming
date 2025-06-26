@@ -1,0 +1,42 @@
+---
+title: "ACTIVITY TITLE HERE"
+execute:
+  echo: false
+---
+
+```{r}
+# R setup for all activities (edit as needed)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+# Activity Heading
+
+Brief instructions or context for the activity.
+
+```{ojs}
+viewof activity_id = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_feedback" aria-expanded="false" aria-controls="collapse_feedback">
+Show Commentary
+</button>
+<div class="collapse" id="collapse_feedback">
+Activity feedback or commentary goes here.
+</div>
+
+<div class=activity_afterthought>Optional afterthought or tip.</div>
+
+```{ojs download_all}
+// Download button element
+// (You can add more viewof variables to the array as needed)
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+```{ojs download_trigger}
+//| output: false
+import { downloadNotes } from "/assets/scripts/functions.js"
+download_button.onclick = () => {
+  downloadNotes([viewof activity_id], "activity_notes.txt");
+};
+``` 
