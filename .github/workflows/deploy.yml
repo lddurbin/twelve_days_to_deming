@@ -22,9 +22,10 @@ jobs:
       uses: r-lib/actions/setup-pandoc@v2
       
     - name: Install Quarto
-      uses: quarto-dev/quarto-actions/install@v2
-      with:
-        version: latest
+      run: |
+        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
+        sudo dpkg -i quarto-1.4.549-linux-amd64.deb
+        quarto --version
         
     - name: Install R dependencies
       run: |
