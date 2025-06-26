@@ -54,11 +54,11 @@ jobs:
         unset RENV_PROJECT
         rm -rf renv/
         
-        # Install packages with dependencies in system library
-        R -e "install.packages(c('knitr', 'rmarkdown', 'ggplot2', 'dplyr'), repos = 'https://cran.rstudio.com/')"
+        # Install all packages needed for the book
+        R -e "install.packages(c('knitr', 'rmarkdown', 'ggplot2', 'dplyr', 'here', 'DiagrammeR'), repos = 'https://cran.rstudio.com/')"
         
         echo "=== Verifying package installation ==="
-        R -e "library(knitr); library(rmarkdown); cat('Essential packages loaded successfully\n')"
+        R -e "library(knitr); library(rmarkdown); library(here); cat('Essential packages loaded successfully\n')"
         
     - name: Build Quarto book
       run: |
