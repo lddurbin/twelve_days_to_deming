@@ -165,3 +165,19 @@ Click this after writing your comments
 All I can say is that, in my experience, the answer is **Yes!** I might comment that the management are going to be awfully busy if they keep acting one way whenever a figure goes up, and another way whenever it goes down—for, except on the odd occasions when the figure stays the same, it *will* always either go up or go down! We'll return to this illustration tomorrow.
 </div>
 </div>
+
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+
+```{ojs download_trigger}
+//| output: false
+
+import { downloadNotes } from "../../../assets/scripts/functions.js"
+
+download_button.onclick = () => {
+  downloadNotes([viewof thought_2a], "thought_2a.txt");
+};
+```

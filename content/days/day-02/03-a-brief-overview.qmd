@@ -1,5 +1,5 @@
 ---
-title: "03 A Brief Overview"
+title: "A BRIEF OVERVIEW"
 execute:
   echo: false
 ---
@@ -10,54 +10,104 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-# Section Heading
+Let's now move on to a more comprehensive description of the Experiment on Red Beads. I will try to make it come alive for you as much as possible as the day progresses. First, I'll introduce the experiment as I used to carry it out, which differs in only minor detail from Dr Deming's original. (You will soon appreciate, I think, that some of my description here might be described as rather "tongue-in-cheek!") For illustration I shall use a set of results obtained by the Willing Workers in a company on the West coast of Ireland where I had been invited to present a seminar. Later today I will show you some other sets of results.
 
-Content goes here.
-
-![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
-
-:::: {.columns}
-::: {.column width="85%"}
-Content goes here when we're including a clock icon next to it.
-:::
-::: {.column width="15%"}
-<div style="margin-top: 10px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(09, 00)  # Replace HH, MM with hour and minute
-```
+<div class="float-box">
+<div class="float-box-content">
+  <strong>10 VACANCIES</strong> <br>
+  <em>(educational requirements minimal)</em><br><br>
+  <strong>1 RECORDER</strong> — able to write neatly and to perform simple arithmetic<br>
+  <strong>1 CHIEF INSPECTOR</strong> — able to compare figures and to speak in a loud, clear voice<br>
+  <strong>2 JUNIOR INSPECTORS</strong> — able to count (perhaps up to 20) and to write clearly<br>
+  <strong>6 WILLING WORKERS</strong> — no education needed; training provided. Willing and able to obey orders without question or argument.<br>
+  <em>(There is one position already filled, that of FOREMAN. Dr Neave is the foreman, because he is the only one that knows the job.)</em>
 </div>
-:::
-::::
+</div>
 
-Content goes here when there's no clock.
+After we have worked through the experiment as it happened in Ireland, I shall need to give you some practice! One way for you to get some practice would be to acquire the equipment for the experiment from a supplier such as SPC Press in Knoxville, Tennessee; and then find ten friends to work through the experiment with you. But that might be asking rather a lot! So instead, what I shall do at that stage will be to develop the set of results described in DemDim Chapter 6, and give you the opportunity to respond to those results in the role of the Foreman. You can then compare your reactions to those described in the book. (So don't look at DemDim Chapter 6 right now or else you'll spoil my carefully-laid plan!)
 
-:::: {.columns}
+First, a brief overview. As we've seen, the seminar leader (me) plays the role of Foreman, and my first task is to recruit the ten volunteers. On the left is a copy of my recruitment advertisement which was displayed on-screen to that audience in Ireland.
 
-::: {.column width="85%"}
-<div class=thought_commentary>
+<span class=neave_note>Referring back to my comment on the reverse of today's ID page, the distortion was particularly bad on this recruitment advertisement. Indeed in this case even the printed copy was virtually unreadable. I have therefore needed to re-create the image. There are very minor differences between the original and what appears above but they are merely cosmetic.</span>
 
-# PAUSE FOR THOUGHT OR ACTIVITY
+The second of the two sentences in the qualifications for Willing Workers in my recruitment advertisement would sometimes elicit mutterings from delegates such as "Sounds like our place!"
 
-Activity text here.
+The volunteering Willing Workers are to be employed in the finishing stages of a complex and time-consuming manufacturing operation. Their task is well-defined, and I shall give them some training before letting them loose on the job. Some aspects of the job are described and demonstrated in fine detail during the training. After all, the better that people are trained, the more similarity there will be in the way they carry out their work, and thus the more consistent will be their finished product. And consistency of the finished product, i.e. low variation, is of course an essential contribution to good quality.
+
+A work standard is prescribed: 50 units of production per worker per week. It is important that this standard be achieved and maintained. If production were to fall below this level then management would complain. If production were to exceed this amount then union rules would be violated. Consequently, a special tool has been developed and issued to enable this standard of 50 units to be met without fail (unless a worker seriously disobeys the stipulated procedure).
+
+After the training period, the workers in turn perform their first week's work. But, despite using the special tool, and despite the comprehensive training that they have just received, the workers make some defective product. So, in order to guide them on what is regarded as reasonable performance, the Foreman declares a quota of 45 good items per worker per week, i.e. no more than five defectives. Of course, subsequently the Foreman congratulates good performance and criticises bad performance—but not too harshly at the moment since this is everybody's first attempt. A brief _post-mortem_ is held at the end of the first week with good and bad features of performance and technique—and maybe attitude of the workers—being compared with each other.
+
+Now that everyone has gained some experience, improvement is expected in the second week. Quite often (about half the time) overall improvement is indeed seen, but usually not to the extent of many of the workers reducing their defectives to the stated quota of five.
+
+Consequently, the time has come for management to make an impact. A severe but objective appraisal of performance is instituted. At the end of the third week, the total number of defectives over all three weeks produced by each worker will be tallied. The three worst workers (i.e. those with the highest total numbers of defectives) will be fired; the best three will be paid overtime to keep up production by taking on two-shift working. "Severe but objective" indeed!
+
+The results produced when the experiment was performed at that company in Ireland were as shown on the next page (it is a copy of the Recorder's overhead transparency on that occasion). The recorded numbers are the number of defectives made by each person each week and, as you see, the Recorder (whose name was Declan) adds them up and calculates some averages. On the left side, he wrote each worker's total over the first three weeks: all ready for the appraisal. You will also see that, because of the change to two-shift working in the fourth week, Dec replaced the heading of the final column to refer instead to the second shift in that fourth week.
+
+<div class=workbook_callout>Pause for Thought 2–d (pages 11-12) is also on Workbook pages 12-13.</div>
+
+<div class="thought_commentary">
+
+# PAUSE FOR THOUGHT 2–d
+
+Take a careful look through these results. What main feature occurs to you when comparing the six Willing Workers with each other?
+
+![Willing Workers results](/assets/images/day-02/image-2.png){.lightbox}
 
 ```{ojs}
-viewof thought_example = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2d = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
 ```
 
-<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_example" aria-expanded="false" aria-controls="collapse_example">
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_2d" aria-expanded="false" aria-controls="collapse_2d">
 Click this after writing your comments
 </button>
 
-<div class="collapse" id="collapse_1a">
-Optional Neave commentary to be revealed after completing the activity.
+<div class="collapse" id="collapse_2d">
+<span class="analysis_box_title">"ANALYSIS" OF THE RESULTS</span>
+The most obvious phenomenon is surely Ernie's remarkably good performance compared with everybody else. His second week was rather disappointing (although that's not difficult to explain—see
+below). Otherwise, his superiority is plain for all to see. Ernie was the only person in single figures during the first week, when both he and everybody else was carrying out the work for the first time. And,
+as soon as the forthcoming performance appraisal scheme was announced just before the beginning of
+Week 3, he turned out the quite exceptional result of only three defectives—half as many as were
+obtained anywhere else in the whole experiment. Subsequently, during *both* halves of his two-shift
+working in Week 4, he produced just six defectives, while Iggi and Martin (the other two workers who
+had managed to hold on to their jobs after their appraisals) were into double figures each time.
 </div>
 </div>
-:::
 
-::::
+But small wonder that Ernie was so good. The truth is that he was the Plant Manager—the most senior of all those present. He had, of course, decided to set a good example by volunteering to play the role of a Willing Worker. Maybe, as it turned out, it wasn't that good for morale for him to show up the others with such dramatically superior results!
 
-<!--
-FOOTNOTES (if needed)
--->
+<div class="float-box-right">
+  <img src="/assets/images/day-02/image-2.png" alt="Willing Workers results" style="width:100%; height:auto;" />
+</div>
 
-[^a]: Example footnote. Replace or remove as needed. 
+Let's now take the whole set of results from this run of the experiment and summarise some of the Foreman's reactions and comments. Knowing something of the kinds of performances to be expected in the experiment, the Foreman was naturally immediately impressed by Ernie's first attempt. But, during the rest of Week 1, he became a little irritated by everybody else's double-figure performances. However, he kept reminding himself (and the audience) that this was only the first week, and obviously mistakes would be made by the workers while they were getting used to the job. He pointed out several technical errors in the way they were carrying out their work, hoping they would remedy those faults during future weeks.
+
+As we have seen, Week 2 began with that disappointing performance by Ernie. In retrospect, the explanation was clear. Ernie had shown up all of his workmates during the first week by his exceptionally good start. When there is a "creep" on the line it is not unusual for him to be "got at" by the others. Ernie therefore obligingly produced 11 defectives in the second week, the same performance level as had been produced—almost exactly—by all the others during the first week. After that disappointment, the Foreman was pleased to see signs of improvement. Iggi, Richard and Martin all bettered their first week's figures. But then came first a minor, and then a major, disappointment. Andrew repeated the poor score of 12 defectives that he had delivered in the first week—obviously a slow learner compared with the others. And then Pat produced what turned out to be the worst score in the whole experiment. But let us remember that he was standing at the end of the line, with only Andrew for company—and clearly (looking at the results so far, i.e. the first two weeks) he was being no good influence!
+
+Thanks to that awful result of Pat's and the "join the club" result from Ernie, total performance in the second week was actually worse than in the first week. The time had arrived for stern action by management.
+
+The forthcoming appraisals of performance were announced: people's futures—or otherwise—in this company would be decided on the basis of the total number of defectives they produced over the first three weeks. The impressive effect on Ernie has already been remarked upon—no way was he going to lose his job. But we shouldn't have been too surprised—the Foreman had, of course, already marked him out during the very first week as someone with special potential. The Foreman expressed some regret that Iggi, Richard, and Martin, who (remember) had all shown minor improvement previously, did not improve any further—in fact, if anything, they regressed a little. On the other hand, Andrew and Pat who, as we also know, were previously the two worst performers, at long last "got their skates on". They knew that considerable improvement would be necessary if they were to hold on to their jobs. And they both produced it. Unfortunately, in neither case was their improvement quite good enough to get them into the top three.
+
+The Foreman felt very pleased by the results of his strategy and his ability to motivate his people. Look how the total number of defectives decreased in Week 3 as people approached their appraisals. No longer were there over 60 defectives during the week. Now there were less than 50.
+
+The double-time working produced mixed success. Ernie settled down to that commendably steady performance of six defectives in both shifts. Martin carried on with the same kind of performance as previously. Unfortunately, Iggi immediately started producing large numbers of defectives. Maybe he just didn't have the stamina for two-shift working.
+
+At this stage, the experiment was abruptly terminated. Despite everybody's hard work, and the Foreman's efforts to get improved performance out of his people, too many defectives had been produced overall. Manufacture of good product had not been sufficient to keep up with the customer's requirements. The customer had therefore cancelled the contract, and ... "Sorry folks—we're out of business!"
+
+And so the experiment came to an abrupt and unhappy end.
+
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+
+```{ojs download_trigger}
+//| output: false
+
+import { downloadNotes } from "../../../assets/scripts/functions.js"
+
+download_button.onclick = () => {
+  downloadNotes([viewof thought_2d], "thought_2d.txt");
+};
+```

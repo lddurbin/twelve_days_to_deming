@@ -1,5 +1,5 @@
 ---
-title: "02 Intro To The Red Beads Experiment"
+title: "INTRODUCTION TO THE RED BEADS EXPERIMENT"
 execute:
   echo: false
 ---
@@ -10,54 +10,109 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-# Section Heading
+It is, of course, more than a quarter-century since Dr Deming passed away. Therefore, those of us who were fortunate enough to have attended one or more of his four-day seminars are now much older than we were then! But, hopefully, not all memories will have faded in the intervening years, in which case there must be very few, if any, who have forgotten about the Experiment on Red Beads.
 
-Content goes here.
+If you explore the internet, you are likely to find several links to videos involving the Red Beads Experiment. However, most of them, whether or not they feature Dr Deming himself, offer only short extracts from the experiment—nowhere near long enough, in my view, to get any real sense of what actually happened and of the atmosphere in the audience as the experiment ran its course. I have already described something of that atmosphere on Day 1 page 38. So I believe most short extracts miss the point: and that is a real shame in view of the fact that, to many of the delegates, the experiment was a highlight—if not the highlight—of the whole seminar. Worse still, such extracts are sometimes accompanied by brief and poorly-scripted coverage which I suggest can literally do far more harm than good.
 
-![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
+So if, some time after you've worked through today's material, you feel you'd like to spend some money on the experiment, my recommendation is to definitely stick to what the Deming Institute (www.deming.org) has to offer. Firstly, *The Deming Library* contains a couple of enjoyable and instructive videos. On Volume 7: "The Red Beads and Life" you will see some good extracts of the experiment carried out at one of Dr Deming's four-day seminars. Then, in Volume 8: "Lessons of the Red Beads Experiment", Dr Deming talks about some of the learning which comes from the experiment in general and, in particular, from the set of results generated at Volume 7's four-day seminar. Again, these videos are rather short but they are nevertheless well worth watching. On the other hand, if you have a larger amount of money to spend, more recently the Institute has added to their collection "The Experiment with the Red Beads" and "Analysis of the Red Beads Experiment", both nearly an hour long. That's more like it! In the "real thing", Dr Deming would take well over an hour carrying out the experiment, and there would then be considerable debate and discussion on what the delegates had seen and experienced, often continuing into the afternoon. Thus, as with the four-day seminars themselves, Dr Deming was wise enough to allocate sufficient time for the learning to really begin to penetrate: it is a waste of time to attempt it either superficially or in a hurry.
 
-:::: {.columns}
-::: {.column width="85%"}
-Content goes here when we're including a clock icon next to it.
-:::
-::: {.column width="15%"}
-<div style="margin-top: 10px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(09, 00)  # Replace HH, MM with hour and minute
-```
-</div>
-:::
-::::
+So, in total contrast to all the video material mentioned, we shall now spend the whole of the rest of today with the Experiment on Red Beads! And I will do my best to make it "live" for you, even to the extent of giving you the opportunity to gain experience at playing the part of the lead role in the experiment, that of the Foreman. In the original version, this part was (as you would expect) played by one Dr W Edwards Deming. It is not the only time in this course that I shall ask you to take over his role!
 
-Content goes here when there's no clock.
+However, before we begin, here's a warning. I first read about the Experiment on Red Beads at least three years before I first saw it carried out at Dr Deming's London four-day seminar in 1985. My initial reading was from his *Quality, Productivity, and Competitive Position* in 1982. And the truth is that I was singularly unimpressed! I stayed that way throughout those intervening three years—so much so that, at that four-day seminar in 1985, the Red Beads Experiment was the one part of the week to which I was not at all looking forward. Quite frankly, I thought it would just be a big bore, because it was so trivial: it was so obvious what was going to happen. Maybe it didn't help that, on page 142 of *Quality, Productivity, and Competitive Position*, Dr Deming himself literally referred to the experiment as "stupidly simple", a description that he later repeated on *Out of the Crisis* page 299[350]. And, in some senses, it is.
 
-:::: {.columns}
+But don't let that fool you—like it did me ...
 
-::: {.column width="85%"}
-<div class=thought_commentary>
+So what happened at the seminar?
 
-# PAUSE FOR THOUGHT OR ACTIVITY
+After the delegates returned from their coffee-break on the Wednesday morning, Dr Deming briefly introduced the experiment. Then there was some pleasant humour as he recruited ten members of the audience to join him on stage for the experiment—with him already pre-selected as the Foreman. The ten consisted of six "Willing Workers", three people to form an Inspection Department (a Chief Inspector and two junior inspectors), and a Recorder whose job was to sit at the overhead projector and write down the data representing the workers' performances and to carry out some simple arithmetic.
 
-Activity text here.
+The Foreman (Dr Deming) then gave the Willing Workers some basic training on their task in preparation for their getting down to the real work—at which, as we shall see, they would (of course) be rewarded or punished according to how well or badly they performed—macho-management at its finest!
+
+Again being honest with you, I was already feeling quite bored during the training session, even before the "real work" began. Had I not been one of Dr Deming's two official assistants at the seminar, there is little doubt that I would have taken the opportunity offered by this apparently dull part of the seminar to go off to do some shopping or sightseeing. But, in the circumstances, I could hardly do that—seated as I was at the front of the room, in full view of the whole audience and pretty much right under Dr Deming's nose!
+
+So I stayed. But my attention soon began to wander, and before long I was thumbing through the pages of the seminar handout to try to find some more productive way of spending the remaining hour and a half before lunchtime.
+
+Maybe 15 minutes later, I raised my eyes out of the book and casually glanced around the audience. Perhaps unconsciously, I had the sense that something was going on in the room—something that I had not expected and with which, of course, I was wholly uninvolved. To my surprise, I saw that the delegates didn't seem bored at all. On the contrary, their attention was already fixed on what was happening on the stage, and they were beginning to respond to what they were seeing and hearing: smiling, nudging each other, nodding and—gradually—reacting to the results being obtained by the Willing Workers, with enthusiastic applause for the good results and sharp intakes of breath or even catcalls for the poor ones.
+
+At least I can say for myself that I had the humility to realise I was missing something, and so I sat up and started paying attention. Being honest yet again, I confess that I still saw very little of significance in what was going on, try as I might. You see, as you know, I already had my mind made up—negatively—about the Experiment on Red Beads. I really didn't think I had anything to learn. And, several months later, when recalling this experience, I realised the absolute truth of something which I subsequently pointed out to many hundreds of my own delegates:
+
+**UNlearning is far more difficult—and painful—than learning.**
+
+Now, before we get into the details of the Red Beads Experiment, I'll ask you to take some time on a couple of important Pauses for Thought. I wish that, on that occasion in 1985, my mind had been working in the way exemplified in these Pauses for Thought. Maybe then my little grey cells would have been more attuned to what was really going on! Thus my reason for inserting these two Pauses here is to ensure that you are more ready for the learning than I was.
+
+<div class=workbook_callout>Pause for Thought 2–b is also on Workbook page 10.</div>
+
+<div class="thought_commentary">
+
+# PAUSE FOR THOUGHT 2–b
+
+As we grow older, and hopefully wiser, we may think about several things quite differently from the way
+that we used to. So identify something that you now regard very differently from the way that you did
+back in your younger days. *(If you are still very young then you might like to find an older friend to share some
+thoughts and experiences with you here.)*
 
 ```{ojs}
-viewof thought_example = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2b_i = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
 ```
 
-<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_example" aria-expanded="false" aria-controls="collapse_example">
-Click this after writing your comments
-</button>
+Why did you originally think about it in the way that you did?
 
-<div class="collapse" id="collapse_1a">
-Optional Neave commentary to be revealed after completing the activity.
+```{ojs}
+viewof thought_2b_ii = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+What made you change your mind?
+
+```{ojs}
+viewof thought_2b_iii = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+Was the experience of changing your mind difficult—and painful?
+
+```{ojs}
+viewof thought_2b_iv = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
 </div>
+
+In his book: *The Discoverers*, Daniel Boorstin wrote as follows:
+
+>“The greatest obstacle to discovering the shape of the earth, the continents, and the oceans was not ignorance but the illusion of knowledge.”
+
+Your answer to the first of the questions in Pause for Thought 2–b was surely something of the nature of “illusion of knowledge”—it certainly was in my case! So at least note the comforting thought from Daniel Boorstin that this doesn’t imply you or I are, or were, ignorant!
+
+<div class=workbook_callout>Pause for Thought 2–c is also on Workbook page 11.</div>
+
+<div class="thought_commentary">
+
+# PAUSE FOR THOUGHT 2–c
+
+What are some ways we can acquire and suffer from “illusion of knowledge”?
+
+```{ojs}
+viewof thought_2c_i = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+Should we be wary of them?
+
+```{ojs}
+viewof thought_2c_ii = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
 </div>
-:::
 
-::::
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
 
-<!--
-FOOTNOTES (if needed)
--->
 
-[^a]: Example footnote. Replace or remove as needed. 
+```{ojs download_trigger}
+//| output: false
+
+import { downloadNotes } from "../../../assets/scripts/functions.js"
+
+download_button.onclick = () => {
+  downloadNotes([viewof thought_2b_i, thought_2b_ii, thought_2b_iii, thought_2b_iv, thought_2c_i, thought_2c_ii], "thought_2b_2c.txt");
+};
+```
