@@ -55,3 +55,42 @@ create_clock <- function(hour, minute) {
       ) +
     coord_fixed()
 }
+
+# Function to plot a run chart for a vector of sales values
+run_chart_plot <- function(sales_vec) {
+  df <- data.frame(
+    month = 1:length(sales_vec),
+    sales = sales_vec
+  )
+  ggplot(df, aes(month, sales)) +
+    geom_line(
+      colour    = "#ed0000",
+      size      = 3,
+      linejoin  = "round"
+    ) +
+    scale_x_continuous(
+      breaks = 1:10,
+      expand = c(0.1, 0)
+    ) +
+    scale_y_continuous(
+      limits      = c(9, 26),
+      breaks      = seq(10, 25, by = 5),
+      minor_breaks = seq(10, 25, by = 1),
+      expand      = c(0, 0)
+    ) +
+    theme_minimal(base_size = 14) +
+    theme(
+      panel.grid.major.y = element_line(color = "grey80", size = .8),
+      panel.grid.major.x = element_line(color = "#cccccc", size = 1.2),
+      panel.grid.minor.y = element_line(color = "grey90", size = .3),
+      panel.grid.minor.x = element_blank(),
+      panel.background = element_blank(),
+      plot.margin = margin(5, 5, 5, 5),
+      axis.ticks.y = element_line(color = "grey50"),
+      axis.ticks.x = element_blank(),
+      axis.text.y  = element_text(color = "grey20", size = 28),
+      axis.text.x = element_blank(),
+      axis.title = element_blank(),
+      axis.line.y = element_line(color = "black", size = 0.8)
+    )
+}

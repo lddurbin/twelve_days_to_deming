@@ -12,25 +12,49 @@ source(here::here("R/functions/main-functions.R"))
 
 # Section Heading
 
-Introductory or overview text goes here. Replace this with your chapter introduction.
+Content goes here.
 
 ![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
 
 :::: {.columns}
 ::: {.column width="85%"}
-Main content goes here. Use headings, lists, and paragraphs as needed.
+Content goes here when we're including a clock icon next to it.
 :::
 ::: {.column width="15%"}
 <div style="margin-top: 10px">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(HH, MM)  # Replace HH, MM with hour and minute
+create_clock(09, 00)  # Replace HH, MM with hour and minute
 ```
 </div>
 :::
 ::::
 
-<div class=workbook_callout>Workbook or activity callout here. (Optional)</div>
-<div class=neave_note>Optional Neave note or commentary.</div>
+Content goes here when there's no clock.
+
+:::: {.columns}
+
+::: {.column width="85%"}
+<div class=thought_commentary>
+
+# PAUSE FOR THOUGHT OR ACTIVITY
+
+Activity text here.
+
+```{ojs}
+viewof thought_example = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_example" aria-expanded="false" aria-controls="collapse_example">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_1a">
+Optional Neave commentary to be revealed after completing the activity.
+</div>
+</div>
+:::
+
+::::
 
 <!--
 FOOTNOTES (if needed)

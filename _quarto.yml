@@ -18,7 +18,6 @@ book:
     - index.qmd
     - part: "Day 1: The Overture"
       chapters:
-        - content/days/day-01/index.qmd
         - content/days/day-01/01-overture.qmd
         - content/days/day-01/02-rediscovered.qmd
         - content/days/day-01/03-statistics.qmd
@@ -34,7 +33,6 @@ book:
         - content/days/day-01/13-major-activity.qmd
     - part: "Day 2: The Experiment on Red Beads"
       chapters:
-        - content/days/day-02/index.qmd
         - content/days/day-02/01-run-charts.qmd
         - content/days/day-02/02-intro-to-the-red-beads-experiment.qmd
         - content/days/day-02/03-a-brief-overview.qmd
