@@ -102,6 +102,19 @@ Usage:
   margin: 20px;
 }
 
+/* ===== TECHNICAL AID COMPONENT ===== */
+.technical_aid {
+  border: 2px solid #000000;
+  background-color: #e4deec;
+  padding: 10px;
+  margin: 20px;
+}
+
+.technical_aid h1, .technical_aid h2 {
+  color: #000000;
+  text-align: center;
+}
+
 /* ===== LAYOUT COMPONENTS ===== */
 .cell {
   margin: 20px;
