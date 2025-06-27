@@ -56,7 +56,53 @@ create_clock <- function(hour, minute) {
     coord_fixed()
 }
 
-# Function to plot a run chart for a vector of sales values
+# Extended generic run chart function to allow horizontal reference lines with labels
+basic_run_chart <- function(df, x, y, line_color = "#7a0000", line_size = 1, 
+                            x_limits = NULL, y_limits = NULL, x_breaks = NULL, y_breaks = NULL, minor_y_breaks = NULL,
+                            hlines = NULL, hline_labels = NULL, hline_label_color = "blue", hline_color = "blue", hline_size = 1) {
+  p <- ggplot(df, aes_string(x = x, y = y)) +
+    geom_line(color = line_color, size = line_size) +
+    scale_x_continuous(breaks = x_breaks, limits = x_limits, expand = c(0, 0)) +
+    scale_y_continuous(breaks = y_breaks, limits = y_limits, minor_breaks = minor_y_breaks, expand = c(0, 0)) +
+    theme_minimal(base_size = 14) +
+    theme(
+      panel.grid.major.y = element_line(color = "grey80", size = .8),
+      panel.grid.major.x = element_line(color = "#cccccc", size = 1.2),
+      panel.grid.minor.y = element_line(color = "grey90", size = .3),
+      panel.grid.minor.x = element_blank(),
+      panel.background = element_blank(),
+      plot.margin = margin(5, 30, 5, 5),
+      axis.ticks.y = element_line(color = "black"),
+      axis.ticks.x = element_blank(),
+      axis.text.y  = element_text(color = "black", size = 16),
+      axis.text.x  = element_text(color = "black", size = 14),
+      axis.title = element_blank(),
+      axis.line.y = element_line(color = "black", size = 1),
+      axis.line.x = element_blank()
+    )
+  if (!is.null(hlines)) {
+    for (i in seq_along(hlines)) {
+      p <- p + geom_hline(yintercept = hlines[i], color = hline_color, size = hline_size)
+      if (!is.null(hline_labels) && !is.na(hline_labels[i])) {
+        # Place label at right edge, just above the line, right-aligned and inside plot
+        p <- p + annotate(
+          "text",
+          x = max(df[[x]]),
+          y = hlines[i] + 1.2,  # Just above the line
+          label = hline_labels[i],
+          hjust = 1,
+          vjust = 0,
+          color = hline_label_color,
+          size = 7,
+          fontface = "bold"
+        )
+      }
+    }
+  }
+  p
+}
+
+# Function to plot a run chart for a vector of sales values (legacy interface)
 run_chart_plot <- function(sales_vec) {
   df <- data.frame(
     month = 1:length(sales_vec),
@@ -65,15 +111,15 @@ run_chart_plot <- function(sales_vec) {
   ggplot(df, aes(month, sales)) +
     geom_line(
       colour    = "#ed0000",
-      size      = 3,
+      size      = 6,
       linejoin  = "round"
     ) +
     scale_x_continuous(
-      breaks = 1:10,
-      expand = c(0.1, 0)
+      breaks = 1:length(sales_vec),
+      expand = c(0, 0)
     ) +
     scale_y_continuous(
-      limits      = c(9, 26),
+      limits      = c(10, 25),
       breaks      = seq(10, 25, by = 5),
       minor_breaks = seq(10, 25, by = 1),
       expand      = c(0, 0)
@@ -86,11 +132,68 @@ run_chart_plot <- function(sales_vec) {
       panel.grid.minor.x = element_blank(),
       panel.background = element_blank(),
       plot.margin = margin(5, 5, 5, 5),
-      axis.ticks.y = element_line(color = "grey50"),
+      axis.ticks.y = element_line(color = "black"),
       axis.ticks.x = element_blank(),
-      axis.text.y  = element_text(color = "grey20", size = 28),
-      axis.text.x = element_blank(),
+      axis.text.y  = element_text(color = "black", size = 16),
+      axis.text.x  = element_text(color = "black", size = 14),
       axis.title = element_blank(),
-      axis.line.y = element_line(color = "black", size = 0.8)
+      axis.line.y = element_line(color = "black", size = 1),
+      axis.line.x = element_blank()
+    )
+}
+
+# Function to plot the red beads control chart with UCL and LCL
+red_beads_control_chart <- function(red_beads_vec, LCL = 1.4, UCL = 18.2) {
+  df <- data.frame(order = 1:length(red_beads_vec), beads = red_beads_vec)
+  basic_run_chart(
+    df, x = "order", y = "beads",
+    line_color = "#ed0000", line_size = 2,
+    x_limits = c(1, length(red_beads_vec)),
+    y_limits = c(0, 26),
+    x_breaks = 1:length(red_beads_vec),
+    y_breaks = seq(0, 25, by = 5),
+    minor_y_breaks = seq(0, 25, by = 1),
+    hlines = c(LCL, UCL),
+    hline_labels = c("LCL", "UCL"),
+    hline_label_color = "blue",
+    hline_color = "blue",
+    hline_size = 1
+  )
+}
+
+# Function to plot the red beads run chart (no control limits)
+red_beads_run_chart <- function(red_beads_vec) {
+  df <- data.frame(order = 1:length(red_beads_vec), beads = red_beads_vec)
+  ggplot(df, aes(order, beads)) +
+    geom_line(
+      colour    = "#ed0000",
+      size      = 2,
+      linejoin  = "round"
+    ) +
+    scale_x_continuous(
+      breaks = 1:length(red_beads_vec),
+      expand = c(0, 0)
+    ) +
+    scale_y_continuous(
+      limits      = c(0, 26),
+      breaks      = seq(0, 25, by = 5),
+      minor_breaks = seq(0, 25, by = 1),
+      expand      = c(0, 0)
+    ) +
+    theme_minimal(base_size = 14) +
+    theme(
+      panel.grid.major.y = element_line(color = "grey80", size = .8),
+      panel.grid.major.x = element_line(color = "#cccccc", size = 1.2),
+      panel.grid.minor.y = element_line(color = "grey90", size = .3),
+      panel.grid.minor.x = element_blank(),
+      panel.background = element_blank(),
+      plot.margin = margin(5, 5, 5, 5),
+      axis.ticks.y = element_line(color = "black"),
+      axis.ticks.x = element_blank(),
+      axis.text.y  = element_text(color = "black", size = 16),
+      axis.text.x  = element_text(color = "black", size = 14),
+      axis.title = element_blank(),
+      axis.line.y = element_line(color = "black", size = 1),
+      axis.line.x = element_blank()
     )
 }
