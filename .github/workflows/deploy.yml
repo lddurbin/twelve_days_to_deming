@@ -19,10 +19,16 @@ jobs:
       with:
         r-version: 'release'
         
+    - name: Set R_LIBS_USER
+      run: echo "R_LIBS_USER=$HOME/R/library" >> $GITHUB_ENV
+
+    - name: Ensure R library directory exists
+      run: mkdir -p $HOME/R/library
+
     - name: Cache R packages
       uses: actions/cache@v3
       with:
-        path: ~/R/x86_64-pc-linux-gnu-library/${{ steps.setup-r.outputs.r-version }}
+        path: $HOME/R/library
         key: ${{ runner.os }}-r-${{ steps.setup-r.outputs.r-version }}-${{ hashFiles('**/deploy.yml') }}
         restore-keys: |
           ${{ runner.os }}-r-
@@ -68,6 +74,8 @@ jobs:
         
         echo "=== Verifying package installation ==="
         R -e "library(knitr); library(rmarkdown); library(here); cat('Essential packages loaded successfully\n')"
+      env:
+        R_LIBS_USER: ${{ env.R_LIBS_USER }}
         
     - name: Build Quarto book
       run: |
