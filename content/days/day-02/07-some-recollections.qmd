@@ -2,6 +2,7 @@
 title: "SOME RECOLLECTIONS"
 execute:
   echo: false
+  warning: false
 ---
 
 ```{r}
