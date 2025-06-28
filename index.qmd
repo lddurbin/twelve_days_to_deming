@@ -1,7 +1,9 @@
 # Please start here {.unnumbered}
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 #| echo: false
+#| message: false
+#| warning: false
 
 source(here::here("R/functions/main-functions.R"))
 ```
@@ -124,13 +126,21 @@ that the full eight hours per day will be needed to even begin to do it justice.
 
 ::: {.column width="10%"}
 <div style="margin-top: 10px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
 create_clock(9, 00)
 ```
 </div>
 
 <div style="margin-top: 100px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
 create_clock(4, 30)
 ```
 </div>
@@ -150,13 +160,21 @@ course than subsequently. So, in that initial case, I am permitting a later star
 
 ::: {.column width="10%"}
 <div style="margin-top: 10px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
 create_clock(6, 00)
 ```
 </div>
 
 <div style="margin-top: 100px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
 create_clock(9, 30)
 ```
 </div>
