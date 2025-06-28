@@ -214,11 +214,11 @@ make_redbeads_df <- function(
     `Day 2` = day2,
     `Day 3` = day3,
     `Day 4` = day4
-  ) %>%
-    rowwise() %>%
+  ) |> 
+    rowwise() |> 
     mutate(
       Totals = if (all(!is.na(c_across(all_of(days))))) sum(c_across(all_of(days))) else NA_real_
-    ) %>%
+    ) |> 
     ungroup()
   
   # compute bottom row but only if entire column is non‐NA
@@ -237,9 +237,9 @@ make_redbeads_df <- function(
 }
 
 render_redbeads_table <- function(df) {
-  df %>%
-    gt(rowname_col = "Name") %>%
-    fmt_missing(everything(), missing_text = "") %>%
+  df |> 
+    gt(rowname_col = "Name") |> 
+    fmt_missing(everything(), missing_text = "") |> 
     tab_options(
       table.background.color = "white",
       row.striping.background_color = "white",
@@ -299,7 +299,7 @@ render_redbeads_table <- function(df) {
     tab_style(
       style = cell_text(weight = "bold", align = "center"),
       locations = cells_column_labels()
-    ) %>%
+    ) |> 
     # Bold 'Daily Totals' in the stub
     tab_style(
       style = cell_text(weight = "bold"),
