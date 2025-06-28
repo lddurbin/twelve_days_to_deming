@@ -1,5 +1,6 @@
 library(ggplot2)
 library(dplyr)
+library(gt)
 
 # Function to create clock with inward-facing dashes for hour ticks and hands attached to inner circle
 create_clock <- function(hour, minute) {
@@ -195,5 +196,113 @@ red_beads_run_chart <- function(red_beads_vec) {
       axis.title = element_blank(),
       axis.line.y = element_line(color = "black", size = 1),
       axis.line.x = element_blank()
+    )
+}
+
+make_redbeads_df <- function(
+  day1    = rep(NA_real_, 6),
+  day2    = rep(NA_real_, 6),
+  day3    = rep(NA_real_, 6),
+  day4    = rep(NA_real_, 6),
+  workers = c("Audrey","John","Al","Carol","Ben","Ed")
+) {
+  days <- c("Day 1","Day 2","Day 3","Day 4")
+  
+  df <- tibble(
+    Name    = workers,
+    `Day 1` = day1,
+    `Day 2` = day2,
+    `Day 3` = day3,
+    `Day 4` = day4
+  ) %>%
+    rowwise() %>%
+    mutate(
+      Totals = if (all(!is.na(c_across(all_of(days))))) sum(c_across(all_of(days))) else NA_real_
+    ) %>%
+    ungroup()
+  
+  # compute bottom row but only if entire column is non‐NA
+  daily_vals <- sapply(df[days], function(col) if(all(!is.na(col))) sum(col) else NA_real_)
+  grand_val   <- if(all(!is.na(daily_vals))) sum(daily_vals) else NA_real_
+  bottom <- tibble(
+    Name    = "Daily Totals",
+    `Day 1` = daily_vals[1],
+    `Day 2` = daily_vals[2],
+    `Day 3` = daily_vals[3],
+    `Day 4` = daily_vals[4],
+    Totals  = grand_val
+  )
+  
+  bind_rows(df, bottom)
+}
+
+render_redbeads_table <- function(df) {
+  df %>%
+    gt(rowname_col = "Name") %>%
+    fmt_missing(everything(), missing_text = "") %>%
+    tab_options(
+      table.background.color = "white",
+      row.striping.background_color = "white",
+      table.border.top.style = "solid",
+      table.border.top.width = px(4),
+      table.border.top.color = "black",
+      table.border.right.style = "solid",
+      table.border.right.width = px(4),
+      table.border.right.color = "black",
+      table.border.bottom.style = "solid",
+      table.border.bottom.width = px(4),
+      table.border.bottom.color = "black",
+      table.border.left.style = "solid",
+      table.border.left.width = px(4),
+      table.border.left.color = "black"
+    ) |> 
+    # Add thin black horizontal grid lines between body rows
+    tab_style(
+      style = cell_borders(sides = "bottom", color = "#c1c1c1", weight = px(1)),
+      locations = cells_body()
+    ) |> 
+    tab_style(
+      style = cell_borders(sides = "left", color = "#c1c1c1", weight = px(1)),
+      locations = cells_column_labels()
+    ) |> 
+    # Add thin black vertical grid lines between body columns
+    tab_style(
+      style = cell_borders(sides = "right", color = "#c1c1c1", weight = px(1)),
+      locations = cells_body()
+    ) |> 
+    # Add thick black border at the left of the "Day 1" column label (ensures continuity)
+    tab_style(
+      style = cell_borders(sides = "left", color = "black", weight = px(2)),
+      locations = cells_body(columns = "Totals")
+    ) |> 
+    tab_style(
+      style = cell_borders(sides = "top", color = "black", weight = px(2)),
+      locations = cells_body(rows = 7)
+    ) |> 
+    tab_style(
+      style = cell_borders(sides = "bottom", color = "black", weight = px(2)),
+      locations = cells_column_labels()
+    ) |> 
+    tab_style(
+      style = cell_borders(sides = "right", color = "black", weight = px(2)),
+      locations = cells_stub()
+    ) |> 
+    tab_style(
+      style = cell_borders(sides = "top", color = "black", weight = px(2)),
+      locations = cells_stub(rows = 7)
+    ) |> 
+      tab_style(
+        style = cell_borders(sides = c("bottom", "right"), color = "black", weight = px(2)),
+        locations = cells_stubhead()
+      ) |> 
+    # Bold column labels
+    tab_style(
+      style = cell_text(weight = "bold", align = "center"),
+      locations = cells_column_labels()
+    ) %>%
+    # Bold 'Daily Totals' in the stub
+    tab_style(
+      style = cell_text(weight = "bold"),
+      locations = cells_stub(rows = "Daily Totals")
     )
 }

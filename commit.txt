@@ -1,0 +1,12 @@
+Refactor Red Beads table rendering and project assets
+
+- Overhauled render_redbeads_table() in main-functions.R:
+  - Removed ineffective tab_style calls and added detailed comments to clarify each styling effect
+  - Disabled zebra striping and set all table backgrounds to white using tab_options
+  - Applied thick black borders around the entire table using tab_options for top, right, bottom, and left
+  - Improved grid and border styling for clarity and visual consistency
+- Added make_redbeads_df() utility for easier Red Beads table creation
+- Updated 06-your-turn.qmd with new table rendering and improved narrative
+- Added CSS grid layout for GT tables and arrows in assets/styles/main.css
+- Fixed script path in _quarto.yml to use absolute path for functions.js
+- Deleted unused image file from day 2 experiment

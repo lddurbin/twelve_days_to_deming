@@ -1,5 +1,5 @@
 ---
-title: "06 Your Turn"
+title: "YOUR TURN"
 execute:
   echo: false
 ---
@@ -10,54 +10,38 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-# Section Heading
 
-Content goes here.
+I well remember that, the first few times I was preparing to run the Red Beads Experiment in public, I felt rather nervous. Wouldn't you—knowing that you (as the Foreman) were going to be spending an hour or more just talking about 24 as-yet-unknown *random numbers* (or as near random as makes no difference)? But I soon found out that it could hardly be easier! Whatever numbers turn up, it's so simple to find "reasons" for them. Of course it is: we are well-practised at the art. We do it every week, month, quarter, half-year, year, in our management reports, with production figures, sales figures, financial figures. Financial commentators do it every day—or even every hour or less, e.g. regarding the movements of stock market indices and exchange rates. I'm not saying that all the reasons reported are wrong. I am pointing out that, *whatever* are the results, we and they come up with reasons—whether there actually are any or not! Even on a day when, say, the stock market index hardly moves, a reason is given for that! Few bosses or customers are yet ready to hear explanations just served in terms of *common-cause* variation. Therefore they are given special-cause explanations all the time, for every result. What clearer contradiction in terms could there be? *Yes*, of course the Foreman praises a lower number of defectives. *Of course* he criticises a larger number. Of course he remarks on consistent performance. *Of course* he makes remarks on erratic performance. *Of course* he complains if the target isn't being met. *Of course!*
 
-![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
+Now comes the time for you to get some practice at playing the role of the Foreman! Remember that the Foreman (pretends that he) is in the Un-Knowing state—typified by all the discussion in the so-called "Analysis" of the results on pages 12 and 13. So, **to help you get ready to perform in that role, I recommend that you now go back and re-read that page and a half before continuing here.**
 
-:::: {.columns}
-::: {.column width="85%"}
-Content goes here when we're including a clock icon next to it.
-:::
-::: {.column width="15%"}
-<div style="margin-top: 10px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(09, 00)  # Replace HH, MM with hour and minute
+<div class=workbook_callout>*Activity 2–f (pages 22–27) is also on Workbook pages 14–19.*</div>
+
+<div class="thought_commentary">
+
+# ACTIVITY 2–f
+
+The next four pages show you, one at a time, the results from the Red Beads Experiment illustrated in *DemDim* Chapter 6.
+
+There is space for you to insert indications of your reaction to the number of red beads obtained at each stage. Naturally, you could say even more if the experiment were "live": you could see things to congratulate or criticise about the way the Willing Workers are carrying out their task (wrong angle, or too fast, or too slow, or too unsteady ... ). But there's still plenty that can be said in response to the figures alone!
+
+To get you started, I have included my suggestions of reactions to the first four figures—they are very much the kind of comments that you might have heard from Dr Deming himself. See how you get on with the rest of the experiment. If, after some thought, you need extra help then I've given a few further suggestions on page 27.
+
+<span class="neave_note">
+<p>NB The version of the experiment in *DemDim* Chapter 6 is Dr Deming's. I should therefore mention three minor differences between his version here and my version which is otherwise being illustrated today:</p>
+<p>
+- Dr Deming referred to the time period for each set of results as a day rather than a week.
+- Although he would carry out a performance appraisal and fire the three workers who had produced most red beads, he did this after the fourth day rather than the third.
+- For consistency with my own version of the experiment (which produces 24 items of data in all) I have not included the final week's data here (nor in *DemDim*) which were obtained by the three "best" workers: Ed, Al and Audrey.
+</p>
+</span>
+
+```{r}
+# Not all of Day 1 is filled → bottom row blank
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, NA, NA, NA, NA)
+)
+render_redbeads_table(df1)
 ```
+
 </div>
-:::
-::::
-
-Content goes here when there's no clock.
-
-:::: {.columns}
-
-::: {.column width="85%"}
-<div class=thought_commentary>
-
-# PAUSE FOR THOUGHT OR ACTIVITY
-
-Activity text here.
-
-```{ojs}
-viewof thought_example = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
-```
-
-<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_example" aria-expanded="false" aria-controls="collapse_example">
-Click this after writing your comments
-</button>
-
-<div class="collapse" id="collapse_1a">
-Optional Neave commentary to be revealed after completing the activity.
-</div>
-</div>
-:::
-
-::::
-
-<!--
-FOOTNOTES (if needed)
--->
-
-[^a]: Example footnote. Replace or remove as needed. 
