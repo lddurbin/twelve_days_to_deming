@@ -75,7 +75,11 @@ jobs:
 
     - name: Restore R packages with renv (verbose)
       run: |
-        Rscript -e 'renv::restore(verbose = TRUE)'
+        Rscript -e 'renv::restore()'
+
+    - name: Check renv status
+      run: |
+        Rscript -e 'renv::status()'
 
     - name: Check permissions and disk space after restore
       run: |
