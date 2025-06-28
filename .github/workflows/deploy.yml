@@ -23,7 +23,9 @@ jobs:
       run: echo "R_LIBS_USER=$HOME/R/library" >> $GITHUB_ENV
 
     - name: Ensure R library directory exists
-      run: mkdir -p $HOME/R/library
+      run: |
+        mkdir -p $HOME/R/library
+        touch $HOME/R/library/.cache-keep
 
     - name: Cache R packages
       uses: actions/cache@v3
