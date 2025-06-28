@@ -64,9 +64,14 @@ jobs:
         Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
         Rscript -e 'renv::restore()'
 
-    - name: Debug R library paths
+    - name: Manually install knitr and rmarkdown
       run: |
+        Rscript -e 'renv::install(c("knitr", "rmarkdown"))'
         Rscript -e 'print(.libPaths()); print(list.files(.libPaths()[1]))'
+
+    - name: Check renv library permissions
+      run: |
+        ls -l /home/runner/work/twelve_days_to_deming/twelve_days_to_deming/renv/library/R-4.5/x86_64-pc-linux-gnu
         
     - name: Build Quarto book
       run: |
