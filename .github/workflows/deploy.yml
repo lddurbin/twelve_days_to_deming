@@ -57,7 +57,7 @@ jobs:
     - name: Pre-install digest
       run: |
         Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
-        Rscript -e 'source("renv/activate.R"); install.packages("digest", repos = "https://cran.rstudio.com")'
+        Rscript -e 'source("renv/activate.R"); install.packages(c("digest", "igraph"), repos = "https://cran.rstudio.com")'
       
     - name: Restore R packages with renv
       run: |
