@@ -54,7 +54,7 @@ jobs:
         sudo dpkg -i quarto-1.4.549-linux-amd64.deb
         quarto --version
         
-    - name: Pre-install digest
+    - name: Pre-install some packages
       run: |
         Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
         Rscript -e 'source("renv/activate.R"); install.packages(c("digest", "igraph"), repos = "https://cran.rstudio.com")'
