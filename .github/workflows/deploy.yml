@@ -19,20 +19,6 @@ jobs:
       with:
         r-version: 'release'
         
-    - name: Ensure renv library directory exists
-      run: mkdir -p renv/library
-
-    - name: Cache R packages
-      uses: actions/cache@v3
-      with:
-        path: renv/library
-        key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-renv-
-
-    - name: Setup Pandoc
-      uses: r-lib/actions/setup-pandoc@v2
-      
     - name: Install minimal system dependencies
       run: |
         sudo apt-get update
@@ -46,7 +32,34 @@ jobs:
           libfontconfig1-dev \
           libfreetype6-dev \
           build-essential \
-          gfortran
+          gfortran \
+          libgmp3-dev \
+          libglpk-dev
+
+    - name: Install renv
+      run: Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
+
+    - name: Ensure renv library directory exists
+      run: mkdir -p renv/library
+
+    - name: Pre-install igraph in renv library
+      run: |
+        Rscript -e 'install.packages("igraph", lib = "renv/library/R-4.5/x86_64-pc-linux-gnu")'
+
+    - name: Test igraph install
+      run: |
+        Rscript -e 'library(igraph); sessionInfo()'
+
+    - name: Cache R packages
+      uses: actions/cache@v3
+      with:
+        path: renv/library
+        key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-renv-
+
+    - name: Setup Pandoc
+      uses: r-lib/actions/setup-pandoc@v2
       
     - name: Install Quarto
       run: |
@@ -54,17 +67,6 @@ jobs:
         sudo dpkg -i quarto-1.4.549-linux-amd64.deb
         quarto --version
         
-    - name: Pre-install some packages
-      run: |
-        Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
-        Rscript -e 'source("renv/activate.R"); install.packages(c("digest", "igraph", "bit"), repos = "https://cran.rstudio.com")'
-      
-    - name: Check permissions and disk space before restore
-      run: |
-        df -h
-        ls -ld renv/library/R-4.5/x86_64-pc-linux-gnu || true
-        ls -l renv/library/R-4.5/x86_64-pc-linux-gnu || true
-
     - name: Disable renv sandbox
       run: |
         echo 'Sys.setenv(RENV_CONFIG_SANDBOX_ENABLED = "FALSE")' >> .Rprofile
@@ -73,19 +75,13 @@ jobs:
       run: |
         rm -rf renv/library
 
-    - name: Restore R packages with renv (verbose)
+    - name: Restore R packages with renv
       run: |
         Rscript -e 'renv::restore()'
 
     - name: Check renv status
       run: |
         Rscript -e 'renv::status()'
-
-    - name: Check permissions and disk space after restore
-      run: |
-        df -h
-        ls -ld renv/library/R-4.5/x86_64-pc-linux-gnu || true
-        ls -l renv/library/R-4.5/x86_64-pc-linux-gnu || true
 
     - name: List installed packages in renv library
       run: |
