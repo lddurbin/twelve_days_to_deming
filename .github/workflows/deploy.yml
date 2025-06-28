@@ -72,7 +72,7 @@ jobs:
         rm -rf renv/
         
         # Install all packages needed for the book
-        R -e "install.packages(c('knitr', 'rmarkdown', 'ggplot2', 'dplyr', 'here', 'DiagrammeR'), repos = 'https://cran.rstudio.com/')"
+        R -e "install.packages(c('knitr', 'rmarkdown', 'ggplot2', 'dplyr', 'here', 'DiagrammeR', 'gt'), repos = 'https://cran.rstudio.com/')"
         
         echo "=== Verifying package installation ==="
         R -e "library(knitr); library(rmarkdown); library(here); cat('Essential packages loaded successfully\n')"
