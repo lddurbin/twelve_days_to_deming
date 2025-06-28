@@ -19,22 +19,17 @@ jobs:
       with:
         r-version: 'release'
         
-    - name: Set R_LIBS_USER
-      run: echo "R_LIBS_USER=$HOME/R/library" >> $GITHUB_ENV
-
-    - name: Ensure R library directory exists
-      run: |
-        mkdir -p $HOME/R/library
-        touch $HOME/R/library/.cache-keep
+    - name: Ensure renv library directory exists
+      run: mkdir -p renv/library
 
     - name: Cache R packages
       uses: actions/cache@v3
       with:
-        path: $HOME/R/library
-        key: ${{ runner.os }}-r-${{ steps.setup-r.outputs.r-version }}-${{ hashFiles('**/deploy.yml') }}
+        path: renv/library
+        key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
         restore-keys: |
-          ${{ runner.os }}-r-
-        
+          ${{ runner.os }}-renv-
+
     - name: Setup Pandoc
       uses: r-lib/actions/setup-pandoc@v2
       
@@ -59,25 +54,10 @@ jobs:
         sudo dpkg -i quarto-1.4.549-linux-amd64.deb
         quarto --version
         
-    - name: Disable renv and install R packages
+    - name: Restore R packages with renv
       run: |
-        echo "=== Disabling renv and installing R packages ==="
-        
-        # Temporarily rename .Rprofile to prevent renv activation
-        mv .Rprofile .Rprofile.backup
-        
-        # Completely disable renv
-        export RENV_PROJECT=""
-        unset RENV_PROJECT
-        rm -rf renv/
-        
-        # Install all packages needed for the book
-        R -e "install.packages(c('knitr', 'rmarkdown', 'ggplot2', 'dplyr', 'here', 'DiagrammeR', 'gt'), repos = 'https://cran.rstudio.com/')"
-        
-        echo "=== Verifying package installation ==="
-        R -e "library(knitr); library(rmarkdown); library(here); cat('Essential packages loaded successfully\n')"
-      env:
-        R_LIBS_USER: ${{ env.R_LIBS_USER }}
+        Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
+        Rscript -e 'renv::restore()'
         
     - name: Build Quarto book
       run: |
@@ -90,11 +70,6 @@ jobs:
         # Build the book
         quarto render
         echo "Build completed successfully"
-        
-    - name: Restore .Rprofile
-      run: |
-        # Restore .Rprofile for future local development
-        mv .Rprofile.backup .Rprofile
         
     - name: Verify build output
       run: |

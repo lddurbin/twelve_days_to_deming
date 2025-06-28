@@ -174,5 +174,196 @@ render_redbeads_table(df1)
 viewof activity_2f_viii = Inputs.text({placeholder: "Type your comment here."})
 ```
 
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, NA, NA, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
 
+```{ojs}
+viewof activity_2f_ix = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, NA, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_x = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xi = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, 14, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xii = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, 14, 9, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xiii = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, 14, 9, 12)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xiv = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, 14, 9, 12),
+  day4 = c(6, NA, NA, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xv = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, 14, 9, 12),
+  day4 = c(6, 10, NA, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xvi = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, 14, 9, 12),
+  day4 = c(6, 10, 11, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xvii = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, 14, 9, 12),
+  day4 = c(6, 10, 11, 11, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xviii = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, 14, 9, 12),
+  day4 = c(6, 10, 11, 11, 13, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xix = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7),
+  day3 = c(7, 12, 13, 14, 9, 12),
+  day4 = c(6, 10, 11, 11, 13, 7)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_xx = Inputs.text({placeholder: "Type your comment here."})
+```
+
+
+Here are a few more suggestions:
+
+- On Day 2 for Al: <span class="foreman-remark">“You were yesterday’s top performer—must have let it go to your head.”</span>
+- On Day 2 after Ben’s 17: <span class="foreman-remark">“Hold it—stop the line!”</span>
+- At the end of Day 2: <span class="foreman-remark">“65? That’s a lot worse than the first week! Quite dreadful.”</span>
+- On Day 3 for Al: <span class="foreman-remark">“From bad to worse.”</span>
+- On Day 3 for Ben: <span class="foreman-remark">“I’m glad you learned your lesson.”</span>
+- On Day 4 for Audrey: <span class="foreman-remark">“You’re a slow learner. But I’m proud of you.”</span>
+- On Day 4 for John: <span class="foreman-remark">“Very consistent. Consistently bad.”</span>
+
+Now, if you haven’t done so already, go back and try to complete your remarks for all the remaining results.
+
+<span class="neave_note">*(Then, finally, take a look at my complete set of remarks on Appendix page 8.)*</span>
+</div>
+
+After a couple of pages of introduction to the Experiment on Red Beads at the beginning of *DemDim* Chapter 6, the data presented in Activity 2–f are discussed from the top of *DemDim* page 103. So now that you
+have worked your way through this Activity, I suggest you complete this morning’s study by **reading
+Chapter 6** (it’s only eight pages long). This will both consolidate what we have already covered and also
+perhaps provide you with a few extra points to add to the notes that you are taking to help you with the
+Major Activity at the end of the day. (As usual, ignore the formulas and computations if you are on Stats-level 0.)
+
+Reference is made during Chapter 6 to the Funnel Experiment since, in *DemDim*, that is covered in the previous chapter. Here we shall be catching up with the Funnel Experiment tomorrow. In fact, in tomorrow’s
+Major Activity, which will occupy almost the entire afternoon, you will be carrying out a full version of the
+Funnel Experiment (although using different equipment from that described by Dr Deming).
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
 </div>
