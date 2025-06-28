@@ -1,5 +1,5 @@
 ---
-title: "07 Some Recollections"
+title: "SOME RECOLLECTIONS"
 execute:
   echo: false
 ---
@@ -10,54 +10,22 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-# Section Heading
 
-Content goes here.
+In spite of the <span class="deming_quote">"stupidly simple"</span> nature of the Red Beads Experiment, and in spite of our naturally having the All-Knowing's perspective on it, emotions can run high. I shall not forget an occasion when, as soon as the experiment had ended, one of my delegates stood up, ashen-faced and with unsteady voice, to confirm that so much of what had just happened, so much of what I (as the Foreman) had said to the workers, so much of the way I had mistreated and abused them, eventually firing some of them for no justifiable reason, had not only all happened to him but to others in his family.
 
-![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
+Another memory is from February 1992: the occasion when I took Tony Carter, recently appointed to the position of Secretary General in the British Deming Association, to meet Dr Deming and attend a four-day seminar in Miami. His hand shot up when it was time for volunteers to participate in the Red Beads Experiment, and he became one of the Willing Workers. Imagine how he felt—on stage with Dr Deming in front of some 600 Americans as the new organisational and administrative head of the BDA. *Of course* he wanted to do well. *Of course* he tried hard to follow instructions. But his performance, as measured by his results, was abysmal. In the subsequent issue of the BDA's newsletter, he wrote:
 
-:::: {.columns}
-::: {.column width="85%"}
-Content goes here when we're including a clock icon next to it.
-:::
-::: {.column width="15%"}
-<div style="margin-top: 10px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(09, 00)  # Replace HH, MM with hour and minute
-```
+>"The time came to sack the worst three Willing Workers and, sadly, I was one of them. Even though I knew perfectly well it was entirely the result of the system, I could not escape an illogical feeling of failure. The new Secretary General of the British Deming Association had been fired by Dr Deming at our first meeting!"
+
+I know how he felt. I was there. *I* was willing him to do well. I think I finished up feeling as embarrassed as Tony did.
+
+A further recollection comes from one of my seminars later that same year. A delegate pointed out that, had the supplied materials not been of such poor standard, the workers would not have produced so many defectives. I reminded the delegate that these were hard, competitive times. The contract for supply of beads had been put out to tender, and one particular supplier had come up with an exceptionally good price. It was so good that we couldn't afford to turn down such a good bargain, even if maybe his product wasn't quite so good as we could have obtained elsewhere. It was truly "an offer that we couldn't refuse". A second delegate immediately spoke up to confess that he had just used those exact same words back at his company the previous day.
+
+Two particular runs of the Red Beads Experiment stick in my memory despite the fact that they both took place around 30 years ago. They were the experiments which produced the very best total score and the very worst total score that were obtained over approximately 150 experiments carried out with exactly the same Red Beads equipment as I used at the Ireland seminar.
+
+If you were still in the Un-Knowing state, you would probably not be at all surprised to learn where these two sets of results originated. Very the best score (a total of just 203 red beads) was obtained by the most elite set of workers I was ever privileged to have participating in the Red Beads Experiment: five departmental heads in the British Government's Central Statistical Office plus one University Professor of Statistics. At the other extreme, the very worst score of 270 red beads was produced on the first of two occasions that I performed the experiment in Madrid, and some people might have doubts about the abilities of Spanish workers. Hold on—*don't take offence at that remark!* The point of this suggestion—and yet a further important message that comes from the Red Beads Experiment—is how easy it is to find data that appear to provide "evidence" to support personal prejudices. Let's take a look at both sets of data.
+
+<div class="neave_note">
+As with the experiment in Ireland described on pages 9–16, a "performance appraisal" takes place at the end of the third week; the three "worst" workers are then fired and the "best" workers have to work double time during the fourth week—they will need to produce **two** paddles of 50 beads, not just one!
 </div>
-:::
-::::
 
-Content goes here when there's no clock.
-
-:::: {.columns}
-
-::: {.column width="85%"}
-<div class=thought_commentary>
-
-# PAUSE FOR THOUGHT OR ACTIVITY
-
-Activity text here.
-
-```{ojs}
-viewof thought_example = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
-```
-
-<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_example" aria-expanded="false" aria-controls="collapse_example">
-Click this after writing your comments
-</button>
-
-<div class="collapse" id="collapse_1a">
-Optional Neave commentary to be revealed after completing the activity.
-</div>
-</div>
-:::
-
-::::
-
-<!--
-FOOTNOTES (if needed)
--->
-
-[^a]: Example footnote. Replace or remove as needed. 

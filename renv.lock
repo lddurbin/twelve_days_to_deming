@@ -271,17 +271,6 @@
       ],
       "Hash": "8f27335f2bcff4d6035edcc82d7d46de"
     },
-    "digest": {
-      "Package": "digest",
-      "Version": "0.6.36",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R",
-        "utils"
-      ],
-      "Hash": "fd6824ad91ede64151e93af67df6376b"
-    },
     "dplyr": {
       "Package": "dplyr",
       "Version": "1.1.4",
@@ -500,7 +489,6 @@
       "Requirements": [
         "R",
         "base64enc",
-        "digest",
         "fastmap",
         "grDevices",
         "rlang",
@@ -834,7 +822,6 @@
       "Repository": "RSPM",
       "Requirements": [
         "R",
-        "digest",
         "htmltools",
         "htmlwidgets",
         "jsonlite",
