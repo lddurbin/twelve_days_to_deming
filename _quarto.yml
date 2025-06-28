@@ -13,6 +13,8 @@ book:
   subtitle: "An active-learning course"
   author: "Henry R. Neave"
   reader-mode: true
+  sidebar:
+    collapse-level: 1
   
   chapters:
     - index.qmd

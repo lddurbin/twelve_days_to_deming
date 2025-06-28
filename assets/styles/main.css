@@ -72,6 +72,19 @@ Usage:
   font-weight: bold;
 }
 
+.foreman-remark {
+  display: block;
+  font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+  font-size: 1.2em;
+  color: #3333a6; /* navy blue */
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  letter-spacing: 0.5px;
+}
+
 /* ===== THOUGHT COMPONENTS ===== */
 .thought {
   border: 2px solid #008000;

@@ -37,11 +37,142 @@ To get you started, I have included my suggestions of reactions to the first fou
 </span>
 
 ```{r}
-# Not all of Day 1 is filled → bottom row blank
+df1 <- make_redbeads_df(
+  day1 = c(16, NA, NA, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+<span class="foreman-remark">
+"What a terrible start!  But you’ve only just been trained—weren’t you watching?"
+</span>
+
+```{r}
 df1 <- make_redbeads_df(
   day1 = c(16, 9, NA, NA, NA, NA)
 )
 render_redbeads_table(df1)
 ```
+
+<span class="foreman-remark">
+"That's better."
+</span>
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+<span class="foreman-remark">
+"Excellent: continuous improvement."
+</span>
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+<span class="foreman-remark">
+"What a disappointment."
+</span>
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_i = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_ii = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, NA, NA, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_iii = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, NA, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_iv = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, NA, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_v = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, NA, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_vi = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, NA)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_vii = Inputs.text({placeholder: "Type your comment here."})
+```
+
+```{r}
+df1 <- make_redbeads_df(
+  day1 = c(16, 9, 4, 7, 9, 9),
+  day2 = c(10, 11, 9, 11, 17, 7)
+)
+render_redbeads_table(df1)
+```
+
+```{ojs}
+viewof activity_2f_viii = Inputs.text({placeholder: "Type your comment here."})
+```
+
 
 </div>
