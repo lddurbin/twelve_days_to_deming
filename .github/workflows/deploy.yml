@@ -59,14 +59,37 @@ jobs:
         Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
         Rscript -e 'source("renv/activate.R"); install.packages(c("digest", "igraph", "bit"), repos = "https://cran.rstudio.com")'
       
-    - name: Restore R packages with renv
+    - name: Check permissions and disk space before restore
       run: |
-        Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
-        Rscript -e 'renv::restore()'
+        df -h
+        ls -ld renv/library/R-4.5/x86_64-pc-linux-gnu || true
+        ls -l renv/library/R-4.5/x86_64-pc-linux-gnu || true
 
-    - name: Manually install knitr and rmarkdown
+    - name: Disable renv sandbox
       run: |
-        Rscript -e 'renv::install(c("knitr", "rmarkdown"))'
+        echo 'Sys.setenv(RENV_CONFIG_SANDBOX_ENABLED = "FALSE")' >> .Rprofile
+
+    - name: Clean renv library
+      run: |
+        rm -rf renv/library
+
+    - name: Restore R packages with renv (verbose)
+      run: |
+        Rscript -e 'renv::restore(verbose = TRUE)'
+
+    - name: Check permissions and disk space after restore
+      run: |
+        df -h
+        ls -ld renv/library/R-4.5/x86_64-pc-linux-gnu || true
+        ls -l renv/library/R-4.5/x86_64-pc-linux-gnu || true
+
+    - name: List installed packages in renv library
+      run: |
+        Rscript -e 'print(.libPaths()); print(list.files(.libPaths()[1]))'
+
+    - name: Manually install knitr and rmarkdown if missing
+      run: |
+        Rscript -e 'if (!requireNamespace("knitr", quietly = TRUE) || !requireNamespace("rmarkdown", quietly = TRUE)) install.packages(c("knitr", "rmarkdown"), lib = .libPaths()[1])'
         Rscript -e 'print(.libPaths()); print(list.files(.libPaths()[1]))'
 
     - name: Check renv library permissions
