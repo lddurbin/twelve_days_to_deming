@@ -132,16 +132,6 @@
       ],
       "Hash": "ad123ab90aa2fc795512f61ff6939c4a"
     },
-    "bit": {
-      "Package": "bit",
-      "Version": "4.0.5",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "d242abec29412ce988848d0294b208fd"
-    },
     "bit64": {
       "Package": "bit64",
       "Version": "4.0.5",
