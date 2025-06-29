@@ -156,12 +156,9 @@ jobs:
         
     - name: Deploy to server
       run: |
-        echo "Starting deployment to server..."
-        echo "Testing SSH connection first..."
-        ssh -p 18765 -o ConnectTimeout=10 -o StrictHostKeyChecking=no u197-gmrgybn3hkn2@ssh.leedurbin.co.nz "echo 'SSH test successful'" || echo "SSH test failed"
-        
-        echo "Attempting deployment..."
-        scp -r -P 18765 _book/* u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/ || echo "Deployment failed"
+        set -e
+        echo "Starting rsync deployment..."
+        rsync -avz --delete -e "ssh -p 18765" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
         echo "Deployment completed successfully"
         
     - name: Cleanup SSH
