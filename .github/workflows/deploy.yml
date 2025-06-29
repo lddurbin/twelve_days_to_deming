@@ -3,173 +3,82 @@ name: Build and Deploy
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: # Allow manual triggering
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      
-    - name: Setup R
-      id: setup-r
-      uses: r-lib/actions/setup-r@v2
-      with:
-        r-version: 'release'
-        
-    - name: Install minimal system dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          libcurl4-openssl-dev \
-          libssl-dev \
-          libxml2-dev \
-          libpng-dev \
-          libjpeg-dev \
-          libcairo2-dev \
-          libfontconfig1-dev \
-          libfreetype6-dev \
-          build-essential \
-          gfortran \
-          libgmp3-dev \
-          libglpk-dev
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Install renv
-      run: Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
 
-    - name: Ensure renv library directory exists
-      run: mkdir -p renv/library
+      - name: Install required system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev \
+            libpng-dev \
+            libjpeg-dev \
+            libcairo2-dev \
+            libfontconfig1-dev \
+            libfreetype6-dev
 
-    - name: Pre-install igraph in renv library
-      run: |
-        Rscript -e 'install.packages("igraph", lib = "renv/library/R-4.5/x86_64-pc-linux-gnu")'
+      - name: Install renv
+        run: Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
 
-    - name: Test igraph install
-      run: |
-        Rscript -e 'library(igraph); sessionInfo()'
+      - name: Cache R packages
+        uses: actions/cache@v3
+        with:
+          path: renv/library
+          key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
 
-    - name: Cache R packages
-      uses: actions/cache@v3
-      with:
-        path: renv/library
-        key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-renv-
+      - name: Restore R packages with renv
+        run: Rscript -e 'renv::restore()'
 
-    - name: Setup Pandoc
-      uses: r-lib/actions/setup-pandoc@v2
-      
-    - name: Install Quarto
-      run: |
-        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
-        sudo dpkg -i quarto-1.4.549-linux-amd64.deb
-        quarto --version
-        
-    - name: Disable renv sandbox
-      run: |
-        echo 'Sys.setenv(RENV_CONFIG_SANDBOX_ENABLED = "FALSE")' >> .Rprofile
+      - name: Setup Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
 
-    - name: Clean renv library
-      run: |
-        rm -rf renv/library
+      - name: Install Quarto
+        run: |
+          curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
+          sudo dpkg -i quarto-1.4.549-linux-amd64.deb
+          quarto --version
 
-    - name: Restore R packages with renv
-      run: |
-        Rscript -e 'renv::restore()'
+      - name: Build Quarto book
+        run: quarto render
 
-    - name: Check renv status
-      run: |
-        Rscript -e 'renv::status()'
+      - name: Setup SSH with key verification
+        run: |
+          echo "=== Setting up SSH ==="
+          mkdir -p ~/.ssh
+          if [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
+            echo "ERROR: SSH_PRIVATE_KEY secret is not set or empty"
+            exit 1
+          fi
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/dev/null || echo "ssh-keyscan failed, continuing..."
 
-    - name: List installed packages in renv library
-      run: |
-        Rscript -e 'print(.libPaths()); print(list.files(.libPaths()[1]))'
+      - name: Deploy to server
+        run: |
+          rsync -avz --delete -e "ssh -p 18765 -o StrictHostKeyChecking=no" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
 
-    - name: Manually install knitr and rmarkdown if missing
-      run: |
-        Rscript -e 'if (!requireNamespace("knitr", quietly = TRUE) || !requireNamespace("rmarkdown", quietly = TRUE)) install.packages(c("knitr", "rmarkdown"), lib = .libPaths()[1])'
-        Rscript -e 'print(.libPaths()); print(list.files(.libPaths()[1]))'
+      - name: Cleanup SSH
+        run: |
+          rm -rf ~/.ssh/id_rsa
+          echo "SSH cleanup completed"
 
-    - name: Check renv library permissions
-      run: |
-        ls -l /home/runner/work/twelve_days_to_deming/twelve_days_to_deming/renv/library/R-4.5/x86_64-pc-linux-gnu
-        
-    - name: Build Quarto book
-      run: |
-        echo "=== Building Quarto book ==="
-        
-        # Ensure clean environment without renv
-        export RENV_PROJECT=""
-        unset RENV_PROJECT
-        
-        # Build the book
-        quarto render
-        echo "Build completed successfully"
-        
-    - name: Verify build output
-      run: |
-        if [ ! -d "_book" ]; then
-          echo "Error: _book directory not found after build"
-          exit 1
-        fi
-        echo "Build verification passed"
-        
-    - name: Setup SSH with key verification
-      run: |
-        echo "=== Setting up SSH ==="
-        
-        # Create SSH directory
-        mkdir -p ~/.ssh
-        echo "SSH directory created"
-        
-        # Check if secret is available
-        if [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
-          echo "ERROR: SSH_PRIVATE_KEY secret is not set or empty"
-          exit 1
-        fi
-        
-        # Write SSH key
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        echo "SSH key written"
-        
-        # Set permissions
-        chmod 600 ~/.ssh/id_rsa
-        echo "SSH key permissions set"
-        
-        # Verify key format
-        echo "=== SSH Key Verification ==="
-        echo "Key file size: $(wc -c < ~/.ssh/id_rsa) bytes"
-        echo "First line: $(head -1 ~/.ssh/id_rsa)"
-        echo "Last line: $(tail -1 ~/.ssh/id_rsa)"
-        
-        # Test key format
-        if ! ssh-keygen -l -f ~/.ssh/id_rsa > /dev/null 2>&1; then
-          echo "ERROR: SSH key format is invalid"
-          exit 1
-        fi
-        echo "SSH key format is valid"
-        
-        # Add host to known_hosts
-        ssh-keyscan -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/dev/null || echo "ssh-keyscan failed, continuing..."
-        
-    - name: Deploy to server
-      run: |
-        set -e
-        echo "Adding host key..."
-        ssh-keyscan -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/dev/null || echo "ssh-keyscan failed, continuing..."
-        echo "Starting rsync deployment..."
-        rsync -avz --delete -e "ssh -p 18765 -o StrictHostKeyChecking=no" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
-        echo "Deployment completed successfully"
-        
-    - name: Cleanup SSH
-      run: |
-        rm -rf ~/.ssh/id_rsa
-        echo "SSH cleanup completed"
-        
-    - name: Deployment Summary
-      run: |
-        echo "✅ Build and deployment completed successfully!"
-        echo "📚 Quarto book built and deployed to deming.leedurbin.co.nz"
-        echo "🔄 Next deployment will occur on next push to main branch" 
+      - name: Deployment Summary
+        run: |
+          echo "✅ Build and deployment completed successfully!"
+          echo "📚 Quarto book built and deployed to deming.leedurbin.co.nz"
+          echo "🔄 Next deployment will occur on next push to main branch" 
