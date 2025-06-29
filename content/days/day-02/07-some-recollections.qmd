@@ -207,4 +207,7 @@ countsArray.length > 0 ? Plot.plot({
 
 *(You can check your computations in Technical Aid 4 on Appendix page 9. But try it yourself first!)*
 
-
+Now it’s time for you to resume the Foreman’s role. Here are the Spaniards’ very different data. So
+please work through them as you did with the statisticians’ data. (Remember that these are extracts
+from the *completed* version of Jose’s table; thus ignore the fact that the names Ignacio, Orlando and
+Tamasa are crossed out since, of course, that did not happen until the end of the third week.)
