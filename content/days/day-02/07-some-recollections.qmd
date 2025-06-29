@@ -30,13 +30,181 @@ If you were still in the Un-Knowing state, you would probably not be at all surp
 As with the experiment in Ireland described on pages 9–16, a "performance appraisal" takes place at the end of the third week; the three "worst" workers are then fired and the "best" workers have to work double time during the fourth week—they will need to produce **two** paddles of 50 beads, not just one!
 </div>
 
-Here are the professional statisticians’ results:
+Here are the professional statisticians' results:
 
-![professional statisticians’ results as a table of data.](/assets/images/day-02/image-5.jpg){fig-align="center" width="100%"}
+![professional statisticians' results as a table of data.](/assets/images/day-02/image-5.jpg){fig-align="center" width="100%"}
 
 As you will quickly deduce, not only was this an unusually elite audience for a Red Beads Experiment—it
-was also my smallest! The audience consisted of just the six people I’ve already mentioned, who therefore
-were all “encouraged” to volunteer as Willing Workers! So, with no further personnel available, I acted as
+was also my smallest! The audience consisted of just the six people I've already mentioned, who therefore
+were all "encouraged" to volunteer as Willing Workers! So, with no further personnel available, I acted as
 Recorder as well as Foreman. Further, the inspection process had to be carried out in this instance not by
 the usual team of three inspectors but just by my colleague Brian Read. I suppose I also acted as Chief
-Inspector, for I did check extremely carefully Brian’s counts of the red beads!
+Inspector, for I did check extremely carefully Brian's counts of the red beads!
+
+didn't quite understand the job.  I therefore gave them a brief additional training session before the start of the second week—and observe the vast improvement that resulted (except, that is, for Neil who clearly never got the hang of it!). 
+ 
+So then came my announcement of the forthcoming performance appraisal and the fact that the worst three workers would be fired at the end of the third week.  This frightened them so much that, mostly, they just couldn't concentrate properly on the job during that third week.  The worst performance of all came from Professor Kerridge—but perhaps he'd already decided to seek work elsewhere! 
+ 
+Moving on to the Spaniards below, you can be sure that, in particular, I had some pretty severe words for the "best workers" who so clearly betrayed the trust I had in them during the fourth week after I had fired the others.  Just look at these appalling results! 
+
+![Spaniards' results as a table of data.](/assets/images/day-02/image-6.png){fig-align="center" width="100%"}
+
+So now we have yet more of the profound messages which this <span class="deming_quote">"stupidly simple"</span> experiment communicates. The emotions raised and havoc wreaked by treating common-cause variation as if it were special-cause variation is one. Then the ease with which one can invent reasons to "explain" random variation is another. Similarly, the ease with which we can find data that appear to confirm what we want to believe or what we want to persuade others about (however idiotic it is) is yet another.
+
+Finally, regarding my recollections, here is a reminder of the one I mentioned on page 22: my understandable nervousness as I approached running the Red Beads Experiment in public for the very first time. I was to be faced with 24 as-yet-unknown random numbers of red beads and would have to comment upon each with little or no hesitation. Would I be able to think of anything to say?
+
+Well, in Activity 2-f you've now had your own initial experience of the same situation, albeit without the pressure of performing in front of a paying audience. In my case, having muddled through that first time, I was nowhere near as nervous the second time; and still less the third time. In fact, I soon found that not only was I beginning to enjoy running the experiment but I was also discovering for myself more and more of those "profound messages" which the experiment can convey. Not only were my audiences learning more from the experiment: so was I.
+
+It is with those experiences in mind that I'll ask you to take on the role of Foreman twice more this afternoon: the two occasions that I've just introduced, first with the elite statisticians and then with the Spaniards in Madrid. Whilst showing you the data, I've already given you a few obvious suggestions about how to react, especially in the case of the professional statisticians. Both of these sets of data present considerable opportunities for the Foreman to be exceedingly eloquent!
+
+There will then remain just two further items on today's agenda. First comes the Major Activity of writing up your comprehensive summary of messages to be learned from the Experiment on Red Beads. So, in preparation for that, keep adding to your list of notes as you now work through the statisticians' and the Spaniards' experiments. Then finally, after the Major Activity, there will be a short Postscript to complete the day.
+
+<div class=workbook_callout>Activity 2–g (pages 32-27) is also on Workbook pages 20-25.</div>
+
+<div class="thought_commentary">
+
+# PAUSE FOR THOUGHT 2–e
+
+As you will see, I have reproduced for you below and on the next page the statisticians' data week by
+week. There is space on the right of the data for your Foreman-like comments on every count of red
+beads. An advantage of your carrying out this Activity without an audience is that you can have a little
+time to consider each response rather than having to come up with it "off the top of your head". But
+don't take too long about it!
+
+:::: {.columns}
+::: {.column width="55%"}
+
+![Week 1 of professional statisticians' results as a table of data.](/assets/images/day-02/image-7.png){fig-align="center" width="30%" .lightbox}
+
+:::
+::: {.column width="45%"}
+```{ojs}
+viewof thought_2e_i = Inputs.textarea({placeholder: "Type your comment here.", rows: 10})
+```
+
+*(No good looking in the Appendix for more hints—I've given you plenty of help already!)*
+
+:::
+::::
+
+
+:::: {.columns}
+::: {.column width="55%"}
+
+![Week 2 of professional statisticians' results as a table of data.](/assets/images/day-02/image-8.png){fig-align="center" width="40%" .lightbox}
+
+:::
+::: {.column width="45%"}
+```{ojs}
+viewof thought_2e_ii = Inputs.textarea({placeholder: "Type your comment here.", rows: 10})
+```
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="55%"}
+
+![Week 3 of professional statisticians' results as a table of data.](/assets/images/day-02/image-9.png){fig-align="center" width="50%" .lightbox}
+
+:::
+::: {.column width="45%"}
+```{ojs}
+viewof thought_2e_iii = Inputs.textarea({placeholder: "Type your comment here.", rows: 10})
+```
+
+:::
+::::
+
+Again recall that, in my version of the experiment, I fired the three "worst" workers after the third week,
+leaving the other three to work double time in the fourth week. So, checking the table below, the "best"
+workers, Frank, Reg and John, produced 13, 7 and 8 red beads respectively during their first shift in the
+fourth week, followed in turn by 10, 7 and 8 in their second shift.
+
+:::: {.columns}
+::: {.column width="55%"}
+
+![Week 4 of professional statisticians' results as a table of data.](/assets/images/day-02/image-10.png){fig-align="center" width="60%" .lightbox}
+
+:::
+::: {.column width="45%"}
+```{ojs}
+viewof thought_2e_iv = Inputs.textarea({placeholder: "Type your comment here.", rows: 10})
+```
+
+:::
+::::
+
+Next, as I had to do when running the experiment for the statisticians, it's time for you to multi-task!
+You now take over as the Recorder and draw a run chart of the data. If you need reminding about how
+to draw a run chart, check back with the run chart of Dec's data on page 14. Also as on that page, so
+that you don't have to keep looking back, here are the statisticians' counts of red beads in time order:
+
+> 9 6 7 8 9 11 8 8 5 4 3 13 10 12 10 9 8 10 13 7 8 10 7 8
+
+Finally, insert the two control limits to turn the run chart into a control chart, and then state your conclu-
+sions. If you’re on Stats-level 0 then simply look up the control limits on Appendix page 8. If you are
+on Stats-level 1 or higher then compute them in the space below. (If you need reminding about the
+details, Technical Aid 1 is on page 20.)
+
+```{ojs}
+viewof counts = Inputs.text({
+  label: "Enter counts (space-separated):",
+  value: ""
+})
+
+// Parse the counts
+countsArray = counts.split(" ").filter(x => x.trim() !== "").map(Number)
+xArray = Array.from({length: countsArray.length}, (_, i) => i + 1)
+
+// Calculate mean and standard deviation (only if we have data)
+mean = countsArray.length > 0 ? countsArray.reduce((a, b) => a + b, 0) / countsArray.length : 0
+std = countsArray.length > 1 ? Math.sqrt(countsArray.map(x => (x - mean) ** 2).reduce((a, b) => a + b, 0) / (countsArray.length - 1)) : 0
+
+// User sets their own control limits
+viewof ucl = Inputs.number({
+  label: "Upper Control Limit (UCL):", 
+  value: 0, 
+  step: 0.01,
+  min: 0
+})
+viewof lcl = Inputs.number({
+  label: "Lower Control Limit (LCL):", 
+  value: 0, 
+  step: 0.01,
+  min: 0
+})
+viewof meanLine = Inputs.number({
+  label: "Mean Line:", 
+  value: 0, 
+  step: 0.01,
+  min: 0
+})
+
+// Only show plot if we have data
+countsArray.length > 0 ? Plot.plot({
+  marks: [
+    Plot.line(xArray.map((x, i) => ({x, y: countsArray[i]})), {x: "x", y: "y", stroke: "steelblue", strokeWidth: 2}),
+    Plot.dot(xArray.map((x, i) => ({x, y: countsArray[i]})), {x: "x", y: "y", fill: "steelblue", r: 3}),
+    // Add mean line
+    Plot.ruleY([meanLine], {stroke: "green", strokeDasharray: "4 2", strokeWidth: 2, label: "Mean"}),
+    // Add UCL and LCL lines
+    Plot.ruleY([ucl], {stroke: "red", strokeDasharray: "2 2", strokeWidth: 2, label: "UCL"}),
+    Plot.ruleY([lcl], {stroke: "red", strokeDasharray: "2 2", strokeWidth: 2, label: "LCL"})
+  ],
+  y: {
+    label: "Red Beads Count", 
+    domain: [
+      Math.min(0, lcl, Math.min(...countsArray)) * 0.9, 
+      Math.max(...countsArray, ucl) * 1.1
+    ]
+  },
+  x: {label: "Time", domain: [1, countsArray.length]},
+  width: 800,
+  height: 400
+}) : null
+```
+
+*(You can check your computations in Technical Aid 4 on Appendix page 9. But try it yourself first!)*
+
+
