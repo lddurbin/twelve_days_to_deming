@@ -59,8 +59,10 @@ Each day includes:
 
 ## 📥 Accessing the Course Material
 
-### Interactive Online Version
+### Interactive Online Version (Work in Progress)
 - **Live Course**: [deming.leedurbin.co.nz](https://deming.leedurbin.co.nz) - The interactive version with embedded activities and exercises
+
+**Current Status**: This interactive version is currently under development. As of now, only **Days 1 and 2** are fully implemented with interactive features. The remaining days (3-12) are being converted from the original PDF format to this enhanced interactive experience.
 
 **Enhanced Features in the Online Version:**
 - **Interactive Clock Indicators**: Built-in timing guidance to help you pace your study sessions
@@ -71,8 +73,8 @@ Each day includes:
 - **Print-Friendly**: Clean, formatted output for printing or PDF generation
 - **Accessibility Features**: Enhanced readability and navigation options
 
-### PDF Downloads
-The course material is also available as free PDF downloads from several sources:
+### Complete PDF Version
+The full course material is available as free PDF downloads from several sources:
 
 - **[New Zealand Organisation for Quality (NZOQ)](https://www.nzoq.org.nz/12-days-to-deming)**: Complete course with individual PDF files for each day and workbooks
 - **Other Quality Organizations**: Various quality management organizations worldwide offer the course materials
@@ -84,8 +86,10 @@ The PDF version includes:
 - Appendix and reference materials
 - Optional extras and additional resources
 
+**Note**: The PDF version contains the complete 12-day course and is the most comprehensive option currently available.
+
 ### Content Integrity
-**Important Note**: The interactive online version preserves Dr. Neave's original content exactly as he wrote it. No changes have been made to his teachings, examples, or explanations. The enhancements focus solely on presentation and user experience—maintaining the authentic learning journey and pedagogical flow that Dr. Neave carefully crafted. The interactive elements are designed to support and amplify his original vision, not replace or modify it.
+**Important Note**: Both the interactive online version and PDF versions preserve Dr. Neave's original content exactly as he wrote it. No changes have been made to his teachings, examples, or explanations. The enhancements focus solely on presentation and user experience—maintaining the authentic learning journey and pedagogical flow that Dr. Neave carefully crafted. The interactive elements are designed to support and amplify his original vision, not replace or modify it.
 
 ### Study Groups
 - **Online Study Groups**: The Geelong Quality Council hosts regular free online study groups led by Richard Hamilton
