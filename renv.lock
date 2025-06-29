@@ -22,6 +22,7 @@
         "glue",
         "htmltools",
         "htmlwidgets",
+        "igraph",
         "magrittr",
         "purrr",
         "readr",
@@ -478,6 +479,7 @@
       "Requirements": [
         "R",
         "base64enc",
+        "digest",
         "fastmap",
         "grDevices",
         "rlang",
@@ -543,7 +545,7 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.48",
+      "Version": "1.50",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
@@ -555,7 +557,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "acf380f300c721da9fde7df115a5f86f"
+      "Hash": "5a07d8ec459d7b80bd4acca5f4a6e062"
     },
     "labeling": {
       "Package": "labeling",
@@ -788,6 +790,7 @@
       "Repository": "RSPM",
       "Requirements": [
         "R",
+        "digest",
         "htmltools",
         "htmlwidgets",
         "jsonlite",
@@ -841,7 +844,7 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.27",
+      "Version": "2.29",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
@@ -860,7 +863,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "27f9502e1cdbfa195f94e03b0f517484"
+      "Hash": "df99277f63d01c34e95e3d2f06a79736"
     },
     "rprojroot": {
       "Package": "rprojroot",
