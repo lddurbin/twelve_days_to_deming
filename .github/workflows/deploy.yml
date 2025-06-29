@@ -160,7 +160,7 @@ jobs:
         echo "Adding host key..."
         ssh-keyscan -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/dev/null || echo "ssh-keyscan failed, continuing..."
         echo "Starting rsync deployment..."
-        rsync -avz --delete -e "ssh -p 18765" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
+        rsync -avz --delete -e "ssh -p 18765 -o StrictHostKeyChecking=no" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
         echo "Deployment completed successfully"
         
     - name: Cleanup SSH
