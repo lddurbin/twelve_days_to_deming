@@ -148,33 +148,33 @@ on Stats-level 1 or higher then compute them in the space below. (If you need re
 details, Technical Aid 1 is on page 20.)
 
 ```{ojs}
-viewof counts = Inputs.text({
+viewof counts1 = Inputs.text({
   label: "Enter counts (space-separated):",
   value: ""
 })
 
 // Parse the counts
-countsArray = counts.split(" ").filter(x => x.trim() !== "").map(Number)
-xArray = Array.from({length: countsArray.length}, (_, i) => i + 1)
+countsArray1 = counts1.split(" ").filter(x => x.trim() !== "").map(Number)
+xArray1 = Array.from({length: countsArray1.length}, (_, i) => i + 1)
 
 // Calculate mean and standard deviation (only if we have data)
-mean = countsArray.length > 0 ? countsArray.reduce((a, b) => a + b, 0) / countsArray.length : 0
-std = countsArray.length > 1 ? Math.sqrt(countsArray.map(x => (x - mean) ** 2).reduce((a, b) => a + b, 0) / (countsArray.length - 1)) : 0
+mean1 = countsArray1.length > 0 ? countsArray1.reduce((a, b) => a + b, 0) / countsArray1.length : 0
+std1 = countsArray1.length > 1 ? Math.sqrt(countsArray1.map(x => (x - mean1) ** 2).reduce((a, b) => a + b, 0) / (countsArray1.length - 1)) : 0
 
 // User sets their own control limits
-viewof ucl = Inputs.number({
+viewof ucl1 = Inputs.number({
   label: "Upper Control Limit (UCL):", 
   value: 0, 
   step: 0.01,
   min: 0
 })
-viewof lcl = Inputs.number({
+viewof lcl1 = Inputs.number({
   label: "Lower Control Limit (LCL):", 
   value: 0, 
   step: 0.01,
   min: 0
 })
-viewof meanLine = Inputs.number({
+viewof meanLine1 = Inputs.number({
   label: "Mean Line:", 
   value: 0, 
   step: 0.01,
@@ -182,24 +182,24 @@ viewof meanLine = Inputs.number({
 })
 
 // Only show plot if we have data
-countsArray.length > 0 ? Plot.plot({
+countsArray1.length > 0 ? Plot.plot({
   marks: [
-    Plot.line(xArray.map((x, i) => ({x, y: countsArray[i]})), {x: "x", y: "y", stroke: "steelblue", strokeWidth: 2}),
-    Plot.dot(xArray.map((x, i) => ({x, y: countsArray[i]})), {x: "x", y: "y", fill: "steelblue", r: 3}),
+    Plot.line(xArray1.map((x, i) => ({x, y: countsArray1[i]})), {x: "x", y: "y", stroke: "steelblue", strokeWidth: 2}),
+    Plot.dot(xArray1.map((x, i) => ({x, y: countsArray1[i]})), {x: "x", y: "y", fill: "steelblue", r: 3}),
     // Add mean line
-    Plot.ruleY([meanLine], {stroke: "green", strokeDasharray: "4 2", strokeWidth: 2, label: "Mean"}),
+    Plot.ruleY([meanLine1], {stroke: "green", strokeDasharray: "4 2", strokeWidth: 2, label: "Mean"}),
     // Add UCL and LCL lines
-    Plot.ruleY([ucl], {stroke: "red", strokeDasharray: "2 2", strokeWidth: 2, label: "UCL"}),
-    Plot.ruleY([lcl], {stroke: "red", strokeDasharray: "2 2", strokeWidth: 2, label: "LCL"})
+    Plot.ruleY([ucl1], {stroke: "red", strokeDasharray: "2 2", strokeWidth: 2, label: "UCL"}),
+    Plot.ruleY([lcl1], {stroke: "red", strokeDasharray: "2 2", strokeWidth: 2, label: "LCL"})
   ],
   y: {
     label: "Red Beads Count", 
     domain: [
-      Math.min(0, lcl, Math.min(...countsArray)) * 0.9, 
-      Math.max(...countsArray, ucl) * 1.1
+      Math.min(0, lcl1, Math.min(...countsArray1)) * 0.9, 
+      Math.max(...countsArray1, ucl1) * 1.1
     ]
   },
-  x: {label: "Time", domain: [1, countsArray.length]},
+  x: {label: "Time", domain: [1, countsArray1.length]},
   width: 800,
   height: 400
 }) : null
@@ -211,3 +211,87 @@ Now it’s time for you to resume the Foreman’s role. Here are the Spaniards�
 please work through them as you did with the statisticians’ data. (Remember that these are extracts
 from the *completed* version of Jose’s table; thus ignore the fact that the names Ignacio, Orlando and
 Tamasa are crossed out since, of course, that did not happen until the end of the third week.)
+
+![Week 1 of Spaniards’ results as a table of data.](/assets/images/day-02/image-11.png){fig-align="center" height=20% .lightbox}
+
+![Week 2 of Spaniards’ results as a table of data.](/assets/images/day-02/image-12.png){fig-align="center" height=20% .lightbox}
+
+![Week 3 of Spaniards’ results as a table of data.](/assets/images/day-02/image-13.png){fig-align="center" height=20% .lightbox}
+
+![Week 4 of Spaniards’ results as a table of data.](/assets/images/day-02/image-14.png){fig-align="center" height=20% .lightbox}
+
+Finally, return to the Recorder’s task of drawing the run chart and then upgrade it to a control chart. Here are the Spaniards’ counts of red beads in time order:
+
+> 16 9 9 11 15 11 10 10 12 12 9 9 10 15 8 7 11 10 11 13 13 17 13 9
+
+```{ojs}
+viewof counts2 = Inputs.text({
+  label: "Enter counts (space-separated):",
+  value: ""
+})
+
+// Parse the counts
+countsArray2 = counts2.split(" ").filter(x => x.trim() !== "").map(Number)
+xArray2 = Array.from({length: countsArray2.length}, (_, i) => i + 1)
+
+// Calculate mean and standard deviation (only if we have data)
+mean2 = countsArray2.length > 0 ? countsArray2.reduce((a, b) => a + b, 0) / countsArray2.length : 0
+std2 = countsArray2.length > 1 ? Math.sqrt(countsArray2.map(x => (x - mean2) ** 2).reduce((a, b) => a + b, 0) / (countsArray2.length - 1)) : 0
+
+// User sets their own control limits
+viewof ucl2 = Inputs.number({
+  label: "Upper Control Limit (UCL):", 
+  value: 0, 
+  step: 0.01,
+  min: 0
+})
+viewof lcl2 = Inputs.number({
+  label: "Lower Control Limit (LCL):", 
+  value: 0, 
+  step: 0.01,
+  min: 0
+})
+viewof meanLine2 = Inputs.number({
+  label: "Mean Line:", 
+  value: 0, 
+  step: 0.01,
+  min: 0
+})
+
+// Only show plot if we have data
+countsArray2.length > 0 ? Plot.plot({
+  marks: [
+    Plot.line(xArray2.map((x, i) => ({x, y: countsArray2[i]})), {x: "x", y: "y", stroke: "steelblue", strokeWidth: 2}),
+    Plot.dot(xArray2.map((x, i) => ({x, y: countsArray2[i]})), {x: "x", y: "y", fill: "steelblue", r: 3}),
+    // Add mean line
+    Plot.ruleY([meanLine2], {stroke: "green", strokeDasharray: "4 2", strokeWidth: 2, label: "Mean"}),
+    // Add UCL and LCL lines
+    Plot.ruleY([ucl2], {stroke: "red", strokeDasharray: "2 2", strokeWidth: 2, label: "UCL"}),
+    Plot.ruleY([lcl2], {stroke: "red", strokeDasharray: "2 2", strokeWidth: 2, label: "LCL"})
+  ],
+  y: {
+    label: "Red Beads Count", 
+    domain: [
+      Math.min(0, lcl2, Math.min(...countsArray2)) * 0.9, 
+      Math.max(...countsArray2, ucl2) * 1.1
+    ]
+  },
+  x: {label: "Time", domain: [1, countsArray2.length]},
+  width: 800,
+  height: 400
+}) : null
+```
+
+As before, insert the two control limits to turn the run chart into a control chart and state your conclusions. Also as before, if you’re on Stats-level 0 then simply look up the control limits on Appendix page 8; otherwise compute them in the space below.
+
+<div class="activity_afterthought">
+
+*(Again the computations are sketched in Technical Aid 4 on Appendix page 9.)*
+
+</div>
+
+<div class="activity_afterthought">
+
+Regarding conclusions from the control charts, they are surely similar to those for Pause for Thought 2–e (on Appendix page 7) except that this time we would presumably comment on statistician John's 3 or Ignacio's 16 and Paco's 17 in similar ways to Ernie's 3—they're *all* within the control limits.
+
+</div>

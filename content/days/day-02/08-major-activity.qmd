@@ -1,5 +1,5 @@
 ---
-title: "08 Major Activity"
+title: "MAJOR ACTIVITY"
 execute:
   echo: false
 ---
@@ -10,54 +10,42 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-# Section Heading
-
-Content goes here.
-
-![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
-
-:::: {.columns}
-::: {.column width="85%"}
-Content goes here when we're including a clock icon next to it.
-:::
-::: {.column width="15%"}
-<div style="margin-top: 10px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(09, 00)  # Replace HH, MM with hour and minute
-```
+<div class=workbook_callout>
+Major Activity 2-h (pages 38-41) is also on [Workbook pages 26-29](workbook.html#sec-page5).
 </div>
-:::
-::::
 
-Content goes here when there's no clock.
+Hopefully, you now have quite a long list of notes on learning-points from today’s Red Beads Experiments, including some from Chapter 6 of *DemDim*.
 
-:::: {.columns}
+> At this early stage of the course, you probably do not have access to other sources. But if you do, or will be doing so before long, you may find plenty more messages to write up. Chapter 4 of Mary Walton’s *The Deming Management Method* is excellent. Other sources are, of course, Dr Deming’s own two books. In *Out of the Crisis* the most relevant pages are 295–302[346–354], although there are several more learning-points from the Red Beads Experiment further on in the book. Chapter 7 of *The New Economics* also describes and studies the Red Beads Experiment and ends with a list of no less than 14 “Lessons from the Red Beads”. Deming ends that chapter by innocently remarking: <span class="deming_quote">“The reader may perceive Red Beads in his own company and in his own work.”</span> Finally, as previously mentioned, my recommended video material is Volumes 7 and 8 of *The Deming Library*.
 
-::: {.column width="85%"}
-<div class=thought_commentary>
+However, even if you do not have any of these at present, you should by now still be able to produce a quite substantial summary of messages from the Red Beads Experiment.
 
-# PAUSE FOR THOUGHT OR ACTIVITY
+So first review your notes on all that has happened today. If there were any gaps when you forgot to keep up your note-taking then have a look through the relevant sections and update your notes accordingly.
 
-Activity text here.
+You may be quite used to trying to convert a collection of notes into a more organised form in preparation for writing up a report or some other kind of document. That is really what you should begin aiming to do here in order that you will finish up with an account which, when you refer back to it in the future, you will find easier to read and learn from.
+
+But first, on Appendix pages 10–12 I have discussed some further messages from the Red Beads Experiment. You might possibly have touched upon one or two of these already, but I think you will also find some new issues in my write-up there. Usually I suggest that you do not turn to my discussions in the Appendix until you have already attempted the relevant Activity. However, in this case it may be better for you to read through that section at this stage. It could give you yet further thoughts to include in your account.
+
+---
+
+On your return from the Appendix, now spend a little time organising your notes into a small number of groups or categories, i.e. each containing somewhat related matters. Then develop your account of messages from the Red Beads Experiment by writing up a paragraph or two on each of those groups of notes. Finally *"top and tail"* your account with some appropriate introductory and concluding remarks.
 
 ```{ojs}
-viewof thought_example = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof activity_2h_i = Inputs.textarea({placeholder: "Type your comment here.", rows: 50})
 ```
 
-<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_example" aria-expanded="false" aria-controls="collapse_example">
-Click this after writing your comments
-</button>
+In conclusion, now armed with your account, can you think of instances within your work-situation or elsewhere when you have been treated similarly to the way that the Willing Workers have been treated by the Foreman?
 
-<div class="collapse" id="collapse_1a">
-Optional Neave commentary to be revealed after completing the activity.
-</div>
-</div>
-:::
+Even more importantly, if you are any kind of manager or in any role where you have supervisory responsibilities over others, can you identify situations where you have acted like the Foreman?
 
-::::
+And, if so, how will your behaviour change from now on?
 
-<!--
-FOOTNOTES (if needed)
--->
+```{ojs}
+viewof activity_2h_ii = Inputs.textarea({placeholder: "Type your comment here.", rows: 50})
+```
 
-[^a]: Example footnote. Replace or remove as needed. 
+As I often heard Dr Deming say,
+
+> <span class="deming_quote">“You could write a book on what can be learned from the Experiment on Red Beads.”</span>
+
+Maybe now you’ve already made a start!
