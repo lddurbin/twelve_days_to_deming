@@ -1,5 +1,5 @@
 ---
-title: "09 Postscript"
+title: "POSTSCRIPT"
 execute:
   echo: false
 ---
@@ -10,54 +10,36 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-# Section Heading
+I didn't complete the story about Spaniards' performances in the Experiment on Red Beads. So I should end today by remedying that deficiency.
 
-Content goes here.
+As indicated on page 28, I presented two seminars in Madrid. On his return to that city, the Foreman could not resist telling the Workers (not the audience) about the far better results obtained on his previous visit. Although the story met with mixed reactions, he was sure that the information would prove to be highly motivational for them. So he would strive to do better in order to restore national pride. Their results as listed by Jorge were as follows:
 
-![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
+![Spanish Red Beads Experiment Results](/assets/images/day-02/postscript-table.png){fig-align="center" width="80%" .lightbox}
 
-:::: {.columns}
-::: {.column width="85%"}
-Content goes here when we're including a clock icon next to it.
-:::
-::: {.column width="15%"}
-<div style="margin-top: 10px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(09, 00)  # Replace HH, MM with hour and minute
-```
-</div>
-:::
-::::
+These results are certainly rather different from those on my first visit to Madrid. The overall total of red beads (though not stated here by Jorge) was 227—not only much better than in November 1989 but substantially better than the average over all my experiments using the same equipment. Further, no doubt as a result of the Foreman's motivational introduction, the first week's performance was pretty good, despite the relatively poor results from Marisa (clearly a slow learner) and Jose (who never quite understood what he was doing). The first week's commendable total was largely due to the brilliant effort of Antonio who had been particularly incensed by the possible slur about Spanish workmanship that he had perceived. Regrettably a production.
 
-Content goes here when there's no clock.
+So, already by the end of the first week, the pressure was off. No way was this team of Willing Workers going to go anywhere near as badly as the previous Spanish contingent. And so they settled down to producing the rather less exceptional but very consistent overall performance that you see represented in the remaining weeks' totals.
 
-:::: {.columns}
+It was, of course, a pity that Antonio did not continue to work anywhere near as hard or as conscientiously as he had in the first week—but he had made his point.
 
-::: {.column width="85%"}
-<div class=thought_commentary>
+Overall, the Foreman was, of course, immensely satisfied by the way he had motivated, indeed inspired, this workforce to perform so much better than their predecessors.
 
-# PAUSE FOR THOUGHT OR ACTIVITY
+Of course.
 
-Activity text here.
+---
 
-```{ojs}
-viewof thought_example = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
-```
+**"Wrap-Up Brief" following the Red Beads Experiment**
 
-<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_example" aria-expanded="false" aria-controls="collapse_example">
-Click this after writing your comments
-</button>
+My friend Dave Kerr has presented the Red Beads Experiment numerous times. He has developed a short document which not only summarises some of the learning which comes from it but also looks ahead to several important topics that we shall study later in this course, particularly on Days 8–11. I believe therefore that you might find it interesting to take a look at his "Wrap-Up Brief" now while the experiment is fresh in your mind to see how the "stupid experiment" relates to the topics developed there.
 
-<div class="collapse" id="collapse_1a">
-Optional Neave commentary to be revealed after completing the activity.
-</div>
-</div>
-:::
+I am delighted to be able to reproduce Dave's document on Appendix pages 12–13.
 
-::::
+---
 
-<!--
-FOOTNOTES (if needed)
--->
+**"Out-of-hours" note**
 
-[^a]: Example footnote. Replace or remove as needed. 
+As mentioned on page 11 of the introductory Welcome section, you will need to carry out some preparation for your Major Activity 3-a on Day 3. It was envisaged there that this and all such activities are summarised on Appendix page 1. Also, to aid your study on the morning of Day 3, you will find a recommendation for a summary copy of Day 3 page 19.
+
+Day 3's Major Activity is a complete version of the Funnel Experiment although it uses different equipment from Dr Nelson's original version. The original version would need much *more* preparation than the version which will be used and you will also find that version much more awkward to perform. I recommend that you carry out in advance the necessary preparation rather than leaving it until tomorrow: you will find all the information you need on Day 3 page 36. Either start reading near the top of that page or, for a more comprehensive introduction, go back to the beginning of that section on Day 3 page 33.
+
+To carry out Day 3's experiment does not actually need any "previous knowledge": previous knowledge is only involved with *interpreting* the results from the experiment. The experiment itself can be carried out by anyone, for example, those who enjoy solving puzzles and/or playing board games will probably take to it better than those who don't. So if you are not an enthusiast for puzzles and board games then why not invite a friend who *does* enjoy such activities to join you tomorrow afternoon?—it could be more enjoyable for you to have such company during the experiment. And don't forget: you will need to find a couple of standard dice in order for you to play this "silly game"! 
