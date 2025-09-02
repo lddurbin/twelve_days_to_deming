@@ -1,0 +1,98 @@
+name: Build and Deploy (Optimized)
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_run:
+        description: 'Testing optimized workflow'
+        required: false
+        default: 'true'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: 'release'
+        use-public-rspm: true
+        
+    - name: Cache system dependencies
+      id: cache-sys-deps
+      uses: actions/cache@v4
+      with:
+        path: /var/cache/apt
+        key: ${{ runner.os }}-sys-deps-v1
+        
+    - name: Install system dependencies
+      if: steps.cache-sys-deps.outputs.cache-hit != 'true'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libcurl4-openssl-dev \
+          libssl-dev \
+          libxml2-dev \
+          libpng-dev \
+          libjpeg-dev \
+          libcairo2-dev \
+          libfontconfig1-dev \
+          libfreetype6-dev \
+          build-essential \
+          gfortran \
+          libgmp3-dev \
+          libglpk-dev
+
+    - name: Setup Pandoc
+      uses: r-lib/actions/setup-pandoc@v2
+      
+    - name: Cache Quarto installation
+      id: cache-quarto
+      uses: actions/cache@v4
+      with:
+        path: /opt/quarto
+        key: quarto-1.4.549
+        
+    - name: Install Quarto
+      if: steps.cache-quarto.outputs.cache-hit != 'true'
+      run: |
+        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
+        sudo dpkg -i quarto-1.4.549-linux-amd64.deb
+        
+    - name: Add Quarto to PATH
+      run: echo "/opt/quarto/bin" >> $GITHUB_PATH
+
+    - name: Cache R packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.local/share/renv
+        key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
+        restore-keys: ${{ runner.os }}-renv-
+
+    - name: Restore R packages
+      shell: Rscript {0}
+      run: |
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+        renv::restore()
+        
+    - name: Build Quarto book
+      run: quarto render
+        
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/dev/null || true
+        
+    - name: Deploy to server
+      run: |
+        rsync -avz --delete -e "ssh -p 18765 -o StrictHostKeyChecking=no" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
+        
+    - name: Cleanup
+      if: always()
+      run: rm -f ~/.ssh/id_rsa
