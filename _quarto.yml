@@ -43,6 +43,7 @@ book:
         - content/days/day-02/06-your-turn.qmd
         - content/days/day-02/07-some-recollections.qmd
         - content/days/day-02/08-major-activity.qmd
+        - content/days/day-02/09-postscript.qmd
 
 format:
   html:
