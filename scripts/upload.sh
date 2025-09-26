@@ -1,0 +1,1 @@
+scp -r -P18765 ~/Code/twelve_days_to_deming/_book/* u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html

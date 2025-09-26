@@ -1,0 +1,44 @@
+Day 3 Raw Text Extraction
+==================================================
+
+Page 1: F.Day.3.13Jan20_page_001.png
+------------------------------
+DAY 3:
+UNDERSTANDING VARIATION
+and
+THE FUNNEL EXPERIMENT
+Copyright © Henry R Neave January 2020
+
+
+Page 2: F.Day.3.13Jan20_page_002.png
+------------------------------
+12 Days to Deming
+
+
+Page 3: F.Day.3.13Jan20_page_003.png
+------------------------------
+DAY 3: UNDERSTANDING VARIATION AND THE FUNNEL EXPERIMENT
+(Stats-level 0 only)
+(9.30am — 1.00pm; 2.00pm — 6.00pm)
+Variation—the enemy of quality (p 1)
+Back to the Western Electric Company (p 2) — contains Activities 3-a and 3-b
+At the Ford Motor Company (p 5) — contains Activity 3-c
+The importance of time (p 7) — contains Activities 3-d and 3-e
+More on the “sales data” (p 10) — contains Pause for Thought 3-f
+How do we compute these control limits—and why? (p 13)
+Six processes (p 19)
+A favourite example (p 24)
+Control chart + brain (p 26)
+The six processes revisited (p 30)
+Introduction to the Funnel Experiment (p 35)
+Major Activity 3-h: The first two Rules of the Funnel (p 38)
+Major Activity 3-h: Discussion (p 47); Rules 3 and 4 of the Funnel (p 48)
+Major Activity 3-h: Summary (p 56)
+Activity 3-i (p 57 [WB 467)
+Read DemDim Chapter 5 (p 58)
+Activity 3-j (p 58 (WB 47))
+NB In the text, the clock icons for Stats-level 0 only are on the left-hand side of the pages during the
+morning of Day 3. In the afternoon the timings for all Stats-levels are the same and so appear on the
+right-hand side as usual.
+
+

@@ -1,0 +1,63 @@
+Day 3 Processed Text Extraction
+==================================================
+
+Page 1: F.Day.3.13Jan20_page_001.png
+------------------------------
+Total lines: 5
+Headings: 3
+Timing indicators: 0
+Activity indicators: 0
+
+[heading] DAY 3:
+[heading] UNDERSTANDING VARIATION
+[paragraph] and
+[heading] THE FUNNEL EXPERIMENT
+[paragraph] Copyright © Henry R Neave January 2020
+
+Page 2: F.Day.3.13Jan20_page_002.png
+------------------------------
+Total lines: 1
+Headings: 0
+Timing indicators: 0
+Activity indicators: 0
+
+[paragraph] 12 Days to Deming
+
+Page 3: F.Day.3.13Jan20_page_003.png
+------------------------------
+Total lines: 23
+Headings: 4
+Timing indicators: 0
+Activity indicators: 7
+
+[paragraph] DAY 3: UNDERSTANDING VARIATION AND THE FUNNEL EXPERIMENT
+[paragraph] (Stats-level 0 only)
+[paragraph] (9.30am — 1.00pm; 2.00pm — 6.00pm)
+[paragraph] Variation—the enemy of quality (p 1)
+[paragraph] Back to the Western Electric Company (p 2) — contains Activities 3-a and 3-b
+[paragraph] At the Ford Motor Company (p 5) — contains Activity 3-c
+  -> Activity: Activity 3
+[paragraph] The importance of time (p 7) — contains Activities 3-d and 3-e
+[paragraph] More on the “sales data” (p 10) — contains Pause for Thought 3-f
+  -> Activity: Pause for Thought
+[paragraph] How do we compute these control limits—and why? (p 13)
+[paragraph] Six processes (p 19)
+[paragraph] A favourite example (p 24)
+[paragraph] Control chart + brain (p 26)
+[paragraph] The six processes revisited (p 30)
+[paragraph] Introduction to the Funnel Experiment (p 35)
+[heading] Major Activity 3-h: The first two Rules of the Funnel (p 38)
+  -> Activity: Activity 3
+[heading] Major Activity 3-h: Discussion (p 47); Rules 3 and 4 of the Funnel (p 48)
+  -> Activity: Activity 3
+[heading] Major Activity 3-h: Summary (p 56)
+  -> Activity: Activity 3
+[paragraph] Activity 3-i (p 57 [WB 467)
+  -> Activity: Activity 3
+[heading] Read DemDim Chapter 5 (p 58)
+[paragraph] Activity 3-j (p 58 (WB 47))
+  -> Activity: Activity 3
+[paragraph] NB In the text, the clock icons for Stats-level 0 only are on the left-hand side of the pages during the
+[paragraph] morning of Day 3. In the afternoon the timings for all Stats-levels are the same and so appear on the
+[paragraph] right-hand side as usual.
+

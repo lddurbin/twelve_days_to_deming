@@ -1,0 +1,10 @@
+The Experiment on Red Beads
+01-run-charts
+02-intro-to-the-red-beads-experiment
+03-a-brief-overview
+04-our-first-control-chart
+05-the-truth-the-whole-truth-and-nothing-but
+06-your-turn
+07-some-recollections
+08-major-activity
+09-postscript
