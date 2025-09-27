@@ -1,0 +1,60 @@
+echo: false
+
+project:
+  type: book
+
+execute: 
+  echo: false
+  warning: false
+  message: false
+
+book:
+  title: "12 Days to Deming"
+  subtitle: "An active-learning course"
+  author: "Henry R. Neave"
+  reader-mode: true
+  sidebar:
+    collapse-level: 1
+  
+  chapters:
+    - index.qmd
+    - part: "Day 1: The Overture"
+      chapters:
+        - content/days/day-01/01-overture.qmd
+        - content/days/day-01/02-rediscovered.qmd
+        - content/days/day-01/03-statistics.qmd
+        - content/days/day-01/04-resources.qmd
+        - content/days/day-01/05-activities.qmd
+        - content/days/day-01/06-outline.qmd
+        - content/days/day-01/07-quality-theory.qmd
+        - content/days/day-01/08-attraction.qmd
+        - content/days/day-01/09-different.qmd
+        - content/days/day-01/10-relief.qmd
+        - content/days/day-01/11-deming-story.qmd
+        - content/days/day-01/12-intro-activity.qmd
+        - content/days/day-01/13-major-activity.qmd
+    - part: "Day 2: The Experiment on Red Beads"
+      chapters:
+        - content/days/day-02/01-run-charts.qmd
+        - content/days/day-02/02-intro-to-the-red-beads-experiment.qmd
+        - content/days/day-02/03-a-brief-overview.qmd
+        - content/days/day-02/04-our-first-control-chart.qmd
+        - content/days/day-02/05-the-truth-the-whole-truth-and-nothing-but.qmd
+        - content/days/day-02/06-your-turn.qmd
+        - content/days/day-02/07-some-recollections.qmd
+        - content/days/day-02/08-major-activity.qmd
+        - content/days/day-02/09-postscript.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: assets/styles/main.css
+    header-includes:
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+      <script src="/assets/scripts/functions.js"></script>
+    number-sections: false
+
+
+

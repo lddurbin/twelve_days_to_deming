@@ -1,0 +1,2543 @@
+{
+  "day": 3,
+  "total_pages": 66,
+  "processing_timestamp": "2025-09-27T17:32:52.306880",
+  "output_directory": "assets/images/day-03",
+  "pages": [
+    {
+      "source_file": "F.Day.3.13Jan20_page_001.png",
+      "page_number": 1,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_002.png",
+      "page_number": 2,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_003.png",
+      "page_number": 3,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-003-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-003-table-00.png",
+          "type": "table",
+          "bbox": [
+            459,
+            1504,
+            1914,
+            232
+          ],
+          "area": 444048,
+          "quality_score": 0.7849780034662568,
+          "alt_text": "Data table with structured information, area: 444048 pixels",
+          "method": "edge",
+          "confidence": 0.08139660577234893
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_004.png",
+      "page_number": 4,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-004-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-004-table-00.png",
+          "type": "table",
+          "bbox": [
+            364,
+            1507,
+            1914,
+            275
+          ],
+          "area": 526350,
+          "quality_score": 0.7765970085627015,
+          "alt_text": "Data table with structured information, area: 526350 pixels",
+          "method": "edge",
+          "confidence": 0.08764130331528451
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_005.png",
+      "page_number": 5,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_006.png",
+      "page_number": 6,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_007.png",
+      "page_number": 7,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_008.png",
+      "page_number": 8,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_009.png",
+      "page_number": 9,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-009-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-009-table-00.png",
+          "type": "table",
+          "bbox": [
+            510,
+            1344,
+            1514,
+            325
+          ],
+          "area": 492050,
+          "quality_score": 0.6801368939674287,
+          "alt_text": "Data table with structured information, area: 492050 pixels",
+          "method": "edge",
+          "confidence": 0.05885580733665278
+        },
+        {
+          "filename": "day-03-page-009-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-009-table-01.png",
+          "type": "table",
+          "bbox": [
+            510,
+            2175,
+            1518,
+            468
+          ],
+          "area": 710424,
+          "quality_score": 0.6271554211361173,
+          "alt_text": "Data table with structured information, area: 710424 pixels",
+          "method": "edge",
+          "confidence": 0.03922727835771314
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_010.png",
+      "page_number": 10,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_011.png",
+      "page_number": 11,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-011-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-011-table-00.png",
+          "type": "table",
+          "bbox": [
+            1437,
+            1020,
+            876,
+            446
+          ],
+          "area": 390696,
+          "quality_score": 0.6794905615964596,
+          "alt_text": "Data table with structured information, area: 390696 pixels",
+          "method": "edge",
+          "confidence": 0.04633781763826607
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_012.png",
+      "page_number": 12,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-012-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-012-table-00.png",
+          "type": "table",
+          "bbox": [
+            524,
+            462,
+            1463,
+            390
+          ],
+          "area": 570570,
+          "quality_score": 0.6352622407597356,
+          "alt_text": "Data table with structured information, area: 570570 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_013.png",
+      "page_number": 13,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-013-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-013-table-00.png",
+          "type": "table",
+          "bbox": [
+            445,
+            1463,
+            1743,
+            659
+          ],
+          "area": 1148637,
+          "quality_score": 0.6064254412904713,
+          "alt_text": "Data table with structured information, area: 1148637 pixels",
+          "method": "edge",
+          "confidence": 0.03102111459059738
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_014.png",
+      "page_number": 14,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-014-diagram-00.png",
+          "filepath": "assets/images/day-03/day-03-page-014-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            1756,
+            562,
+            513,
+            379
+          ],
+          "area": 194427,
+          "quality_score": 0.6028653364803013,
+          "alt_text": "Diagram illustrating concepts, area: 194427 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_015.png",
+      "page_number": 15,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-015-diagram-00.png",
+          "filepath": "assets/images/day-03/day-03-page-015-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            1805,
+            1305,
+            543,
+            405
+          ],
+          "area": 219915,
+          "quality_score": 0.6080876117529105,
+          "alt_text": "Diagram illustrating concepts, area: 219915 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_016.png",
+      "page_number": 16,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_017.png",
+      "page_number": 17,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_018.png",
+      "page_number": 18,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_019.png",
+      "page_number": 19,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-019-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-019-table-00.png",
+          "type": "table",
+          "bbox": [
+            1460,
+            748,
+            902,
+            239
+          ],
+          "area": 215578,
+          "quality_score": 0.5243447490971076,
+          "alt_text": "Data table with structured information, area: 215578 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-019-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-019-table-01.png",
+          "type": "table",
+          "bbox": [
+            286,
+            687,
+            943,
+            304
+          ],
+          "area": 286672,
+          "quality_score": 0.5650712193175262,
+          "alt_text": "Data table with structured information, area: 286672 pixels",
+          "method": "edge",
+          "confidence": 0.06323603281799409
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_020.png",
+      "page_number": 20,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-020-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-020-table-00.png",
+          "type": "table",
+          "bbox": [
+            259,
+            1312,
+            1938,
+            514
+          ],
+          "area": 996132,
+          "quality_score": 0.7604939544183033,
+          "alt_text": "Data table with structured information, area: 996132 pixels",
+          "method": "edge",
+          "confidence": 0.153557962197781
+        },
+        {
+          "filename": "day-03-page-020-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-020-table-01.png",
+          "type": "table",
+          "bbox": [
+            259,
+            1895,
+            1938,
+            1090
+          ],
+          "area": 2112420,
+          "quality_score": 0.6881168831961731,
+          "alt_text": "Data table with structured information, area: 2112420 pixels",
+          "method": "edge",
+          "confidence": 0.09519035040380228
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_021.png",
+      "page_number": 21,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-021-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-021-table-00.png",
+          "type": "table",
+          "bbox": [
+            354,
+            907,
+            1938,
+            856
+          ],
+          "area": 1658928,
+          "quality_score": 0.7415957899538201,
+          "alt_text": "Data table with structured information, area: 1658928 pixels",
+          "method": "edge",
+          "confidence": 0.14279582959598006
+        },
+        {
+          "filename": "day-03-page-021-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-021-table-01.png",
+          "type": "table",
+          "bbox": [
+            354,
+            301,
+            1938,
+            283
+          ],
+          "area": 548454,
+          "quality_score": 0.7338684377149121,
+          "alt_text": "Data table with structured information, area: 548454 pixels",
+          "method": "edge",
+          "confidence": 0.10245891177746903
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_022.png",
+      "page_number": 22,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-022-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-022-table-00.png",
+          "type": "table",
+          "bbox": [
+            524,
+            357,
+            1463,
+            390
+          ],
+          "area": 570570,
+          "quality_score": 0.6594924913171236,
+          "alt_text": "Data table with structured information, area: 570570 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_023.png",
+      "page_number": 23,
+      "figures_detected": 12,
+      "figures_extracted": 12,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-023-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-00.png",
+          "type": "table",
+          "bbox": [
+            1424,
+            2690,
+            917,
+            251
+          ],
+          "area": 230167,
+          "quality_score": 0.5768537501136354,
+          "alt_text": "Data table with structured information, area: 230167 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-023-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-01.png",
+          "type": "table",
+          "bbox": [
+            1423,
+            1355,
+            911,
+            250
+          ],
+          "area": 227750,
+          "quality_score": 0.5585526159549762,
+          "alt_text": "Data table with structured information, area: 227750 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-023-table-02.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-02.png",
+          "type": "table",
+          "bbox": [
+            1424,
+            594,
+            911,
+            241
+          ],
+          "area": 219551,
+          "quality_score": 0.5622538208301395,
+          "alt_text": "Data table with structured information, area: 219551 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-023-table-03.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-03.png",
+          "type": "table",
+          "bbox": [
+            1423,
+            990,
+            910,
+            202
+          ],
+          "area": 183820,
+          "quality_score": 0.5973470280312623,
+          "alt_text": "Data table with structured information, area: 183820 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-023-table-04.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-04.png",
+          "type": "table",
+          "bbox": [
+            1423,
+            2211,
+            905,
+            181
+          ],
+          "area": 163805,
+          "quality_score": 0.5793785057909892,
+          "alt_text": "Data table with structured information, area: 163805 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-023-table-05.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-05.png",
+          "type": "table",
+          "bbox": [
+            333,
+            957,
+            942,
+            305
+          ],
+          "area": 287310,
+          "quality_score": 0.5884912520628868,
+          "alt_text": "Data table with structured information, area: 287310 pixels",
+          "method": "edge",
+          "confidence": 0.06457833002680032
+        },
+        {
+          "filename": "day-03-page-023-table-06.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-06.png",
+          "type": "table",
+          "bbox": [
+            334,
+            582,
+            941,
+            304
+          ],
+          "area": 286064,
+          "quality_score": 0.58515797014618,
+          "alt_text": "Data table with structured information, area: 286064 pixels",
+          "method": "edge",
+          "confidence": 0.0632445886235248
+        },
+        {
+          "filename": "day-03-page-023-table-07.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-07.png",
+          "type": "table",
+          "bbox": [
+            338,
+            1331,
+            942,
+            305
+          ],
+          "area": 287310,
+          "quality_score": 0.581068622206518,
+          "alt_text": "Data table with structured information, area: 287310 pixels",
+          "method": "edge",
+          "confidence": 0.06169642546378476
+        },
+        {
+          "filename": "day-03-page-023-table-08.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-08.png",
+          "type": "table",
+          "bbox": [
+            335,
+            2637,
+            949,
+            322
+          ],
+          "area": 305578,
+          "quality_score": 0.5800927598506819,
+          "alt_text": "Data table with structured information, area: 305578 pixels",
+          "method": "edge",
+          "confidence": 0.05877386461067224
+        },
+        {
+          "filename": "day-03-page-023-table-09.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-09.png",
+          "type": "table",
+          "bbox": [
+            1394,
+            1696,
+            941,
+            403
+          ],
+          "area": 379223,
+          "quality_score": 0.5672491229619335,
+          "alt_text": "Data table with structured information, area: 379223 pixels",
+          "method": "edge",
+          "confidence": 0.05135764444667122
+        },
+        {
+          "filename": "day-03-page-023-table-10.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-10.png",
+          "type": "table",
+          "bbox": [
+            343,
+            1697,
+            941,
+            403
+          ],
+          "area": 379223,
+          "quality_score": 0.566203810425502,
+          "alt_text": "Data table with structured information, area: 379223 pixels",
+          "method": "edge",
+          "confidence": 0.05096737275956363
+        },
+        {
+          "filename": "day-03-page-023-table-11.png",
+          "filepath": "assets/images/day-03/day-03-page-023-table-11.png",
+          "type": "table",
+          "bbox": [
+            333,
+            2165,
+            947,
+            405
+          ],
+          "area": 383535,
+          "quality_score": 0.5588114004301538,
+          "alt_text": "Data table with structured information, area: 383535 pixels",
+          "method": "edge",
+          "confidence": 0.04796433180804881
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_024.png",
+      "page_number": 24,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_025.png",
+      "page_number": 25,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_026.png",
+      "page_number": 26,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_027.png",
+      "page_number": 27,
+      "figures_detected": 6,
+      "figures_extracted": 6,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-027-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-027-table-00.png",
+          "type": "table",
+          "bbox": [
+            366,
+            1687,
+            1964,
+            286
+          ],
+          "area": 561704,
+          "quality_score": 0.5500535912025358,
+          "alt_text": "Data table with structured information, area: 561704 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-027-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-027-table-01.png",
+          "type": "table",
+          "bbox": [
+            367,
+            1201,
+            1962,
+            265
+          ],
+          "area": 519930,
+          "quality_score": 0.5549909675352137,
+          "alt_text": "Data table with structured information, area: 519930 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-027-table-02.png",
+          "filepath": "assets/images/day-03/day-03-page-027-table-02.png",
+          "type": "table",
+          "bbox": [
+            367,
+            360,
+            1963,
+            257
+          ],
+          "area": 504491,
+          "quality_score": 0.5835425360558768,
+          "alt_text": "Data table with structured information, area: 504491 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-027-table-03.png",
+          "filepath": "assets/images/day-03/day-03-page-027-table-03.png",
+          "type": "table",
+          "bbox": [
+            367,
+            2650,
+            1964,
+            250
+          ],
+          "area": 491000,
+          "quality_score": 0.5772945248284813,
+          "alt_text": "Data table with structured information, area: 491000 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-027-table-04.png",
+          "filepath": "assets/images/day-03/day-03-page-027-table-04.png",
+          "type": "table",
+          "bbox": [
+            366,
+            2139,
+            1965,
+            214
+          ],
+          "area": 420510,
+          "quality_score": 0.5659273799373717,
+          "alt_text": "Data table with structured information, area: 420510 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-027-table-05.png",
+          "filepath": "assets/images/day-03/day-03-page-027-table-05.png",
+          "type": "table",
+          "bbox": [
+            367,
+            797,
+            1964,
+            213
+          ],
+          "area": 418332,
+          "quality_score": 0.5671798806009045,
+          "alt_text": "Data table with structured information, area: 418332 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_028.png",
+      "page_number": 28,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-028-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-028-table-00.png",
+          "type": "table",
+          "bbox": [
+            552,
+            1335,
+            1527,
+            371
+          ],
+          "area": 566517,
+          "quality_score": 0.5909589811907277,
+          "alt_text": "Data table with structured information, area: 566517 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_029.png",
+      "page_number": 29,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_030.png",
+      "page_number": 30,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_031.png",
+      "page_number": 31,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-031-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-031-table-00.png",
+          "type": "table",
+          "bbox": [
+            354,
+            797,
+            1938,
+            603
+          ],
+          "area": 1168614,
+          "quality_score": 0.7658973731141063,
+          "alt_text": "Data table with structured information, area: 1168614 pixels",
+          "method": "edge",
+          "confidence": 0.16276546404544187
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_032.png",
+      "page_number": 32,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_033.png",
+      "page_number": 33,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-033-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-033-table-00.png",
+          "type": "table",
+          "bbox": [
+            1671,
+            1065,
+            674,
+            196
+          ],
+          "area": 132104,
+          "quality_score": 0.24760553615627323,
+          "alt_text": "Data table with structured information, area: 132104 pixels",
+          "method": "edge",
+          "confidence": 0.05095984981529704
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_034.png",
+      "page_number": 34,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-034-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-034-table-00.png",
+          "type": "table",
+          "bbox": [
+            260,
+            1220,
+            1962,
+            256
+          ],
+          "area": 502272,
+          "quality_score": 0.5838597488143659,
+          "alt_text": "Data table with structured information, area: 502272 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-034-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-034-table-01.png",
+          "type": "table",
+          "bbox": [
+            262,
+            2438,
+            1969,
+            214
+          ],
+          "area": 421366,
+          "quality_score": 0.570725814682769,
+          "alt_text": "Data table with structured information, area: 421366 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_035.png",
+      "page_number": 35,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-035-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-035-table-00.png",
+          "type": "table",
+          "bbox": [
+            352,
+            2071,
+            1965,
+            286
+          ],
+          "area": 561990,
+          "quality_score": 0.5500296925185671,
+          "alt_text": "Data table with structured information, area: 561990 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-035-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-035-table-01.png",
+          "type": "table",
+          "bbox": [
+            342,
+            1204,
+            1962,
+            265
+          ],
+          "area": 519930,
+          "quality_score": 0.5550594894013222,
+          "alt_text": "Data table with structured information, area: 519930 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_036.png",
+      "page_number": 36,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-036-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-036-table-00.png",
+          "type": "table",
+          "bbox": [
+            265,
+            690,
+            1962,
+            215
+          ],
+          "area": 421830,
+          "quality_score": 0.5657237260340352,
+          "alt_text": "Data table with structured information, area: 421830 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_037.png",
+      "page_number": 37,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-037-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-037-table-00.png",
+          "type": "table",
+          "bbox": [
+            398,
+            846,
+            1964,
+            250
+          ],
+          "area": 491000,
+          "quality_score": 0.5773436034356644,
+          "alt_text": "Data table with structured information, area: 491000 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_038.png",
+      "page_number": 38,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-038-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-038-table-00.png",
+          "type": "table",
+          "bbox": [
+            259,
+            1879,
+            1938,
+            1047
+          ],
+          "area": 2029086,
+          "quality_score": 0.7249005041705313,
+          "alt_text": "Data table with structured information, area: 2029086 pixels",
+          "method": "edge",
+          "confidence": 0.1293469079181464
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_039.png",
+      "page_number": 39,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_040.png",
+      "page_number": 40,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_041.png",
+      "page_number": 41,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_042.png",
+      "page_number": 42,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-042-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-042-table-00.png",
+          "type": "table",
+          "bbox": [
+            736,
+            456,
+            896,
+            153
+          ],
+          "area": 137088,
+          "quality_score": 0.9061773833782876,
+          "alt_text": "Data table with structured information, area: 137088 pixels",
+          "method": "edge",
+          "confidence": 0.10038807189542484
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_043.png",
+      "page_number": 43,
+      "figures_detected": 4,
+      "figures_extracted": 4,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-043-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-043-table-00.png",
+          "type": "table",
+          "bbox": [
+            697,
+            2413,
+            1254,
+            185
+          ],
+          "area": 231990,
+          "quality_score": 0.849762776228511,
+          "alt_text": "Data table with structured information, area: 231990 pixels",
+          "method": "edge",
+          "confidence": 0.14081641450062501
+        },
+        {
+          "filename": "day-03-page-043-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-043-table-01.png",
+          "type": "table",
+          "bbox": [
+            697,
+            2821,
+            1252,
+            179
+          ],
+          "area": 224108,
+          "quality_score": 0.8355771059873962,
+          "alt_text": "Data table with structured information, area: 224108 pixels",
+          "method": "edge",
+          "confidence": 0.13683581130526354
+        },
+        {
+          "filename": "day-03-page-043-table-02.png",
+          "filepath": "assets/images/day-03/day-03-page-043-table-02.png",
+          "type": "table",
+          "bbox": [
+            696,
+            2038,
+            1252,
+            179
+          ],
+          "area": 224108,
+          "quality_score": 0.8369166769324083,
+          "alt_text": "Data table with structured information, area: 224108 pixels",
+          "method": "edge",
+          "confidence": 0.13301622432041693
+        },
+        {
+          "filename": "day-03-page-043-table-03.png",
+          "filepath": "assets/images/day-03/day-03-page-043-table-03.png",
+          "type": "table",
+          "bbox": [
+            309,
+            1447,
+            2026,
+            218
+          ],
+          "area": 441668,
+          "quality_score": 0.771578983447987,
+          "alt_text": "Data table with structured information, area: 441668 pixels",
+          "method": "edge",
+          "confidence": 0.12655659907441788
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_044.png",
+      "page_number": 44,
+      "figures_detected": 4,
+      "figures_extracted": 4,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-044-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-044-table-00.png",
+          "type": "table",
+          "bbox": [
+            601,
+            1107,
+            1253,
+            174
+          ],
+          "area": 218022,
+          "quality_score": 0.859975128501673,
+          "alt_text": "Data table with structured information, area: 218022 pixels",
+          "method": "edge",
+          "confidence": 0.1532138958453734
+        },
+        {
+          "filename": "day-03-page-044-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-044-table-01.png",
+          "type": "table",
+          "bbox": [
+            600,
+            2554,
+            1252,
+            166
+          ],
+          "area": 207832,
+          "quality_score": 0.8505348888885185,
+          "alt_text": "Data table with structured information, area: 207832 pixels",
+          "method": "edge",
+          "confidence": 0.14732091304515185
+        },
+        {
+          "filename": "day-03-page-044-table-02.png",
+          "filepath": "assets/images/day-03/day-03-page-044-table-02.png",
+          "type": "table",
+          "bbox": [
+            600,
+            639,
+            1252,
+            168
+          ],
+          "area": 210336,
+          "quality_score": 0.8437399354443333,
+          "alt_text": "Data table with structured information, area: 210336 pixels",
+          "method": "edge",
+          "confidence": 0.14493952533089913
+        },
+        {
+          "filename": "day-03-page-044-table-03.png",
+          "filepath": "assets/images/day-03/day-03-page-044-table-03.png",
+          "type": "table",
+          "bbox": [
+            608,
+            2134,
+            1252,
+            166
+          ],
+          "area": 207832,
+          "quality_score": 0.8521103703053949,
+          "alt_text": "Data table with structured information, area: 207832 pixels",
+          "method": "edge",
+          "confidence": 0.14401054698025328
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_045.png",
+      "page_number": 45,
+      "figures_detected": 5,
+      "figures_extracted": 5,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-045-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-045-table-00.png",
+          "type": "table",
+          "bbox": [
+            695,
+            1225,
+            1252,
+            163
+          ],
+          "area": 204076,
+          "quality_score": 0.8554842454135215,
+          "alt_text": "Data table with structured information, area: 204076 pixels",
+          "method": "edge",
+          "confidence": 0.15006174170407102
+        },
+        {
+          "filename": "day-03-page-045-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-045-table-01.png",
+          "type": "table",
+          "bbox": [
+            695,
+            2372,
+            1252,
+            165
+          ],
+          "area": 206580,
+          "quality_score": 0.8527569205497624,
+          "alt_text": "Data table with structured information, area: 206580 pixels",
+          "method": "edge",
+          "confidence": 0.1477006486591151
+        },
+        {
+          "filename": "day-03-page-045-table-02.png",
+          "filepath": "assets/images/day-03/day-03-page-045-table-02.png",
+          "type": "table",
+          "bbox": [
+            695,
+            296,
+            1252,
+            166
+          ],
+          "area": 207832,
+          "quality_score": 0.8466945754160771,
+          "alt_text": "Data table with structured information, area: 207832 pixels",
+          "method": "edge",
+          "confidence": 0.14658955310058125
+        },
+        {
+          "filename": "day-03-page-045-table-03.png",
+          "filepath": "assets/images/day-03/day-03-page-045-table-03.png",
+          "type": "table",
+          "bbox": [
+            695,
+            1753,
+            1252,
+            166
+          ],
+          "area": 207832,
+          "quality_score": 0.8515352293488753,
+          "alt_text": "Data table with structured information, area: 207832 pixels",
+          "method": "edge",
+          "confidence": 0.14343315755032912
+        },
+        {
+          "filename": "day-03-page-045-table-04.png",
+          "filepath": "assets/images/day-03/day-03-page-045-table-04.png",
+          "type": "table",
+          "bbox": [
+            695,
+            606,
+            1252,
+            169
+          ],
+          "area": 211588,
+          "quality_score": 0.8442704391967597,
+          "alt_text": "Data table with structured information, area: 211588 pixels",
+          "method": "edge",
+          "confidence": 0.14088700682458363
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_046.png",
+      "page_number": 46,
+      "figures_detected": 3,
+      "figures_extracted": 3,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-046-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-046-table-00.png",
+          "type": "table",
+          "bbox": [
+            600,
+            296,
+            1252,
+            172
+          ],
+          "area": 215344,
+          "quality_score": 0.8411939024662538,
+          "alt_text": "Data table with structured information, area: 215344 pixels",
+          "method": "edge",
+          "confidence": 0.1384111003789286
+        },
+        {
+          "filename": "day-03-page-046-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-046-table-01.png",
+          "type": "table",
+          "bbox": [
+            214,
+            2237,
+            2026,
+            218
+          ],
+          "area": 441668,
+          "quality_score": 0.7798167159699217,
+          "alt_text": "Data table with structured information, area: 441668 pixels",
+          "method": "edge",
+          "confidence": 0.1259316953005425
+        },
+        {
+          "filename": "day-03-page-046-table-02.png",
+          "filepath": "assets/images/day-03/day-03-page-046-table-02.png",
+          "type": "table",
+          "bbox": [
+            571,
+            867,
+            1310,
+            714
+          ],
+          "area": 935340,
+          "quality_score": 0.7390169217511292,
+          "alt_text": "Data table with structured information, area: 935340 pixels",
+          "method": "edge",
+          "confidence": 0.12352085872516946
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_047.png",
+      "page_number": 47,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_048.png",
+      "page_number": 48,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-048-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-048-table-00.png",
+          "type": "table",
+          "bbox": [
+            238,
+            1210,
+            1979,
+            708
+          ],
+          "area": 1401132,
+          "quality_score": 0.6864215771025071,
+          "alt_text": "Data table with structured information, area: 1401132 pixels",
+          "method": "edge",
+          "confidence": 0.09420525689228423
+        },
+        {
+          "filename": "day-03-page-048-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-048-table-01.png",
+          "type": "table",
+          "bbox": [
+            238,
+            1988,
+            1980,
+            708
+          ],
+          "area": 1401840,
+          "quality_score": 0.6880143725647307,
+          "alt_text": "Data table with structured information, area: 1401840 pixels",
+          "method": "edge",
+          "confidence": 0.08920276208411802
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_049.png",
+      "page_number": 49,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-049-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-049-table-00.png",
+          "type": "table",
+          "bbox": [
+            1031,
+            2444,
+            1321,
+            435
+          ],
+          "area": 574635,
+          "quality_score": 0.5201353523950625,
+          "alt_text": "Data table with structured information, area: 574635 pixels",
+          "method": "edge",
+          "confidence": 0.15083661802709547
+        },
+        {
+          "filename": "day-03-page-049-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-049-table-01.png",
+          "type": "table",
+          "bbox": [
+            1494,
+            1552,
+            697,
+            350
+          ],
+          "area": 243950,
+          "quality_score": 0.694596927902189,
+          "alt_text": "Data table with structured information, area: 243950 pixels",
+          "method": "edge",
+          "confidence": 0.054109448657511786
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_050.png",
+      "page_number": 50,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-050-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-050-table-00.png",
+          "type": "table",
+          "bbox": [
+            604,
+            697,
+            1252,
+            166
+          ],
+          "area": 207832,
+          "quality_score": 0.8478121501431798,
+          "alt_text": "Data table with structured information, area: 207832 pixels",
+          "method": "edge",
+          "confidence": 0.14313483967820162
+        },
+        {
+          "filename": "day-03-page-050-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-050-table-01.png",
+          "type": "table",
+          "bbox": [
+            571,
+            1403,
+            1310,
+            541
+          ],
+          "area": 708710,
+          "quality_score": 0.7484588259902885,
+          "alt_text": "Data table with structured information, area: 708710 pixels",
+          "method": "edge",
+          "confidence": 0.11952702798041512
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_051.png",
+      "page_number": 51,
+      "figures_detected": 3,
+      "figures_extracted": 3,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-051-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-051-table-00.png",
+          "type": "table",
+          "bbox": [
+            1035,
+            1949,
+            1321,
+            434
+          ],
+          "area": 573314,
+          "quality_score": 0.5198426486134455,
+          "alt_text": "Data table with structured information, area: 573314 pixels",
+          "method": "edge",
+          "confidence": 0.15117719085876152
+        },
+        {
+          "filename": "day-03-page-051-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-051-table-01.png",
+          "type": "table",
+          "bbox": [
+            333,
+            1275,
+            1982,
+            369
+          ],
+          "area": 731358,
+          "quality_score": 0.7702175071052103,
+          "alt_text": "Data table with structured information, area: 731358 pixels",
+          "method": "edge",
+          "confidence": 0.1088577686987768
+        },
+        {
+          "filename": "day-03-page-051-table-02.png",
+          "filepath": "assets/images/day-03/day-03-page-051-table-02.png",
+          "type": "table",
+          "bbox": [
+            333,
+            847,
+            1979,
+            368
+          ],
+          "area": 728272,
+          "quality_score": 0.7540786725320026,
+          "alt_text": "Data table with structured information, area: 728272 pixels",
+          "method": "edge",
+          "confidence": 0.10289562141617417
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_052.png",
+      "page_number": 52,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-052-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-052-table-00.png",
+          "type": "table",
+          "bbox": [
+            446,
+            2473,
+            1563,
+            218
+          ],
+          "area": 340734,
+          "quality_score": 0.784148370377956,
+          "alt_text": "Data table with structured information, area: 340734 pixels",
+          "method": "edge",
+          "confidence": 0.14202280958166782
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_053.png",
+      "page_number": 53,
+      "figures_detected": 5,
+      "figures_extracted": 5,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-053-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-053-table-00.png",
+          "type": "table",
+          "bbox": [
+            699,
+            1616,
+            1252,
+            162
+          ],
+          "area": 202824,
+          "quality_score": 0.8564687662993782,
+          "alt_text": "Data table with structured information, area: 202824 pixels",
+          "method": "edge",
+          "confidence": 0.15117540330532875
+        },
+        {
+          "filename": "day-03-page-053-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-053-table-01.png",
+          "type": "table",
+          "bbox": [
+            697,
+            671,
+            1252,
+            162
+          ],
+          "area": 202824,
+          "quality_score": 0.8510292196126095,
+          "alt_text": "Data table with structured information, area: 202824 pixels",
+          "method": "edge",
+          "confidence": 0.15036682049461603
+        },
+        {
+          "filename": "day-03-page-053-table-02.png",
+          "filepath": "assets/images/day-03/day-03-page-053-table-02.png",
+          "type": "table",
+          "bbox": [
+            699,
+            322,
+            1252,
+            163
+          ],
+          "area": 204076,
+          "quality_score": 0.8541275948020234,
+          "alt_text": "Data table with structured information, area: 204076 pixels",
+          "method": "edge",
+          "confidence": 0.14987553656480918
+        },
+        {
+          "filename": "day-03-page-053-table-03.png",
+          "filepath": "assets/images/day-03/day-03-page-053-table-03.png",
+          "type": "table",
+          "bbox": [
+            696,
+            1193,
+            1252,
+            168
+          ],
+          "area": 210336,
+          "quality_score": 0.845004689743483,
+          "alt_text": "Data table with structured information, area: 210336 pixels",
+          "method": "edge",
+          "confidence": 0.14460672447892894
+        },
+        {
+          "filename": "day-03-page-053-table-04.png",
+          "filepath": "assets/images/day-03/day-03-page-053-table-04.png",
+          "type": "table",
+          "bbox": [
+            699,
+            1980,
+            1252,
+            170
+          ],
+          "area": 212840,
+          "quality_score": 0.8450925493324997,
+          "alt_text": "Data table with structured information, area: 212840 pixels",
+          "method": "edge",
+          "confidence": 0.14360082691223455
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_054.png",
+      "page_number": 54,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-054-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-054-table-00.png",
+          "type": "table",
+          "bbox": [
+            238,
+            1581,
+            1979,
+            624
+          ],
+          "area": 1234896,
+          "quality_score": 0.6967588229200541,
+          "alt_text": "Data table with structured information, area: 1234896 pixels",
+          "method": "edge",
+          "confidence": 0.09218104196628704
+        },
+        {
+          "filename": "day-03-page-054-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-054-table-01.png",
+          "type": "table",
+          "bbox": [
+            238,
+            2274,
+            1983,
+            623
+          ],
+          "area": 1235409,
+          "quality_score": 0.6931307551973906,
+          "alt_text": "Data table with structured information, area: 1235409 pixels",
+          "method": "edge",
+          "confidence": 0.08663689514970346
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_055.png",
+      "page_number": 55,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-055-chart-00.png",
+          "filepath": "assets/images/day-03/day-03-page-055-chart-00.png",
+          "type": "chart",
+          "bbox": [
+            835,
+            496,
+            1077,
+            1077
+          ],
+          "area": 1159929,
+          "quality_score": 0.4074981317410664,
+          "alt_text": "Chart showing data visualization, area: 1159929 pixels",
+          "method": "edge",
+          "confidence": 0.2905332998830101
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_056.png",
+      "page_number": 56,
+      "figures_detected": 4,
+      "figures_extracted": 4,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-056-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-056-table-00.png",
+          "type": "table",
+          "bbox": [
+            606,
+            2323,
+            1252,
+            161
+          ],
+          "area": 201572,
+          "quality_score": 0.8577555418113895,
+          "alt_text": "Data table with structured information, area: 201572 pixels",
+          "method": "edge",
+          "confidence": 0.1509832714861191
+        },
+        {
+          "filename": "day-03-page-056-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-056-table-01.png",
+          "type": "table",
+          "bbox": [
+            600,
+            2631,
+            1252,
+            163
+          ],
+          "area": 204076,
+          "quality_score": 0.8506352339743615,
+          "alt_text": "Data table with structured information, area: 204076 pixels",
+          "method": "edge",
+          "confidence": 0.1491895176306866
+        },
+        {
+          "filename": "day-03-page-056-table-02.png",
+          "filepath": "assets/images/day-03/day-03-page-056-table-02.png",
+          "type": "table",
+          "bbox": [
+            603,
+            1944,
+            1252,
+            166
+          ],
+          "area": 207832,
+          "quality_score": 0.8505223558114934,
+          "alt_text": "Data table with structured information, area: 207832 pixels",
+          "method": "edge",
+          "confidence": 0.14766734670310636
+        },
+        {
+          "filename": "day-03-page-056-table-03.png",
+          "filepath": "assets/images/day-03/day-03-page-056-table-03.png",
+          "type": "table",
+          "bbox": [
+            601,
+            1625,
+            1252,
+            168
+          ],
+          "area": 210336,
+          "quality_score": 0.8438843744081194,
+          "alt_text": "Data table with structured information, area: 210336 pixels",
+          "method": "edge",
+          "confidence": 0.1447493534154876
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_057.png",
+      "page_number": 57,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-057-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-057-table-00.png",
+          "type": "table",
+          "bbox": [
+            695,
+            315,
+            1252,
+            163
+          ],
+          "area": 204076,
+          "quality_score": 0.8540817173649397,
+          "alt_text": "Data table with structured information, area: 204076 pixels",
+          "method": "edge",
+          "confidence": 0.15018914522040808
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_058.png",
+      "page_number": 58,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-058-table-00.png",
+          "filepath": "assets/images/day-03/day-03-page-058-table-00.png",
+          "type": "table",
+          "bbox": [
+            238,
+            959,
+            1979,
+            453
+          ],
+          "area": 896487,
+          "quality_score": 0.7200446621790008,
+          "alt_text": "Data table with structured information, area: 896487 pixels",
+          "method": "edge",
+          "confidence": 0.0951960262669732
+        },
+        {
+          "filename": "day-03-page-058-table-01.png",
+          "filepath": "assets/images/day-03/day-03-page-058-table-01.png",
+          "type": "table",
+          "bbox": [
+            238,
+            1481,
+            1980,
+            453
+          ],
+          "area": 896940,
+          "quality_score": 0.7229365078407455,
+          "alt_text": "Data table with structured information, area: 896940 pixels",
+          "method": "edge",
+          "confidence": 0.09182999977701964
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_059.png",
+      "page_number": 59,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-059-diagram-00.png",
+          "filepath": "assets/images/day-03/day-03-page-059-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            739,
+            350,
+            1219,
+            1219
+          ],
+          "area": 1485961,
+          "quality_score": 0.34841980002740996,
+          "alt_text": "Diagram illustrating concepts, area: 1485961 pixels",
+          "method": "edge",
+          "confidence": 0.1860990968134426
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_060.png",
+      "page_number": 60,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_061.png",
+      "page_number": 61,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_062.png",
+      "page_number": 62,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_063.png",
+      "page_number": 63,
+      "figures_detected": 16,
+      "figures_extracted": 16,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-063-diagram-00.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            970,
+            340,
+            235,
+            2566
+          ],
+          "area": 603010,
+          "quality_score": 0.6531063054186178,
+          "alt_text": "Diagram illustrating concepts, area: 603010 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-01.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            484,
+            339,
+            234,
+            2567
+          ],
+          "area": 600678,
+          "quality_score": 0.6439022723375682,
+          "alt_text": "Diagram illustrating concepts, area: 600678 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-02.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-02.png",
+          "type": "diagram",
+          "bbox": [
+            494,
+            2404,
+            214,
+            212
+          ],
+          "area": 45368,
+          "quality_score": 0.44455541302556767,
+          "alt_text": "Diagram illustrating concepts, area: 45368 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-03.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-03.png",
+          "type": "diagram",
+          "bbox": [
+            981,
+            1961,
+            213,
+            212
+          ],
+          "area": 45156,
+          "quality_score": 0.4408292759495278,
+          "alt_text": "Diagram illustrating concepts, area: 45156 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-04.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-04.png",
+          "type": "diagram",
+          "bbox": [
+            981,
+            631,
+            213,
+            212
+          ],
+          "area": 45156,
+          "quality_score": 0.4407987128208913,
+          "alt_text": "Diagram illustrating concepts, area: 45156 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-05.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-05.png",
+          "type": "diagram",
+          "bbox": [
+            494,
+            1961,
+            214,
+            211
+          ],
+          "area": 45154,
+          "quality_score": 0.44380400810624715,
+          "alt_text": "Diagram illustrating concepts, area: 45154 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-06.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-06.png",
+          "type": "diagram",
+          "bbox": [
+            494,
+            1518,
+            214,
+            211
+          ],
+          "area": 45154,
+          "quality_score": 0.44428254684308227,
+          "alt_text": "Diagram illustrating concepts, area: 45154 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-07.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-07.png",
+          "type": "diagram",
+          "bbox": [
+            494,
+            1074,
+            214,
+            211
+          ],
+          "area": 45154,
+          "quality_score": 0.4367882462661512,
+          "alt_text": "Diagram illustrating concepts, area: 45154 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-08.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-08.png",
+          "type": "diagram",
+          "bbox": [
+            494,
+            631,
+            214,
+            211
+          ],
+          "area": 45154,
+          "quality_score": 0.44769980977023305,
+          "alt_text": "Diagram illustrating concepts, area: 45154 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-image-09.png",
+          "filepath": "assets/images/day-03/day-03-page-063-image-09.png",
+          "type": "image",
+          "bbox": [
+            981,
+            2405,
+            213,
+            211
+          ],
+          "area": 44943,
+          "quality_score": 0.4291413694197345,
+          "alt_text": "Image content, area: 44943 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-10.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-10.png",
+          "type": "diagram",
+          "bbox": [
+            981,
+            1518,
+            213,
+            211
+          ],
+          "area": 44943,
+          "quality_score": 0.43473189464277995,
+          "alt_text": "Diagram illustrating concepts, area: 44943 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-11.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-11.png",
+          "type": "diagram",
+          "bbox": [
+            981,
+            1075,
+            213,
+            211
+          ],
+          "area": 44943,
+          "quality_score": 0.4279841486955382,
+          "alt_text": "Diagram illustrating concepts, area: 44943 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-063-diagram-12.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-12.png",
+          "type": "diagram",
+          "bbox": [
+            1872,
+            2580,
+            270,
+            270
+          ],
+          "area": 72900,
+          "quality_score": 0.6851000457589363,
+          "alt_text": "Diagram illustrating concepts, area: 72900 pixels",
+          "method": "edge",
+          "confidence": 0.10823045267489712
+        },
+        {
+          "filename": "day-03-page-063-diagram-13.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-13.png",
+          "type": "diagram",
+          "bbox": [
+            1853,
+            1695,
+            304,
+            304
+          ],
+          "area": 92416,
+          "quality_score": 0.6916597317307893,
+          "alt_text": "Diagram illustrating concepts, area: 92416 pixels",
+          "method": "edge",
+          "confidence": 0.10612880886426593
+        },
+        {
+          "filename": "day-03-page-063-diagram-14.png",
+          "filepath": "assets/images/day-03/day-03-page-063-diagram-14.png",
+          "type": "diagram",
+          "bbox": [
+            1814,
+            805,
+            381,
+            381
+          ],
+          "area": 145161,
+          "quality_score": 0.7040876444319161,
+          "alt_text": "Diagram illustrating concepts, area: 145161 pixels",
+          "method": "edge",
+          "confidence": 0.09078195934169646
+        },
+        {
+          "filename": "day-03-page-063-image-15.png",
+          "filepath": "assets/images/day-03/day-03-page-063-image-15.png",
+          "type": "image",
+          "bbox": [
+            1893,
+            367,
+            233,
+            246
+          ],
+          "area": 57318,
+          "quality_score": 0.8510518619805296,
+          "alt_text": "Image content, area: 57318 pixels",
+          "method": "edge",
+          "confidence": 0.0887679263058725
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_064.png",
+      "page_number": 64,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_065.png",
+      "page_number": 65,
+      "figures_detected": 24,
+      "figures_extracted": 24,
+      "extracted_figures": [
+        {
+          "filename": "day-03-page-065-diagram-00.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            578,
+            332,
+            237,
+            2587
+          ],
+          "area": 613119,
+          "quality_score": 0.65793685566247,
+          "alt_text": "Diagram illustrating concepts, area: 613119 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-01.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            1427,
+            333,
+            235,
+            2585
+          ],
+          "area": 607475,
+          "quality_score": 0.6735281091411205,
+          "alt_text": "Diagram illustrating concepts, area: 607475 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-02.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-02.png",
+          "type": "diagram",
+          "bbox": [
+            1011,
+            333,
+            233,
+            2587
+          ],
+          "area": 602771,
+          "quality_score": 0.5985603847100451,
+          "alt_text": "Diagram illustrating concepts, area: 602771 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-03.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-03.png",
+          "type": "diagram",
+          "bbox": [
+            1877,
+            335,
+            233,
+            2584
+          ],
+          "area": 602072,
+          "quality_score": 0.6351244830683055,
+          "alt_text": "Diagram illustrating concepts, area: 602072 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-image-04.png",
+          "filepath": "assets/images/day-03/day-03-page-065-image-04.png",
+          "type": "image",
+          "bbox": [
+            589,
+            2413,
+            215,
+            213
+          ],
+          "area": 45795,
+          "quality_score": 0.39645639282214523,
+          "alt_text": "Image content, area: 45795 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-05.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-05.png",
+          "type": "diagram",
+          "bbox": [
+            589,
+            1520,
+            215,
+            213
+          ],
+          "area": 45795,
+          "quality_score": 0.40116822832131066,
+          "alt_text": "Diagram illustrating concepts, area: 45795 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-image-06.png",
+          "filepath": "assets/images/day-03/day-03-page-065-image-06.png",
+          "type": "image",
+          "bbox": [
+            589,
+            1073,
+            215,
+            213
+          ],
+          "area": 45795,
+          "quality_score": 0.3945178631324294,
+          "alt_text": "Image content, area: 45795 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-07.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-07.png",
+          "type": "diagram",
+          "bbox": [
+            589,
+            626,
+            215,
+            213
+          ],
+          "area": 45795,
+          "quality_score": 0.4064441163974702,
+          "alt_text": "Diagram illustrating concepts, area: 45795 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-image-08.png",
+          "filepath": "assets/images/day-03/day-03-page-065-image-08.png",
+          "type": "image",
+          "bbox": [
+            589,
+            1967,
+            215,
+            212
+          ],
+          "area": 45580,
+          "quality_score": 0.4014312935367109,
+          "alt_text": "Image content, area: 45580 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-image-09.png",
+          "filepath": "assets/images/day-03/day-03-page-065-image-09.png",
+          "type": "image",
+          "bbox": [
+            1438,
+            2413,
+            213,
+            213
+          ],
+          "area": 45369,
+          "quality_score": 0.43060621778872854,
+          "alt_text": "Image content, area: 45369 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-10.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-10.png",
+          "type": "diagram",
+          "bbox": [
+            1021,
+            1968,
+            213,
+            213
+          ],
+          "area": 45369,
+          "quality_score": 0.4311433411401643,
+          "alt_text": "Diagram illustrating concepts, area: 45369 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-11.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-11.png",
+          "type": "diagram",
+          "bbox": [
+            1438,
+            1966,
+            213,
+            213
+          ],
+          "area": 45369,
+          "quality_score": 0.4356332636666881,
+          "alt_text": "Diagram illustrating concepts, area: 45369 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-12.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-12.png",
+          "type": "diagram",
+          "bbox": [
+            1021,
+            1521,
+            213,
+            213
+          ],
+          "area": 45369,
+          "quality_score": 0.43133323846089483,
+          "alt_text": "Diagram illustrating concepts, area: 45369 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-13.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-13.png",
+          "type": "diagram",
+          "bbox": [
+            1438,
+            1520,
+            213,
+            213
+          ],
+          "area": 45369,
+          "quality_score": 0.43603415731282325,
+          "alt_text": "Diagram illustrating concepts, area: 45369 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-image-14.png",
+          "filepath": "assets/images/day-03/day-03-page-065-image-14.png",
+          "type": "image",
+          "bbox": [
+            1021,
+            1074,
+            213,
+            213
+          ],
+          "area": 45369,
+          "quality_score": 0.4260687119370023,
+          "alt_text": "Image content, area: 45369 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-image-15.png",
+          "filepath": "assets/images/day-03/day-03-page-065-image-15.png",
+          "type": "image",
+          "bbox": [
+            1438,
+            1073,
+            213,
+            213
+          ],
+          "area": 45369,
+          "quality_score": 0.4289635557123731,
+          "alt_text": "Image content, area: 45369 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-16.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-16.png",
+          "type": "diagram",
+          "bbox": [
+            1021,
+            627,
+            213,
+            213
+          ],
+          "area": 45369,
+          "quality_score": 0.43502527619977516,
+          "alt_text": "Diagram illustrating concepts, area: 45369 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-image-17.png",
+          "filepath": "assets/images/day-03/day-03-page-065-image-17.png",
+          "type": "image",
+          "bbox": [
+            1021,
+            2415,
+            213,
+            212
+          ],
+          "area": 45156,
+          "quality_score": 0.42017157134117833,
+          "alt_text": "Image content, area: 45156 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-18.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-18.png",
+          "type": "diagram",
+          "bbox": [
+            1887,
+            2414,
+            212,
+            213
+          ],
+          "area": 45156,
+          "quality_score": 0.42750937797990685,
+          "alt_text": "Diagram illustrating concepts, area: 45156 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-19.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-19.png",
+          "type": "diagram",
+          "bbox": [
+            1887,
+            1521,
+            212,
+            213
+          ],
+          "area": 45156,
+          "quality_score": 0.4311248175441132,
+          "alt_text": "Diagram illustrating concepts, area: 45156 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-20.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-20.png",
+          "type": "diagram",
+          "bbox": [
+            1887,
+            1075,
+            212,
+            213
+          ],
+          "area": 45156,
+          "quality_score": 0.42809181452645506,
+          "alt_text": "Diagram illustrating concepts, area: 45156 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-21.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-21.png",
+          "type": "diagram",
+          "bbox": [
+            1438,
+            627,
+            213,
+            212
+          ],
+          "area": 45156,
+          "quality_score": 0.4334448347087706,
+          "alt_text": "Diagram illustrating concepts, area: 45156 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-22.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-22.png",
+          "type": "diagram",
+          "bbox": [
+            1887,
+            1968,
+            212,
+            212
+          ],
+          "area": 44944,
+          "quality_score": 0.4318557788108091,
+          "alt_text": "Diagram illustrating concepts, area: 44944 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-03-page-065-diagram-23.png",
+          "filepath": "assets/images/day-03/day-03-page-065-diagram-23.png",
+          "type": "diagram",
+          "bbox": [
+            1887,
+            629,
+            212,
+            212
+          ],
+          "area": 44944,
+          "quality_score": 0.43191282908150647,
+          "alt_text": "Diagram illustrating concepts, area: 44944 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "F.Day.3.13Jan20_page_066.png",
+      "page_number": 66,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    }
+  ]
+}

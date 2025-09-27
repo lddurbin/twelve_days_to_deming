@@ -1,0 +1,1236 @@
+{
+  "day": 2,
+  "total_pages": 44,
+  "processing_timestamp": "2025-09-27T11:39:45.316411",
+  "output_directory": "assets/images/day-02-extracted",
+  "pages": [
+    {
+      "source_file": "E.Day.2.12Oct21_page_005.png",
+      "page_number": 5,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-005-table-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-005-table-00.png",
+          "type": "table",
+          "bbox": [
+            1389,
+            1266,
+            947,
+            264
+          ],
+          "area": 250008,
+          "quality_score": 0.11197894236143195,
+          "alt_text": "Data table with structured information, area: 250008 pixels",
+          "method": "edge",
+          "confidence": 0.028519087389203546
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_006.png",
+      "page_number": 6,
+      "figures_detected": 4,
+      "figures_extracted": 4,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-006-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-006-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            1925,
+            2515,
+            344,
+            344
+          ],
+          "area": 118336,
+          "quality_score": 0.61929430177797,
+          "alt_text": "Diagram illustrating concepts, area: 118336 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-02-page-006-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-006-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            1980,
+            1934,
+            289,
+            270
+          ],
+          "area": 78030,
+          "quality_score": 0.6254978193310475,
+          "alt_text": "Diagram illustrating concepts, area: 78030 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-02-page-006-diagram-02.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-006-diagram-02.png",
+          "type": "diagram",
+          "bbox": [
+            2039,
+            1461,
+            229,
+            230
+          ],
+          "area": 52670,
+          "quality_score": 0.6403043141688587,
+          "alt_text": "Diagram illustrating concepts, area: 52670 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-02-page-006-diagram-03.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-006-diagram-03.png",
+          "type": "diagram",
+          "bbox": [
+            2039,
+            951,
+            234,
+            388
+          ],
+          "area": 90792,
+          "quality_score": 0.6125853806076889,
+          "alt_text": "Diagram illustrating concepts, area: 90792 pixels",
+          "method": "edge",
+          "confidence": 0.184135166093929
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_007.png",
+      "page_number": 7,
+      "figures_detected": 3,
+      "figures_extracted": 3,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-007-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-007-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            1851,
+            1752,
+            512,
+            380
+          ],
+          "area": 194560,
+          "quality_score": 0.6028186452475406,
+          "alt_text": "Diagram illustrating concepts, area: 194560 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-02-page-007-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-007-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            1905,
+            1127,
+            458,
+            344
+          ],
+          "area": 157552,
+          "quality_score": 0.6094624368383247,
+          "alt_text": "Diagram illustrating concepts, area: 157552 pixels",
+          "method": "color",
+          "confidence": 0.7
+        },
+        {
+          "filename": "day-02-page-007-diagram-02.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-007-diagram-02.png",
+          "type": "diagram",
+          "bbox": [
+            1961,
+            476,
+            402,
+            344
+          ],
+          "area": 138288,
+          "quality_score": 0.6152628341625719,
+          "alt_text": "Diagram illustrating concepts, area: 138288 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_008.png",
+      "page_number": 8,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_009.png",
+      "page_number": 9,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_010.png",
+      "page_number": 10,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_011.png",
+      "page_number": 11,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_012.png",
+      "page_number": 12,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_013.png",
+      "page_number": 13,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-013-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-013-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            265,
+            1092,
+            1288,
+            1643
+          ],
+          "area": 2116184,
+          "quality_score": 0.6328737967806166,
+          "alt_text": "Diagram illustrating concepts, area: 2116184 pixels",
+          "method": "edge",
+          "confidence": 0.0613793507558889
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_014.png",
+      "page_number": 14,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_015.png",
+      "page_number": 15,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_016.png",
+      "page_number": 16,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-016-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-016-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            1399,
+            1338,
+            890,
+            868
+          ],
+          "area": 772520,
+          "quality_score": 0.7100793146409,
+          "alt_text": "Diagram illustrating concepts, area: 772520 pixels",
+          "method": "edge",
+          "confidence": 0.1302205768135453
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_017.png",
+      "page_number": 17,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_018.png",
+      "page_number": 18,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-018-table-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-018-table-00.png",
+          "type": "table",
+          "bbox": [
+            380,
+            1990,
+            1867,
+            496
+          ],
+          "area": 926032,
+          "quality_score": 0.18455367002853984,
+          "alt_text": "Data table with structured information, area: 926032 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_019.png",
+      "page_number": 19,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-019-table-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-019-table-00.png",
+          "type": "table",
+          "bbox": [
+            484,
+            712,
+            1842,
+            489
+          ],
+          "area": 900738,
+          "quality_score": 0.18599033238265264,
+          "alt_text": "Data table with structured information, area: 900738 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_020.png",
+      "page_number": 20,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_021.png",
+      "page_number": 21,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-021-table-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-021-table-00.png",
+          "type": "table",
+          "bbox": [
+            294,
+            2063,
+            910,
+            587
+          ],
+          "area": 534170,
+          "quality_score": 0.43522606362370253,
+          "alt_text": "Data table with structured information, area: 534170 pixels",
+          "method": "color",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_022.png",
+      "page_number": 22,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_023.png",
+      "page_number": 23,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_024.png",
+      "page_number": 24,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-024-table-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-024-table-00.png",
+          "type": "table",
+          "bbox": [
+            259,
+            2064,
+            1938,
+            814
+          ],
+          "area": 1577532,
+          "quality_score": 0.7350449322247099,
+          "alt_text": "Data table with structured information, area: 1577532 pixels",
+          "method": "edge",
+          "confidence": 0.13563338176341272
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_025.png",
+      "page_number": 25,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-025-table-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-025-table-00.png",
+          "type": "table",
+          "bbox": [
+            354,
+            2417,
+            1938,
+            583
+          ],
+          "area": 1129854,
+          "quality_score": 0.7473931171077183,
+          "alt_text": "Data table with structured information, area: 1129854 pixels",
+          "method": "edge",
+          "confidence": 0.14617640863332784
+        },
+        {
+          "filename": "day-02-page-025-table-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-025-table-01.png",
+          "type": "table",
+          "bbox": [
+            354,
+            1645,
+            1938,
+            706
+          ],
+          "area": 1368228,
+          "quality_score": 0.7151630267778695,
+          "alt_text": "Data table with structured information, area: 1368228 pixels",
+          "method": "edge",
+          "confidence": 0.11321212546446938
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_026.png",
+      "page_number": 26,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_027.png",
+      "page_number": 27,
+      "figures_detected": 8,
+      "figures_extracted": 8,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-027-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-027-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            1463,
+            2180,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.6949112158713565,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.11743477903053247
+        },
+        {
+          "filename": "day-02-page-027-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-027-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            346,
+            2180,
+            837,
+            580
+          ],
+          "area": 485460,
+          "quality_score": 0.6913404911678901,
+          "alt_text": "Diagram illustrating concepts, area: 485460 pixels",
+          "method": "edge",
+          "confidence": 0.11607135500350184
+        },
+        {
+          "filename": "day-02-page-027-diagram-02.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-027-diagram-02.png",
+          "type": "diagram",
+          "bbox": [
+            1463,
+            1323,
+            838,
+            579
+          ],
+          "area": 485202,
+          "quality_score": 0.6953595577864506,
+          "alt_text": "Diagram illustrating concepts, area: 485202 pixels",
+          "method": "edge",
+          "confidence": 0.1154323353984526
+        },
+        {
+          "filename": "day-02-page-027-diagram-03.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-027-diagram-03.png",
+          "type": "diagram",
+          "bbox": [
+            346,
+            1323,
+            837,
+            579
+          ],
+          "area": 484623,
+          "quality_score": 0.6932745310282292,
+          "alt_text": "Diagram illustrating concepts, area: 484623 pixels",
+          "method": "edge",
+          "confidence": 0.11519057081483958
+        },
+        {
+          "filename": "day-02-page-027-diagram-04.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-027-diagram-04.png",
+          "type": "diagram",
+          "bbox": [
+            1463,
+            465,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.6918054322786663,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.11464900008229775
+        },
+        {
+          "filename": "day-02-page-027-diagram-05.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-027-diagram-05.png",
+          "type": "diagram",
+          "bbox": [
+            346,
+            465,
+            837,
+            580
+          ],
+          "area": 485460,
+          "quality_score": 0.6895037503559347,
+          "alt_text": "Diagram illustrating concepts, area: 485460 pixels",
+          "method": "edge",
+          "confidence": 0.11419272442631731
+        },
+        {
+          "filename": "day-02-page-027-image-06.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-027-image-06.png",
+          "type": "image",
+          "bbox": [
+            1199,
+            1900,
+            264,
+            279
+          ],
+          "area": 73656,
+          "quality_score": 0.6716279288696417,
+          "alt_text": "Image content, area: 73656 pixels",
+          "method": "edge",
+          "confidence": 0.029461279461279462
+        },
+        {
+          "filename": "day-02-page-027-image-07.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-027-image-07.png",
+          "type": "image",
+          "bbox": [
+            1197,
+            1043,
+            264,
+            280
+          ],
+          "area": 73920,
+          "quality_score": 0.6715882944559367,
+          "alt_text": "Image content, area: 73920 pixels",
+          "method": "edge",
+          "confidence": 0.029383116883116882
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_028.png",
+      "page_number": 28,
+      "figures_detected": 6,
+      "figures_extracted": 6,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-028-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-028-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            1369,
+            2180,
+            837,
+            580
+          ],
+          "area": 485460,
+          "quality_score": 0.6978204129338073,
+          "alt_text": "Diagram illustrating concepts, area: 485460 pixels",
+          "method": "edge",
+          "confidence": 0.12176904379351543
+        },
+        {
+          "filename": "day-02-page-028-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-028-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            251,
+            2180,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.6978287293628327,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.12032754505801992
+        },
+        {
+          "filename": "day-02-page-028-diagram-02.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-028-diagram-02.png",
+          "type": "diagram",
+          "bbox": [
+            1369,
+            1323,
+            837,
+            579
+          ],
+          "area": 484623,
+          "quality_score": 0.6982498391647107,
+          "alt_text": "Diagram illustrating concepts, area: 484623 pixels",
+          "method": "edge",
+          "confidence": 0.11987462419241349
+        },
+        {
+          "filename": "day-02-page-028-diagram-03.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-028-diagram-03.png",
+          "type": "diagram",
+          "bbox": [
+            251,
+            1323,
+            838,
+            579
+          ],
+          "area": 485202,
+          "quality_score": 0.6994677188733535,
+          "alt_text": "Diagram illustrating concepts, area: 485202 pixels",
+          "method": "edge",
+          "confidence": 0.11928227830882808
+        },
+        {
+          "filename": "day-02-page-028-diagram-04.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-028-diagram-04.png",
+          "type": "diagram",
+          "bbox": [
+            1369,
+            469,
+            837,
+            580
+          ],
+          "area": 485460,
+          "quality_score": 0.694438241328674,
+          "alt_text": "Diagram illustrating concepts, area: 485460 pixels",
+          "method": "edge",
+          "confidence": 0.1187780661640506
+        },
+        {
+          "filename": "day-02-page-028-diagram-05.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-028-diagram-05.png",
+          "type": "diagram",
+          "bbox": [
+            251,
+            465,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.6956700493638791,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.11818368858530162
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_029.png",
+      "page_number": 29,
+      "figures_detected": 6,
+      "figures_extracted": 6,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-029-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-029-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            1463,
+            2180,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.7044720197793108,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.12642992346308946
+        },
+        {
+          "filename": "day-02-page-029-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-029-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            349,
+            2180,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.7025351731905184,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.12477573862233561
+        },
+        {
+          "filename": "day-02-page-029-diagram-02.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-029-diagram-02.png",
+          "type": "diagram",
+          "bbox": [
+            1463,
+            1323,
+            838,
+            579
+          ],
+          "area": 485202,
+          "quality_score": 0.7047370999737412,
+          "alt_text": "Diagram illustrating concepts, area: 485202 pixels",
+          "method": "edge",
+          "confidence": 0.12425340373700026
+        },
+        {
+          "filename": "day-02-page-029-diagram-03.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-029-diagram-03.png",
+          "type": "diagram",
+          "bbox": [
+            349,
+            1323,
+            838,
+            579
+          ],
+          "area": 485202,
+          "quality_score": 0.7040541102256658,
+          "alt_text": "Diagram illustrating concepts, area: 485202 pixels",
+          "method": "edge",
+          "confidence": 0.12358976261433383
+        },
+        {
+          "filename": "day-02-page-029-diagram-04.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-029-diagram-04.png",
+          "type": "diagram",
+          "bbox": [
+            1463,
+            465,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.7006247178060613,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.12279236276849642
+        },
+        {
+          "filename": "day-02-page-029-diagram-05.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-029-diagram-05.png",
+          "type": "diagram",
+          "bbox": [
+            349,
+            465,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.6998851395689377,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.1220146490000823
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_030.png",
+      "page_number": 30,
+      "figures_detected": 6,
+      "figures_extracted": 6,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-030-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-030-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            1369,
+            2180,
+            837,
+            580
+          ],
+          "area": 485460,
+          "quality_score": 0.7166924932516138,
+          "alt_text": "Diagram illustrating concepts, area: 485460 pixels",
+          "method": "edge",
+          "confidence": 0.13746961644625716
+        },
+        {
+          "filename": "day-02-page-030-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-030-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            254,
+            2180,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.7136311571079502,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.13385318080816394
+        },
+        {
+          "filename": "day-02-page-030-diagram-02.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-030-diagram-02.png",
+          "type": "diagram",
+          "bbox": [
+            1368,
+            1323,
+            838,
+            579
+          ],
+          "area": 485202,
+          "quality_score": 0.7142612145632186,
+          "alt_text": "Diagram illustrating concepts, area: 485202 pixels",
+          "method": "edge",
+          "confidence": 0.13220885321989603
+        },
+        {
+          "filename": "day-02-page-030-diagram-03.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-030-diagram-03.png",
+          "type": "diagram",
+          "bbox": [
+            254,
+            1323,
+            838,
+            579
+          ],
+          "area": 485202,
+          "quality_score": 0.71257454326169,
+          "alt_text": "Diagram illustrating concepts, area: 485202 pixels",
+          "method": "edge",
+          "confidence": 0.13086096100180955
+        },
+        {
+          "filename": "day-02-page-030-diagram-04.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-030-diagram-04.png",
+          "type": "diagram",
+          "bbox": [
+            1369,
+            465,
+            837,
+            580
+          ],
+          "area": 485460,
+          "quality_score": 0.7066165554759913,
+          "alt_text": "Diagram illustrating concepts, area: 485460 pixels",
+          "method": "edge",
+          "confidence": 0.12963374943352696
+        },
+        {
+          "filename": "day-02-page-030-diagram-05.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-030-diagram-05.png",
+          "type": "diagram",
+          "bbox": [
+            254,
+            465,
+            838,
+            580
+          ],
+          "area": 486040,
+          "quality_score": 0.7063424372285679,
+          "alt_text": "Diagram illustrating concepts, area: 486040 pixels",
+          "method": "edge",
+          "confidence": 0.12791539790963707
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_031.png",
+      "page_number": 31,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_032.png",
+      "page_number": 32,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_033.png",
+      "page_number": 33,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-033-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-033-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            607,
+            438,
+            1405,
+            1525
+          ],
+          "area": 2142625,
+          "quality_score": 0.3984119478975132,
+          "alt_text": "Diagram illustrating concepts, area: 2142625 pixels",
+          "method": "edge",
+          "confidence": 0.08150189603873753
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_034.png",
+      "page_number": 34,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-034-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-034-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            660,
+            1160,
+            1230,
+            1489
+          ],
+          "area": 1831470,
+          "quality_score": 0.4758171321064321,
+          "alt_text": "Diagram illustrating concepts, area: 1831470 pixels",
+          "method": "edge",
+          "confidence": 0.08832358706394317
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_035.png",
+      "page_number": 35,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_036.png",
+      "page_number": 36,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-036-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-036-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            198,
+            1960,
+            457,
+            1015
+          ],
+          "area": 463855,
+          "quality_score": 0.6538679298791008,
+          "alt_text": "Diagram illustrating concepts, area: 463855 pixels",
+          "method": "edge",
+          "confidence": 0.14584298972739326
+        },
+        {
+          "filename": "day-02-page-036-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-036-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            198,
+            902,
+            351,
+            1015
+          ],
+          "area": 356265,
+          "quality_score": 0.6516599165920753,
+          "alt_text": "Diagram illustrating concepts, area: 356265 pixels",
+          "method": "edge",
+          "confidence": 0.14440935820246165
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_037.png",
+      "page_number": 37,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-037-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-037-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            292,
+            1881,
+            662,
+            1017
+          ],
+          "area": 673254,
+          "quality_score": 0.6841560481971665,
+          "alt_text": "Diagram illustrating concepts, area: 673254 pixels",
+          "method": "edge",
+          "confidence": 0.14732329848764358
+        },
+        {
+          "filename": "day-02-page-037-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-037-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            293,
+            372,
+            560,
+            1016
+          ],
+          "area": 568960,
+          "quality_score": 0.6816806467367529,
+          "alt_text": "Diagram illustrating concepts, area: 568960 pixels",
+          "method": "edge",
+          "confidence": 0.14727573115860518
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_038.png",
+      "page_number": 38,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-038-table-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-038-table-00.png",
+          "type": "table",
+          "bbox": [
+            261,
+            680,
+            1977,
+            1004
+          ],
+          "area": 1984908,
+          "quality_score": 0.1719599148687735,
+          "alt_text": "Data table with structured information, area: 1984908 pixels",
+          "method": "edge",
+          "confidence": 0.14020196402049867
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_039.png",
+      "page_number": 39,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-039-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-039-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            309,
+            671,
+            316,
+            981
+          ],
+          "area": 309996,
+          "quality_score": 0.7195404138121296,
+          "alt_text": "Diagram illustrating concepts, area: 309996 pixels",
+          "method": "edge",
+          "confidence": 0.1548342559258829
+        },
+        {
+          "filename": "day-02-page-039-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-039-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            308,
+            1849,
+            422,
+            983
+          ],
+          "area": 414826,
+          "quality_score": 0.7158686444790597,
+          "alt_text": "Diagram illustrating concepts, area: 414826 pixels",
+          "method": "edge",
+          "confidence": 0.15472511366211375
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_040.png",
+      "page_number": 40,
+      "figures_detected": 2,
+      "figures_extracted": 2,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-040-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-040-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            212,
+            356,
+            545,
+            1013
+          ],
+          "area": 552085,
+          "quality_score": 0.7199970190912771,
+          "alt_text": "Diagram illustrating concepts, area: 552085 pixels",
+          "method": "edge",
+          "confidence": 0.1483865709084652
+        },
+        {
+          "filename": "day-02-page-040-diagram-01.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-040-diagram-01.png",
+          "type": "diagram",
+          "bbox": [
+            214,
+            1726,
+            650,
+            1014
+          ],
+          "area": 659100,
+          "quality_score": 0.7186506314186614,
+          "alt_text": "Diagram illustrating concepts, area: 659100 pixels",
+          "method": "edge",
+          "confidence": 0.1474343802154453
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_041.png",
+      "page_number": 41,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-041-table-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-041-table-00.png",
+          "type": "table",
+          "bbox": [
+            361,
+            575,
+            1977,
+            1004
+          ],
+          "area": 1984908,
+          "quality_score": 0.16653183149304138,
+          "alt_text": "Data table with structured information, area: 1984908 pixels",
+          "method": "edge",
+          "confidence": 0.14000346615561024
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_042.png",
+      "page_number": 42,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-042-table-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-042-table-00.png",
+          "type": "table",
+          "bbox": [
+            778,
+            464,
+            896,
+            153
+          ],
+          "area": 137088,
+          "quality_score": 0.906003323134086,
+          "alt_text": "Data table with structured information, area: 137088 pixels",
+          "method": "edge",
+          "confidence": 0.10034430438842204
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_043.png",
+      "page_number": 43,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_044.png",
+      "page_number": 44,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_045.png",
+      "page_number": 45,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_046.png",
+      "page_number": 46,
+      "figures_detected": 1,
+      "figures_extracted": 1,
+      "extracted_figures": [
+        {
+          "filename": "day-02-page-046-diagram-00.png",
+          "filepath": "assets/images/day-02-extracted/day-02-page-046-diagram-00.png",
+          "type": "diagram",
+          "bbox": [
+            628,
+            946,
+            1263,
+            1386
+          ],
+          "area": 1750518,
+          "quality_score": 0.501181507798925,
+          "alt_text": "Diagram illustrating concepts, area: 1750518 pixels",
+          "method": "edge",
+          "confidence": 0.09035725425274119
+        }
+      ]
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_047.png",
+      "page_number": 47,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    },
+    {
+      "source_file": "E.Day.2.12Oct21_page_048.png",
+      "page_number": 48,
+      "figures_detected": 0,
+      "figures_extracted": 0,
+      "extracted_figures": []
+    }
+  ]
+}
