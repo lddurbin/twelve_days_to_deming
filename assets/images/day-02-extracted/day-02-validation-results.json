@@ -1,0 +1,250 @@
+{
+  "day": 2,
+  "validation_timestamp": "2025-09-27T11:42:31.846673",
+  "summary": {
+    "total_pages": 44,
+    "total_figures": 56,
+    "file_issues": 0,
+    "quality_issues": 38,
+    "naming_issues": 0,
+    "metadata_issues": 0
+  },
+  "issues": {
+    "file_integrity": [],
+    "quality": [
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-005-table-00.png",
+        "issue": "poor_brightness",
+        "value": 248.06998976032767,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-006-diagram-00.png",
+        "issue": "poor_brightness",
+        "value": 227.81156199296916,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-006-diagram-01.png",
+        "issue": "poor_brightness",
+        "value": 227.05819556580803,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-006-diagram-03.png",
+        "issue": "poor_brightness",
+        "value": 230.62405277998062,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-007-diagram-00.png",
+        "issue": "poor_brightness",
+        "value": 230.44242393092105,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-007-diagram-01.png",
+        "issue": "poor_brightness",
+        "value": 229.2631321722352,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-007-diagram-02.png",
+        "issue": "poor_brightness",
+        "value": 228.4039251417332,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-013-diagram-00.png",
+        "issue": "poor_brightness",
+        "value": 236.79824627726134,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-018-table-00.png",
+        "issue": "poor_brightness",
+        "value": 234.21928183907252,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-019-table-00.png",
+        "issue": "poor_brightness",
+        "value": 234.18276235708942,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-027-diagram-00.png",
+        "issue": "poor_brightness",
+        "value": 228.35324870381038,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-027-diagram-01.png",
+        "issue": "poor_brightness",
+        "value": 228.9570860627034,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-027-diagram-02.png",
+        "issue": "poor_brightness",
+        "value": 228.32841579383432,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-027-diagram-03.png",
+        "issue": "poor_brightness",
+        "value": 228.6670628509171,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-027-diagram-04.png",
+        "issue": "poor_brightness",
+        "value": 228.9098592708419,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-027-diagram-05.png",
+        "issue": "poor_brightness",
+        "value": 229.28646232439337,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-027-image-06.png",
+        "issue": "poor_brightness",
+        "value": 232.08853318127512,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-027-image-07.png",
+        "issue": "poor_brightness",
+        "value": 232.09085497835497,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-028-diagram-00.png",
+        "issue": "poor_brightness",
+        "value": 227.78372059489968,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-028-diagram-01.png",
+        "issue": "poor_brightness",
+        "value": 227.81442679614847,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-028-diagram-02.png",
+        "issue": "poor_brightness",
+        "value": 227.75477020281744,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-028-diagram-03.png",
+        "issue": "poor_brightness",
+        "value": 227.5747585541692,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-028-diagram-04.png",
+        "issue": "poor_brightness",
+        "value": 228.39517364973426,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-028-diagram-05.png",
+        "issue": "poor_brightness",
+        "value": 228.21616122129865,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-029-diagram-00.png",
+        "issue": "poor_brightness",
+        "value": 226.60215825857955,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-029-diagram-01.png",
+        "issue": "poor_brightness",
+        "value": 226.95781828656078,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-029-diagram-02.png",
+        "issue": "poor_brightness",
+        "value": 226.60432356008425,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-029-diagram-03.png",
+        "issue": "poor_brightness",
+        "value": 226.73177975358718,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-029-diagram-04.png",
+        "issue": "poor_brightness",
+        "value": 227.3094313225249,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-029-diagram-05.png",
+        "issue": "poor_brightness",
+        "value": 227.44853304254795,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-030-diagram-03.png",
+        "issue": "poor_brightness",
+        "value": 225.15961599498766,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-030-diagram-04.png",
+        "issue": "poor_brightness",
+        "value": 226.17724426317307,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-030-diagram-05.png",
+        "issue": "poor_brightness",
+        "value": 226.26190642745453,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-033-diagram-00.png",
+        "issue": "poor_brightness",
+        "value": 228.41690216440114,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-034-diagram-00.png",
+        "issue": "poor_brightness",
+        "value": 228.02826964132637,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-038-table-00.png",
+        "issue": "poor_brightness",
+        "value": 238.14432155041948,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-041-table-00.png",
+        "issue": "poor_brightness",
+        "value": 238.54402068005166,
+        "threshold": "30-225"
+      },
+      {
+        "file": "assets/images/day-02-extracted/day-02-page-046-diagram-00.png",
+        "issue": "poor_brightness",
+        "value": 231.62920232753962,
+        "threshold": "30-225"
+      }
+    ],
+    "naming_convention": [],
+    "metadata_completeness": []
+  },
+  "recommendations": [
+    "Consider adjusting brightness normalization. 38 figures have poor brightness."
+  ]
+}

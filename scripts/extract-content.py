@@ -412,9 +412,9 @@ class ContentExtractor:
         with open(output_file, 'w', encoding='utf-8') as f:
             # Convert numpy types to Python types for JSON serialization
             def convert_numpy(obj):
-                if isinstance(obj, (np.integer, np.int64, np.int32)):
+                if isinstance(obj, np.integer):
                     return int(obj)
-                elif isinstance(obj, (np.floating, np.float64, np.float32)):
+                elif isinstance(obj, np.floating):
                     return float(obj)
                 elif isinstance(obj, np.ndarray):
                     return obj.tolist()
@@ -432,7 +432,19 @@ class ContentExtractor:
                     return convert_numpy(d)
             
             cleaned_results = clean_dict(results)
-            json.dump(cleaned_results, f, indent=2, ensure_ascii=False)
+            
+            # Custom JSON encoder for any remaining numpy types
+            class NumpyEncoder(json.JSONEncoder):
+                def default(self, obj):
+                    if isinstance(obj, np.integer):
+                        return int(obj)
+                    elif isinstance(obj, np.floating):
+                        return float(obj)
+                    elif isinstance(obj, np.ndarray):
+                        return obj.tolist()
+                    return super(NumpyEncoder, self).default(obj)
+            
+            json.dump(cleaned_results, f, indent=2, ensure_ascii=False, cls=NumpyEncoder)
         
         # Create text summary
         self.create_text_summary(results)

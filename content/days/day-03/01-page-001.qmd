@@ -1,0 +1,79 @@
+---
+title: ""
+execute:
+  echo: false
+---
+
+```{r}
+# R setup for all chapters (edit as needed)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+# Section Heading
+
+## DAY 3:
+
+## UNDERSTANDING VARIATION
+
+and
+
+## THE FUNNEL EXPERIMENT
+
+Copyright © Henry R Neave January 2020
+
+![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
+
+:::: {.columns}
+::: {.column width="85%"}
+Content goes here when we're including a clock icon next to it.
+:::
+::: {.column width="15%"}
+<div style="margin-top: 10px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(09, 00)  # Replace HH, MM with hour and minute
+```
+</div>
+:::
+::::
+
+Content goes here when there's no clock.
+
+:::: {.columns}
+
+::: {.column width="85%"}
+<div class=thought_commentary>
+
+# PAUSE FOR THOUGHT OR ACTIVITY
+
+## DAY 3:
+
+## UNDERSTANDING VARIATION
+
+and
+
+## THE FUNNEL EXPERIMENT
+
+Copyright © Henry R Neave January 2020
+
+```{ojs}
+viewof thought_example = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_example" aria-expanded="false" aria-controls="collapse_example">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_1a">
+Optional Neave commentary to be revealed after completing the activity.
+</div>
+</div>
+:::
+
+::::
+
+<!--
+FOOTNOTES (if needed)
+-->
+
+[^a]: Example footnote. Replace or remove as needed. 

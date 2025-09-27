@@ -10,6 +10,7 @@ import os
 import json
 import cv2
 import numpy as np
+import pandas as pd
 from pathlib import Path
 import re
 from typing import List, Dict, Tuple, Optional
@@ -26,6 +27,7 @@ class InteractiveElementDetector:
         self.source_dir = Path(source_dir)
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.lightweight_mode = False
         
         # Common patterns for interactive elements
         self.activity_patterns = [
@@ -87,11 +89,33 @@ class InteractiveElementDetector:
             r'⏰'
         ]
     
-    def find_day_pngs(self, day: int) -> List[Path]:
-        """Find all PNG files for a specific day"""
+    def find_day_pngs(self, day: int, page_range: Optional[str] = None) -> List[Path]:
+        """Find PNG files for a specific day, optionally filtered by page range"""
         pattern = f"*Day.{day}*"
         png_files = list(self.source_dir.glob(pattern))
-        return sorted(png_files)
+        png_files = sorted(png_files)
+        
+        if page_range:
+            start_page, end_page = self.parse_page_range(page_range)
+            filtered_files = []
+            for file in png_files:
+                page_match = re.search(r'page_(\d+)', file.name)
+                if page_match:
+                    page_num = int(page_match.group(1))
+                    if start_page <= page_num <= end_page:
+                        filtered_files.append(file)
+            return filtered_files
+        
+        return png_files
+    
+    def parse_page_range(self, page_range: str) -> Tuple[int, int]:
+        """Parse page range string like '005-020' or '010'"""
+        if '-' in page_range:
+            start, end = page_range.split('-')
+            return int(start), int(end)
+        else:
+            page_num = int(page_range)
+            return page_num, page_num
     
     def detect_text_regions(self, image: np.ndarray) -> List[Tuple[int, int, int, int]]:
         """Detect text regions in the image"""
@@ -242,12 +266,20 @@ class InteractiveElementDetector:
         
         # Detect different types of interactive elements
         text_regions = self.detect_text_regions(image)
-        highlighted_regions = self.detect_highlighted_regions(image)
         boxes = self.detect_boxes_and_borders(image)
-        icons = self.detect_icons_and_symbols(image)
+        
+        if self.lightweight_mode:
+            # In lightweight mode, only detect basic text regions and boxes
+            highlighted_regions = []
+            icons = []
+            all_regions = text_regions + boxes
+        else:
+            # Full detection mode
+            highlighted_regions = self.detect_highlighted_regions(image)
+            icons = self.detect_icons_and_symbols(image)
+            all_regions = text_regions + highlighted_regions + boxes + icons
         
         # Combine and deduplicate regions
-        all_regions = text_regions + highlighted_regions + boxes + icons
         unique_regions = self.deduplicate_regions(all_regions)
         
         # Classify each region
@@ -317,15 +349,27 @@ class InteractiveElementDetector:
         
         return unique_regions
     
-    def analyze_day(self, day: int) -> Dict:
-        """Analyze all PNG files for a specific day"""
-        png_files = self.find_day_pngs(day)
+    def _convert_numpy_types(self, obj):
+        """Convert numpy types to Python native types for JSON serialization"""
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        raise TypeError(f"Object of type {type(obj)} is not JSON serializable")
+    
+    def analyze_day(self, day: int, page_range: Optional[str] = None) -> Dict:
+        """Analyze PNG files for a specific day, optionally filtered by page range"""
+        logger.info(f"Starting analysis for Day {day}" + (f" (pages {page_range})" if page_range else ""))
+        
+        png_files = self.find_day_pngs(day, page_range)
         
         if not png_files:
-            logger.error(f"No PNG files found for Day {day}")
+            logger.error(f"No PNG files found for Day {day}" + (f" in range {page_range}" if page_range else ""))
             return {}
         
-        logger.info(f"Found {len(png_files)} PNG files for Day {day}")
+        logger.info(f"Found {len(png_files)} PNG files for Day {day}" + (f" in range {page_range}" if page_range else ""))
         
         results = {
             "day": day,
@@ -339,10 +383,15 @@ class InteractiveElementDetector:
             if page_analysis:
                 results["pages"].append(page_analysis)
         
-        # Save results
-        output_file = self.output_dir / f"day-{day}-interactive-elements.json"
+        # Save results with chunk identifier if page range specified
+        if page_range:
+            start_page, end_page = self.parse_page_range(page_range)
+            output_file = self.output_dir / f"day-{day}-interactive-elements-chunk-{start_page:03d}-{end_page:03d}.json"
+        else:
+            output_file = self.output_dir / f"day-{day}-interactive-elements.json"
+        
         with open(output_file, 'w') as f:
-            json.dump(results, f, indent=2)
+            json.dump(results, f, indent=2, default=self._convert_numpy_types)
         
         # Create summary
         total_elements = sum(page["interactive_elements"]["total_unique"] for page in results["pages"])
@@ -355,11 +404,15 @@ def main():
     parser.add_argument("--day", type=int, required=True, help="Day number to analyze")
     parser.add_argument("--source-dir", default="12-Days-to-Deming/PNGs/", help="Source directory for PNG files")
     parser.add_argument("--output", default="temp/analysis", help="Output directory for analysis results")
+    parser.add_argument("--pages", help="Page range to process (e.g., '005-020')")
+    parser.add_argument("--lightweight", action="store_true", help="Lightweight mode with reduced detail")
     
     args = parser.parse_args()
     
     detector = InteractiveElementDetector(args.source_dir, args.output)
-    results = detector.analyze_day(args.day)
+    if args.lightweight:
+        detector.lightweight_mode = True
+    results = detector.analyze_day(args.day, page_range=args.pages)
     
     if results:
         print(f"Analysis complete for Day {args.day}")
