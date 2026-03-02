@@ -1,0 +1,113 @@
+---
+title: "VARIATION—THE ENEMY OF QUALITY"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+## Variation—the enemy of quality
+
+I'll start by telling you of something extremely basic that puzzled me in the 1980s when I was just beginning to learn about Dr Deming's work. It was a basic matter involved with Statistics. Now, I had already been a University Lecturer in Statistics for some 12 years before ever hearing of Dr Deming. Despite that background, for a considerable time I couldn't understand what was arguably the most important of all the messages in his four-day seminars. It was the need to concentrate on understanding variation—apparently more than on anything else. Why was I puzzled?
+
+As already indicated on Day 1, much of the way Statistics is usually taught involves [A] data and [B] probability and probability distributions. (Again, as I made clear at the time, if you know little or nothing about [B] then that doesn't matter as far as this course is concerned—it might even be an advantage!) In both cases I was always used to working with averages and with variation—both of them but with averages being the more important. So I could understand Dr Deming's interest in variation, but I couldn't understand why he hardly ever mentioned the average. Particularly when considering processes, of course it is good to reduce the amount that things vary, but surely it's even more important to get the average right. So why didn't he say anything about that?
+
+Eventually, after many months, light dawned—through thinking about something from long ago: my schooldays!
+
+### The school bus
+
+Throughout my schooldays, I lived out in the countryside, several miles from my school. School started at 9.00 each morning. I travelled to school by bus. The bus would usually arrive at the bus-stop near my home some time between 8.25 and 8.35, though occasionally a little earlier or a little later. Now and again, it was very late, e.g. because it had broken down, or had been held up by a road accident, etc. Other than on such rare occasions, it would always get me to school on time. But I was not happy!
+
+To be fairly sure of catching the bus, I had to be at the bus-stop by 8.25. To be really sure of catching it, I needed to be there by 8.20. But much of the time I'd then be waiting 10 to 15 minutes, or occasionally longer—often when the weather was cold and raining. (It seemed to rain a lot in England when I was young—and this was a bus-stop, not a bus-shelter!) So I could well be soaking wet and/or freezing cold by the time the bus arrived. Not a good start to the day!
+
+If only the bus could have arrived within, say, one minute either side of 8.30, rather than within 5 or even 10 minutes. Or one minute either side of 8.25, or one minute either side of 8.35, or indeed one minute either side of any suitable average time of arrival. Then I could have arranged my mornings much more efficiently—and, with very rare exceptions, suffered no more than a two-minute soaking!
+
+So I learned that the variation in the arrival-time of the bus seriously affected my quality of life! Note that the variation was actually more important than the average time of arrival. My process was easily adaptable to whatever the average happened to be. But the greater the variation, the more I risked either missing the bus altogether or getting wet through—irrespective of the average.
+
+***Variation is indeed the enemy of quality.***
+
+## BACK TO THE WESTERN ELECTRIC COMPANY
+
+Next, as promised on Day 1, here is a rather longer extract from Dr Deming's account of what happened at the Western Electric Company back in the 1920s. This is again transcribed directly from the presentation he gave in Versailles in July 1989 (see BDA Booklet A6 pages 2–3). You have seen part of it before but, to put it mildly, it is worth repeating:
+
+<span class="deming_quote">"Part of Western Electric's business involved making equipment for telephone systems. The aim was, of course, reliability: to make things alike so that people could depend on them. Western Electric had the ambition to be able to advertise using the phrase: "as alike as two telephones". But they found that, the harder they tried to achieve consistency and uniformity, the worse were the effects. The more they tried to shrink variation, the larger it got. When any kind of error, mistake or accident occurred, they went to work on it to try to correct it. It was a noble aim. There was only one little trouble: things got worse.</span>
+
+<span class="deming_quote">Eventually the problem went to Walter Shewhart at the Bell Laboratories. Dr Shewhart worked on the problem. He became aware of two kinds of mistakes:</span>
+
+<span class="deming_quote">1. Treating a fault, complaint, mistake, accident as if it came from a special cause when in fact there was nothing special at all, i.e. it came from the system: from random variation due to common causes.</span>
+
+<span class="deming_quote">2. Treating any of the above as if it came from common causes when in fact it was due to a special cause.</span>
+
+<span class="deming_quote">What difference does it make? *All the difference between failure and success.*</span>
+
+<span class="deming_quote">Dr Shewhart decided that this was the root of Western Electric's problems. They were failing to understand the difference between common causes and special causes, and that mixing them up makes things worse. It is pretty important that we understand those two kinds of mistakes. Sure we don't like mistakes, complaints from customers, accidents; but, if we wade in at them without understanding, we only make things worse. This is easy to prove."</span>
+
+Unexpected as it might be, it seems that Dr Deming first used the terms "common cause" and "special cause" around 1947 in discussions on *prison riots* (see *Out of the Crisis* page 270(pages 314–315)). Did something *special* occur to spark off a riot? Or was the riot due to the procedures, the environment, the morale of both the prisoners and the prison staff, the way the staff treated the prisoners, etc, etc? That is, was the *common* state of affairs (which Deming would refer to as the system) in the prison such that riots would be *bound* to occur from time to time? (Think back to Day 1's Major Activity.) Or would it take something special?
+
+<div class="workbook_callout">Activity 3–a is also on Workbook page 31.</div>
+
+<div class="thought_commentary">
+
+# ACTIVITY 3–a
+
+Suggest some of the possible causes of variation in the arrival-time of my school bus.
+
+```{ojs}
+viewof activity_3a_1 = Inputs.textarea({placeholder: "Type your suggestions here.", rows: 8})
+```
+
+Unsurprisingly, I do not have any data available from all those decades ago from which we could construct control charts. So, with each of the causes you've suggested above, simply say whether you think the cause is likely to have been common or special, and why. (Be guided by the paragraph on prison riots that we have just seen on page 2.)
+
+```{ojs}
+viewof activity_3a_2 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3a" aria-expanded="false" aria-controls="collapse_3a">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_3a">
+Being guided by the thoughts about prison riots, factors which result in somewhat random fluctuations from day to day would be interpreted as *common* causes, while relatively rare events which markedly affect the arrival time in a "one-off" manner would be interpreted as special causes. So e.g. if the bus is held up by a serious road accident or by freak weather conditions such as a flood or unusually heavy snowfall then we would regard these as special causes. On the other hand, normal fluctuations such as the number of people queuing at the bus-stops, the proportion of red traffic lights encountered along the journey, usual day-to-day variations in traffic-density, etc would be regarded as common causes.
+</div>
+</div>
+
+<div class="workbook_callout">Activity 3–b is also on Workbook page 32.</div>
+
+<div class="thought">
+
+# ACTIVITY 3–b
+
+There is a saying that "Variety is the spice of life". This implies that *variety* is good. In these early pages of Day 3, we (and Dr Deming!) have been arguing that *variation* is bad.
+
+Is there a conflict here? *(No, but clarify why not.)*
+
+```{ojs}
+viewof activity_3b_1 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+And how might *reducing* variation lead to *increasing* variety?
+
+```{ojs}
+viewof activity_3b_2 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+<div class="activity_afterthought">(For discussion see Appendix page 14.)</div>
+</div>
+
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+```{ojs download_trigger}
+//| output: false
+
+import { downloadNotes } from "../../../assets/scripts/functions.js"
+
+download_button.onclick = () => {
+  downloadNotes([viewof activity_3a_1, viewof activity_3a_2, viewof activity_3b_1, viewof activity_3b_2], "activities_3a_3b.txt");
+};
+```

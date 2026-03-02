@@ -1,0 +1,58 @@
+---
+title: "AT THE FORD MOTOR COMPANY"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+On page 2 Dr Deming claimed that, if we mix up the two types of variation, <span class="deming_quote">"we only make things worse. This is easy to prove."</span> So let's prove it! Here is a well-known illustration, originating in the Ford Motor Company (see Bill Scherkenbach's *The Deming Route to Quality and Productivity*, around page 30 depending on the edition and reprint number).
+
+Input shafts for a transmission were turned in a machine equipped with an expensive automatic compensation device. If the diameter of a shaft was too large, the compensation device reduced the machine setting in order to try to make the next diameter closer to its nominal value. If the diameter was too small, the setting was increased, for the same purpose. Sounds sensible?
+
+Here is a histogram of the diameters of 50 shafts consecutively manufactured by this process. (A "histogram" is a widely-used type of diagram for illustrating data. But in case you're not sure about what a histogram is, I'll guide you on how to draw one on page 7.)
+
+![Histogram of 50 shaft diameters with compensation device](/assets/images/day-03/ford-histogram-with-compensation.png){fig-align="center" width="80%" .lightbox}
+
+A statistician recommended that the next 50 shafts should be made with the compensation device turned off. Here is the histogram of those 50 diameters.
+
+![Histogram of 50 shaft diameters without compensation device](/assets/images/day-03/ford-histogram-without-compensation.png){fig-align="center" width="80%" .lightbox}
+
+Reduced variation! Better quality! Everything clearly within the specifications! *With that sensible and very expensive compensation device turned off!*
+
+<div class="workbook_callout">Activity 3–c is also on Workbook page 33.</div>
+
+<div class="thought">
+
+# ACTIVITY 3–c
+
+To repeat:
+
+> "Reduced variation! Better quality! Everything clearly within the specifications! *With that sensible and very expensive compensation device turned off!*"
+
+How could this be?
+
+```{ojs}
+viewof activity_3c = Inputs.textarea({placeholder: "Type your answer here.", rows: 10})
+```
+
+<div class="activity_afterthought">(If you cannot answer this question now, be sure that you will be able to do so before you finish working through today's Major Activity!)</div>
+</div>
+
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+```{ojs download_trigger}
+//| output: false
+
+import { downloadNotes } from "../../../assets/scripts/functions.js"
+
+download_button.onclick = () => {
+  downloadNotes([viewof activity_3c], "activity_3c.txt");
+};
+```
