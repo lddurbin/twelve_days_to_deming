@@ -103,7 +103,8 @@ Space has also been left for these computations at the top of Workbook page 14.
   Use the drawing pad below to sketch your formula or diagram. You can download your drawing when finished.
 </div>
 
-<iframe src="https://excalidraw.com" width="100%" height="500"
+<iframe src="https://excalidraw.com" title="Drawing pad for sketching formulas and diagrams"
+  width="100%" height="500"
   sandbox="allow-scripts allow-same-origin"
   referrerpolicy="no-referrer"
   style="border:1px solid #ccc;">
