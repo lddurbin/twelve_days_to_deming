@@ -15,5 +15,5 @@ _book/
 
 issues/
 
-scripts/
+/scripts/
 **/*.quarto_ipynb

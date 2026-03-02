@@ -44,6 +44,21 @@ book:
         - content/days/day-02/07-some-recollections.qmd
         - content/days/day-02/08-major-activity.qmd
         - content/days/day-02/09-postscript.qmd
+    - part: "Day 3: Understanding Variation and the Funnel Experiment"
+      chapters:
+        - content/days/day-03/01-variation-the-enemy-of-quality.qmd
+        - content/days/day-03/02-at-the-ford-motor-company.qmd
+        - content/days/day-03/03-the-importance-of-time.qmd
+        - content/days/day-03/04-more-on-the-sales-data.qmd
+        - content/days/day-03/05-how-do-we-compute-control-limits.qmd
+        - content/days/day-03/06-six-processes.qmd
+        - content/days/day-03/07-a-favourite-example.qmd
+        - content/days/day-03/08-control-chart-and-brain.qmd
+        - content/days/day-03/09-the-six-processes-revisited.qmd
+        - content/days/day-03/10-introduction-to-the-funnel-experiment.qmd
+        - content/days/day-03/11-the-first-two-rules-of-the-funnel.qmd
+        - content/days/day-03/12-rules-3-and-4-of-the-funnel.qmd
+        - content/days/day-03/13-summary.qmd
 
 format:
   html:

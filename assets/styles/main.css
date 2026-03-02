@@ -406,3 +406,166 @@ button:focus,
   margin-bottom: 0.5em;
   letter-spacing: 0.5px;
 }
+
+/* ===== FUNNEL EXPERIMENT ===== */
+
+/* Track container — horizontal scroll on narrow screens */
+.fe-track-container {
+  overflow-x: auto;
+  margin: 1.5em 0;
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+}
+.fe-track-container svg {
+  display: inline-block;
+}
+
+/* Data tables */
+.fe-data-table {
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 1em 0;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+.fe-data-table th,
+.fe-data-table td {
+  border: 1px solid #999;
+  padding: 3px 6px;
+  text-align: center;
+  white-space: nowrap;
+}
+.fe-data-table th {
+  background: #f0f0f0;
+  font-weight: bold;
+}
+.fe-data-table td:first-child,
+.fe-data-table th:first-child {
+  text-align: left;
+  font-weight: bold;
+  background: #f9f9f9;
+  min-width: 140px;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+/* Outcome row: yellow background, red text */
+.fe-row-outcome td {
+  background-color: #ffff99 !important;
+  color: #cc0000;
+  font-weight: bold;
+}
+
+/* Funnel / marble icons in text */
+.fe-funnel {
+  color: #3366cc;
+  font-weight: bold;
+}
+.fe-marble {
+  color: #cc6633;
+  font-weight: bold;
+}
+
+/* Action buttons */
+.fe-button {
+  display: inline-block;
+  padding: 10px 24px;
+  margin: 6px 8px 6px 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #3366cc;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+.fe-button:hover {
+  background-color: #2851a3;
+}
+.fe-button:disabled {
+  background-color: #aaa;
+  cursor: default;
+}
+.fe-button-complete {
+  background-color: #28a745;
+}
+.fe-button-complete:hover {
+  background-color: #1e7e34;
+}
+.fe-button-reset {
+  background-color: #dc3545;
+}
+.fe-button-reset:hover {
+  background-color: #b02a37;
+}
+
+/* Status bar */
+.fe-status {
+  background: #f0f4ff;
+  border: 1px solid #ccd;
+  border-radius: 6px;
+  padding: 10px 16px;
+  margin: 1em 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.fe-status strong {
+  color: #333;
+}
+
+/* Comparison grid (2×2 charts) */
+.fe-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5em 0;
+}
+.fe-comparison-grid > div {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1em;
+  background: #fafafa;
+}
+
+/* Summary statistics table */
+.fe-summary-table {
+  border-collapse: collapse;
+  margin: 1em auto;
+  font-size: 14px;
+}
+.fe-summary-table th,
+.fe-summary-table td {
+  border: 1px solid #999;
+  padding: 6px 14px;
+  text-align: center;
+}
+.fe-summary-table th {
+  background: #e8e8e8;
+  font-weight: bold;
+}
+
+/* Mobile overrides */
+@media (max-width: 768px) {
+  .fe-data-table {
+    font-size: 11px;
+  }
+  .fe-data-table td:first-child,
+  .fe-data-table th:first-child {
+    min-width: 100px;
+  }
+  .fe-button {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+    padding: 14px;
+    font-size: 16px;
+  }
+  .fe-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+  .fe-status {
+    font-size: 13px;
+  }
+}
