@@ -91,7 +91,7 @@ jobs:
         
     - name: Deploy to server
       run: |
-        rsync -avz --delete -e "ssh -p 18765 -o StrictHostKeyChecking=no" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
+        rsync -avz --delete -e "ssh -p 18765" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
         
     - name: Cleanup
       if: always()
