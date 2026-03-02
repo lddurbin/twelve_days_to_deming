@@ -1,0 +1,281 @@
+# ============================================================
+# Day 3 Brief — Understanding Variation and the Funnel Experiment
+# ============================================================
+# Created: 2026-03-02 (Phase 2)
+# Updated: 2026-03-02 (Phase 3 — corrected page ranges from implementation)
+# Based on Phase 1 reconnaissance of all 66 source pages.
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 3
+  title: "Understanding Variation and the Funnel Experiment"
+  source_prefix: "F.Day.3.13Jan20"
+  page_count: 66
+
+# ------ Page Mapping ------
+# IMPORTANT: All page numbers below are PDF page numbers (1-indexed from file start).
+# The source material prints its own page numbers in footers ("Day 3 : page N").
+# The mapping is:
+#
+#   printed_page = pdf_page - 4
+#
+# This offset is consistent throughout (4 pages of front matter: title, blank, 2x TOC).
+# When the source TEXT references "page N", N is a PRINTED page number.
+# When this BRIEF references "pages", they are PDF page numbers.
+#
+# Chapters 1–6 have verified page ranges (confirmed during Phase 3 build).
+# Chapters 7–10 have verified START pages (headings confirmed on recon images)
+# with ends derived from the next chapter's start.
+# Chapters 11–13 have estimated ranges (apply +1 shift from original brief).
+# Always verify section heading location by reading source PNGs before building.
+
+# ------ Chapter Plan ------
+# 13 chapters covering source pages 5–63.
+# Pages 1–4 (title, blank, TOCs) and 64–66 (blank, cut-outs, approvals) are skipped.
+#
+# Pedagogical note: the source text flags printed pages 13–34 (PDF 17–38,
+# chapters 05–09) as "extra-curricular" for Stats-level 0 students.
+# This doesn't change the chapter structure but is worth noting for future
+# adaptive features.
+
+chapters:
+  # ---- BUILT (verified page ranges) ----
+
+  - slug: "variation-the-enemy-of-quality"
+    title: "VARIATION—THE ENEMY OF QUALITY"
+    pages: "5-8"                         # verified
+    notes: "School bus story, Western Electric, Activities 3-a and 3-b."
+    interactive: "2 activities"
+
+  - slug: "at-the-ford-motor-company"
+    title: "AT THE FORD MOTOR COMPANY"
+    pages: "9-10"                        # verified
+    notes: "Two histograms (shaft diameters), Activity 3-c. Short chapter (2 pages)."
+    interactive: "1 activity"
+
+  - slug: "the-importance-of-time"
+    title: "THE IMPORTANCE OF TIME"
+    pages: "11-13"                       # verified
+    notes: "Histograms vs run charts, Activities 3-d and 3-e. Deming histogram from OotC."
+    interactive: "2 activities (drawing — instructions to sketch on paper)"
+
+  - slug: "more-on-the-sales-data"
+    title: "MORE ON THE 'SALES DATA'"
+    pages: "14-16"                       # verified
+    notes: "Return to Day 2 sales data, Pause for Thought 3-f, control chart, dice data origin. NB on p.16 re Stats-level guidance."
+    interactive: "1 Pause for Thought"
+
+  - slug: "how-do-we-compute-control-limits"
+    title: "HOW DO WE COMPUTE THESE CONTROL LIMITS—AND WHY?"
+    pages: "17-22"                       # corrected (was 17-19)
+    notes: >
+      Main text pp.17-19 (moving-range method, A1/A2 comparison).
+      Technical Aids 5-8 on pp.20-21, Activity 3-g on p.22.
+      Extra-curricular starts here. Stats-level 0 skip guidance included.
+    interactive: "1 activity (computation practice)"
+
+  - slug: "six-processes"
+    title: "SIX PROCESSES"
+    pages: "23-27"                       # corrected (was 20-26)
+    notes: >
+      Heading on p.23 (printed p.19). 12 control charts (A1–F2) on p.23,
+      text discussion pp.24-26, 6 extended charts (A3–F3) on p.27.
+      Dense chart-heavy section. "Boring is nice" theme.
+    interactive: "none (text + figures only)"
+
+  # ---- NOT YET BUILT (heading starts verified, ends derived) ----
+
+  - slug: "a-favourite-example"
+    title: "A FAVOURITE EXAMPLE"
+    pages: "28-29"                       # corrected (was 27-28); heading verified on p.28
+    notes: >
+      Inspection defectives run chart + control chart with rescaled axis.
+      Inspector/sandbagging Deming story. Deming quote about "curious condition".
+    interactive: "none"
+
+  - slug: "control-chart-and-brain"
+    title: "CONTROL CHART + BRAIN"
+    pages: "30-33"                       # corrected (was 29-32); heading verified on p.30
+    notes: >
+      Six interpretation guidelines (points outside limits, runs, trends, etc.).
+      "1. Just below / Just above" starts on p.30 (printed p.26).
+      Peter Worthington zig-zag sketch on p.33 (printed p.29).
+    interactive: "none"
+
+  - slug: "the-six-processes-revisited"
+    title: "THE SIX PROCESSES REVISITED"
+    pages: "34-38"                       # corrected (was 33-37); heading verified on p.34
+    notes: >
+      Extended charts A3–F3 discussed individually (A3 through F3).
+      Tokai Rika case study with Chart E3 on p.36 (printed p.32).
+      Process F / US trade deficit discussion.
+      Technical Aids 10-11 on p.38 (printed p.34).
+    interactive: "none"
+
+  - slug: "introduction-to-the-funnel-experiment"
+    title: "INTRODUCTION TO THE FUNNEL EXPERIMENT"
+    pages: "39-41"                       # corrected (was 38-40); heading verified on p.39
+    notes: >
+      Deming quote, setup/materials list, track description, dice sequences
+      table on p.41. Colourful red/blue track illustration on p.41.
+      NB Stats-level note about afternoon timing on p.40.
+    interactive: "none (setup instructions only)"
+
+  - slug: "the-first-two-rules-of-the-funnel"
+    title: "THE FIRST TWO RULES OF THE FUNNEL"
+    pages: "42-52"                       # estimated (+1 shift); heading verified on p.42
+    notes: >
+      "MAJOR ACTIVITY 3-h" heading on p.42. Rules 2 then 1 (in that order —
+      intentional pedagogy). Many colourful track illustrations, data tables,
+      histograms, discussion. Must crop track images — too complex to recreate.
+    interactive: "Major Activity with data recording tables"
+
+  - slug: "rules-3-and-4-of-the-funnel"
+    title: "RULES 3 AND 4 OF THE FUNNEL"
+    pages: "53-60"                       # estimated (+1 shift); verify Rule 3 heading
+    notes: >
+      Major Activity 3-h continues. Rules 3 and 4 with track illustrations,
+      data tables, run charts. Cut-out track/marble images on final page
+      (may be p.63 — verify against cut-outs boundary).
+    interactive: "Major Activity continues"
+
+  - slug: "summary"
+    title: "SUMMARY"
+    pages: "61-63"                       # estimated (+1 shift); verify summary heading
+    notes: >
+      Summary of all four rules, Activity 3-i (WB p.46), Activity 3-j (WB p.47),
+      Read DemDim Chapter 5. May include blank separator page.
+    interactive: "2 activities"
+
+# ------ Figure Decisions ------
+# Most figures should be cropped from source PNGs.
+# The track/funnel illustrations are colourful and complex — always crop.
+# Simple data charts could potentially be recreated in R, but given the
+# volume (35+ figures), cropping is more practical for this day.
+#
+# Page numbers below are PDF page numbers.
+# Status: "done" = cropped and placed; "todo" = not yet cropped.
+
+figures:
+  - page: 9
+    action: "crop"
+    status: "done"
+    notes: "Two Ford histograms (with/without compensation device)"
+
+  - page: 11
+    action: "crop"
+    status: "done"
+    notes: "Two histograms of 24 values (box-style)"
+
+  - page: 12
+    action: "crop"
+    status: "done"
+    notes: "Run chart of first process"
+
+  - page: 13
+    action: "crop"
+    status: "done"
+    notes: "Deming's histogram from Out of the Crisis (red bars)"
+
+  - page: 19
+    action: "crop"
+    status: "done"
+    notes: "Charts A1/A2 with purple (std dev) control limits — in Ch5"
+
+  - page: 22
+    action: "crop"
+    status: "done"
+    notes: "Technical Aid 8 control chart (24 values, limits from first 12) — in Ch5"
+
+  - page: 23
+    action: "crop"
+    status: "done"
+    notes: "12 control charts (A1–F2) — major figure, full page — in Ch6"
+    # NOTE: original brief said page 22, corrected to 23
+
+  - page: 27
+    action: "crop"
+    status: "done"
+    notes: "6 control charts (A3–F3) — extended limits — in Ch6"
+    # NOTE: original brief said page 26, corrected to 27
+
+  - page: 28
+    action: "crop"
+    status: "done"
+    notes: "Run chart + control chart of inspection defectives — for Ch7 (2 separate crops)"
+    # NOTE: original brief said page 27, corrected to 28
+
+  - page: 33
+    action: "crop"
+    status: "done"
+    notes: "Peter Worthington zig-zag sketch (hand-drawn) — for Ch8"
+    # NOTE: original brief said page 32, corrected to 33
+
+  - page: 36
+    action: "crop"
+    status: "done"
+    notes: "Tokai Rika Chart E3 on p.36 — for Ch9"
+
+  - page: 39
+    action: "crop"
+    status: "done"
+    notes: "Track diagram (numbered 20–40) with funnel — for Ch10"
+    # NOTE: original brief said page 38, corrected to 39
+
+  - page: 41
+    action: "crop"
+    status: "done"
+    notes: "Dice sequences table and colourful track — for Ch10"
+
+  # Track illustrations (Rules 1–4): always crop — too complex/colourful to recreate.
+  # These will be cropped during Phase 3 as each chapter is built.
+  # Expect many track images across pp.42-60 for the funnel chapters.
+
+# ------ Implementation Notes ------
+# Lessons learned from building chapters 1–6:
+#
+# 1. ALWAYS read the source page where the next chapter's heading appears
+#    to confirm where the current chapter ends. The brief page ranges are
+#    approximate — off by 1 for most chapters 7+.
+#
+# 2. Chapters without interactive elements (Ch6, Ch7, Ch8) are significantly
+#    faster to build — just text transcription + image cropping.
+#
+# 3. For image cropping from full-res PNGs (2550x3300):
+#    - Running headers ("Understanding Variation...") are at y≈0-120
+#    - Page footers ("Day 3 : page N") are at y≈3150-3300
+#    - Clock icons appear at y≈120-200 on pages that have them
+#    - Expect 3-5 crop iterations to get clean results
+#
+# 4. Auto-extracted images (assets/images/day-03/day-03-page-XXX-table-YY.png)
+#    are useful as quick reference but are individual element extractions.
+#    For composite figures (like the 12-chart grid), crop manually from
+#    full-res PNGs to preserve the original layout.
+#
+# 5. The text frequently references printed page numbers ("page 19", etc.).
+#    Keep these as-is in the transcription — exact copy of original.
+
+# ------ Context Notes ------
+context_notes: |
+  Day 3 is the longest day (66 pages). The Funnel Experiment is a major
+  hands-on activity spanning ~20 pages with colourful track diagrams.
+
+  Key cross-references:
+  - Sales data from Day 2 (pages 1–3 of Day 2) is revisited on p.14
+  - Red Beads Experiment from Day 2 is referenced throughout
+  - Technical Aid 1 from Day 1 (Appendix) is referenced on p.17
+  - DemDim Chapter 5 is assigned reading on p.62
+  - "Springboard" article referenced in Ch6 and Ch9
+
+  The source teaches Rule 2 BEFORE Rule 1 — this is intentional pedagogy
+  (Rule 2 = Ford's strategy, Rule 1 = simpler "do nothing" baseline).
+  Preserve this ordering.
+
+  Activities 3-d and 3-e are drawing/charting activities. In the web
+  version, provide the blank chart images with instructions — users will
+  work on paper or mentally.
+
+  The data recording tables (Rules 1–4) are large structured tables.
+  Consider using interactive HTML tables or images of the blank tables
+  with instructions.
