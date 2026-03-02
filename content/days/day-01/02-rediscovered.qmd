@@ -35,7 +35,7 @@ as 1950 by JUSE, the Japanese Union of Scientists and Engineers.
   
 ::::
   
-  ![](/assets/images/day-01/day_1_fig_3.jpg){width=50% .lightbox}
+  ![The Deming Medal, showing a profile of W. Edwards Deming with the inscription 'The right quality and uniformity are foundations of commerce, prosperity and peace.'](/assets/images/day-01/day_1_fig_3.jpg){width=50% .lightbox}
 
 The inscription near the bottom of the medal[^a] is a quotation from Dr Deming:
   
