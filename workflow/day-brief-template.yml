@@ -1,0 +1,87 @@
+# ============================================================
+# Day Brief Template
+# ============================================================
+# Fill this in after Phase 1 (Reconnaissance) for each day.
+# Save as: workflow/briefs/day-XX-brief.yml
+#
+# Claude reads the source PNGs directly to get:
+#   - All text content (transcribed word-for-word)
+#   - Clock times from the original pages
+#   - Interactive element details (Pause for Thought identifiers, etc.)
+#   - Figure locations and descriptions
+#
+# This brief captures YOUR editorial decisions that Claude can't
+# determine from the source material alone.
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 3                          # Day number (2-12)
+  title: "The Funnel Experiment"     # Day title for _quarto.yml part heading
+  source_prefix: "F.Day.3.13Jan20"   # PNG filename prefix in 12-Days-to-Deming/PNGs/
+  page_count: 66                     # Total source pages
+
+# ------ Chapter Plan ------
+# This is the critical field. Group source pages into chapters.
+# Claude proposes this in Phase 1; you confirm/adjust here.
+#
+# Fields per chapter:
+#   slug:   URL-friendly name (used in filename: NN-slug.qmd)
+#   title:  Chapter title (used in YAML front matter, ALL CAPS)
+#   pages:  Source page range (e.g. "1-5" or "1,3-5")
+#   notes:  Optional context for Claude (special handling, errata, etc.)
+
+chapters:
+  - slug: "introduction"
+    title: "INTRODUCTION"
+    pages: "1-5"
+    notes: ""
+
+  - slug: "main-topic"
+    title: "MAIN TOPIC NAME"
+    pages: "6-15"
+    notes: ""
+
+  # - slug: "another-chapter"
+  #   title: "ANOTHER CHAPTER"
+  #   pages: "16-22"
+  #   notes: ""
+
+# ------ Figure Decisions (optional) ------
+# Only fill this in if you want to override Claude's default handling.
+# By default, Claude will:
+#   - Crop photos, hand-drawn diagrams, and complex tables from source PNGs
+#   - Recreate simple charts and graphs in R (using ggplot2/gt)
+#   - Skip decorative elements that don't add content
+#
+# Use this section to override specific figures:
+#   page:   Source page number where the figure appears
+#   action: "crop" | "recreate_r" | "skip"
+#   notes:  Any special instructions
+
+figures: []
+  # - page: 19
+  #   action: "crop"
+  #   notes: "Table showing funnel experiment results"
+  # - page: 25
+  #   action: "recreate_r"
+  #   notes: "Simple run chart — recreate with basic_run_chart()"
+  # - page: 30
+  #   action: "skip"
+  #   notes: "Decorative border, not needed"
+
+# ------ Context Notes (optional) ------
+# Anything else Claude should know when building this day.
+# Examples:
+#   - Errata or corrections to the source text
+#   - Workbook page references that aren't clear from the source
+#   - Cross-references to other days that need linking
+#   - Special instructions (e.g. "this activity needs dice — add a note")
+
+context_notes: ""
+  # Example multi-line note:
+  # context_notes: |
+  #   The funnel experiment requires dice — add a preparatory note.
+  #   Page 19 has a table that was corrected in a later edition:
+  #   the value in row 3, column 2 should be 4.7, not 4.2.
+  #   Cross-reference Day 2 page 15 when the control chart is mentioned.
