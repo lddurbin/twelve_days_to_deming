@@ -80,11 +80,11 @@ rule3Visible = rule3AllStages.slice(0, rule3Counter)
 ```
 
 ```{ojs}
-html`<div class="fe-status">
+html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
   <strong>Rule 3 — Symmetric Placement</strong><br>
   Stage: <strong>${rule3Counter}</strong> of ${TOTAL_STAGES}
-  ${rule3Counter > 0 ? ` | Last outcome: <strong style="color:#cc0000">${rule3Visible[rule3Visible.length - 1].marblePos}</strong>` : ""}
-  ${rule3Counter > 0 ? ` | Funnel now at: <strong style="color:#3366cc">${rule3Visible[rule3Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong style="color:#3366cc">${TARGET}</strong>`}
+  ${rule3Counter > 0 ? ` | Last outcome: <strong class="fe-outcome-value">${rule3Visible[rule3Visible.length - 1].marblePos}</strong>` : ""}
+  ${rule3Counter > 0 ? ` | Funnel now at: <strong class="fe-funnel-value">${rule3Visible[rule3Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong class="fe-funnel-value">${TARGET}</strong>`}
 </div>`
 ```
 
@@ -202,11 +202,11 @@ rule4Visible = rule4AllStages.slice(0, rule4Counter)
 ```
 
 ```{ojs}
-html`<div class="fe-status">
+html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
   <strong>Rule 4 — Place Funnel Where Marble Landed</strong><br>
   Stage: <strong>${rule4Counter}</strong> of ${TOTAL_STAGES}
-  ${rule4Counter > 0 ? ` | Last outcome: <strong style="color:#cc0000">${rule4Visible[rule4Visible.length - 1].marblePos}</strong>` : ""}
-  ${rule4Counter > 0 ? ` | Funnel now at: <strong style="color:#3366cc">${rule4Visible[rule4Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong style="color:#3366cc">${TARGET}</strong>`}
+  ${rule4Counter > 0 ? ` | Last outcome: <strong class="fe-outcome-value">${rule4Visible[rule4Visible.length - 1].marblePos}</strong>` : ""}
+  ${rule4Counter > 0 ? ` | Funnel now at: <strong class="fe-funnel-value">${rule4Visible[rule4Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong class="fe-funnel-value">${TARGET}</strong>`}
 </div>`
 ```
 

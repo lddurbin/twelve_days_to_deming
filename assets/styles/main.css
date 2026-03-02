@@ -68,7 +68,7 @@ Usage:
 }
 
 .deming_quote {
-  color: #0000ff;
+  color: #0000b3;
   font-weight: bold;
 }
 
@@ -93,7 +93,7 @@ Usage:
 }
 
 .thought h1 {
-  color: #008000;
+  color: #006600;
   text-align: center;
 }
 
@@ -104,7 +104,7 @@ Usage:
 }
 
 .thought_commentary h1 {
-  color: #ff0000;
+  color: #cc0000;
   text-align: center;
 }
 
@@ -217,7 +217,7 @@ Usage:
 /* left-aligned quote under each table-row */
 .grid-mid .quote-left {
   font-style: italic;
-  color: blue;
+  color: #0000b3;
   font-size: 0.9rem;
   grid-column: 1;
   justify-self: start;
@@ -226,7 +226,7 @@ Usage:
 /* right-aligned quote under each table-row */
 .grid-mid .quote-right {
   font-style: italic;
-  color: blue;
+  color: #0000b3;
   font-size: 0.9rem;
   grid-column: 3;
   justify-self: start;  /* or end, if you prefer */
@@ -450,10 +450,10 @@ button:focus,
   left: 0;
   z-index: 1;
 }
-/* Outcome row: yellow background, red text */
+/* Outcome row: yellow background, dark red text */
 .fe-row-outcome td {
   background-color: #ffff99 !important;
-  color: #cc0000;
+  color: #8b0000;
   font-weight: bold;
 }
 
@@ -465,6 +465,13 @@ button:focus,
 .fe-marble {
   color: #cc6633;
   font-weight: bold;
+}
+/* Status bar value colors (replaces inline styles) */
+.fe-outcome-value {
+  color: #990000;
+}
+.fe-funnel-value {
+  color: #1a4d99;
 }
 
 /* Action buttons */
