@@ -95,11 +95,11 @@ rule2Visible = rule2AllStages.slice(0, rule2Counter)
 
 ```{ojs}
 // Status bar
-html`<div class="fe-status">
+html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
   <strong>Rule 2 — Ford's First Strategy (Compensation)</strong><br>
   Stage: <strong>${rule2Counter}</strong> of ${TOTAL_STAGES}
-  ${rule2Counter > 0 ? ` | Last outcome: <strong style="color:#cc0000">${rule2Visible[rule2Visible.length - 1].marblePos}</strong>` : ""}
-  ${rule2Counter > 0 ? ` | Funnel now at: <strong style="color:#3366cc">${rule2Visible[rule2Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong style="color:#3366cc">${TARGET}</strong>`}
+  ${rule2Counter > 0 ? ` | Last outcome: <strong class="fe-outcome-value">${rule2Visible[rule2Visible.length - 1].marblePos}</strong>` : ""}
+  ${rule2Counter > 0 ? ` | Funnel now at: <strong class="fe-funnel-value">${rule2Visible[rule2Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong class="fe-funnel-value">${TARGET}</strong>`}
 </div>`
 ```
 
@@ -209,11 +209,11 @@ rule1Visible = rule1AllStages.slice(0, rule1Counter)
 
 ```{ojs}
 // Status bar for Rule 1
-html`<div class="fe-status">
+html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
   <strong>Rule 1 — Ford's Second Strategy (Leave the Funnel Alone)</strong><br>
   Stage: <strong>${rule1Counter}</strong> of ${TOTAL_STAGES}
-  ${rule1Counter > 0 ? ` | Last outcome: <strong style="color:#cc0000">${rule1Visible[rule1Visible.length - 1].marblePos}</strong>` : ""}
-  | Funnel always at: <strong style="color:#3366cc">${TARGET}</strong>
+  ${rule1Counter > 0 ? ` | Last outcome: <strong class="fe-outcome-value">${rule1Visible[rule1Visible.length - 1].marblePos}</strong>` : ""}
+  | Funnel always at: <strong class="fe-funnel-value">${TARGET}</strong>
 </div>`
 ```
 
