@@ -87,7 +87,11 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/dev/null || true
+        ssh-keyscan -p 18765 -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/dev/null
+        if [ ! -s ~/.ssh/known_hosts ]; then
+          echo "ERROR: ssh-keyscan failed to retrieve host key"
+          exit 1
+        fi
         
     - name: Deploy to server
       run: |
