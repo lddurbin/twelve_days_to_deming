@@ -1,0 +1,272 @@
+---
+title: "RULES 3 AND 4 OF THE FUNNEL"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+### Rules 3 and 4 of the Funnel
+
+The motivation for the various Rules of the Funnel is discussed in *DemDim* Chapter 5, so there is no need for me to go into great detail here. The important issue here is how well they work. So I'll summarise the motivations for Rules 3 and 4 quite briefly. Firstly, Rule 2 was a relatively complicated operation—you might have had to concentrate quite hard to get it right. Rule 3 is a rather easier and (at least at first sight) an apparently rather innocent variant of Rule 2. Rule 4 is quite different from both of them: it concentrates on trying to minimise the average short-term variation. The latter is, of course, an interesting mixture of good and bad. It is certainly good to reduce variation, but is it wise to do so only in the *short* term? Let's carry out similar procedures as previously, but now for Rules 3 and 4, and see what happens.
+
+Recall that in Rule 2 the distance and direction between the target and where the marble comes to rest is described in red just below the yellow-shaded rows (refer back to page 42). Rule 2 then shifts the funnel in the opposite direction *by that same distance from its current position*. The difference between Rules 2 and 3 is that, in Rule 3, the funnel is instead placed on *the opposite side of the target* and at that same distance from it. E.g., suppose that the current outcome (position of ●) is 32 (i.e. 2 above or to the right of ◎). Then, with Rule 3, the funnel simply gets placed 2 squares to the left of ◎, i.e. at 30 − 2 = 28—*irrespective of where it was before*. Or, if the current outcome was 27 (3 below or left of ◎), the funnel is then placed 3 squares to the right of ◎, i.e. at 30 + 3 = 33. This is indeed easier than Rule 2: you'll soon see that the marble and the funnel now simply finish up symmetrically positioned either side of the target—the funnel's previous position in no way affects this decision. In case of doubt, just refer to this little table:
+
+<div style="text-align:center; margin: 1em 0;">
+<table class="fe-summary-table">
+<tr><th>If ● is at …</th><td>… 25</td><td>26</td><td>27</td><td style="background:#90EE90;font-weight:bold;">28</td><td>29</td><td>30</td><td>31</td><td style="background:#90EE90;font-weight:bold;">32</td><td>33</td><td>34</td><td>35</td><td>…</td></tr>
+<tr><th>you move ▼ to …</th><td>… 35</td><td>34</td><td>33</td><td>32</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>…</td></tr>
+</table>
+</div>
+
+So, using your own track, let's walk through the first few stages with Rule 3. As usual, we'll start with the funnel at 30. With the first dice-score being 10, the marble finishes up at 3 *right* of the funnel, the marble's first finishing position is again 33.
+
+You'll realise that this is actually the same as the initial move with Rule 2; but that is simply because the funnel was initially at the target, i.e. in both cases the funnel moved from a starting position of 30.
+
+Since the marble is now at 33 (3 right of ◎), Rule 3 moves the funnel to 30 (2 *right* of ◎), i.e. to the opposite side of the target and at that same distance from it. Remember, at this and every stage, you simply move the funnel so that it and the marble are symmetrically placed either side of the target ◎.
+
+The marble dropping at 1 *left* of the funnel. So the marble now finishes up at 31. The marble is 1 right of ◎, and thus you move the funnel to 29 (1 left of ◎), giving:
+
+And so on. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and 3 to the *left* of the funnel. Carefully confirm with your track that the next finishing positions are: marble at 29, funnel moves to 31; marble at 25, and funnel moves to 35. So the picture stays unchanged at the fourth stage and, at the fifth stage, both the marble and then the funnel end up at the target of 30—the "happy accident" to which I referred on page 52.
+
+Just for interest, take a moment's thought to guess what will happen in the long term as you take Rule 3 through its 40 stages. Then, later on, see if you've guessed correctly!
+
+<div class="workbook_callout">Pages 50–51 are also on Workbook pages 42–43.</div>
+
+```{ojs}
+//| output: false
+
+// Import the funnel experiment module
+import {
+  generateDiceSequence, saveDiceSequence, loadDiceSequence,
+  runAllStages, computeTrackRange, renderTrackSVG, renderDataTable,
+  TARGET, TOTAL_STAGES
+} from "../../../assets/scripts/funnel-experiment.js"
+```
+
+```{ojs}
+//| output: false
+
+// Load the shared dice sequence (same as chapter 11)
+diceSeq3 = {
+  let seq = loadDiceSequence();
+  if (!seq) {
+    seq = generateDiceSequence(true);
+    saveDiceSequence(seq);
+  }
+  return seq;
+}
+```
+
+```{ojs}
+//| output: false
+
+rule3AllStages = runAllStages(3, diceSeq3)
+```
+
+```{ojs}
+//| output: false
+
+mutable rule3Counter = 0
+```
+
+```{ojs}
+//| output: false
+
+rule3Visible = rule3AllStages.slice(0, rule3Counter)
+```
+
+```{ojs}
+html`<div class="fe-status">
+  <strong>Rule 3 — Symmetric Placement</strong><br>
+  Stage: <strong>${rule3Counter}</strong> of ${TOTAL_STAGES}
+  ${rule3Counter > 0 ? ` | Last outcome: <strong style="color:#cc0000">${rule3Visible[rule3Visible.length - 1].marblePos}</strong>` : ""}
+  ${rule3Counter > 0 ? ` | Funnel now at: <strong style="color:#3366cc">${rule3Visible[rule3Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong style="color:#3366cc">${TARGET}</strong>`}
+</div>`
+```
+
+```{ojs}
+{
+  const currentStage = rule3Counter > 0 ? rule3Visible[rule3Visible.length - 1] : null;
+  const trackRange = computeTrackRange(rule3AllStages);
+  const svgStr = renderTrackSVG(currentStage, trackRange);
+  return html`<div class="fe-track-container">${html`${svgStr}`}</div>`;
+}
+```
+
+```{ojs}
+{
+  const nextBtn = html`<button class="fe-button" ${rule3Counter >= TOTAL_STAGES ? "disabled" : ""}>Next Stage →</button>`;
+  const completeBtn = html`<button class="fe-button fe-button-complete" ${rule3Counter >= TOTAL_STAGES ? "disabled" : ""}>Complete Remaining Stages</button>`;
+
+  nextBtn.onclick = () => {
+    if (rule3Counter < TOTAL_STAGES) mutable rule3Counter = rule3Counter + 1;
+  };
+  completeBtn.onclick = () => {
+    mutable rule3Counter = TOTAL_STAGES;
+  };
+
+  return html`<div>${nextBtn}${completeBtn}</div>`;
+}
+```
+
+```{ojs}
+{
+  const t1 = renderDataTable(3, rule3Visible, 0);
+  const t2 = renderDataTable(3, rule3Visible, 1);
+  const t3 = renderDataTable(3, rule3Visible, 2);
+  return html`<div class="fe-track-container">${html`${t1}`}</div>
+              <div class="fe-track-container">${html`${t2}`}</div>
+              <div class="fe-track-container">${html`${t3}`}</div>`;
+}
+```
+
+And now draw the run chart, continuing on from my first five points. Again, as with the histograms, there's no need to be too artistic about it—please yourself whether or not you use a ruler!
+
+Recall that the very first stage in Rule 3 was identical to that in Rule 2 but, as was pointed out at the time, this was simply because the funnel was initially at its "sensible" value of 30. I imagine, however, that you subsequently discovered things changed with Rule 3 ... You may recall Peter Worthington's observation (page 29) that a zig-zag pattern is not random variation!
+
+```{ojs}
+// Run chart for Rule 3
+{
+  if (rule3Counter < TOTAL_STAGES) {
+    return html`<div class="fe-status"><em>Complete all ${TOTAL_STAGES} stages to see the run chart.</em></div>`;
+  }
+
+  const data = rule3Visible.map(s => ({ stage: s.stage, outcome: s.marblePos }));
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+
+  return Plot.plot({
+    title: "Rule 3 — Run Chart of Outcomes",
+    width: 600,
+    height: 350,
+    x: { label: "Stage", domain: [0, 41] },
+    y: { label: "Marble position", grid: true },
+    marks: [
+      Plot.ruleY([TARGET], { stroke: "#999", strokeDasharray: "4,4" }),
+      Plot.line(data, { x: "stage", y: "outcome", stroke: "#cc3333", strokeWidth: 1.5 }),
+      Plot.dot(data, { x: "stage", y: "outcome", fill: "#cc3333", r: 3 })
+    ]
+  });
+}
+```
+
+*[Move on to the description of Rule 4 on the next page.]*
+
+<div class="separator_blue"></div>
+
+### Rule 4 of the Funnel
+
+Lacking basic understanding of variation, management may with best intentions have used Rules 2 and/or 3 in the hope that they would produce better results than Rule 1. They have failed dismally: instead they have considerably increased variation. Since it is good to reduce variation, they strive to minimise variation *at least in the short term*. Certainly there are circumstances where this may seem quite reasonable in practice. For example, if you don't get exactly what you want from a supplier, but at least what you receive doesn't change much from one delivery to the next, it is quite possible that you can learn to "cope" (for a while) with whatever arrives. The situation that really throws you is when you get dramatic changes from one delivery to the next (which presumably is what happened to you sooner or later during Rule 3)—that's part of the motivation for trying Rule 4.
+
+So, what do we do with the funnel in Rule 4? Suppose the current outcome is 33. The thinking is now that, for low *short-term* variation, we would like the next outcome to be 33 again or pretty close to it. How do we achieve that? Easy! Place the funnel exactly where the marble has just finished up, i.e. at 33. You will have noticed that (again unless you've had a very unusual sequence of dice-scores) most of the time the marble was finishing up quite close to the funnel—say, no more than 2 squares away from it. So, in this case, the chances are that your next outcome will now be somewhere between 31 and 35—nicely consistent with the aim of achieving low short-term variation, and certainly generally more appealing than what Rule 3 eventually produced!
+
+Take a look at my fantastic outcomes (the yellow-shaded row) near the top of page 54 *[WB 41]*! Hardly any variation for a while; and then, when there is a larger move, we find ourselves right back on the target of 30! (As you might realise, that was a very happy accident.) I wonder what will happen in the longer term ...
+
+So, just to be sure, let's again walk through the first few stages. As always, with the funnel initially placed at 30 and the first dice-score being 10, the first outcome is again 33:
+
+So, as argued near the bottom of page 50, Rule 4 then places the funnel directly above the marble at 33.
+
+The second dice-score was 8 corresponding to the marble dropping at 1 *right* of the funnel, and so the next position of the marble is 34.
+
+And then the funnel immediately follows it there.
+
+The third dice-score was 6 which corresponds to the marble dropping at 1 *left* of the funnel, i.e. back to 33, and so Rule 4 moves the funnel back to 33 as well.
+
+And so it continues. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and then 3 to the *left* of the funnel. Confirm that the next positions are Stage 4: both marble and funnel sit at 33, and Stage 5: both marble and funnel end up at 30. So the picture stays unchanged at the fourth stage and, at the fifth stage, both the marble and then the funnel end up at the target of 30—the "happy accident" to which I referred on page 52.
+
+So off you go for the final time. Again if you didn't do so when I first suggested it, you'll need to start by copying over all your "From ▼, ● then goes" rows one final time. Then, after you've generated all your Rule 4 outcomes, finish off by sketching your run chart. As usual, I've started the run chart for you on the graph-paper. Also, as with Rule 3, do have an early guess at what you think will happen in the long term!
+
+Rule 4 is one of the easier strategies to carry out, so you can stop using your track as soon as you realise you don't need it any more. That may be very soon!
+
+<div class="workbook_callout">Pages 54–55 are also on Workbook pages 44–45.</div>
+
+```{ojs}
+//| output: false
+
+rule4AllStages = runAllStages(4, diceSeq3)
+```
+
+```{ojs}
+//| output: false
+
+mutable rule4Counter = 0
+```
+
+```{ojs}
+//| output: false
+
+rule4Visible = rule4AllStages.slice(0, rule4Counter)
+```
+
+```{ojs}
+html`<div class="fe-status">
+  <strong>Rule 4 — Place Funnel Where Marble Landed</strong><br>
+  Stage: <strong>${rule4Counter}</strong> of ${TOTAL_STAGES}
+  ${rule4Counter > 0 ? ` | Last outcome: <strong style="color:#cc0000">${rule4Visible[rule4Visible.length - 1].marblePos}</strong>` : ""}
+  ${rule4Counter > 0 ? ` | Funnel now at: <strong style="color:#3366cc">${rule4Visible[rule4Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong style="color:#3366cc">${TARGET}</strong>`}
+</div>`
+```
+
+```{ojs}
+{
+  const currentStage = rule4Counter > 0 ? rule4Visible[rule4Visible.length - 1] : null;
+  const trackRange = computeTrackRange(rule4AllStages);
+  const svgStr = renderTrackSVG(currentStage, trackRange);
+  return html`<div class="fe-track-container">${html`${svgStr}`}</div>`;
+}
+```
+
+```{ojs}
+{
+  const nextBtn = html`<button class="fe-button" ${rule4Counter >= TOTAL_STAGES ? "disabled" : ""}>Next Stage →</button>`;
+  const completeBtn = html`<button class="fe-button fe-button-complete" ${rule4Counter >= TOTAL_STAGES ? "disabled" : ""}>Complete Remaining Stages</button>`;
+
+  nextBtn.onclick = () => {
+    if (rule4Counter < TOTAL_STAGES) mutable rule4Counter = rule4Counter + 1;
+  };
+  completeBtn.onclick = () => {
+    mutable rule4Counter = TOTAL_STAGES;
+  };
+
+  return html`<div>${nextBtn}${completeBtn}</div>`;
+}
+```
+
+```{ojs}
+{
+  const t1 = renderDataTable(4, rule4Visible, 0);
+  const t2 = renderDataTable(4, rule4Visible, 1);
+  const t3 = renderDataTable(4, rule4Visible, 2);
+  return html`<div class="fe-track-container">${html`${t1}`}</div>
+              <div class="fe-track-container">${html`${t2}`}</div>
+              <div class="fe-track-container">${html`${t3}`}</div>`;
+}
+```
+
+```{ojs}
+// Run chart for Rule 4
+{
+  if (rule4Counter < TOTAL_STAGES) {
+    return html`<div class="fe-status"><em>Complete all ${TOTAL_STAGES} stages to see the run chart.</em></div>`;
+  }
+
+  const data = rule4Visible.map(s => ({ stage: s.stage, outcome: s.marblePos }));
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+
+  return Plot.plot({
+    title: "Rule 4 — Run Chart of Outcomes",
+    width: 600,
+    height: 350,
+    x: { label: "Stage", domain: [0, 41] },
+    y: { label: "Marble position", grid: true },
+    marks: [
+      Plot.ruleY([TARGET], { stroke: "#999", strokeDasharray: "4,4" }),
+      Plot.line(data, { x: "stage", y: "outcome", stroke: "#3366cc", strokeWidth: 1.5 }),
+      Plot.dot(data, { x: "stage", y: "outcome", fill: "#3366cc", r: 3 })
+    ]
+  });
+}
+```

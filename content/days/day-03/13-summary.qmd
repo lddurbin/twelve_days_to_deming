@@ -1,0 +1,248 @@
+---
+title: "SUMMARY"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+### Summary
+
+As has been obvious for a while (if not from the very start!), you know that, assuming we are "stuck" with the amount of variation represented by throwing the two dice, the best thing to do is to put the funnel at the desired value of 30 and *leave it there*. Moving the funnel anywhere at any time following any "strategy" will "only make things worse". I trust that sounds familiar!
+
+But putting the funnel at 30 and leaving it there, i.e. Rule 1, is not what many managers (amongst others) are keen on doing. A more familiar scenario is that each result is compared with the target and some apparently appropriate action is taken according to the difference. Specifically, if a result is above the target then an action is taken to try to lower the next value to try to "get it right"; or, if the result is below the target, an action is taken to try to raise the next value. As Dr Deming described it—see page 2—this was indeed *"a noble aim"*. But recall he then also pointed out that *"There was only one little trouble"*. Doubtless you can recall what that "little trouble" was! This is precisely what Rule 2 did. As pointed out earlier, a very attractive argument for Rule 2 is that, if only the funnel had already been where Rule 2 now puts it, we would have just hit the target spot on. That's a supreme example of "being wise after the event". Have you heard of JIT (Just In Time)? This is JTL (Just Too Late)!
+
+Since Rule 2 was seen not to do the trick, Rule 3 was tried: Rule 3 is an alternative and simpler version of the same idea. It turned out to be disastrous! Do people then conclude that it would have been better not to do anything at all but to have stuck with Rule 1!? Somehow it doesn't seem to be very politically acceptable in management meetings or committee meetings and the like to say that all of our ideas so far have been wrong and it would have been better if we had just done nothing. So a completely different kind of attempt is then tried: Rule 4. For a while it may look as if things are going well: as we have seen, it concentrates on reducing short-term variation as much as possible. It succeeds in doing that. The consequence is that it may actually look better than Rule 1 in the short term! But not for long ... . Actually you may have been suspicious that trouble might lie ahead from the simple fact that (except for initially placing the funnel at 30) the operation of Rule 4 totally ignores the target!
+
+What do Rules 2, 3 and 4 *do*? They show how, in Dr Deming's terms, people (especially management) spend so much of their time *tampering* with the system (= thinking they may be doing something useful but, in fact, making performance worse) rather than *improving* the system (= making performance better). I think that, having carried out this Major Activity, that word "tampering" may also mean more to you now than it used to!
+
+Some may find that phrase "it would have been better if we had just done nothing" to be somewhat startling! So, to be sure of its context, let's recall a sentence from page 48: "But, as Dr Deming often pointed out, *it's better to do nothing than to do the wrong thing!*". That's the point. Obviously it's not better to do nothing rather than doing the *right* thing! But the vital message to strike home is that, when you have a stable process, the only "right thing" to do is to investigate that process carefully in order to discover what is causing some of its current variation and then to make some changes to the process which will reduce that variation (and not only in the short term, for that's Rule 4). There is *no other way*.
+
+Finally in this Major Activity, please take a brief look at a couple of runs of the experiment that I have carried out using my computer simulation program. There is also some more discussion there on the Funnel Experiment in general and on this Major Activity in particular. See Appendix pages 15–18.
+
+In Part A of the Optional Extras section we shall examine in detail what happens to control charts when presented with the data from the two simulations of the Funnel Experiment studied in the Appendix. However, particularly in case you decide that that optional material is not for you, Activities 3–i and 3–j consider some general effects of putting data from the four Rules of the Funnel onto control charts.
+
+### Four-Rule Comparison
+
+The charts below compare the outcomes from all four Rules using the same dice sequence. This is the key advantage of the digital version: you can see all four behaviours side by side.
+
+```{ojs}
+//| output: false
+
+import {
+  generateDiceSequence, saveDiceSequence, loadDiceSequence,
+  runAllStages, TARGET, TOTAL_STAGES
+} from "../../../assets/scripts/funnel-experiment.js"
+```
+
+```{ojs}
+//| output: false
+
+diceSeqSummary = {
+  let seq = loadDiceSequence();
+  if (!seq) {
+    seq = generateDiceSequence(true);
+    saveDiceSequence(seq);
+  }
+  return seq;
+}
+```
+
+```{ojs}
+//| output: false
+
+summaryR1 = runAllStages(1, diceSeqSummary)
+summaryR2 = runAllStages(2, diceSeqSummary)
+summaryR3 = runAllStages(3, diceSeqSummary)
+summaryR4 = runAllStages(4, diceSeqSummary)
+```
+
+```{ojs}
+// Four-way comparison grid
+{
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+
+  function makeHistogram(stages, title, color) {
+    const outcomes = stages.map(s => s.marblePos);
+    return Plot.plot({
+      title,
+      width: 400,
+      height: 220,
+      x: { label: "Position" },
+      y: { label: "Count", grid: true },
+      marks: [
+        Plot.rectY(outcomes, Plot.binX({ y: "count" }, {
+          x: d => d,
+          thresholds: d3.range(
+            Math.min(...outcomes) - 1.5,
+            Math.max(...outcomes) + 2.5,
+            1
+          ),
+          fill: color
+        })),
+        Plot.ruleY([0])
+      ]
+    });
+  }
+
+  function makeRunChart(stages, title, color) {
+    const data = stages.map(s => ({ stage: s.stage, outcome: s.marblePos }));
+    return Plot.plot({
+      title,
+      width: 400,
+      height: 220,
+      x: { label: "Stage", domain: [0, 41] },
+      y: { label: "Position", grid: true },
+      marks: [
+        Plot.ruleY([TARGET], { stroke: "#999", strokeDasharray: "4,4" }),
+        Plot.line(data, { x: "stage", y: "outcome", stroke: color, strokeWidth: 1.5 }),
+        Plot.dot(data, { x: "stage", y: "outcome", fill: color, r: 2.5 })
+      ]
+    });
+  }
+
+  const r1hist = makeHistogram(summaryR1, "Rule 1 — Histogram", "#99bbff");
+  const r2hist = makeHistogram(summaryR2, "Rule 2 — Histogram", "#ff9999");
+  const r3run = makeRunChart(summaryR3, "Rule 3 — Run Chart", "#cc3333");
+  const r4run = makeRunChart(summaryR4, "Rule 4 — Run Chart", "#3366cc");
+
+  return html`<div class="fe-comparison-grid">
+    <div>${r1hist}</div>
+    <div>${r2hist}</div>
+    <div>${r3run}</div>
+    <div>${r4run}</div>
+  </div>`;
+}
+```
+
+### Summary Statistics
+
+```{ojs}
+{
+  function stats(stages) {
+    const vals = stages.map(s => s.marblePos);
+    const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+    const variance = vals.reduce((a, b) => a + (b - mean) ** 2, 0) / (vals.length - 1);
+    const sd = Math.sqrt(variance);
+    const min = Math.min(...vals);
+    const max = Math.max(...vals);
+    const range = max - min;
+    return { mean: mean.toFixed(2), sd: sd.toFixed(2), min, max, range };
+  }
+
+  const s1 = stats(summaryR1);
+  const s2 = stats(summaryR2);
+  const s3 = stats(summaryR3);
+  const s4 = stats(summaryR4);
+
+  return html`<table class="fe-summary-table">
+    <thead>
+      <tr><th></th><th>Rule 1</th><th>Rule 2</th><th>Rule 3</th><th>Rule 4</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Mean</strong></td><td>${s1.mean}</td><td>${s2.mean}</td><td>${s3.mean}</td><td>${s4.mean}</td></tr>
+      <tr><td><strong>Std Dev</strong></td><td>${s1.sd}</td><td>${s2.sd}</td><td>${s3.sd}</td><td>${s4.sd}</td></tr>
+      <tr><td><strong>Min</strong></td><td>${s1.min}</td><td>${s2.min}</td><td>${s3.min}</td><td>${s4.min}</td></tr>
+      <tr><td><strong>Max</strong></td><td>${s1.max}</td><td>${s2.max}</td><td>${s3.max}</td><td>${s4.max}</td></tr>
+      <tr><td><strong>Range</strong></td><td>${s1.range}</td><td>${s2.range}</td><td>${s3.range}</td><td>${s4.range}</td></tr>
+    </tbody>
+  </table>`;
+}
+```
+
+<div class="separator_blue"></div>
+
+<div class="workbook_callout">Activity 3–i is also on Workbook page 46.</div>
+
+<div class="thought">
+
+# ACTIVITY 3–i
+
+Having spent much of this morning on beginners to get used to control charts and now this afternoon on the Funnel Experiment, this is a useful Activity which involves both of them. However, if you are a Stats-level 0 student then this possibly isn't for you.
+
+Let's first précis the "How Do We Compute Those Control Limits—and Why?" section on pages 13–15 as follows:
+
+> "Control limits need to indicate the range over which the data will vary when the process is in statistical control: so that, if and when data go outside those limits, we have evidence that the process may well be out of statistical control. But suppose the process is out of statistical control when we collect those data. The method we use is based on 'moving ranges'. Obviously, if many of these moving ranges are large then high variation is indicated; whereas if the moving ranges are mostly small then low variation is indicated. Using moving ranges works pretty well in mitigating the contamination effects of many kinds of special causes. Two important exceptions that one needs to be able to recognise are illustrated with data generated in the Funnel Experiment, and so we shall see those this afternoon."
+
+With these thoughts in mind, imagine that you are computing control limits (using moving ranges) from data that are being generated from each of the four Rules of the Funnel in turn. How do you think those data will affect the control limits, and what would happen if you extended those limits into the future during which the same Rule is in operation?
+
+```{ojs}
+viewof activity_3i = Inputs.textarea({placeholder: "Type your thoughts on control limits and the four Rules here ...", rows: 8})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3i" aria-expanded="false" aria-controls="collapse_3i">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_3i">
+
+**Rule 1**: Control limits will be valid and stable. The process is in statistical control—common-cause variation only.
+
+**Rule 2**: Control limits computed from moving ranges will be *wider* than for Rule 1, reflecting the increased variation caused by tampering. However, the process may still appear to be in control (just with wider limits) because the compensation keeps bouncing around the target.
+
+**Rule 3**: The zig-zag pattern means consecutive values alternate between high and low. Moving ranges will tend to be large, producing wide control limits. The data may show signals of special causes.
+
+**Rule 4**: In the short term, moving ranges will be small (low short-term variation), so control limits will be narrow. But the process drifts over time, so you'll see points going outside those narrow limits—a clear signal that the process is not in control.
+
+*(For discussion see Appendix pages 18–20.)*
+</div>
+</div>
+
+<div class="workbook_callout">Activity 3–j is also on Workbook page 47.</div>
+
+<div class="thought_commentary">
+
+# ACTIVITY 3–j
+
+Now that you have completed the Major Activity and after reading *DemDim* Chapter 5, it would be good if you could spend the final few minutes summarising some illustrations of your own. You will find further suggestions in the relevant discussion in the Appendix—but don't look at it just yet!
+
+It is often not possible to differentiate between Rules 2 and 3 when suggesting examples. As we have seen, in effect the difference between them depends on whether the tampering is done comparatively sensibly or completely stupidly! Also, the performances of some practical illustrations are worse than Rule 2 but not as brazen as Rule 3. I would recommend therefore that, in addition to a list of possible illustrations of Rule 1 and of Rule 4, you construct a *combined* list of illustrations for Rules 2 and 3, i.e. for any kind of "zig-zag" or "swinging the pendulum" compensation effect. Further, the Rule 4 list does not need to be restricted to a strict version of Rule 4. For example, a photocopier of a photocopy of a photocopy of ... is similar to Rule 4 except that it continually moves away from the target (the original copy) rather than being able to temporarily move back toward it.
+
+```{ojs}
+viewof activity_3j = Inputs.textarea({placeholder: "List your own real-world examples of the four Rules of the Funnel here ...", rows: 10})
+```
+
+*(For some final examples see Appendix pages 20–21.)*
+
+</div>
+
+As mentioned on page 56, the data from the two runs of the Funnel Experiment that are examined in the Appendix are studied using control charts in Part A of the Optional Extras section. However, we are now at the end of Day 3 and therefore to look at that optional extra material will indeed have to be an "out-of-hours" activity!
+
+<div class="separator_blue"></div>
+
+### Start Over with New Dice
+
+If you'd like to repeat the entire experiment with a fresh set of dice rolls, click the button below. This will clear your saved dice sequence so that the next time you visit the earlier chapters, a brand new sequence will be generated.
+
+```{ojs}
+{
+  const resetBtn = html`<button class="fe-button fe-button-reset">Generate New Dice & Start Over</button>`;
+
+  resetBtn.onclick = () => {
+    if (confirm("This will clear your current dice sequence. You'll need to re-run all four rules from the beginning. Continue?")) {
+      try { localStorage.removeItem("funnel_dice_sequence"); } catch(e) {}
+      resetBtn.textContent = "Dice cleared! Revisit earlier chapters to start fresh.";
+      resetBtn.disabled = true;
+    }
+  };
+
+  return html`<div style="text-align:center; margin: 2em 0;">${resetBtn}</div>`;
+}
+```
+
+```{ojs download_ch13}
+download_button_ch13 = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+```{ojs download_trigger_ch13}
+//| output: false
+
+import { downloadNotes } from "../../../assets/scripts/functions.js"
+
+download_button_ch13.onclick = () => {
+  downloadNotes([viewof activity_3i, viewof activity_3j], "activities_3i_3j.txt");
+};
+```

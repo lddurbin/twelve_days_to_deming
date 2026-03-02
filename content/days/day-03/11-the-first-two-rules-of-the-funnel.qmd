@@ -1,0 +1,313 @@
+---
+title: "THE FIRST TWO RULES OF THE FUNNEL"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+<div class="separator_white"></div>
+
+*Relevant sections of this Major Activity are also in the Workbook: I'll give you the page references where and when appropriate*
+
+<div class="major_activity_title">
+<h1>MAJOR ACTIVITY 3–h</h1>
+</div>
+
+Before we begin, a few words about the nature and purpose of the Funnel Experiment, some of which you will recognise as having been just as relevant to the Red Beads Experiment. As there, sooner or later it will become obvious to you that some of the strategies used and actions carried out are, depending on the circumstances, rather foolish! But that is precisely what's intended. Both experiments are very simple—so simple that the difference between good and bad practice becomes plain for all to see. However, after the Funnel Experiment had been presented, both Dr Deming in his enormous seminars and I in my smaller-scale ones would then ask the delegates to tell us of examples of what had now become clear to them as costly and damaging bad practices in their own lives, their own experience, their own workplaces, their own organisations. And invariably the delegates would come up with *dozens* of such real-world examples analogous to the bad practices of which they were now aware through what they had just learned from the Funnel Experiment. Often they had carried out such practices themselves—not because they were bad people but because they hadn't previously *realised* that the practices were so bad. Now they did. Thus, as with the Red Beads Experiment, the purpose of the Funnel Experiment is to alert you to the truth of such matters, so that in future you will be able to figure out more successfully what is good practice and what is not: what to do and what to avoid. As you go through the experiment, when similarly you think of practical examples in your own experience of what the Funnel Experiment is teaching, make a note of them since they will be of help when you get to today's Final Activity.
+
+It is easy to think of real-life illustrations of the Funnel Experiment in many contexts. For example, consider my school bus again. Suppose the bus driver (who actually was my uncle!) was really keen to arrive at my bus-stop at exactly 8.30 am—which thus became his *target*. How might he use past experience to help him do that? Or we could think in terms of a manufacturing process. Suppose the nominal width of a socket, made by injection moulding, is 2.30 cm. How might one use information about past measurements of such sockets to try to manufacture future sockets closer to the nominal value?
+
+With reference to the two illustrations just mentioned, the numbers on the funnel's and marble's tracks can relate to *minutes* in the case of the bus arrival time and *tenths of a millimetre* for the width of the socket. So the "target" of either 8.30 am or 2.30 cm is represented by 30 on the track, while the 29 refers to 8.29 am or 2.29 cm, 31 to 8.31 am or 2.31 cm, 34 to 8.34 am or 2.34 cm, etc.
+
+### The First Two Rules of the Funnel
+
+An obvious way to attempt to improve results from a process is to compare the current outcome (today's bus arrival time or the width of the socket just manufactured) with the nominal or target value, a comparison which may suggest a *try* to improve the next outcome. In our "flattened" version of the Funnel Experiment, this adjustment will be represented in what follows by the movement of our funnel along its track—to the *left* if we want to try to make the next outcome respectively *earlier* or *smaller*, or to the *right* if we want to make it *later* or *larger*. Thus, if the bus arrives today at 8.33 (three minutes late), perhaps the bus driver should set out three minutes earlier tomorrow. (I am assuming that my uncle is keen to please me rather than anybody else!) Or, if the socket just made measures 2.33 cm (0.03 cm too wide), we can adjust a control on the machine to reduce the average diameter of future sockets by 0.03 cm. In either case, the equivalent movement of our funnel is a distance of 3 squares (minutes or tenths of a millimetre, etc—whatever units we are using) to the left along its track. Thus we compensate for the amount that the current outcome is off-target by moving the funnel by that same amount in the opposite direction. This type of compensation strategy is in fact the second of what both Drs Nelson and Deming referred to as the four Rules of the Funnel. Here we are demonstrating it first because it corresponds to what was happening first in the Ford example on page 5. We shall introduce the other three Rules in due course.
+
+Whatever is tried, the fact remains that different things (be they bus journeys, manufactured sockets, or anything else) are almost always different! This is because, as we are now well aware, all processes have their *common-cause* variation as well as possibly some additional special causes of variation.
+
+With the equipment as described, when the marble is dropped through the funnel it will finish up either to the left or right of the funnel or sometimes directly underneath it. There is no need to use anything very complicated to model the variation between the funnel's current position and where the marble finishes up. Anything reasonable will produce the main messages to be learned from the experiment. So that's why you have your two dice. You'll throw the dice and add up the two numbers showing: let's call that the *dice-score*. Since the faces on the dice range from 1 to 6, obviously you will get a dice-score of between 2 and 12. Then use the dice-score in conjunction with the following little table to decide where the marble finishes up relative to the funnel's current position. Thus e.g. if you throw two ones, so that your dice-score is only 2, you place the marble 5 (= 7 − 2) squares to the left of the funnel's current position. Or if you throw a 3 and a 5, with dice-score 8, then you place the marble one (= 8 − 7) square to the right of the funnel.
+
+In this digital version, the dice are rolled for you automatically. The <span class="fe-marble">marble's</span> position (and thus the <span style="color:red;font-weight:bold;">outcome</span> or <span style="color:red;font-weight:bold;">result</span>) will be in <span style="color:red;font-weight:bold;">red</span>.
+
+In this example, since of course the preferred outcome is always that target of 30 (corresponding to the bus arriving at 8.30 or to a socket diameter of 2.30 cm), you may as well start by putting the funnel at what would appear to be the "obvious" position, i.e. 30.
+
+### Rule 2 of the Funnel (Ford's First Strategy)
+
+A particularly appealing way of considering this strategy (i.e. Rule 2 of the Funnel) is that it tells you to move the funnel to the position (27) where, if only it had been there when the marble was just dropped through it, you *would have* just obtained the preferred target outcome of 30. With the funnel placed there, the dice-score of 10 led you to move the marble 3 squares to the right of the funnel; so you would then have had the marble at the target, 30.
+
+Now, in order to record the progress of Rule 2 in an organised fashion, both to study its behaviour and, later on, to compare it with the other three Rules of the Funnel, you will need to carry out some systematic book-keeping! So let me get you started with your own track and whatever you are using for your funnel and marble. I'll use familiar symbols for the funnel and the marble, and also ◎ for the target (30 in our illustrations).
+
+We'll use my own dice-scores to start with so that you can follow my illustration exactly; you'll be able to start throwing your own dice very soon! Work through these demonstration stages carefully on your own track so that you can be sure about *what* to do when I leave you on your own. Take it steadily at first—remember (as my mother used to tell me): "more haste, less speed".
+
+**Use the interactive below to step through Rule 2.** The first 5 stages use the author's worked example (dice-scores 10, 8, 6, 7, 4); from Stage 6 onward your own randomly-generated dice are used.
+
+<div class="workbook_callout">This table is also on Workbook pages 38–39.</div>
+
+```{ojs}
+//| output: false
+
+// Import the funnel experiment module
+import {
+  generateDiceSequence, saveDiceSequence, loadDiceSequence,
+  runAllStages, computeTrackRange, renderTrackSVG, renderDataTable,
+  TARGET, TOTAL_STAGES
+} from "../../../assets/scripts/funnel-experiment.js"
+```
+
+```{ojs}
+//| output: false
+
+// Load or generate the shared dice sequence
+diceSeq = {
+  let seq = loadDiceSequence();
+  if (!seq) {
+    seq = generateDiceSequence(true);
+    saveDiceSequence(seq);
+  }
+  return seq;
+}
+```
+
+```{ojs}
+//| output: false
+
+// Pre-compute all 40 stages for Rule 2
+rule2AllStages = runAllStages(2, diceSeq)
+```
+
+```{ojs}
+//| output: false
+
+// Mutable counter controls how many stages are visible
+mutable rule2Counter = 0
+```
+
+```{ojs}
+//| output: false
+
+// Visible results based on counter
+rule2Visible = rule2AllStages.slice(0, rule2Counter)
+```
+
+```{ojs}
+// Status bar
+html`<div class="fe-status">
+  <strong>Rule 2 — Ford's First Strategy (Compensation)</strong><br>
+  Stage: <strong>${rule2Counter}</strong> of ${TOTAL_STAGES}
+  ${rule2Counter > 0 ? ` | Last outcome: <strong style="color:#cc0000">${rule2Visible[rule2Visible.length - 1].marblePos}</strong>` : ""}
+  ${rule2Counter > 0 ? ` | Funnel now at: <strong style="color:#3366cc">${rule2Visible[rule2Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong style="color:#3366cc">${TARGET}</strong>`}
+</div>`
+```
+
+```{ojs}
+// Track visualisation
+{
+  const currentStage = rule2Counter > 0 ? rule2Visible[rule2Visible.length - 1] : null;
+  const trackRange = computeTrackRange(rule2AllStages);
+  const svgStr = renderTrackSVG(currentStage, trackRange);
+  return html`<div class="fe-track-container">${html`${svgStr}`}</div>`;
+}
+```
+
+```{ojs}
+// Action buttons
+{
+  const nextBtn = html`<button class="fe-button" ${rule2Counter >= TOTAL_STAGES ? "disabled" : ""}>Next Stage →</button>`;
+  const completeBtn = html`<button class="fe-button fe-button-complete" ${rule2Counter >= TOTAL_STAGES ? "disabled" : ""}>Complete Remaining Stages</button>`;
+
+  nextBtn.onclick = () => {
+    if (rule2Counter < TOTAL_STAGES) mutable rule2Counter = rule2Counter + 1;
+  };
+  completeBtn.onclick = () => {
+    mutable rule2Counter = TOTAL_STAGES;
+  };
+
+  return html`<div>${nextBtn}${completeBtn}</div>`;
+}
+```
+
+```{ojs}
+// Data tables (3 sub-tables matching source layout)
+{
+  const t1 = renderDataTable(2, rule2Visible, 0);
+  const t2 = renderDataTable(2, rule2Visible, 1);
+  const t3 = renderDataTable(2, rule2Visible, 2);
+  return html`<div class="fe-track-container">${html`${t1}`}</div>
+              <div class="fe-track-container">${html`${t2}`}</div>
+              <div class="fe-track-container">${html`${t3}`}</div>`;
+}
+```
+
+Finally, summarise the outcomes that you've just generated in a histogram. The "outcomes" are the resting positions of the <span class="fe-marble">marble</span>, i.e. the positions of ● in the yellow-shaded rows in your table. However, now that you have as many as 40 data-values to include in the histogram, we need to think more carefully than before about what would be an efficient way to produce it.
+
+```{ojs}
+// Histogram appears when all 40 stages are complete
+{
+  if (rule2Counter < TOTAL_STAGES) {
+    return html`<div class="fe-status"><em>Complete all ${TOTAL_STAGES} stages to see the histogram.</em></div>`;
+  }
+
+  const outcomes = rule2Visible.map(s => s.marblePos);
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+
+  return Plot.plot({
+    title: "Rule 2 — Histogram of Outcomes",
+    width: 600,
+    height: 300,
+    x: { label: "Marble position", domain: [20, 40] },
+    y: { label: "Count", grid: true },
+    marks: [
+      Plot.rectY(outcomes, Plot.binX({ y: "count" }, {
+        x: d => d,
+        thresholds: d3.range(19.5, 41.5, 1),
+        fill: "#ff9999"
+      })),
+      Plot.ruleY([0])
+    ]
+  });
+}
+```
+
+<div class="separator_blue"></div>
+
+### Rule 1 of the Funnel (Ford's Second Strategy)
+
+I'll postpone discussion on the outcomes from this strategy (which you'll recall is what Drs Nelson and Deming called Rule 2 of the Funnel) until you've repeated the whole exercise using an easier strategy.
+
+In contrast to Rule 2, let's now be relatively idle by simply putting the funnel at 30 and *leaving it there, irrespective* of the outcomes, i.e. of where the marble finishes up. This strategy, which is Rule 1 of the Funnel, is of course equivalent to the Ford personnel switching off their automatic compensation device (which was their Second Strategy). So you'll have some idea about what to expect in what follows!
+
+As suggested on page 42, I recommend that you don't bother to throw your dice any more but just use the same dice-scores as you obtained the first time. I mentioned two advantages of doing this on page 42.
+
+In this case where you don't move the funnel at all, you may be able to stop using the track almost straight-away. As I've just said, you simply put the funnel at 30 and *leave it there*. Referring back to my original five dice-scores which were 10, 8, 6, 7, and 4, these corresponded respectively to the marble finishing up 3 right, 1 right, 1 left, directly under and 3 left of the funnel. So, with the funnel stuck at 30, you can immediately see that the marble finishes up at 33, 31, 29, 30, and 27 respectively.
+
+As you can see, with Ford's Second Strategy (Rule 1) you also no longer need the two rows which were under each yellow-shaded row in the Ford's First Strategy (Rule 2) version of the book-keeping (see page 42 and then your table on page 44 *[WB 38–39]*): they were only there to work out where that strategy (Rule 2) would move the funnel. Now, of course, the funnel stays put at 30. So, with everything being so much simpler than before, I think you'll find it very easy to do the book-keeping this time!
+
+<div class="workbook_callout">This table is also on Workbook page 40.</div>
+
+```{ojs}
+//| output: false
+
+// Pre-compute all 40 stages for Rule 1 (same dice)
+rule1AllStages = runAllStages(1, diceSeq)
+```
+
+```{ojs}
+//| output: false
+
+mutable rule1Counter = 0
+```
+
+```{ojs}
+//| output: false
+
+rule1Visible = rule1AllStages.slice(0, rule1Counter)
+```
+
+```{ojs}
+// Status bar for Rule 1
+html`<div class="fe-status">
+  <strong>Rule 1 — Ford's Second Strategy (Leave the Funnel Alone)</strong><br>
+  Stage: <strong>${rule1Counter}</strong> of ${TOTAL_STAGES}
+  ${rule1Counter > 0 ? ` | Last outcome: <strong style="color:#cc0000">${rule1Visible[rule1Visible.length - 1].marblePos}</strong>` : ""}
+  | Funnel always at: <strong style="color:#3366cc">${TARGET}</strong>
+</div>`
+```
+
+```{ojs}
+// Track visualisation for Rule 1
+{
+  const currentStage = rule1Counter > 0 ? rule1Visible[rule1Visible.length - 1] : null;
+  const trackRange = computeTrackRange(rule1AllStages);
+  const svgStr = renderTrackSVG(currentStage, trackRange);
+  return html`<div class="fe-track-container">${html`${svgStr}`}</div>`;
+}
+```
+
+```{ojs}
+// Action buttons for Rule 1
+{
+  const nextBtn = html`<button class="fe-button" ${rule1Counter >= TOTAL_STAGES ? "disabled" : ""}>Next Stage →</button>`;
+  const completeBtn = html`<button class="fe-button fe-button-complete" ${rule1Counter >= TOTAL_STAGES ? "disabled" : ""}>Complete Remaining Stages</button>`;
+
+  nextBtn.onclick = () => {
+    if (rule1Counter < TOTAL_STAGES) mutable rule1Counter = rule1Counter + 1;
+  };
+  completeBtn.onclick = () => {
+    mutable rule1Counter = TOTAL_STAGES;
+  };
+
+  return html`<div>${nextBtn}${completeBtn}</div>`;
+}
+```
+
+```{ojs}
+// Data tables for Rule 1
+{
+  const t1 = renderDataTable(1, rule1Visible, 0);
+  const t2 = renderDataTable(1, rule1Visible, 1);
+  const t3 = renderDataTable(1, rule1Visible, 2);
+  return html`<div class="fe-track-container">${html`${t1}`}</div>
+              <div class="fe-track-container">${html`${t2}`}</div>
+              <div class="fe-track-container">${html`${t3}`}</div>`;
+}
+```
+
+So now summarise your new data in a histogram as before.
+
+```{ojs}
+// Histogram for Rule 1
+{
+  if (rule1Counter < TOTAL_STAGES) {
+    return html`<div class="fe-status"><em>Complete all ${TOTAL_STAGES} stages to see the histogram.</em></div>`;
+  }
+
+  const outcomes = rule1Visible.map(s => s.marblePos);
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+
+  return Plot.plot({
+    title: "Rule 1 — Histogram of Outcomes",
+    width: 600,
+    height: 300,
+    x: { label: "Marble position", domain: [20, 40] },
+    y: { label: "Count", grid: true },
+    marks: [
+      Plot.rectY(outcomes, Plot.binX({ y: "count" }, {
+        x: d => d,
+        thresholds: d3.range(19.5, 41.5, 1),
+        fill: "#99bbff"
+      })),
+      Plot.ruleY([0])
+    ]
+  });
+}
+```
+
+### Discussion
+
+Compare the two histograms you've drawn on pages 45 and above *[WB 39 and 41]*. As you'll probably have realised already, the histogram that you've just constructed is somewhat more tightly clustered around the desired value of 30 than the previous one was. The difference may not be dramatic, but it's certainly there. So this process performs better than the previous one: there is less variation. Yet this process was the "lazy" one. It is much less complicated, much quicker and easier to operate. With this strategy (Rule 1) we haven't "tweaked" the process at all. We've put in less effort—and got better performance! With Ford's original strategy (Rule 2), we worked harder but got worse performance. Some people seem to think
+
+there's a kind of rule of life stating that the harder we work, the better are our results. But, as Dr Deming often pointed out, it's better to do nothing than to do the *wrong thing!* He was definitely an advocate of "Work smarter, not harder"! (See the 10th of the 14 Points on Day 5 page 8 *[WB 76]*.)
+
+I asked you a question in Activity 3–c (page 6 *[WB 33]*) about the Ford automatic compensation example. Hopefully, you will now understand why I promised you would be able to answer that question before completing this Major Activity. Unless you produced a very peculiar set of scores from throwing your dice, you should see some similarities between the two histograms you've just drawn and the histograms which came from the Ford example on page 5—not in detail, of course, but broadly in terms of comparing one with the other. As there, the first histogram is more widely spread out than the second one, showing that the harder work (and, in Ford's case, the extra expense of the automatic compensation equipment) actually *increased* the variation—making things worse, as Dr Deming pointed out.
+
+So, to summarise, we have just seen that it is Rule 1 of the Funnel which has produced the *better* results. It was the *original* strategy, Rule 2, which produced the *poorer* results. The statistician's advice to Ford (middle of page 5) was indeed wise.
+
+Let's now move on to ...
+
+```{ojs download_ch11}
+download_button_ch11 = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+```{ojs download_trigger_ch11}
+//| output: false
+
+import { downloadNotes } from "../../../assets/scripts/functions.js"
+
+download_button_ch11.onclick = () => {
+  downloadNotes([], "funnel_rule1_rule2_notes.txt");
+};
+```
