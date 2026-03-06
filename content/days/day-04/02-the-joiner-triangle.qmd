@@ -1,0 +1,256 @@
+---
+title: "THE JOINER TRIANGLE"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+## The Joiner Triangle: "Scientific Approach"
+
+Going right back to Dr Shewhart's formative work in the 1920s, we know that the vital thing to always bear in mind is the division of variation into its two types, coupled with the observation by Dr Deming and others that by far the more important and more numerous problems (and therefore opportunities for improvement) primarily lie in the common causes of variation, i.e. in the system. What sort of things might these include? There is, for instance, a host of them which relate directly to the company or organisation as a whole: its "culture", its rules and principles, the reward and punishment mechanisms, the nourishment or discouragement of innovation, whether people are regarded as having real brains or just as "black boxes", etc, etc. The issue of variation is, of course, all highly related to work we have already done, e.g. in our learning from the Experiment on Red Beads and the issue of "tampering", so well illustrated in the Funnel Experiment.
+
+<div class="neave_note">My friend Malcolm Gall once pointed out to me that a "Scientific Approach"—which I suppose might be interpreted as something like a "Purely Logical Approach"—may be seen by some as an inhibitor of creativity and innovation (to be studied on Day 9). On Day 11, I shall suggest further topics that have a place in such an approach, some of which look ahead to Day 11 and in particular to the "Theory of Knowledge" aspects of Deming's teaching. In Malcolm's words, innovators "need to understand the role of theory and test"—for intelligent innovators must agree that otherwise some of their innovations might not work! In fact, a Scientific Approach supports and aids creativity in practice by helping to discern whether innovations will or will not work and, in the latter case, can provide help in modifying them so that they will work.</div>
+
+<div class="workbook_callout">Activity 4–a (pages 4–5) is also on Workbook pages 49–50.</div>
+
+<div class="thought_commentary">
+
+# ACTIVITY 4–a
+
+This Activity is in three parts. All three parts are likely to involve some deep thought—but I'm giving you *plenty* of time! In the case of three cases, if you have not made much progress after, say, five minutes or so then I'll be giving a few brief suggestions. See also Appendix page 21 to get started.
+
+(1) Identify some situations with which you are familiar where people are being prevented by the system in which they live and work from doing as good a job as they would much prefer to do. In this respect, what particular features of that system do you believe are doing the most harm? How could / should they be remedied?
+
+```{ojs}
+viewof activity_4a_1 = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+```
+
+(2) In *The Deming of America* video, one of the issues which arises is performance appraisal (of the judgmental kind, especially the *ranking* of individuals). In that video Dr Deming states:
+
+<span class="deming_quote">"Ranking doesn't do any good. Of two people, one would be worse and one would be better. I don't know what we'll do about it! The question is: Is one outside a control limit, or does the difference mean nothing?"</span>
+
+Expand on this statement, particularly with reference to the paragraph at the top of the previous page. Your thoughts and answers in (1) are also likely to be relevant.
+
+```{ojs}
+viewof activity_4a_2 = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+```
+
+(3) On *DemDim* pages 34–35 we saw Lloyd Nelson's statement about the importance of "unknown and unknowable" figures, followed by a number of illustrations. Spend some time thinking of further examples of important unknown and unknowable figures.
+
+```{ojs}
+viewof activity_4a_3 = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+```
+
+</div>
+
+## The Joiner Triangle: "All One Team"
+
+The words "All One Team" surely speak for themselves. They have strong connections with the concepts of optimisation of the system (i.e. helping it to work in the best-possible way) and of "Cooperation: Win-Win". We have mentioned both of these in the Overture and will cover them in greater depth later on.
+
+<div class="neave_note">Some senior managers worry that heading toward "All One Team" might pose a threat to their authority. However, a further astute observation from Malcolm Gall is that "Interdependence is not an indication of weakness, but an indication of maturity".</div>
+
+<div class="workbook_callout">Activity 4–b (pages 6–7) is also on Workbook pages 51–52.</div>
+
+<div class="thought_commentary">
+
+# ACTIVITY 4–b
+
+Again consider situations familiar to you, whether in your family, perhaps in clubs or societies with which you are involved.
+
+Do the groups of people of whom you are thinking operate as All One Team?
+
+**If Yes …** what has brought about that All One Team state and spirit? What are some of the gains that might, now or in the future, have been obtained? Are you aware of anything or any things that would be some of the losses?
+
+```{ojs}
+viewof activity_4b_yes = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+```
+
+**If No …** what are some of the losses caused by them not being All One Team? What do you see as the biggest obstructions to their moving toward an All One Team state? What might be done to break down those obstacles? If you were to succeed in this, what would be some of the gains?
+
+```{ojs}
+viewof activity_4b_no = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+```
+
+<div class="activity_afterthought">(If you are not content with your answers here, you might like to return to this Activity after studying some of the 14 Points and Deadly Diseases in the forthcoming project.)</div>
+</div>
+
+## The Joiner Triangle: "Obsession With Quality"
+
+In all fields of activity, everyone recognises the importance of quality *to a certain extent*. If the quality of the product and/or service being provided by our organisation is so poor that we are losing business, who could argue against the need to improve quality? Also, often there are specifications or targets or standards that have to be met, set by legislators or by customers. If our company is not meeting those requirements, who could argue against the need to improve quality? Customers like having the protection of warranties, but they much prefer *not* having to use them. Further, "a number of companies set their own specifications based on what they think a wide variety of customers will find acceptable. Often this is an R&D Department which is far removed from the practicalities of production" (my thanks to Dr Jackie Graham for this observation).
+
+Two particular problems with this attitude to quality are as follows (wherever the specifications originate). First, having worked to reach the standard or target or specification, etc, there is often a tendency to breathe a sigh of relief—one of the most natural things in the world for the time being. The other problem, which we'll address later (e.g. when working on the 11th of the 14 Points), is the temptation to try to "cheat" in order to *appear* to meet the requirements. Deming often spoke disparagingly about "fudging figures" (to be discussed later) as redefining methods of measurement—so what exactly qualifies for descriptions such as "punctual" or "defective"? (The work on operational definitions on Day 11 will be very relevant here.)
+
+<div class="neave_note">Because the notion of assessing quality in terms of conformance to specifications is so widespread, some may find Deming's teaching on this matter to be particularly challenging. Of course, he is not suggesting that there's nothing to be gained from meeting specifications! His message is instead neatly summarised by the phrase <span class="deming_quote">"Specifications, meeting specifications not sufficient"</span> that appears in *Out of the Crisis*'s index (page 428[505]) and points to several references to relevant material in the book.
+
+But since the customer or the Government etc may be, or may become, aware of such attempts to "cheat", would it not be more advisable to improve quality in order to prevent the negative consequences of not so doing? Even then, this could merely be referred to as an obsession with quality. "Obsession" is much more indicative of *continual* improvement, making quality a "way of life", etc—whether or not there appears to be any vital and immediate *need* to do so. And there's the difference. Everyone appreciates the highly *negative* effects of *poor* quality—and, the poorer the quality, the more negative the effects. But Dr Deming was trying to get us to equally appreciate the highly *positive* effects of *good* quality—and, the better the quality, the more positive the effects.
+
+This is another situation where some teaching about quality from other sources is directly obstructive to Deming's teaching. A previous example was seen in my discussion on Pause for Thought 1–c (Appendix page 6), where I argued that this confusion over measurement of quality causes the impression that there is some optimum place at which to stop improving quality. (Do you think this was being adopted, whether or not it has any connection with what Deming was teaching?)
+
+I recall two occasions in four-day seminars when the topic of "quality tools" was raised. On one occasion Deming suggested that, regarding tools (other than the control chart) <span class="deming_quote">"you can learn all you can"</span>. On the other occasion, a delegate was unwise enough to enquire what part the then-current "flavours of the month"—QFD (Quality Function Deployment)—had to play in the Deming philosophy. That prompted probably the sharpest retort I ever heard from Dr Deming at any of his seminars: <span class="deming_quote">"For Hell's sakes, let's get down to business"</span>.
+
+However, as Brian did also include "statistical thinking" and "special and common causes" in his selection of topics, and so presumably "charting" definitely included the control chart! It seems wise for the current purposes to restrict our attention for most of the project which follows to the charting introduced by both Drs Shewhart and Deming via our opening day and about which we have now learned plenty during Days 2 and 3. This will also be ideal preparation for the Second Project on Days 10 and 11 which involves the System of Profound Knowledge (briefly introduced on Day 1 page 37) since "Understanding Variation" is one of the latter's four component parts.</div>
+
+<div class="workbook_callout">Pause for Thought 4–c is also on Workbook page 53.</div>
+
+<div class="thought_commentary">
+
+# PAUSE FOR THOUGHT 4–c
+
+Take another look at Deming's Chain Reaction at the bottom of *DemDim* page 13. In later years, there was one link in the Chain Reaction which Dr Deming wished he had expressed differently. Can you suggest which it was, and why, and eventually how he decided he had done it better?
+
+```{ojs}
+viewof thought_4c = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_4c" aria-expanded="false" aria-controls="collapse_4c">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_4c">
+It was "Capture the market"—with its implication of putting others out of business. In the interests of the "big system", he replaced it with: <em>Delight the customer</em>.
+</div>
+</div>
+
+### Delight the customer?
+
+On *DemDim* page 32, quoting from that great paper by Peter Scholtes and Heero Hacquebord, we saw:
+
+**"Quality Guideline 1:**\
+**Quality Begins with Delighting the Customer"**
+
+To people who have always thought of "quality" in terms of specifications, targets, standards—i.e. simply as "it is" or "it isn't" view of quality—the notions of continual improvement, delighting the customer, etc can sound wildly unrealistic and impractical "pie in the sky". "We can't even satisfy the damned customer, let alone delight them!" (a not entirely uncommon reaction!).
+
+But is it really beyond rhyme and reason to think of improving quality to the extent of *delighting* the customer? In asking the question "Can we afford to delight the customer?", might it not be more important in many instances to change the emphasis to: "Can we afford *not* to delight the customer?"
+
+<div class="workbook_callout">Activity 4–d is also on Workbook page 54.</div>
+
+<div class="thought_commentary">
+
+# ACTIVITY 4–d
+
+Imagine the following situation. You want to celebrate, say, an anniversary or a birthday. So you and your friend / spouse / partner arrange to go out to dinner, perhaps to a restaurant that you haven't previously visited. Let me suggest three scenarios to you. At the end of the evening…
+
+**Scenario 1:** … you are a dissatisfied customer. The menu was uninviting, the food was poorly prepared and cooked, the service was inattentive and slow (or alternatively, too fast—they seemed keen to rush through your meal and get you out of there).
+
+**Scenario 2:** … you are a satisfied customer. There was nothing to complain about: the food was OK, the service was OK, the menu was pretty much what you expected, and so on.
+
+**Scenario 3:** … you are a delighted customer. Everything was wonderful! The menu was so crammed full of exciting possibilities that you'd need to come back several times to explore it properly. The food was delicious (it "melted in your mouth"). And the service was just right: immediate attention when you needed it, but without that irritatingly repeated "Is everything all right, Sir?".
+
+There are two questions I'd like you to consider in each of those three scenarios:
+
+(a) When you next go into work, or meet up with friends, do you talk about your experience at the restaurant? Do you recommend that they try it out for themselves? Suppose you had been…
+
+(1) "dissatisfied":
+
+```{ojs}
+viewof activity_4d_a1 = Inputs.text({placeholder: "Type your comment here."})
+```
+
+(2) "satisfied":
+
+```{ojs}
+viewof activity_4d_a2 = Inputs.text({placeholder: "Type your comment here."})
+```
+
+(3) "delighted":
+
+```{ojs}
+viewof activity_4d_a3 = Inputs.text({placeholder: "Type your comment here."})
+```
+
+(b) In a year's time (the anniversary or birthday again), are you back in the same restaurant, or are you somewhere else? Suppose you had been…
+
+(1) "dissatisfied":
+
+```{ojs}
+viewof activity_4d_b1 = Inputs.text({placeholder: "Type your comment here."})
+```
+
+(2) "satisfied":
+
+```{ojs}
+viewof activity_4d_b2 = Inputs.text({placeholder: "Type your comment here."})
+```
+
+(3) "delighted":
+
+```{ojs}
+viewof activity_4d_b3 = Inputs.text({placeholder: "Type your comment here."})
+```
+
+So what has:
+
+(1) dissatisfying you:
+
+```{ojs}
+viewof activity_4d_c1 = Inputs.text({placeholder: "Type your comment here."})
+```
+
+(2) satisfying you:
+
+```{ojs}
+viewof activity_4d_c2 = Inputs.text({placeholder: "Type your comment here."})
+```
+
+(3) delighting you:
+
+```{ojs}
+viewof activity_4d_c3 = Inputs.text({placeholder: "Type your comment here."})
+```
+
+done for that restaurant's business?
+
+<div class="activity_afterthought">(For some brief discussion, again see Appendix page 22.)</div>
+</div>
+
+## THE EXPANDED JOINER TRIANGLE
+
+In preparation for the First Project and as promised on page 2, here is a fuller version of the Triangle as used by Joiner Associates' consultants. It includes notes of a few of the topics relevant to each of the Triangle's three foundations. Take a careful look through it: you will probably find it helpful to refer repeatedly to such an expanded version of the Triangle as you work through the forthcoming project.
+
+![The Expanded Joiner Triangle (Joiner Associates version)](/assets/images/day-04/joiner-triangle-expanded.png){fig-align="center" width="80%" .lightbox}
+
+However, before we move on to the project, I need to consider further the Scientific Approach part of the Triangle. There are several reasons.
+
+First, you will have already read on *DemDim* page 35 that "Topics which can be included under this general heading *Scientific Approach*" take up a considerable proportion of that book. It includes notes of a few of the topics relevant to each of the Triangle's three foundations. Of course, everything there is useful but, in its context relevant here as representing foundations of Dr Deming's theory of management, some other choices could have been preferable. For example, I would have added two very important topics: Operational Definitions and the Deming Cycle. (However, I shall not include these in the box below since we won't be studying them here until Day 11.)
+
+Second, you will notice quite a large emphasis on *tools* in Brian's choice of topics—particularly the control chart (see Day 1 pages 7–8). It almost seems as if I regarded such tools as being recommended by Brian as things "to be used" in a fairly mechanical fashion. But a Scientific Approach supports and aids creativity in practice by helping to discern whether innovations will or will not work and, in the latter case, can provide help in modifying them so that they will work.
+
+In the spirit of the expanded Joiner Triangle (but bearing in mind the above reference to Day 11), I therefore offer the following as an alternative list of topics for our current interpretation of the "Scientific Approach":
+
+![Neave's modified Scientific Approach box](/assets/images/day-04/scientific-approach-box.png){fig-align="center" width="55%" .lightbox}
+
+So here for your convenience is the expanded Joiner Triangle again but now with my modified version of the Scientific Approach content:
+
+![The Expanded Joiner Triangle (Neave's version)](/assets/images/day-04/joiner-triangle-combined.png){fig-align="center" width="80%" .lightbox}
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>
+
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+```{ojs download_trigger}
+//| output: false
+
+import { downloadNotes } from "../../../assets/scripts/functions.js"
+
+download_button.onclick = () => {
+  downloadNotes([
+    viewof activity_4a_1, viewof activity_4a_2, viewof activity_4a_3,
+    viewof activity_4b_yes, viewof activity_4b_no,
+    viewof thought_4c,
+    viewof activity_4d_a1, viewof activity_4d_a2, viewof activity_4d_a3,
+    viewof activity_4d_b1, viewof activity_4d_b2, viewof activity_4d_b3,
+    viewof activity_4d_c1, viewof activity_4d_c2, viewof activity_4d_c3
+  ], "activities_4a_4b_4c_4d.txt");
+};
+```

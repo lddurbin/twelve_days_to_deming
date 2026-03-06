@@ -1,0 +1,61 @@
+---
+title: "INTRODUCTION"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+## DAY 4: THE JOINER TRIANGLE AND THE 14 POINTS (part 1)
+
+My public and in-house seminars on Dr Deming's work date from 1986. At that stage I simply offered a one-day introduction. Apart from a little historical background, such a one-day seminar would comprise just three topics: understanding variation, the Experiment on Red Beads, and the 14 Points for Management. Back then, there were pretty much all I knew about the Deming philosophy. In retrospect, and as some of my comments when introducing the Red Beads Experiment will have confirmed to you, my level of understanding even of those topics was somewhat minimal back then! But one has to start somewhere…
+
+My treatment of the 14 Points in those days was rather along the lines of what you can read on *DemDim* pages 39–48. I simply took them one at a time, giving a fairly full statement of the Point using Dr Deming's own words (often from more than one source), and then sharing some of my own thoughts about the Point.
+
+According to accounts that I have seen, the 14 Points have their origin in discussions at a four-day seminar presented by Dr Deming for the Hewlett-Packard company in 1981. Some ten suggestions of what might be included apparently emerged from those discussions, although unfortunately I do not have any details. Deming developed and extended these suggestions during the following months, and what we now recognise as the 14 Points soon became a substantial feature of his four-day seminars. The versions introduced in 1982's *Quality, Productivity, and Competitive Position* are quite similar to those that are presented and more extensively discussed in *Out of the Crisis* four years later.
+
+That compares interestingly with the five "Deadly Diseases" of Western management (which we shall get to tomorrow). These are also well-covered in *Out of the Crisis* but appear in the earlier book in only relatively embryonic form. In fact, just a couple of them are seen there in specific terms, and are merely referred to as "Obstacles" rather than "Diseases". Nevertheless they are the first two Obstacles identified there, most of the rest then appearing in *Out of the Crisis* in a rather larger collection of Obstacles which we shall study on Day 7.
+
+You may recall that we have already referred in "The Deming Story" to a video made in 1984 which shows Dr Deming speaking passionately about the dangers of the five Deadly Diseases (see Day 1 pages 37–38), so his awareness of them and of the harm they cause clearly grew rapidly in his mind during the two years after the earlier book was published.
+
+I should point out that Deming mentioned two further Deadly Diseases on *Out of the Crisis* page 84[98], but described them as "peculiar to industry in the US and beyond the scope of this book". He also did not discuss them in any of the four-day seminars that I attended (either in the US or elsewhere), nor in the video just mentioned. I shall therefore follow his example and content myself here with merely quoting them from *Out of the Crisis* as:
+
+- Excessive medical costs; and
+- Excessive costs of liability, swelled by lawyers that work on contingency fees.
+
+The 14 Points, the five main Deadly Diseases, and the later set of Obstacles are all introduced in *DemDim* Chapter 3.
+
+## THE JOINER TRIANGLE
+
+In those early seminars, I soon realised I must be getting something wrong concerning the 14 Points—because people would keep asking me awkward questions about them! Thinking hard about the matter (as I always do), I began to realise that merely consulting individual pieces of the Deming philosophy as a system, in the sense in which we have begun to use that word. To put it metaphorically, I was talking about the individual pieces of a jigsaw without trying to fit the pieces together! No wonder that I was unable to answer my delegates' questions! Perhaps it is a comment on the attractive nature of Dr Deming's material that individual pieces of the jigsaw are worth talking about in their own right—but they clearly their prime purpose and role is to help form the big picture.
+
+Nowadays, as I re-read my comments on the 14 Points in *DemDim* Chapter 3, which are largely based on those which I included in my earlier materials, it is almost as if I regarded such links as happy coincidences rather than as an essential feature of their content. However, as I began to think about some awkward questions from my delegates, I began to see that it was just those very links to other matters about which Dr Deming was also talking that showed the power of the work. And this encouraged me to change my approach to search for a more fruitful way of finding those links and understanding them—and thus understanding more of what Dr Deming was teaching, and why—rather better than had so far been the case.
+
+My "Eureka" came through getting to know Dr Brian Joiner and some of his colleagues in his then recently-founded consultancy company, Joiner Associates, based in Madison, Wisconsin. They were using the "Joiner Triangle" as their attempt to summarise some foundations on which they saw the Deming philosophy as being built. Just eight words, written at the Triangle's three corners:
+
+![The Joiner Triangle](/assets/images/day-04/joiner-triangle-simple.png){fig-align="center" width="60%" .lightbox}
+
+In fact, the people at Joiner Associates used only *six* words, with the top of the Triangle being condensed to just "Quality". However, that struck me as being rather too nebulous. On page 11 you will see the more detailed version of the Triangle which shows some of the items to be included under each of the three headings. "Develop an obsession with quality" was the first item under that single word "Quality". With that and the fact that the final item was "Continual never-ending improvement", the thrust of that part of the Triangle was clearly far greater than conventional interpretations of "Quality" would imply; thus it seemed appropriate and helpful to take those two words "Obsession With" up into the title.
+
+We shall study the Joiner Triangle's three foundations in some depth on pages 4–13.
+
+## Simple and profound
+
+I liked it! Three succinctly-expressed major foundations of Dr Deming's work, and displayed in a simple diagrammatical form which also clearly broadcasts the message that these very foundations are not separate from each other but inextricably linked together. (Does this remind you of Peter Scholtes's diagram in "The Deming Story" on Day 1 page 38? If so, no wonder. Peter was one of Joiner Associates' first consultants.)
+
+So that little diagram of the Triangle was not just simple—it was *profound*.
+
+I have already emphasised this combination of *simple* and *profound* with regard to the Red Beads Experiment. It is something of which I became increasingly aware in Dr Deming's work—the Deming philosophy. It seems as if one has to come up with pretty complicated things in order to be regarded as profound!
+
+The control chart is another supreme example of this combination of simple and profound. It really is (if taught properly) one of the most straightforward of statistical techniques. Yet the learning from it, and the implications of that learning, can indeed be profound—and often are. This is even more the case when the control chart is used in its wider range of application rather than just the 3% (see the final "bare bone" of "Shewhart's Breakthrough" on Day 1 page 33).
+
+I soon began to appreciate the potential value of relating the 14 Points to the Joiner Triangle's three foundations. I suspected that this might be just the vehicle for linking the 14 Points together, as by this time I'd realised needed to be done. I was right! So, after having confirmed the importance of this to myself over the following few months, that is what I began enabling my seminar delegates to do. And, would you believe, those awkward questions just stopped—the delegates now found they could answer them themselves! Therefore this is what I shall be getting you to do during the First Project this afternoon and tomorrow. We shall also carry out similar activities later in the course: a considerable part of your learning from now on will be through engaging in such activities—fitting together the pieces of the jigsaw.
+
+This really is a vital part of your learning. The 14 Points and the Diseases cover a multitude of topics: they include leadership, training, education, the importance of matters which cannot be measured (statisticians, please note!), performance appraisals, targets, job-hopping, short-termism, single *vs* multiple suppliers, inspection, fear, and many others. To bring all of these together under the single roof of the Joiner Triangle will be (mixing my metaphors) a good guide along the road toward understanding the Deming management philosophy. To the best of my knowledge, Dr Deming never used the Joiner Triangle. However when, in the second half of this course, we reach his own choice of four foundations, I think you will see quite an amount of overlap with the three foundations of the Joiner Triangle. So the current work will also be excellent preparation for that later stage. Here we shall be learning to walk before attempting to run!
+
+But, before that, let us spend the rest of this morning studying the Joiner Triangle's three foundations. The first thing for you to do will be to read my brief discussion in *DemDim*—just over five pages. After that, I shall get you to work on the "Scientific Approach" and "All One Team". I will then expand further on "Obsession With Quality" after we complete—I'm very much aware of the concept, especially concerning my sharper focus there compared with the original. Then finally I'll also get you to work on that.
+
+<div class="return_callout">Now please read *DemDim* from the bottom of page 31 to the end of page 36.</div>
