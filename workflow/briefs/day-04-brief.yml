@@ -28,18 +28,19 @@ chapters:
 
   - slug: "the-first-project"
     title: "THE FIRST PROJECT"
-    pages: "18-20"
+    pages: "18-19"
     notes: |
-      File pages 18-20 (doc pages 14-15).
+      File pages 18-19 (doc pages 14-15).
       Page 18 is a decorative title page — crop and include the "FIRST PROJECT" title image.
-      Pages 19-20 are bullet-point notes for participants. Transcribe verbatim.
+      Page 19 contains the bullet-point notes for participants. Transcribe verbatim.
+      Note: file page 20 begins Point 1 content, not First Project notes.
 
   - slug: "points-1-to-6"
     title: "POINTS 1–6"
-    pages: "21-32"
+    pages: "20-31"
     notes: |
-      File pages 21-32 (doc pages 16-28).
-      Workbook callout at top of p21: "Points 1–6 (pages 16–27) also on Workbook pages 51–67".
+      File pages 20-31 (doc pages 16-27).
+      Workbook callout at top of p20: "Points 1–6 (pages 16–27) also on Workbook pages 51–67".
       Each Point has: main text, then subsections headed "Obsession With Quality", "All One Team",
       and "Scientific Approach" (relating the Point to the Joiner Triangle foundations).
       Page 32 (doc p28) is blank — skip.
@@ -67,8 +68,8 @@ context_notes: |
   Workbook page references from the agenda:
   - Activity 4-a (1): WB 49
   - Activity 4-a (2) and (3): WB 50
-  - Activity 4-b: WB 51
-  - Pause for Thought 4-c: WB 51
+  - Activity 4-b: WB 51–52
+  - Pause for Thought 4-c: WB 53
   - Activity 4-d: WB 54
   - Points 1–6: WB 51–67 (individual: P1=WB58, P2=WB60, P3=WB62, P4=WB62, P5=WB64, P6=WB66)
 
