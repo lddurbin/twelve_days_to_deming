@@ -1,0 +1,42 @@
+---
+title: "THE FIRST PROJECT"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+![](/assets/images/day-04/first-project-title.png){fig-align="center" width="65%" .lightbox}
+
+During the rest of today and all of tomorrow we shall be working through the whole collection of the 14 Points and the five Deadly Diseases, using two pages for each. This afternoon we shall be covering the first six of the 14 Points, and the general layout of each pair of facing pages there is as follows.
+
+On each left-hand page I shall begin by stating the particular Point using the version in *DemDim* Chapter 3. As mentioned early today, these statements are all expressed entirely in Dr Deming's own words. However, I then used shorter versions whose detail might change over time as he revised the emphases in his teaching. So I am generally presenting an integration of words from two or more of his sources with the aim of providing a more complete picture. I then follow the statement with some brief thoughts and comments on the Point. After this we move on to the three Joiner Triangle foundations. "Obsession With Quality" occupies the rest of the left-hand page with the other two foundations on the right-hand page. In all three cases I make one or two introductory suggestions on how the foundation supports the need to get to work on adopting the Point.
+
+So, having read through the top half of the left-hand page, please take each of the three foundations in turn, think about my suggestions of the link(s) between the foundation and the Point, and see if you can expand a little on my starter. Illustrations from your personal experience supporting the relationship would be particularly valuable, but make a note of anything and everything that occurs to you. My suggestions are not intended to be in any way complete but are there simply to provide you with some initial pointers, should you need them. So do not feel constrained to limit yourself to my own interpretations of the relationships!
+
+## Notes on the First Project
+
+- There are two obvious ways of tackling this project—I suggest you use both. One is to consider how putting the Point into practice or curing the Disease is consistent with, and supportive of, the Joiner Triangle foundation. Then there is the opposite: to consider how *failing* to implement the Point or failure to cure the Disease weakens or even demolishes that foundation. Using the latter approach could be the more fruitful here since, sadly, that is the situation with which you may well be more familiar! Note that Point 1 and Disease 1 are the exact opposites of each other. So, in these two cases, concentrate on the former emphasis under Point 1 and the latter under Disease 1.
+
+- Don't rush! After you have read about each Point or Disease, allow a little time for thought in order to let its significance and its implications "sink in" before beginning to develop your comments.
+
+- Allocating a day and a half for this project, covering all 14 Points and the five Deadly Diseases, corresponds to around 30–35 minutes for each of the 19 topics. Naturally, if circumstances permit, take longer if you wish.
+
+- I repeat the implication that my introductory notes and suggestions here are in no way "definitive". I have no doubt that many of them can be improved upon—so please feel free to do so!
+
+- My notes and suggestions here on the links between the Points and the foundations are deliberately concise—there is no need for yours to be! Indeed, the more you can elaborate on these relationships, the better.
+
+- I recommend that, whilst working on this project, you read my short discussions on *DemDim* pages 39–52 about each Point and Disease in turn. They will help you to expand upon the introductory notes here.
+
+- It is up to you as to whether you browse through the whole of this project before beginning to write your own contributions, or whether you simply take it an item at a time. My suggested timings fit the latter option but please choose whichever is the more appealing to you.
+
+- Obviously, there is much more that you could read—though not in the current timeframe! Like so much of what Deming taught, there is always more to learn. *DemDim* Part 5 contains a complete chapter on each of the 14 Points, and more. Of course, *DemDim* Part 5 refers to several other books cited in the "References and Sources" section of that book; however, for the forthcoming course material, the relevant chapter in *Out of the Crisis* provides comprehensive coverage of each Point.
+
+- If you are studying this course in a small group rather than on your own, you may have time to take a quick look at the relevant chapter in Part 5 of *DemDim*, particularly if you do not have copies of *Out of the Crisis*. In that case it would make sense to divide up the reading between you and then use the time saved for discussion. In my experience, the best size of group for such discussion is three, with two as a second choice and four as third. If the size of your group is four or more then I recommend you split into twos or threes and that these smaller groups first spend a little time working on their own before subsequently sharing their thoughts with the others.
+
+- Please tackle this project very seriously. The experience you gain here will be invaluable for your success in approaching further major work later in the course and in your overall understanding. You will also need to gradually become used to thinking through such matters for yourself before looking at my suggestions: I shall encourage you to head in that direction as the project continues tomorrow. I shall give you plenty of help at this relatively early stage of the course; but, as the Days go by, I shall be giving you relatively less, as I try to get you ready to think for yourself on Dr Deming's teaching after completing the course.
+
+- If you work well at this project over this day and a half, you will short-circuit my own learning progress back in the 1980s by many months! Effectively carrying out this project at that time, albeit slowly, was a crucial part of my own voyage of discovery—and within two years from then I had begun to write *DemDim*! I believe it will also be an important part of your journey.

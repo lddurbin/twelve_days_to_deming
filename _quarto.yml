@@ -60,6 +60,12 @@ book:
         - content/days/day-03/11-the-first-two-rules-of-the-funnel.qmd
         - content/days/day-03/12-rules-3-and-4-of-the-funnel.qmd
         - content/days/day-03/13-summary.qmd
+    - part: "Day 4: The Joiner Triangle and the 14 Points (Part 1)"
+      chapters:
+        - content/days/day-04/01-introduction.qmd
+        - content/days/day-04/02-the-joiner-triangle.qmd
+        - content/days/day-04/03-the-first-project.qmd
+        - content/days/day-04/04-points-1-to-6.qmd
 
 format:
   html:
