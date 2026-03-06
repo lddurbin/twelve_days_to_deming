@@ -26,7 +26,11 @@ This Activity is in three parts. All three parts are likely to involve some deep
 (1) Identify some situations with which you are familiar where people are being prevented by the system in which they live and work from doing as good a job as they would much prefer to do. In this respect, what particular features of that system do you believe are doing the most harm? How could / should they be remedied?
 
 ```{ojs}
-viewof activity_4a_1 = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+viewof activity_4a_1 = Inputs.textarea({
+  label: "Situations where the system prevents people from doing as good a job as they'd prefer",
+  placeholder: "Type your answer here.",
+  rows: 8
+})
 ```
 
 (2) In *The Deming of America* video, one of the issues which arises is performance appraisal (of the judgmental kind, especially the *ranking* of individuals). In that video Dr Deming states:
@@ -36,13 +40,21 @@ viewof activity_4a_1 = Inputs.textarea({placeholder: "Type your answer here.", r
 Expand on this statement, particularly with reference to the paragraph at the top of the previous page. Your thoughts and answers in (1) are also likely to be relevant.
 
 ```{ojs}
-viewof activity_4a_2 = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+viewof activity_4a_2 = Inputs.textarea({
+  label: "Expand on Deming's statement about ranking and control limits",
+  placeholder: "Type your answer here.",
+  rows: 8
+})
 ```
 
 (3) On *DemDim* pages 34–35 we saw Lloyd Nelson's statement about the importance of "unknown and unknowable" figures, followed by a number of illustrations. Spend some time thinking of further examples of important unknown and unknowable figures.
 
 ```{ojs}
-viewof activity_4a_3 = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+viewof activity_4a_3 = Inputs.textarea({
+  label: "Further examples of important unknown and unknowable figures",
+  placeholder: "Type your answer here.",
+  rows: 8
+})
 ```
 
 </div>
@@ -66,13 +78,21 @@ Do the groups of people of whom you are thinking operate as All One Team?
 **If Yes …** what has brought about that All One Team state and spirit? What are some of the gains that might, now or in the future, have been obtained? Are you aware of anything or any things that would be some of the losses?
 
 ```{ojs}
-viewof activity_4b_yes = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+viewof activity_4b_yes = Inputs.textarea({
+  label: "If Yes — how did All One Team come about, and what gains or losses result?",
+  placeholder: "Type your answer here.",
+  rows: 8
+})
 ```
 
 **If No …** what are some of the losses caused by them not being All One Team? What do you see as the biggest obstructions to their moving toward an All One Team state? What might be done to break down those obstacles? If you were to succeed in this, what would be some of the gains?
 
 ```{ojs}
-viewof activity_4b_no = Inputs.textarea({placeholder: "Type your answer here.", rows: 8})
+viewof activity_4b_no = Inputs.textarea({
+  label: "If No — what losses result, what are the obstacles, and what might be done?",
+  placeholder: "Type your answer here.",
+  rows: 8
+})
 ```
 
 <div class="activity_afterthought">(If you are not content with your answers here, you might like to return to this Activity after studying some of the 14 Points and Deadly Diseases in the forthcoming project.)</div>
@@ -103,7 +123,11 @@ However, as Brian did also include "statistical thinking" and "special and commo
 Take another look at Deming's Chain Reaction at the bottom of *DemDim* page 13. In later years, there was one link in the Chain Reaction which Dr Deming wished he had expressed differently. Can you suggest which it was, and why, and eventually how he decided he had done it better?
 
 ```{ojs}
-viewof thought_4c = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof thought_4c = Inputs.textarea({
+  label: "Which link in Deming's Chain Reaction did he later wish he had expressed differently, and why?",
+  placeholder: "Type your comments here.",
+  rows: 8
+})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_4c" aria-expanded="false" aria-controls="collapse_4c">
@@ -147,19 +171,28 @@ There are two questions I'd like you to consider in each of those three scenario
 (1) "dissatisfied":
 
 ```{ojs}
-viewof activity_4d_a1 = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_4d_a1 = Inputs.text({
+  label: "Would you talk about the restaurant if dissatisfied?",
+  placeholder: "Type your comment here."
+})
 ```
 
 (2) "satisfied":
 
 ```{ojs}
-viewof activity_4d_a2 = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_4d_a2 = Inputs.text({
+  label: "Would you talk about the restaurant if satisfied?",
+  placeholder: "Type your comment here."
+})
 ```
 
 (3) "delighted":
 
 ```{ojs}
-viewof activity_4d_a3 = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_4d_a3 = Inputs.text({
+  label: "Would you talk about the restaurant if delighted?",
+  placeholder: "Type your comment here."
+})
 ```
 
 (b) In a year's time (the anniversary or birthday again), are you back in the same restaurant, or are you somewhere else? Suppose you had been…
@@ -167,19 +200,28 @@ viewof activity_4d_a3 = Inputs.text({placeholder: "Type your comment here."})
 (1) "dissatisfied":
 
 ```{ojs}
-viewof activity_4d_b1 = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_4d_b1 = Inputs.text({
+  label: "Would you return to the same restaurant a year later if dissatisfied?",
+  placeholder: "Type your comment here."
+})
 ```
 
 (2) "satisfied":
 
 ```{ojs}
-viewof activity_4d_b2 = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_4d_b2 = Inputs.text({
+  label: "Would you return to the same restaurant a year later if satisfied?",
+  placeholder: "Type your comment here."
+})
 ```
 
 (3) "delighted":
 
 ```{ojs}
-viewof activity_4d_b3 = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_4d_b3 = Inputs.text({
+  label: "Would you return to the same restaurant a year later if delighted?",
+  placeholder: "Type your comment here."
+})
 ```
 
 So what has:
@@ -187,19 +229,28 @@ So what has:
 (1) dissatisfying you:
 
 ```{ojs}
-viewof activity_4d_c1 = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_4d_c1 = Inputs.text({
+  label: "What has dissatisfying you done for the restaurant's business?",
+  placeholder: "Type your comment here."
+})
 ```
 
 (2) satisfying you:
 
 ```{ojs}
-viewof activity_4d_c2 = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_4d_c2 = Inputs.text({
+  label: "What has satisfying you done for the restaurant's business?",
+  placeholder: "Type your comment here."
+})
 ```
 
 (3) delighting you:
 
 ```{ojs}
-viewof activity_4d_c3 = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_4d_c3 = Inputs.text({
+  label: "What has delighting you done for the restaurant's business?",
+  placeholder: "Type your comment here."
+})
 ```
 
 done for that restaurant's business?
