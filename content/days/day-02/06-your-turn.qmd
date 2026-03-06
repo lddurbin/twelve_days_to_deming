@@ -88,7 +88,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_i = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_i = Inputs.text({
+  label: "Foreman's remark — Week 1, worker 5 result (9 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -99,7 +102,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_ii = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_ii = Inputs.text({
+  label: "Foreman's remark — Week 1 complete, worker 6 result (9 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -111,7 +117,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_iii = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_iii = Inputs.text({
+  label: "Foreman's remark — Week 2, worker 1 result (10 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -123,7 +132,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_iv = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_iv = Inputs.text({
+  label: "Foreman's remark — Week 2, worker 2 result (11 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -135,7 +147,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_v = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_v = Inputs.text({
+  label: "Foreman's remark — Week 2, worker 3 result (9 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -147,7 +162,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_vi = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_vi = Inputs.text({
+  label: "Foreman's remark — Week 2, worker 4 result (11 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -159,7 +177,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_vii = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_vii = Inputs.text({
+  label: "Foreman's remark — Week 2, worker 5 result (17 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -171,7 +192,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_viii = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_viii = Inputs.text({
+  label: "Foreman's remark — Week 2 complete, worker 6 result (7 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -184,7 +208,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_ix = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_ix = Inputs.text({
+  label: "Foreman's remark — Week 3, worker 1 result (7 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -197,7 +224,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_x = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_x = Inputs.text({
+  label: "Foreman's remark — Week 3, worker 2 result (12 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -210,7 +240,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xi = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xi = Inputs.text({
+  label: "Foreman's remark — Week 3, worker 3 result (13 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -223,7 +256,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xii = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xii = Inputs.text({
+  label: "Foreman's remark — Week 3, worker 4 result (14 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -236,7 +272,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xiii = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xiii = Inputs.text({
+  label: "Foreman's remark — Week 3, worker 5 result (9 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -249,7 +288,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xiv = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xiv = Inputs.text({
+  label: "Foreman's remark — Week 3 complete, worker 6 result (12 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -263,7 +305,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xv = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xv = Inputs.text({
+  label: "Foreman's remark — Week 4, Audrey's result (6 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -277,7 +322,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xvi = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xvi = Inputs.text({
+  label: "Foreman's remark — Week 4, worker 2 result (10 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -291,7 +339,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xvii = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xvii = Inputs.text({
+  label: "Foreman's remark — Week 4, worker 3 result (11 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -305,7 +356,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xviii = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xviii = Inputs.text({
+  label: "Foreman's remark — Week 4, John's result (11 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -319,7 +373,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xix = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xix = Inputs.text({
+  label: "Foreman's remark — Week 4, worker 5 result (13 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 ```{r}
@@ -333,7 +390,10 @@ render_redbeads_table(df1)
 ```
 
 ```{ojs}
-viewof activity_2f_xx = Inputs.text({placeholder: "Type your comment here."})
+viewof activity_2f_xx = Inputs.text({
+  label: "Foreman's remark — Week 4 complete, worker 6 result (7 red beads)",
+  placeholder: "Type your comment here."
+})
 ```
 
 

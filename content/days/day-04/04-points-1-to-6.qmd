@@ -24,7 +24,11 @@ Notice the connection with the Deming Chain Reaction, finishing up (as in both v
 An Obsession With Quality will surely result in quality being improved way beyond that which needs mass inspection to verify it. Notice again the words "the need for". Deming isn't simply saying "Stop doing it". He is telling us to improve things so that mass inspection becomes redundant.
 
 ```{ojs}
-viewof p1_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p1_owq = Inputs.textarea({
+  label: "Point 1 (Constancy of purpose) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### All One Team
@@ -32,7 +36,11 @@ viewof p1_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 Here we surely have a clear two-way connection. How can you continually improve unless you are working together as All One Team? Can you really do it on your own—or, worse still, if others are working against you? Conversely, what better motivation could there be for an All One Team culture than the purpose of continual improvement? But beware—especially management: All One Team has both horizontal and vertical implications. It is far too common for management to preach teamwork to "them down there" but subsequently to ignore or resist the results and consequences of that teamwork. If they do so then it will soon be goodbye to All One Team.
 
 ```{ojs}
-viewof p1_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p1_aot = Inputs.textarea({
+  label: "Point 1 (Constancy of purpose) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### Scientific Approach
@@ -40,7 +48,11 @@ viewof p1_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 A Scientific Approach is necessary for genuine improvement, be it continual or otherwise, because of its emphasis on the system and processes both in concept and in the methods that it provides, especially the control chart. We also need well-chosen data and the knowledge of how to interpret those data in order to reflect and guide us on how successful our attempts and experiments for improvement are working (but definitely *not* in the sense of whether or not we've met some numerical target—recall the second paragraph of page 8).
 
 ```{ojs}
-viewof p1_sa = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p1_sa = Inputs.textarea({
+  label: "Point 1 (Constancy of purpose) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ---
@@ -60,7 +72,11 @@ This Point illuminates the danger of just "making do". The implication is that w
 The third sentence of the statement of this Point ("We can no longer live…") provides a clear and strong link with the Obsession With Quality. This is improvement of quality "across the board".
 
 ```{ojs}
-viewof p2_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p2_owq = Inputs.textarea({
+  label: "Point 2 (The new philosophy) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### All One Team
@@ -68,7 +84,11 @@ viewof p2_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 The specific kinds of problems mentioned in that same sentence ("We can no longer live…") are most usually caused by the non-existence of All One Team. Very often people cannot do their job as well as they would like because poor product and service from "upstream" in the system prevents them. (Think of the red beads—the Willing Workers didn't make them.)
 
 ```{ojs}
-viewof p2_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p2_aot = Inputs.textarea({
+  label: "Point 2 (The new philosophy) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### Scientific Approach
@@ -76,7 +96,11 @@ viewof p2_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 What causes the "delays, mistakes, defective materials, and defective workmanship"? Maybe the underlying system itself is reasonably good but is suffering from some serious special causes. On the other hand, the underlying system itself may not be capable of producing acceptable results even when it is not being affected by special causes. How would you know? These and other related questions cry out for the use of control charts, the fundamental plank of the Scientific Approach. Remember that the capability of the underlying system cannot even be assessed if its output is being disrupted by special causes. Also remember that (as was so clearly illustrated on Day 3) taking action on an unstable process when the process is in fact stable, or vice-versa, invariably makes things worse rather than better. Without the use of the Scientific Approach you are always running that serious risk.
 
 ```{ojs}
-viewof p2_sa = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p2_sa = Inputs.textarea({
+  label: "Point 2 (The new philosophy) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ---
@@ -98,7 +122,11 @@ An Obsession With Quality will surely result in quality being improved way beyon
 <div class="neave_note">There are more general practical lessons to learn from this observation. If you're interested, take a quick look at the final paragraph on Appendix page 23.</div>
 
 ```{ojs}
-viewof p3_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p3_owq = Inputs.textarea({
+  label: "Point 3 (Cease dependence on mass inspection) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### All One Team
@@ -106,7 +134,11 @@ viewof p3_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 An important aspect here is that, through being a member of All One Team, we both feel and become more responsible (through desire) for the quality of what we do—we don't want to let anybody down, and they do not want to let us down. This is a long way down the road from dependence on mass inspection to try to ensure quality.
 
 ```{ojs}
-viewof p3_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p3_aot = Inputs.textarea({
+  label: "Point 3 (Cease dependence on mass inspection) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### Scientific Approach
@@ -114,7 +146,11 @@ viewof p3_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 How may we be sure about what the customer will receive from us if we do not use mass inspection techniques? Answer: By getting processes and the product/service they provide into statistical control, and taking advantage of the resulting *predictability* thus implied. Dr Deming's second sentence in the statement of this Point makes it clear that the Scientific Approach is fundamental for success with Point 3.
 
 ```{ojs}
-viewof p3_sa = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p3_sa = Inputs.textarea({
+  label: "Point 3 (Cease dependence on mass inspection) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ---
@@ -132,7 +168,11 @@ And if all these, and more, enter decision-making about purchasing for yourself 
 All that I have just mentioned contributes to quality. Price does not. Obsession With Quality implies purchasing best value in the broadest sense of that term, including matters both quantifiable and non-quantifiable, and not only at the time of purchase but subsequently.
 
 ```{ojs}
-viewof p4_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p4_owq = Inputs.textarea({
+  label: "Point 4 (End lowest-tender contracts) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### All One Team
@@ -144,7 +184,11 @@ We saw this diagram on Day 1 page 35 as the first of Dr Deming's <span class="de
 The arguments in favour of a single supplier become especially important regarding long-term relationships for mutual advantage, involving improvement, development, innovation—and the cooperation for mutual benefit thereby implied. This is all part of optimisation of the system.
 
 ```{ojs}
-viewof p4_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p4_aot = Inputs.textarea({
+  label: "Point 4 (End lowest-tender contracts) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### Scientific Approach
@@ -152,7 +196,11 @@ viewof p4_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 Anyone who has been involved with the effects of awarding business on lowest price knows, through bitter experience, the huge additions to variation—and therefore effectively to cost—thereby generated through having to deal with different companies, different people, different methods, different procedures—let alone the different product/service received. Saving pennies can cost pounds (or whatever is your local currency).
 
 ```{ojs}
-viewof p4_sa = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p4_sa = Inputs.textarea({
+  label: "Point 4 (End lowest-tender contracts) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ---
@@ -170,7 +218,11 @@ We have already pointed out that Deming was talking about quality "across the bo
 <div class="neave_note">An objection to Point 5 sometimes heard from those who are not yet in tune with what Deming was teaching is that "we can't afford to keep improving". It comes from those who think that improvement can only be achieved expensively by bringing in more consultants, etc, etc. But, to put it mildly, these were not Deming's focus on improvement. His emphasis was instead on reducing costs, particularly through improvement of processes and reducing variation—such improvements are frequently very inexpensive yet can produce considerable rewards. For confirmation, again refer back to his Chain Reaction (*DemDim* page 33).</div>
 
 ```{ojs}
-viewof p5_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p5_owq = Inputs.textarea({
+  label: "Point 5 (Improve every process) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### All One Team
@@ -178,7 +230,11 @@ viewof p5_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 Without All One Team, Point 5 could in fact be rather dangerous, and I have come across examples. Such danger will be multiplied if teams are encouraged or even forced to compete with each other (in total contradiction, of course, to All One Team). I am thinking of situations where lots of local "improvements" are made which look fine in their local context but whose side-effects elsewhere in the organisation are neither known about nor cared about. (Later you will find the examples of suboptimisation on Day 9 to be particularly relevant here; the same is true of both Day 9's Major Activity and also the powerful case study on ST—my book of *Statistics Tables*—pages 79–82.)
 
 ```{ojs}
-viewof p5_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p5_aot = Inputs.textarea({
+  label: "Point 5 (Improve every process) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### Scientific Approach
@@ -186,7 +242,11 @@ viewof p5_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 The link here is obvious: the Scientific Approach is directly concerned with *how* to improve systems and processes—including how to avoid tampering with them.
 
 ```{ojs}
-viewof p5_sa = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p5_sa = Inputs.textarea({
+  label: "Point 5 (Improve every process) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ---
@@ -208,7 +268,11 @@ Clearly, a prerequisite for people to do quality work is that they have received
 <div class="neave_note">As a personal viewpoint regarding training, I think it may be insufficient to simply pick off some to some external consultants' training course, however excellent it may appear to be. I have seen both of these happen to be true of training—whether it is good or bad. I think, perhaps, the first of these is usually more true of training external than internal: "People learn in different ways". Person A may respond better than Person B to a particular method of training. This is equally true with another method of training: again this is likely to be far better catered for in-house than externally.</div>
 
 ```{ojs}
-viewof p6_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p6_owq = Inputs.textarea({
+  label: "Point 6 (Institute training) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### All One Team
@@ -216,7 +280,11 @@ viewof p6_owq = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
 Part of a sensible training strategy is that people are trained to carry out their tasks in ways which are consistent with the ways that others do their work. They can then contribute together to the improvement of processes, enhancing both stronger teamwork and self-fulfilment. Without appropriate training, people have no option but to "do their own thing". This breaks up teamwork even at a micro-level, let alone at the macro-level implied by All One Team.
 
 ```{ojs}
-viewof p6_aot = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p6_aot = Inputs.textarea({
+  label: "Point 6 (Institute training) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ### Scientific Approach
@@ -226,7 +294,11 @@ Here it is appropriate to recall the original expanded version of the Joiner Tri
 <div class="neave_note">**NB** My alternative list of topics for the Scientific Approach on page 12 was not intended as a criticism of the original expanded Joiner Triangle! Regarding the difference in nature between education and training: consultants in the Deming area clearly need to work with both, and thus the version of the Scientific Approach on page 11 was entirely appropriate for Joiner Associates. But, equally clearly, the primary nature of *12 Days to Deming* is education, and so a different emphasis regarding the Scientific Approach is usually appropriate here.</div>
 
 ```{ojs}
-viewof p6_sa = Inputs.textarea({placeholder: "Your notes here.", rows: 5})
+viewof p6_sa = Inputs.textarea({
+  label: "Point 6 (Institute training) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
 ```
 
 ---

@@ -170,7 +170,11 @@ Let's first précis the "How Do We Compute Those Control Limits—and Why?" sect
 With these thoughts in mind, imagine that you are computing control limits (using moving ranges) from data that are being generated from each of the four Rules of the Funnel in turn. How do you think those data will affect the control limits, and what would happen if you extended those limits into the future during which the same Rule is in operation?
 
 ```{ojs}
-viewof activity_3i = Inputs.textarea({placeholder: "Type your thoughts on control limits and the four Rules here ...", rows: 8})
+viewof activity_3i = Inputs.textarea({
+  label: "Control limits and the four Rules of the Funnel",
+  placeholder: "Type your thoughts on control limits and the four Rules here ...",
+  rows: 8
+})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3i" aria-expanded="false" aria-controls="collapse_3i">
@@ -202,7 +206,11 @@ Now that you have completed the Major Activity and after reading *DemDim* Chapte
 It is often not possible to differentiate between Rules 2 and 3 when suggesting examples. As we have seen, in effect the difference between them depends on whether the tampering is done comparatively sensibly or completely stupidly! Also, the performances of some practical illustrations are worse than Rule 2 but not as brazen as Rule 3. I would recommend therefore that, in addition to a list of possible illustrations of Rule 1 and of Rule 4, you construct a *combined* list of illustrations for Rules 2 and 3, i.e. for any kind of "zig-zag" or "swinging the pendulum" compensation effect. Further, the Rule 4 list does not need to be restricted to a strict version of Rule 4. For example, a photocopier of a photocopy of a photocopy of ... is similar to Rule 4 except that it continually moves away from the target (the original copy) rather than being able to temporarily move back toward it.
 
 ```{ojs}
-viewof activity_3j = Inputs.textarea({placeholder: "List your own real-world examples of the four Rules of the Funnel here ...", rows: 10})
+viewof activity_3j = Inputs.textarea({
+  label: "Real-world examples of the four Rules of the Funnel",
+  placeholder: "List your own real-world examples of the four Rules of the Funnel here ...",
+  rows: 10
+})
 ```
 
 *(For some final examples see Appendix pages 20–21.)*
