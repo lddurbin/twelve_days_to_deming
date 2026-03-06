@@ -31,7 +31,11 @@ But first, on Appendix pages 10–12 I have discussed some further messages from
 On your return from the Appendix, now spend a little time organising your notes into a small number of groups or categories, i.e. each containing somewhat related matters. Then develop your account of messages from the Red Beads Experiment by writing up a paragraph or two on each of those groups of notes. Finally *"top and tail"* your account with some appropriate introductory and concluding remarks.
 
 ```{ojs}
-viewof activity_2h_i = Inputs.textarea({placeholder: "Type your comment here.", rows: 50})
+viewof activity_2h_i = Inputs.textarea({
+  label: "Organise your notes and write up your messages from the Red Beads Experiment",
+  placeholder: "Type your comment here.",
+  rows: 50
+})
 ```
 
 In conclusion, now armed with your account, can you think of instances within your work-situation or elsewhere when you have been treated similarly to the way that the Willing Workers have been treated by the Foreman?
@@ -41,7 +45,11 @@ Even more importantly, if you are any kind of manager or in any role where you h
 And, if so, how will your behaviour change from now on?
 
 ```{ojs}
-viewof activity_2h_ii = Inputs.textarea({placeholder: "Type your comment here.", rows: 50})
+viewof activity_2h_ii = Inputs.textarea({
+  label: "Have you been treated like a Willing Worker, or acted like the Foreman?",
+  placeholder: "Type your comment here.",
+  rows: 50
+})
 ```
 
 As I often heard Dr Deming say,
