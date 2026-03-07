@@ -1,0 +1,84 @@
+# ============================================================
+# Day 5 Brief
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 5
+  title: "The Joiner Triangle, The 14 Points (Part 2), and The Deadly Diseases"
+  source_prefix: "H.Day.5.08Feb22"
+  page_count: 32
+
+# ------ Chapter Plan ------
+chapters:
+  - slug: "introduction"
+    title: "INTRODUCTION"
+    pages: "1-5"
+    notes: |
+      File pages 1-5 (doc pages 1). Pages 1-4 are title/blank/agenda/blank — skip them.
+      Page 5 (doc p1) is the intro page: includes the "FIRST PROJECT CONTINUED" decorative
+      heading box (crop it) and the introductory text for Day 5. Transcribe the intro text.
+      The agenda page (file p3) shows the full day schedule but does not need to be reproduced.
+
+  - slug: "points-7-to-14"
+    title: "POINTS 7–14"
+    pages: "6-21"
+    notes: |
+      File pages 6-21 (doc pages 2-17).
+      Workbook callout at top of p6: "Points 7–12 (pages 2–13) are also on Workbook pages 70–81".
+      Workbook callout at top of p14: "Points 13–14 (pages 14–17) are also on Workbook pages 82–85".
+      Structure alternates: one content page per Point, one workbook page per Point.
+      Content pages have the Point heading, reading text, then "Obsession With Quality" bold heading.
+      Workbook pages (file pp 7, 9, 11, 13, 15, 17, 19, 21) have "All One Team" and
+      "Scientific Approach" as workbook fill-in headings, plus a clock icon — include workbook
+      callouts for the relevant WB pages.
+      File page 13 (workbook p9) has a red/white/blue Joiner Triangle horizontal bar at the
+      bottom — crop and include it.
+      The Deming quote on file p12 (doc p8, Point 10) uses blue highlight: "I have not yet
+      seen any such posters." — use the deming_quote CSS class.
+      File p10 (doc p6, Point 9) includes a multi-line Sherlock Holmes / Short-Sighted Boss
+      dialogue — format as the foreman-remark CSS class.
+
+  - slug: "the-deadly-diseases"
+    title: "THE DEADLY DISEASES"
+    pages: "22-32"
+    notes: |
+      File pages 22-32 (doc pages 18-28).
+      Workbook callout at top of p22: "The 'Five Deadly Diseases' (pages 18–27) are also on
+      Workbook pages 86–95".
+      Page 22 (doc p18) opens with a video prompt: "Now it's time to take a break to watch
+      the video Management's Five Deadly Diseases..." — include a return_callout for the
+      YouTube link provided in the intro page (file p5).
+      Same alternating structure as the Points: one content page + one workbook page per disease.
+      File page 31 (doc p27) ends with a day-closing note ("That's it! Congratulations...") and
+      an NB note about "work standards" terminology (use a neave_note CSS class for the NB).
+      File page 32 (doc p28) is the "Out-of-hours" note — transcribe fully, including the
+      Approvals/Acknowledgements footnote at the bottom.
+
+# ------ Figure Decisions ------
+figures:
+  - page: 5
+    action: "crop"
+    notes: "Decorative 'FIRST PROJECT CONTINUED' heading box (red-bordered highlight)"
+  - page: 13
+    action: "crop"
+    notes: "Red/white/blue Joiner Triangle horizontal bar at bottom of workbook page p9"
+
+# ------ Context Notes ------
+context_notes: |
+  Workbook page references from the agenda:
+  - Points 7–12: WB 70–81 (individual: P7=WB70, P8=WB72, P9=WB74, P10=WB76, P11=WB78, P12=WB80)
+  - Points 13–14: WB 82–85 (P13=WB82, P14=WB84)
+  - Deadly Diseases: WB 86–95 (D1=WB86, D2=WB88, D3=WB90, D4=WB92, D5=WB94)
+
+  Timing from agenda: 9:00am–12:15pm (Points 7–14), 1:15pm–5:15pm (video + Deadly Diseases).
+  Clock icons appear on all 11 workbook pages — these are participant fill-in time indicators,
+  not actual clock times. Render as the standard workbook page clock indicator.
+
+  The "First Project" from Day 4 continues into Day 5. The intro page references this explicitly.
+
+  The out-of-hours note (file p32) refers ahead to Day 6 and its Major Activity case study
+  (pages 7–16 of Day 6). No cross-linking needed — just transcribe.
+
+  Approvals footnote (file p32): quotations from Volume 21 of The Deming Library have been
+  included with the approval of Clare Crawford-Mason.

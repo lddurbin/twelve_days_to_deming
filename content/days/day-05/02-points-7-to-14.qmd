@@ -1,0 +1,546 @@
+---
+title: "POINTS 7–14"
+execute:
+  echo: false
+---
+
+```{r}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+source(here::here("R/functions/main-functions.R"))
+```
+
+<div class="workbook_callout">Points 7–12 (pages 2–13) are also on Workbook pages 70–81.</div>
+
+---
+
+## Point 7. Institute leadership of people
+
+<div class="info_callout">**Adopt and institute leadership aimed at helping people to do a better job.** The responsibility of managers and supervisors must be changed from sheer numbers to quality. Improvement of quality will automatically improve productivity. Management must ensure that immediate action is taken on reports of inherited defects, maintenance requirements, poor tools, fuzzy operational definitions *[operational definitions will be studied on Day 11]*, and other conditions detrimental to quality.</div>
+
+Rather than my attempting to contrive introductory comments in this case, it will be far more useful for you to **turn to *DemDim* page 335 and read through the list of "Attributes of a Leader"** which Dr Deming used in his four-day seminars around 1990. (Don't focus your attention on the technology—simply Dr Deming's own handwriting on a typewriter!—but that list provides many clear links with the Joiner Triangle.)
+
+There is considerably more on Day 12 concerning Deming's specific guidance on leadership. However, you should find *DemDim* page 335 more than ample in the current context or, if you're particularly interested in this topic, you might like to read the whole chapter (*DemDim* Chapter 25 pages 333–339).
+
+Particularly with reference to All One Team, my friend Dave Kerr wrote to me as follows: "A point which always comes out very clearly to me is that, in order for a group of people to behave as a system, there has to be active leadership that focuses the group to align their behaviours around a commonly-understood purpose. In my experience within corporate land, this kind of leadership is largely missing—with just a few notable exceptions."
+
+*(See Appendix page 24.)*
+
+### Obsession With Quality
+
+<div class="workbook_callout">Point 7 (pages 2–3) is also on Workbook pages 70–71.</div>
+
+```{ojs}
+viewof p7_owq = Inputs.textarea({
+  label: "Point 7 (Institute leadership of people) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### All One Team
+
+```{ojs}
+viewof p7_aot = Inputs.textarea({
+  label: "Point 7 (Institute leadership of people) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### Scientific Approach
+
+:::: {.columns}
+
+::: {.column width="85%"}
+```{ojs}
+viewof p7_sa = Inputs.textarea({
+  label: "Point 7 (Institute leadership of people) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 20px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 0)
+```
+</div>
+:::
+
+::::
+
+---
+
+## Point 8. Drive out fear
+
+<div class="info_callout">**Encourage effective two-way communication and other means to drive out fear throughout the organisation** so that everybody may work effectively and more productively for the company.</div>
+
+The three-word heading to this Point is one that everybody who has heard or read it seems to easily remember. Perhaps that is because it is one of the bluntest expressions imaginable of how the Deming philosophy is diametrically opposite to what is going on in many organisations. Do *you* produce your best work when you are in a state of fear? If so, I feel genuinely sorry for you. You might produce your *fastest* work—but your *best* work?
+
+Much of both management and government strategy seems based on driving fear *in* rather than *out*. Certainly, for many years, British governments have made excessive use of targets, league tables, threats, "weeding out bad teachers", etc. Do these drive fear *in* or *out*? What is the effect?
+
+In Point 12 we shall find Dr Deming talking of the value of "pride of workmanship" and indeed "joy in work" (recently seen in Attribute 3 on *DemDim* page 335). Presumably the only way that they could be compatible with fear is in the case of a confirmed masochist.
+
+*(See Appendix page 24.)*
+
+### Obsession With Quality
+
+<div class="workbook_callout">Point 8 (pages 4–5) is also on Workbook pages 72–73.</div>
+
+```{ojs}
+viewof p8_owq = Inputs.textarea({
+  label: "Point 8 (Drive out fear) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### All One Team
+
+```{ojs}
+viewof p8_aot = Inputs.textarea({
+  label: "Point 8 (Drive out fear) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### Scientific Approach
+
+:::: {.columns}
+
+::: {.column width="85%"}
+```{ojs}
+viewof p8_sa = Inputs.textarea({
+  label: "Point 8 (Drive out fear) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 20px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 0)
+```
+</div>
+:::
+
+::::
+
+---
+
+## Point 9. Break down barriers
+
+<div class="info_callout">**Break down barriers between departments and staff areas.** People in different areas, such as Research, Design, Sales, Administration, and Production, must work in teams to tackle problems that may be encountered with products or service.</div>
+
+As a considerable change of source, here is a short extract from the soundtrack of a video made in 1984 for the UK Government's Department of Trade and Industry in support of a National Quality Campaign. The video was called *The Case of the Short-Sighted Boss*. An electrical goods manufacturing company was not doing very well. In a dream, the Managing Director engaged Sherlock Holmes as a management consultant!
+
+Holmes was speaking to the Sales Director, Peter Marks.
+
+<div class="foreman-remark">
+
+*Marks:* Just get the goods out of the factory gates—that's what I always say.
+
+*Holmes:* Do you indeed? *(Beckoning Marks over to the window, and watching a large truck leaving the factory.)* Come here. Is that what you mean?
+
+*M:* Yes.
+
+*H:* So what's in this lorry coming in?
+
+*M:* That one's bringing back faulty goods that are under our guarantees.
+
+*H:* And how much does that cost the company?
+
+*M:* I don't know. It's not my Department.
+
+</div>
+
+*(See Appendix page 25.)*
+
+### Obsession With Quality
+
+<div class="workbook_callout">Point 9 (pages 6–7) is also on Workbook pages 74–75.</div>
+
+```{ojs}
+viewof p9_owq = Inputs.textarea({
+  label: "Point 9 (Break down barriers) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### All One Team
+
+```{ojs}
+viewof p9_aot = Inputs.textarea({
+  label: "Point 9 (Break down barriers) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### Scientific Approach
+
+:::: {.columns}
+
+::: {.column width="85%"}
+```{ojs}
+viewof p9_sa = Inputs.textarea({
+  label: "Point 9 (Break down barriers) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 20px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 0)
+```
+</div>
+:::
+
+::::
+
+---
+
+## Point 10. Eliminate exhortations
+
+<div class="info_callout">**Eliminate the use of slogans, posters, and exhortations** for the workforce, demanding Zero Defects and new levels of productivity without providing methods. Such exhortations only create adversarial relationships: the bulk of the causes of low quality and low productivity belong to the system, and thus lie beyond the power of the workforce.</div>
+
+This Point in particular needs reading beyond the first few words—including to the very end of the first sentence! Dr Deming was pretty scornful of mere "slogans" and "exhortations" as ways to improve quality. But, of course, not all "posters" are bad. E.g., on *Out of the Crisis* page 59 [pages 68–69] he writes:
+
+"Posters that explain to everyone on the job what the management is doing month by month to (for example) purchase better quality of incoming materials from fewer suppliers, better maintenance, or to provide better training, or statistical aids and better supervision to improve quality and productivity, not by working harder but by working smarter, would be a totally different story: they would boost morale."
+
+A little later he says, with obvious regret: <span class="deming_quote">"I have not yet seen any such posters."</span>
+
+If something so shallow as alluded to in this Point could have any positive effect, I can only conclude that the management environment must be pretty feeble. If something so feeble really could motivate, the organisation's employees' motivation must be at rock-bottom—and whose fault is that?
+
+*(See Appendix page 25.)*
+
+### Obsession With Quality
+
+<div class="workbook_callout">Point 10 (pages 8–9) is also on Workbook pages 76–77.</div>
+
+```{ojs}
+viewof p10_owq = Inputs.textarea({
+  label: "Point 10 (Eliminate exhortations) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### All One Team
+
+```{ojs}
+viewof p10_aot = Inputs.textarea({
+  label: "Point 10 (Eliminate exhortations) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### Scientific Approach
+
+:::: {.columns}
+
+::: {.column width="85%"}
+```{ojs}
+viewof p10_sa = Inputs.textarea({
+  label: "Point 10 (Eliminate exhortations) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 20px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 0)
+```
+</div>
+:::
+
+::::
+
+![The Joiner Triangle](/assets/images/day-05/joiner-triangle-bar.png){fig-align="left" width="90%" .lightbox}
+
+---
+
+## Point 11. Eliminate arbitrary numerical targets
+
+<div class="info_callout">**Eliminate work standards that prescribe quotas for the workforce and numerical goals for people in management.** Substitute aids and helpful leadership in order to achieve continual improvement of quality and productivity.</div>
+
+Here we have the topic that used to be regarded as probably the most controversial of all of the 14 Points (other than Point 12 if that is incorrectly regarded as being primarily about performance appraisal). Nowadays, repeated failures of the "target culture" have raised some awareness of the truth in what Deming was getting at so long ago. Yet managers and governments still *love* targets. They are easy to set, and then those who set them can sit back and wait for the results to arrive—as they will (or will appear to) if the threats and promises are sufficiently impressive. But at what cost?
+
+An obvious trouble then is that it is the *number* which becomes the aim—as opposed to (a) *quality* being the aim and (b) the number (amongst many others) being an indicator of a possibly rather questionable aspect of "quality". What is the consequence? Using some of Dr Deming's own words: fudging figures, creative accounting, suboptimisation. Remember also from Point 8 (in my comments on the Scientific Approach): "Where there is fear, there will be wrong figures".
+
+Resources are channelled into reaching that number, irrespective of the harm caused elsewhere. Methods of measuring or counting are changed. Definitions are changed. "Punctual" is revised from being 5 minutes late to being 10 minutes late (*DemDim* page 113). The definition of an "unemployed person" (or whatever term is used for those who contribute to the monthly figures) changes perhaps three times a year (*Dem-Dim* page 111). With crime figures, certain types of offences are surreptitiously dropped from the count (I refer ahead to Day 6 pages 25–26).
+
+*(See Appendix page 26.)*
+
+### Obsession With Quality
+
+<div class="workbook_callout">Point 11 (pages 10–11) is also on Workbook pages 78–79.</div>
+
+```{ojs}
+viewof p11_owq = Inputs.textarea({
+  label: "Point 11 (Eliminate arbitrary numerical targets) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### All One Team
+
+```{ojs}
+viewof p11_aot = Inputs.textarea({
+  label: "Point 11 (Eliminate arbitrary numerical targets) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### Scientific Approach
+
+:::: {.columns}
+
+::: {.column width="85%"}
+```{ojs}
+viewof p11_sa = Inputs.textarea({
+  label: "Point 11 (Eliminate arbitrary numerical targets) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 20px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 0)
+```
+</div>
+:::
+
+::::
+
+---
+
+## Point 12. Permit pride of workmanship
+
+<div class="info_callout">**Remove the barriers that rob hourly workers, and people in management, of their right to pride of workmanship.** This implies, *inter alia*, abolition of the annual merit rating (appraisal of performance) and of Management by Objective. Again, the responsibility of managers, supervisors, foremen must be changed from sheer numbers to quality.</div>
+
+This Point is unusual in that people have largely ignored its main focus and argued instead about a subsidiary (but nonetheless very important) aspect. The main focus is the value and mutual benefit of "pride of workmanship". The subsidiary aspect (which Deming introduces as "*inter alia*"—"amongst other things", indeed amongst *many* other things)—is performance appraisal. I believe it was at least partly due to this, i.e. lack of attention paid to the Point's main issue, that in 1988 he began to talk of something very closely related but with those short and considerably more impactful words: "joy in work" (to be discussed on Day 8).
+
+The matter of performance appraisal itself is the subject of the third of the Deadly Diseases, so I strongly suggest we leave that topic until then and instead concentrate here on the essential and main Point: pride of workmanship.
+
+*(See Appendix page 26.)*
+
+### Obsession With Quality
+
+<div class="workbook_callout">Point 12 (pages 12–13) is also on Workbook pages 80–81.</div>
+
+```{ojs}
+viewof p12_owq = Inputs.textarea({
+  label: "Point 12 (Permit pride of workmanship) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### All One Team
+
+```{ojs}
+viewof p12_aot = Inputs.textarea({
+  label: "Point 12 (Permit pride of workmanship) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### Scientific Approach
+
+:::: {.columns}
+
+::: {.column width="85%"}
+```{ojs}
+viewof p12_sa = Inputs.textarea({
+  label: "Point 12 (Permit pride of workmanship) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 20px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 0)
+```
+</div>
+:::
+
+::::
+
+<div class="workbook_callout">Points 13–14 (pages 14–17) are also on Workbook pages 82–85.</div>
+
+---
+
+## Point 13. Encourage education
+
+<div class="info_callout">**Institute a vigorous programme of education, and encourage self-improvement for everyone.** What an organisation needs is not just good people; it needs people that are improving with education. Advances in competitive position will have their roots in knowledge.</div>
+
+The well-known Japanese teacher, Kaoru Ishikawa, is often quoted (e.g. near the end of the Preface to his book: *Introduction to Quality Control*) in such words as "QC starts and ends with education". *(It should be noted that the Japanese interpretation of the term "Quality Control" (QC) is much broader than ours.)* I would expand Ishikawa's statement to something like: "QC is generated by education and generates yet more education".
+
+In the very useful Volume 21 of *The Deming Library*: "A Theory of a System for Managers and Educators", Dr Deming asks:
+
+"What do we mean by quality in education?"
+
+Sharpening the point of his question, he enquires more specifically:
+
+"Do we mean the ability to think, or to pass tests?"
+
+On the same theme, in *The Deming of America* he states categorically:
+
+"Our education is failing. We just don't educate people, youngsters. We grade them, but don't educate them, don't teach them to think."
+
+Whereas training (Point 6) is specific, finite in scope, education's domain is (or needs to be) unbounded, unlimited, infinite. One of Deming's big complaints about familiar so-called education "systems" is that, because of their concentration on passing examinations which are usually more on the lines of regurgitation of information (memory, not thought) rather than understanding (knowledge), the result is destruction of creativity and innovation. In fact, are not our supposed "education" systems more truthfully *training* for the skill of passing examinations? Instead, Deming is virtually *defining* "education" as "teaching to think".
+
+Point 13 implies far more than might be noticed at first glance.
+
+*(See Appendix pages 26–27.)*
+
+### Obsession With Quality
+
+<div class="workbook_callout">Point 13 (pages 14–15) is also on Workbook pages 82–83.</div>
+
+```{ojs}
+viewof p13_owq = Inputs.textarea({
+  label: "Point 13 (Encourage education) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### All One Team
+
+```{ojs}
+viewof p13_aot = Inputs.textarea({
+  label: "Point 13 (Encourage education) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### Scientific Approach
+
+:::: {.columns}
+
+::: {.column width="85%"}
+```{ojs}
+viewof p13_sa = Inputs.textarea({
+  label: "Point 13 (Encourage education) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 20px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 0)
+```
+</div>
+:::
+
+::::
+
+---
+
+## Point 14. Top management commitment and action
+
+<div class="info_callout">**Clearly define top management's permanent commitment to ever-improving quality and productivity,** and their obligation to implement all of these principles. Indeed, it is not enough that top management commit themselves for life to quality and productivity. They must know what it is that they are committed to—i.e. what they must do. Create a structure in top management that will push every day on the preceding 13 Points, and take action in order to accomplish the transformation. Support is not enough: action is required.</div>
+
+"Top management commitment" has unfortunately become something of a cliché—you can hear it, almost robot-like, from just about all teachers of just about all approaches to what they call "quality". But most other approaches do not really require people in management to change significantly, if at all: they just need to "support" whatever is going on. However, as you will have realised by now (and we saw it in Point 2), Dr Deming was talking about *transformation of management*—and he meant it! So what chance does his priceless teaching have of getting anywhere in an organisation without Point 14?
+
+*(See Appendix page 27.)*
+
+### Obsession With Quality
+
+<div class="workbook_callout">Point 14 (pages 16–17) is also on Workbook pages 84–85.</div>
+
+```{ojs}
+viewof p14_owq = Inputs.textarea({
+  label: "Point 14 (Top management commitment and action) — Obsession With Quality",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### All One Team
+
+```{ojs}
+viewof p14_aot = Inputs.textarea({
+  label: "Point 14 (Top management commitment and action) — All One Team",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+
+### Scientific Approach
+
+:::: {.columns}
+
+::: {.column width="85%"}
+```{ojs}
+viewof p14_sa = Inputs.textarea({
+  label: "Point 14 (Top management commitment and action) — Scientific Approach",
+  placeholder: "Your notes here.",
+  rows: 5
+})
+```
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 20px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(12, 0)
+```
+</div>
+:::
+
+::::
+
+---
+
+```{ojs download_all}
+// Download button element
+download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
+```
+
+```{ojs download_trigger}
+//| output: false
+
+import { downloadNotes } from "../../../assets/scripts/functions.js"
+
+download_button.onclick = () => {
+  downloadNotes([
+    viewof p7_owq, viewof p7_aot, viewof p7_sa,
+    viewof p8_owq, viewof p8_aot, viewof p8_sa,
+    viewof p9_owq, viewof p9_aot, viewof p9_sa,
+    viewof p10_owq, viewof p10_aot, viewof p10_sa,
+    viewof p11_owq, viewof p11_aot, viewof p11_sa,
+    viewof p12_owq, viewof p12_aot, viewof p12_sa,
+    viewof p13_owq, viewof p13_aot, viewof p13_sa,
+    viewof p14_owq, viewof p14_aot, viewof p14_sa
+  ], "points_7_to_14.txt");
+};
+```

@@ -67,6 +67,12 @@ book:
         - content/days/day-04/03-the-first-project.qmd
         - content/days/day-04/04-points-1-to-6.qmd
 
+    - part: "Day 5: The Joiner Triangle, The 14 Points (Part 2), and The Deadly Diseases"
+      chapters:
+        - content/days/day-05/01-introduction.qmd
+        - content/days/day-05/02-points-7-to-14.qmd
+        - content/days/day-05/03-the-deadly-diseases.qmd
+
 format:
   html:
     theme: cosmo
