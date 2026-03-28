@@ -47,7 +47,7 @@ jobs:
 
     - name: Pre-install igraph in renv library
       run: |
-        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, substr(R.version$minor,1,1), sep=\".\"))')/x86_64-pc-linux-gnu"
+        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, strsplit(R.version$minor, "\\\\.")[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
         mkdir -p "$R_LIBPATH"
         Rscript -e "install.packages('igraph', lib = '$R_LIBPATH')"
 
@@ -59,9 +59,9 @@ jobs:
       uses: actions/cache@v3
       with:
         path: renv/library
-        key: ${{ runner.os }}-r4.4.0-renv-${{ hashFiles('renv.lock') }}
+        key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
         restore-keys: |
-          ${{ runner.os }}-r4.4.0-renv-
+          ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
 
     - name: Setup Pandoc
       uses: r-lib/actions/setup-pandoc@v2
@@ -69,8 +69,7 @@ jobs:
         pandoc-version: '3.1.11'  # Pinned for reproducible builds
       
     - name: Install Quarto
-      # Pinned to 1.4.549 — last tested version. Upgrade intentionally, not automatically.
-      # Latest available: 1.9.x (check https://github.com/quarto-dev/quarto-cli/releases)
+      # Pinned to 1.4.549 — last tested version (reviewed 2026-03). Upgrade intentionally.
       run: |
         curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
         sudo dpkg -i quarto-1.4.549-linux-amd64.deb
@@ -103,7 +102,7 @@ jobs:
 
     - name: Check renv library permissions
       run: |
-        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, substr(R.version$minor,1,1), sep=\".\"))')/x86_64-pc-linux-gnu"
+        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, strsplit(R.version$minor, "\\\\.")[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
         ls -l "$R_LIBPATH"
         
     - name: Build Quarto book
