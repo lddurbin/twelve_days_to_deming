@@ -110,10 +110,10 @@ summaryR4 = runAllStages(4, diceSeqSummary)
   const r4run = makeRunChart(summaryR4, "Rule 4 — Run Chart", "#3366cc");
 
   return html`<div class="fe-comparison-grid">
-    <div>${r1hist}</div>
-    <div>${r2hist}</div>
-    <div>${r3run}</div>
-    <div>${r4run}</div>
+    <div role="img" aria-label="Histogram of Rule 1 outcomes showing tight distribution around target of 30">${r1hist}</div>
+    <div role="img" aria-label="Histogram of Rule 2 outcomes showing wider distribution around target of 30">${r2hist}</div>
+    <div role="img" aria-label="Run chart of Rule 3 outcomes showing zig-zag pattern diverging from target">${r3run}</div>
+    <div role="img" aria-label="Run chart of Rule 4 outcomes showing drift away from target">${r4run}</div>
   </div>`;
 }
 ```

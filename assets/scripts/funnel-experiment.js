@@ -193,7 +193,10 @@ export function renderTrackSVG(currentStage, trackRange) {
   const totalW = cells * cellW + padding * 2;
   const totalH = cellH + 60 + padding * 2; // room for icons above
 
-  let svg = `<svg width="${totalW}" height="${totalH}" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif; max-width: 100%;">`;
+  const funnelLabel = currentStage ? `Funnel at ${currentStage.funnelBefore}, marble at ${currentStage.marblePos}.` : "No stage active.";
+  let svg = `<svg role="img" aria-label="Funnel track: ${funnelLabel}" width="${totalW}" height="${totalH}" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif; max-width: 100%;">`;
+  svg += `<title>Funnel Experiment Track</title>`;
+  svg += `<desc>Track showing positions ${trackRange.min} to ${trackRange.max}. ${funnelLabel}</desc>`;
 
   // Draw cells
   for (let pos = trackRange.min; pos <= trackRange.max; pos++) {
