@@ -451,7 +451,8 @@ button:focus,
   z-index: 1;
 }
 /* Outcome row: yellow background, dark red text */
-.fe-row-outcome td {
+.fe-row-outcome td,
+.fe-row-outcome th {
   background-color: #ffff99 !important;
   color: #8b0000;
   font-weight: bold;

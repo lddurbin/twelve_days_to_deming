@@ -139,15 +139,16 @@ summaryR4 = runAllStages(4, diceSeqSummary)
   const s4 = stats(summaryR4);
 
   return html`<table class="fe-summary-table">
+    <caption>Summary statistics for all four Rules of the Funnel</caption>
     <thead>
-      <tr><th></th><th>Rule 1</th><th>Rule 2</th><th>Rule 3</th><th>Rule 4</th></tr>
+      <tr><th scope="col"></th><th scope="col">Rule 1</th><th scope="col">Rule 2</th><th scope="col">Rule 3</th><th scope="col">Rule 4</th></tr>
     </thead>
     <tbody>
-      <tr><td><strong>Mean</strong></td><td>${s1.mean}</td><td>${s2.mean}</td><td>${s3.mean}</td><td>${s4.mean}</td></tr>
-      <tr><td><strong>Std Dev</strong></td><td>${s1.sd}</td><td>${s2.sd}</td><td>${s3.sd}</td><td>${s4.sd}</td></tr>
-      <tr><td><strong>Min</strong></td><td>${s1.min}</td><td>${s2.min}</td><td>${s3.min}</td><td>${s4.min}</td></tr>
-      <tr><td><strong>Max</strong></td><td>${s1.max}</td><td>${s2.max}</td><td>${s3.max}</td><td>${s4.max}</td></tr>
-      <tr><td><strong>Range</strong></td><td>${s1.range}</td><td>${s2.range}</td><td>${s3.range}</td><td>${s4.range}</td></tr>
+      <tr><th scope="row">Mean</th><td>${s1.mean}</td><td>${s2.mean}</td><td>${s3.mean}</td><td>${s4.mean}</td></tr>
+      <tr><th scope="row">Std Dev</th><td>${s1.sd}</td><td>${s2.sd}</td><td>${s3.sd}</td><td>${s4.sd}</td></tr>
+      <tr><th scope="row">Min</th><td>${s1.min}</td><td>${s2.min}</td><td>${s3.min}</td><td>${s4.min}</td></tr>
+      <tr><th scope="row">Max</th><td>${s1.max}</td><td>${s2.max}</td><td>${s3.max}</td><td>${s4.max}</td></tr>
+      <tr><th scope="row">Range</th><td>${s1.range}</td><td>${s2.range}</td><td>${s3.range}</td><td>${s4.range}</td></tr>
     </tbody>
   </table>`;
 }
