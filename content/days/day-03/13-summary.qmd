@@ -110,10 +110,10 @@ summaryR4 = runAllStages(4, diceSeqSummary)
   const r4run = makeRunChart(summaryR4, "Rule 4 — Run Chart", "#3366cc");
 
   return html`<div class="fe-comparison-grid">
-    <div>${r1hist}</div>
-    <div>${r2hist}</div>
-    <div>${r3run}</div>
-    <div>${r4run}</div>
+    <div role="img" aria-label="Histogram of marble positions for Rule 1"><span aria-hidden="true">${r1hist}</span></div>
+    <div role="img" aria-label="Histogram of marble positions for Rule 2"><span aria-hidden="true">${r2hist}</span></div>
+    <div role="img" aria-label="Run chart of marble positions for Rule 3"><span aria-hidden="true">${r3run}</span></div>
+    <div role="img" aria-label="Run chart of marble positions for Rule 4"><span aria-hidden="true">${r4run}</span></div>
   </div>`;
 }
 ```
