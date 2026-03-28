@@ -143,8 +143,8 @@ Recall that the very first stage in Rule 3 was identical to that in Rule 2 but, 
   const data = rule3Visible.map(s => ({ stage: s.stage, outcome: s.marblePos }));
   const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
 
-  return html`<div role="img" aria-label="Run chart of Rule 3 outcomes showing marble positions over 40 stages with zig-zag pattern diverging from target of 30">
-    ${Plot.plot({
+  return html`<div role="img" aria-label="Run chart of marble positions for Rule 3 across ${TOTAL_STAGES} stages">
+    <span aria-hidden="true">${Plot.plot({
       title: "Rule 3 — Run Chart of Outcomes",
       width: 600,
       height: 350,
@@ -155,7 +155,7 @@ Recall that the very first stage in Rule 3 was identical to that in Rule 2 but, 
         Plot.line(data, { x: "stage", y: "outcome", stroke: "#cc3333", strokeWidth: 1.5 }),
         Plot.dot(data, { x: "stage", y: "outcome", fill: "#cc3333", r: 3 })
       ]
-    })}
+    })}</span>
   </div>`;
 }
 ```
@@ -263,8 +263,8 @@ html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
   const data = rule4Visible.map(s => ({ stage: s.stage, outcome: s.marblePos }));
   const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
 
-  return html`<div role="img" aria-label="Run chart of Rule 4 outcomes showing marble positions over 40 stages drifting away from target of 30">
-    ${Plot.plot({
+  return html`<div role="img" aria-label="Run chart of marble positions for Rule 4 across ${TOTAL_STAGES} stages">
+    <span aria-hidden="true">${Plot.plot({
       title: "Rule 4 — Run Chart of Outcomes",
       width: 600,
       height: 350,
@@ -275,7 +275,7 @@ html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
         Plot.line(data, { x: "stage", y: "outcome", stroke: "#3366cc", strokeWidth: 1.5 }),
         Plot.dot(data, { x: "stage", y: "outcome", fill: "#3366cc", r: 3 })
       ]
-    })}
+    })}</span>
   </div>`;
 }
 ```

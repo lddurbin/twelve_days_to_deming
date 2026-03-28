@@ -6,6 +6,7 @@
 // --- Constants ---
 
 export const TARGET = 30;
+let trackSvgId = 0;
 export const TRACK_MIN = 20;
 export const TRACK_MAX = 40;
 export const TOTAL_STAGES = 40;
@@ -194,9 +195,11 @@ export function renderTrackSVG(currentStage, trackRange) {
   const totalH = cellH + 60 + padding * 2; // room for icons above
 
   const funnelLabel = currentStage ? `Funnel at ${currentStage.funnelBefore}, marble at ${currentStage.marblePos}.` : "No stage active.";
-  let svg = `<svg role="img" aria-label="Funnel track: ${funnelLabel}" width="${totalW}" height="${totalH}" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif; max-width: 100%;">`;
-  svg += `<title>Funnel Experiment Track</title>`;
-  svg += `<desc>Track showing positions ${trackRange.min} to ${trackRange.max}. ${funnelLabel}</desc>`;
+  const titleId = `track-title-${++trackSvgId}`;
+  const descId = `track-desc-${trackSvgId}`;
+  let svg = `<svg role="img" aria-labelledby="${titleId}" aria-describedby="${descId}" width="${totalW}" height="${totalH}" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif; max-width: 100%;">`;
+  svg += `<title id="${titleId}">Funnel Experiment Track</title>`;
+  svg += `<desc id="${descId}">Track showing positions ${trackRange.min} to ${trackRange.max}. ${funnelLabel}</desc>`;
 
   // Draw cells
   for (let pos = trackRange.min; pos <= trackRange.max; pos++) {
