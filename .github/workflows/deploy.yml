@@ -111,13 +111,18 @@ jobs:
         quarto render
         echo "Build completed successfully"
         
-    - name: Verify build output
+    - name: Smoke test build output
       run: |
-        if [ ! -d "_book" ]; then
-          echo "Error: _book directory not found after build"
-          exit 1
-        fi
-        echo "Build verification passed"
+        echo "Checking index.html exists..."
+        test -f _book/index.html || { echo "FAIL: _book/index.html missing"; exit 1; }
+
+        echo "Checking converted days..."
+        for day in 01 02 03 04 05; do
+          ls _book/content/days/day-${day}/*.html > /dev/null 2>&1 || { echo "FAIL: No HTML files for day-${day}"; exit 1; }
+          echo "  day-${day}: OK"
+        done
+
+        echo "Smoke test passed"
         
     - name: Setup SSH with key verification
       run: |
