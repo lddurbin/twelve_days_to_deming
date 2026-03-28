@@ -40,14 +40,14 @@ jobs:
           libglpk-dev
 
     - name: Install renv
-      run: Rscript -e 'install.packages("renv", repos = "https://cran.rstudio.com")'
+      run: Rscript -e 'install.packages("renv", version = "1.0.3", repos = "https://cran.rstudio.com")'
 
     - name: Ensure renv library directory exists
       run: mkdir -p renv/library
 
     - name: Pre-install igraph in renv library
       run: |
-        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, strsplit(R.version$minor, ".", fixed=TRUE)[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
+        R_LIBPATH="renv/library/R-$(RENV_PROJECT="" Rscript --vanilla -e 'cat(paste(R.version$major, strsplit(R.version$minor, ".", fixed=TRUE)[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
         mkdir -p "$R_LIBPATH"
         Rscript -e "install.packages('igraph', lib = '$R_LIBPATH')"
 
@@ -102,7 +102,7 @@ jobs:
 
     - name: Check renv library permissions
       run: |
-        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, strsplit(R.version$minor, ".", fixed=TRUE)[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
+        R_LIBPATH="renv/library/R-$(RENV_PROJECT="" Rscript --vanilla -e 'cat(paste(R.version$major, strsplit(R.version$minor, ".", fixed=TRUE)[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
         ls -l "$R_LIBPATH"
         
     - name: Build Quarto book

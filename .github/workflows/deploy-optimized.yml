@@ -80,7 +80,7 @@ jobs:
     - name: Restore R packages
       shell: Rscript {0}
       run: |
-        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", version = "1.0.3")
         renv::restore()
         
     - name: Build Quarto book
