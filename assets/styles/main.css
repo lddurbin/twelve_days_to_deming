@@ -123,7 +123,7 @@ Usage:
   margin: 20px;
 }
 
-.technical_aid h1, .technical_aid h2 {
+.technical_aid h1, .technical_aid h2, .technical_aid h3 {
   color: #000000;
   text-align: center;
 }
