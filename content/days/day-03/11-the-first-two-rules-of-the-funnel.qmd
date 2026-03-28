@@ -14,7 +14,7 @@ source(here::here("R/functions/main-functions.R"))
 *Relevant sections of this Major Activity are also in the Workbook: I'll give you the page references where and when appropriate*
 
 <div class="major_activity_title">
-<h1>MAJOR ACTIVITY 3–h</h1>
+<h2>MAJOR ACTIVITY 3–h</h2>
 </div>
 
 Before we begin, a few words about the nature and purpose of the Funnel Experiment, some of which you will recognise as having been just as relevant to the Red Beads Experiment. As there, sooner or later it will become obvious to you that some of the strategies used and actions carried out are, depending on the circumstances, rather foolish! But that is precisely what's intended. Both experiments are very simple—so simple that the difference between good and bad practice becomes plain for all to see. However, after the Funnel Experiment had been presented, both Dr Deming in his enormous seminars and I in my smaller-scale ones would then ask the delegates to tell us of examples of what had now become clear to them as costly and damaging bad practices in their own lives, their own experience, their own workplaces, their own organisations. And invariably the delegates would come up with *dozens* of such real-world examples analogous to the bad practices of which they were now aware through what they had just learned from the Funnel Experiment. Often they had carried out such practices themselves—not because they were bad people but because they hadn't previously *realised* that the practices were so bad. Now they did. Thus, as with the Red Beads Experiment, the purpose of the Funnel Experiment is to alert you to the truth of such matters, so that in future you will be able to figure out more successfully what is good practice and what is not: what to do and what to avoid. As you go through the experiment, when similarly you think of practical examples in your own experience of what the Funnel Experiment is teaching, make a note of them since they will be of help when you get to today's Final Activity.
@@ -23,7 +23,7 @@ It is easy to think of real-life illustrations of the Funnel Experiment in many 
 
 With reference to the two illustrations just mentioned, the numbers on the funnel's and marble's tracks can relate to *minutes* in the case of the bus arrival time and *tenths of a millimetre* for the width of the socket. So the "target" of either 8.30 am or 2.30 cm is represented by 30 on the track, while the 29 refers to 8.29 am or 2.29 cm, 31 to 8.31 am or 2.31 cm, 34 to 8.34 am or 2.34 cm, etc.
 
-### The First Two Rules of the Funnel
+## The First Two Rules of the Funnel
 
 An obvious way to attempt to improve results from a process is to compare the current outcome (today's bus arrival time or the width of the socket just manufactured) with the nominal or target value, a comparison which may suggest a *try* to improve the next outcome. In our "flattened" version of the Funnel Experiment, this adjustment will be represented in what follows by the movement of our funnel along its track—to the *left* if we want to try to make the next outcome respectively *earlier* or *smaller*, or to the *right* if we want to make it *later* or *larger*. Thus, if the bus arrives today at 8.33 (three minutes late), perhaps the bus driver should set out three minutes earlier tomorrow. (I am assuming that my uncle is keen to please me rather than anybody else!) Or, if the socket just made measures 2.33 cm (0.03 cm too wide), we can adjust a control on the machine to reduce the average diameter of future sockets by 0.03 cm. In either case, the equivalent movement of our funnel is a distance of 3 squares (minutes or tenths of a millimetre, etc—whatever units we are using) to the left along its track. Thus we compensate for the amount that the current outcome is off-target by moving the funnel by that same amount in the opposite direction. This type of compensation strategy is in fact the second of what both Drs Nelson and Deming referred to as the four Rules of the Funnel. Here we are demonstrating it first because it corresponds to what was happening first in the Ford example on page 5. We shall introduce the other three Rules in due course.
 
@@ -35,7 +35,7 @@ In this digital version, the dice are rolled for you automatically. The <span cl
 
 In this example, since of course the preferred outcome is always that target of 30 (corresponding to the bus arriving at 8.30 or to a socket diameter of 2.30 cm), you may as well start by putting the funnel at what would appear to be the "obvious" position, i.e. 30.
 
-### Rule 2 of the Funnel (Ford's First Strategy)
+## Rule 2 of the Funnel (Ford's First Strategy)
 
 A particularly appealing way of considering this strategy (i.e. Rule 2 of the Funnel) is that it tells you to move the funnel to the position (27) where, if only it had been there when the marble was just dropped through it, you *would have* just obtained the preferred target outcome of 30. With the funnel placed there, the dice-score of 10 led you to move the marble 3 squares to the right of the funnel; so you would then have had the marble at the target, 30.
 
@@ -176,7 +176,7 @@ Finally, summarise the outcomes that you've just generated in a histogram. The "
 
 <div class="separator_blue"></div>
 
-### Rule 1 of the Funnel (Ford's Second Strategy)
+## Rule 1 of the Funnel (Ford's Second Strategy)
 
 I'll postpone discussion on the outcomes from this strategy (which you'll recall is what Drs Nelson and Deming called Rule 2 of the Funnel) until you've repeated the whole exercise using an easier strategy.
 
@@ -290,7 +290,7 @@ So now summarise your new data in a histogram as before.
 }
 ```
 
-### Discussion
+## Discussion
 
 Compare the two histograms you've drawn on pages 45 and above *[WB 39 and 41]*. As you'll probably have realised already, the histogram that you've just constructed is somewhat more tightly clustered around the desired value of 30 than the previous one was. The difference may not be dramatic, but it's certainly there. So this process performs better than the previous one: there is less variation. Yet this process was the "lazy" one. It is much less complicated, much quicker and easier to operate. With this strategy (Rule 1) we haven't "tweaked" the process at all. We've put in less effort—and got better performance! With Ford's original strategy (Rule 2), we worked harder but got worse performance. Some people seem to think
 

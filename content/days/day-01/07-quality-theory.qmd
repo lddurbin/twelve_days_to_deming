@@ -41,7 +41,7 @@ what the “request for action” is asking you to do. Preferably cover it up wi
 ::: {.column width="85%"}
 <div class=thought_commentary>
 
-# PAUSE FOR THOUGHT 1-a
+## PAUSE FOR THOUGHT 1-a
 
 <span class=deming_quote>“Quality is made at the top.”</span> Do you agree, and why?
 
@@ -83,7 +83,7 @@ And then, as a case in point, Dr Deming’s third and final mention of “qualit
 ::: {.column width="85%"}
 
 <div class=thought>
-# PAUSE FOR THOUGHT 1-b
+## PAUSE FOR THOUGHT 1-b
 
 Why do you think Dr Deming said that, if you manage by results, both quality and morale go down?
 
@@ -109,7 +109,7 @@ create_clock(11, 20)
 
 ::: {.column width="85%"}
 <div class=thought>
-# PAUSE FOR THOUGHT 1–c
+## PAUSE FOR THOUGHT 1–c
 
 I well remember a time that I met up with an old acquaintance. I hadn’t seen him for a while, so he
 didn’t know of my change in career and interests (and university)—he thought I still lectured in Mathematical Statistics somewhere else. “So what Department are you in, here at this university?”, he asked.

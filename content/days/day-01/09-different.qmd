@@ -14,7 +14,7 @@ source(here::here("R/functions/main-functions.R"))
 As I hope you may already have begun to appreciate, the Deming philosophy is different, and not just a little different, from what we hear elsewhere about management and quality and work and business—and
 people. And yet, as I hope you’ll also increasingly appreciate as we work through this course, it has a persuasive and inevitable logic about it.
 
-# How different?
+## How different?
 
 If you are still not persuaded that it’s *that* different, I think you will be after this couple of pages. I’m now
 going to throw at you a whole heap of “bits and pieces”—lots of themes for the Overture, with very little
@@ -49,7 +49,7 @@ but with enabling good *understanding* on the part of everyone involved as to *w
 way of doing things. And I do mean “best”: I have already pointed out his fondness for the phrase
 <span class=deming_quote>“optimisation of the system”</span>—and “optimum” is Latin for “best”.
 
-# So what kind of environment is this Deming “optimum” system?
+## So what kind of environment is this Deming “optimum” system?
 
 * It’s certainly one in which far greater respect is paid to what psychologists call “intrinsic” motivation, as opposed to “extrinsic” motivation which is sadly far more familiar in modern management
 and government.

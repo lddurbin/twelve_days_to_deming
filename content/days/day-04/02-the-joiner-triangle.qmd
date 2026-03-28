@@ -19,7 +19,7 @@ Going right back to Dr Shewhart's formative work in the 1920s, we know that the 
 
 <div class="thought_commentary">
 
-# ACTIVITY 4–a
+## ACTIVITY 4–a
 
 This Activity is in three parts. All three parts are likely to involve some deep thought—but I'm giving you *plenty* of time! In the case of three cases, if you have not made much progress after, say, five minutes or so then I'll be giving a few brief suggestions. See also Appendix page 21 to get started.
 
@@ -69,7 +69,7 @@ The words "All One Team" surely speak for themselves. They have strong connectio
 
 <div class="thought_commentary">
 
-# ACTIVITY 4–b
+## ACTIVITY 4–b
 
 Again consider situations familiar to you, whether in your family, perhaps in clubs or societies with which you are involved.
 
@@ -118,7 +118,7 @@ However, as Brian did also include "statistical thinking" and "special and commo
 
 <div class="thought_commentary">
 
-# PAUSE FOR THOUGHT 4–c
+## PAUSE FOR THOUGHT 4–c
 
 Take another look at Deming's Chain Reaction at the bottom of *DemDim* page 13. In later years, there was one link in the Chain Reaction which Dr Deming wished he had expressed differently. Can you suggest which it was, and why, and eventually how he decided he had done it better?
 
@@ -154,7 +154,7 @@ But is it really beyond rhyme and reason to think of improving quality to the ex
 
 <div class="thought_commentary">
 
-# ACTIVITY 4–d
+## ACTIVITY 4–d
 
 Imagine the following situation. You want to celebrate, say, an anniversary or a birthday. So you and your friend / spouse / partner arrange to go out to dinner, perhaps to a restaurant that you haven't previously visited. Let me suggest three scenarios to you. At the end of the evening…
 

@@ -71,7 +71,7 @@ that my preference lies toward the former of those two extremes!</div>
 
 ::: {.column width="85%"}
 <div class=thought>
-# ACTIVITY 1-d
+## ACTIVITY 1-d
 
 Considering the breadth indicated in the title of Dr Deming’s final book: *The New Economics for Industry, Government, Education*, it will be worthwhile for you to spend a little time thinking about the ways
 that the Government and Education systems in your country help or hinder Industry, and the quality of
@@ -104,7 +104,7 @@ create_clock(12, 00)
 
 ::: {.column width="85%"}
 <div class=thought>
-# PAUSE FOR THOUGHT 1–e
+## PAUSE FOR THOUGHT 1–e
 
 <div class=neave_note>This is today’s final Pause for Thought and it goes to the opposite extreme compared with the previous Activity. Here I’m just asking you to consider briefly something very simple in preparation for discussion tomorrow. No calculations, no deep thought—just quickly jot down a couple of opinions for
 future reference.</div>

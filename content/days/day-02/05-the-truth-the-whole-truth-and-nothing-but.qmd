@@ -30,7 +30,7 @@ Going by what they see, the delegates will more naturally identify with the "All
 :::
 ::::
 
-# The training, part 1
+## The training, part 1
 
 Of the two personalities mentioned above, the Foreman is in the "Un-Knowing" state—although he does not appear to appreciate the fact! In the context of this experiment, that is indeed the more realistic part for him to play. For who *really* fully understands the processes and systems for which they bear responsibility?
 
@@ -44,7 +44,7 @@ As mentioned earlier, the work standard is 50 items of production per worker per
 
 Before each worker performs the task, a mixing operation is to be carried out, and so this is now demonstrated by the Foreman. It consists of tipping all the beads from the container into the bucket and then back into the container. (The system uses gravity—fortunately a cheap and plentiful resource.) The worker (or, during the demonstration, the Foreman) takes the paddle and places it on the edge of the container, holding it at a specified angle of 44° to the horizontal. The paddle is then gently but firmly pushed into the beads, with its slope allowed to steadily decrease to nearly horizontal. Great care must be exercised during this procedure. The 50 depressions will now be entirely covered by the beads. The paddle should next be raised back to that same angle of 44° with the horizontal. Then, retaining that angle, the paddle is drawn out from the beads. 50 beads will have been caught in the holes in the paddle. There may be some surplus beads sitting on top of the paddle; if so, they must be shaken off by gently tapping the paddle against the sides of the container. It is vital that the paddle be raised to 44° *before* withdrawing it from the beads—for otherwise there may soon be some beads rolling around the table and onto the floor.
 
-# The training, part 2
+## The training, part 2
 
 The 50 beads are the workers' production for that week, the white and red beads being good and bad product respectively. Having demonstrated the operation himself, the Foreman takes the paddle over to the workers to show them what he has produced. He points out his large majority of white product, and also states that he has included just a few defective red product so that they can see and be clear about what they need to avoid making.
 
@@ -56,7 +56,7 @@ Now that both the inspectors and the workers have received their training, we ar
 
 Oh, and finally, he wishes them good luck and trusts that they will enjoy their work!
 
-# The "real work"
+## The "real work"
 
 And so the real work commences. The workers come forward, one by one, to carry out their task under the watchful eye of the Foreman. He looks out for things to criticise. The initial angle may be wrong; the action may be jerky, or too fast, or too slow; the paddle may be lowered at the wrong rate; the paddle may not be inserted far enough into the container; the withdrawal angle may be wrong; instead of "gently tapping" the paddle to get rid of any surplus beads, the action may be too rough; the worker might try to tip the paddle, or shake it up and down rather than side to side. Of course, if the worker produces very few red beads, perhaps even meeting the quota of five or less, the Foreman instead congratulates the worker's care, concentration and obedience to the details of the procedure.
 
@@ -70,12 +70,12 @@ We have already seen on page 15 the control chart for the results recorded by De
 
 So let us summarise. If the control chart of data from the experiment indicates that the process is in statistical control then this tells us that effectively all of the variation is coming from the *system*—with the Willing Workers being at the mercy of that system. When they carry out their task, the fact is that whether they get a good result or a bad result is merely a matter of *luck*. Should we praise them for simply being lucky? Should we criticise them for being unlucky? What use could it be to appraise their performance when the variation comes from the *system*? None. How could it be justified? It cannot.
 
-# The Technical Aids
+## The Technical Aids
 
 <span class="neave_note"><p>We have now reached the first of the Technical Aids to be included in Days 2 and 3. Here, Technical Aids 1 and 2 describe how the control limits are computed for control charts that are based on the type of data produced and recorded in Red Beads Experiments. Technical Aid 3 contains a warning that, although control limits for all kinds of data are based on similar reasoning, some of the fine detail will vary according to the particular type of data being recorded. Hence the method described here is *not* generally applicable to many other types of data. This matter will be pursued on Day 3.</p> <p>Let me remind you that those who have opted for Stats-level 0 are invited to skip the Technical Aids! Thus, if you have elected to be on Stats-level 0 (or 00), please now move straight on to page 22.</p></span>
 
 <div class="technical_aid">
-## Technical Aid 1
+### Technical Aid 1
 
 One of the earliest applications of Shewhart's invention of the control chart was for batch inspection of mass production processes. In such inspection, samples (batches) of $n$ items from the process's output are regularly drawn and inspected, and the number $X$ of defective items recorded. After several samples have been inspected, the control limits are computed as follows.
 
@@ -112,7 +112,7 @@ Space has also been left for these computations at the top of Workbook page 14.
 </iframe>
 
 <div class="technical_aid">
-## Technical Aid 2
+### Technical Aid 2
 
 Firstly, notice that Dec recorded the total number of red beads obtained in the experiment near the bottom right of his table on page 11: it was 235. But now you'll need your calculator.
 
@@ -126,7 +126,7 @@ Finally, the distance from $\overline{X}$ out to the two control limits is $3\sq
 </div>
 
 <div class="technical_aid">
-## Technical Aid 3
+### Technical Aid 3
 
 If during Day 1 you read the discussion in the Appendix about the first paradox then you may recall Dr Deming's mention of Shewhart's "3σ-limits" (σ is a Greek letter, pronounced "sigma"). The control limits that you have just computed follow Shewhart's guidance by using $\sigma = \sqrt{\overline{X}(1-\overline{p})}$. The reason for this particular choice when the data come from batch inspection as in the Red Beads Experiment will, I'm afraid, have to be reserved for pages 85–88 in the Optional Extras section.
 

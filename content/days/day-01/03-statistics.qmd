@@ -10,7 +10,7 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-# Statistics?
+## Statistics?
 
 Now, depending on your background, one feature of the previous section may have already started making
 you feel a little queasy. And that is the repeated references to things *statistical*. You know that Dr Deming
@@ -120,7 +120,7 @@ create_clock(9, 55)
 
 ::::
 
-# The two paradoxes
+## The two paradoxes
 
 So, as implied by that quote from *EST* and earlier, the truth is that the statistical tool which had pride of
 place in Dr Deming’s teaching is rarely to be seen in introductory courses on Statistics—nor, for that matter,
@@ -195,7 +195,7 @@ create_clock(10, 00)
 
 ::::
 
-# Control charts in this course
+## Control charts in this course
 
 So what does all this imply about my approach to control charts in this course? As in Dr Deming’s seminars, you will not have to construct any control charts if you’d prefer not to. However, you will see some
 control charts on Days 2 and 3, and so I shall include some relevant description there. But there is already

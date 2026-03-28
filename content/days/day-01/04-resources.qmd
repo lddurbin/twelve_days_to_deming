@@ -14,7 +14,7 @@ In that optional excursion into the Appendix to discuss the first paradox, I inc
 this is an opportune time for me to also suggest some further reading along with video material which could
 be helpful in your learning about the more general main themes and content of this course.
 
-# The Deming Dimension
+## The Deming Dimension
 
 There is some detailed information about *The Deming Dimension* on [pages 12–13](index.qmd#sec-page12) of the Welcome section
 in the “A. PLEASE START HERE” file.
@@ -34,7 +34,7 @@ access to a library which could obtain such items for you to borrow, I’ll brie
 possibilities over the next couple of pages. There is detailed information on everything mentioned here and
 later in the “R. References and Sources” file.
 
-# Other books
+## Other books
 
 As far as other books are concerned, I must of course begin with Dr Deming’s own famous *Out of the Crisis*
 (1986) and *The New Economics for Industry, Government, Education* (first published in 1993). However,
@@ -98,7 +98,7 @@ more enjoyable read and a much greater help to your learning than previously. Th
 fortunate as to know and work with Dr Deming can still hear him speaking the words in this book: for those
 not so fortunate, *The Essential Deming* is a superb substitute.
 
-# Videos {#sec-page13}
+## Videos {#sec-page13}
 
 Regarding videos, there were two quite well-known short British-made TV documentaries: *Doctor’s Orders*
 (produced by Central ITV in 1988) and *A Prophet Unheard* (from the BBC in 1992). I often used part of
@@ -126,7 +126,7 @@ distributors, the former from the Deming Institute (see [page 4](#sec-page6)) an
 As you’d expect from the quantity concerned, the *Deming Library* would burn rather a hole in your pocket
 but *The Deming of America* is not overly expensive for this excellent hour-long programme.
 
-# And finally...
+## And finally...
 
 :::: {.columns}
 
