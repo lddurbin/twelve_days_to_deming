@@ -32,7 +32,7 @@ Here is another sequence of 24 numbers. Please sketch a histogram of these data.
 <div class="info_callout">This is a drawing activity. Please sketch your histogram on paper, then note your conclusions below.</div>
 
 ```{ojs}
-viewof activity_3d = Inputs.textarea({placeholder: "What do you conclude from your histogram?", rows: 5})
+viewof activity_3d = Inputs.textarea({label: "What do you conclude from your histogram?", placeholder: "What do you conclude from your histogram?", rows: 5})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3d" aria-expanded="false" aria-controls="collapse_3d">
@@ -65,7 +65,7 @@ Please draw a run chart for this second process.
 Compare and contrast the learning obtained from the two ways of pictorially representing data illustrated in Activities 3–d and 3–e.
 
 ```{ojs}
-viewof activity_3e = Inputs.textarea({placeholder: "Type your comparison here.", rows: 8})
+viewof activity_3e = Inputs.textarea({label: "Compare and contrast histograms vs run charts for these data", placeholder: "Type your comparison here.", rows: 8})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3e" aria-expanded="false" aria-controls="collapse_3e">

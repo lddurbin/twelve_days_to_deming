@@ -46,7 +46,7 @@ what the “request for action” is asking you to do. Preferably cover it up wi
 <span class=deming_quote>“Quality is made at the top.”</span> Do you agree, and why?
 
 ```{ojs}
-viewof thought_1a = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_1a = Inputs.textarea({label: "Do you agree that quality is made at the top, and why?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_1a" aria-expanded="false" aria-controls="collapse_1a">
@@ -88,7 +88,7 @@ And then, as a case in point, Dr Deming’s third and final mention of “qualit
 Why do you think Dr Deming said that, if you manage by results, both quality and morale go down?
 
 ```{ojs}
-viewof thought_1b = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_1b = Inputs.textarea({label: "Why does managing by results reduce quality and morale?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <div class=activity_afterthought>(If you cannot think of reasons now, be sure that you will find plenty as the course progresses.)</div>
@@ -118,7 +118,7 @@ didn’t know of my change in career and interests (and university)—he thought
 Why do you think that the word “Quality” might have provoked such a negative reaction?
 
 ```{ojs}
-viewof thought_1c = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_1c = Inputs.textarea({label: "Why might the word quality provoke a negative reaction?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <div class=activity_afterthought>(For brief discussion see [Appendix page 6](appendix.html#sec-page6).)</div>

@@ -65,7 +65,7 @@ As a new user of the control chart, here is your obvious Pause for Thought:
 What does the above control chart tell you?
 
 ```{ojs}
-viewof thought_2e = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2e = Inputs.textarea({label: "What does the control chart tell you?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 *(For brief but very important discussion, see Appendix page 7 one more time.)*

@@ -52,25 +52,25 @@ back in your younger days. *(If you are still very young then you might like to 
 thoughts and experiences with you here.)*
 
 ```{ojs}
-viewof thought_2b_i = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2b_i = Inputs.textarea({label: "Something you now regard very differently from your younger days", placeholder: "Type your comments here.", rows: 10})
 ```
 
 Why did you originally think about it in the way that you did?
 
 ```{ojs}
-viewof thought_2b_ii = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2b_ii = Inputs.textarea({label: "Why did you originally think about it that way?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 What made you change your mind?
 
 ```{ojs}
-viewof thought_2b_iii = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2b_iii = Inputs.textarea({label: "What made you change your mind?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 Was the experience of changing your mind difficult—and painful?
 
 ```{ojs}
-viewof thought_2b_iv = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2b_iv = Inputs.textarea({label: "Was changing your mind difficult or painful?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 </div>
@@ -90,13 +90,13 @@ Your answer to the first of the questions in Pause for Thought 2–b was surely 
 What are some ways we can acquire and suffer from “illusion of knowledge”?
 
 ```{ojs}
-viewof thought_2c_i = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2c_i = Inputs.textarea({label: "Ways we can acquire and suffer from illusion of knowledge", placeholder: "Type your comments here.", rows: 10})
 ```
 
 Should we be wary of them?
 
 ```{ojs}
-viewof thought_2c_ii = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2c_ii = Inputs.textarea({label: "Should we be wary of illusions of knowledge?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 </div>

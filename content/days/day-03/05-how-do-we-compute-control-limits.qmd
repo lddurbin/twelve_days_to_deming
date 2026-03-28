@@ -150,7 +150,7 @@ Then insert the control limits on your run chart on page 8.
 If you had needed the control limits to help you interpret the data, what would they have told you?
 
 ```{ojs}
-viewof activity_3g = Inputs.textarea({placeholder: "Type your workings and answer here.", rows: 10})
+viewof activity_3g = Inputs.textarea({label: "Compute control limits and interpret what they tell you", placeholder: "Type your workings and answer here.", rows: 10})
 ```
 
 </div>

@@ -154,7 +154,7 @@ Now, I repeat that this was just a simple introductory example, purely for illus
 Even though these were not real sales figures, and this was not a real management team, do you think that this was a reasonable account of how management might have reacted had these been real sales data?
 
 ```{ojs}
-viewof thought_2a = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_2a = Inputs.textarea({label: "Was this a reasonable account of how management might have reacted?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_2a" aria-expanded="false" aria-controls="collapse_2a">

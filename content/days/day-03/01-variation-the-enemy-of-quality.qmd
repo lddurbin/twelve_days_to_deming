@@ -56,13 +56,13 @@ Unexpected as it might be, it seems that Dr Deming first used the terms "common 
 Suggest some of the possible causes of variation in the arrival-time of my school bus.
 
 ```{ojs}
-viewof activity_3a_1 = Inputs.textarea({placeholder: "Type your suggestions here.", rows: 8})
+viewof activity_3a_1 = Inputs.textarea({label: "Possible causes of variation in the school bus arrival-time", placeholder: "Type your suggestions here.", rows: 8})
 ```
 
 Unsurprisingly, I do not have any data available from all those decades ago from which we could construct control charts. So, with each of the causes you've suggested above, simply say whether you think the cause is likely to have been common or special, and why. (Be guided by the paragraph on prison riots that we have just seen on page 2.)
 
 ```{ojs}
-viewof activity_3a_2 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_3a_2 = Inputs.textarea({label: "Is each cause likely common or special, and why?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3a" aria-expanded="false" aria-controls="collapse_3a">
@@ -85,13 +85,13 @@ There is a saying that "Variety is the spice of life". This implies that *variet
 Is there a conflict here? *(No, but clarify why not.)*
 
 ```{ojs}
-viewof activity_3b_1 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_3b_1 = Inputs.textarea({label: "Is there a conflict between variety being good and variation being bad?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 And how might *reducing* variation lead to *increasing* variety?
 
 ```{ojs}
-viewof activity_3b_2 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_3b_2 = Inputs.textarea({label: "How might reducing variation lead to increasing variety?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 <div class="activity_afterthought">(For discussion see Appendix page 14.)</div>

@@ -79,7 +79,7 @@ don't take too long about it!
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_i = Inputs.textarea({placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_i = Inputs.textarea({label: "Your comments on the Week 1 results", placeholder: "Type your comment here.", rows: 10})
 ```
 
 *(No good looking in the Appendix for more hints—I've given you plenty of help already!)*
@@ -96,7 +96,7 @@ viewof thought_2e_i = Inputs.textarea({placeholder: "Type your comment here.", r
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_ii = Inputs.textarea({placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_ii = Inputs.textarea({label: "Your comments on the Week 2 results", placeholder: "Type your comment here.", rows: 10})
 ```
 
 :::
@@ -110,7 +110,7 @@ viewof thought_2e_ii = Inputs.textarea({placeholder: "Type your comment here.", 
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_iii = Inputs.textarea({placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_iii = Inputs.textarea({label: "Your comments on the Week 3 results", placeholder: "Type your comment here.", rows: 10})
 ```
 
 :::
@@ -129,7 +129,7 @@ fourth week, followed in turn by 10, 7 and 8 in their second shift.
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_iv = Inputs.textarea({placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_iv = Inputs.textarea({label: "Your comments on the Week 4 results", placeholder: "Type your comment here.", rows: 10})
 ```
 
 :::
