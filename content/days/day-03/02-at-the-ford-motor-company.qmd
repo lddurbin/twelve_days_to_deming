@@ -36,7 +36,7 @@ To repeat:
 How could this be?
 
 ```{ojs}
-viewof activity_3c = Inputs.textarea({placeholder: "Type your answer here.", rows: 10})
+viewof activity_3c = Inputs.textarea({label: "How could turning off the compensation device improve quality?", placeholder: "Type your answer here.", rows: 10})
 ```
 
 <div class="activity_afterthought">(If you cannot answer this question now, be sure that you will be able to do so before you finish working through today's Major Activity!)</div>

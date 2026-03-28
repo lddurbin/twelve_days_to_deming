@@ -80,7 +80,7 @@ might some “old” views of Economics also be a hindrance, and what might “N
 account?
 
 ```{ojs}
-viewof activity_1d = Inputs.textarea({placeholder: "Type your comments here.", rows: 30})
+viewof activity_1d = Inputs.textarea({label: "How do Government and Education systems help or hinder Industry?", placeholder: "Type your comments here.", rows: 30})
 ```
 
 <div class=activity_afterthought>In such an Activity you are not expected to be able to set the world to rights! Its purpose is to trigger
