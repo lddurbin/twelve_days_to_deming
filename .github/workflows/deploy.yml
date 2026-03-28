@@ -177,12 +177,14 @@ jobs:
         SSH_CMD="ssh -p 18765 u197-gmrgybn3hkn2@ssh.leedurbin.co.nz"
 
         echo "Creating pre-deploy backup..."
-        $SSH_CMD "mkdir -p ${BACKUP_DIR} && cp -r ${DEPLOY_PATH} ${BACKUP_DIR}/public_html.backup.\$(date +%Y%m%d%H%M%S)"
-        echo "Backup created"
-
-        echo "Cleaning up old backups (keeping last 5)..."
-        $SSH_CMD "cd ${BACKUP_DIR} && ls -1d public_html.backup.* 2>/dev/null | sort | head -n -5 | xargs -r rm -rf"
-        echo "Backup cleanup complete"
+        $SSH_CMD "mkdir -p ${BACKUP_DIR} && \
+          if [ -d ${DEPLOY_PATH} ]; then \
+            cp -r ${DEPLOY_PATH} ${BACKUP_DIR}/public_html.backup.\$(date +%Y%m%d%H%M%S) && \
+            cd ${BACKUP_DIR} && ls -1d public_html.backup.* 2>/dev/null | sort | head -n -5 | xargs -r rm -rf; \
+          else \
+            echo 'No existing deployment found, skipping backup'; \
+          fi"
+        echo "Backup complete"
 
     - name: Deploy to server
       run: |
