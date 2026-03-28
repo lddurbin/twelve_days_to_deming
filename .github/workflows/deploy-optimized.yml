@@ -51,7 +51,7 @@ jobs:
     - name: Setup Pandoc
       uses: r-lib/actions/setup-pandoc@v2
       with:
-        pandoc-version: '3.1.11'  # Pinned for reproducible builds
+        pandoc-version: '3.1.11'  # Pinned for reproducible builds (reviewed 2026-03)
       
     - name: Cache Quarto installation
       id: cache-quarto
