@@ -108,6 +108,21 @@ jobs:
           exit 1
         fi
         
+    # Keep in sync with deploy.yml
+    - name: Backup current deployment
+      run: |
+        DEPLOY_PATH="www/deming.leedurbin.co.nz/public_html"
+        BACKUP_DIR="www/deming.leedurbin.co.nz/backups"
+        SSH_CMD="ssh -p 18765 u197-gmrgybn3hkn2@ssh.leedurbin.co.nz"
+
+        echo "Creating pre-deploy backup..."
+        $SSH_CMD "mkdir -p ${BACKUP_DIR} && cp -r ${DEPLOY_PATH} ${BACKUP_DIR}/public_html.backup.\$(date +%Y%m%d%H%M%S)"
+        echo "Backup created"
+
+        echo "Cleaning up old backups (keeping last 5)..."
+        $SSH_CMD "cd ${BACKUP_DIR} && ls -1d public_html.backup.* 2>/dev/null | sort | head -n -5 | xargs -r rm -rf"
+        echo "Backup cleanup complete"
+
     - name: Deploy to server
       run: |
         rsync -avz --delete -e "ssh -p 18765" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
