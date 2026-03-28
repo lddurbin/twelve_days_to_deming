@@ -17,3 +17,5 @@ issues/
 
 /scripts/
 **/*.quarto_ipynb
+
+docs/context/analysis/
