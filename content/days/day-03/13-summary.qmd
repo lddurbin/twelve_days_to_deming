@@ -9,7 +9,7 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-### Summary
+## Summary
 
 As has been obvious for a while (if not from the very start!), you know that, assuming we are "stuck" with the amount of variation represented by throwing the two dice, the best thing to do is to put the funnel at the desired value of 30 and *leave it there*. Moving the funnel anywhere at any time following any "strategy" will "only make things worse". I trust that sounds familiar!
 
@@ -25,7 +25,7 @@ Finally in this Major Activity, please take a brief look at a couple of runs of 
 
 In Part A of the Optional Extras section we shall examine in detail what happens to control charts when presented with the data from the two simulations of the Funnel Experiment studied in the Appendix. However, particularly in case you decide that that optional material is not for you, Activities 3–i and 3–j consider some general effects of putting data from the four Rules of the Funnel onto control charts.
 
-### Four-Rule Comparison
+## Four-Rule Comparison
 
 The charts below compare the outcomes from all four Rules using the same dice sequence. This is the key advantage of the digital version: you can see all four behaviours side by side.
 
@@ -118,7 +118,7 @@ summaryR4 = runAllStages(4, diceSeqSummary)
 }
 ```
 
-### Summary Statistics
+## Summary Statistics
 
 ```{ojs}
 {
@@ -160,7 +160,7 @@ summaryR4 = runAllStages(4, diceSeqSummary)
 
 <div class="thought">
 
-# ACTIVITY 3–i
+## ACTIVITY 3–i
 
 Having spent much of this morning on beginners to get used to control charts and now this afternoon on the Funnel Experiment, this is a useful Activity which involves both of them. However, if you are a Stats-level 0 student then this possibly isn't for you.
 
@@ -200,7 +200,7 @@ Click this after writing your comments
 
 <div class="thought_commentary">
 
-# ACTIVITY 3–j
+## ACTIVITY 3–j
 
 Now that you have completed the Major Activity and after reading *DemDim* Chapter 5, it would be good if you could spend the final few minutes summarising some illustrations of your own. You will find further suggestions in the relevant discussion in the Appendix—but don't look at it just yet!
 
@@ -222,7 +222,7 @@ As mentioned on page 56, the data from the two runs of the Funnel Experiment tha
 
 <div class="separator_blue"></div>
 
-### Start Over with New Dice
+## Start Over with New Dice
 
 If you'd like to repeat the entire experiment with a fresh set of dice rolls, click the button below. This will clear your saved dice sequence so that the next time you visit the earlier chapters, a brand new sequence will be generated.
 

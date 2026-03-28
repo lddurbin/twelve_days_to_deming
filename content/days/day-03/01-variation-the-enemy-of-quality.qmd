@@ -51,7 +51,7 @@ Unexpected as it might be, it seems that Dr Deming first used the terms "common 
 
 <div class="thought_commentary">
 
-# ACTIVITY 3–a
+## ACTIVITY 3–a
 
 Suggest some of the possible causes of variation in the arrival-time of my school bus.
 
@@ -78,7 +78,7 @@ Being guided by the thoughts about prison riots, factors which result in somewha
 
 <div class="thought">
 
-# ACTIVITY 3–b
+## ACTIVITY 3–b
 
 There is a saying that "Variety is the spice of life". This implies that *variety* is good. In these early pages of Day 3, we (and Dr Deming!) have been arguing that *variation* is bad.
 

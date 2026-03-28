@@ -92,7 +92,7 @@ Usage:
   margin: 20px;
 }
 
-.thought h1 {
+.thought h2 {
   color: #006600;
   text-align: center;
 }
@@ -103,7 +103,7 @@ Usage:
   margin: 20px;
 }
 
-.thought_commentary h1 {
+.thought_commentary h2 {
   color: #cc0000;
   text-align: center;
 }
@@ -123,7 +123,7 @@ Usage:
   margin: 20px;
 }
 
-.technical_aid h1, .technical_aid h2 {
+.technical_aid h1, .technical_aid h2, .technical_aid h3 {
   color: #000000;
   text-align: center;
 }
@@ -172,7 +172,7 @@ Usage:
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.major_activity_title h1 {
+.major_activity_title h2 {
   margin: 2px 0;
   padding: 10px 30px 10px 45px;
   border: 0;
@@ -253,7 +253,7 @@ Usage:
     border-radius: 20px;
   }
   
-  .major_activity_title h1 {
+  .major_activity_title h2 {
     font-size: 20px;
     padding: 12px 20px;
   }
@@ -287,7 +287,7 @@ Usage:
     padding: 10px;
   }
   
-  .major_activity_title h1 {
+  .major_activity_title h2 {
     font-size: 22px;
     padding: 12px 25px;
   }

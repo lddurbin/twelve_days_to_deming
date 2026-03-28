@@ -23,7 +23,7 @@ Here are two forms of histogram of those data. On the left, each item in the dat
 
 <div class="thought_commentary">
 
-# ACTIVITY 3–d
+## ACTIVITY 3–d
 
 Here is another sequence of 24 numbers. Please sketch a histogram of these data. I suggest you use separate boxes as on the left above. What do you conclude?
 
@@ -52,7 +52,7 @@ Just to be sure, let's draw run charts of the data. Here is a run chart for the 
 
 <div class="thought_commentary">
 
-# ACTIVITY 3–e
+## ACTIVITY 3–e
 
 Here again are the data from the second process (to save you from having to look back):
 

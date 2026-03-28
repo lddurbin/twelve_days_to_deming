@@ -9,7 +9,7 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-### Rules 3 and 4 of the Funnel
+## Rules 3 and 4 of the Funnel
 
 The motivation for the various Rules of the Funnel is discussed in *DemDim* Chapter 5, so there is no need for me to go into great detail here. The important issue here is how well they work. So I'll summarise the motivations for Rules 3 and 4 quite briefly. Firstly, Rule 2 was a relatively complicated operation—you might have had to concentrate quite hard to get it right. Rule 3 is a rather easier and (at least at first sight) an apparently rather innocent variant of Rule 2. Rule 4 is quite different from both of them: it concentrates on trying to minimise the average short-term variation. The latter is, of course, an interesting mixture of good and bad. It is certainly good to reduce variation, but is it wise to do so only in the *short* term? Let's carry out similar procedures as previously, but now for Rules 3 and 4, and see what happens.
 
@@ -164,7 +164,7 @@ Recall that the very first stage in Rule 3 was identical to that in Rule 2 but, 
 
 <div class="separator_blue"></div>
 
-### Rule 4 of the Funnel
+## Rule 4 of the Funnel
 
 Lacking basic understanding of variation, management may with best intentions have used Rules 2 and/or 3 in the hope that they would produce better results than Rule 1. They have failed dismally: instead they have considerably increased variation. Since it is good to reduce variation, they strive to minimise variation *at least in the short term*. Certainly there are circumstances where this may seem quite reasonable in practice. For example, if you don't get exactly what you want from a supplier, but at least what you receive doesn't change much from one delivery to the next, it is quite possible that you can learn to "cope" (for a while) with whatever arrives. The situation that really throws you is when you get dramatic changes from one delivery to the next (which presumably is what happened to you sooner or later during Rule 3)—that's part of the motivation for trying Rule 4.
 

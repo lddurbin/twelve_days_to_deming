@@ -19,7 +19,7 @@ Now comes the time for you to get some practice at playing the role of the Forem
 
 <div class="thought_commentary">
 
-# ACTIVITY 2–f
+## ACTIVITY 2–f
 
 The next four pages show you, one at a time, the results from the Red Beads Experiment illustrated in *DemDim* Chapter 6.
 

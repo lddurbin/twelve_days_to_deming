@@ -10,7 +10,7 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 source(here::here("R/functions/main-functions.R"))
 ```
 
-# Early 1900s: The story begins
+## Early 1900s: The story begins
 
 :::: {.columns}
 
@@ -34,7 +34,7 @@ Mathematics and teaching Engineering. He was then invited to teach at the Colora
 obtained a Master’s degree in Mathematics and Physics from the University of Colorado in 1924. He
 gained his doctorate in Mathematical Physics from Yale in 1928.
 
-# The 1920s: New statistics in manufacturing
+## The 1920s: New statistics in manufacturing
 
 I have mentioned the 1920s several times during the Overture, and so you know what’s coming here. Yes:
   Dr Walter Shewhart at the Western Electric Company, and understanding variation. How did Deming get
@@ -117,7 +117,7 @@ create_clock(1, 40)
 
 ::::
 
-# Shewhart’s breakthrough
+## Shewhart’s breakthrough
 
 Earlier I described Shewhart’s work in the 1920s as a “crucially important breakthrough” in understanding
 variation. It would be unfair of me to express it in such radiant terms without providing you with a more
@@ -198,7 +198,7 @@ create_clock(2, 20)
 
 ::::
 
-# 1930s–1940s: New statistics in non-manufacturing
+## 1930s–1940s: New statistics in non-manufacturing
 
 So it did all start with some new statistical thinking and methods in a manufacturing context. Regrettably, a
 few generations later, some people still seem to think that was all Dr Deming’s work was about, and all that
@@ -210,7 +210,7 @@ work there, particularly with the 1940 American Census, turned out to be supreme
 in this capacity that he first attracted some international attention. In fact his first visit to Japan, soon after
 the end of the Second World War, was primarily to work with the Japanese Census.
 
-# 1950s–1960s: <span class=deming_quote>“The theory of a system, and cooperation”</span>
+## 1950s–1960s: <span class=deming_quote>”The theory of a system, and cooperation”</span>
 
 Does that heading seem familiar? I’ll remind you a little later of where you first saw it.
 
@@ -273,7 +273,7 @@ create_clock(2, 30)
 
 ::::
 
-# <span class=deming_quote>A Summary of Teachings to Top Management and to Engineers in Japan</span>
+## <span class=deming_quote>A Summary of Teachings to Top Management and to Engineers in Japan</span>
 
 <span class=deming_quote>
 1. The flow diagram shown here was on the blackboard at every conference with top management:
@@ -383,7 +383,7 @@ industrial rebirth and its worldwide success to W Edwards Deming.”
 Some of the matters raised in Deming’s <span class=deming_quote>“Summary of Teachings”</span> will be seen to have parallels in the Major
 Activity at the end of this afternoon. Before that, let’s continue with the story. But to where?
 
-# The 1970s: The wasted years
+## The 1970s: The wasted years
 
 I well remember the occasion when I was one of a group of some 50 people enjoying a study weekend with
 Dr Deming at the Ashridge Management College in the UK, immediately following his London four-day
@@ -417,7 +417,7 @@ create_clock(2, 50)
 
 ::::
 
-# The 1980s (first half): The West awakens {#sec-page37}
+## The 1980s (first half): The West awakens {#sec-page37}
 
 Dr Deming’s involvement with the Nashua Corporation began just early enough to become known to the
 NBC television producer, Clare Crawford-Mason, in time for her to include in the documentary *If Japan Can, Why Can’t We?*, first screened in June 1980. That was the breakthrough in the West (almost exactly
@@ -474,7 +474,7 @@ And a lot of them didn’t want it to end. Initial thoughts of the need to form 
 
 The content of the four-day seminars in the mid-1980s is well reflected in *Out of the Crisis*: with particularly long and deep discussion of the 14 Points and the “Deadly Diseases” of Western management (to be studied here on Days 4 and 5), along with the Experiment on Red Beads (Day 2) and later also the Funnel Experiment (Day 3), and a wide selection of other topics from later in his book.
 
-# The 1980s (second half): A new climate
+## The 1980s (second half): A new climate
 
 But, by the late 1980s, Dr Deming’s teaching had broadened and deepened. The phrase “A New Climate” repeatedly came into my mind. Just as in Japan more than 35 years earlier, he was now strongly emphasising <span class=deming_quote>“Cooperation: Win-Win”</span> (I suspect that it may have been he who coined this now-well-known phrase)—not cooperation for some altruistic, magnanimous purpose but simply so that all concerned could gain, could be better off in all respects than if they carried on in the familiar old mode of conflict and destructive competition.
 
@@ -495,7 +495,7 @@ unconsciously, he surely knew he must try to develop something that would help t
 to better understand and continue to benefit from his life’s work. It was toward the end of 1989 that we
 first heard what is surely an extraordinary phrase:
 
-# 1990–1993: <span class=deming_quote>A System of Profound Knowledge</span>
+## 1990–1993: <span class=deming_quote>A System of Profound Knowledge</span>
 
 Extraordinary, yes—yet valid. This was his attempt, sometimes with the wisdom of hindsight, to summarise
 the core, the guts, the essence of his whole life’s work. His work *is* to do with knowledge, understanding,
@@ -617,7 +617,7 @@ quarter of a million people attended his celebrated four-day seminars between 19
 
 But what of...
 
-# 1994 and onward: The future
+## 1994 and onward: The future
 
 Here I can do no better than largely repeat the closing words of my Preface to the Third Printing of *DemDim*
 in 1998:

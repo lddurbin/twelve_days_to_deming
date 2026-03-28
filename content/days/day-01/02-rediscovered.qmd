@@ -11,7 +11,7 @@ source(here::here("R/functions/main-functions.R"))
 ```
 
 
-# The Deming Prize and the Nashua Corporation {#sec-page2}
+## The Deming Prize and the Nashua Corporation {#sec-page2}
 
 :::: {.columns}
 
@@ -103,7 +103,7 @@ same as what most people mean by “flowcharting”.
   
 ::::
   
-# The four-day seminars
+## The four-day seminars
   
   I had no communication with Dr Deming himself during that time. I did, of course, hear more and more
 about him. One of the things I heard was that the people at Nashua Corporation had encouraged him to
@@ -148,7 +148,7 @@ create_clock(9, 40)
   
 ::::
   
-# The British Deming Association and later {#sec-page6}
+## The British Deming Association and later {#sec-page6}
   
   Not surprisingly, I soon began to present my own seminars on Dr Deming’s work and, largely with the help
 of people that I met at those early seminars and at the London four-day seminars, encouraged the formation of the British Deming Association in 1987. The BDA was a not-for-profit educational organisation having the aims of spreading awareness and aiding understanding of the Deming management philosophy.

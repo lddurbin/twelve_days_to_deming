@@ -63,7 +63,7 @@ There will then remain just two further items on today's agenda. First comes the
 
 <div class="thought_commentary">
 
-# PAUSE FOR THOUGHT 2–e
+## PAUSE FOR THOUGHT 2–e
 
 As you will see, I have reproduced for you below and on the next page the statisticians' data week by
 week. There is space on the right of the data for your Foreman-like comments on every count of red

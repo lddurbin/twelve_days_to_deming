@@ -48,7 +48,7 @@ The results produced when the experiment was performed at that company in Irelan
 
 <div class="thought_commentary">
 
-# PAUSE FOR THOUGHT 2–d
+## PAUSE FOR THOUGHT 2–d
 
 Take a careful look through these results. What main feature occurs to you when comparing the six Willing Workers with each other?
 

@@ -61,7 +61,7 @@ As a new user of the control chart, here is your obvious Pause for Thought:
 
 <div class="thought_commentary">
 
-# PAUSE FOR THOUGHT 2–e
+## PAUSE FOR THOUGHT 2–e
 What does the above control chart tell you?
 
 ```{ojs}

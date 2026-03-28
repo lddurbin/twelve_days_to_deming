@@ -135,7 +135,7 @@ This was clearly a case where, in practice, there was little to be gained by pro
 
 <div class="thought">
 
-# ACTIVITY 3–g
+## ACTIVITY 3–g
 
 Just for practice, compute the control limits by the method just demonstrated (again using just the first 12 values) on the data whose run chart you drew in Activity 3–e on page 8. Here are those data:
 
