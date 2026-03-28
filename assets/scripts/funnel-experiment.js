@@ -254,15 +254,16 @@ export function renderDataTable(rule, stages, tableIndex) {
   const range = ranges[tableIndex];
   const cols = range.end - range.start + 1;
 
-  let html = `<table class="fe-data-table"><thead>`;
-  html += `<tr><th>Stage number</th>`;
+  let html = `<table class="fe-data-table">`;
+  html += `<caption>Rule ${rule} — Stages ${range.start} to ${range.end}</caption>`;
+  html += `<thead><tr><th scope="col">Stage number</th>`;
   for (let s = range.start; s <= range.end; s++) {
-    html += `<th>${s}</th>`;
+    html += `<th scope="col">${s}</th>`;
   }
   html += `</tr></thead><tbody>`;
 
   // Row: Funnel is at
-  html += `<tr><td>▼ is at</td>`;
+  html += `<tr><th scope="row">▼ is at</th>`;
   for (let s = range.start; s <= range.end; s++) {
     const st = stages.find(x => x.stage === s);
     html += `<td>${st ? st.funnelBefore : ""}</td>`;
@@ -270,7 +271,7 @@ export function renderDataTable(rule, stages, tableIndex) {
   html += `</tr>`;
 
   // Row: Dice-score
-  html += `<tr><td>Dice-score =</td>`;
+  html += `<tr><th scope="row">Dice-score =</th>`;
   for (let s = range.start; s <= range.end; s++) {
     const st = stages.find(x => x.stage === s);
     html += `<td>${st ? st.diceScore : ""}</td>`;
@@ -278,7 +279,7 @@ export function renderDataTable(rule, stages, tableIndex) {
   html += `</tr>`;
 
   // Row: Direction
-  html += `<tr><td>From ▼, ● goes</td>`;
+  html += `<tr><th scope="row">From ▼, ● goes</th>`;
   for (let s = range.start; s <= range.end; s++) {
     const st = stages.find(x => x.stage === s);
     html += `<td>${st ? st.direction : ""}</td>`;
@@ -286,7 +287,7 @@ export function renderDataTable(rule, stages, tableIndex) {
   html += `</tr>`;
 
   // Row: Outcome (marble position) — yellow bg, red text
-  html += `<tr class="fe-row-outcome"><td>Outcome: ● is at</td>`;
+  html += `<tr class="fe-row-outcome"><th scope="row">Outcome: ● is at</th>`;
   for (let s = range.start; s <= range.end; s++) {
     const st = stages.find(x => x.stage === s);
     html += `<td>${st ? st.marblePos : ""}</td>`;
@@ -295,7 +296,7 @@ export function renderDataTable(rule, stages, tableIndex) {
 
   // Rows specific to Rule 2: relative to target, move funnel
   if (rule === 2) {
-    html += `<tr><td>● relative to ◎ is ...</td>`;
+    html += `<tr><th scope="row">● relative to ◎ is ...</th>`;
     for (let s = range.start; s <= range.end; s++) {
       const st = stages.find(x => x.stage === s);
       if (st) {
@@ -308,7 +309,7 @@ export function renderDataTable(rule, stages, tableIndex) {
     }
     html += `</tr>`;
 
-    html += `<tr><td>... move ▼</td>`;
+    html += `<tr><th scope="row">... move ▼</th>`;
     for (let s = range.start; s <= range.end; s++) {
       const st = stages.find(x => x.stage === s);
       if (st) {
@@ -324,7 +325,7 @@ export function renderDataTable(rule, stages, tableIndex) {
 
   // Rows for Rule 3: relative to target, place funnel
   if (rule === 3) {
-    html += `<tr><td>● relative to ◎ is ...</td>`;
+    html += `<tr><th scope="row">● relative to ◎ is ...</th>`;
     for (let s = range.start; s <= range.end; s++) {
       const st = stages.find(x => x.stage === s);
       if (st) {
@@ -337,7 +338,7 @@ export function renderDataTable(rule, stages, tableIndex) {
     }
     html += `</tr>`;
 
-    html += `<tr><td>... place ▼ relative to ◎</td>`;
+    html += `<tr><th scope="row">... place ▼ relative to ◎</th>`;
     for (let s = range.start; s <= range.end; s++) {
       const st = stages.find(x => x.stage === s);
       if (st) {
@@ -353,7 +354,7 @@ export function renderDataTable(rule, stages, tableIndex) {
 
   // Row: Funnel is now at (for Rules 2, 3, 4)
   if (rule !== 1) {
-    html += `<tr><td>So ▼ is now at</td>`;
+    html += `<tr><th scope="row">So ▼ is now at</th>`;
     for (let s = range.start; s <= range.end; s++) {
       const st = stages.find(x => x.stage === s);
       html += `<td>${st ? st.funnelAfter : ""}</td>`;

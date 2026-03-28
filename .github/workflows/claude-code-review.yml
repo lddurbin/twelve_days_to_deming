@@ -1,0 +1,65 @@
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  claude-review:
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: read
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code Review
+        id: claude-review
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
+
+            ## MANDATORY FIRST STEP
+            Before doing ANYTHING else, run: `gh pr view ${{ github.event.pull_request.number }} --comments --json comments`
+
+            Check if there are any comments from claude[bot]. If so, this is a FOLLOW-UP REVIEW:
+            - Your review MUST acknowledge which previous issues have been FIXED
+            - DO NOT repeat recommendations that were already made and addressed
+            - Focus ONLY on NEW changes since your last review
+            - Only mention outstanding issues if they are STILL present in the current code
+
+            If this is a follow-up review, structure your comment as:
+            1. "## Follow-up Review" header
+            2. "### Previously Addressed" - list items that have been fixed
+            3. "### New Issues Found" - only genuinely new problems in the latest changes
+            4. "### Still Outstanding" - only if previous issues remain unfixed
+
+            ## Review Criteria
+            Review the pull request for:
+            - Code quality and best practices
+            - Potential bugs or issues
+            - Performance considerations
+            - Security concerns
+            - Accessibility (WCAG compliance)
+
+            Use the repository's CLAUDE.md for guidance on style and conventions.
+
+            ## MANDATORY: How to post your review
+            To avoid shell quoting issues with markdown, you MUST use the Write tool
+            and --body-file pattern. Do NOT pass the review body directly via --body.
+
+            1. Use the Write tool to write your complete review to /tmp/review.md
+            2. Post it with: gh pr comment ${{ github.event.pull_request.number }} --body-file /tmp/review.md
+
+          claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Read,Glob,Grep,Write"'

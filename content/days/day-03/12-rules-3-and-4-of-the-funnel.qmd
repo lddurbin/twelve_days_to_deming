@@ -17,8 +17,13 @@ Recall that in Rule 2 the distance and direction between the target and where th
 
 <div style="text-align:center; margin: 1em 0;">
 <table class="fe-summary-table">
-<tr><th>If ● is at …</th><td>… 25</td><td>26</td><td>27</td><td style="background:#90EE90;font-weight:bold;">28</td><td>29</td><td>30</td><td>31</td><td style="background:#90EE90;font-weight:bold;">32</td><td>33</td><td>34</td><td>35</td><td>…</td></tr>
-<tr><th>you move ▼ to …</th><td>… 35</td><td>34</td><td>33</td><td>32</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>…</td></tr>
+<caption>Rule 3 — marble position to funnel placement lookup</caption>
+<thead>
+<tr><th scope="col">If ● is at …</th><th scope="col">… 25</th><th scope="col">26</th><th scope="col">27</th><th scope="col" style="background:#90EE90;font-weight:bold;">28</th><th scope="col">29</th><th scope="col">30</th><th scope="col">31</th><th scope="col" style="background:#90EE90;font-weight:bold;">32</th><th scope="col">33</th><th scope="col">34</th><th scope="col">35</th><th scope="col">…</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row">you move ▼ to …</th><td>… 35</td><td>34</td><td>33</td><td>32</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>…</td></tr>
+</tbody>
 </table>
 </div>
 
