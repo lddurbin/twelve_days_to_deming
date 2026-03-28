@@ -47,7 +47,7 @@ jobs:
 
     - name: Pre-install igraph in renv library
       run: |
-        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, strsplit(R.version$minor, "\\\\.")[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
+        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, strsplit(R.version$minor, ".", fixed=TRUE)[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
         mkdir -p "$R_LIBPATH"
         Rscript -e "install.packages('igraph', lib = '$R_LIBPATH')"
 
@@ -102,7 +102,7 @@ jobs:
 
     - name: Check renv library permissions
       run: |
-        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, strsplit(R.version$minor, "\\\\.")[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
+        R_LIBPATH="renv/library/R-$(Rscript -e 'cat(paste(R.version$major, strsplit(R.version$minor, ".", fixed=TRUE)[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
         ls -l "$R_LIBPATH"
         
     - name: Build Quarto book
