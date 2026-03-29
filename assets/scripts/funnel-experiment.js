@@ -371,3 +371,46 @@ export function renderDataTable(rule, stages, tableIndex) {
   html += `</tbody></table>`;
   return html;
 }
+
+// --- Chapter-level helpers ---
+// These reduce duplication across OJS cells in chapters 11, 12, and 13.
+// Each returns an HTML string; OJS cells wrap with html`${...}`.
+
+// Status bar showing rule info, current stage, last outcome, and funnel position
+export function renderStatusHTML(rule, description, counter, visible, totalStages, target) {
+  const lastOutcome = counter > 0 ? visible[visible.length - 1].marblePos : null;
+  const funnelPos = counter > 0 ? visible[visible.length - 1].funnelAfter : target;
+  const funnelLabel = rule === 1 ? "Funnel always at" : (counter > 0 ? "Funnel now at" : "Funnel at");
+
+  let s = `<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">`;
+  s += `<strong>Rule ${rule} — ${description}</strong><br>`;
+  s += `Stage: <strong>${counter}</strong> of ${totalStages}`;
+  if (lastOutcome !== null) {
+    s += ` | Last outcome: <strong class="fe-outcome-value">${lastOutcome}</strong>`;
+  }
+  s += ` | ${funnelLabel}: <strong class="fe-funnel-value">${funnelPos}</strong>`;
+  s += `</div>`;
+  return s;
+}
+
+// Track SVG wrapped in its scroll container
+export function renderTrackHTML(counter, visible, allStages) {
+  const currentStage = counter > 0 ? visible[visible.length - 1] : null;
+  const trackRange = computeTrackRange(allStages);
+  return `<div class="fe-track-container">${renderTrackSVG(currentStage, trackRange)}</div>`;
+}
+
+// Next/Complete buttons — returns HTML with .fe-stage-next and .fe-stage-complete classes
+// Callers attach onclick handlers via querySelector in OJS
+export function renderStageButtonsHTML(counter, totalStages) {
+  const d = counter >= totalStages ? " disabled" : "";
+  return `<div><button class="fe-button fe-stage-next"${d}>Next Stage \u2192</button>`
+       + `<button class="fe-button fe-button-complete fe-stage-complete"${d}>Complete Remaining Stages</button></div>`;
+}
+
+// Three sub-tables (stages 1-14, 15-27, 28-40) wrapped in scroll containers
+export function renderDataTablesHTML(rule, visible) {
+  return `<div class="fe-track-container">${renderDataTable(rule, visible, 0)}</div>`
+       + `<div class="fe-track-container">${renderDataTable(rule, visible, 1)}</div>`
+       + `<div class="fe-track-container">${renderDataTable(rule, visible, 2)}</div>`;
+}
