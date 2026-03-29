@@ -1,6 +1,6 @@
 // ============================================================
 // Funnel Experiment — shared pure-function module
-// Used by OJS cells in chapters 11, 12, and 13 of Day 3
+// Used by OJS cells in chapters 11 and 12 of Day 3
 // ============================================================
 
 // --- Constants ---
@@ -373,10 +373,11 @@ export function renderDataTable(rule, stages, tableIndex) {
 }
 
 // --- Chapter-level helpers ---
-// These reduce duplication across OJS cells in chapters 11, 12, and 13.
+// These reduce duplication across OJS cells in chapters 11 and 12.
 // Each returns an HTML string; OJS cells wrap with html`${...}`.
 
-// Status bar showing rule info, current stage, last outcome, and funnel position
+// Status bar showing rule info, current stage, last outcome, and funnel position.
+// `description` must be a trusted string literal (not user input) — it is injected unescaped.
 export function renderStatusHTML(rule, description, counter, visible, totalStages, target) {
   const lastOutcome = counter > 0 ? visible[visible.length - 1].marblePos : null;
   const funnelPos = counter > 0 ? visible[visible.length - 1].funnelAfter : target;
@@ -394,8 +395,8 @@ export function renderStatusHTML(rule, description, counter, visible, totalStage
 }
 
 // Track SVG wrapped in its scroll container
-export function renderTrackHTML(counter, visible, allStages) {
-  const currentStage = counter > 0 ? visible[visible.length - 1] : null;
+export function renderTrackHTML(visible, allStages) {
+  const currentStage = visible.length > 0 ? visible[visible.length - 1] : null;
   const trackRange = computeTrackRange(allStages);
   return `<div class="fe-track-container">${renderTrackSVG(currentStage, trackRange)}</div>`;
 }
@@ -408,7 +409,7 @@ export function renderStageButtonsHTML(counter, totalStages) {
        + `<button class="fe-button fe-button-complete fe-stage-complete"${d}>Complete Remaining Stages</button></div>`;
 }
 
-// Three sub-tables (stages 1-14, 15-27, 28-40) wrapped in scroll containers
+// Three sub-tables wrapped in scroll containers (indices 0/1/2 → stages 1-14, 15-27, 28-40)
 export function renderDataTablesHTML(rule, visible) {
   return `<div class="fe-track-container">${renderDataTable(rule, visible, 0)}</div>`
        + `<div class="fe-track-container">${renderDataTable(rule, visible, 1)}</div>`

@@ -90,7 +90,7 @@ html`${renderStatusHTML(3, "Symmetric Placement", rule3Counter, rule3Visible, TO
 ```
 
 ```{ojs}
-html`${renderTrackHTML(rule3Counter, rule3Visible, rule3AllStages)}`
+html`${renderTrackHTML(rule3Visible, rule3AllStages)}`
 ```
 
 ```{ojs}
@@ -194,7 +194,7 @@ html`${renderStatusHTML(4, "Place Funnel Where Marble Landed", rule4Counter, rul
 ```
 
 ```{ojs}
-html`${renderTrackHTML(rule4Counter, rule4Visible, rule4AllStages)}`
+html`${renderTrackHTML(rule4Visible, rule4AllStages)}`
 ```
 
 ```{ojs}

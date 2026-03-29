@@ -99,7 +99,7 @@ html`${renderStatusHTML(2, "Ford's First Strategy (Compensation)", rule2Counter,
 ```
 
 ```{ojs}
-html`${renderTrackHTML(rule2Counter, rule2Visible, rule2AllStages)}`
+html`${renderTrackHTML(rule2Visible, rule2AllStages)}`
 ```
 
 ```{ojs}
@@ -191,7 +191,7 @@ html`${renderStatusHTML(1, "Ford's Second Strategy (Leave the Funnel Alone)", ru
 ```
 
 ```{ojs}
-html`${renderTrackHTML(rule1Counter, rule1Visible, rule1AllStages)}`
+html`${renderTrackHTML(rule1Visible, rule1AllStages)}`
 ```
 
 ```{ojs}
