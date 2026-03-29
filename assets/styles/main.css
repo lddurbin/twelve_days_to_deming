@@ -70,6 +70,9 @@ Usage:
 .deming_quote {
   color: #0000b3;
   font-weight: bold;
+  font-style: italic;
+  border-left: 3px solid #0000b3;
+  padding-left: 0.5em;
 }
 
 .foreman-remark {
@@ -98,7 +101,7 @@ Usage:
 }
 
 .thought_commentary {
-  border: 2px solid #ff0000;
+  border: 2px dashed #ff0000;
   padding: 10px;
   margin: 20px;
 }
@@ -110,7 +113,7 @@ Usage:
 
 .thought_commentary .collapse {
   background-color: #ffe0e0;
-  border: 2px solid #ff0000;
+  border: 2px dashed #ff0000;
   padding: 10px;
   margin: 20px;
 }
@@ -322,6 +325,7 @@ button:focus,
   .deming_quote {
     color: #000080;
     font-weight: bold;
+    border-left-color: #000080;
   }
   
   .thought {
@@ -329,7 +333,11 @@ button:focus,
   }
   
   .thought_commentary {
-    border: 3px solid #cc0000;
+    border: 3px dashed #cc0000;
+  }
+
+  .thought_commentary .collapse {
+    border: 3px dashed #cc0000;
   }
 }
 
