@@ -232,13 +232,13 @@ export function renderTrackSVG(currentStage, trackRange) {
   if (currentStage) {
     const funnelX = (currentStage.funnelBefore - trackRange.min) * cellW + padding + cellW / 2;
     const funnelY = padding + 10;
-    svg += `<polygon points="${funnelX - 10},${funnelY} ${funnelX + 10},${funnelY} ${funnelX},${funnelY + 18}" fill="#3366cc" stroke="#1a3366" stroke-width="1.5"><title>Funnel</title></polygon>`;
+    svg += `<polygon points="${funnelX - 10},${funnelY} ${funnelX + 10},${funnelY} ${funnelX},${funnelY + 18}" fill="#3366cc" stroke="#1a3366" stroke-width="1.5"/>`;
     svg += `<text x="${funnelX}" y="${funnelY - 4}" text-anchor="middle" font-size="10" fill="#3366cc" font-weight="bold">▼</text>`;
 
     // Draw marble icon (brown/orange circle)
     const marbleX = (currentStage.marblePos - trackRange.min) * cellW + padding + cellW / 2;
     const marbleY = 50 + padding + cellH + 15;
-    svg += `<circle cx="${marbleX}" cy="${marbleY}" r="10" fill="#cc6633" stroke="#663300" stroke-width="1.5"><title>Marble</title></circle>`;
+    svg += `<circle cx="${marbleX}" cy="${marbleY}" r="10" fill="#cc6633" stroke="#663300" stroke-width="1.5"/>`;
   }
 
   svg += `</svg>`;
