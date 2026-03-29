@@ -53,7 +53,8 @@ We'll use my own dice-scores to start with so that you can follow my illustratio
 // Import the funnel experiment module
 import {
   generateDiceSequence, saveDiceSequence, loadDiceSequence,
-  runAllStages, computeTrackRange, renderTrackSVG, renderDataTable,
+  runAllStages, renderStatusHTML, renderTrackHTML,
+  renderStageButtonsHTML, renderDataTablesHTML,
   TARGET, TOTAL_STAGES
 } from "../../../assets/scripts/funnel-experiment.js"
 ```
@@ -94,52 +95,28 @@ rule2Visible = rule2AllStages.slice(0, rule2Counter)
 ```
 
 ```{ojs}
-// Status bar
-html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
-  <strong>Rule 2 — Ford's First Strategy (Compensation)</strong><br>
-  Stage: <strong>${rule2Counter}</strong> of ${TOTAL_STAGES}
-  ${rule2Counter > 0 ? ` | Last outcome: <strong class="fe-outcome-value">${rule2Visible[rule2Visible.length - 1].marblePos}</strong>` : ""}
-  ${rule2Counter > 0 ? ` | Funnel now at: <strong class="fe-funnel-value">${rule2Visible[rule2Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong class="fe-funnel-value">${TARGET}</strong>`}
-</div>`
+html`${renderStatusHTML(2, "Ford's First Strategy (Compensation)", rule2Counter, rule2Visible, TOTAL_STAGES, TARGET)}`
 ```
 
 ```{ojs}
-// Track visualisation
-{
-  const currentStage = rule2Counter > 0 ? rule2Visible[rule2Visible.length - 1] : null;
-  const trackRange = computeTrackRange(rule2AllStages);
-  const svgStr = renderTrackSVG(currentStage, trackRange);
-  return html`<div class="fe-track-container">${html`${svgStr}`}</div>`;
-}
+html`${renderTrackHTML(rule2Visible, rule2AllStages)}`
 ```
 
 ```{ojs}
-// Action buttons
 {
-  const nextBtn = html`<button class="fe-button" ${rule2Counter >= TOTAL_STAGES ? "disabled" : ""}>Next Stage →</button>`;
-  const completeBtn = html`<button class="fe-button fe-button-complete" ${rule2Counter >= TOTAL_STAGES ? "disabled" : ""}>Complete Remaining Stages</button>`;
-
-  nextBtn.onclick = () => {
+  const el = html`${renderStageButtonsHTML(rule2Counter, TOTAL_STAGES)}`;
+  el.querySelector('.fe-stage-next').onclick = () => {
     if (rule2Counter < TOTAL_STAGES) mutable rule2Counter = rule2Counter + 1;
   };
-  completeBtn.onclick = () => {
+  el.querySelector('.fe-stage-complete').onclick = () => {
     mutable rule2Counter = TOTAL_STAGES;
   };
-
-  return html`<div>${nextBtn}${completeBtn}</div>`;
+  return el;
 }
 ```
 
 ```{ojs}
-// Data tables (3 sub-tables matching source layout)
-{
-  const t1 = renderDataTable(2, rule2Visible, 0);
-  const t2 = renderDataTable(2, rule2Visible, 1);
-  const t3 = renderDataTable(2, rule2Visible, 2);
-  return html`<div class="fe-track-container">${html`${t1}`}</div>
-              <div class="fe-track-container">${html`${t2}`}</div>
-              <div class="fe-track-container">${html`${t3}`}</div>`;
-}
+html`${renderDataTablesHTML(2, rule2Visible)}`
 ```
 
 Finally, summarise the outcomes that you've just generated in a histogram. The "outcomes" are the resting positions of the <span class="fe-marble">marble</span>, i.e. the positions of ● in the yellow-shaded rows in your table. However, now that you have as many as 40 data-values to include in the histogram, we need to think more carefully than before about what would be an efficient way to produce it.
@@ -210,52 +187,28 @@ rule1Visible = rule1AllStages.slice(0, rule1Counter)
 ```
 
 ```{ojs}
-// Status bar for Rule 1
-html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
-  <strong>Rule 1 — Ford's Second Strategy (Leave the Funnel Alone)</strong><br>
-  Stage: <strong>${rule1Counter}</strong> of ${TOTAL_STAGES}
-  ${rule1Counter > 0 ? ` | Last outcome: <strong class="fe-outcome-value">${rule1Visible[rule1Visible.length - 1].marblePos}</strong>` : ""}
-  | Funnel always at: <strong class="fe-funnel-value">${TARGET}</strong>
-</div>`
+html`${renderStatusHTML(1, "Ford's Second Strategy (Leave the Funnel Alone)", rule1Counter, rule1Visible, TOTAL_STAGES, TARGET)}`
 ```
 
 ```{ojs}
-// Track visualisation for Rule 1
-{
-  const currentStage = rule1Counter > 0 ? rule1Visible[rule1Visible.length - 1] : null;
-  const trackRange = computeTrackRange(rule1AllStages);
-  const svgStr = renderTrackSVG(currentStage, trackRange);
-  return html`<div class="fe-track-container">${html`${svgStr}`}</div>`;
-}
+html`${renderTrackHTML(rule1Visible, rule1AllStages)}`
 ```
 
 ```{ojs}
-// Action buttons for Rule 1
 {
-  const nextBtn = html`<button class="fe-button" ${rule1Counter >= TOTAL_STAGES ? "disabled" : ""}>Next Stage →</button>`;
-  const completeBtn = html`<button class="fe-button fe-button-complete" ${rule1Counter >= TOTAL_STAGES ? "disabled" : ""}>Complete Remaining Stages</button>`;
-
-  nextBtn.onclick = () => {
+  const el = html`${renderStageButtonsHTML(rule1Counter, TOTAL_STAGES)}`;
+  el.querySelector('.fe-stage-next').onclick = () => {
     if (rule1Counter < TOTAL_STAGES) mutable rule1Counter = rule1Counter + 1;
   };
-  completeBtn.onclick = () => {
+  el.querySelector('.fe-stage-complete').onclick = () => {
     mutable rule1Counter = TOTAL_STAGES;
   };
-
-  return html`<div>${nextBtn}${completeBtn}</div>`;
+  return el;
 }
 ```
 
 ```{ojs}
-// Data tables for Rule 1
-{
-  const t1 = renderDataTable(1, rule1Visible, 0);
-  const t2 = renderDataTable(1, rule1Visible, 1);
-  const t3 = renderDataTable(1, rule1Visible, 2);
-  return html`<div class="fe-track-container">${html`${t1}`}</div>
-              <div class="fe-track-container">${html`${t2}`}</div>
-              <div class="fe-track-container">${html`${t3}`}</div>`;
-}
+html`${renderDataTablesHTML(1, rule1Visible)}`
 ```
 
 So now summarise your new data in a histogram as before.

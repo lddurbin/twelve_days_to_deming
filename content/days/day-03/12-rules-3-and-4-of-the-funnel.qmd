@@ -47,7 +47,8 @@ Just for interest, take a moment's thought to guess what will happen in the long
 // Import the funnel experiment module
 import {
   generateDiceSequence, saveDiceSequence, loadDiceSequence,
-  runAllStages, computeTrackRange, renderTrackSVG, renderDataTable,
+  runAllStages, renderStatusHTML, renderTrackHTML,
+  renderStageButtonsHTML, renderDataTablesHTML,
   TARGET, TOTAL_STAGES
 } from "../../../assets/scripts/funnel-experiment.js"
 ```
@@ -85,48 +86,28 @@ rule3Visible = rule3AllStages.slice(0, rule3Counter)
 ```
 
 ```{ojs}
-html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
-  <strong>Rule 3 — Symmetric Placement</strong><br>
-  Stage: <strong>${rule3Counter}</strong> of ${TOTAL_STAGES}
-  ${rule3Counter > 0 ? ` | Last outcome: <strong class="fe-outcome-value">${rule3Visible[rule3Visible.length - 1].marblePos}</strong>` : ""}
-  ${rule3Counter > 0 ? ` | Funnel now at: <strong class="fe-funnel-value">${rule3Visible[rule3Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong class="fe-funnel-value">${TARGET}</strong>`}
-</div>`
+html`${renderStatusHTML(3, "Symmetric Placement", rule3Counter, rule3Visible, TOTAL_STAGES, TARGET)}`
+```
+
+```{ojs}
+html`${renderTrackHTML(rule3Visible, rule3AllStages)}`
 ```
 
 ```{ojs}
 {
-  const currentStage = rule3Counter > 0 ? rule3Visible[rule3Visible.length - 1] : null;
-  const trackRange = computeTrackRange(rule3AllStages);
-  const svgStr = renderTrackSVG(currentStage, trackRange);
-  return html`<div class="fe-track-container">${html`${svgStr}`}</div>`;
-}
-```
-
-```{ojs}
-{
-  const nextBtn = html`<button class="fe-button" ${rule3Counter >= TOTAL_STAGES ? "disabled" : ""}>Next Stage →</button>`;
-  const completeBtn = html`<button class="fe-button fe-button-complete" ${rule3Counter >= TOTAL_STAGES ? "disabled" : ""}>Complete Remaining Stages</button>`;
-
-  nextBtn.onclick = () => {
+  const el = html`${renderStageButtonsHTML(rule3Counter, TOTAL_STAGES)}`;
+  el.querySelector('.fe-stage-next').onclick = () => {
     if (rule3Counter < TOTAL_STAGES) mutable rule3Counter = rule3Counter + 1;
   };
-  completeBtn.onclick = () => {
+  el.querySelector('.fe-stage-complete').onclick = () => {
     mutable rule3Counter = TOTAL_STAGES;
   };
-
-  return html`<div>${nextBtn}${completeBtn}</div>`;
+  return el;
 }
 ```
 
 ```{ojs}
-{
-  const t1 = renderDataTable(3, rule3Visible, 0);
-  const t2 = renderDataTable(3, rule3Visible, 1);
-  const t3 = renderDataTable(3, rule3Visible, 2);
-  return html`<div class="fe-track-container">${html`${t1}`}</div>
-              <div class="fe-track-container">${html`${t2}`}</div>
-              <div class="fe-track-container">${html`${t3}`}</div>`;
-}
+html`${renderDataTablesHTML(3, rule3Visible)}`
 ```
 
 And now draw the run chart, continuing on from my first five points. Again, as with the histograms, there's no need to be too artistic about it—please yourself whether or not you use a ruler!
@@ -209,48 +190,28 @@ rule4Visible = rule4AllStages.slice(0, rule4Counter)
 ```
 
 ```{ojs}
-html`<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">
-  <strong>Rule 4 — Place Funnel Where Marble Landed</strong><br>
-  Stage: <strong>${rule4Counter}</strong> of ${TOTAL_STAGES}
-  ${rule4Counter > 0 ? ` | Last outcome: <strong class="fe-outcome-value">${rule4Visible[rule4Visible.length - 1].marblePos}</strong>` : ""}
-  ${rule4Counter > 0 ? ` | Funnel now at: <strong class="fe-funnel-value">${rule4Visible[rule4Visible.length - 1].funnelAfter}</strong>` : ` | Funnel at: <strong class="fe-funnel-value">${TARGET}</strong>`}
-</div>`
+html`${renderStatusHTML(4, "Place Funnel Where Marble Landed", rule4Counter, rule4Visible, TOTAL_STAGES, TARGET)}`
+```
+
+```{ojs}
+html`${renderTrackHTML(rule4Visible, rule4AllStages)}`
 ```
 
 ```{ojs}
 {
-  const currentStage = rule4Counter > 0 ? rule4Visible[rule4Visible.length - 1] : null;
-  const trackRange = computeTrackRange(rule4AllStages);
-  const svgStr = renderTrackSVG(currentStage, trackRange);
-  return html`<div class="fe-track-container">${html`${svgStr}`}</div>`;
-}
-```
-
-```{ojs}
-{
-  const nextBtn = html`<button class="fe-button" ${rule4Counter >= TOTAL_STAGES ? "disabled" : ""}>Next Stage →</button>`;
-  const completeBtn = html`<button class="fe-button fe-button-complete" ${rule4Counter >= TOTAL_STAGES ? "disabled" : ""}>Complete Remaining Stages</button>`;
-
-  nextBtn.onclick = () => {
+  const el = html`${renderStageButtonsHTML(rule4Counter, TOTAL_STAGES)}`;
+  el.querySelector('.fe-stage-next').onclick = () => {
     if (rule4Counter < TOTAL_STAGES) mutable rule4Counter = rule4Counter + 1;
   };
-  completeBtn.onclick = () => {
+  el.querySelector('.fe-stage-complete').onclick = () => {
     mutable rule4Counter = TOTAL_STAGES;
   };
-
-  return html`<div>${nextBtn}${completeBtn}</div>`;
+  return el;
 }
 ```
 
 ```{ojs}
-{
-  const t1 = renderDataTable(4, rule4Visible, 0);
-  const t2 = renderDataTable(4, rule4Visible, 1);
-  const t3 = renderDataTable(4, rule4Visible, 2);
-  return html`<div class="fe-track-container">${html`${t1}`}</div>
-              <div class="fe-track-container">${html`${t2}`}</div>
-              <div class="fe-track-container">${html`${t3}`}</div>`;
-}
+html`${renderDataTablesHTML(4, rule4Visible)}`
 ```
 
 ```{ojs}
