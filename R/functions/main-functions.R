@@ -51,11 +51,9 @@ create_clock <- function(hour, minute) {
   ggplot() +
     geom_point(aes(x = 0, y = 0), size = CLOCK$face_size, shape = 1) +
     geom_point(aes(x = 0, y = 0), size = CLOCK$center_size, shape = 1) +
-    geom_segment(data = tick_data, aes(x = x, y = y, xend = xend, yend = yend), size = CLOCK$tick_width) +
-    geom_segment(data = clock_data, aes(x = x, y = y, xend = xend, yend = yend, colour = hand), size = CLOCK$hand_width) +
+    geom_segment(data = tick_data, aes(x = x, y = y, xend = xend, yend = yend), linewidth = CLOCK$tick_width) +
+    geom_segment(data = clock_data, aes(x = x, y = y, xend = xend, yend = yend, colour = hand), linewidth = CLOCK$hand_width) +
     scale_colour_manual(values = c("black", "black")) +
-    coord_fixed(xlim = c(-CLOCK$coord_limit, CLOCK$coord_limit),
-                ylim = c(-CLOCK$coord_limit, CLOCK$coord_limit), expand = FALSE) +
     theme_void() +
     theme(
       legend.position = "none",
@@ -63,7 +61,8 @@ create_clock <- function(hour, minute) {
       panel.spacing = unit(0, "cm"),
       plot.background = element_rect(fill = "transparent", colour = NA)
     ) +
-    coord_fixed()
+    coord_fixed(xlim = c(-CLOCK$coord_limit, CLOCK$coord_limit),
+                ylim = c(-CLOCK$coord_limit, CLOCK$coord_limit), expand = FALSE)
 }
 
 # --- Run charts ---
@@ -71,9 +70,9 @@ create_clock <- function(hour, minute) {
 run_chart_theme <- function(right_margin = 5) {
   theme_minimal(base_size = 14) +
     theme(
-      panel.grid.major.y = element_line(color = "grey80", size = .8),
-      panel.grid.major.x = element_line(color = "#cccccc", size = 1.2),
-      panel.grid.minor.y = element_line(color = "grey90", size = .3),
+      panel.grid.major.y = element_line(color = "grey80", linewidth = .8),
+      panel.grid.major.x = element_line(color = "#cccccc", linewidth = 1.2),
+      panel.grid.minor.y = element_line(color = "grey90", linewidth = .3),
       panel.grid.minor.x = element_blank(),
       panel.background    = element_blank(),
       plot.margin         = margin(5, right_margin, 5, 5),
@@ -82,12 +81,12 @@ run_chart_theme <- function(right_margin = 5) {
       axis.text.y  = element_text(color = "black", size = 16),
       axis.text.x  = element_text(color = "black", size = 14),
       axis.title   = element_blank(),
-      axis.line.y  = element_line(color = "black", size = 1),
+      axis.line.y  = element_line(color = "black", linewidth = 1),
       axis.line.x  = element_blank()
     )
 }
 
-run_chart_plot <- function(values, line_size = 6,
+run_chart_plot <- function(values, line_width = 6,
                            y_limits = c(10, 25),
                            y_breaks = seq(10, 25, by = 5),
                            y_minor_breaks = seq(10, 25, by = 1),
@@ -98,7 +97,7 @@ run_chart_plot <- function(values, line_size = 6,
   right_margin <- if (!is.null(hlines)) 30 else 5
 
   p <- ggplot(df, aes(x, y)) +
-    geom_line(colour = CHART_LINE_COLOUR, size = line_size, linejoin = "round") +
+    geom_line(colour = CHART_LINE_COLOUR, linewidth = line_width, linejoin = "round") +
     scale_x_continuous(breaks = seq_along(values), expand = c(0, 0)) +
     scale_y_continuous(limits = y_limits, breaks = y_breaks,
                        minor_breaks = y_minor_breaks, expand = c(0, 0)) +
@@ -106,7 +105,7 @@ run_chart_plot <- function(values, line_size = 6,
 
   if (!is.null(hlines)) {
     for (i in seq_along(hlines)) {
-      p <- p + geom_hline(yintercept = hlines[i], color = CONTROL_LIMIT_COLOUR, size = 1)
+      p <- p + geom_hline(yintercept = hlines[i], color = CONTROL_LIMIT_COLOUR, linewidth = 1)
       if (!is.null(hline_labels) && !is.na(hline_labels[i])) {
         p <- p + annotate("text", x = length(values), y = hlines[i] + 1.2,
                           label = hline_labels[i], hjust = 1, vjust = 0,
@@ -120,7 +119,7 @@ run_chart_plot <- function(values, line_size = 6,
 # Function to plot the red beads control chart with UCL and LCL
 red_beads_control_chart <- function(red_beads_vec, LCL = 1.4, UCL = 18.2) {
   run_chart_plot(
-    red_beads_vec, line_size = 2,
+    red_beads_vec, line_width = 2,
     y_limits = c(0, 26),
     y_breaks = seq(0, 25, by = 5),
     y_minor_breaks = seq(0, 25, by = 1),
