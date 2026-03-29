@@ -65,7 +65,7 @@ figures: []
   #   notes: "Table showing funnel experiment results"
   # - page: 25
   #   action: "recreate_r"
-  #   notes: "Simple run chart — recreate with basic_run_chart()"
+  #   notes: "Simple run chart — recreate with run_chart_plot()"
   # - page: 30
   #   action: "skip"
   #   notes: "Decorative border, not needed"
