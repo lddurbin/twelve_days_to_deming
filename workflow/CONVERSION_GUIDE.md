@@ -213,10 +213,8 @@ Each day is a `part:` with nested `chapters:`:
 | Function | Purpose | Example |
 |----------|---------|---------|
 | `create_clock(hour, minute)` | Render a clock face showing the time | `create_clock(9, 30)` |
-| `basic_run_chart(df, x, y, ...)` | Generic run chart with optional reference lines | See Day 2 examples |
-| `run_chart_plot(sales_vec)` | Legacy run chart for sales data | `run_chart_plot(c(13, 19, 18, ...))` |
-| `red_beads_run_chart(vec)` | Run chart for Red Beads data | `red_beads_run_chart(c(7, 10, ...))` |
-| `red_beads_control_chart(vec, LCL, UCL)` | Control chart with limits | `red_beads_control_chart(vec, 1.4, 18.2)` |
+| `run_chart_plot(values, ...)` | Parameterised run chart (line_width, y_limits, y_breaks, y_minor_breaks, hlines, hline_labels) | `run_chart_plot(c(13, 19, 18, ...))` |
+| `red_beads_control_chart(vec, LCL, UCL)` | Control chart with limits (wraps run_chart_plot) | `red_beads_control_chart(vec, 1.4, 18.2)` |
 | `make_redbeads_df(day1, day2, ...)` | Build Red Beads data table | See Day 2 `06-your-turn.qmd` |
 | `render_redbeads_table(df)` | Render gt table for Red Beads | `render_redbeads_table(df1)` |
 

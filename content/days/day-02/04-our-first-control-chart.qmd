@@ -23,7 +23,9 @@ Here again are the numbers of red beads from the experiment, now for convenience
 There are two stages in constructing a control chart. The first stage is simply to draw a run chart of the data; so here it is:
 
 ```{r}
-red_beads_run_chart(c(7, 10, 11, 11, 12, 11, 11, 8, 10, 9, 12, 15, 3, 10, 10, 10, 9, 6, 6, 13, 10, 6, 14, 11))
+run_chart_plot(c(7, 10, 11, 11, 12, 11, 11, 8, 10, 9, 12, 15, 3, 10, 10, 10, 9, 6, 6, 13, 10, 6, 14, 11),
+               line_width = 2, y_limits = c(0, 26),
+               y_breaks = seq(0, 25, by = 5), y_minor_breaks = seq(0, 25, by = 1))
 ```
 
 The second of the two stages which then completes the control chart is to place a couple of horizontal lines on the run chart: the *control limits*. The Foreman gave Dec a card on which he had written the method for finding out where these control limits should be drawn. After pressing a few keys on his calculator, Dec came up with the values 1.4 for the Lower Control Limit (LCL) and 18.2 for the Upper Control Limit (UCL). So here is the resulting control chart:
