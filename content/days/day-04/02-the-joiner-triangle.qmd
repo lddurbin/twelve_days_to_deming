@@ -3,12 +3,6 @@ title: "THE JOINER TRIANGLE"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 ## The Joiner Triangle: "Scientific Approach"
 
 Going right back to Dr Shewhart's formative work in the 1920s, we know that the vital thing to always bear in mind is the division of variation into its two types, coupled with the observation by Dr Deming and others that by far the more important and more numerous problems (and therefore opportunities for improvement) primarily lie in the common causes of variation, i.e. in the system. What sort of things might these include? There is, for instance, a host of them which relate directly to the company or organisation as a whole: its "culture", its rules and principles, the reward and punishment mechanisms, the nourishment or discouragement of innovation, whether people are regarded as having real brains or just as "black boxes", etc, etc. The issue of variation is, of course, all highly related to work we have already done, e.g. in our learning from the Experiment on Red Beads and the issue of "tampering", so well illustrated in the Funnel Experiment.

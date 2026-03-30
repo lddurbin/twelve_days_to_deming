@@ -4,12 +4,6 @@ execute:
   echo: false
 ---
   
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
 Let me tell you now what first really began to attract me seriously to Deming’s work. It wasn’t the statistical
 ideas (as you might have thought, because of my background as a statistician). It was the fact that his
 teaching was so *human*! I saw and heard so much genuine, warm respect and empathy for humanity, individually and collectively. It was from him that I first heard ideas like <span class=deming_quote>“a company’s most important asset is

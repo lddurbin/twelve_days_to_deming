@@ -3,12 +3,6 @@ title: "SUMMARY"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 ## Summary
 
 As has been obvious for a while (if not from the very start!), you know that, assuming we are "stuck" with the amount of variation represented by throwing the two dice, the best thing to do is to put the funnel at the desired value of 30 and *leave it there*. Moving the funnel anywhere at any time following any "strategy" will "only make things worse". I trust that sounds familiar!

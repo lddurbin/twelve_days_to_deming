@@ -160,14 +160,7 @@ execute:
 ---
 ```
 
-Followed by the R setup block:
-
-````markdown
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-````
+R setup (knitr hooks and function sourcing) is handled automatically via `.Rprofile` → `R/setup.R`. No per-chapter setup chunk is needed.
 
 ### _quarto.yml Structure
 

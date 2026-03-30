@@ -3,12 +3,6 @@ title: "VARIATION—THE ENEMY OF QUALITY"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 ## Variation—the enemy of quality
 
 I'll start by telling you of something extremely basic that puzzled me in the 1980s when I was just beginning to learn about Dr Deming's work. It was a basic matter involved with Statistics. Now, I had already been a University Lecturer in Statistics for some 12 years before ever hearing of Dr Deming. Despite that background, for a considerable time I couldn't understand what was arguably the most important of all the messages in his four-day seminars. It was the need to concentrate on understanding variation—apparently more than on anything else. Why was I puzzled?

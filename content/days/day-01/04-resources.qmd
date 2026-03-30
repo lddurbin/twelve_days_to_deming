@@ -4,12 +4,6 @@ execute:
   echo: false
 ---
   
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
 In that optional excursion into the Appendix to discuss the first paradox, I included a couple of recommendations of books which will be useful if at some stage you wish to learn more about control charts. And so
 this is an opportune time for me to also suggest some further reading along with video material which could
 be helpful in your learning about the more general main themes and content of this course.

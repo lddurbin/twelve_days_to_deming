@@ -3,12 +3,6 @@ title: "RULES 3 AND 4 OF THE FUNNEL"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 ## Rules 3 and 4 of the Funnel
 
 The motivation for the various Rules of the Funnel is discussed in *DemDim* Chapter 5, so there is no need for me to go into great detail here. The important issue here is how well they work. So I'll summarise the motivations for Rules 3 and 4 quite briefly. Firstly, Rule 2 was a relatively complicated operation—you might have had to concentrate quite hard to get it right. Rule 3 is a rather easier and (at least at first sight) an apparently rather innocent variant of Rule 2. Rule 4 is quite different from both of them: it concentrates on trying to minimise the average short-term variation. The latter is, of course, an interesting mixture of good and bad. It is certainly good to reduce variation, but is it wise to do so only in the *short* term? Let's carry out similar procedures as previously, but now for Rules 3 and 4, and see what happens.

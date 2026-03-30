@@ -3,12 +3,6 @@ title: "HOW DO WE COMPUTE THESE CONTROL LIMITS—AND WHY?"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 Let me remind you of something I told you when first referring to the Red Beads Experiment (Day 1 page 7):
 
 > "[Dr Deming] would usually draw up a control chart once the results were obtained in his famous Red Beads Experiment ... But how? He would just write down a simple formula, insert some numbers obtained from the experiment, and do the arithmetic. But there was nothing about where the simple formula came from nor the fact that, with the large majority of processes, that same formula wouldn't even be appropriate!"

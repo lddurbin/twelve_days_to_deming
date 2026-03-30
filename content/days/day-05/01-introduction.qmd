@@ -3,12 +3,6 @@ title: "INTRODUCTION"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 ## DAY 5: THE JOINER TRIANGLE, THE 14 POINTS (part 2), AND THE DEADLY DISEASES
 
 ![First Project Continued](/assets/images/day-05/first-project-continued.png){fig-align="center" width="55%" .lightbox}

@@ -4,12 +4,6 @@ execute:
   echo: false
 ---
   
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
 As you have already seen, this Overture contains lots of “bits and pieces” about what is to follow during the
 course. When the Overture ends, the curtain goes up and the story begins. And that is true in two senses
 for what happens on this opening day.

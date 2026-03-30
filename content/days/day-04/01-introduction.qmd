@@ -3,12 +3,6 @@ title: "INTRODUCTION"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 ## DAY 4: THE JOINER TRIANGLE AND THE 14 POINTS (part 1)
 
 My public and in-house seminars on Dr Deming's work date from 1986. At that stage I simply offered a one-day introduction. Apart from a little historical background, such a one-day seminar would comprise just three topics: understanding variation, the Experiment on Red Beads, and the 14 Points for Management. Back then, there were pretty much all I knew about the Deming philosophy. In retrospect, and as some of my comments when introducing the Red Beads Experiment will have confirmed to you, my level of understanding even of those topics was somewhat minimal back then! But one has to start somewhere…

@@ -3,13 +3,6 @@ title: "MAJOR ACTIVITY"
 execute:
   echo: false
 ---
-
-```{r}
-# R setup for all chapters (edit as needed)
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 <div class=workbook_callout>
 Major Activity 2-h (pages 38-41) is also on [Workbook pages 26-29](workbook.html#sec-page5).
 </div>

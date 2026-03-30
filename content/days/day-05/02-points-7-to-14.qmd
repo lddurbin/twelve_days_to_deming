@@ -3,12 +3,6 @@ title: "POINTS 7–14"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 <div class="workbook_callout">Points 7–12 (pages 2–13) are also on Workbook pages 70–81.</div>
 
 ---
