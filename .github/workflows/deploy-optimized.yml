@@ -102,6 +102,9 @@ jobs:
         if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", version = "1.0.3")
         renv::restore()
         
+    - name: Run R unit tests
+      run: Rscript -e 'testthat::test_dir("tests/testthat")'
+
     - name: Build Quarto book
       run: quarto render
 

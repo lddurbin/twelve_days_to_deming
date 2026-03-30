@@ -124,6 +124,9 @@ jobs:
         R_LIBPATH="renv/library/R-$(RENV_PROJECT="" Rscript --vanilla -e 'cat(paste(R.version$major, strsplit(R.version$minor, ".", fixed=TRUE)[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
         ls -l "$R_LIBPATH"
         
+    - name: Run R unit tests
+      run: Rscript -e 'testthat::test_dir("tests/testthat")'
+
     - name: Build Quarto book
       run: |
         echo "=== Building Quarto book ==="
