@@ -3,4 +3,4 @@
 # See: https://github.com/lddurbin/twelve_days_to_deming/issues/68
 
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
+source(file.path("R", "functions", "main-functions.R"))
