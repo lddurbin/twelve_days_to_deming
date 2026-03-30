@@ -154,6 +154,11 @@
       "Repository": "RSPM",
       "Hash": "d972ef991d58c19e6efa71b21f5e144b"
     },
+    "brio": {
+      "Package": "brio",
+      "Version": "1.1.5",
+      "Source": "Repository"
+    },
     "bslib": {
       "Package": "bslib",
       "Version": "0.8.0",
@@ -260,6 +265,11 @@
         "R"
       ],
       "Hash": "8f27335f2bcff4d6035edcc82d7d46de"
+    },
+    "diffobj": {
+      "Package": "diffobj",
+      "Version": "0.3.6",
+      "Source": "Repository"
     },
     "dplyr": {
       "Package": "dplyr",
@@ -724,6 +734,11 @@
       ],
       "Hash": "01f28d4278f15c76cddbea05899c5d6f"
     },
+    "praise": {
+      "Package": "praise",
+      "Version": "1.0.0",
+      "Source": "Repository"
+    },
     "prettyunits": {
       "Package": "prettyunits",
       "Version": "1.2.0",
@@ -946,6 +961,11 @@
       ],
       "Hash": "960e2ae9e09656611e0b8214ad543207"
     },
+    "testthat": {
+      "Package": "testthat",
+      "Version": "3.3.2",
+      "Source": "Repository"
+    },
     "tibble": {
       "Package": "tibble",
       "Version": "3.2.1",
@@ -1102,6 +1122,11 @@
         "withr"
       ],
       "Hash": "390f9315bc0025be03012054103d227c"
+    },
+    "waldo": {
+      "Package": "waldo",
+      "Version": "0.6.2",
+      "Source": "Repository"
     },
     "withr": {
       "Package": "withr",
