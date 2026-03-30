@@ -4,6 +4,7 @@ import {
   TRACK_MIN,
   TRACK_MAX,
   TOTAL_STAGES,
+  AUTHOR_FIRST_5,
   diceToDisplacement,
   displacementToDirection,
   computeMarble,
@@ -50,11 +51,11 @@ describe("diceToDisplacement", () => {
 // displacementToDirection
 // ---------------------------------------------------------------------------
 describe("displacementToDirection", () => {
-  it('formats negative displacement as "NL" (left)', () => {
+  it('formats negative displacement as left (e.g. -3 → "3L")', () => {
     expect(displacementToDirection(-3)).toBe("3L");
   });
 
-  it('formats positive displacement as "NR" (right)', () => {
+  it('formats positive displacement as right (e.g. 4 → "4R")', () => {
     expect(displacementToDirection(4)).toBe("4R");
   });
 
@@ -267,9 +268,8 @@ describe("generateDiceSequence", () => {
 
   it("uses author's first 5 dice scores when authorFirst5 is true", () => {
     const seq = generateDiceSequence(true);
-    const authorScores = [10, 8, 6, 7, 4];
-    for (let i = 0; i < 5; i++) {
-      expect(seq[i].diceScore).toBe(authorScores[i]);
+    for (let i = 0; i < AUTHOR_FIRST_5.length; i++) {
+      expect(seq[i].diceScore).toBe(AUTHOR_FIRST_5[i]);
     }
   });
 });
