@@ -1,10 +1,3 @@
-library(testthat)
-library(ggplot2)
-library(dplyr)
-library(gt)
-
-source(here::here("R/functions/main-functions.R"))
-
 # --- make_redbeads_df ---
 
 test_that("make_redbeads_df returns 7 rows (6 workers + Daily Totals)", {
@@ -75,6 +68,7 @@ test_that("render_redbeads_table returns a gt object", {
     day3 = c(10, 10, 8, 12, 7, 9),
     day4 = c(7, 13, 9, 11, 10, 8)
   )
+  # fmt_missing() is deprecated in gt >= 0.6.0; source code still uses it
   tbl <- suppressWarnings(render_redbeads_table(df))
   expect_s3_class(tbl, "gt_tbl")
 })
@@ -86,6 +80,7 @@ test_that("render_redbeads_table produces HTML output", {
     day3 = c(10, 10, 8, 12, 7, 9),
     day4 = c(7, 13, 9, 11, 10, 8)
   )
+  # fmt_missing() is deprecated in gt >= 0.6.0; source code still uses it
   tbl <- suppressWarnings(render_redbeads_table(df))
   html <- as.character(as_raw_html(tbl))
   expect_true(grepl("<table", html))
