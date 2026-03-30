@@ -4,12 +4,6 @@ execute:
   echo: false
 ---
   
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
 How can we describe Dr Deming and his work? Dr Deming is sometimes referred to as a “quality guru”
 and, in an unpublished booklet that I once read, as “the father figure of the modern quality revolution; perhaps the number one guru”. When I read that booklet, those attributions made me feel a little uneasy.
 However, if a “guru” is indeed, as quoted there, “a good man, a wise man and a teacher” then I have no

@@ -3,14 +3,6 @@ title: "DAY 1 (morning): THE OVERTURE"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
-
 ![Dr Deming and Dr Neave](/assets/images/day-01/day_1_fig_1.jpg){.lightbox}
 
 :::: {.columns}

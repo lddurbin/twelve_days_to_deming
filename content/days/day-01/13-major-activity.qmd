@@ -4,12 +4,6 @@ execute:
   echo: false
 ---
   
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
 <div class=workbook_callout>
 Major Activity 1-f (pages 42-44) is also on [Workbook pages 5-7](workbook.html#sec-page5).
 </div>

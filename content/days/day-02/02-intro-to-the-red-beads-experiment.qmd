@@ -3,13 +3,6 @@ title: "INTRODUCTION TO THE RED BEADS EXPERIMENT"
 execute:
   echo: false
 ---
-
-```{r}
-# R setup for all chapters (edit as needed)
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 It is, of course, more than a quarter-century since Dr Deming passed away. Therefore, those of us who were fortunate enough to have attended one or more of his four-day seminars are now much older than we were then! But, hopefully, not all memories will have faded in the intervening years, in which case there must be very few, if any, who have forgotten about the Experiment on Red Beads.
 
 If you explore the internet, you are likely to find several links to videos involving the Red Beads Experiment. However, most of them, whether or not they feature Dr Deming himself, offer only short extracts from the experiment—nowhere near long enough, in my view, to get any real sense of what actually happened and of the atmosphere in the audience as the experiment ran its course. I have already described something of that atmosphere on Day 1 page 38. So I believe most short extracts miss the point: and that is a real shame in view of the fact that, to many of the delegates, the experiment was a highlight—if not the highlight—of the whole seminar. Worse still, such extracts are sometimes accompanied by brief and poorly-scripted coverage which I suggest can literally do far more harm than good.

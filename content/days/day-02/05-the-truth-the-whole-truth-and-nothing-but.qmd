@@ -3,14 +3,6 @@ title: "THE TRUTH, THE WHOLE TRUTH, AND NOTHING BUT ..."
 execute:
   echo: false
 ---
-
-```{r}
-# R setup for all chapters (edit as needed)
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
-
 It is time for me to come clean as to the nature of the "work" in the Red Beads Experiment, and how it is performed. This description is quite lengthy (more than three pages). It divides into roughly equal quarters (the second quarter beginning at "The training, part 1" below). So, in order to get things clear in your mind, I recommend that you read each of the four quarters two or three times before moving on to the next.
 
 Let's begin at the beginning. As I introduced the experiment, I made no secret of Dr Deming's description of it as <span class="deming_quote">"stupidly simple"</span>—indeed, I even gave delegates the page reference in *Out of the Crisis*! But I also pointed out to them that, in Dr Deming's work, you often find things which are, at one and the same time, both simple and profound. The purpose of this experiment is to learn—and to have fun: there is nothing wrong with doing both, and indeed Dr Deming was most favourably disposed to that combination! Yes, the experiment contains humour, but it also contains profound messages. The audience will be invited to identify some of those profound messages after the experiment is concluded.

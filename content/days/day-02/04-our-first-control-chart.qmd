@@ -3,13 +3,6 @@ title: "OUR FIRST CONTROL CHART"
 execute:
   echo: false
 ---
-
-```{r}
-# R setup for all chapters (edit as needed)
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 We have now seen our first set of what were referred to yesterday as "process data" (other than the set illustrated on today's first page). We certainly have a process: meticulously defined by the Foreman during the training period. And we have some time-ordered data from that process: the 24 consecutive numbers of red beads recorded by Dec, the Recorder, in his table on page 11.
 
 Thus, recalling some of what was introduced on Day 1, it is reasonable to think of developing a control chart of these data. The control chart has a pretty good track-record of telling the truth about a process or, at least, providing guidance on where it is sensible to look for the truth.

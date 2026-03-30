@@ -3,12 +3,6 @@ title: "A FAVOURITE EXAMPLE"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 Through our study of the "Six Processes" we have already ventured well beyond the mere basics of interpreting control charts. So let's continue the good work a little while longer.
 
 The example described below is one which Dr Deming frequently showed in his four-day seminars and is covered on *Out of the Crisis* pages 227–228(264–266). Instead of simply reproducing what is shown in the book, I have redrawn a couple of charts based on the information in his account.

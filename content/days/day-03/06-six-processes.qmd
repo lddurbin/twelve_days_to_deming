@@ -3,12 +3,6 @@ title: "SIX PROCESSES"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 Take an initial look at these twelve control charts:
 
 ![Twelve control charts: A1–F2](/assets/images/day-03/six-processes-12-charts.png){fig-align="center" width="95%" .lightbox}

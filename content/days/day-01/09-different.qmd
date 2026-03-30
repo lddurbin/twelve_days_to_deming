@@ -3,14 +3,6 @@ title: "DEMING IS DIFFERENT"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
-
 As I hope you may already have begun to appreciate, the Deming philosophy is different, and not just a little different, from what we hear elsewhere about management and quality and work and business—and
 people. And yet, as I hope you’ll also increasingly appreciate as we work through this course, it has a persuasive and inevitable logic about it.
 

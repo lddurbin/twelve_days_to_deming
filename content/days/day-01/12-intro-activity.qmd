@@ -4,12 +4,6 @@ execute:
   echo: false
 ---
   
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
 Let’s return to that <span class=deming_quote>“theory of a system”</span> which Dr Deming was teaching the Japanese in 1950.
 
 It’s not surprising that there should have been such a change or development of emphasis in Dr Deming’s

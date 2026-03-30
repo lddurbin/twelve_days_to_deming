@@ -4,14 +4,6 @@ execute:
   echo: false
   warning: false
 ---
-
-```{r}
-# R setup for all chapters (edit as needed)
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
-
 In spite of the <span class="deming_quote">"stupidly simple"</span> nature of the Red Beads Experiment, and in spite of our naturally having the All-Knowing's perspective on it, emotions can run high. I shall not forget an occasion when, as soon as the experiment had ended, one of my delegates stood up, ashen-faced and with unsteady voice, to confirm that so much of what had just happened, so much of what I (as the Foreman) had said to the workers, so much of the way I had mistreated and abused them, eventually firing some of them for no justifiable reason, had not only all happened to him but to others in his family.
 
 Another memory is from February 1992: the occasion when I took Tony Carter, recently appointed to the position of Secretary General in the British Deming Association, to meet Dr Deming and attend a four-day seminar in Miami. His hand shot up when it was time for volunteers to participate in the Red Beads Experiment, and he became one of the Willing Workers. Imagine how he felt—on stage with Dr Deming in front of some 600 Americans as the new organisational and administrative head of the BDA. *Of course* he wanted to do well. *Of course* he tried hard to follow instructions. But his performance, as measured by his results, was abysmal. In the subsequent issue of the BDA's newsletter, he wrote:

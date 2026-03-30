@@ -4,12 +4,6 @@ execute:
   echo: false
 ---
   
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
 ## Early 1900s: The story begins
 
 :::: {.columns}

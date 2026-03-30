@@ -3,12 +3,6 @@ title: "AT THE FORD MOTOR COMPANY"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 On page 2 Dr Deming claimed that, if we mix up the two types of variation, <span class="deming_quote">"we only make things worse. This is easy to prove."</span> So let's prove it! Here is a well-known illustration, originating in the Ford Motor Company (see Bill Scherkenbach's *The Deming Route to Quality and Productivity*, around page 30 depending on the edition and reprint number).
 
 Input shafts for a transmission were turned in a machine equipped with an expensive automatic compensation device. If the diameter of a shaft was too large, the compensation device reduced the machine setting in order to try to make the next diameter closer to its nominal value. If the diameter was too small, the setting was increased, for the same purpose. Sounds sensible?

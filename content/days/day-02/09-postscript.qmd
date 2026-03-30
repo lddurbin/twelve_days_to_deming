@@ -3,13 +3,6 @@ title: "POSTSCRIPT"
 execute:
   echo: false
 ---
-
-```{r}
-# R setup for all chapters (edit as needed)
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 I didn't complete the story about Spaniards' performances in the Experiment on Red Beads. So I should end today by remedying that deficiency.
 
 As indicated on page 28, I presented two seminars in Madrid. On his return to that city, the Foreman could not resist telling the Workers (not the audience) about the far better results obtained on his previous visit. Although the story met with mixed reactions, he was sure that the information would prove to be highly motivational for them. So he would strive to do better in order to restore national pride. Their results as listed by Jorge were as follows:

@@ -3,12 +3,6 @@ title: "THE DEADLY DISEASES"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 Now it's time to take a break to watch the video *Management's Five Deadly Diseases* (see the link on page 1). Delegates used to appreciate my description of this video as featuring a rather elderly "Angry Young Man"! I think you'll soon see why.
 
 <div class="return_callout">Watch *Management's Five Deadly Diseases* at [www.youtube.com/watch?v=ehMuuHGN0Y](https://www.youtube.com/watch?v=ehMuuHGN0Y) (note: the penultimate character is a zero; the sixth character from the end is a capital letter I).</div>

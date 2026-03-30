@@ -3,12 +3,6 @@ title: "THE FIRST PROJECT"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 ![Title card reading First Project, displayed in a decorative orange and yellow gradient frame](/assets/images/day-04/first-project-title.png){fig-align="center" width="65%" .lightbox}
 
 During the rest of today and all of tomorrow we shall be working through the whole collection of the 14 Points and the five Deadly Diseases, using two pages for each. This afternoon we shall be covering the first six of the 14 Points, and the general layout of each pair of facing pages there is as follows.

@@ -4,12 +4,6 @@ execute:
   echo: false
 ---
   
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-source(here::here("R/functions/main-functions.R"))
-```
-
 As you may already have gathered, in my seminars the delegates did much more than just listen to me! In
 the same way, in this course I shall ask you to do much more than just read what I am writing. If you prefer
 *only* to read then please content yourself with one or more of the books I have just mentioned. But this

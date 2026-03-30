@@ -4,12 +4,6 @@ execute:
   echo: false
 ---
 
-```{r}
-# R setup for all chapters (edit as needed)
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 # Section Heading
 
 Content goes here.

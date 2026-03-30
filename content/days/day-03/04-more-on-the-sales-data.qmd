@@ -3,12 +3,6 @@ title: "MORE ON THE \"SALES DATA\""
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 :::: {.columns}
 
 ::: {.column width="60%"}

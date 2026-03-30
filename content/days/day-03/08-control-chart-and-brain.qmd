@@ -3,12 +3,6 @@ title: "CONTROL CHART + BRAIN"
 execute:
   echo: false
 ---
-
-```{r}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
 It is now time to revisit the "simplest guidance" that Dr Deming gave on how to interpret control charts (near the bottom of Day 2 page 15):
 
 > *"... if all the points lie between the two control limits then he would judge the process to be in statistical control (stable). Otherwise the indication is that the process may well be out of statistical control, and so then it could be worthwhile to try to identify special causes ..."*

@@ -3,14 +3,6 @@ title: "YOUR TURN"
 execute:
   echo: false
 ---
-
-```{r}
-# R setup for all chapters (edit as needed)
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-source(here::here("R/functions/main-functions.R"))
-```
-
-
 I well remember that, the first few times I was preparing to run the Red Beads Experiment in public, I felt rather nervous. Wouldn't you—knowing that you (as the Foreman) were going to be spending an hour or more just talking about 24 as-yet-unknown *random numbers* (or as near random as makes no difference)? But I soon found out that it could hardly be easier! Whatever numbers turn up, it's so simple to find "reasons" for them. Of course it is: we are well-practised at the art. We do it every week, month, quarter, half-year, year, in our management reports, with production figures, sales figures, financial figures. Financial commentators do it every day—or even every hour or less, e.g. regarding the movements of stock market indices and exchange rates. I'm not saying that all the reasons reported are wrong. I am pointing out that, *whatever* are the results, we and they come up with reasons—whether there actually are any or not! Even on a day when, say, the stock market index hardly moves, a reason is given for that! Few bosses or customers are yet ready to hear explanations just served in terms of *common-cause* variation. Therefore they are given special-cause explanations all the time, for every result. What clearer contradiction in terms could there be? *Yes*, of course the Foreman praises a lower number of defectives. *Of course* he criticises a larger number. Of course he remarks on consistent performance. *Of course* he makes remarks on erratic performance. *Of course* he complains if the target isn't being met. *Of course!*
 
 Now comes the time for you to get some practice at playing the role of the Foreman! Remember that the Foreman (pretends that he) is in the Un-Knowing state—typified by all the discussion in the so-called "Analysis" of the results on pages 12 and 13. So, **to help you get ready to perform in that role, I recommend that you now go back and re-read that page and a half before continuing here.**
