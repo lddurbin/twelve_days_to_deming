@@ -13,6 +13,8 @@ upload.sh
 
 _book/
 
+node_modules/
+
 issues/
 
 /scripts/
