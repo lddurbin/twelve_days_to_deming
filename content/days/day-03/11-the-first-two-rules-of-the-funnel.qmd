@@ -123,7 +123,7 @@ Finally, summarise the outcomes that you've just generated in a histogram. The "
   }
 
   const outcomes = rule2Visible.map(s => s.marblePos);
-  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16/+esm");
 
   return html`<div role="img" aria-label="Histogram of marble positions for Rule 2 across ${TOTAL_STAGES} stages">
     <span aria-hidden="true">${Plot.plot({
@@ -215,7 +215,7 @@ So now summarise your new data in a histogram as before.
   }
 
   const outcomes = rule1Visible.map(s => s.marblePos);
-  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16/+esm");
 
   return html`<div role="img" aria-label="Histogram of marble positions for Rule 1 across ${TOTAL_STAGES} stages">
     <span aria-hidden="true">${Plot.plot({

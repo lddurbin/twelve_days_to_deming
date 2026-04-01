@@ -57,7 +57,7 @@ summaryR4 = runAllStages(4, diceSeqSummary)
 ```{ojs}
 // Four-way comparison grid
 {
-  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16/+esm");
 
   function makeHistogram(stages, title, color) {
     const outcomes = stages.map(s => s.marblePos);
