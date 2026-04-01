@@ -177,11 +177,6 @@ jobs:
         echo "SSH key permissions set"
         
         # Verify key format
-        echo "=== SSH Key Verification ==="
-        echo "Key file size: $(wc -c < ~/.ssh/id_rsa) bytes"
-        echo "First line: $(head -1 ~/.ssh/id_rsa)"
-        echo "Last line: $(tail -1 ~/.ssh/id_rsa)"
-        
         # Test key format
         if ! ssh-keygen -l -f ~/.ssh/id_rsa > /dev/null 2>&1; then
           echo "ERROR: SSH key format is invalid"
