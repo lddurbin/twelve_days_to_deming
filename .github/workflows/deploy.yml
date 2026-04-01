@@ -39,7 +39,7 @@ jobs:
       id: setup-r
       uses: r-lib/actions/setup-r@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590  # v2
       with:
-        r-version: '4.4.0'  # Must match renv.lock R version
+        r-version: '4.5.1'  # Must match renv.lock R version
         
     - name: Install minimal system dependencies
       run: |
