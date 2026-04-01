@@ -119,11 +119,9 @@ jobs:
         Rscript -e 'if (!requireNamespace("knitr", quietly = TRUE) || !requireNamespace("rmarkdown", quietly = TRUE)) install.packages(c("knitr", "rmarkdown"), lib = .libPaths()[1])'
         Rscript -e 'print(.libPaths()); print(list.files(.libPaths()[1]))'
 
-    - name: Check renv library permissions
-      run: |
-        R_LIBPATH="renv/library/R-$(RENV_PROJECT="" Rscript --vanilla -e 'cat(paste(R.version$major, strsplit(R.version$minor, ".", fixed=TRUE)[[1]][1], sep="."))')/x86_64-pc-linux-gnu"
-        ls -l "$R_LIBPATH"
-        
+    - name: Verify renv library
+      run: Rscript -e 'cat("Library path:", .libPaths()[1], "\n"); cat("Packages:", length(list.files(.libPaths()[1])), "\n")'
+
     - name: Run R unit tests
       run: Rscript -e 'testthat::test_dir("tests/testthat")'
 
