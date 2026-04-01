@@ -116,7 +116,7 @@ Recall that the very first stage in Rule 3 was identical to that in Rule 2 but, 
   }
 
   const data = rule3Visible.map(s => ({ stage: s.stage, outcome: s.marblePos }));
-  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16/+esm");
 
   return html`<div role="img" aria-label="Run chart of marble positions for Rule 3 across ${TOTAL_STAGES} stages">
     <span aria-hidden="true">${Plot.plot({
@@ -216,7 +216,7 @@ html`${renderDataTablesHTML(4, rule4Visible)}`
   }
 
   const data = rule4Visible.map(s => ({ stage: s.stage, outcome: s.marblePos }));
-  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm");
+  const Plot = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16/+esm");
 
   return html`<div role="img" aria-label="Run chart of marble positions for Rule 4 across ${TOTAL_STAGES} stages">
     <span aria-hidden="true">${Plot.plot({
