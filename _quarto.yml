@@ -78,10 +78,7 @@ format:
     theme: cosmo
     css: assets/styles/main.css
     header-includes: |
-      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://excalidraw.com; img-src 'self' data:; connect-src 'self' https://cdn.jsdelivr.net;">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://excalidraw.com; img-src 'self' data:; connect-src 'self' https://cdn.jsdelivr.net;">
       <script src="/assets/scripts/functions.js"></script>
     number-sections: false
 
