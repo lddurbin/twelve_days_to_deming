@@ -64,7 +64,13 @@ So let us summarise. If the control chart of data from the experiment indicates 
 
 ## The Technical Aids
 
-<span class="neave_note"><p>We have now reached the first of the Technical Aids to be included in Days 2 and 3. Here, Technical Aids 1 and 2 describe how the control limits are computed for control charts that are based on the type of data produced and recorded in Red Beads Experiments. Technical Aid 3 contains a warning that, although control limits for all kinds of data are based on similar reasoning, some of the fine detail will vary according to the particular type of data being recorded. Hence the method described here is *not* generally applicable to many other types of data. This matter will be pursued on Day 3.</p> <p>Let me remind you that those who have opted for Stats-level 0 are invited to skip the Technical Aids! Thus, if you have elected to be on Stats-level 0 (or 00), please now move straight on to page 22.</p></span>
+<div class="neave_note" role="note" aria-label="Author's note">
+
+We have now reached the first of the Technical Aids to be included in Days 2 and 3. Here, Technical Aids 1 and 2 describe how the control limits are computed for control charts that are based on the type of data produced and recorded in Red Beads Experiments. Technical Aid 3 contains a warning that, although control limits for all kinds of data are based on similar reasoning, some of the fine detail will vary according to the particular type of data being recorded. Hence the method described here is *not* generally applicable to many other types of data. This matter will be pursued on Day 3.
+
+Let me remind you that those who have opted for Stats-level 0 are invited to skip the Technical Aids! Thus, if you have elected to be on Stats-level 0 (or 00), please now move straight on to page 22.
+
+</div>
 
 <div class="technical_aid" role="note" aria-label="Technical aid">
 ### Technical Aid 1
