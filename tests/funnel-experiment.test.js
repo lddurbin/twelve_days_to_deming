@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import {
   TARGET,
   TRACK_MIN,
@@ -12,6 +12,11 @@ import {
   runAllStages,
   generateDiceSequence,
   computeTrackRange,
+  loadDiceSequence,
+  saveDiceSequence,
+  clearDiceSequence,
+  escapeHTML,
+  renderDataTable,
 } from "../assets/scripts/funnel-experiment.js";
 
 // ---------------------------------------------------------------------------
@@ -313,5 +318,133 @@ describe("computeTrackRange", () => {
     const range = computeTrackRange(stages);
     expect(range.min).toBe(8);  // 10 - 2
     expect(range.max).toBe(52); // 50 + 2
+  });
+});
+
+// ---------------------------------------------------------------------------
+// escapeHTML
+// ---------------------------------------------------------------------------
+describe("escapeHTML", () => {
+  it("escapes angle brackets", () => {
+    expect(escapeHTML("<script>")).toBe("&lt;script&gt;");
+  });
+
+  it("escapes ampersands, double quotes, and single quotes", () => {
+    expect(escapeHTML('a&b"c\'d')).toBe("a&amp;b&quot;c&#39;d");
+  });
+
+  it("passes through safe strings unchanged", () => {
+    expect(escapeHTML("3R")).toBe("3R");
+    expect(escapeHTML("↓")).toBe("↓");
+  });
+
+  it("converts numbers to strings", () => {
+    expect(escapeHTML(42)).toBe("42");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// loadDiceSequence — field validation
+// ---------------------------------------------------------------------------
+describe("loadDiceSequence", () => {
+  // Minimal localStorage mock
+  let store;
+  beforeEach(() => {
+    store = {};
+    globalThis.localStorage = {
+      getItem: (k) => store[k] ?? null,
+      setItem: (k, v) => { store[k] = String(v); },
+      removeItem: (k) => { delete store[k]; },
+    };
+  });
+
+  function validEntry() {
+    return { die1: 3, die2: 4, diceScore: 7, displacement: 0, direction: "↓" };
+  }
+
+  it("returns a valid sequence from localStorage", () => {
+    const seq = Array.from({ length: TOTAL_STAGES }, validEntry);
+    saveDiceSequence(seq);
+    expect(loadDiceSequence()).toEqual(seq);
+  });
+
+  it("rejects data where direction contains HTML (XSS payload)", () => {
+    const seq = Array.from({ length: TOTAL_STAGES }, validEntry);
+    seq[0].direction = '<img src=x onerror="alert(1)">';
+    saveDiceSequence(seq);
+    expect(loadDiceSequence()).toBeNull();
+  });
+
+  it("rejects data where direction contains script tags", () => {
+    const seq = Array.from({ length: TOTAL_STAGES }, validEntry);
+    seq[5].direction = "<script>alert(1)</script>";
+    saveDiceSequence(seq);
+    expect(loadDiceSequence()).toBeNull();
+  });
+
+  it("rejects data where a numeric field is null (as NaN serialises to null in JSON)", () => {
+    const seq = Array.from({ length: TOTAL_STAGES }, validEntry);
+    seq[0].die1 = NaN; // JSON.stringify turns this to null
+    saveDiceSequence(seq);
+    expect(loadDiceSequence()).toBeNull();
+  });
+
+  it("rejects data where a numeric field is a string", () => {
+    const seq = Array.from({ length: TOTAL_STAGES }, validEntry);
+    seq[0].die1 = "3";
+    saveDiceSequence(seq);
+    expect(loadDiceSequence()).toBeNull();
+  });
+
+  it("rejects data with wrong array length", () => {
+    const seq = Array.from({ length: 10 }, validEntry);
+    saveDiceSequence(seq);
+    expect(loadDiceSequence()).toBeNull();
+  });
+
+  it("rejects data where direction doesn't match expected pattern", () => {
+    const seq = Array.from({ length: TOTAL_STAGES }, validEntry);
+    seq[0].direction = "bad";
+    saveDiceSequence(seq);
+    expect(loadDiceSequence()).toBeNull();
+  });
+
+  it("accepts valid direction patterns: digits+L, digits+R, ↓", () => {
+    const seq = Array.from({ length: TOTAL_STAGES }, validEntry);
+    seq[0].direction = "3L";
+    seq[1].direction = "5R";
+    seq[2].direction = "↓";
+    saveDiceSequence(seq);
+    expect(loadDiceSequence()).not.toBeNull();
+  });
+
+  it("returns null when localStorage is empty", () => {
+    expect(loadDiceSequence()).toBeNull();
+  });
+
+  it("returns null when localStorage contains invalid JSON", () => {
+    store["funnel_dice_sequence"] = "not valid json {{{";
+    expect(loadDiceSequence()).toBeNull();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// renderDataTable — HTML escaping of direction field
+// ---------------------------------------------------------------------------
+describe("renderDataTable", () => {
+  it("HTML-escapes the direction field in output", () => {
+    const stages = [{
+      stage: 1,
+      funnelBefore: 30,
+      diceScore: 10,
+      displacement: 3,
+      direction: '<img src=x onerror="alert(1)">',
+      marblePos: 33,
+      relativeToTarget: 3,
+      funnelAfter: 30,
+    }];
+    const html = renderDataTable(1, stages, 0);
+    expect(html).not.toContain("<img");
+    expect(html).toContain("&lt;img");
   });
 });
