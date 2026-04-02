@@ -142,7 +142,12 @@ export function loadDiceSequence() {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
-      if (Array.isArray(parsed) && parsed.length === TOTAL_STAGES) {
+      if (Array.isArray(parsed) && parsed.length === TOTAL_STAGES &&
+          parsed.every(d =>
+            typeof d.die1 === 'number' && typeof d.die2 === 'number' &&
+            typeof d.diceScore === 'number' && typeof d.displacement === 'number' &&
+            typeof d.direction === 'string' && /^(\d+[LR]|↓)$/.test(d.direction)
+          )) {
         return parsed;
       }
     }
@@ -256,6 +261,13 @@ export function renderTrackSVG(currentStage, trackRange) {
   return svg;
 }
 
+// --- HTML safety ---
+
+// Escape HTML special characters to prevent XSS when interpolating into innerHTML
+export function escapeHTML(str) {
+  return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
 // --- Data table renderer ---
 
 // Returns an HTML string for the book-keeping table
@@ -295,11 +307,11 @@ export function renderDataTable(rule, stages, tableIndex) {
   }
   html += `</tr>`;
 
-  // Row: Direction
+  // Row: Direction (escaped — defense-in-depth against stored XSS)
   html += `<tr><th scope="row">From ▼, ● goes</th>`;
   for (let s = range.start; s <= range.end; s++) {
     const st = stages.find(x => x.stage === s);
-    html += `<td>${st ? st.direction : ""}</td>`;
+    html += `<td>${st ? escapeHTML(st.direction) : ""}</td>`;
   }
   html += `</tr>`;
 
