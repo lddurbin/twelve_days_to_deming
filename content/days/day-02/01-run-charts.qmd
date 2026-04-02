@@ -137,9 +137,9 @@ run_chart_plot(c(13, 19, 18, 14, 16, 12, 21, 18, 22))
 
 Now, I repeat that this was just a simple introductory example, purely for illustration to show how easy it is to draw a run chart, i.e. a picture of what otherwise would merely have been just a string of numbers.
 
-<div class=workbook_callout>Pause for Thought 2–a is also on Workbook page 9.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 2–a is also on Workbook page 9.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 2–a
 

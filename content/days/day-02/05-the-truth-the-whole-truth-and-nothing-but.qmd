@@ -66,7 +66,7 @@ So let us summarise. If the control chart of data from the experiment indicates 
 
 <span class="neave_note"><p>We have now reached the first of the Technical Aids to be included in Days 2 and 3. Here, Technical Aids 1 and 2 describe how the control limits are computed for control charts that are based on the type of data produced and recorded in Red Beads Experiments. Technical Aid 3 contains a warning that, although control limits for all kinds of data are based on similar reasoning, some of the fine detail will vary according to the particular type of data being recorded. Hence the method described here is *not* generally applicable to many other types of data. This matter will be pursued on Day 3.</p> <p>Let me remind you that those who have opted for Stats-level 0 are invited to skip the Technical Aids! Thus, if you have elected to be on Stats-level 0 (or 00), please now move straight on to page 22.</p></span>
 
-<div class="technical_aid">
+<div class="technical_aid" role="note" aria-label="Technical aid">
 ### Technical Aid 1
 
 One of the earliest applications of Shewhart's invention of the control chart was for batch inspection of mass production processes. In such inspection, samples (batches) of $n$ items from the process's output are regularly drawn and inspected, and the number $X$ of defective items recorded. After several samples have been inspected, the control limits are computed as follows.
@@ -86,11 +86,11 @@ $$
 See if you can use this method to obtain the control limits quoted on page 14 and drawn on page 15. Use all 24 numbers of red beads in your calculation. (If you need help, the computations are sketched out in Technical Aid 2 on the next page—but try it by yourself first in the space at the top of the page or in the Workbook.)
 </div>
 
-<div class=workbook_callout>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">
 Space has also been left for these computations at the top of Workbook page 14.
 </div>
 
-<div class="technical_aid">
+<div class="technical_aid" role="note" aria-label="Technical aid">
   <strong>Drawing Pad</strong><br>
   Use the drawing pad below to sketch your formula or diagram. You can download your drawing when finished.
 </div>
@@ -103,7 +103,7 @@ Space has also been left for these computations at the top of Workbook page 14.
   Your browser does not support iframes.
 </iframe>
 
-<div class="technical_aid">
+<div class="technical_aid" role="note" aria-label="Technical aid">
 ### Technical Aid 2
 
 Firstly, notice that Dec recorded the total number of red beads obtained in the experiment near the bottom right of his table on page 11: it was 235. But now you'll need your calculator.
@@ -117,7 +117,7 @@ So $\overline{X}(1-\overline{p}) = 9.792 \times 0.8042 = 7.8747264$ and $\sqrt{\
 Finally, the distance from $\overline{X}$ out to the two control limits is $3\sqrt{\overline{X}(1-\overline{p})} = 3 \times 2.8062 = 8.419$. This gives the upper and lower control limits as UCL $= \overline{X} + 3\sqrt{\overline{X}(1-\overline{p})} = 9.792 + 8.419 = 18.21$ and LCL $= \overline{X} - 3\sqrt{\overline{X}(1-\overline{p})} = 9.792 - 8.419 = 1.37$.
 </div>
 
-<div class="technical_aid">
+<div class="technical_aid" role="note" aria-label="Technical aid">
 ### Technical Aid 3
 
 If during Day 1 you read the discussion in the Appendix about the first paradox then you may recall Dr Deming's mention of Shewhart's "3σ-limits" (σ is a Greek letter, pronounced "sigma"). The control limits that you have just computed follow Shewhart's guidance by using $\sigma = \sqrt{\overline{X}(1-\overline{p})}$. The reason for this particular choice when the data come from batch inspection as in the Red Beads Experiment will, I'm afraid, have to be reserved for pages 85–88 in the Optional Extras section.

@@ -9,7 +9,7 @@ Now it's time to take a break to watch the video *Management's Five Deadly Disea
 
 ---
 
-<div class="workbook_callout">The "Five Deadly Diseases" (pages 18–27) are also on Workbook pages 86–95.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">The "Five Deadly Diseases" (pages 18–27) are also on Workbook pages 86–95.</div>
 
 ---
 
@@ -27,7 +27,7 @@ It is relevant here to point out the error in a phrase glibly trotted out by man
 
 ### Obsession With Quality
 
-<div class="workbook_callout">Disease 1 (pages 18–19) is also on Workbook pages 86–87.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 1 (pages 18–19) is also on Workbook pages 86–87.</div>
 
 ```{ojs}
 viewof d1_owq = Inputs.textarea({
@@ -91,7 +91,7 @@ This will be so familiar to many readers that I need say no more.
 
 ### Obsession With Quality
 
-<div class="workbook_callout">Disease 2 (pages 20–21) is also on Workbook pages 88–89.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 2 (pages 20–21) is also on Workbook pages 88–89.</div>
 
 ```{ojs}
 viewof d2_owq = Inputs.textarea({
@@ -155,7 +155,7 @@ It may be wise at this stage for me to remind you of my warning at the bottom of
 
 ### Obsession With Quality
 
-<div class="workbook_callout">Disease 3 (pages 22–23) is also on Workbook pages 90–91.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 3 (pages 22–23) is also on Workbook pages 90–91.</div>
 
 ```{ojs}
 viewof d3_owq = Inputs.textarea({
@@ -215,7 +215,7 @@ Moving around the organisation in order to acquire that broader understanding is
 
 ### Obsession With Quality
 
-<div class="workbook_callout">Disease 4 (pages 24–25) is also on Workbook pages 92–93.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 4 (pages 24–25) is also on Workbook pages 92–93.</div>
 
 ```{ojs}
 viewof d4_owq = Inputs.textarea({
@@ -279,7 +279,7 @@ In conclusion, and back to the main issue (from *Out of the Crisis* pages 104–
 
 ### Obsession With Quality
 
-<div class="workbook_callout">Disease 5 (pages 26–27) is also on Workbook pages 94–95.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 5 (pages 26–27) is also on Workbook pages 94–95.</div>
 
 ```{ojs}
 viewof d5_owq = Inputs.textarea({
@@ -289,7 +289,7 @@ viewof d5_owq = Inputs.textarea({
 })
 ```
 
-<div class="neave_note">**NB** There may be a potential danger in using the summary on the previous page without clarification: it is a possible misunderstanding of the term "work standards". But we only have to refer back to Point 11 (page 10): "work standards that prescribe quotas for the workforce and numerical goals for people in management" to be clear about Deming's focus with those words. That focus is, of course, in no way related to e.g. *standardising* work, procedures, operations, etc once they have been found advantageous. Apart from anything else, this clearly reduces variation. Some refer to these more appropriate practices by alternative terms such as "standard work" which helps to avoid possible ambiguity.</div>
+<div class="neave_note" role="note" aria-label="Author's note">**NB** There may be a potential danger in using the summary on the previous page without clarification: it is a possible misunderstanding of the term "work standards". But we only have to refer back to Point 11 (page 10): "work standards that prescribe quotas for the workforce and numerical goals for people in management" to be clear about Deming's focus with those words. That focus is, of course, in no way related to e.g. *standardising* work, procedures, operations, etc once they have been found advantageous. Apart from anything else, this clearly reduces variation. Some refer to these more appropriate practices by alternative terms such as "standard work" which helps to avoid possible ambiguity.</div>
 
 ### All One Team
 

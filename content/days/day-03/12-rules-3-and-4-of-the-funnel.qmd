@@ -33,7 +33,7 @@ And so on. The fourth and fifth dice-scores were 7 and 4 corresponding respectiv
 
 Just for interest, take a moment's thought to guess what will happen in the long term as you take Rule 3 through its 40 stages. Then, later on, see if you've guessed correctly!
 
-<div class="workbook_callout">Pages 50–51 are also on Workbook pages 42–43.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Pages 50–51 are also on Workbook pages 42–43.</div>
 
 ```{ojs}
 //| output: false
@@ -163,7 +163,7 @@ So off you go for the final time. Again if you didn't do so when I first suggest
 
 Rule 4 is one of the easier strategies to carry out, so you can stop using your track as soon as you realise you don't need it any more. That may be very soon!
 
-<div class="workbook_callout">Pages 54–55 are also on Workbook pages 44–45.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Pages 54–55 are also on Workbook pages 44–45.</div>
 
 ```{ojs}
 //| output: false

@@ -13,9 +13,9 @@ Here are two forms of histogram of those data. On the left, each item in the dat
 
 ![Two histograms of the same 24 values ranging from 10 to 19: on the left, individual boxes stacked to show frequency; on the right, a conventional bar histogram. Both show a roughly symmetric distribution peaking at 13 with four occurrences](/assets/images/day-03/two-histograms-24-values.png){fig-align="center" width="90%" .lightbox}
 
-<div class="workbook_callout">Activity 3–d is also on Workbook page 34.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 3–d is also on Workbook page 34.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 3–d
 
@@ -42,9 +42,9 @@ Just to be sure, let's draw run charts of the data. Here is a run chart for the 
 
 ![Run chart of the first process](/assets/images/day-03/run-chart-first-process.png){fig-align="center" width="80%" .lightbox}
 
-<div class="workbook_callout">Activity 3–e (pages 8–9) is also on Workbook page 35.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 3–e (pages 8–9) is also on Workbook page 35.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 3–e
 

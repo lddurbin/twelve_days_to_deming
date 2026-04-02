@@ -20,7 +20,7 @@ already. (If, like the Japanese did in the 1950s, you become serious about what 
 teach, you will get some short-term benefits, but you should regard them as bonuses rather than
 expectations. To *aim* for them will take your eye off the longer term.)
 
-<div class=neave_note>
+<div class="neave_note" role="note" aria-label="Author's note">
 From the 1990s, Japan (along with some other countries) has, as we know, suffered some economic
 problems. And certain people have pointed to those difficulties and said in effect: “There you are.
 I told you so. This Japan stuff (or quality stuff, or Deming stuff) doesn’t work, does it?”. Two brief
@@ -76,7 +76,7 @@ haven’t yet been addressed will become ever more clear. For otherwise they wil
 :::: {.columns}
 
 ::: {.column width="85%"}
-<div class=neave_note>
+<div class="neave_note" role="note" aria-label="Author's note">
 During these last few years it is notable that, at long last, some attitudes about targets seem to be changing. It was in 2012 that, in a BBC radio interview, I heard a manager talking about getting rid of numerical
 targets. The immediate challenge from the interviewer was “But, without targets, how can you know
 whether or not you are successful?”. (It occurs to me that that question could be worthy of a further

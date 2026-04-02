@@ -59,7 +59,7 @@ Lastly, although we have been using Charts A3–F3 in this discussion, do not fo
 
 As you can see, all we have left on this page is a couple of Technical Aids. So if you are on Stats-level 0 then please move straight on to page 35.
 
-<div class="technical_aid">
+<div class="technical_aid" role="note" aria-label="Technical aid">
 
 ## Technical Aid 10
 
@@ -70,7 +70,7 @@ I might already be so convinced of the trend that I would start searching for it
 Thus (presuming the process is one over which you have some influence) your need is to try to identify and deal with the special cause(s) of whose presence you have now been made aware. After you have taken appropriate action to try to stabilise the process, then (as in the Tokai Rika case study, Process E) you would resume recording data and, in due course, recompute the control limits. You are thus "back to Square 1": extending those control limits into the future if the process is now in statistical control or else resuming your search for special causes if it isn't.
 </div>
 
-<div class="technical_aid">
+<div class="technical_aid" role="note" aria-label="Technical aid">
 
 ## Technical Aid 11
 

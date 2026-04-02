@@ -54,9 +54,9 @@ create_clock(11, 45)
 
 ::::
 
-<div class=workbook_callout>Activity 1-d is also on Workbook page 3.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 1-d is also on Workbook page 3.</div>
 
-<div class=neave_note>Here is an example of a “request for action” that is exceedingly open-ended. You could content yourself
+<div class="neave_note" role="note" aria-label="Author's note">Here is an example of a “request for action” that is exceedingly open-ended. You could content yourself
 by writing some notes on the first few thoughts that come into your mind. Or it could be the subject of a
 number of PhD theses! Since I’m calling this an “Activity” (not even a “*Major* Activity”!) I am indicating
 that my preference lies toward the former of those two extremes!</div>
@@ -64,7 +64,7 @@ that my preference lies toward the former of those two extremes!</div>
 :::: {.columns}
 
 ::: {.column width="85%"}
-<div class=thought>
+<div class="thought" role="note" aria-label="Thought">
 ## ACTIVITY 1-d
 
 Considering the breadth indicated in the title of Dr Deming’s final book: *The New Economics for Industry, Government, Education*, it will be worthwhile for you to spend a little time thinking about the ways
@@ -92,15 +92,15 @@ create_clock(12, 00)
 
 ::::
 
-<div class=workbook_callout>Activity 1-e is also on Workbook page 4.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 1-e is also on Workbook page 4.</div>
 
 :::: {.columns}
 
 ::: {.column width="85%"}
-<div class=thought>
+<div class="thought" role="note" aria-label="Thought">
 ## PAUSE FOR THOUGHT 1–e
 
-<div class=neave_note>This is today’s final Pause for Thought and it goes to the opposite extreme compared with the previous Activity. Here I’m just asking you to consider briefly something very simple in preparation for discussion tomorrow. No calculations, no deep thought—just quickly jot down a couple of opinions for
+<div class="neave_note" role="note" aria-label="Author's note">This is today’s final Pause for Thought and it goes to the opposite extreme compared with the previous Activity. Here I’m just asking you to consider briefly something very simple in preparation for discussion tomorrow. No calculations, no deep thought—just quickly jot down a couple of opinions for
 future reference.</div>
 
 Suppose you are the manager of a telephone call centre. A performance-monitoring scheme is in operation. For each member of staff who is being checked in any particular week, 50 of her callers are
@@ -113,7 +113,7 @@ grim side to start with! How much worse than the average of 10 dissatisfied call
 need to be for you to feel justified in at least cautioning the member of staff concerned: “Watch it! Take
 more care! This isn’t good enough!”? *Any* result worse than average, i.e. 11 or more dissatisfied customers? Actually, it’s not unknown for a person to be criticised if she gets just the 10 dissatisfied customers: after all, using a not-uncommon phrase, that’s “only average”.
 
-<div class=neave_note>Please note that I am not indicating my approval of this or any other such scheme! To criticise people
+<div class="neave_note" role="note" aria-label="Author's note">Please note that I am not indicating my approval of this or any other such scheme! To criticise people
 simply because, according to some set of results, they appear below average or even “only average”
 is, I suggest, a rather dubious judgment mechanism. After all, that means you’re bound to be criticising around half of them even if they are *all* performing brilliantly!</div>
 
@@ -152,7 +152,7 @@ create_clock(12, 10)
 
 ::::
 
-<div class=neave_note>
+<div class="neave_note" role="note" aria-label="Author's note">
 Let me briefly comment on the matter of averages. For in the case of people who cannot understand
 averages, we shall have to work very hard to help them to understand variation!
 

@@ -28,7 +28,7 @@ Content goes here when there's no clock.
 :::: {.columns}
 
 ::: {.column width="85%"}
-<div class=thought_commentary>
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 # PAUSE FOR THOUGHT OR ACTIVITY
 
