@@ -28,6 +28,8 @@ jobs:
   build-and-deploy:
     needs: test-js
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout repository
