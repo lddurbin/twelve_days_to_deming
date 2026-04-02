@@ -144,8 +144,10 @@ export function loadDiceSequence() {
       const parsed = JSON.parse(stored);
       if (Array.isArray(parsed) && parsed.length === TOTAL_STAGES &&
           parsed.every(d =>
-            typeof d.die1 === 'number' && typeof d.die2 === 'number' &&
-            typeof d.diceScore === 'number' && typeof d.displacement === 'number' &&
+            typeof d.die1 === 'number' && Number.isFinite(d.die1) &&
+            typeof d.die2 === 'number' && Number.isFinite(d.die2) &&
+            typeof d.diceScore === 'number' && Number.isFinite(d.diceScore) &&
+            typeof d.displacement === 'number' && Number.isFinite(d.displacement) &&
             typeof d.direction === 'string' && /^(\d+[LR]|↓)$/.test(d.direction)
           )) {
         return parsed;
@@ -265,7 +267,7 @@ export function renderTrackSVG(currentStage, trackRange) {
 
 // Escape HTML special characters to prevent XSS when interpolating into innerHTML
 export function escapeHTML(str) {
-  return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
 // --- Data table renderer ---

@@ -329,8 +329,8 @@ describe("escapeHTML", () => {
     expect(escapeHTML("<script>")).toBe("&lt;script&gt;");
   });
 
-  it("escapes ampersands and quotes", () => {
-    expect(escapeHTML('a&b"c')).toBe("a&amp;b&quot;c");
+  it("escapes ampersands, double quotes, and single quotes", () => {
+    expect(escapeHTML('a&b"c\'d')).toBe("a&amp;b&quot;c&#39;d");
   });
 
   it("passes through safe strings unchanged", () => {
@@ -378,6 +378,13 @@ describe("loadDiceSequence", () => {
   it("rejects data where direction contains script tags", () => {
     const seq = Array.from({ length: TOTAL_STAGES }, validEntry);
     seq[5].direction = "<script>alert(1)</script>";
+    saveDiceSequence(seq);
+    expect(loadDiceSequence()).toBeNull();
+  });
+
+  it("rejects data where a numeric field is null (as NaN serialises to null in JSON)", () => {
+    const seq = Array.from({ length: TOTAL_STAGES }, validEntry);
+    seq[0].die1 = NaN; // JSON.stringify turns this to null
     saveDiceSequence(seq);
     expect(loadDiceSequence()).toBeNull();
   });
