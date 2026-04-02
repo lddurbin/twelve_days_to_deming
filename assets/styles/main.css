@@ -1,3 +1,12 @@
+/* ===== DESIGN TOKENS ===== */
+:root {
+  --color-funnel: #3366cc;
+  --color-marble: #cc6633;
+  --color-outcome: #cc0000;
+  --color-bg-light: #f9f9f9;
+  --color-border-gray: #999;
+}
+
 /* ===== CALLOUT COMPONENTS ===== */
 /* Base callout styles */
 .callout {
@@ -46,7 +55,7 @@ Usage:
 .float-box-content {
   border: 2px solid #333;
   padding: 1em;
-  background: #f9f9f9;
+  background: var(--color-bg-light);
   border-radius: 8px;
 }
 @media (max-width: 700px) {
@@ -107,7 +116,7 @@ Usage:
 }
 
 .thought_commentary h2 {
-  color: #cc0000;
+  color: var(--color-outcome);
   text-align: center;
 }
 
@@ -333,11 +342,11 @@ button:focus,
   }
   
   .thought_commentary {
-    border: 3px dashed #cc0000;
+    border: 3px dashed var(--color-outcome);
   }
 
   .thought_commentary .collapse {
-    border: 3px dashed #cc0000;
+    border: 3px dashed var(--color-outcome);
   }
 }
 
@@ -384,7 +393,7 @@ button:focus,
 }
 .fe-data-table th,
 .fe-data-table td {
-  border: 1px solid #999;
+  border: 1px solid var(--color-border-gray);
   padding: 3px 6px;
   text-align: center;
   white-space: nowrap;
@@ -397,27 +406,27 @@ button:focus,
 .fe-data-table th:first-child {
   text-align: left;
   font-weight: bold;
-  background: #f9f9f9;
+  background: var(--color-bg-light);
   min-width: 140px;
   position: sticky;
   left: 0;
   z-index: 1;
 }
 /* Outcome row: yellow background, dark red text */
-.fe-row-outcome td,
-.fe-row-outcome th {
-  background-color: #ffff99 !important;
+.fe-data-table .fe-row-outcome td,
+.fe-data-table .fe-row-outcome th {
+  background-color: #ffff99;
   color: #8b0000;
   font-weight: bold;
 }
 
 /* Funnel / marble icons in text */
 .fe-funnel {
-  color: #3366cc;
+  color: var(--color-funnel);
   font-weight: bold;
 }
 .fe-marble {
-  color: #cc6633;
+  color: var(--color-marble);
   font-weight: bold;
 }
 /* Status bar value colors (replaces inline styles) */
@@ -437,7 +446,7 @@ button:focus,
   min-height: 44px;
   font-weight: bold;
   color: #fff;
-  background-color: #3366cc;
+  background-color: var(--color-funnel);
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -499,7 +508,7 @@ button:focus,
 }
 .fe-summary-table th,
 .fe-summary-table td {
-  border: 1px solid #999;
+  border: 1px solid var(--color-border-gray);
   padding: 6px 14px;
   text-align: center;
 }
