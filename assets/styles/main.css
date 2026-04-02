@@ -317,6 +317,28 @@ Usage:
   p {
     margin-bottom: 15px;
   }
+
+  /* Funnel experiment mobile overrides */
+  .fe-data-table {
+    font-size: 12px;
+  }
+  .fe-data-table td:first-child,
+  .fe-data-table th:first-child {
+    min-width: 100px;
+  }
+  .fe-button {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+    padding: 14px;
+    font-size: 16px;
+  }
+  .fe-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+  .fe-status {
+    font-size: 13px;
+  }
 }
 
 /* Tablet styles (769px - 1024px) */
@@ -551,26 +573,3 @@ button:focus,
   font-weight: bold;
 }
 
-/* Mobile overrides */
-@media (max-width: 768px) {
-  .fe-data-table {
-    font-size: 12px;
-  }
-  .fe-data-table td:first-child,
-  .fe-data-table th:first-child {
-    min-width: 100px;
-  }
-  .fe-button {
-    display: block;
-    width: 100%;
-    margin: 6px 0;
-    padding: 14px;
-    font-size: 16px;
-  }
-  .fe-comparison-grid {
-    grid-template-columns: 1fr;
-  }
-  .fe-status {
-    font-size: 13px;
-  }
-}
