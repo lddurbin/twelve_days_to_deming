@@ -228,10 +228,11 @@ export function renderTrackSVG(currentStage, trackRange) {
       fill = "#ff6666";
       strokeWidth = "3";
       stroke = "#990000";
+      strokeDash = ""; // marble's thick border is sufficient; clear any dash from out-of-range
     }
 
     svg += `<rect x="${x}" y="${y}" width="${cellW}" height="${cellH}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}"${strokeDash}/>`;
-    // Target cell: add a crosshair marker so it's identifiable without color
+    // Target cell: add a diamond marker so it's identifiable without color
     if (isTarget && !isMarble) {
       svg += `<text x="${x + cellW / 2}" y="${y + 12}" text-anchor="middle" font-size="9" fill="#006600">&#x25C6;</text>`;
     }
