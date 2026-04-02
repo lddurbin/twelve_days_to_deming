@@ -208,23 +208,34 @@ export function renderTrackSVG(currentStage, trackRange) {
     const isTarget = pos === TARGET;
     const inNormalRange = pos >= TRACK_MIN && pos <= TRACK_MAX;
 
-    let fill;
+    let fill, strokeWidth = "1.5", strokeDash = "", stroke = "#333";
+    const isMarble = currentStage && pos === currentStage.marblePos;
+
     if (isTarget) {
-      fill = "#90EE90"; // green for target
+      fill = "#90EE90";
+      strokeWidth = "3";
+      stroke = "#006600";
     } else if (!inNormalRange) {
-      fill = "#d9d9d9"; // grey for extended range
+      fill = "#d9d9d9";
+      strokeDash = ' stroke-dasharray="4,3"';
     } else if (pos % 2 === 0) {
-      fill = "#ffff66"; // yellow
+      fill = "#ffff66";
     } else {
-      fill = "#66cc66"; // green
+      fill = "#66cc66";
     }
 
-    // Highlight marble position
-    if (currentStage && pos === currentStage.marblePos) {
-      fill = "#ff6666"; // red for marble
+    if (isMarble) {
+      fill = "#ff6666";
+      strokeWidth = "3";
+      stroke = "#990000";
+      strokeDash = ""; // marble's thick border is sufficient; clear any dash from out-of-range
     }
 
-    svg += `<rect x="${x}" y="${y}" width="${cellW}" height="${cellH}" fill="${fill}" stroke="#333" stroke-width="1.5"/>`;
+    svg += `<rect x="${x}" y="${y}" width="${cellW}" height="${cellH}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}"${strokeDash}/>`;
+    // Target cell: add a diamond marker so it's identifiable without color
+    if (isTarget && !isMarble) {
+      svg += `<text x="${x + cellW / 2}" y="${y + 12}" text-anchor="middle" font-size="9" fill="#006600">&#x25C6;</text>`;
+    }
     svg += `<text x="${x + cellW / 2}" y="${y + cellH / 2 + 5}" text-anchor="middle" font-size="14" font-weight="bold">${pos}</text>`;
   }
 
