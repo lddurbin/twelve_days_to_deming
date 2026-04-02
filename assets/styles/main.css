@@ -229,6 +229,27 @@ Usage:
   text-align: center;
 }
 
+/* ===== UTILITY CLASSES ===== */
+.mt-sm { margin-top: 10px; }
+.mt-md { margin-top: 20px; }
+.text-center { text-align: center; }
+.text-highlight-red { color: var(--color-outcome); font-weight: bold; }
+.data-sequence-mono { text-align: center; font-family: monospace; }
+.table-cell-highlight { background: #90EE90; font-weight: bold; }
+.callout-emphasis {
+  background-color: #ffe0e0;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+.centered-bold-callout {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 40px;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Mobile styles (max-width: 768px) */

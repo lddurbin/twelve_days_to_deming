@@ -56,7 +56,7 @@ viewof p7_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -116,7 +116,7 @@ viewof p8_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -192,7 +192,7 @@ viewof p9_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -254,7 +254,7 @@ viewof p10_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -316,7 +316,7 @@ viewof p11_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -374,7 +374,7 @@ viewof p12_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -448,7 +448,7 @@ viewof p13_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -504,7 +504,7 @@ viewof p14_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```

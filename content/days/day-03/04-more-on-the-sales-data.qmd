@@ -80,7 +80,7 @@ These really were "honest" data—I didn't keep on throwing the dice until I obt
 
 Apologies if all this seems to have been something of an elaborate hoax—although I have given you plenty of clues that all might not be as it seemed! There was a very important point for me to re-emphasise following yesterday's work on the Red Beads Experiment, and this seemed a good way of doing it. It's simply this:
 
-<div style="text-align: center; font-weight: bold; margin: 20px 40px;">
+<div class="centered-bold-callout">
 If your data are typical of what you would get if you were just throwing dice (or using some other similarly "random" mechanism), what justification is there in trying to interpret individual figures from that process?
 </div>
 

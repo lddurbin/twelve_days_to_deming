@@ -14,7 +14,7 @@ was seven years old, in search of land and work.
 :::
   
 ::: {.column width="15%"}
-<div style="margin-top: 10px">
+<div class="mt-sm">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(1, 30)
 ```
@@ -102,7 +102,7 @@ harm and make things worse. Shewhart’s breakthrough was the first massive stri
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 10px">
+<div class="mt-sm">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(1, 40)
 ```
@@ -183,7 +183,7 @@ If the 3% is big (and it is), the 97% is *massive*.
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 10px">
+<div class="mt-sm">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(2, 20)
 ```
@@ -402,7 +402,7 @@ him out in 1979.
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 10px">
+<div class="mt-sm">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(2, 50)
 ```
@@ -627,7 +627,7 @@ What better purpose could there be?
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 10px">
+<div class="mt-sm">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(3, 30)
 ```

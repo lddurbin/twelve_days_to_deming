@@ -9,11 +9,11 @@ The motivation for the various Rules of the Funnel is discussed in *DemDim* Chap
 
 Recall that in Rule 2 the distance and direction between the target and where the marble comes to rest is described in red just below the yellow-shaded rows (refer back to page 42). Rule 2 then shifts the funnel in the opposite direction *by that same distance from its current position*. The difference between Rules 2 and 3 is that, in Rule 3, the funnel is instead placed on *the opposite side of the target* and at that same distance from it. E.g., suppose that the current outcome (position of ●) is 32 (i.e. 2 above or to the right of ◎). Then, with Rule 3, the funnel simply gets placed 2 squares to the left of ◎, i.e. at 30 − 2 = 28—*irrespective of where it was before*. Or, if the current outcome was 27 (3 below or left of ◎), the funnel is then placed 3 squares to the right of ◎, i.e. at 30 + 3 = 33. This is indeed easier than Rule 2: you'll soon see that the marble and the funnel now simply finish up symmetrically positioned either side of the target—the funnel's previous position in no way affects this decision. In case of doubt, just refer to this little table:
 
-<div style="text-align:center; margin: 1em 0;">
+<div class="text-center" style="margin: 1em 0;">
 <table class="fe-summary-table">
 <caption>Rule 3 — marble position to funnel placement lookup</caption>
 <thead>
-<tr><th scope="col">If ● is at …</th><th scope="col">… 25</th><th scope="col">26</th><th scope="col">27</th><th scope="col" style="background:#90EE90;font-weight:bold;">28</th><th scope="col">29</th><th scope="col">30</th><th scope="col">31</th><th scope="col" style="background:#90EE90;font-weight:bold;">32</th><th scope="col">33</th><th scope="col">34</th><th scope="col">35</th><th scope="col">…</th></tr>
+<tr><th scope="col">If ● is at …</th><th scope="col">… 25</th><th scope="col">26</th><th scope="col">27</th><th scope="col" class="table-cell-highlight">28</th><th scope="col">29</th><th scope="col">30</th><th scope="col">31</th><th scope="col" class="table-cell-highlight">32</th><th scope="col">33</th><th scope="col">34</th><th scope="col">35</th><th scope="col">…</th></tr>
 </thead>
 <tbody>
 <tr><th scope="row">you move ▼ to …</th><td>… 35</td><td>34</td><td>33</td><td>32</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>…</td></tr>

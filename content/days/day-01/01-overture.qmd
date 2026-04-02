@@ -13,7 +13,7 @@ you would expect in a mere introduction to this structured active-learning cours
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 10px">
+<div class="mt-sm">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(9, 30)
 ```
