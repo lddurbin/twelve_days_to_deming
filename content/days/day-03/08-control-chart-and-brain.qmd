@@ -25,7 +25,7 @@ You may recall that the Ford histograms on page 5 showed the positions of Lower 
 
 Further weight to the above argument comes from the fact that, even if a process remains blissfully in statistical control, control limits computed from two different sets of data from that stable process are almost bound to be different from each other. Data vary: thus so will control limits. So if other control limits are computed from different data from that same stable process, the strong likelihood is that the particular two points considered in the previous paragraph will now either be *both* below the new UCL or *both* above it—making it even more illogical to act completely differently depending on which of the two you have.
 
-<div class="technical_aid">
+<div class="technical_aid" role="note" aria-label="Technical aid">
 
 ## Technical Aid 9
 

@@ -3,7 +3,7 @@ title: "POINTS 1–6"
 execute:
   echo: false
 ---
-<div class="workbook_callout">Points 1–6 (pages 16–27) are also on Workbook pages 51–67.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Points 1–6 (pages 16–27) are also on Workbook pages 51–67.</div>
 
 ---
 
@@ -59,7 +59,7 @@ This is a whole new philosophy. It's not just optional add-ons to what we are al
 
 This Point illuminates the danger of just "making do". The implication is that we may have become so used to lower levels of product and service that we have become resigned to them and skilled in compensating for them. But that might not be so true of your customer.
 
-<div class="neave_note">The reason for the description "created in Japan" which Deming included in the statement of this Point may be less obvious now than when he said it in the 1980s. At that time, Japan unarguably led the world in terms of quality and reliability. But even then I puzzled about the fact that the Japanese were seemingly unaware of what was happening in their own country! Deming taught in Japan during the 1950s, but there were certainly no four-day seminars there. I doubt whether many Japanese knew much about what was teaching elsewhere during the first ten years or so of his life. I sometimes muse on the thought that perhaps, if they had, some of the difficulties subsequently experienced by their country might have been avoided. Recall my note in the middle of Day 1 page 27.</div>
+<div class="neave_note" role="note" aria-label="Author's note">The reason for the description "created in Japan" which Deming included in the statement of this Point may be less obvious now than when he said it in the 1980s. At that time, Japan unarguably led the world in terms of quality and reliability. But even then I puzzled about the fact that the Japanese were seemingly unaware of what was happening in their own country! Deming taught in Japan during the 1950s, but there were certainly no four-day seminars there. I doubt whether many Japanese knew much about what was teaching elsewhere during the first ten years or so of his life. I sometimes muse on the thought that perhaps, if they had, some of the difficulties subsequently experienced by their country might have been avoided. Recall my note in the middle of Day 1 page 27.</div>
 
 ### Obsession With Quality
 
@@ -113,7 +113,7 @@ Despite Dr Deming's particular wording here, the lessons from this Point relate 
 
 An Obsession With Quality will surely result in quality being improved way beyond that which needs mass inspection to verify it. Notice again the words "the need for". Deming isn't simply saying "Stop doing it". He is telling us to improve things so that mass inspection becomes redundant.
 
-<div class="neave_note">There are more general practical lessons to learn from this observation. If you're interested, take a quick look at the final paragraph on Appendix page 23.</div>
+<div class="neave_note" role="note" aria-label="Author's note">There are more general practical lessons to learn from this observation. If you're interested, take a quick look at the final paragraph on Appendix page 23.</div>
 
 ```{ojs}
 viewof p3_owq = Inputs.textarea({
@@ -209,7 +209,7 @@ Here we have a direct contradiction to a familiar saying—and maybe a familiar 
 
 We have already pointed out that Deming was talking about quality "across the board"—quality of the end-product or service, of course, but quality of all that contributes to delivering that product or service. This link is therefore particularly strong.
 
-<div class="neave_note">An objection to Point 5 sometimes heard from those who are not yet in tune with what Deming was teaching is that "we can't afford to keep improving". It comes from those who think that improvement can only be achieved expensively by bringing in more consultants, etc, etc. But, to put it mildly, these were not Deming's focus on improvement. His emphasis was instead on reducing costs, particularly through improvement of processes and reducing variation—such improvements are frequently very inexpensive yet can produce considerable rewards. For confirmation, again refer back to his Chain Reaction (*DemDim* page 33).</div>
+<div class="neave_note" role="note" aria-label="Author's note">An objection to Point 5 sometimes heard from those who are not yet in tune with what Deming was teaching is that "we can't afford to keep improving". It comes from those who think that improvement can only be achieved expensively by bringing in more consultants, etc, etc. But, to put it mildly, these were not Deming's focus on improvement. His emphasis was instead on reducing costs, particularly through improvement of processes and reducing variation—such improvements are frequently very inexpensive yet can produce considerable rewards. For confirmation, again refer back to his Chain Reaction (*DemDim* page 33).</div>
 
 ```{ojs}
 viewof p5_owq = Inputs.textarea({
@@ -259,7 +259,7 @@ Training budgets in many organisations are absurdly small. So how do people lear
 
 Clearly, a prerequisite for people to do quality work is that they have received appropriate training for that work and can understand it. Notice that here Deming is at pains to emphasise the particular relevance of this to management. He is quite clearly considered, and often said, that potential managers do not learn it in most MBA courses.
 
-<div class="neave_note">As a personal viewpoint regarding training, I think it may be insufficient to simply pick off some to some external consultants' training course, however excellent it may appear to be. I have seen both of these happen to be true of training—whether it is good or bad. I think, perhaps, the first of these is usually more true of training external than internal: "People learn in different ways". Person A may respond better than Person B to a particular method of training. This is equally true with another method of training: again this is likely to be far better catered for in-house than externally.</div>
+<div class="neave_note" role="note" aria-label="Author's note">As a personal viewpoint regarding training, I think it may be insufficient to simply pick off some to some external consultants' training course, however excellent it may appear to be. I have seen both of these happen to be true of training—whether it is good or bad. I think, perhaps, the first of these is usually more true of training external than internal: "People learn in different ways". Person A may respond better than Person B to a particular method of training. This is equally true with another method of training: again this is likely to be far better catered for in-house than externally.</div>
 
 ```{ojs}
 viewof p6_owq = Inputs.textarea({
@@ -285,7 +285,7 @@ viewof p6_aot = Inputs.textarea({
 
 Here it is appropriate to recall the original expanded version of the Joiner Triangle on page 11 in addition to my subsequent suggested modification. As we saw, Joiner Associates' own expanded version of the Triangle included flowcharting and other "old tools" of quality under the Scientific Approach. Obviously, the control chart is in both versions!
 
-<div class="neave_note">**NB** My alternative list of topics for the Scientific Approach on page 12 was not intended as a criticism of the original expanded Joiner Triangle! Regarding the difference in nature between education and training: consultants in the Deming area clearly need to work with both, and thus the version of the Scientific Approach on page 11 was entirely appropriate for Joiner Associates. But, equally clearly, the primary nature of *12 Days to Deming* is education, and so a different emphasis regarding the Scientific Approach is usually appropriate here.</div>
+<div class="neave_note" role="note" aria-label="Author's note">**NB** My alternative list of topics for the Scientific Approach on page 12 was not intended as a criticism of the original expanded Joiner Triangle! Regarding the difference in nature between education and training: consultants in the Deming area clearly need to work with both, and thus the version of the Scientific Approach on page 11 was entirely appropriate for Joiner Associates. But, equally clearly, the primary nature of *12 Days to Deming* is education, and so a different emphasis regarding the Scientific Approach is usually appropriate here.</div>
 
 ```{ojs}
 viewof p6_sa = Inputs.textarea({

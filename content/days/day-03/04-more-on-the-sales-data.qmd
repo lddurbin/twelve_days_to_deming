@@ -23,9 +23,9 @@ run_chart_plot(c(13, 19, 18, 14, 16, 12, 21, 18, 17, 22))
 
 First, a short Pause for Thought:
 
-<div class="workbook_callout">Pause for Thought 3–f is also on Workbook page 36.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 3–f is also on Workbook page 36.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 3–f
 

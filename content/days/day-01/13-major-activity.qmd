@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
   
-<div class=workbook_callout>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">
 Major Activity 1-f (pages 42-44) is also on [Workbook pages 5-7](workbook.html#sec-page5).
 </div>
 

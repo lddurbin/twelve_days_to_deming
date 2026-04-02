@@ -7,11 +7,11 @@ execute:
 
 Going right back to Dr Shewhart's formative work in the 1920s, we know that the vital thing to always bear in mind is the division of variation into its two types, coupled with the observation by Dr Deming and others that by far the more important and more numerous problems (and therefore opportunities for improvement) primarily lie in the common causes of variation, i.e. in the system. What sort of things might these include? There is, for instance, a host of them which relate directly to the company or organisation as a whole: its "culture", its rules and principles, the reward and punishment mechanisms, the nourishment or discouragement of innovation, whether people are regarded as having real brains or just as "black boxes", etc, etc. The issue of variation is, of course, all highly related to work we have already done, e.g. in our learning from the Experiment on Red Beads and the issue of "tampering", so well illustrated in the Funnel Experiment.
 
-<div class="neave_note">My friend Malcolm Gall once pointed out to me that a "Scientific Approach"—which I suppose might be interpreted as something like a "Purely Logical Approach"—may be seen by some as an inhibitor of creativity and innovation (to be studied on Day 9). On Day 11, I shall suggest further topics that have a place in such an approach, some of which look ahead to Day 11 and in particular to the "Theory of Knowledge" aspects of Deming's teaching. In Malcolm's words, innovators "need to understand the role of theory and test"—for intelligent innovators must agree that otherwise some of their innovations might not work! In fact, a Scientific Approach supports and aids creativity in practice by helping to discern whether innovations will or will not work and, in the latter case, can provide help in modifying them so that they will work.</div>
+<div class="neave_note" role="note" aria-label="Author's note">My friend Malcolm Gall once pointed out to me that a "Scientific Approach"—which I suppose might be interpreted as something like a "Purely Logical Approach"—may be seen by some as an inhibitor of creativity and innovation (to be studied on Day 9). On Day 11, I shall suggest further topics that have a place in such an approach, some of which look ahead to Day 11 and in particular to the "Theory of Knowledge" aspects of Deming's teaching. In Malcolm's words, innovators "need to understand the role of theory and test"—for intelligent innovators must agree that otherwise some of their innovations might not work! In fact, a Scientific Approach supports and aids creativity in practice by helping to discern whether innovations will or will not work and, in the latter case, can provide help in modifying them so that they will work.</div>
 
-<div class="workbook_callout">Activity 4–a (pages 4–5) is also on Workbook pages 49–50.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 4–a (pages 4–5) is also on Workbook pages 49–50.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 4–a
 
@@ -57,11 +57,11 @@ viewof activity_4a_3 = Inputs.textarea({
 
 The words "All One Team" surely speak for themselves. They have strong connections with the concepts of optimisation of the system (i.e. helping it to work in the best-possible way) and of "Cooperation: Win-Win". We have mentioned both of these in the Overture and will cover them in greater depth later on.
 
-<div class="neave_note">Some senior managers worry that heading toward "All One Team" might pose a threat to their authority. However, a further astute observation from Malcolm Gall is that "Interdependence is not an indication of weakness, but an indication of maturity".</div>
+<div class="neave_note" role="note" aria-label="Author's note">Some senior managers worry that heading toward "All One Team" might pose a threat to their authority. However, a further astute observation from Malcolm Gall is that "Interdependence is not an indication of weakness, but an indication of maturity".</div>
 
-<div class="workbook_callout">Activity 4–b (pages 6–7) is also on Workbook pages 51–52.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 4–b (pages 6–7) is also on Workbook pages 51–52.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 4–b
 
@@ -98,7 +98,7 @@ In all fields of activity, everyone recognises the importance of quality *to a c
 
 Two particular problems with this attitude to quality are as follows (wherever the specifications originate). First, having worked to reach the standard or target or specification, etc, there is often a tendency to breathe a sigh of relief—one of the most natural things in the world for the time being. The other problem, which we'll address later (e.g. when working on the 11th of the 14 Points), is the temptation to try to "cheat" in order to *appear* to meet the requirements. Deming often spoke disparagingly about "fudging figures" (to be discussed later) as redefining methods of measurement—so what exactly qualifies for descriptions such as "punctual" or "defective"? (The work on operational definitions on Day 11 will be very relevant here.)
 
-<div class="neave_note">Because the notion of assessing quality in terms of conformance to specifications is so widespread, some may find Deming's teaching on this matter to be particularly challenging. Of course, he is not suggesting that there's nothing to be gained from meeting specifications! His message is instead neatly summarised by the phrase <span class="deming_quote">"Specifications, meeting specifications not sufficient"</span> that appears in *Out of the Crisis*'s index (page 428[505]) and points to several references to relevant material in the book.
+<div class="neave_note" role="note" aria-label="Author's note">Because the notion of assessing quality in terms of conformance to specifications is so widespread, some may find Deming's teaching on this matter to be particularly challenging. Of course, he is not suggesting that there's nothing to be gained from meeting specifications! His message is instead neatly summarised by the phrase <span class="deming_quote">"Specifications, meeting specifications not sufficient"</span> that appears in *Out of the Crisis*'s index (page 428[505]) and points to several references to relevant material in the book.
 
 But since the customer or the Government etc may be, or may become, aware of such attempts to "cheat", would it not be more advisable to improve quality in order to prevent the negative consequences of not so doing? Even then, this could merely be referred to as an obsession with quality. "Obsession" is much more indicative of *continual* improvement, making quality a "way of life", etc—whether or not there appears to be any vital and immediate *need* to do so. And there's the difference. Everyone appreciates the highly *negative* effects of *poor* quality—and, the poorer the quality, the more negative the effects. But Dr Deming was trying to get us to equally appreciate the highly *positive* effects of *good* quality—and, the better the quality, the more positive the effects.
 
@@ -108,9 +108,9 @@ I recall two occasions in four-day seminars when the topic of "quality tools" wa
 
 However, as Brian did also include "statistical thinking" and "special and common causes" in his selection of topics, and so presumably "charting" definitely included the control chart! It seems wise for the current purposes to restrict our attention for most of the project which follows to the charting introduced by both Drs Shewhart and Deming via our opening day and about which we have now learned plenty during Days 2 and 3. This will also be ideal preparation for the Second Project on Days 10 and 11 which involves the System of Profound Knowledge (briefly introduced on Day 1 page 37) since "Understanding Variation" is one of the latter's four component parts.</div>
 
-<div class="workbook_callout">Pause for Thought 4–c is also on Workbook page 53.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 4–c is also on Workbook page 53.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 4–c
 
@@ -144,9 +144,9 @@ To people who have always thought of "quality" in terms of specifications, targe
 
 But is it really beyond rhyme and reason to think of improving quality to the extent of *delighting* the customer? In asking the question "Can we afford to delight the customer?", might it not be more important in many instances to change the emphasis to: "Can we afford *not* to delight the customer?"
 
-<div class="workbook_callout">Activity 4–d is also on Workbook page 54.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 4–d is also on Workbook page 54.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 4–d
 

@@ -18,7 +18,7 @@ Two particular runs of the Red Beads Experiment stick in my memory despite the f
 
 If you were still in the Un-Knowing state, you would probably not be at all surprised to learn where these two sets of results originated. Very the best score (a total of just 203 red beads) was obtained by the most elite set of workers I was ever privileged to have participating in the Red Beads Experiment: five departmental heads in the British Government's Central Statistical Office plus one University Professor of Statistics. At the other extreme, the very worst score of 270 red beads was produced on the first of two occasions that I performed the experiment in Madrid, and some people might have doubts about the abilities of Spanish workers. Hold on—*don't take offence at that remark!* The point of this suggestion—and yet a further important message that comes from the Red Beads Experiment—is how easy it is to find data that appear to provide "evidence" to support personal prejudices. Let's take a look at both sets of data.
 
-<div class="neave_note">
+<div class="neave_note" role="note" aria-label="Author's note">
 As with the experiment in Ireland described on pages 9–16, a "performance appraisal" takes place at the end of the third week; the three "worst" workers are then fired and the "best" workers have to work double time during the fourth week—they will need to produce **two** paddles of 50 beads, not just one!
 </div>
 
@@ -51,9 +51,9 @@ It is with those experiences in mind that I'll ask you to take on the role of Fo
 
 There will then remain just two further items on today's agenda. First comes the Major Activity of writing up your comprehensive summary of messages to be learned from the Experiment on Red Beads. So, in preparation for that, keep adding to your list of notes as you now work through the statisticians' and the Spaniards' experiments. Then finally, after the Major Activity, there will be a short Postscript to complete the day.
 
-<div class=workbook_callout>Activity 2–g (pages 32-27) is also on Workbook pages 20-25.</div>
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 2–g (pages 32-27) is also on Workbook pages 20-25.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 2–e
 

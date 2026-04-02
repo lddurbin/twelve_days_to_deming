@@ -422,7 +422,7 @@ One thing at a time. Let’s first deal with moving to and from the Workbook.
 The time to transfer to the Workbook is signalled in the main material by a yellow information box such as
 the following example which you will see at the top of Day 1 page 25, just above Pause for Thought 1–e:
 
-<div class="workbook_callout">
+<div class="workbook_callout" role="note" aria-label="Workbook reference">
 Pause for Thought 1-e is also on Workbook page 4.
 </div>
 
@@ -430,7 +430,7 @@ Obviously, if you have chosen not to use the Workbook, you will simply ignore th
 with all other references to the Workbook elsewhere) and proceed with that Pause for Thought right there
 on Day 1 page 25. Otherwise you should turn to Workbook page 4 where you will be greeted by a corresponding yellow information box which confirms your safe arrival at the correct location:
 
-<div class="workbook_callout">
+<div class="workbook_callout" role="note" aria-label="Workbook reference">
 Pause for Thought 1-e comes from Day 1 page 25.
 </div>
 
@@ -518,7 +518,7 @@ demand on your time, although that time is organised rather differently.
 
 And, of course, I will not be setting you an exam! By the end of these 12 days, you won’t need one.
 
-<div class="neave_note">
+<div class="neave_note" role="note" aria-label="Author's note">
 Just in case 12 days still sounds rather ambitious to you, there is an alternative. This course happens to
 divide naturally into two halves, Days 1–6 and Days 7–12, which have rather different natures and contents. In terms of college or university courses, Days 1–6 could be regarded as an undergraduate course
 followed by Days 7–12 as a postgraduate course. Or, thinking of one’s younger days, Days 1–6 could be
@@ -587,7 +587,7 @@ can print out and write on during all the activities. As also mentioned in that 
 happy to mostly read material on-screen rather than on printed copy, the Workbook is *all* that you will ever
 need to print out.
 
-<div class="neave_note">
+<div class="neave_note" role="note" aria-label="Author's note">
 **NB** If your screen is insufficiently large and/or you are using an oldish version of the Adobe Acrobat software then just a few (but only a *very* few!) of the diagrams and scans in the material may appear distorted
 on-screen. All should still be well on printouts, however.
 </div>
