@@ -62,7 +62,7 @@ viewof d1_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -126,7 +126,7 @@ viewof d2_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -190,7 +190,7 @@ viewof d3_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -250,7 +250,7 @@ viewof d4_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```
@@ -316,7 +316,7 @@ viewof d5_sa = Inputs.textarea({
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 20px">
+<div class="mt-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 0)
 ```

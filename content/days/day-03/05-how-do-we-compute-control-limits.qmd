@@ -80,7 +80,7 @@ This is where the Central Line of the control chart on page 11 was placed.
 
 (b) $\overline{MR}$ represents the average *moving range* in the data. In what follows, the moving ranges are shown in italics. Note that the moving ranges are the sizes of the point-to-point changes: there are no minus signs involved. Also note that, with 10 data-points, there are of course just 9 moving ranges:
 
-<p style="text-align: center; font-family: monospace;">13&ensp;19&ensp;18&ensp;14&ensp;16&ensp;12&ensp;21&ensp;18&ensp;17&ensp;22<br>&ensp;&ensp;<em>6</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>4</em>&ensp;&ensp;<em>2</em>&ensp;&ensp;<em>4</em>&ensp;&ensp;<em>9</em>&ensp;&ensp;<em>3</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>5</em></p>
+<p class="data-sequence-mono">13&ensp;19&ensp;18&ensp;14&ensp;16&ensp;12&ensp;21&ensp;18&ensp;17&ensp;22<br>&ensp;&ensp;<em>6</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>4</em>&ensp;&ensp;<em>2</em>&ensp;&ensp;<em>4</em>&ensp;&ensp;<em>9</em>&ensp;&ensp;<em>3</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>5</em></p>
 
 So $\overline{MR} = (6 + 1 + 4 + 2 + 4 + 9 + 3 + 1 + 5) \div 9 = 35 \div 9 = 3.889$.
 
@@ -105,11 +105,11 @@ Fortunately, no. Sometimes we do use all of the available data to compute contro
 
 I'll illustrate Technical Aid 8 using the first set of 24 data from page 7:
 
-<p style="text-align: center;">11&ensp;10&ensp;11&ensp;11&ensp;12&ensp;11&ensp;13&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13&ensp;13&ensp;15&ensp;14&ensp;15&ensp;15&ensp;16&ensp;17&ensp;16&ensp;17&ensp;18&ensp;17&ensp;19</p>
+<p class="text-center">11&ensp;10&ensp;11&ensp;11&ensp;12&ensp;11&ensp;13&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13&ensp;13&ensp;15&ensp;14&ensp;15&ensp;15&ensp;16&ensp;17&ensp;16&ensp;17&ensp;18&ensp;17&ensp;19</p>
 
 Let's compute the control limits using just the first half of these data, i.e. the first 12 values. Following Technical Aid 6 we firstly compute $\bar{X}$, the average of all the data which are being used to produce the control limits:
 
-<p style="text-align: center;">11&ensp;10&ensp;11&ensp;11&ensp;12&ensp;11&ensp;13&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13.</p>
+<p class="text-center">11&ensp;10&ensp;11&ensp;11&ensp;12&ensp;11&ensp;13&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13.</p>
 
 This is
 
@@ -117,7 +117,7 @@ $$(11 + 10 + 11 + 11 + 12 + 11 + 13 + 13 + 14 + 13 + 14 + 13) \div 12 = 146 \div
 
 Then it's the turn of $\overline{MR}$, the average moving range in those 12 data. As before, the moving ranges are printed in italics:
 
-<p style="text-align: center; font-family: monospace;">11&ensp;10&ensp;11&ensp;11&ensp;12&ensp;11&ensp;13&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13<br>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>0</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>2</em>&ensp;&ensp;<em>0</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em></p>
+<p class="data-sequence-mono">11&ensp;10&ensp;11&ensp;11&ensp;12&ensp;11&ensp;13&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13<br>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>0</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>2</em>&ensp;&ensp;<em>0</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em>&ensp;&ensp;<em>1</em></p>
 
 So $\overline{MR} = (1 + 1 + 0 + 1 + 1 + 2 + 0 + 1 + 1 + 1 + 1) \div 11 = 10 \div 11 = 0.909$, and $2.66 \times \overline{MR} = 2.66 \times 0.909 = 2.418$. This puts the control limits at $12.167 - 2.418 = 9.749$ and $12.167 + 2.418 = 14.585$. Showing the control limits in blue as previously, the control chart is then:
 
@@ -133,7 +133,7 @@ This was clearly a case where, in practice, there was little to be gained by pro
 
 Just for practice, compute the control limits by the method just demonstrated (again using just the first 12 values) on the data whose run chart you drew in Activity 3–e on page 8. Here are those data:
 
-<p style="text-align: center;">18&ensp;19&ensp;17&ensp;17&ensp;16&ensp;17&ensp;16&ensp;15&ensp;14&ensp;15&ensp;15&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13&ensp;13&ensp;13&ensp;11&ensp;12&ensp;11&ensp;11&ensp;10&ensp;11</p>
+<p class="text-center">18&ensp;19&ensp;17&ensp;17&ensp;16&ensp;17&ensp;16&ensp;15&ensp;14&ensp;15&ensp;15&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13&ensp;13&ensp;13&ensp;11&ensp;12&ensp;11&ensp;11&ensp;10&ensp;11</p>
 
 <span class="neave_note">*(Hint: I deliberately chose these numbers to provide easy arithmetic for you—in particular, you should find that both $\bar{X}$ and $\overline{MR}$ computed from the first 12 values turn out to be whole numbers.)*</span>
 

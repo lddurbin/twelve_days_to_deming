@@ -45,7 +45,7 @@ So it is no accident that “government” features in the full title of Dr Demi
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 10px">
+<div class="mt-sm">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(11, 45)
 ```
