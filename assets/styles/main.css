@@ -39,6 +39,8 @@
   --color-outcome: #cc0000;
   --color-bg-light: #f9f9f9;
   --color-border-gray: #999;
+  --color-highlight-green: #90EE90;
+  --color-callout-emphasis: #ffe0e0;
 }
 
 /* ===== CALLOUT COMPONENTS ===== */
@@ -232,12 +234,11 @@ Usage:
 /* ===== UTILITY CLASSES ===== */
 .mt-sm { margin-top: 10px; }
 .mt-md { margin-top: 20px; }
-.text-center { text-align: center; }
 .text-highlight-red { color: var(--color-outcome); font-weight: bold; }
 .data-sequence-mono { text-align: center; font-family: monospace; }
-.table-cell-highlight { background: #90EE90; font-weight: bold; }
+.table-cell-highlight { background: var(--color-highlight-green); font-weight: bold; }
 .callout-emphasis {
-  background-color: #ffe0e0;
+  background-color: var(--color-callout-emphasis);
   padding: 15px;
   margin: 20px 0;
   text-align: center;
