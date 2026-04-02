@@ -5,7 +5,7 @@ execute:
 ---
 Take an initial look at these twelve control charts:
 
-![Twelve control charts: A1–F2](/assets/images/day-03/six-processes-12-charts.png){fig-align="center" width="95%" .lightbox}
+![Twelve control charts arranged in six pairs (A through F). Left column (A1–F1) shows stable processes with data fluctuating randomly within control limits. Right column (A2–F2) shows the same processes out of statistical control, with points beyond limits and visible patterns such as trends, shifts, and outliers](/assets/images/day-03/six-processes-12-charts.png){fig-align="center" width="95%" .lightbox}
 
 To simplify comparisons, each of the 12 charts was constructed from the same number (24) of data-points and in each case the control limits have been computed from all of those 24 values. You will probably guess why I have chosen those particular details. Yes, one of the processes charted here is the one with which you are currently most familiar: a Red Beads process: and those were precisely the details relevant to all of yesterday's illustrations. (This choice of baseline length does not contradict the advice given in Technical Aid 8 since these analyses are all retrospective rather than "live".)
 

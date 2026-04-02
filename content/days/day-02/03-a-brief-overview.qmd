@@ -45,14 +45,14 @@ The results produced when the experiment was performed at that company in Irelan
 
 Take a careful look through these results. What main feature occurs to you when comparing the six Willing Workers with each other?
 
-![Willing Workers results](/assets/images/day-02/image-2.png){.lightbox}
+![Handwritten results table for six Willing Workers (Ernie, Iggy, Richard, Martin, Andrew, Pat) showing red bead counts across four weeks, with weekly totals declining from 62 to 60 and individual averages near 10](/assets/images/day-02/image-2.png){.lightbox}
 
 ```{ojs}
 viewof thought_2d = Inputs.textarea({label: "What main feature occurs when comparing the six Willing Workers?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_2d" aria-expanded="false" aria-controls="collapse_2d">
-Click this after writing your comments
+Reveal analysis of the Willing Workers results
 </button>
 
 <div class="collapse" id="collapse_2d">

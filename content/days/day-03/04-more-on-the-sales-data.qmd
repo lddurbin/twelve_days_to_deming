@@ -36,7 +36,7 @@ viewof thought_3f = Inputs.textarea({label: "Concerns about management's interpr
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3f" aria-expanded="false" aria-controls="collapse_3f">
-Click this after writing your comments
+Reveal suggested answer for Pause for Thought 3-f
 </button>
 
 <div class="collapse" id="collapse_3f">
