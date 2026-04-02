@@ -60,7 +60,7 @@ viewof activity_3a_2 = Inputs.textarea({label: "Is each cause likely common or s
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3a" aria-expanded="false" aria-controls="collapse_3a">
-Click this after writing your comments
+Reveal suggested answer for Activity 3-a
 </button>
 
 <div class="collapse" id="collapse_3a">

@@ -125,7 +125,7 @@ viewof thought_4c = Inputs.textarea({
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_4c" aria-expanded="false" aria-controls="collapse_4c">
-Click this after writing your comments
+Reveal suggested answer for Pause for Thought 4-c
 </button>
 
 <div class="collapse" id="collapse_4c">

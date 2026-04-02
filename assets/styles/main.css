@@ -434,6 +434,7 @@ button:focus,
   padding: 10px 24px;
   margin: 6px 8px 6px 0;
   font-size: 15px;
+  min-height: 44px;
   font-weight: bold;
   color: #fff;
   background-color: #3366cc;
@@ -510,7 +511,7 @@ button:focus,
 /* Mobile overrides */
 @media (max-width: 768px) {
   .fe-data-table {
-    font-size: 11px;
+    font-size: 12px;
   }
   .fe-data-table td:first-child,
   .fe-data-table th:first-child {

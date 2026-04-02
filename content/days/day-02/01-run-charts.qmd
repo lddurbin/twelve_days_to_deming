@@ -20,7 +20,7 @@ Drawing a run chart is straightforward. Of course, with a very large number of d
   
 ::: {.column width="25%"}
 
-![Run chart example](/assets/images/day-02/Picture%201.jpg){.lightbox}
+![Run chart showing a line graph of values declining from around 1000 in August to approximately 400 by December, with sharp drops in October and November](/assets/images/day-02/Picture%201.jpg){.lightbox}
 :::
   
 ::::
@@ -150,7 +150,7 @@ viewof thought_2a = Inputs.textarea({label: "Was this a reasonable account of ho
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_2a" aria-expanded="false" aria-controls="collapse_2a">
-Click this after writing your comments
+Reveal suggested answer for Pause for Thought 2-a
 </button>
 
 <div class="collapse" id="collapse_2a">

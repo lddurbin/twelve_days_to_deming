@@ -173,7 +173,7 @@ viewof activity_3i = Inputs.textarea({
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3i" aria-expanded="false" aria-controls="collapse_3i">
-Click this after writing your comments
+Reveal suggested answer for Activity 3-i
 </button>
 
 <div class="collapse" id="collapse_3i">
