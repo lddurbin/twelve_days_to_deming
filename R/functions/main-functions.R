@@ -22,6 +22,17 @@ CONTROL_LIMIT_COLOUR <- "blue"
 
 # --- Clock ---
 
+#' Create a clock face plot showing a specific time
+#'
+#' Renders a ggplot2 clock face with hour and minute hands positioned
+#' at the given time. Used to display session timing indicators.
+#'
+#' @param hour Numeric. The hour to display (0-12).
+#' @param minute Numeric. The minute to display (0-59).
+#' @return A ggplot2 object containing the clock face.
+#' @examples
+#' create_clock(1, 30)  # Shows 1:30
+#' create_clock(9, 0)   # Shows 9:00
 create_clock <- function(hour, minute) {
   stopifnot(is.numeric(hour), is.numeric(minute))
 
@@ -67,6 +78,14 @@ create_clock <- function(hour, minute) {
 
 # --- Run charts ---
 
+#' Create a minimal ggplot2 theme for run charts
+#'
+#' Returns a theme with light gridlines, no axis titles, and configurable
+#' right margin (increased when horizontal reference lines have labels).
+#'
+#' @param right_margin Numeric. Right margin in points. Default 5; use ~30
+#'   when horizontal line labels are present.
+#' @return A ggplot2 theme object.
 run_chart_theme <- function(right_margin = 5) {
   theme_minimal(base_size = 14) +
     theme(
@@ -86,6 +105,24 @@ run_chart_theme <- function(right_margin = 5) {
     )
 }
 
+#' Plot a run chart (time series line graph)
+#'
+#' Draws a run chart connecting sequential values with a coloured line.
+#' Optionally adds horizontal reference lines (e.g. control limits).
+#'
+#' @param values Numeric vector. The data values to plot in order.
+#' @param line_width Numeric. Width of the plotted line. Default 6.
+#' @param y_limits Numeric vector of length 2. Y-axis range. Default c(10, 25).
+#' @param y_breaks Numeric vector. Major y-axis tick positions.
+#' @param y_minor_breaks Numeric vector. Minor y-axis tick positions.
+#' @param hlines Numeric vector or NULL. Y-intercepts for horizontal reference
+#'   lines (e.g. control limits).
+#' @param hline_labels Character vector or NULL. Labels for the horizontal
+#'   lines, positioned at the right edge of the chart.
+#' @return A ggplot2 object containing the run chart.
+#' @examples
+#' run_chart_plot(c(13, 19, 18, 14, 16))
+#' run_chart_plot(c(9, 11, 8, 14), hlines = c(5, 15), hline_labels = c("LCL", "UCL"))
 run_chart_plot <- function(values, line_width = 6,
                            y_limits = c(10, 25),
                            y_breaks = seq(10, 25, by = 5),
@@ -116,7 +153,17 @@ run_chart_plot <- function(values, line_width = 6,
   p
 }
 
-# Function to plot the red beads control chart with UCL and LCL
+#' Plot a Red Beads Experiment control chart
+#'
+#' Convenience wrapper around \code{run_chart_plot} pre-configured for Red
+#' Beads data: y-axis 0-26, control limits at LCL and UCL.
+#'
+#' @param red_beads_vec Numeric vector. Red bead counts per round.
+#' @param LCL Numeric. Lower control limit. Default 1.4.
+#' @param UCL Numeric. Upper control limit. Default 18.2.
+#' @return A ggplot2 object containing the control chart.
+#' @examples
+#' red_beads_control_chart(c(9, 11, 12, 7, 9, 13))
 red_beads_control_chart <- function(red_beads_vec, LCL = 1.4, UCL = 18.2) {
   run_chart_plot(
     red_beads_vec, line_width = 2,
@@ -128,6 +175,21 @@ red_beads_control_chart <- function(red_beads_vec, LCL = 1.4, UCL = 18.2) {
   )
 }
 
+#' Create a Red Beads results data frame
+#'
+#' Builds a tibble of worker-by-day red bead counts with row/column totals,
+#' suitable for rendering with \code{render_redbeads_table}. NA values are
+#' preserved for days not yet revealed (progressive disclosure).
+#'
+#' @param day1 Numeric vector of length 6. Red bead counts for Day 1.
+#' @param day2 Numeric vector of length 6. Red bead counts for Day 2.
+#' @param day3 Numeric vector of length 6. Red bead counts for Day 3.
+#' @param day4 Numeric vector of length 6. Red bead counts for Day 4.
+#' @param workers Character vector of length 6. Worker names.
+#' @return A tibble with 7 rows (6 workers + "Daily Totals") and columns
+#'   Name, Day 1-4, and Totals.
+#' @examples
+#' make_redbeads_df(day1 = c(9, 11, 12, 7, 9, 13))
 make_redbeads_df <- function(
   day1    = rep(NA_real_, 6),
   day2    = rep(NA_real_, 6),
@@ -165,6 +227,16 @@ make_redbeads_df <- function(
   bind_rows(df, bottom)
 }
 
+#' Render a Red Beads results table as a gt object
+#'
+#' Takes the output of \code{make_redbeads_df} and renders it as a styled
+#' gt table with bold borders, centred column labels, and a separated
+#' "Daily Totals" row.
+#'
+#' @param df A tibble produced by \code{make_redbeads_df}.
+#' @return A gt table object ready for display.
+#' @examples
+#' make_redbeads_df(day1 = c(9, 11, 12, 7, 9, 13)) |> render_redbeads_table()
 render_redbeads_table <- function(df) {
   df |> 
     gt(rowname_col = "Name") |> 

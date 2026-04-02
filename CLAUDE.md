@@ -39,7 +39,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Interactive Elements**: Custom JavaScript in `/assets/scripts/functions.js` handles user interactions like note downloading
 - **Styling**: Custom CSS in `/assets/styles/main.css` with Cosmo theme base
 - **R Integration**: R scripts in `/R/` handle data analysis, visualizations, and statistical content
-- **Build Scripts**: `/scripts/` contains utilities for content conversion and PDF processing
+- **Build Scripts**: `/scripts/` contains the PDF-to-PNG converter; obsolete tools are in `/scripts/archive/`
 
 ### Data Flow
 1. **Source**: `.qmd` files with embedded R code and interactive elements

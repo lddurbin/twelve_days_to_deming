@@ -5,8 +5,6 @@ on:
     branches:
       - main
   workflow_dispatch:
-  schedule:
-    - cron: '0 11 * * *'
 
 jobs:
   test-js:
@@ -214,6 +212,11 @@ jobs:
         rsync -avz --delete -e "ssh -p 18765" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
         echo "Deployment completed successfully"
         
+    - name: Tag deployment
+      run: |
+        git tag "deploy-$(date +%Y%m%d%H%M%S)"
+        git push --tags
+
     - name: Cleanup SSH
       run: |
         rm -rf ~/.ssh/id_rsa
