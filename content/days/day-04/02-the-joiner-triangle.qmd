@@ -279,23 +279,14 @@ So here for your convenience is the expanded Joiner Triangle again but now with 
 </div>
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([
-    viewof activity_4a_1, viewof activity_4a_2, viewof activity_4a_3,
-    viewof activity_4b_yes, viewof activity_4b_no,
-    viewof thought_4c,
-    viewof activity_4d_a1, viewof activity_4d_a2, viewof activity_4d_a3,
-    viewof activity_4d_b1, viewof activity_4d_b2, viewof activity_4d_b3,
-    viewof activity_4d_c1, viewof activity_4d_c2, viewof activity_4d_c3
-  ], "activities_4a_4b_4c_4d.txt");
-};
+createDownloadButton([
+  viewof activity_4a_1, viewof activity_4a_2, viewof activity_4a_3,
+  viewof activity_4b_yes, viewof activity_4b_no,
+  viewof thought_4c,
+  viewof activity_4d_a1, viewof activity_4d_a2, viewof activity_4d_a3,
+  viewof activity_4d_b1, viewof activity_4d_b2, viewof activity_4d_b3,
+  viewof activity_4d_c1, viewof activity_4d_c2, viewof activity_4d_c3
+], "activities_4a_4b_4c_4d.txt")
 ```

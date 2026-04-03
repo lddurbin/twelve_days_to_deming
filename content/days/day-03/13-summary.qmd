@@ -237,15 +237,7 @@ If you'd like to repeat the entire experiment with a fresh set of dice rolls, cl
 ```
 
 ```{ojs download_ch13}
-download_button_ch13 = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger_ch13}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button_ch13.onclick = () => {
-  downloadNotes([viewof activity_3i, viewof activity_3j], "activities_3i_3j.txt");
-};
+createDownloadButton([viewof activity_3i, viewof activity_3j], "activities_3i_3j.txt")
 ```

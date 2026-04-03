@@ -93,16 +93,7 @@ Incidentally, you may have noticed that every control chart you have seen so far
 </div>
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([viewof thought_3f], "thought_3f.txt");
-};
+createDownloadButton([viewof thought_3f], "thought_3f.txt")
 ```

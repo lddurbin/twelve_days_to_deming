@@ -88,16 +88,7 @@ Observing the rather abrupt cut-off on the left hand side at 6.2 mils (millimetr
 Actually, if you look carefully at the first of the two Ford histograms on page 5, I think you will find that it contains not 50 but just 49 "boxes". Maybe there was one that fell just outside specifications and, well, ... vanished.
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([viewof activity_3d, viewof activity_3e], "activities_3d_3e.txt");
-};
+createDownloadButton([viewof activity_3d, viewof activity_3e], "activities_3d_3e.txt")
 ```

@@ -1,3 +1,12 @@
+export function createDownloadButton(inputs, fileName) {
+  const button = document.createElement("button");
+  button.className = "btn btn-primary";
+  button.type = "button";
+  button.textContent = "Download Your Notes";
+  button.onclick = () => downloadNotes(inputs, fileName);
+  return button;
+}
+
 export function downloadNotes(inputs, fileName) {
   const combinedText = combineInputValues(inputs);
   const blob = createTextBlob(combinedText);

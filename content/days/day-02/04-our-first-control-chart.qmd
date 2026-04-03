@@ -69,17 +69,7 @@ viewof thought_2e = Inputs.textarea({label: "What does the control chart tell yo
 Are you startled by what the control chart has just told you? Fear not: all will be revealed!
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([viewof thought_2e], "thought_2e.txt");
-};
+createDownloadButton([viewof thought_2e], "thought_2e.txt")
 ```

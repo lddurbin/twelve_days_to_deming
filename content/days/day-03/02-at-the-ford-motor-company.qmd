@@ -37,16 +37,7 @@ viewof activity_3c = Inputs.textarea({label: "How could turning off the compensa
 </div>
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([viewof activity_3c], "activity_3c.txt");
-};
+createDownloadButton([viewof activity_3c], "activity_3c.txt")
 ```

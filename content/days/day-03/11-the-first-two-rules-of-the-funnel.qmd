@@ -250,15 +250,7 @@ So, to summarise, we have just seen that it is Rule 1 of the Funnel which has pr
 Let's now move on to ...
 
 ```{ojs download_ch11}
-download_button_ch11 = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger_ch11}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button_ch11.onclick = () => {
-  downloadNotes([], "funnel_rule1_rule2_notes.txt");
-};
+createDownloadButton([], "funnel_rule1_rule2_notes.txt")
 ```
