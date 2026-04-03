@@ -94,14 +94,6 @@ jobs:
         sudo dpkg -i quarto-1.4.549-linux-amd64.deb
         quarto --version
         
-    - name: Disable renv sandbox
-      run: |
-        echo 'Sys.setenv(RENV_CONFIG_SANDBOX_ENABLED = "FALSE")' >> .Rprofile
-
-    - name: Clean renv library
-      run: |
-        rm -rf renv/library
-
     - name: Restore R packages with renv
       run: |
         Rscript -e 'renv::restore()'
