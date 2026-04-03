@@ -90,17 +90,7 @@ At this stage, the experiment was abruptly terminated. Despite everybody's hard 
 And so the experiment came to an abrupt and unhappy end.
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([viewof thought_2d], "thought_2d.txt");
-};
+createDownloadButton([viewof thought_2d], "thought_2d.txt")
 ```

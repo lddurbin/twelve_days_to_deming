@@ -332,24 +332,15 @@ That's it! Congratulations on completing this major project. You may now relax a
 ---
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([
-    viewof d1_owq, viewof d1_aot, viewof d1_sa,
-    viewof d2_owq, viewof d2_aot, viewof d2_sa,
-    viewof d3_owq, viewof d3_aot, viewof d3_sa,
-    viewof d4_owq, viewof d4_aot, viewof d4_sa,
-    viewof d5_owq, viewof d5_aot, viewof d5_sa
-  ], "deadly_diseases.txt");
-};
+createDownloadButton([
+  viewof d1_owq, viewof d1_aot, viewof d1_sa,
+  viewof d2_owq, viewof d2_aot, viewof d2_sa,
+  viewof d3_owq, viewof d3_aot, viewof d3_sa,
+  viewof d4_owq, viewof d4_aot, viewof d4_sa,
+  viewof d5_owq, viewof d5_aot, viewof d5_sa
+], "deadly_diseases.txt")
 ```
 
 ---

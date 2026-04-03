@@ -300,23 +300,14 @@ viewof p6_sa = Inputs.textarea({
 As you know, this project will continue throughout Day 5. So get ready to keep up the good work tomorrow!
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([
-    viewof p1_owq, viewof p1_aot, viewof p1_sa,
-    viewof p2_owq, viewof p2_aot, viewof p2_sa,
-    viewof p3_owq, viewof p3_aot, viewof p3_sa,
-    viewof p4_owq, viewof p4_aot, viewof p4_sa,
-    viewof p5_owq, viewof p5_aot, viewof p5_sa,
-    viewof p6_owq, viewof p6_aot, viewof p6_sa
-  ], "points_1_to_6.txt");
-};
+createDownloadButton([
+  viewof p1_owq, viewof p1_aot, viewof p1_sa,
+  viewof p2_owq, viewof p2_aot, viewof p2_sa,
+  viewof p3_owq, viewof p3_aot, viewof p3_sa,
+  viewof p4_owq, viewof p4_aot, viewof p4_sa,
+  viewof p5_owq, viewof p5_aot, viewof p5_sa,
+  viewof p6_owq, viewof p6_aot, viewof p6_sa
+], "points_1_to_6.txt")
 ```

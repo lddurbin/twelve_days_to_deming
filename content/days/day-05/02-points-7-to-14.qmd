@@ -516,25 +516,16 @@ create_clock(12, 0)
 ---
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([
-    viewof p7_owq, viewof p7_aot, viewof p7_sa,
-    viewof p8_owq, viewof p8_aot, viewof p8_sa,
-    viewof p9_owq, viewof p9_aot, viewof p9_sa,
-    viewof p10_owq, viewof p10_aot, viewof p10_sa,
-    viewof p11_owq, viewof p11_aot, viewof p11_sa,
-    viewof p12_owq, viewof p12_aot, viewof p12_sa,
-    viewof p13_owq, viewof p13_aot, viewof p13_sa,
-    viewof p14_owq, viewof p14_aot, viewof p14_sa
-  ], "points_7_to_14.txt");
-};
+createDownloadButton([
+  viewof p7_owq, viewof p7_aot, viewof p7_sa,
+  viewof p8_owq, viewof p8_aot, viewof p8_sa,
+  viewof p9_owq, viewof p9_aot, viewof p9_sa,
+  viewof p10_owq, viewof p10_aot, viewof p10_sa,
+  viewof p11_owq, viewof p11_aot, viewof p11_sa,
+  viewof p12_owq, viewof p12_aot, viewof p12_sa,
+  viewof p13_owq, viewof p13_aot, viewof p13_sa,
+  viewof p14_owq, viewof p14_aot, viewof p14_sa
+], "points_7_to_14.txt")
 ```

@@ -173,19 +173,9 @@ The other half are above average already, so why aren’t the rest? Think about 
 </div>
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([viewof activity_1d, viewof activity_1e_1, viewof activity_1e_2], "activities_1d_1e1_1e2.txt");
-};
+createDownloadButton([viewof activity_1d, viewof activity_1e_1, viewof activity_1e_2], "activities_1d_1e1_1e2.txt")
 ```
 
 <!--

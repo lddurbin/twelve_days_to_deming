@@ -92,16 +92,7 @@ viewof activity_3b_2 = Inputs.textarea({label: "How might reducing variation lea
 </div>
 
 ```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([viewof activity_3a_1, viewof activity_3a_2, viewof activity_3b_1, viewof activity_3b_2], "activities_3a_3b.txt");
-};
+createDownloadButton([viewof activity_3a_1, viewof activity_3a_2, viewof activity_3b_1, viewof activity_3b_2], "activities_3a_3b.txt")
 ```
