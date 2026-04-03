@@ -97,5 +97,5 @@ viewof thought_2c_ii = Inputs.textarea({label: "Should we be wary of illusions o
 ```{ojs download_all}
 import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-createDownloadButton([viewof thought_2b_i, thought_2b_ii, thought_2b_iii, thought_2b_iv, thought_2c_i, thought_2c_ii], "thought_2b_2c.txt")
+createDownloadButton([viewof thought_2b_i, viewof thought_2b_ii, viewof thought_2b_iii, viewof thought_2b_iv, viewof thought_2c_i, viewof thought_2c_ii], "thought_2b_2c.txt")
 ```
