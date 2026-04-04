@@ -258,14 +258,13 @@ main() {
     exit 1
   fi
 
-  local qmd_files
-  qmd_files=$(ls "$qmd_dir"/*.qmd 2>/dev/null)
-  if [[ -z "$qmd_files" ]]; then
+  local qmd_files=( "$qmd_dir"/*.qmd )
+  if [[ ! -e "${qmd_files[0]}" ]]; then
     echo "Error: No QMD files found in $qmd_dir"
     exit 1
   fi
 
-  # Not declared local — trap needs access after main() returns
+  # local is fine here — trap runs in the same shell process and can see it
   local tmpdir
   tmpdir=$(mktemp -d)
   trap 'rm -rf "$tmpdir" 2>/dev/null || true' EXIT
@@ -277,7 +276,7 @@ main() {
   echo ""
   echo "Source PDF: $(basename "$pdf_file")"
   echo "QMD dir:   $day_dir/"
-  echo "QMD files: $(echo "$qmd_files" | wc -l | tr -d ' ')"
+  echo "QMD files: ${#qmd_files[@]}"
   echo ""
 
   # Step 1: Extract and normalise PDF text
@@ -291,10 +290,10 @@ main() {
   echo "Extracting QMD text..."
   local qmd_combined="$tmpdir/qmd_combined.txt"
   > "$qmd_combined"
-  while IFS= read -r qmd; do
+  for qmd in "${qmd_files[@]}"; do
     strip_qmd "$qmd" >> "$qmd_combined"
     echo "" >> "$qmd_combined"
-  done <<< "$qmd_files"
+  done
 
   text_to_paragraphs < "$qmd_combined" > "$tmpdir/qmd_paras.txt"
   local qmd_para_count
