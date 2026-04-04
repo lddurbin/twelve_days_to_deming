@@ -10,6 +10,8 @@
 # headings, download button, workbook callout.
 #
 # Requires: ruby (for YAML parsing — ships with macOS)
+# Note: CI (Ubuntu) does not install Ruby by default. If wiring into CI,
+# add ruby to the workflow's setup steps.
 
 set -euo pipefail
 
@@ -51,7 +53,12 @@ expand_manifest() {
   local manifest="$1"
   local outdir="$2"
   ruby -ryaml -e '
-    data = YAML.safe_load(File.read(ARGV[0]))
+    begin
+      data = YAML.safe_load(File.read(ARGV[0]))
+    rescue => e
+      $stderr.puts "Error parsing manifest #{ARGV[0]}: #{e.message}"
+      exit 1
+    end
     outdir = ARGV[1]
     data["chapters"].each_with_index do |ch, i|
       File.open("#{outdir}/ch_#{format("%02d", i)}", "w") do |f|
@@ -138,6 +145,7 @@ main() {
   local total_checks=0
   local total_pass=0
   local total_fail=0
+  local total_warn=0
 
   for ch_file in "$tmpdir"/ch_*; do
     # Read chapter metadata
@@ -271,6 +279,7 @@ main() {
       else
         warn "headings: $actual_hdg_count found but none in manifest"
         total_pass=$((total_pass + 1))
+        total_warn=$((total_warn + 1))
       fi
     fi
 
@@ -288,6 +297,7 @@ main() {
       if grep -q 'createDownloadButton' "$qmd_path" 2>/dev/null; then
         warn "download button: found but not in manifest"
         total_pass=$((total_pass + 1))
+        total_warn=$((total_warn + 1))
       else
         pass "download button: none expected"
         total_pass=$((total_pass + 1))
@@ -308,6 +318,7 @@ main() {
       if grep -q 'workbook_callout' "$qmd_path" 2>/dev/null; then
         warn "workbook callout: found but not in manifest"
         total_pass=$((total_pass + 1))
+        total_warn=$((total_warn + 1))
       else
         pass "workbook callout: none expected"
         total_pass=$((total_pass + 1))
@@ -328,6 +339,9 @@ main() {
     printf "  Failed:         ${RED}%d${RESET}\n" "$total_fail"
   else
     echo "  Failed:         0"
+  fi
+  if (( total_warn > 0 )); then
+    printf "  Warnings:       ${YELLOW}%d${RESET}  (elements found but not in manifest)\n" "$total_warn"
   fi
   echo ""
 
