@@ -482,6 +482,29 @@
       ],
       "Hash": "04291cc45198225444a397606810ac37"
     },
+    "igraph": {
+      "Package": "igraph",
+      "Version": "2.2.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "Matrix",
+        "cli",
+        "cpp11",
+        "grDevices",
+        "graphics",
+        "lifecycle",
+        "magrittr",
+        "methods",
+        "pkgconfig",
+        "rlang",
+        "stats",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "f5c501f18510803806e60517cdd84cc4"
+    },
     "isoband": {
       "Package": "isoband",
       "Version": "0.3.0",
