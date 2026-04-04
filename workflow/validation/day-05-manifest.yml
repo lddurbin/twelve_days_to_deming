@@ -1,0 +1,42 @@
+# Day 5 structural manifest
+# Generated from completed QMD files — baseline for regression checks
+day: 5
+
+chapters:
+  - file: "01-introduction.qmd"
+    viewof_count: 0
+    figures:
+      - "/assets/images/day-05/first-project-continued.png"
+    headings:
+      - "DAY 5: THE JOINER TRIANGLE, THE 14 POINTS (part 2), AND THE DEADLY DISEASES"
+    has_download_button: false
+    has_workbook_callout: false
+
+  - file: "02-points-7-to-14.qmd"
+    viewof_count: 24
+    figures:
+      - "/assets/images/day-05/joiner-triangle-bar.png"
+    headings:
+      - "Point 7. Institute leadership of people"
+      - "Point 8. Drive out fear"
+      - "Point 9. Break down barriers"
+      - "Point 10. Eliminate exhortations"
+      - "Point 11. Eliminate arbitrary numerical targets"
+      - "Point 12. Permit pride of workmanship"
+      - "Point 13. Encourage education"
+      - "Point 14. Top management commitment and action"
+    has_download_button: true
+    has_workbook_callout: true
+
+  - file: "03-the-deadly-diseases.qmd"
+    viewof_count: 15
+    figures: []
+    headings:
+      - "Disease 1. Lack of constancy"
+      - "Disease 2. Short-termism"
+      - "Disease 3. Appraisal of performance"
+      - "Disease 4. Management job-hopping"
+      - "Disease 5. Use of only visible figures"
+      - "\"Out-of-hours\" note"
+    has_download_button: true
+    has_workbook_callout: true
