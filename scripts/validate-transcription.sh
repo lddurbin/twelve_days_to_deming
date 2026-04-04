@@ -244,8 +244,9 @@ main() {
 
   # Find the source PDF
   local pdf_file
-  pdf_file=$(ls "$PDF_DIR"/"${prefix}".Day.*.pdf 2>/dev/null | head -1)
-  if [[ -z "$pdf_file" ]]; then
+  local pdf_glob=( "$PDF_DIR/${prefix}".Day.*.pdf )
+  pdf_file="${pdf_glob[0]}"
+  if [[ ! -e "$pdf_file" ]]; then
     echo "Error: No PDF found for Day $day_num (prefix $prefix) in $PDF_DIR"
     exit 1
   fi
@@ -264,6 +265,8 @@ main() {
     exit 1
   fi
 
+  # Not declared local — trap needs access after main() returns
+  local tmpdir
   tmpdir=$(mktemp -d)
   trap 'rm -rf "$tmpdir" 2>/dev/null || true' EXIT
 
@@ -279,7 +282,6 @@ main() {
 
   # Step 1: Extract and normalise PDF text
   echo "Extracting PDF text..."
-  extract_pdf_text "$pdf_file" > "$tmpdir/pdf_raw.txt"
   extract_pdf_text "$pdf_file" | text_to_paragraphs > "$tmpdir/pdf_paras.txt"
   local pdf_para_count
   pdf_para_count=$(wc -l < "$tmpdir/pdf_paras.txt" | tr -d ' ')
@@ -294,7 +296,7 @@ main() {
     echo "" >> "$qmd_combined"
   done <<< "$qmd_files"
 
-  cat "$qmd_combined" | text_to_paragraphs > "$tmpdir/qmd_paras.txt"
+  text_to_paragraphs < "$qmd_combined" > "$tmpdir/qmd_paras.txt"
   local qmd_para_count
   qmd_para_count=$(wc -l < "$tmpdir/qmd_paras.txt" | tr -d ' ')
   echo "  Found $qmd_para_count paragraphs in QMD files (>=${MIN_PARA_LEN} chars each)"
@@ -302,7 +304,7 @@ main() {
   # Normalise the full QMD text for searching — join into single line
   # so grep can match fingerprints that span original line boundaries
   local qmd_normalised
-  qmd_normalised=$(cat "$qmd_combined" | normalise | tr '\n' ' ' | sed -E 's/  +/ /g')
+  qmd_normalised=$(normalise < "$qmd_combined" | tr '\n' ' ' | sed -E 's/  +/ /g')
 
   # Step 3: Check each PDF paragraph against QMD content
   echo ""
