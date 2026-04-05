@@ -76,7 +76,7 @@ done
 
 ### Phase 1: Reconnaissance
 
-> **⚠ IMPORTANT**: Read images from `12-Days-to-Deming/PNGs-recon/`, NOT from `PNGs/`. The full-size PNGs (2550x3300) will cause an API error: `"Could not process image"`. The recon PNGs are resized to 1800px max and must exist before starting this phase — run Phase 0.5 first if they don't.
+> **IMPORTANT**: Read images from `12-Days-to-Deming/PNGs-recon/`, NOT from `PNGs/`. The full-size PNGs (2550x3300) will cause an API error: `"Could not process image"`. The recon PNGs are resized to 1800px max and must exist before starting this phase — run Phase 0.5 first if they don't.
 
 Claude reads all **recon PNGs** (`PNGs-recon/`) for the day and produces:
 

@@ -7,7 +7,7 @@ execute:
 <div class="workbook_callout" role="note" aria-label="Workbook reference">Major Activity 6-b (pages 18–21) is also on Workbook pages 100–101.</div>
 
 <div class="major_activity_title">
-<h1>Major Activity 6-b</h1>
+<h2>Major Activity 6-b</h2>
 </div>
 
 To focus on the *learning* from the Gallery Furniture story, and to help you relate it to your own situation, I now ask you to carry out two similar exercises with Gallery as you did with your own organisation in Activity 6-a: i.e. commenting on and "scoring" Gallery in relation to adoption of the 14 Points and cure of the Deadly Diseases. The first of the two exercises is based on what you know of Gallery at their "pre-Deming" stage, i.e. reflecting the company as it was, say, back in the summer of 1990. The second exercise will then be based on what you know of Gallery as it was nine years later. Obviously, your awareness of what was happening in Gallery Furniture at both times will simply be based on what you have read in Mack's account. Although he doesn't refer to the Points and Diseases explicitly, I think that in many cases you will have read enough there for you to draw valid conclusions about what was going on. (Indeed, often you may find your comments here can simply be a relevant choice of Mack's own words.) Otherwise, simply write something relevant (like "Don't know") and don't bother with a score.
@@ -55,7 +55,7 @@ viewof activity_6b_post = Inputs.textarea({label: "\"Post-Deming\" Gallery Furni
 </div>
 
 <div class="major_activity_title">
-<h1>Major Activity 6-b (concluded)</h1>
+<h2>Major Activity 6-b (concluded)</h2>
 </div>
 
 To complete this Major Activity, transcribe from the table on page 5 in Activity 6-a the scores for your own organisation into the central yellow column on page 19. Think about what they tell you. For a start, you will see "at a glance" whether your organisation relates more to Gallery as it was in its "pre-Deming" or its "post-Deming" days. More particularly, with Points or Diseases where both the "pre-Deming" Gallery and your own organisation have low scores, while "post-Deming" Gallery has a high score, there may be something to learn from the Gallery story about what your organisation might do in order to improve matters. Give yourself plenty of time for this. Write down your thoughts on these two pages.
