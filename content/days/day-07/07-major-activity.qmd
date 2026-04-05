@@ -28,7 +28,7 @@ NB As emphasised at the bottom of Appendix page 31, Dr Deming makes extensive us
 
 Please begin by reading through page 27 again.
 
-<div class="thought">
+<div class="thought" role="note" aria-label="Activity">
 
 **1. [Hope for instant pudding.]{style="color: blue"}** (*Out of the Crisis* pages 107–108[126–127]; Appendix page 32.) The ever-lasting search for the "quick fix"! The term "instant pudding" relates to certain kinds of what are known as "convenience foods": buy a packet, stir in some water, heat, and serve! Expensive and not very nutritious.
 

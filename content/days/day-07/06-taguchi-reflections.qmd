@@ -6,7 +6,7 @@ execute:
 
 <div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–f is also on Workbook page 112.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 7–f
 
@@ -39,7 +39,7 @@ But, in comparison, let's return to the concept of conformance to specifications
 
 <div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–g is also on Workbook page 113.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 7–g
 
@@ -64,7 +64,7 @@ What does the difference between the shape of that loss function on *DemDim* pag
 
 <div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–h is also on Workbook page 114.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 7–h
 

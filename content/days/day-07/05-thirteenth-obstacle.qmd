@@ -33,7 +33,7 @@ Rather than my introducing the Taguchi loss function to you, I'd like you to int
 
 <div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 7–e (pages 20–22) is also on Workbook pages 109–111.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 7–e
 

@@ -15,7 +15,7 @@ There are two particular problems.
 
 <div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–c is also on Workbook page 107.</div>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 7–c
 
