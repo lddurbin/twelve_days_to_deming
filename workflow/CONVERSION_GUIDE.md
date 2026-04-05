@@ -4,6 +4,7 @@ Repeatable workflow for converting each day's PDF source materials into interact
 
 **Source PDFs**: `12-Days-to-Deming/PDFs/` (one PDF per day)
 **Source PNGs**: `12-Days-to-Deming/PNGs/` (one PNG per original PDF page)
+**Recon PNGs**: `12-Days-to-Deming/PNGs-recon/` (resized copies for Phase 1 — **use these for reconnaissance, never the full-size PNGs**)
 **Target location**: `content/days/day-XX/` (one `.qmd` file per chapter)
 
 ---
@@ -75,6 +76,8 @@ done
 
 ### Phase 1: Reconnaissance
 
+> **IMPORTANT**: Read images from `12-Days-to-Deming/PNGs-recon/`, NOT from `PNGs/`. The full-size PNGs (2550x3300) will cause an API error: `"Could not process image"`. The recon PNGs are resized to 1800px max and must exist before starting this phase — run Phase 0.5 first if they don't.
+
 Claude reads all **recon PNGs** (`PNGs-recon/`) for the day and produces:
 
 1. **Page inventory** — a numbered list of every page with a one-line description
@@ -104,9 +107,11 @@ Each chapter is verified by reading back the `.qmd` file before moving to the ne
 
 ### Phase 4: Verify
 
-1. User spot-checks transcription accuracy against source PNGs
-2. Run `quarto preview` to check rendering
-3. Fix any issues found
+1. Run transcription validation: `./scripts/validate-transcription.sh <day-number>` — compares PDF text against QMD content and reports potentially missing paragraphs. Review gaps to distinguish genuine omissions from false positives (garbled table content, page headers, intentionally omitted boilerplate).
+2. Create a structural manifest at `workflow/validation/day-XX-manifest.yml` (see existing manifests for format), then run: `./scripts/check-structure.sh <day-number>` — checks viewof counts, figure existence, headings, download buttons, and workbook callouts.
+3. User spot-checks transcription accuracy against source PNGs
+4. Run `quarto preview` to check rendering
+5. Fix any issues found
 
 ### Phase 5: Integrate
 
@@ -456,6 +461,8 @@ When a figure needs to be extracted from a source PNG:
 - [ ] Phase 3: All `.qmd` files created and text transcribed
 - [ ] Phase 3: All figures cropped and saved to `assets/images/day-XX/`
 - [ ] Phase 3: All interactive elements added (Pauses, Activities, downloads, clocks)
+- [ ] Phase 4: `validate-transcription.sh` run — gaps reviewed and explained
+- [ ] Phase 4: Structural manifest created and `check-structure.sh` passes
 - [ ] Phase 4: User has spot-checked transcription
 - [ ] Phase 4: `quarto preview` renders without errors
 - [ ] Phase 5: Chapters wired into `_quarto.yml`

@@ -72,6 +72,12 @@ book:
         - content/days/day-05/01-introduction.qmd
         - content/days/day-05/02-points-7-to-14.qmd
         - content/days/day-05/03-the-deadly-diseases.qmd
+    - part: "Day 6: Gallery Furniture and Other True Stories"
+      chapters:
+        - content/days/day-06/01-introduction.qmd
+        - content/days/day-06/02-gallery-furniture.qmd
+        - content/days/day-06/03-activity-6b.qmd
+        - content/days/day-06/04-more-true-stories.qmd
 
 format:
   html:

@@ -1,0 +1,161 @@
+# ============================================================
+# Day 6 Brief
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 6
+  title: "Gallery Furniture and Other True Stories"
+  source_prefix: "I.Day.6.19Feb22"
+  page_count: 32
+
+# ------ Chapter Plan ------
+chapters:
+  - slug: "introduction"
+    title: "INTRODUCTION"
+    pages: "1-6"
+    notes: |
+      File pages 1-6 (doc pages 1-2). Pages 1-2 are title/blank. Page 3 is the
+      schedule/TOC — shows full day structure but does not need to be reproduced.
+      Page 4 is blank. Page 5 (doc p1) is the intro page with a Deming quote from
+      "The Deming of America": "The basic cause of sickness in American industry...
+      is failure of top management to manage." Also includes "The true stories" and
+      "Your organisation" overview paragraphs, plus an "An easier day!" note mentioning
+      lighter schedule and "no formal out-of-hours work."
+      Page 6 (doc p2) is Activity 6-a: scoring your own organisation against the 14 Points
+      and Deadly Diseases on a 0-5 scale. Workbook callout: "Activity 6-a is also on
+      Workbook page 96." References copying scores into Activity 6-b later.
+
+  - slug: "gallery-furniture"
+    title: "GALLERY FURNITURE"
+    pages: "7-21"
+    notes: |
+      File pages 7-21 (doc pages 3-17). This is the major case study of the day.
+      Workbook callout at top of p7: "The Mack story (pages 3-16) is also on Workbook
+      pages 97-110".
+      NOTE: Content-to-page mapping below was verified by visual inspection. The doc page
+      numbers in the footers are offset by 4 from file page numbers (file page - 4 = doc page).
+      Page 10 (doc p6): "Gallery Furniture" heading, intro text about Mack McIngvale.
+      Includes Mack's headshot photo — cropped as mack-mcingvale.png.
+      Page 11 (doc p7): Group photo of Mack at Deming seminar, then "Background" — grew up
+      in Starkville Mississippi, dropped out of school at 17, eventually opened Gallery
+      Furniture in Houston, Texas. Also "Unique selling feature" — same-day delivery concept.
+      Group photo cropped as mack-seminar-group.png.
+      Page 12 (doc p8): "Top-down management" — management by objectives, fear-based culture.
+      "Winners and losers" — competition between salespeople. No smiley/frowny icon exists.
+      Page 13 (doc p9): "Misguided focus" / "Internal conflict" — targets, gaming, furniture
+      polish story.
+      Page 14 (doc p10): "Rankings and averages" — performance rankings of salespeople.
+      No bar chart figure exists; ranking data is described narratively.
+      Also "A brilliant idea" — firing salespeople below 100% average concept.
+      Page 15 (doc p11): "Search for a better way" / "Salary vs commission" — discovery of
+      Deming's teachings.
+      Page 16 (doc p12): "The leap of faith" — switching from commission to salary.
+      Page 17 (doc p13): "What happened?" — results after implementing Deming.
+      Page 18 (doc p14): "Then and now" — continued growth, largest furniture store in USA.
+      Page 19 (doc p15): "No going back" — Before/After comparison table (red/blue headers).
+      Crop the table. Also "Thank you, Dr Deming" section with chain-effect list.
+      Page 20 (doc p16): "The last time" — moving story of Deming's final seminar at age 93.
+      Ends with blue-highlighted quote: "I'm doing this because I have a responsibility to
+      make a difference." Use deming_quote CSS class.
+      Page 21 (doc p17): blank page (intentionally left blank).
+
+  - slug: "activity-6b"
+    title: "MAJOR ACTIVITY 6-b"
+    pages: "22-25"
+    notes: |
+      File pages 22-25 (doc pages 18-21).
+      Page 22 (doc p18): Activity 6-b instructions (yellow highlighted "MAJOR ACTIVITY 6-b"
+      heading). Detailed instructions for scoring Gallery Furniture against the 14 Points and
+      Deadly Diseases in both "Pre-Deming" and "Post-Deming" states. References Activity 6-a
+      scores. Includes numbered instructional steps.
+      Page 23 (doc p19): Scoring table — rows for all 14 Points and 5 Deadly Diseases, columns
+      for "Pre-Deming" (Comments + Score) and "Post-Deming" (Score + Comments). The score
+      columns are highlighted yellow. Crop this table.
+      Page 24 (doc p20): "MAJOR ACTIVITY 6-b (concluded)" — final instructions about
+      transferring Activity 6-a scores and comparing with Gallery Furniture. Blue "concluded"
+      heading.
+      Page 25 (doc p21): Mostly blank workbook page with footnote about Gallery Furniture
+      website (www.galleryfurniture.com) — reference to Mack's choice on page 15.
+
+  - slug: "more-true-stories"
+    title: "MORE TRUE STORIES"
+    pages: "26-31"
+    notes: |
+      File pages 26-31 (doc pages 22-27). Collection of 10 short stories illustrating
+      Deming principles in various real-world contexts.
+      Page 26 (doc p22): "MORE TRUE STORIES" heading, intro text, then:
+        1. Hospital waiting lists — NHS non-emergency operations, personal experience
+        2. Answering the telephone — quote from "Out of the Crisis" pages 62-63 (72-73)
+        3. The police — 999 emergency call targets, performance gaming
+      Page 27 (doc p23):
+        4. Gas equipment repairs — quota scheme undermining quality
+        5. Gallery Furniture — brief reminder to re-read "gems" from Mack's account
+        6. The Grade C club — school league table gaming, grade boundaries
+        7. Stafford Hospital — extracted from The Telegraph/Sunday Telegraph, Jan 2013.
+           Bold headline: "Stafford Hospital scandal: deaths force NHS reforms"
+      Page 28 (doc p24): Stafford Hospital conclusion, then:
+        8. Bonus schemes — letter from seminar delegate about road-worker bonus scheme
+      Page 29 (doc p25):
+        9. "Lots of fat kids who hate reading" — school incentive scheme for reading
+        10. A politician speaks about the target culture and fudging figures — transcript
+           from "The Week in Westminster", BBC Radio 4, 25 Jan 2014. Interview between
+           Peter Oborne (presenter) and Bernard Jenkin MP re: police crime statistics.
+      Page 30 (doc p26): Continuation of the Bernard Jenkin transcript — discussion of
+      "cuffing", "nodding", "no crime-ing", Francis enquiry into Mid-Staffordshire.
+      Page 31 (doc p27): Approvals, Acknowledgments and Information — permissions from
+      Telegraph Media Group (page 23) and BBC (page 25).
+
+# ------ Figure Decisions ------
+figures:
+  - page: 10
+    action: "crop"
+    notes: "Mack McIngvale headshot photo (brief originally said 'smiley/frowny' — no such icon exists; the 'Top-down management' section is on page 12 and is text-only)"
+    output: "mack-mcingvale.png"
+  - page: 11
+    action: "crop"
+    notes: "Group photo of Mack and colleagues at a Deming seminar (not in original brief but worth including)"
+    output: "mack-seminar-group.png"
+  - page: 13
+    action: "skip"
+    notes: "No bar chart exists. 'Rankings and averages' is on page 14 and describes ranking data narratively — no visual figure"
+  - page: 19
+    action: "crop"
+    notes: "Before/After comparison table with red/blue column headers"
+    output: "before-after-table.png"
+  - page: 23
+    action: "crop"
+    notes: "Activity 6-b scoring table — 14 Points + 5 Deadly Diseases, Pre/Post-Deming"
+    output: "scoring-table.png"
+
+# ------ Context Notes ------
+context_notes: |
+  Schedule from page 3:
+  - 9:00 Approx start / introduction
+  - Activity 6-a (scoring own organisation)
+  - Major Activity: The Gallery Furniture story (pages 3-16)
+  - Major Activity 6-b (scoring Gallery Furniture)
+  - More true stories (pages 22-27)
+  - 4:00 Approx finish
+
+  Key themes: Real-world case studies illustrating Deming principles. Gallery Furniture is
+  the centrepiece — a detailed transformation story. The "More true stories" section provides
+  shorter examples of targets, quotas, rankings, and gaming across healthcare, policing,
+  education, and business.
+
+  Activity 6-a (page 6/doc p2): Score own organisation 0-5 on each of the 14 Points and
+  5 Deadly Diseases. Workbook page 96.
+
+  Activity 6-b (pages 22-25/doc pp 18-21): Score Gallery Furniture Pre-Deming and Post-Deming
+  on the same 14 Points and 5 Deadly Diseases. Compare with own organisation scores from 6-a.
+  Workbook pages 97-110 for the Gallery Furniture story, separate scoring table on page 23.
+
+  No formal out-of-hours work for this day (mentioned explicitly on page 5).
+
+  Approvals: Telegraph extracts (page 23/Stafford Hospital) and BBC transcript (page 25/
+  Bernard Jenkin interview) included with permission.
+
+  The Deming quote on page 20 ("I'm doing this because I have a responsibility to make a
+  difference.") is a powerful moment — should use deming_quote CSS class with emphasis.
+
+  Page 32 is a blank back page — skip it.

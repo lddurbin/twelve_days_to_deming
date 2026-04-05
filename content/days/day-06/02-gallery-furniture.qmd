@@ -1,0 +1,263 @@
+---
+title: "GALLERY FURNITURE"
+execute:
+  echo: false
+---
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">The Mack story (pages 3–16) is also on Workbook pages 97–110.</div>
+
+## Gallery Furniture
+
+:::: {.columns}
+
+::: {.column width="70%"}
+The first time I learned anything of Gallery Furniture was at a four-day seminar held at Newport Beach, California (just south of Los Angeles) in August 1991. You could hardly miss the Gallery Furniture personnel: they had arrived there early enough to bag all the central seats in the front row of the auditorium—between 15 and 20 places as I recall. Then they sat, all dressed alike, wearing maroon-coloured tee-shirts displaying the single word "GALLERY" in large letters.
+:::
+
+::: {.column width="30%"}
+<div class="float-box-content">
+![Mack McIngvale](/assets/images/day-06/mack-mcingvale.png){.lightbox}
+</div>
+:::
+
+::::
+
+Early during the second morning of the seminar, Dr Deming invited the founder and owner of Gallery Furniture, Jim McIngvale ("Mack"), up onto the stage to tell his story. I listened, amazed and excited by what I heard. Remember, this was back in 1991 when any kind of "Deming movement" in Britain was still pretty young: by then there had still been very few substantive "success stories" to relate—and certainly nothing like this! At the coffee-break which followed, I was one of the dozens who made their way over to Mack to talk to him, congratulate him, and to ask him questions. I had two particular questions for him. First, did he have any write-up of his story that I could bring back home to share with my friends and colleagues? And second, would he come over to Britain and speak to the British Deming Association's Annual Conference? The answer to the first question was No; but instead Mack gave me a video of the first time Dr Deming had invited him to tell his story to a seminar audience, just one month earlier. From then on I repeatedly used that video in my seminars. And Mack came over on two occasions to speak at BDA conferences, first in 1993 and then in 1999.
+
+![Mack tells the story of Gallery Furniture for the first time at a Deming seminar on 12 July 1991, Washington DC. Also participating were three of his colleagues, (left to right) Mary Dunstan (Personnel Director), Don Ledford (Sales and Mark Gervich. Standing at right is Bill Scherkenbach (then Chairman of the British Deming Association and prior to that a statistician with the Nashua Corporation, then a quality consultant with the Ford Motor Company, and then Quality Director at General Motors. The person at far left, half-hidden by Mack) who was Bill Scherkenbach's successor at the Ford Motor Company after Bill had moved on to assist General Motors.](/assets/images/day-06/mack-seminar-group.png){fig-align="center" width="80%" .lightbox}
+
+<div class="neave_note">
+*This picture and that of Mack on the previous page are stills from the NTSC video of the event—and so, as on a few other occasions in this material (particularly during Day 2), they are as will be obvious to you! not of high quality but are at least honest copies of the genuine article!*
+</div>
+
+The account which follows is all in Mack's own words. I have extracted it from three sources: the video just mentioned, his 1993 conference paper, and his 1999 conference presentation. I have had to be selective: Mack spoke so fast that e.g. a complete transcription of his 1999 conference presentation fills about four times the space that I am using here!
+
+After you have read Mack's account, I shall ask you to carry out a similar exercise with what you then know about Gallery as you have just done in connection with your own organisation in Activity 6-a. Note that you will find virtually no direct references to the 14 Points or Deadly Diseases in Mack's account (although you will certainly recognise a lot of familiar content). That is not surprising: Mack did not come across Dr Deming until late 1990, and by that time Dr Deming himself rarely referred to them explicitly. If there was a mention then it tended to be more in the spirit of the statement on *The New Economics* page 64[93]:
+
+> "The 14 points for management (Out of the Crisis, Ch. 2) in industry, education, and government follow naturally as application of this outside knowledge, for transformation from the present style of Western management to one of optimisation."
+
+Except for a similar statement in the Preface, this is the only reference to the 14 Points in the whole book. By **"this outside knowledge"** Deming was referring to the System of Profound Knowledge, to be studied here during the Second Project on Days 10 and 11. Mack also mentions the 14 Points just once. Watch out for that single mention—it contrasts amusingly with the above quote from Dr Deming!
+
+You will find it helpful to make yourself quite familiar with Mack's account before you embark upon today's Major Activity. It is a pleasantly easy read, and therefore I suggest you will have plenty of time to run through it a couple of times before moving on to the Major Activity.
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>
+
+### Background
+
+Gallery Furniture is a retail furniture store serving the medium- to medium-high-priced furniture market in Houston, Texas. We're not in the manufacturing business. Gallery Furniture began in 1981 with $5,000 in capital and three employees. Gallery Furniture was always a sales-driven organisation, with highly-paid (by furniture industry standards) commissioned salespeople. The emphasis from Day 1 was to make the sale by any method—as long as it's legal!
+
+### Unique selling feature
+
+I think any business has to have a unique selling feature. In other words, what is it that this company does that the other companies won't do, or are unable to do, that gives us an advantage over our competitors? When I first started in the furniture business in Houston I noticed that, with almost every store in Houston where you bought a piece of furniture, the quickest you could get it was two weeks and it was more than likely to be six or eight weeks. So, from Day 1, we decided our unique selling feature at Gallery Furniture would be immediate delivery. Customers buy furniture at our store, and we deliver it within three or four hours.
+
+We had a customer buying furniture a couple of Saturdays ago. She lived about 60 miles from our store. It was a very unusual situation. Her house had burned down. She came in and bought $46,000 worth of furniture on a Saturday night. It was 7.00pm when we finished typing the ticket. By 11.00 that Saturday night we had delivered the furniture the 60 miles, all $46,000 worth of it, set it up in her house—and we were gone. That's what we do. Our unique selling feature at Gallery Furniture is immediate delivery.
+
+I think if we are going to be successful in business, we all have to ask ourselves this question: Would the customer miss this company if it was to go out of business tomorrow? I think: Yes, they would miss us at Gallery Furniture because of our unique selling feature which is immediate delivery.
+
+### Top-down management
+
+Now, I was taught management at the University of Texas. And so Gallery had a very conventional management structure—that's the way I was taught. We had somebody at the top (Me) issuing all the orders, coming down throughout the organisation. And we did fairly well the first four or five years. But then, as the business got bigger toward the end of the 1980s and 1990, we lurched from one crisis to the next. We made the same mistakes over and over and over again.
+
+The thing that survived the company through its first eight or nine years, in spite of all my management mistakes, was my marketing strategy—which is quite brilliant. Let me tell you what it is:
+
+> ***Late to bed, early to rise; work like hell, and advertise!***
+
+The business had grown because Gallery Furniture had great customers and great employees, in spite of my management practice which was Management by Results, goal setting, incentive pay, and rating and ranking of employees. Top-down management at its finest!
+
+### Winners and losers
+
+We were a very sales-driven company back then—we still are. The heart and soul of our business is our employees, of course, but most especially our salespeople. We had salespeople who were commission-compensated because that's the way I thought would get the best productivity out of the salespeople. We had a system that created winners and losers.
+
+The salespeople working there had one mentality. And that was: "Everything other than sales is not my job". They spent most of their time between customers (and there was a lot of time between customers back then, because we had nowhere near the customer flow then that we have now) either reading or looking at girlie magazines or figuring their commission. It was not a good use of human resources.
+
+There was a daily sales goal. And, at the high point of this madness, if the goal was reached then the 1st-placed salesperson for the day received a $500 cash bonus, the 2nd-placed got $300, and the 3rd-placed got $200. The thinking was that people worked harder for a carrot. But all that changed when the faces were the faces.
+
+In our commission-based sales structure for the first eight or nine years at Gallery Furniture, we had a weekly quota the salespeople had to meet. The week ran from Friday through to the following Thursday night. In that week they had to do $7,000 in furniture sales and $400 in "add-on" chemical sales (leather, fabric-, and wood-care protection) to receive 10% commission. So most of them, if they did that much, would make anywhere from $700 to $1,000 a week. However, if they didn't make these quotas, and perhaps only did $6,000 for the week (no matter for what reason—say, because their son was sick and they had to take off a couple of days or whatever), they became a loser and they only made 5% commission or $300 a week. This obviously created a lot of games-playing.
+
+Judging performance using arbitrary goals fostered a giant amount of fudging of the figures. Salespeople went to great lengths to cross that narrow line between being a winner or a loser. Some salespeople would work six or seven days a week to reach their quotas. The more tired they got, the harder it was for them to make the quota. It was a vicious circle.
+
+Our Delivery Department could expect to be overworked on Thursdays, the end of our pay period, when salespeople would force customers to take delivery of their furniture just so that their quota could be met. "To heck with what the customer wants. I have to meet my quota."
+
+On the other hand, if a salesperson already had his figure for the week, he would call off all the Thursday night deliveries he had, and postpone them till the Friday or Saturday to give him a good start to the next week. It didn't matter that the customer didn't like this. All that mattered was: "What's good for me as far as my income is concerned?".
+
+If they had a short week where they hadn't made their quota, it was not at all unusual on Thursday night for salespeople to have as much as two or three thousand dollars worth of furniture delivered and stored in their garage so that they could say they got it on the week's quota—to be delivered later to the customer at the salesperson's convenience.
+
+On Thursday evenings it wasn't uncommon to see customers leaving with dumbfounded expressions on their faces, their arms full with 30 bottles of furniture polish—that was because of the add-on quota.
+
+Customers were not allowed to buy what they wanted if it had little or no profit in it—that would mean very little commission. So they were "helped" to like something else.
+
+### Misguided focus
+
+The focus of all the salespeople, because of the way the system was set up, was to make those quotas every single week. However, as I was to learn later from Dr Deming, this was judging performance using arbitrary goals, which fostered short-term thinking. The only thing they cared about was: "Did I make my quota this week?". Misguided focus. The focus was not at all on the customer. The focus was: "How much money can I make off this customer?". And they would prejudge every customer before they walked in the door based on the type of car they drove in on. If they drove in a big Mercedes, they'd get a lot of service. If they drove in an old Ford Taurus, they wouldn't get any.
+
+### Internal conflict
+
+It created a lot of internal conflict. What type of internal conflict? Well, the salespeople hated having new salespeople hired on the floor, because they felt like it would cut into their commission. They felt like if there were only 50 salespeople they could sell more than if there were 60 or 70. And so they made it very difficult for the new salespeople to hang on; they would try intentionally to run them off the floor, because they perceived these people as a threat to their income. I'll never forget, one new guy came in one day, and he had his lunch in a paper sack [bag], and left it in the back of the break-room. And they went back and put a whole load of Cayenne Peppers throughout his lunch. Trying to run him off. So it created a lot of internal conflict.
+
+Another problem was salespeople continually fighting each other for the next customer that came in. Or, if somebody came in and asked for Don, I'd say: "Don's not here today—I'll be pleased to help you." If Don saw the customer with me, it created a problem.
+
+### Rankings and averages
+
+It was a very bad system. It also caused greater fear in the workplace. The fear came from ranking. We ranked all of our salespeople: I thought that was the way to do it. We had, say, 80 salespeople there. And we'd rank them at the end of every month from 1 to 80. The top 10 people were viewed as superstars and the other 70 as losers.
+
+Of the 80 salespeople we had, 10 to 15 turned over *[fired or quit]* every month—and management wondered why half were still below average.
+
+It was only later at a Deming seminar that I got a blinding flash of the obvious. I learned that, in any distribution of people, half will be below average.
+
+To say the least, we were on a roller-coaster of highs and lows. We would have a great month one month and a very poor month the next. After the poor month we would start another flavour-of-the-month programme, another round of firings of the below-average performers, another new sales contest, more incentives—and it all caused more problems for the business. Dr Deming calls this "tampering"—and, believe me, I did a lot of it!
+
+### A brilliant idea
+
+In the late 1980s, Top Management (which was Me) became frustrated because the store's closing percentage (the number of sales divided by the number of customers that came into the store) seemed to never get above 43%. Now, 43% wasn't bad, seeing the national furniture industry average was 33%. But no matter how many extra incentives we offered, how many contests were started, how many threats were made—we never got above 43%. Salespeople would do great one week and very poorly the next. To say I was frustrated would be an understatement. I cajoled, motivated, begged, screamed—but nothing got better.
+
+Then Top Management (Me) came up with a brilliant idea: keep the store open with only the best salespeople. And a contest (or Dr Deming would call it a lottery) was held between all of the 80 salespeople every month. The top ten salespeople in one month could take as many customers as they pleased the next month. This created ten people who were embarrassed because of the deferential treatment they were given. They were constantly going ahead of their friends in the "batting-order basis" in which customers were served. The other 70 salespeople were losers, failures.
+
+Adding insult to injury, if on any Saturday you sold to less than 30% of your customers, you had to sit down all day Sunday until all the other salespeople were busy. We rewarded the so-called Producers, and we punished the supposed Under-Achievers.
+
+Of course, all this caused salespeople to fudge their figures even more. It created fear of failure, and it blinded salespeople to the customers' needs and concerns.
+
+### Search for a better way
+
+And at that point I came to the realisation that, unless things changed, they would probably stay the same—or, more than likely, get worse. This business was so frustrating to me. I spent half of my time arguing, settling commission arguments between salespeople. The other half of my time I spent putting out one fire after another after we disappointed the customers.
+
+I knew in my mind there had to be a better way, and so in August of 1990 I was searching for a better way to run the business.
+
+The first thing I did to try to learn about quality was I went to a conference with a guy named Philip Crosby down in Orlando, Florida. He had written a book called *Quality is Free*. I read that book and it talked about Zero Defects, and I got all excited about it. That was the management flavour for the month. The problem with Zero Defects is, to my way of thinking, it meant that you had to do things right all the time. And that's certainly an impossibility. So I was very frustrated.
+
+In October 1990, five of our great people and myself attended a life-changing event, our first four-day seminar taught by Dr Deming. It was at the Sheraton Airport Hotel in Houston, the week of his 90th birthday. Most of the concepts made sense to me. But: eliminate merit pay, incentive pay, and commissions? Never! I had never grown up in a world of competition: I win, you lose—beat the other guy. I had grown up in a world of incentives. I had grown up in a world of building superstar mentality. Those things built the business; they took Gallery Furniture "from crayons to perfume"—or so I thought.
+
+I only stayed for three out of those four days that time because his concepts of cooperation and win-win *[one of the three topics to be explored here on Day 8]* were so radical and off-centre to me. But Dr Deming's concepts intrigued me. I knew in my heart that he was right, and that he was certainly onto something. I figured that, if his 14 Points were good enough for Toyota, Honda, Sony, General Motors and Ford, maybe parts of them (and I could pick and choose) might work for Gallery Furniture. To make the selection process easier, I bought the *Deming Library* tapes and watched and listened to Dr Deming, NBC's Lloyd Dobyns, and Punk the Penguin *[a cartoon character used in some of the videos]*.
+
+I began to get the clear message that Gallery Furniture had been lucky and successful in spite of my bad management practices which crush people and their intrinsic motivation.
+
+### Salary vs commission
+
+In December, I went with five other Gallery people to another four-day seminar in Flint, Michigan, sponsored by the Buick-Oldsmobile-Cadillac division of General Motors. I sat next to Carl Sewell, founder and owner of Sewell Village Cadillac, one of the most successful Cadillac dealerships in the country. Mr Sewell had built his Cadillac business in a similar manner to Gallery—with high commissions, incentive pay, and sales contests.
+
+Carl and I discussed salary pay vs commission. I was beginning to think the unthinkable. We already had what *Team Handbook's* author Peter Scholtes describes as "quality commandos": four or five salespeople who were ready to take the plunge to salary. But there were 75 other salespeople who remained sceptical.
+
+In January 1991, my wife Linda and I took two of our converts, Don Ledford and Mark Gervich, to a four-day seminar, this time in Newport Beach, California. There we met Dr Ed Baker, who was the Head of Quality for Ford Motor Company. He and Dr Deming encouraged us to have faith and "just do it".
+
+### The hop of faith
+
+The more I studied Deming, the more I realised that something must be done. But I wasn't ready for the 100% plunge. So in January 1991 we took not a leap but a *hop* of faith, and removed all quotas; but we still paid everyone commission. Amazingly enough, sales went up and attitude improved. Some fear was driven out, but not all.
+
+Store closings ranged from 40% to 46% before removing quotas. After the quotas were removed, store closings climbed to around 50%, and stayed there.
+
+During January, February and March, my wife Linda kept telling me to go all the way to salary pay, but I didn't have the conviction to do it. However, in retrospect, those months of discussion of the pros and cons of going to all salary pay were good preparation for the change.
+
+In March 1991, I attended Dr Deming's two-day implementation seminar in Dallas. I finally took courage to walk to the microphone and asked Dr Deming a question: "Dr Deming, isn't incentive pay OK for salespeople?". He looked at me and scratched his 90-year-old head and said:
+
+> ***"Will you ever learn?"***
+
+And Dr Baker told me that any change would bring with it a whole new set of problems. But at least the problems would be new. And I have to admit that I was sick and tired of the same old problems, like battles over commission when more than one salesperson helped a customer, making payroll a real nightmare. New problems would be a welcome change. And things had to change!
+
+### The leap of faith
+
+So in April 1991 we decided to do away with commissions, and pay all salespeople a salary based on the income they made in 1990 and on their years of service to the business, so that nobody would lose. And if the company profited then everyone would share equally in our profit-sharing plan.
+
+And, as Bart Simpson once said: "That's a radical move, Dude!"
+
+Now, not only did managers have fears about going to salary: the salespeople did too. Salespeople thought that they wouldn't make as much money. Management thought that salespeople would be lazy, having no incentive to do their share. And salespeople feared they would still be evaluated, rated, ranked and appraised on the same old criteria and measurements. Many people told me that Gallery Furniture was betting the company unnecessarily on an all-or-nothing situation. And I personally had a few fears not worth mentioning here. But we pushed all the chips in the middle.
+
+And quite soon those initial fears were behind us. Almost immediately we made some amazing discoveries. People don't work less. They work more, and are eager to contribute and to prove their worth. They jump in and get involved, and display talents we didn't know they had.
+
+### What happened?
+
+We had a decision to make in 1991 when Dr Deming and Dr Baker asked me to switch those salespeople from commission to salary. It was a bet-the-company type of decision. We could keep going the same way and get quick returns—we were making money back then—or we could choose the Deming method for long-term prosperity. We chose the Deming method. And here's what happened.
+
+We were able to improve the quality of our services and our products to our customers. No longer when I went in the grocery store and saw one of our customers did I have to hear a horror story from them about how their delivery went. We were able to decrease costs, improve productivity. When we went from commission to salary, the sales per employee went through the roof. We were able to decrease our prices, to sell better-quality furniture to our customers at lower prices. Some of our prices right now in 1999 are lower than they were in 1989.
+
+We were able to increase the size of the market, not only for ourselves but for our competitors as well. Dr Deming says you have to have good competitors, and we certainly have some good ones. We were able to stay in business to provide jobs and get a return on investment—the Deming Chain Reaction.
+
+Store closings, which had been at around 43%, and then 50%, are now consistently exceeding 60%. Gallery Furniture's year-to-year sales have gone up ... up ... up.
+
+### Then and now
+
+The core—the heart—of Gallery Furniture still, as it was in the 1980s, is the salespeople. They're the people that, when the rubber hits the road, have the most dealings with the customers. In 1989, what did the salespeople do? They did sales. Everything else was "It's not my job", and they wouldn't do it. What do the salespeople do now? They do sales, they do inventory control, they move the furniture in the store, housekeeping, supervise the playground, display the room full of furniture. They do multitudinous tasks. And you know what? When they do different tasks, the job is not as boring to them and they get energised more often. They now see the business as a system, and the phrase "That's not my job" has completely disappeared. Everybody walks in everybody else's shoes, replacing criticism with compassion, and judgment with understanding.
+
+Now we view the organisation as a system: How is the system doing? How can we constantly improve? What's important to our customers?
+
+Associates have a vested interest in what they and their fellow-associates do in contributing to the whole. They take more joy in their work. They are listened to and allowed to use their talents and abilities effectively, and participate in the education of their fellow-associates. They participate in merchandising and decorating. Now a furniture-buying team meets with representatives and travels to market, making decisions that were once made by overpaid buyers who had little or no contact with the buying public. This change alone has saved our company tens of thousands of dollars. As we continued to improve, more and more associates became players, further contributing to an ever-increasing whole, and finding a place in the system where they can contribute, lending and blending their talents. It truly amazes me how much hidden talent has surfaced through all the changes. Here is one example, out of many:
+
+::: {.callout-note appearance="minimal"}
+Recently we decided to carry out some major remodelling of two of our display areas. The commercial cost would have been in excess of $70,000 for what needed to be done. A team of our associates pooled their talents and built two of the most beautiful display galleries I have ever seen. The total combined cost was less than $7,000, with the savings going directly to the bottom line, to the benefit of all through the profit-sharing programme.
+:::
+
+In the past, associates would be losing by doing anything other than selling. Cross-training is now rampant. Before, we could not justify the time or the assumed revenue loss, whereas cross-training actually makes better use of the most valuable asset a business possesses: its employees.
+
+Performance appraisal has been completely discarded: we do not use it. Growth and success are measured in other ways, and management doesn't look at an individual's figures but at the sum total of the whole system. People are simply asked to contribute in as many ways as they can, fully utilising their knowledge, talents and abilities for the good of the whole. The older and senior sales associates now help the newer salespeople, seeing them as an asset rather than as competition and a threat to their income. Turnover of salespeople is down from the 10 to 15 salespeople who used to go every month to virtually none. The thousands of dollars we used to spend every week for salespeople in local newspapers ended entirely.
+
+People are more secure—and people crave security. Now, for the first time, salespeople are able to budget their income without wild swings from month to month. Salespeople work in every area of the business, including the warehouse, service calls, and on deliveries.
+
+Customers' needs are taken into consideration, and customers no longer feel pressured into buying something. Instead of focusing on making a living, sales associates focus on the customer's needs.
+
+Downtime is now spent on improving selling techniques rather than poring over computer printouts, calculating and worrying how close they will be to meeting their quota. Associates have learned that the customer is the business, and their business is the customer.
+
+Payroll only takes an hour each week, not the nine or ten hours it used to be. Our lady in payroll no longer receives 300 calls each week wanting to know: "Where am I at? Have I made my quota yet?".
+
+Management is now spending time helping people, coaching and nurturing rather than ranking, rating, firing, or refereeing commission battles. A learning environment has been created, and people love to learn and excel at their job for the sheer joy of just doing it. And what's wrong with enjoying your work? Like the members of a symphony orchestra, associates each play their part for the good of the whole.
+
+### No going back
+
+Someone asked me, at one of the Deming downfalls, if I would go back to commission if our sales were to slide. No! Absolutely not! The biggest benefits of salary vs commission are unknown and unknowable. Employees are happier. Management is happier. And customers are treated better. The company makes more profit.
+
+And everybody wins. Is there really anything wrong if everybody wins?
+
+We have been sold down the river on competition. We think it's good: I win—you lose! I learned to compete at the University of Texas in 1969-70. One of my best friends promotes competition in the field of sports. But we must realise that the lessons we learn in sports and in school do not apply to our business lives. Let everyone share in an ever-expanding piece of pie with innovations that expand the market.
+
+The significant problems that we face today cannot be solved with the present level of thinking. Think of the new trade opportunities with Mexico: if we can't speak Spanish, we can't communicate simply by shouting English!
+
+### Before and after
+
+In order for transformation to occur, the biggest change has to take place in management's thinking. Here is a comparison of Gallery before and after we eliminated commissions with how management has totally changed their view today:
+
+![Before and After comparison](/assets/images/day-06/before-after-table.png){fig-align="center" width="80%" .lightbox}
+
+The benefits are many and great. People are happier on the job. There is better morale. Attitudes are high. Associates view the business holistically and are eager to contribute their ideas, opinions and talents. It is now OK to take a chance out on the edge where the rewards are to be found, rather than playing it safe in the middle of the road. No risk: no reward.
+
+### Thank you, Dr Deming
+
+At Gallery Furniture we had a choice to make. Continue focusing on the quick buck, or look down the road toward long-term prosperity. We chose the Deming method. It creates the following chain effect:
+
+::: {style="margin-left: 2em;"}
+Improve quality
+
+$\quad \rightarrow$ Decrease costs
+
+$\quad \quad \rightarrow$ Improve productivity
+
+$\quad \quad \quad \rightarrow$ Decrease prices
+
+$\quad \quad \quad \quad \rightarrow$ Increase market-share
+
+$\quad \quad \quad \quad \quad \rightarrow$ Stay in business
+
+$\quad \quad \quad \quad \quad \quad \rightarrow$ Provide jobs, and more jobs
+
+$\quad \quad \quad \quad \quad \quad \quad \rightarrow$ Show a return on investment.
+:::
+
+Our challenge at Gallery Furniture is to stay on the Deming course that we have learned. When I read the Wall Street Journal and the newspapers, and I see these companies getting quick gains and quick successes, it's easy for me to relate cause and effect, and say: Well, maybe I should do it that way. But I know the Deming way is the right way. It works for us. So at Gallery Furniture we've chosen to stay the course and grow the business long-term through Dr Deming's methods, which make it better for the employees, better for the customers, better for the community, and better for all of us.
+
+Thank you, Dr Deming. Thank you for teaching us how to cooperate and raise the bar together. You have truly changed our lives.
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>
+
+### The last time
+
+In finishing, I'd like to talk about the last time I saw Dr Deming. My son James was very young back then in 1993 and he went to that seminar with me. It was a four-day seminar. At that time Dr Deming was 93 years old, he weighed less than 100 pounds, and disease had pretty much ravaged his body. He had a big oxygen tank on his belt, and they were pumping oxygen into his nose. And he did this seminar all day Tuesday, all day Wednesday, all day Thursday. Friday was the fourth and final day there in Houston. We were sitting up towards the right of the front row. He did the first hour and a half's lecture that Friday morning. He was coughing and wheezing, having a hard time getting through his notes, and shaking. And came time for the first break there at 9.30 in the morning. One of the seminar participants came up to him and said: "Dr Deming, you're old, you're tired, you're sick, you're coughing and wheezing." He said: "Why don't you cancel the next six hours of the seminar, and go home and get some rest?". He said: "Nobody will get upset. Everybody here will understand. Why, why, why are you doing this? Why are you punishing yourself?". I'll never forget—Dr Deming looked him in the eye and said:
+
+<span class="deming_quote">"I'm doing this because I have a responsibility to make a difference."</span>
+
+We all do.
+
+*(Now please move on to page 18 [WB 100] to make a start on today's Major Activity.)*

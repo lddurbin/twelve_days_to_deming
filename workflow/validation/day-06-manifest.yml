@@ -1,0 +1,43 @@
+# Day 6 structural manifest
+# Generated from completed QMD files — baseline for regression checks
+day: 6
+
+chapters:
+  - file: "01-introduction.qmd"
+    viewof_count: 1
+    figures: []
+    headings:
+      - "DAY 6: GALLERY FURNITURE AND OTHER TRUE STORIES"
+      - "ACTIVITY 6-a"
+    has_download_button: true
+    has_workbook_callout: true
+
+  - file: "02-gallery-furniture.qmd"
+    viewof_count: 0
+    figures:
+      - "/assets/images/day-06/mack-mcingvale.png"
+      - "/assets/images/day-06/mack-seminar-group.png"
+      - "/assets/images/day-06/before-after-table.png"
+    headings:
+      - "Gallery Furniture"
+    has_download_button: false
+    has_workbook_callout: true
+
+  - file: "03-activity-6b.qmd"
+    viewof_count: 3
+    figures:
+      - "/assets/images/day-06/scoring-table.png"
+    headings:
+      - "ACTIVITY 6-b: \"Pre-Deming\" Gallery Furniture"
+      - "ACTIVITY 6-b: \"Post-Deming\" Gallery Furniture"
+      - "ACTIVITY 6-b: Comparison with your organisation"
+    has_download_button: true
+    has_workbook_callout: true
+
+  - file: "04-more-true-stories.qmd"
+    viewof_count: 0
+    figures: []
+    headings:
+      - "MORE TRUE STORIES"
+    has_download_button: false
+    has_workbook_callout: false

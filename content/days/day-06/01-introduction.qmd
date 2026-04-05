@@ -1,0 +1,96 @@
+---
+title: "INTRODUCTION"
+execute:
+  echo: false
+---
+## DAY 6: GALLERY FURNITURE AND OTHER TRUE STORIES
+
+### Introduction
+
+Having become familiar with the 14 Points and the Deadly Diseases during the previous two days, it will be fruitful to continue focusing on them while they are still fresh in mind. That is indeed what we shall be doing today. So be ready, if and when helpful, to refer back to the work you have carried out during the First Project; you will also probably find it convenient to keep *DemDim* Chapter 3 readily available for some quick reminders.
+
+As you are well aware, we are learning about Dr Deming's theory of management. But, of course, as we discussed near the start, the purpose of that theory is to guide better practice. So, as we now approach the halfway point of the course, it is appropriate to spend most of today working with a case study, examining how one company put the Deming theory into practice—distinctly better practice!
+
+A problem with case studies is that they are necessarily unique, whereas the Deming theory is universal. No two organisations are the same—they are of different sizes, are in different businesses, have different histories, different cultures, different people, different strengths, different weaknesses. And all these, along with a host of other differences, will necessitate different ways of applying the theory. Sometimes the differences will be small, sometimes great. It is important therefore to approach a case study not with the intention of copying it but of *learning from it*. As a result of that learning, one may then intelligently decide which parts of the story may or may not be relevant in a different situation.
+
+### More wisdom from *The Deming of America*
+
+The above emphasis is so important that, before we get to work on the case study, I would like to give you some relevant short extracts from the soundtrack of *The Deming of America*. Remember that this video was recorded in 1990, thus reaching the time when Deming was developing the System of Profound Knowledge. So what follows touches on several matters that we shall study much more deeply later on, particularly on Days 10 and 11.
+
+Naturally enough, early in the video there were some recollections of what had happened in Japan:
+
+> *Dr Deming:* I did not export American practice. I took to them new knowledge, philosophy of management, theory of management, which is optimisation of a system whereby everybody gains—everybody gains.
+
+But the video quickly moved on to discussions about the then-present day, which I suggest are still just as relevant 30 years later:
+
+> *Dr D:* Everybody is doing his best with the greatest, the best, of intentions: everybody working hard—at doing what is wrong, not guided by a theory of management. Reactive behaviour, managing by results *[ABBR]*. Sure we want good results. Manage by results: quality goes down, morale goes down. Management has not a theory of management. They work hard, very hard, under terrible stress that I could not endure. Best efforts, hard work: our ruination.
+>
+> *Priscilla Petty (the interviewer):* And you're talking about CEOs and presidents and vice-presidents and all other people who are in charge ...?
+>
+> *Dr D:* ... government people, people in education ...
+>
+> *P P:* What are they missing?
+>
+> *Dr D:* Theory of management ... Our worst thing is failure to understand what learning is. For example, experience teaches nothing. The fact is: there is no experience to record without theory. Theory enables us to ask questions, to learn. Without theory there is no learning.
+>
+> *P P:* That was a really hard one for me when I first met you.
+>
+> *Dr D:* Why should it be hard?
+>
+> *P P:* Well, because that's not what we're taught. We're taught to look at an example and say: I see, I'll do that, that's the right thing to do. But ...
+>
+> *Dr D:* But that's their downfall. People copy examples and they wonder what's the trouble. They look at examples and, without theory, they learn nothing. Theory leads you to questions.
+
+And a little later, in the same vein, Dr Deming continued as follows:
+
+> *Dr D:* Taking action on the basis of results without theory of knowledge, without theory of variation, without knowledge about a system. Anything goes wrong: do something about it. Over-reacting, acting without knowledge—the effect is to make things worse—with the best of intentions and best efforts. Managing by results is, in effect, exactly the same. As *Dr Myron* Tribus put it: while driving your automobile, keeping your eye on the rear-view mirror, what would happen? And that's what management by results is.
+
+Much of both today and tomorrow is closely linked with our study of the 14 Points and Deadly Diseases, the learning from which, as we have seen, does not merely provide some miscellaneous collection of ideas but which instead all comes together under a single theory. What theory? On Days 4 and 5 we have used the Joiner Triangle in that role. The Joiner Triangle might be regarded as a "shallow end" version of the underlying theory. That description is in no way intended to be insulting! Quite the opposite. For the other option would have been to use the "deep end" version of the theory: Dr Deming's System of Profound Knowledge. Some people are brave enough to jump straight in at the deep end—but not me. I am both a poor swimmer and have always been a slow learner. So I found the Joiner Triangle to be absolutely ideal for my learning back in 1988.
+
+However, it is worth briefly noting that the first sentence in the final quotation above explicitly refers us forward to no less than three of the four parts of the System of Profound Knowledge. And be sure that the fourth part isn't far away either! The matters covered during the above extracts are particularly relevant to the first of the three parts referred to in that quotation, i.e. the Theory of Knowledge, which could almost as well be called the Theory of Learning. So the System of Profound Knowledge has never been far away, even though it was never mentioned during the whole of the First Project!
+
+### The true stories
+
+We shall spend most of today with the true story of Gallery Furniture, learning of a journey from "bad practice" to "good practice" based on Dr Deming's theory of management. But later on there will also be several much shorter true stories involving what you will immediately perceive as "bad practice"—I believe you will find you are already very capable of recognising what is definitely not based on Dr Deming's theory! Tomorrow there will be many more such short true stories. Whereas I have written up today's stories, tomorrow's have all been contributed by various friends of mine. You may find it difficult to believe a few of them, but they are all true! The purpose of our studying the Gallery Furniture story is to learn more about what can happen if you base your thinking and actions wisely on Deming's guidance; whereas the purpose of the short stories is to learn more about what can and does happen if you don't.
+
+However, despite getting into such sad short stories toward the end of today's material, I promise you that we'll finish on what I found to be a very positive note. Admittedly it is something of a rarity, but it's a politician talking with considerable understanding about the target culture and its consequences. In this connection you might like to remind yourself about "fudging figures" (Day 5 page 10)!
+
+### Your organisation
+
+Recall that, at the end of Day 5, I gave you advance notice that today's Activities will ask you to focus some attention on "your organisation". The Activity which follows is the first such occasion. So, if you are not currently involved as an employee or a manager in an organisation, you will instead need to consider a "surrogate" organisation as discussed yesterday and on Day 1 page 15—preferably with the help of a colleague or other friend(s).
+
+### An easier day!
+
+Today's Activities are relatively straightforward compared with many others elsewhere in the course—they are not short but at least they do not involve such deep thinking! That is intentional since, assuming you made a serious and responsible attempt at the First Project over the previous two days, you should have found it to be a pretty hefty piece of work. So today you deserve an easier time! However, that does not imply what I'm asking here isn't important: quite the contrary. As just pointed out, this is where you begin the highly important task of relating the Deming management theory to your own experience and knowledge of what goes on in your organisation. It is the start of developing your thoughts about things that need to change and how to begin steering a better path forward. Obviously, the more senior and influential you are in your organisation, the greater is your responsibility so to do.
+
+::: {.callout-note appearance="minimal"}
+Today involves rather less than the fairly full day's work designed for most days in this course. So, if you need more time on parts of today's study than I am suggesting, you will find my timings easy to adapt. Also, if you are working on the course under a somewhat strict time-schedule and therefore find you have an hour or two to spare at the end of today, I suggest you then have a browse through some of the material for Day 7. For example, if you enjoy the collection of short true stories at the end of today's material, you might like to look through the even larger selection beginning on Day 7 page 9. There is quite a lot to read and do tomorrow, and it would be useful for you to get a head start by having an early taste of what is to come.
+:::
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 6-a (pages 4–5) is also on Workbook pages 96–99.</div>
+
+<div class="thought" role="note" aria-label="Activity">
+
+## ACTIVITY 6-a
+
+Firstly, for your own interest and later use, I'd like you to spend some time thinking and "scoring" your organisation with reference to the 14 Points and Deadly Diseases. How does your organisation match up with what the 14 Points guide managers to do? Is it inflicted with the "Deadly Diseases" or not? This exercise is for your eyes only—you are not expected to divulge your scores to anybody else!
+
+I suggest a 0–5 scale, scoring 5 if, with respect to Deming theory, the organisation already seems to be pretty much there; 0 if it's as "non-Deming" as you could imagine; and 1, 2, 3 or 4 in the likely event that it's somewhere between those two extremes. So, for example, with regard to Point 8: "Drive out fear", score 5 if the organisation seems almost totally devoid of fear (very rare!); 4 or 3 if there is some fear around but nothing too serious; 2 or 1 if a lot of people are pretty fearful much of the time; and 0 if everyone seems virtually paralysed by fear all of the time (hopefully also somewhat rare—but maybe not as rare as the score of 5!). And similarly with the Deadly Diseases. For example, with Disease 3: Performance appraisal, score 5 if the organisation uses no kind of judgmental appraisal system, 0 if there is a feared, extremely judgmental appraisal scheme used throughout the organisation, with considerable reward or punishment involved including advancement on the one hand and the firing line on the other. You might score 4 or 3 if there is some kind of appraisal scheme but it is relatively informal and is less concerned with judging and scoring than with coaching and helping. And you might score 2 or 1 if the reverse is true.
+
+So, in each case, write down some relevant comments. Then summarise those comments in the right-hand column by inserting what you feel to be the most appropriate score using the above 0–5 scale.
+
+::: {.callout-note appearance="minimal"}
+Work through the table reasonably carefully and accurately, but there's no need to spend a huge amount of time over this. In some cases your entries in the table may become obvious quite quickly; others may need more thought. This Activity is simply a device to help guide you on what aspects of the learning from the case study that follows might be most relevant to your organisation and which might be less so.
+:::
+
+```{ojs}
+viewof activity_6a = Inputs.textarea({label: "Score your organisation against the 14 Points and Deadly Diseases (0-5 scale):", placeholder: "For each Point and Disease, note your comments and score.\n\nPoint 1: Create constancy of purpose — Comments: ... Score: ...\nPoint 2: Adopt the new philosophy — Comments: ... Score: ...\n(continue for all 14 Points and 5 Deadly Diseases)", rows: 30})
+```
+
+</div>
+
+```{ojs download_all}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof activity_6a], "day6_activity_6a.txt")
+```
