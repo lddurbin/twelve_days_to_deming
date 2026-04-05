@@ -1,0 +1,86 @@
+---
+title: "PERFORMANCE INDICATORS"
+execute:
+  echo: false
+---
+Targets, appraisals, pay for performance, league-tabling, and all the rest: one aspect common to them all is the use of "performance indicators". A target is set for a performance indicator. Your appraisal depends on your performance as measured by one or more performance indicators, including comparisons with the targets set for them a year ago. The position in a league table depends on a performance indicator, and so of course does the amount of pay for performance. Several of our two batches of true stories are concerned with performance indicators that have been particularly poorly thought out, so that supposedly increased "performance" actually has very undesirable consequences.
+
+So a rather severe trouble is that performance indicators do not indicate performance very well. Recall from the *Deadly Diseases* video which hopefully you were able to watch on Day 5:
+
+::: {.deming_quote}
+"Pay for merit; pay for what you get; reward performance. Sounds great. Can't be done."
+:::
+
+There are two particular problems.
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–c is also on Workbook page 107.</div>
+
+<div class="thought_commentary">
+
+## PAUSE FOR THOUGHT 7–c
+
+Can you think what those two problems might be? You may find a clue in the above introduction.
+
+```{ojs}
+viewof thought_7c = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_7c" aria-expanded="false" aria-controls="collapse_7c">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_7c">
+
+- First, surely the actual "performance" of an individual or an organisation is usually extremely multi-faceted. Even the performance of machines can be multi-faceted, let alone performance of people. Yet any performance indicator is a performance indicator—**singular**. Sometimes an attempt is made to invent a performance indicator which is a *combination* of other performance indicators—but that would still be just one combination out of infinitely many that could be suggested.
+
+- Second, a performance indicator, if it can indicate performance at all, can only do so in a very local sense: what is the performance *here*, or by *this person*? It cannot relate to the system within which "here" or "this person" exists. Yet we have surely agreed by now that it is the system which is responsible for the large majority of "performance"—with figures such as 85%, 94%, 98% having been suggested. The performance indicator shows nothing of how you or your department have been helped or hindered by what is happening elsewhere, nor how what you do helps or hinders others.
+
+The conclusion is surely that, quite simply, performance indicators cannot do what their name implies, except in the most primitive and simplistic of ways. Therefore all that depends upon them rests on extremely thin ice. So there's a thought about those issues in Dr Deming's teaching which some people regard as "controversial": maybe they shouldn't be regarded as so controversial after all.
+
+</div>
+</div>
+
+## "JUST DO IT"?
+
+At this time, as we have moved into the second half of the course, I think I can anticipate what some students may be beginning to think. You are learning about all this wonderful theory (and it is!): you are learning about what is good and what is bad—and, importantly, why it's good or why it's bad. And you know that the purpose of the theory is to guide better practice. But how can it be done? Even if you are in a senior management position, what do you do—what can you do—after Day 12? Will you be left high and dry with all these marvellous new ideas but with no guidance on how to set about things?
+
+No, you won't. Firstly, Day 12 will hopefully provide much helpful general learning and guidance on how to start moving the theory into practice. But, more important than that, in my opinion the natural sequel to this course was already written and published in 1998—but not by me. Sadly, the author was destined never to know that I would be recommending it in this way. That sequel is Peter Scholtes's invaluable *The Leader's Handbook*, fortunately completed before he suffered a serious stroke. He struggled valiantly to overcome the problems with which that left him but, following more strokes, Peter eventually passed away in 2009—a tragic loss. *The Leader's Handbook* comprises some 400 pages of masterly practical advice, activities and exercises which will prove ideally suited to those who successfully complete this course and then need genuine and wise help and guidance on putting Deming's management theory into practice.
+
+Let me return for a moment to Mack's presentation yesterday. Back in 1991, when first hearing him tell his story of Gallery Furniture, there was one particular moment when my eyebrows shot up in surprise. That was when, regarding his doubts about replacing the commissions system by salaries, both Ed Baker and Dr Deming urged him to "just do it" (Day 6 page 11). That advice sounded crazy to me! And so, I still believe, it would be—in the large majority of circumstances.
+
+But Mack was not in that "large majority of circumstances". His situation was far more favourable than most. For a start, he was (and still is at this time of writing, well over 25 years later) the undoubted boss of Gallery Furniture—recall him saying on Day 6 page 10: "Top Management (which was Me)!" Next, Gallery Furniture was what we refer to as an SME (small or medium-sized enterprise): it was of a size where Mack knew personally every one of his employees—a tremendous advantage. Third, he was already a very rare kind of boss in the sense that, not only had he heard of Deming's work, he had already been enormously active in learning about it by his repeated attendance at Dr Deming's four-day seminars and other related events. Fourth, he had already made substantial strides in turning his company toward the direction of the Deming philosophy and away from what he had learned at the University of Texas (and was generally being taught in other business schools and MBA courses—and still largely is).
+
+And, of course, all this and more was already known to Ed Baker and Dr Deming when they gave him that advice. So the advice was not as flippant as it might have sounded: it was given with genuine and detailed knowledge about Mack and his particular situation. Mack had already laid the foundations.
+
+But, in just about any other circumstances, such advice would have been dangerous. And so I am including this mention here because I don't want you or anyone else to be misled by those three little words. You and almost everybody else are in nothing like Mack's advantageous situation—which, of course, he had largely created for himself by his own good sense and ambition and enthusiasm plus, in particular, his unusual willingness as the head of a company to learn and to keep on learning.
+
+You see, I have known people who, with all best intentions (and, indeed, Deming warned us about best intentions), having learned quite a lot of what Deming had to teach, then advanced too bravely and too enthusiastically to "where angels fear to tread". Seemingly they had forgotten that the wisdom which had now become so clear to them was still unrecognised, indeed unknown, to most of those around them. Sadly but inevitably, that did far more harm than good. It ruined not only their own reputation but also that of the Deming philosophy itself within their company. One needs, of course, to proceed positively but also with due caution and understanding of where everybody else is. Even Mack, in his own especially favourable circumstances, still didn't "just do it". He judged that Gallery Furniture was not yet ready for the "leap of faith"—just a "hop of faith"! It was a further three months before he decided to take the leap. But, even then, notice how he did it: the move to salaries was designed in a very carefully-judged manner so that "nobody would lose" (Day 6 page 12).
+
+Mack was so right. Great care must be exercised in disposing of anything that has become "the way we do things round here". Although you and others may now be getting to recognise the damaging aspects of the practices being considered here during Day 7, there were reasons why those practices were originally put in place. Let me remind you of what I said near the bottom of Appendix page 23. To just suddenly throw out any such "bad practice" may leave a vacuum—and what floods in to fill that vacuum may well be worse than what you threw out. Further, it is often extremely difficult to stop doing something simply because you now know it's bad—as I am sure will be confirmed by most who have managed to stop smoking or have climbed back from addiction to some other drug.
+
+A wiser and much safer approach is to gradually introduce better ways of doing things—particularly things which it is thought by many that a "bad practice" can achieve. In so doing, the bad practice does not have to be suddenly, painfully and contentiously abandoned: it simply becomes ever more redundant.
+
+As an excellent illustration, let me summarise how Peter Scholtes dealt with what was his particular hate: the usual judgmental kind of performance appraisal. In a chapter of *The Leader's Handbook*, engagingly titled "Performance Without Appraisal", he first produced a comprehensive list of reasons why some managers think they need performance appraisal (in practice he would get his clients to develop their own list). His list in *The Leader's Handbook* is as follows:
+
+a. Identifying and responding to outstanding performers [*he includes both outstandingly good and outstandingly bad: he called them "positive outstanding" and "negative outstanding"*]
+b. Creating a basis for pay
+c. Providing feedback to individual employees
+d. Giving direction and focus to the workplace
+e. Identifying career goals
+f. Identifying education and training needs
+g. Identifying candidates for promotion
+h. Identifying candidates for layoff
+i. Fostering communication between employees and their supervisors
+j. Creating a paper trail that will serve as a defence against [law-]suits for wrongful dismissal or other perceived unfair treatment
+k. Conforming to regulatory requirements
+l. Motivating employees
+
+And then he carefully considers every one in this list of reasons and develops a better way of dealing with each of them—a way that is, of course, much more consistent with Deming's teaching. Those alternative ways can be steadily brought in while the performance appraisal scheme is still retained—but, as this happens, the performance appraisal operation will be seen and *understood* to be increasingly less necessary even in the eyes of those who were originally highly supportive of it. Thus, when the time comes to finally dispose of it, there will be no vacuum to fill, no withdrawal symptoms to face.
+
+That is a little illustration of Peter's very special wisdom. So be sure you will not be left alone when trying to put Dr Deming's management theory into practice if you have *The Leader's Handbook* by your side.
+
+```{ojs download_all}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof thought_7c], "day7_thought_7c.txt")
+```

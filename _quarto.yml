@@ -79,6 +79,16 @@ book:
         - content/days/day-06/03-activity-6b.qmd
         - content/days/day-06/04-more-true-stories.qmd
 
+    - part: "Day 7: Targets, Appraisals, and Other Obstacles"
+      chapters:
+        - content/days/day-07/01-introduction.qmd
+        - content/days/day-07/02-numerical-targets.qmd
+        - content/days/day-07/03-performance-indicators.qmd
+        - content/days/day-07/04-many-more-true-stories.qmd
+        - content/days/day-07/05-thirteenth-obstacle.qmd
+        - content/days/day-07/06-taguchi-reflections.qmd
+        - content/days/day-07/07-major-activity.qmd
+
 format:
   html:
     theme: cosmo
