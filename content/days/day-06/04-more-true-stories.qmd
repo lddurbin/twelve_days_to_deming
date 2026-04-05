@@ -1,0 +1,130 @@
+---
+title: "MORE TRUE STORIES"
+execute:
+  echo: false
+---
+
+## MORE TRUE STORIES
+
+Finally, as promised, comes my collection of short stories. Tomorrow you will find some of them helpful with Activities 7-a and 7-b. Also, as you read these accounts, you may well think of further similar incidents from your own experience. If so, make a note of them since they could be even more useful tomorrow.
+
+### 1. Hospital waiting lists
+
+One of the stated aims of the British Government during the late 1990s was to reduce the number of people waiting for admission to NHS (National Health Service) hospitals for non-emergency operations. And indeed, that number did decrease, admittedly by a rather tiny fraction. But: there was also much evidence that (a) the number of people awaiting relatively serious operations increased, and (b) the number of people waiting for their initial appointment with a consultant also increased---rather a lot. This was sometimes known as "the waiting list for the waiting list".
+
+I had personal experience of this. In March 1998 it became apparent to me and to my General Practitioner that I needed a hernia operation. He put me on the list to see an NHS consultant. I had the appointment in September 1998. However, that consultant represented the part of the hospital dealing with day-patients. He agreed that I needed the operation, but, in view of factors such as my weight, blood pressure, and home circumstances, I was outside the criteria required to have the operation performed as a day-patient: I would need to stay in hospital overnight. But that was another Department: and so I was put at the end of a different queue to see a consultant concerned with overnight admissions. By the summer of 1999 I had heard nothing further. So I had the operation performed privately.
+
+### 2. Answering the telephone
+
+(from *Out of the Crisis* pages 62--63[72--73])
+
+> "A woman in my class at the Graduate School of Business Administration of New York University described her job with an airline, which was to answer the telephone, to make reservations, and to give information. She must make 25 calls per hour. She must be courteous, don't rush callers. She is continually plagued by obstacles: (a) the computer is slow in delivery of information that she asks for; (b) it sometimes reports no information, whereupon she is forced to use directories and guides. Christine, what is your job? Is it:
+>
+> To make 25 calls per hour?
+>
+> *or*
+>
+> To give callers courteous satisfaction; no brushoff?
+>
+> It can not be both."
+
+### 3. The police
+
+I talked to a member of a police force. They had been set a target on the proportion of 999 (emergency) calls for which their response time, i.e. time to be on the scene of the reported crime, was no more than 10 minutes. Some 999 calls are, of course, matters of life or death; others are trivial. This so-called performance indicator rewarded them if they prioritised trivial calls which could be reached within the 10 minutes criterion rather than life-or-death ones which could not. Incredible? I was there. There was going to be serious trouble if they failed to meet the target.
+
+### 4. Gas equipment repairs
+
+I have a friend, Trevor, who used to work as a gas engineer, his task being to visit and sort out problems which people had with their gas boilers and central heating systems. Originally he was allowed, indeed encouraged, to do a great job for his customers. But then a quota scheme was brought into force: so many jobs per day. It will not surprise you to know that some call-outs are quick and easy to deal with, while others are not. Ability to simultaneously meet the quota and do a respectable job for the customers was largely a matter of luck. Often, when sorting out the problem which a customer had reported, Trevor would notice that something else needed attention, something which would cause another problem within a few weeks. Should he deal with it on the spot---while he's already there with the boiler stripped down? Or should he leave it, thus giving himself more time to meet his quota for the day? Which would be more cost-effective for his company? Which would be more convenient, let alone safer, for his customer?
+
+### 5. Gallery Furniture
+
+OK---you know these already. But it is well worth reminding yourself of those "gems" from Mack's account (see page 9) such as furniture being stored in salespeople's houses on Thursday nights and customers loaded with 30 bottles of furniture polish!
+
+### 6. The Grade C club
+
+While speaking with a headteacher some years ago, he mentioned his school's "Grade C club". Seeing my puzzled look, he was kind enough to tell me what it was. In Britain, schools had for some considerable time been ranked ("league-tabled") according to the proportion of passes recorded in national examinations at grades C and above. According to this performance indicator, Grades D and below did not. The Grade C club comprised those pupils who were considered likely to produce passes at either Grade C or grade D. It was vital for the purpose of raising the school's placing in the league table for those pupils to produce grade C passes rather than grade D. Thus a considerable proportion of the school's already limited resources had been refocused onto the Grade C club---to the disadvantage, of course, of everyone else, both those pupils forecast to be mostly in the As and Bs and also those at the other end of the scale.
+
+### 7. Stafford Hospital
+
+*(extracted from The Telegraph and The Sunday Telegraph, January 2013---these were the best short summaries of this report that I could find)*[^a]
+
+**Stafford Hospital scandal: deaths force NHS reforms**
+
+**Sweeping reforms of the National Health Service will be demanded by a public inquiry into one of the worst scandals in NHS history**
+
+*The Telegraph* understands that the report on Stafford Hospital, where up to 1200 people died needlessly in appalling conditions, will call for an overhaul of regulations to ensure that poor managers are weeded out, and better training for nurses and healthcare assistants.
+
+The chairman, Robert Francis QC, is set to deliver a damning verdict on the whole of the Health Service. He will paint a picture of the NHS gripped by a "culture of fear" as managers became fixated on meeting targets and protecting ministers from political criticism over Labour's stewardship of the NHS. The two-year enquiry heard how managers pressured nurses and doctors to ensure official targets were achieved, even when that meant patients were put at risk---leading to the deaths.
+
+Doctors were diverted from critically ill patients to deal with less serious cases that were at risk of breaching a central target to discharge all patients from Accident & Emergency (A&E) units within four hours. Vulnerable patients were left thirsty, starving and in soiled bedsheets. Nurses were told that if they did not meet the targets "heads would roll and A&E would be closed, with all of us losing our jobs". The report, which will go first to Mr Hunt [the Government's Health Secretary] and is set to be published days later, will provide an excoriating account of a highly politicised system. It will criticise the way Labour's targets, coupled with the race to introduce Tony Blair's flagship foundation trust policy, allowed ministers to say the NHS was improving even though in reality patient care was being dangerously compromised.
+
+### 8. Bonus schemes
+
+For this illustration, I am reproducing something that was in my seminar materials for many years. Unfortunately I have lost track of its exact source, although I know it came from a letter written to me by a delegate following one of my seminars.
+
+> "My experience of bonus schemes for manual workers has made me determined to resist performance-related pay. Frankly, the effort of the individual in the workforce is rarely a major determinant of output---on that I agree with you and Dr Deming. Workers on bonus schemes forever complain to me that, however hard they work, factors outside their control determine their performance as measured by 'objective' work-studied methods. It is the system---or, more accurately, the way the work-system has been organised and managed---which determines their output.
+>
+> I could provide many examples and case studies to illustrate this point. For the purposes of this letter, one simple example will suffice.
+>
+> I received recently a complaint from some council road-workers about their fluctuating weekly pay. Some 60% of their pay is determined by a bonus scheme. They complained to me that the way their work was organised affected their bonus far more than how much effort they put into their work.
+>
+> One example of this was quickly recounted. They had been instructed one morning to reinstate some road. The yard supervisor had arranged their lorry and equipment. Unfortunately, when they arrived at the area where they were to work, they discovered that the wrong materials for the job had been loaded on their lorry. This necessitated the driver returning to the yard, unloading those materials, and finding the correct materials for the job. Some two and a half hours of the day were wasted: totally unproductive. And all of this entirely out of the control of this group of workers. Yet this brought down their bonus: cutting their weekly pay. They felt angry with management. Everyone lost from this experience: output was low, pay was cut, and relations between workers and managers were strained. Multiply this experience over many weeks---or over years---and a seemingly insoluble barrier has been created.
+>
+> When management are challenged with these stark facts, they are terrified of giving up their bonus schemes because this is, in fact, their method of 'management' and control. It is, of course, an abdication of leadership.
+>
+> I fully appreciate that most problems are much more complex than this 'hole in the road'. My contention is that the same principle surely applies in more complicated work-situations, even if they are somewhat obfuscated.
+>
+> The fundamental problem for the workforce is linking performance to pay. Nothing could be more sensitive to people in such situations than their earnings, and fluctuating weekly pay is disastrous for planning the family budget. It is clear that management have failed to come to grips with their own responsibilities for organising the work, and have failed to listen to their workers who continually point out the problems."
+
+### 9. "Lots of fat kids who hate reading"
+
+I just have room here for one very short story, and so can't resist sharing this one told to me by Peter Scholtes. It concerned a school whose English teacher came up with a great idea for persuading his pupils to read more books. Every time they completed a book they were given a voucher for a free pizza. The result? Peter's words form the heading to this paragraph.
+
+### 10. A politician speaks about the target culture and fudging figures
+
+Lastly for today, on 25 January 2014 I was fortunate to have the car radio switched on when an interview with Bernard Jenkin was being broadcast on BBC Radio 4. At the time of writing, Sir Bernard Jenkin is the Conservative Member of Parliament for the constituency of Harrow and North Essex in England; he was knighted in the 2018 Queen's Birthday Honours list. I was so impressed by the interview that later that day I recorded it via the BBC iPlayer and then transcribed it as follows. Yet again you may find some matters here which you might like to refer to during the Activities on Day 7 and, for that matter, which could also have been referenced on Days 4 and 5 during the First Project.[^b]
+
+Transcript from ***"The Week in Westminster"***
+*Presented by Peter Oborne of The Daily Telegraph*
+
+BBC Radio 4, Saturday 25 January 2014, 11.00 am
+
+*Peter Oborne:* Now for an uplifting story. It's about crime statistics and the difference one man can make just by doing the right thing. Last Autumn, Police Constable James Patrick went to his local MP Bernard Jenkin who also happens to be Chairman of the Public Administration Committee. I asked Mr Jenkin into our studio to take up the story.
+
+*Bernard Jenkin:* A constituent came to my surgery, PC James Patrick, and described the fix he had got himself into. He had been challenging his line management to deal with what he perceived to be serious inaccuracies in the reporting of recorded crime about which he was very seriously alarmed. This is what prompted our enquiry. I never for a moment thought that we would finish up taking such credible evidence, so credibly supported by other police officers, serving and retired, and academics, and that it would finish up, even before we've published a report on our statistics, with the UK Statistics watchdog downgrading police-recorded crime statistics so that they are no longer designated with the National Statistics kitemark.
+
+*P O:* Crikey! And this was just an ordinary PC, on the beat? We tried to get him on, by the way.
+
+*B J:* No, no, that would not be helpful to him. What he said in front of our committee of course is privileged. One of the advantages of giving evidence to a Select Committee is that not even your employer can touch you for what you say in front of a Select Committee---that would be a breach of parliamentary privilege.
+
+*P O:* So it led to a parliamentary enquiry which led to the conclusion that the police statistics weren't reliable. Tell us of some of the evidence that you've uncovered.
+
+*B J:* Well, particularly dramatic is the terminology. There's a number of techniques that PC James Patrick told us that are used, such as "cuffing" which is what magicians do to make things disappear, "nodding" which is where you agree with a criminal to accept that they've committed certain offences so that they can say they've been solved. There's the business of "no crime-ing": release a recorded crime which is already on the system on the basis that, once you've spoken to the victim and once you've been through it a bit, you can basically take this one off the books because it's not going anywhere. Or there's just "downgrading" crimes, so that the chisel-marks on your window which clearly were an attempted burglary is just put down as criminal damage, or the mobile phone that you say you were mugged for in the street goes in as a bit of lost property. Most concerning of all was the evidence he gave us on sexual crimes, particularly rape. I think this underlines a real central concern in that there was a row a year or two ago about the recording of sexual crimes in the Metropolitan Police, and we were told it was all dealt with. And yet the evidence we got was that rape, for example, might be as much as 25% under-recorded by the Metropolitan Police.
+
+*P O:* From what you're saying, you're telling me that the police fabricate crime statistics.
+
+*B J:* Yes. But I think it's very important not to put this in an accusatory sense, that this is not about saying there is a conspiracy to hide. There is a habit engendered by the target culture which both parties in various places in Government have been tempted to use. By targeting reductions in police-recorded crime, it has created an incentive to mis-record crimes to make things seem a little bit better than they are. And it's also very important to emphasise there is no evidence at all that crime is going up: crime is falling. The question is how much and which categories and, in particular, in which particular police areas are the trends of crime, and that's where we have not got reliable statistics, according to the UK Statistics Authority.
+
+*P O:* Do we still have these targets?
+
+*B J:* Interesting question. In 13 out of 38 responses from police areas, they have no targets at all. In other areas they have degrees of targets. In some areas they still have very specific targets. Notably, in the London Metropolitan Police area, there are still very hard and fast targets in particular kinds of crime. Why set the targets at all? One police authority in Lincolnshire, for example, just says targets are actually counterproductive: they don't help good policing. That may well be a conclusion of our enquiry.
+
+*P O:* Do you think this confection of statistics applies in other spheres, say the NHS or the Home Office, or more widely?
+
+*B J:* The answer is absolutely yes. The question is: how widely? We know, for example, from the Francis enquiry into Mid-Staffordshire *(see pages 23--24)*, that the target culture drove people to be secretive and to hide the truth and not deal with what was going on. In my own local hospital the temptation to achieve targets for cancer treatment times and pathways has led to the falsification of that data, leading to the ultimate resignation of the Chief Executive of the hospital. I think that wherever targets are used and there is data being produced which the targets are aimed at, there must be suspicion that the data are being manipulated.
+
+*P O:* Are you going to investigate those?
+
+*B J:* Well, I think the alarm bell has been rung. Maybe we should make a recommendation to all the Departments' Select Committees to look for this. But ultimately this is the responsibility of the assessment function of the Statistics watchdog, the UK Statistics Authority. Andrew Dilnot, the chairman of that body, in front of our committee has clearly taken on board that alarm bell and is going to gear his assessments of statistics to look at those kinds of statistics as a priority.
+
+*P O:* And all because of one PC whistle-blower!
+
+*B J:* I think that's part of our democratic system. There are question-marks as to how the police treat whistle-blowers, and how the legislation for police treats whistle-blowers. But that will be something for the Home Affairs Select Committee.
+
+<!--
+FOOTNOTES
+-->
+
+[^a]: These extracts from *The Telegraph* and *The Sunday Telegraph* have been included with the approval of The Telegraph Media Group.
+
+[^b]: This transcript from the Radio 4 programme *The Week in Westminster*, broadcast on 24 January 2014, has been included with the approval of the BBC.

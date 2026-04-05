@@ -1,0 +1,83 @@
+---
+title: "MAJOR ACTIVITY 6-b"
+execute:
+  echo: false
+---
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Major Activity 6-b (pages 18–21) is also on Workbook pages 100–101.</div>
+
+<div class="major_activity_title">
+<h1>Major Activity 6-b</h1>
+</div>
+
+To focus on the *learning* from the Gallery Furniture story, and to help you relate it to your own situation, I now ask you to carry out two similar exercises with Gallery as you did with your own organisation in Activity 6-a: i.e. commenting on and "scoring" Gallery in relation to adoption of the 14 Points and cure of the Deadly Diseases. The first of the two exercises is based on what you know of Gallery at their "pre-Deming" stage, i.e. reflecting the company as it was, say, back in the summer of 1990. The second exercise will then be based on what you know of Gallery as it was nine years later. Obviously, your awareness of what was happening in Gallery Furniture at both times will simply be based on what you have read in Mack's account. Although he doesn't refer to the Points and Diseases explicitly, I think that in many cases you will have read enough there for you to draw valid conclusions about what was going on. (Indeed, often you may find your comments here can simply be a relevant choice of Mack's own words.) Otherwise, simply write something relevant (like "Don't know") and don't bother with a score.
+
+Both to save space, and for ease of comparison, I am providing you with the single table below on which you can write your thoughts on both the "Before" and "After" exercises. Leave the central yellow column blank for now.
+
+Now that you know what this Major Activity involves, I also strongly recommend that you take my advice on Day 5 page 28 by reading through Mack's story once more before continuing any further. Read through it quite slowly and carefully, and this time highlight and write a brief comment on every aspect that you see which can contribute to the table—there are lots of them! This is where you will find the benefit of having prepared a single-sided "working copy" of the story as advised on that "out-of-hours" note.
+
+You could then start at the top of the table with Point 1 and work through each of the 19 rows issue by issue, to end with Deadly Disease 5. But I suggest a better approach would be to check through all of the items you have highlighted in his account, and then immediately transfer your appropriate brief comments along with page references into the relevant place(s) in the table.
+
+Then, after completing that, now comes the time when I would advise you to start at the top of the table and work through it, issue by issue. Where there is a blank, have a think to see if you can recollect anything from Mack's story to include there. Otherwise, even if you have inserted something into a particular cell of the table, you might take a minute or two to reflect on whether there is anything further that you might add.
+
+Finally, for the time being, work through the table one more time, now considering the comments you have made on both the "Pre-Deming" and "Post-Deming" sides of the table. In each case, summarise your comments with a relevant score on the same 0–5 scale as used in Activity 6-a.
+
+![Activity 6-b scoring table](/assets/images/day-06/scoring-table.png){fig-align="center" width="90%" .lightbox}
+
+<div class="thought" role="note" aria-label="Activity">
+
+## ACTIVITY 6-b: "Pre-Deming" Gallery Furniture
+
+Score Gallery Furniture in its "pre-Deming" state against each of the 14 Points and 5 Deadly Diseases, using the 0–5 scale from Activity 6-a. Include brief comments referencing Mack's account.
+
+```{ojs}
+viewof activity_6b_pre = Inputs.textarea({label: "\"Pre-Deming\" Gallery Furniture — Comments and Scores:", placeholder: "For each Point and Disease, note your comments and score based on Mack's account.\n\nPoint 1: Create constancy of purpose — Comments: ... Score: ...\nPoint 2: Adopt the new philosophy — Comments: ... Score: ...\n(continue for all 14 Points and 5 Deadly Diseases)", rows: 30})
+```
+
+</div>
+
+<div class="thought" role="note" aria-label="Activity">
+
+## ACTIVITY 6-b: "Post-Deming" Gallery Furniture
+
+Now score Gallery Furniture in its "post-Deming" state against the same 14 Points and 5 Deadly Diseases, again using the 0–5 scale.
+
+```{ojs}
+viewof activity_6b_post = Inputs.textarea({label: "\"Post-Deming\" Gallery Furniture — Comments and Scores:", placeholder: "For each Point and Disease, note your comments and score based on Mack's account.\n\nPoint 1: Create constancy of purpose — Comments: ... Score: ...\nPoint 2: Adopt the new philosophy — Comments: ... Score: ...\n(continue for all 14 Points and 5 Deadly Diseases)", rows: 30})
+```
+
+</div>
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>
+
+<div class="major_activity_title">
+<h1>Major Activity 6-b (concluded)</h1>
+</div>
+
+To complete this Major Activity, transcribe from the table on page 5 in Activity 6-a the scores for your own organisation into the central yellow column on page 19. Think about what they tell you. For a start, you will see "at a glance" whether your organisation relates more to Gallery as it was in its "pre-Deming" or its "post-Deming" days. More particularly, with Points or Diseases where both the "pre-Deming" Gallery and your own organisation have low scores, while "post-Deming" Gallery has a high score, there may be something to learn from the Gallery story about what your organisation might do in order to improve matters. Give yourself plenty of time for this. Write down your thoughts on these two pages.
+
+<div class="thought" role="note" aria-label="Activity">
+
+## ACTIVITY 6-b: Comparison with your organisation
+
+Compare your Activity 6-a scores with Gallery Furniture's "Pre-Deming" and "Post-Deming" scores. Where do the most significant gaps lie? What can your organisation learn from the Gallery Furniture transformation?
+
+```{ojs}
+viewof activity_6b_comparison = Inputs.textarea({label: "Comparison and reflections:", placeholder: "Compare your organisation's scores with Gallery Furniture's scores.\n\nWhich Points or Diseases show the biggest gaps?\nWhat lessons from the Gallery story are most relevant to your organisation?\nWhat specific changes might help improve matters?", rows: 20})
+```
+
+</div>
+
+::: {.callout-note appearance="minimal"}
+On page 15, Mack talked of the choice between continuing to focus on the quick buck, or looking down the road toward long-term prosperity using "the Deming method". That was in the 1990s. His choice seems to have worked: when you have time, take a look at [www.galleryfurniture.com](https://www.galleryfurniture.com).
+:::
+
+```{ojs download_all}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof activity_6b_pre, viewof activity_6b_post, viewof activity_6b_comparison], "day6_activity_6b.txt")
+```
