@@ -67,6 +67,15 @@
   background-color: #c2d69b;
 }
 
+/* Override base .callout styles for Quarto's native callout blocks */
+.callout.callout-note {
+  height: auto;
+  line-height: normal;
+  text-align: left;
+  font-style: normal;
+  border: none;
+}
+
 /* ===== FLOATING BOX COMPONENTS ===== */
 /*
 Usage:
