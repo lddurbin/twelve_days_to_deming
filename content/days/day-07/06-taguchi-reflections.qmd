@@ -1,0 +1,128 @@
+---
+title: "TAGUCHI REFLECTIONS"
+execute:
+  echo: false
+---
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–f is also on Workbook page 112.</div>
+
+<div class="thought_commentary" role="note" aria-label="Commentary">
+
+## PAUSE FOR THOUGHT 7–f
+
+What does this shape of the Taguchi loss function (the "parabola") tell you about how the loss varies with temperature (or whatever else is being represented on the horizontal axis)?
+
+```{ojs}
+viewof thought_7f = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_7f" aria-expanded="false" aria-controls="collapse_7f">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_7f">
+
+1. Clearly, as already stated, and as we would naturally expect, the further away the temperature etc is from the optimum (in either direction), the greater is the loss. With the "perfect" symmetric Taguchi loss function, the way that the loss increases is the same on both sides: in other cases the loss will rise more steeply on one side than on the other—i.e. when the harm done is greater in one direction than in the other.
+
+2. Note how the graph is almost flat for a degree or two either side of the optimum value. This implies that it isn't necessary to be exactly at the optimum value (even if this were possible): virtually 100% of the work still gets done as long as the temperature is fairly close to the optimum—another nice practical point.
+
+3. Not only does the loss increase as the temperature moves away from the optimum in either direction: the rate of increase increases, i.e. the curve gets steadily steeper the further we move away from the optimum.
+
+Thus, for example, whatever the amount of loss incurred if the temperature strays, say, 2° from the optimum, there is rather more than double that loss if the temperature is 4° away from the optimum.
+
+</div>
+</div>
+
+So, the Taguchi loss function is the "natural" kind of loss function—broadly speaking (not in fine detail, of course) it reflects common experience. It is probably approximately what you produced in Activity 7–e. Few would argue with its general logic, and it is very widely applicable.
+
+But, in comparison, let's return to the concept of conformance to specifications. Remember that then anything (such as a temperature) within the specifications is supposedly "OK", whereas everything else is "not OK". Everything inside the specifications is deemed satisfactory for the customer: everything outside is scrapped or reworked. There may well be specifications defined on the temperature of your office by your company or, indeed, by law, e.g. 15°C to 25°C. If the temperature goes outside that range then you are entitled to complain; if it stays within the range, you are not.
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–g is also on Workbook page 113.</div>
+
+<div class="thought_commentary" role="note" aria-label="Commentary">
+
+## PAUSE FOR THOUGHT 7–g
+
+So, rather than the Taguchi shape, what shape of loss function would justify the use of "conformance to specifications" thinking and behaviour? Remember: *all* values inside the specifications are then treated just the same as if they were exactly at the optimum, whereas *no* value outside the specifications is accepted: that's rejected or illegal, etc *irrespective* of how close it is to the relevant specification limit.
+
+```{ojs}
+viewof thought_7g = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_7g" aria-expanded="false" aria-controls="collapse_7g">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_7g">
+
+Obviously there is zero loss at the optimum value. But now, supposedly, *everything* inside the specifications is "acceptable", "OK", whether it's at or near the optimum or not. Everything here is treated identically: off it goes to the customer! It follows that the loss function which represents conformance-to-specifications thinking must be zero *throughout the specification range*. But then what happens? Think back to the little diagram near the bottom of page 19. If the value "a" changes to "b" or the value "c" changes to "d", we get the step change from "OK" to "not OK" and all that implies. It matters not how far a value is outside specifications: if it's out, it's out. So the conformance-to-specs loss function must simply be at some high value *everywhere* outside specifications. This loss function is illustrated in Figure 36 on *DemDim* page 182. Turn to that page now and take a good look at it!
+
+</div>
+</div>
+
+What does the difference between the shape of that loss function on *DemDim* page 182 and that of the Taguchi loss function imply? As *DemDim* Chapter 12 demonstrates, a very great deal! Two of the most important differences are demonstrated in the following Pause for Thought.
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–h is also on Workbook page 114.</div>
+
+<div class="thought_commentary" role="note" aria-label="Commentary">
+
+## PAUSE FOR THOUGHT 7–h
+
+What do those two loss functions apparently tell you about:
+
+1. the need or otherwise for continual improvement?
+
+&nbsp;&nbsp;&nbsp;&nbsp; *Taguchi loss function* (illustrated on page 22):
+
+&nbsp;&nbsp;&nbsp;&nbsp; *"Conformance to specifications" loss function* (illustrated on *DemDim* page 182):
+
+2. the need or otherwise to keep a process properly centred, particularly if we have a very "capable" process, i.e. one which suffers from relatively little variation?
+
+&nbsp;&nbsp;&nbsp;&nbsp; *Taguchi loss function:*
+
+&nbsp;&nbsp;&nbsp;&nbsp; *Conformance to specifications loss function:*
+
+```{ojs}
+viewof thought_7h = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+```
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_7h" aria-expanded="false" aria-controls="collapse_7h">
+Click this after writing your comments
+</button>
+
+<div class="collapse" id="collapse_7h">
+
+1. *Taguchi:* No matter how much a process has been improved, while there is still some variation there is still some loss, and so further improvement will continue to reduce the loss, giving the customer yet better product/service.
+
+&nbsp;&nbsp;&nbsp;&nbsp; *whereas*
+
+*Conformance to specifications:* Once the process has been improved (i.e. the variation reduced) sufficiently for everything to be within specifications, there is now zero loss, so there is no need to improve any further—in fact, it's a waste of money so to do. Goodbye, continual improvement.
+
+2. *Taguchi:* There is more to be gained from properly centring a process which has small variation than one which has large variation. If the process has large variation, it is far more important to reduce that variation. For example, if the process has large variation, an off-centre process may still sometimes get near the optimum by luck; if the process has low variation, it cannot. If the process has low variation then (depending on how off-centre it is) its average Taguchi loss can be slashed to a tiny fraction of its original level by properly centring it; if it has large variation, it cannot.
+
+&nbsp;&nbsp;&nbsp;&nbsp; *whereas*
+
+*Conformance to specifications:* It doesn't matter if a process is off-centre—as long as it is not off-centre enough to reach out-of-specification values. In fact, an apparent benefit of reducing variation is that one can allow the process to drift more off-centre! (In case you have come across the concept, this is often heralded as an advantage by "six-sigma" enthusiasts. There is much more about "six-sigma" on Appendix pages 43–50—but I'll classify it as very optional reading!)
+
+</div>
+</div>
+
+As implied earlier, these and related matters are studied in greater detail than is necessary for this course in *DemDim* Chapter 12. But that chapter's final illustration is worth a quick look now:
+
+### A cutting process
+
+A company was having trouble with a cutting operation for metal rods, etc—or, rather, its customers were having trouble! The cutting process had been designed to ensure 100% conformance to specifications—and was indeed achieving it. So why were the customers having trouble? An investigation of the output showed why—if you're interested, take a look at the weird distribution shown on *DemDim* page 191 in Figure 40. True, everything was within specifications. But—half of the output was piled up just to the right of the Lower Specification Limit, and the other half was piled up just below the Upper Specification Limit, with nothing in the middle! I think you'll immediately see how horrible this is from the viewpoint of the Taguchi loss function—yet it is 100% conforming to specifications!
+
+If you are uncomfortable with the use of the concept of "distribution" in this description, you can simply think in terms of a histogram having roughly the shape illustrated.
+
+I'll leave you to read the details if you want. In brief, the design of the cutting operation had been based on the undeniable logic that, if something is cut too short, it's scrap; whereas if it's cut too long then it will still be usable after another piece has been cut off. So the operation was deliberately designed to perform an initial cut at around the Upper Specification Limit (see Figure 39 on *DemDim* page 190). The length of each rod thus produced was then measured. If the length was found to lie in the left-hand half of that distribution shown in Figure 39, it was therefore within specifications and so was delivered to the customer (the right-hand part of Figure 40). But, if it was in the right-hand half of the distribution in Figure 39, a further piece would be chopped off, producing the left-hand half of Figure 40. Q.E.D.!
+
+In case you are not familiar with that abbreviation (beloved by mathematicians!), it stands for the Latin "Quod Erat Demonstrandum" which roughly translates to: "Thus it has been demonstrated".
+
+To complete the story, I'll refer you to the first complete paragraph on *DemDim* page 177. The obviously-better strategy involved no second cuts (no rework) and a reduction in average Taguchi loss to about 1/70 (yes, one-seventieth) of the previous strategy's Taguchi loss!
+
+```{ojs download_all}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof thought_7f, viewof thought_7g, viewof thought_7h], "day7_thoughts_7f_7g_7h.txt")
+```

@@ -1,0 +1,274 @@
+---
+title: "MANY MORE TRUE STORIES"
+execute:
+  echo: false
+---
+Having assembled my collection of short true stories for Day 6, I copied it to a few friends and asked if they might have any further such contributions. These next nine pages show the results of that request! Some accounts may remind you of true stories of your own: if so, record them for use in Activity 7–d on page 18 [WB 108]. I suggest you immediately make relevant notes for that Activity as you read through these pages.
+
+::: {.neave_note}
+So almost everything that follows here has been told to me by friends who were only too happy to let me publish their stories. However, in some cases they were, for probably obvious reasons, a little shy about their names being publicly associated with particular experiences. Therefore, in order to preserve their anonymity I shall refer to all of them as either "John" or friends of "John". Thus I would like to express my gratitude to the various Johns and friends who include Mitch Beedie, Malcolm Gall, Jackie Graham, Balaji Reddie, Peter Worthington, Dave Young, and the late Nigel Clements. My own few comments are printed in italics. The stories often use the first person: "I" or "me", etc; but, unless printed in italics, the "I" or "me" refers to John rather than to myself.
+:::
+
+*Before John had become familiar with Dr Deming's teaching, he was clearly quite surprised when he saw what happened when his own company started introducing (a) Annual Performance Reviews and (b) Key Performance Targets. Here firstly are John's accounts on those two topics:*
+
+### Annual performance reviews
+
+The company established a system of annual review for all employees. A software system was established plus training for all staff and reviewers. Each individual was required to carry out a self-assessment giving themselves achievement scores against roughly 6 or 8 aspects under the subjects of company behaviours, role skills and role behaviours. This was required to be followed up by a "half-hour" (sic) interview with your line manager. In practice, these turned out to last two to three hours for those who tried—or a cursory interview for those who did not—plus they caused a great deal of anxiety for many individuals, not to mention the time commitment.
+
+One little chink of light came from the opportunity to discuss one's future and to identify one's training needs.
+
+*[How sad that John's company couldn't have thought of doing the latter—possibly **more** than once a year—without the bother and expense of all the rest.]*
+
+### Key Performance Targets
+
+Key Performance Indicators (KPIs) are promoted by business improvement consultants, ISO 9001 assessors and EFQM, Six-Sigma, and the like. Clients see these as ways to judge their supplier's compliance with these concepts and frequently impose substantial additional ranges of KPIs. Under these pressures, in order to accrue any benefits from applying KPIs and to demonstrate that the company was following this trend, it established an array of KPIs covering the whole company. A dashboard system was established to pull these data together. People were delegated to collect data and report centrally. A lot of time was spent each month collecting and collating the data plus responding to all sorts of queries about what each KPI meant. When the results were published, yet more queries arose, especially regarding the peculiarities of particular forms of contract imposed in different regions.
+
+Managers who took targets seriously soon lost interest when their time became spent on identifying and enquiring into anomalies in reporting. Other managers, perceiving that the numbers could lead to extra work and more questions from top management, simply fudged the figures to make them in line with (or perhaps slightly better than) the competing regions. The result was no gain for the company other than it could demonstrate that they were "doing KPIs". The cost and time commitments were large, including the development of software to record and report the data. Unfortunately, the effort entirely missed the point of helping businesses measure performance in a way that would support continual improvement. Little practical use was ever made of all this effort.
+
+Incidentally, the original reporting system continued throughout this initiative; in fact, the 50+ pages of monthly tables of data, but with very few trend graphs, is still reported today ...
+
+*John's further stories now follow. First, having just described what happened when his company introduced those Performance Indicators, he fondly recalls this letter from a friend in India:*
+
+### My monthly reports
+
+"If I remember right, it was in 1994 that I had this experience. I had to submit, on a monthly basis, a report to top management with figures for typical 'indicators' of the company's performance. There were indicators like the cost per hour of producing goods, profits made per hour, inventory turnaround, etc. I religiously submitted this report to management every month without fail, sometimes selectively with graphs indicating favourable trends.
+
+However, I never got any reaction from the relevant people in the organisation. After a year or fifteen months of doing this I accidentally discovered why. I had gone up to the office to submit my report as usual (religiously), but the lady was not there. After waiting for her for about 20 minutes, I called on another extension number, only to be told that she had left for the day because she was unwell. I was also told to put the report in the box-file marked with my name. I proceeded to look for the file and, after much searching, found it. I opened it to discover all my reports in absolutely 'virginal' condition! They had not even been looked at for the past fifteen months! Imagine my shock and dismay. I punched my report and filed it as instructed.
+
+As I walked away, a thought crossed my mind. What if I give the next report by only changing the year on the earlier monthly report (January 1994 to January 1995)? I would save myself the trouble of preparing the report which otherwise took away much of my precious time. My experiment proved successful, as I received no feedback from the relevant authorities. This misdemeanour continued for six months. Soon I was going to run out of reports, so I tried something even more audacious. I decided to only change the *month* from the current report and resubmit it. Even this trick worked!
+
+I continued like this for about a year and there was still no response from the authorities. Frustrated, I did not submit my report the next time around. Guess the reaction from the authorities? They promptly called me up the very next day with the query: 'Where is your monthly report?'.
+
+Amen!"
+
+### Two little stories from the construction industry ...
+
+1. A firm of house-builders had to perform well relative to their sales forecasts each quarter in order to avoid the wrath of the city analysts and thus maintain their share price. It was hugely revealing to look at a run chart of their monthly sales figures showing a very distinct high spike in the third month of each quarter. It was of course even more revealing to look at a run chart of monthly cancellations where there was a similar pattern of spikes, but this time in the first month of each quarter—i.e. one month later than the sales spikes.
+
+2. In the same firm of house-builders, the Sales Negotiators had to produce daily counts of visitors to the Show Homes. Visitors were regarded as being of two types: "Net Visitors" were defined as "those showing a real interest in buying", all other visitors being termed (at least in the trade) "carpet-treaders". The counts recorded were of (a) "Gross Visitors" (i.e. visitors of both types) and (b) "Net Visitors". At some stage a target was introduced on Sales Negotiators for the proportion of "Net Visitors". It was quite astonishing how people visiting the Show Homes apparently suddenly developed a much greater interest in buying a new home!
+
+### ... and two from the aircraft industry ...
+
+**1.** Four different types of blades were needed in a particular aircraft engine. The manager of the blade shop was given a production target to meet of so many blades per week. There was no problem in meeting that target; when the manager saw that the production number was a little low (generally because there were increased orders for the more complex type of blades), he switched the production to the "simplest blade": that way the target was always met. Needless to say, after a few months the question of a certain amount of over-stocking arose—how strange!
+
+**2.** Production in an aircraft engine company was averaging 12 engines per month. The Chief Executive Officer demanded 16 engines per month. Fortunately, the Managing Director of this company had learned about variation and constructed a control chart of the engine production over the past 18 months. The chart showed the process was in statistical control with an Upper Control Limit of 14. His response to the CEO consisted of
+
+(a) the control chart, and
+
+(b) questions about investment in more trained fitters, a larger site, etc.
+
+The case was proven!
+
+::: {.callout-note appearance="minimal"}
+*[A brief extract from page 15 of the Optional Extras section may be useful here. It states that:*
+
+*"the control chart can serve very effectively as a **communication language** within and between departments in an organisation, between different levels of management, and even between organisations."*
+
+*I'll further remind you from Day 1 page 7 that Deming "was also clear that, the more senior someone is in the organisation, the more essential such [communication] ability becomes. As far as he was concerned, the most important control charts at any organisation should be right there on the Chief Executive's desk."]*
+:::
+
+### ... and no less than five from the railways
+
+**1.** The railway industry in Britain has well-known targets for punctuality, typically defined as no more than ten minutes late (see "British Rail Redefines Punctuality", *DemDim* page 113). What might seem quite miraculous is the way that a train could be running, say, 15 minutes late at its penultimate "station-stop" (as they often call it) but can be only five minutes late at its ultimate destination—i.e. "on-time" according to the target. Perhaps less well-known is the often-used means of improving performance against the target called "timetable padding": this involves the judicious use of "recovery time" where additional time (perhaps five to ten minutes) is added to the schedule close to the train's ultimate destination. A system against which franchisees' performance is judged by the official regulator only measures the punctuality of trains at their destination—but not at calling points en route. Of course, it only measures punctuality of trains but not of customers, whose journey might involve more than one train ...
+
+*Having read that report which John has just cited, an Australian friend sent me the next two offerings:*
+
+**2.** "Your rail example reminds me of an Australian rail system that could not meet the timetable to within 3 minutes as they used to do and were getting hammered by the press. So they fixed it—by changing the definition to 'within 5 minutes'. When that didn't work they went to 10 minutes. That worked—no longer in the headlines! Unfortunately the system hasn't changed. I wonder how long it will be before they have to go to 15 minutes!"
+
+**3.** "On the Melbourne rail system, a bonus is paid for on-time trains. A relatively new company running trains on the system has come up with a new way of meeting the timetable: it skips stations! So yes, if a train is running late, it goes straight through a station in order to get back on schedule—ignoring passengers that wanted to get off or on the train at that station! Needless to say, the train users are not happy. But the bonuses are still getting paid since there is nothing in the contract that says a train mustn't skip a station!"
+
+*After that brief excursion to the other side of the world, back to John's stories:*
+
+**4.** In one region of the rail network, carriages were washed daily. The management set a target of 37 carriages per day (why 37—who knows?). However, on many occasions there were not even 37 carriages available, maybe only 29. Not to worry: the target was still met. Agreed, it meant that on those occasions some carriages were washed more than once. There's always a way!
+
+*[John commented: "And so the crazy world of arbitrary targets lives on ... "]*
+
+**5.** This next story comes from a signalling installation company who ran their work as "projects" chargeable to their customers (mainly Network Rail). All project managers and engineers had to record their use of time in terms of either "Chargeable" (i.e. invoiceable to a customer) or "Non-chargeable" hours. In one division there was a weekly target of 1,850 Chargeable hours, but they were only occasionally achieving this. There was a weekly meeting in which project managers had to explain any non-achievement of target to the Finance Director—in fact, there was a league-table mentality where the project manager furthest from the target had to sit in a specific place designated "The Spiky Chair" to receive a particularly gruelling interrogation during the meeting. Of course, there was a terrible culture of fear about all this, lots of preparation of defence ("It wasn't my fault: I can pass the blame onto someone else") and lots of preparation of additional background data to be used "just in case" in order to question the integrity of the base data or to give credibility to the buck-passing.
+
+It sticks vividly in my memory that, during a seminar I was giving to the Finance Director and the team about understanding variation and the use of process behaviour [control] charts, the Finance Director suddenly stood up and said: "Hold it right there, John" and left the room. Of course, I was somewhat perplexed by this, but he returned a couple of minutes later with some paper and said: "Let me use that computer, John", it had been demonstrating some software for producing control charts. He tapped in some weekly Chargeable Hours data, and the resultant control chart had a mean of about 1,600 hours with an Upper Control Limit of 1,900 hours. He looked at the screen and said: "You mean, our system isn't capable of meeting the target we've set for it—except occasionally with luck?". I nodded again. "You mean, we have to work together on our system to improve it to the state we would like it to be?". I nodded again.
+
+I can tell you that the immediate change in the atmosphere in that room was palpable: people breathed out and relaxed in that instant. It was the beginning of "All One Team" and "Scientific Approach" and, believe me, it didn't do any harm either to "Obsession with Quality"!
+
+### More "Spiky Chairs"!
+
+I think of tales from the boardroom, remembered from reports in the press (so I regret I have no references). There was the well-known bank, Bank H (as with -BOS), where the CEO, an import from Asda who knew how to get the sales of vegetables up, awarded a cabbage to be held by the executive reporting the lowest sales. Similarly there was the chairman of Company M (as with -&S) who gave the manager with the worst results a rubber chicken to hold (hopefully not from their food department).
+
+### West Midlands Employment Service
+
+At a meeting with the area managers, John presented their performance data in control-chart form—the first time they had seen this. One particular performance measure was "Date of Claim + 6", i.e. the percentage of benefit claims per month paid within six days. The Government's target for this measure was 92%.
+
+The first control chart they looked at was for the city of Coventry. The process was clearly seen to be in statistical control with an Upper Control Limit of 92.1%. The area manager's management style had been "carrot and stick". But, since the chart indicated statistical control, she realised that the process was predictable and therefore that she was looking at her future performance as well as the past. Without more ado she declared (quite bravely) that she needed to manage the area differently. She created teams of "ordinary" office workers to look at the process of paying benefits. Some nine months later, this manager and her teams demonstrated their new reality through a control chart which still showed statistical control but now with a Lower Control Limit of about 92.5%. They proudly and truthfully stated that "the target remains at 92% but is now irrelevant".
+
+*[That reminded me of an observation in Peter Scholtes's* The Leader's Handbook *(page 353): "The carrot and stick approach was developed for use with jackasses, and its legitimate use is limited to that species."]*
+
+### How to rise up the OFSTED league tables
+
+OFSTED stands for England's Office for Standards in Education, Children's Services and Skills. The Office describes itself as follows: "We report directly to Parliament and we are independent and impartial. We inspect and regulate services which care for children and young people, and those providing education and skills for learners of all ages."
+
+OFSTED publishes many of its findings in the form of league tables.
+
+<div class="float-box-right">
+
+![Newspaper clipping about OFSTED inspections](/assets/images/day-07/ofsted-clipping.png){.lightbox}
+
+</div>
+
+The letter to *The Independent* newspaper shown alongside was published on 18 November 2000. Since it is a rather poor copy, you may find it a little difficult to read. Therefore, just in case, the second item on Appendix page 31 provides a transcription.
+
+*The day before I started putting together this collection of John's stories (in April 2013), I found the following article in the current issue of the same newspaper:*
+
+### Schools tricking OFSTED inspectors by sending problem pupils home
+
+Hundreds of schools are illegally excluding children—sometimes to get rid of them during Ofsted inspections or having them taken off the school's roll for high-stakes tests—an investigation by the Children's Commission for England has found.
+
+Illegal practices uncovered during the investigation—which included a survey of 1,000 teachers—include:
+
+- Sending pupils home for disciplinary reasons without recording it as an exclusion—6.7 per cent of schools were guilty of this (1,600 schools)
+
+- Sending children with statements of special education needs home if their teaching assistant is unavailable—2.7 per cent (650 schools)
+
+- Pupils being put down as "authorised absent" or "educated elsewhere" when the school had encouraged them to stay away—2.1 per cent (540 schools)
+
+- Schools encouraging parents to educate their children at home—1.8 per cent (or 192 schools) were guilty of this.
+
+Etc, etc.
+
+### Alarming
+
+In hospital last year the guy next to me had an alarm sounding each time his vital signs became unplugged. Initially the nurses reattached the leads. But eventually they just left it sounding. What does that tell every other patient in the ward?
+
+### A Pharmaceutical Company
+
+The sales representatives of this company do not sell to General Practitioners and hospital doctors but rather give advice on their company's products. They told me that they felt they were doing a good job: the doctors would welcome their visits (unlike those of other salespeople), and the repartee was great! Well, it's the usual story—management thought they were shirking (how would they know?) and set a target for the number of visits: 14 visits per week, whereas the current rate was around 10 to 12. Many of the sales representatives moaned to me about this target: they felt they could no longer give a meaningful service to their clients—it would become more like "Here's the leaflet and samples; see you in two months time!". However, when I met with the sales representatives some time later they were "all smiles". Odd! So I asked about the situation with the target. "No problem", they replied. On probing further, I discovered the reason: they had invented a couple of imaginary clients whom they could use whenever they felt the target wasn't going to be met.
+
+*[As John again said to me: "There's always a way!"]*
+
+*The earlier story (on page 11) about the four types of blade needed for aircraft engines was reminiscent of one told at an Annual Conference of the British Deming Association. Here it is, along with two others:*
+
+### Three from BDA Conferences
+
+**1.** This one goes back to the days of the Soviet Union and concerns the production of nails. The powers-that-be in Moscow set each nail factory a numerical target, i.e. they were tasked with achieving a certain quantity of nails each year. In understandable fear of their jobs, what the factory management decided to do was to make many more small nails than large ones, thus achieving the numerical target easily. This resulted in a national shortage of larger nails. The powers-that-be cottoned on to what had been happening, and so they introduced a new numerical target. From now on the factories were to produce a certain tonnage of nails per year. In response to this, the factory management decided to manufacture many more large nails than small ones, as it was easier to achieve a tonnage target this way. The result? Yes, a national shortage of small nails. Oh dear ...
+
+**2.** Next, an American bank told its branches that if they could close each day for six months with a completely balanced account (i.e. no money left over, no money missing) then each member of the branch would receive a [considerable] bonus. Apparently the scheme was a huge success as each branch started to balance their accounts perfectly. What the directors of the bank didn't know was how the branches were achieving the target. What each branch actually did was to simply set up a "balancing" account and at the end of each day they paid any money left over into it or drew any amount missing out of it. The directors were blissful in their ignorance and the branch staff were delighted with their guaranteed bonuses. There was only one loser, of course: the customer.
+
+*[Or, I suppose, John, there were some lucky customers who gained!]*
+
+**3.** Finally, a software company in Britain offered its developers a bonus for every "bug" they found and fixed in their systems. After a while, as the systems were improved, there were less and less bugs to find and therefore less bonuses to enjoy. The developers were not happy with their resultant loss of income, so they started to *introduce* new bugs into the systems and then fix them. Again, the directors were blissfully ignorant about all of this and the developers were delighted.
+
+*[A frequent quotation from Dr Deming that we haven't seen earlier was: "Who gives a hoot about profit!"]*
+
+*A story rather similar to those above was widely reported in the Press on 30 October 2008. The headline in The Times was:*
+
+### "BT staff phoned each other to hit Whitehall targets"
+
+This concerned a call centre set up by the Ministry of Defence in Kettering, England and run by British Telecom. If calls were answered too slowly then service targets would not be met and a fine would be incurred. *Staff would be financially penalised. Staff discovered that if they phoned each other at quiet times and answered quickly then the target would be met. This practice did not slow the system to give rise to any customer complaints and it went on for nearly six years before discovery.* Quoting from a BBC News report:^[a]^
+
+"BT has been forced to pay the Ministry of Defence £1.3m in compensation after some of its staff met call-answering targets by phoning each other. The National Audit Office found they fixed figures to help BT avoid fines for not answering calls quickly enough. The targets were part of a £3bn Private Finance Initiative (PFI) deal to operate the Forces' telephone system. BT has sacked some of the 'small number of staff' involved and the call centre no longer operates.
+
+The company has also paid £1,021,000 in service payments, the £122,000 cost of investigating the fraud, and the £197,000 cost of the false calls."
+
+*[Apparently about 1.25 million bogus calls had been made!]*
+
+### Reducing Accidents?
+
+I was working with a mining company. I was confused as to why someone who was obviously totally incompetent in addition to suffering from a broken leg was on Reception. Eventually I understood. The manager of the mine had to report to the Board if anyone was injured on the job and was unable to work for at least one shift. This gentleman had had a serious accident with a loader: he had broken his leg and been to Accident & Emergency at the local hospital. But they had managed to get him back to the premises in time for his next shift, and so they did not have to log the incident!
+
+*[John remarked to me: "Give enough of a stick, and systems develop to ensure the stick does not need to be used."]*
+
+*John learned of the following matter because the travelling salesperson concerned (whom I'll call Anne) lived next door to him at the time. She was seeking to sell soft toys and other novelties to gift shops in her area. I will simply quote extracts from two letters to Anne which were written, just over one month apart, by her Regional Sales Manager whom John described as a "Red-Beads Foreman" style of boss:*
+
+### A Red-Beads Foreman
+
+Dear Anne &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7 March
+
+Congratulations on opening two new accounts and the instant rapport you seem to develop with your customers. This will help you to gain their trust and lead to a good working relationship. To date you have opened eight new accounts, which is fantastic. Well done—keep up the good work. ... With your undoubted enthusiasm and sales ability I am sure it will not be long before we start seeing you climb to the top of the weekly sales update. I am glad you are in my team, Anne.
+
+*(continued on the next page)*
+
+Dear Anne &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9 April
+
+As you are aware, since you started your career with us, your weekly business has not been of the standard we would like from any new salesperson working for us. Four weeks ago I targeted you for a minimum of £3,000 per week. Yet as at week ending 26 March you still failed to meet this, booking £8,597 over those targeted weeks and averaging only £2,226 per week. ... Failure to meet these targets may result in disciplinary action being taken.
+
+*[John also produced a copy of what struck me as a most peculiar league table in which Anne was placed low down at 24th position—she was certainly doing badly. The person at top position in the table was the key account manager for a well-known national chain of card and gift shops. Anne's sales area was a thinly-populated region of Shropshire and mid-Wales (described by John as containing more sheep than people, even in the high tourist season). There is an old saying about the nonsense of comparing apples with pears (or was it oranges?), but I think this case beats that!]*
+
+### How to please the boss
+
+A lady was inspecting finished items from a very high-tech manufacturing process. The items she was inspecting had a value of between £500 and £1,000 each at the inspection stage. After she inspected them she put each item on one of two piles labelled GOOD and BAD. The BAD ones were scrapped.
+
+One day, a process improvement consultant picked up one of the items on the BAD pile and asked her what was wrong with it. "Nothing", she replied. The consultant asked: "Then why put it on the BAD pile?". "Well", she said, "when I started this job my boss told me that I should expect to find about five BAD ones in each batch of twenty-five. These days there seem to be more GOOD ones coming through than there used to be, but if I don't scrap about five out of twenty-five my boss may think I'm not doing a thorough inspection job."
+
+Tens of thousands of pounds were being wasted.
+
+### "We do not have targets"
+
+*The British Government's Department of Work and Pensions (DWP) is responsible through its jobcentres both for helping unemployed people find work and for supervising payments of benefits to those not in work for whatever good reason (e.g. physical or mental illness, disability, etc). In the early years of the current decade, the DWP was attempting to crack down on abuse of the relevant benefits systems. In March 2013 this led to some interesting exchanges in the British Parliament. I therefore relate this story mostly using excerpts from the pages of Hansard, the official documentary record of proceedings in Parliament, slightly modified for clarity and accuracy.*
+
+**Jobseekers (Back to Work Schemes) Bill, 19 March 2013, Second Reading.**
+
+*Mr Liam Byrne (Birmingham, Hodge Hill) (Lab):* A couple of years ago now, the Secretary of State gave an assurance to the House that individual jobcentres or jobcentre districts did not have targets for sanctioning jobseekers and that there were not any kind of league tables that ranked jobcentres or districts for sanctions. Will the Minister confirm that that is still his Department's policy?
+
+*Mr Mark Hoban (the Minister of State, Department for Work & and Pensions):* Absolutely. There are no league tables in place. We do not set targets for sanctions. I have made that point in previous discussions ... The decisions that need to be made are the right ones. They need to be based on whether people have breached their agreements they have set out with the jobcentre, and there are no targets in place.
+
+...
+
+*Mr Byrne:* I have heard the Minister's assurances this afternoon that there is no series of targets and that there are no league tables. We will hear further evidence on that point over the course of the debates in this House. I hope that the assurances that we have heard this afternoon withstand those tests.
+
+...
+
+*Mr Russell Brown (Dumfries and Galloway) (Lab):* Staff are under so much pressure. I can tell both Ministers here that there will for ever be a question mark over targets. Let me assure them and the Secretary of State that if evidence ever comes my way that clearly indicates that there are targets that have been denied by Ministers, I will make the House fully aware. I hope that honourable Members on both sides would do likewise. If that evidence is to be found, if that is happening, then it is only right that we expose it.
+
+...
+
+*Esther McVey (the Parliamentary Under-Secretary of State for Work and Pensions):* Slave labour was mentioned, but that is not an issue. Targets were mentioned. There are no targets whatsoever.
+
+*The annual Budget speech was presented the following day, 20 March, after which the debate on the Budget commenced. The debate continued in the morning of Friday 22 March. In the meantime an e-mail written by a jobcentre adviser manager, Ruth King, had been leaked and become public knowledge.*
+
+**Budget Resolutions and Economic Situation, 22 March 2013 (debate continued from 20 March).**
+
+*Mr Byrne:* We need action on jobs now ... If we require any proof of the need for a big plan for jobs, we have only to look at the story by Mr Patrick Wintour in today's *Guardian*. Here we learn some of the terrible ways in which front-line jobcentre staff are now being asked to reduce the unemployment figures—targets for sanctions and league tables for jobcentres. So tough is the pressure on staff that they are threatened with disciplinary action by their superiors if they fail to deliver for Ministers. They are even given a dictionary of which phrases to spot so that they can catch out jobseekers who have turned up to jobcentres for help. The leaked e-mail tells staff to look out for phrases such as "I pick up the kids", "I look after my neighbour's children" and "I didn't come in yesterday because my husband was ill". It beggars belief that Ministers told the House on Tuesday that no such targets or league tables existed, yet we see from this e-mail that it is deep within the DWP's culture....
+
+How on earth could Ministers not have known? How on earth could the House have been given information earlier in the week that was the opposite of the truth? I know that the Secretary of State will apologise, because he is a decent man. On Tuesday, the Minister of State, Department for Work and Pensions (Mr Hoban) said: "There are no league tables in place. We do not set targets for sanctions." The Under-Secretary of State for Work and Pensions (Esther McVey), said: "There are no targets whatsoever."
+
+*Mr Iain Duncan Smith (the Secretary of State for Work and Pensions):* First, I can absolutely commit to the fact that there are no targets for any sanction whatsoever. To emphasise that, I should point out that the head of Jobcentre Plus has issued a reminder to everybody in the estate that there are no targets and that there will be no targets, and that anybody using those targets will be disciplined.
+
+...
+
+*Mr Byrne:* My admiration for jobcentre staff working under this regime is unbounded. They are good people trapped in bad systems, with a Secretary of State who, I fear, is out of touch. I have a copy of the e-mail that Mr Wintour reports today, and this is its concluding paragraph:
+
+"Guys, we really need to up the game here *[on the issuing of sanctions]*. The 5% target is one thing—the fact that we are seeing over 300 people a week and only submitting six of them for possible doubts is simply not credible." The e-mail says: "So the bottom line. I have until 15 February, along with other area managers, to show an improvement, and then it is a Performance Improvement Plan for me. She continues: "Obviously if I am on a PIP ... to improve my team's Stricter Benefit Regime referral rate, I will not have a choice but to consider implementing PIPs for those individuals who are clearly not delivering SBR within the team."
+
+...
+
+*And so it continued: this was just a brief sample. If I were to reproduce everything relevant from the debates then the story would take up very many pages—but, at least, you now have a flavour. If you wish to read much more, Hansard is fully open and available for examination on <https://hansard.parliament.uk>: simply e.g. put "targets" in the Search box, and off you go! You might also like to search on the internet for press reports on the matter; in particular, look for reports in the Guardian newspaper during late March 2013 where you can find several articles which include further extracts from the leaked e-mail and much more evidence from a number of jobcentre advisers. There were also many contributions to discussion websites. One of those provides a fitting conclusion here:*
+
+There are targets in place for many things for DWP staff. That's not an issue here. The point is that the necessity (or otherwise) for a sanction is not amenable to being dictated by target. And if ministers didn't understand this basic fact, why did they bother to deny the existence of said targets? Why not just say: 'Yes, there are targets for sanctions. So what?'
+
+UK readers may have recognised several parallels between the above account and something that happened some five years later and led to the resignation from the Government of Ms Amber Rudd in April 2018. The third item on Appendix page 31 provides a brief summary.
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 7–d is also on Workbook page 108.</div>
+
+<div class="thought" role="note" aria-label="Activity">
+
+## ACTIVITY 7–d
+
+(a) If you have not already been doing so while reading through those stories, please return to Category 3 in both Activity 7–a (page 4) and Activity 7–b (page 5) and add some more to your answers there.
+
+(b) The space below is left for some brief notes on your own true stories (see the top of page 9).
+
+```{ojs}
+viewof activity_7d = Inputs.textarea({placeholder: "Type your own true stories here.", rows: 10})
+```
+
+</div>
+
+UK readers may also recall that, before the 2010 General Election, David Cameron set the target of reducing net migration to "the tens of thousands". *Mail Online* later reported that in 2012 Mr Cameron claimed that "immigration was falling and was close to the target". The Office for National Statistics states annual migration figures (in thousands) between 2011 and 2017 as being 205, 177, 209, 313, 332, 248 and 244. Mr Cameron's successor, Theresa May, subscribed to the same target. I suggest that Dr Deming's familiar question ["By what method?"]{.deming_quote} appears to be appropriate.
+
+```{ojs download_all}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof activity_7d], "day7_activity_7d.txt")
+```
+
+### Approvals, Acknowledgments and Information
+
+^[a]^ BBC News report quotation included with kind permission of the BBC. The BBC report (30 October 2008) can be found at [bbc.co.uk/news](https://www.bbc.co.uk/news).

@@ -1,0 +1,242 @@
+# ============================================================
+# Day 7 Brief
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 7
+  title: "Targets, Appraisals, and Other Obstacles"
+  source_prefix: "J.Day.7.14Feb22"
+  page_count: 40
+
+# ------ Chapter Plan ------
+chapters:
+  - slug: "introduction"
+    title: "INTRODUCTION"
+    pages: "1-2"
+    notes: |
+      File pages 5-6 (doc pages 1-2). Pages 1-4 are title/blank/TOC/blank — skip.
+      Page 5 (doc p1): Introduction to Day 7 topics — why targets, appraisals, and
+      performance indicators are controversial. Overview of what the day covers.
+      References back to previous days (Deadly Diseases, 14 Points).
+      Three numbered points about prior coverage: performance appraisal (Point 12),
+      numerical targets (Point 11), and limited nature of judging quality by
+      specifications.
+      Page 6 (doc p2): Continuation — "The supposition that it is only necessary to
+      meet specifications" as Obstacle 13. Overview of the day's four-part structure.
+      Timing notes: Activities 7-a/7-b begin here, Activity 7-d is mentioned,
+      Major Activity at end. "Today definitely needs a full day's work!"
+
+  - slug: "numerical-targets"
+    title: "THREE KINDS OF NUMERICAL TARGETS"
+    pages: "3-5"
+    notes: |
+      File pages 7-9 (doc pages 3-5).
+      Page 7 (doc p3): "THREE KINDS OF NUMERICAL TARGETS" heading. Discussion of
+      appraisals vs targets. Three types of management figures (attributed to
+      John Dowd): 1. facts of life, 2. numbers for guidance and help, 3. numbers
+      for judgment, punishment, reward. Detailed explanation of each category
+      with examples (Gallery Furniture commission, work standards).
+      Page 8 (doc p4): Continuation of Category 3 discussion. Workbook callout:
+      "Activity 7-a is also on Workbook page 105." Then Activity 7-a in green box:
+      three categories of numerical targets — text input for each category.
+      Afterthought: "(There is a little discussion on Appendix page 31.)"
+      Page 9 (doc p5): Workbook callout: "Activity 7-b is also on Workbook page 106."
+      Activity 7-b in green box: reasons why Category 3 is incompatible with
+      Deming philosophy — look back at Point 11, 3rd and 5th Deadly Diseases.
+      Large textarea.
+
+  - slug: "performance-indicators"
+    title: "PERFORMANCE INDICATORS"
+    pages: "6-8"
+    notes: |
+      File pages 10-12 (doc pages 6-8).
+      Page 10 (doc p6): "PERFORMANCE INDICATORS" heading. Discussion of how targets,
+      appraisals, pay for performance, league tables all depend on performance
+      indicators. Two particular problems. Workbook callout: "Pause for Thought 7-c
+      is also on Workbook page 107." Then Pause for Thought 7-c (red box with
+      commentary): "Can you think what those two problems might be?" Commentary
+      has two numbered points about singularity and system attribution.
+      Page 11 (doc p7): '"JUST DO IT"?' heading. Discussion of the advice — Gallery
+      Furniture, Mack's situation, Peter Scholtes' The Leader's Handbook.
+      Page 12 (doc p8): Continuation — Scholtes' list of 12 reasons managers think
+      they need performance appraisal (a through l), and how each can be dealt
+      with differently. Reference to The Leader's Handbook.
+
+  - slug: "many-more-true-stories"
+    title: "MANY MORE TRUE STORIES"
+    pages: "9-18"
+    notes: |
+      File pages 13-22 (doc pages 9-18). Large section of anecdotes.
+      Page 13 (doc p9): "MANY MORE TRUE STORIES" heading. Neave note about
+      anonymity ("John" or "friends of John"). Then italic intro about John's
+      company and annual performance reviews + key performance targets stories.
+      Page 14 (doc p10): "My monthly reports" story (italic, John's voice).
+      "Two little stories from the construction industry" (2 numbered items).
+      Page 15 (doc p11): "...and two from the aircraft industry" (2 numbered items
+      about blade production and engine company control chart).
+      "...and no less than five from the railways" (3 numbered items start).
+      Note: the aircraft industry item 2 contains a brief extract box and an
+      italicised reminder about communication language from Day 1.
+      Page 16 (doc p12): Railway stories 4-5 continued. John's commentary in
+      brackets. "More 'Spiky Chairs'!" section. "West Midlands Employment Service"
+      section.
+      Page 17 (doc p13): "How to rise up the OFSTED league tables" section.
+      Newspaper clipping in right sidebar — crop this image. "Schools tricking
+      OFSTED inspectors by sending problem pupils home" with bullet points.
+      Page 18 (doc p14): "Alarming" story. "A Pharmaceutical Company" story.
+      "Three from BDA Conferences" (3 numbered items).
+      Page 19 (doc p15): '"BT staff phoned each other to hit Whitehall targets"'
+      with BBC News quote (footnote a). "Reducing Accidents?" story.
+      "A Red-Beads Foreman" — letter from Regional Sales Manager to Anne.
+      Page 20 (doc p16): Second letter to Anne (disciplinary). Then John's
+      commentary about a league table. "How to please the boss" story.
+      '"We do not have targets"' section with Hansard extracts.
+      "Jobseekers (Back to Work Schemes) Bill, 19 March 2013, Second Reading."
+      Page 21 (doc p17): Hansard debate continued — Budget Resolutions and
+      Economic Situation, 22 March 2013. Long discussion of DWP targets/sanctions.
+      Page 22 (doc p18): Conclusion of targets discussion. Workbook callout:
+      "Activity 7-d is also on Workbook page 108." Activity 7-d (green box):
+      add to Category 3 in Activities 7-a/7-b + space for own true stories.
+      Below the activity: note about David Cameron's immigration targets.
+
+  - slug: "thirteenth-obstacle"
+    title: "THE THIRTEENTH OBSTACLE"
+    pages: "19-22"
+    notes: |
+      File pages 23-26 (doc pages 19-22).
+      Page 23 (doc p19): "THE THIRTEENTH OBSTACLE" heading. Discussion of
+      specifications vs targets — conformance to specifications. LSL/USL
+      specification limits diagram (simple line scale with points a, b, c, d).
+      This can be recreated in HTML or cropped.
+      Page 24 (doc p20): Taguchi loss function introduction. Workbook callout:
+      "Activity 7-e (pages 20-22) is also on Workbook pages 109-111."
+      Activity 7-e begins (red box): temperature exercise. Steps 1-3 with
+      temperature scale, percentage estimations. Author's own answers shown
+      in blue.
+      Page 25 (doc p21): Activity 7-e steps 4-6 continued. Graph paper for
+      plotting the loss curve. Step 6: draw a smooth curve.
+      Page 26 (doc p22): Inside the activity box: illustration of the typical
+      Taguchi parabola (small sketch showing loss vs measurement with nominal).
+      Then Neave's personal plotted graph (larger, with actual data points and
+      curve). "NB" note about extrapolation.
+
+  - slug: "taguchi-reflections"
+    title: "TAGUCHI REFLECTIONS"
+    pages: "23-26"
+    notes: |
+      File pages 27-30 (doc pages 23-26).
+      Page 27 (doc p23): Workbook callout: "Pause for Thought 7-f is also on
+      Workbook page 112." Pause for Thought 7-f (red box with commentary):
+      Taguchi loss function shape — what does the parabola tell you?
+      Three-point commentary: (1) further from optimum = greater loss,
+      (2) graph is flat near optimum, (3) rate of increase accelerates.
+      Then discussion comparing Taguchi vs conformance-to-specifications.
+      Page 28 (doc p24): Workbook callout: "Pause for Thought 7-g is also on
+      Workbook page 113." Pause for Thought 7-g (red box with commentary):
+      What loss function shape justifies conformance-to-specs thinking?
+      Commentary explains the step function (zero loss inside specs, high
+      loss outside). Reference to DemDim page 182 Figure 36.
+      Page 29 (doc p25): Workbook callout: "Pause for Thought 7-h is also on
+      Workbook page 114." Pause for Thought 7-h (red box with commentary):
+      Comparing the two loss functions — what do they tell you about:
+      (1) need for continual improvement, (2) need to centre processes.
+      Two-point commentary contrasting Taguchi vs conformance-to-specs.
+      Reference to six-sigma on Appendix pages 43-50.
+      Page 30 (doc p26): "A cutting process" — practical illustration of
+      Taguchi vs conformance-to-specs. Metal rod cutting operation achieving
+      100% conformance but terrible Taguchi loss. Q.E.D. moment.
+
+  - slug: "major-activity"
+    title: "THE OBSTACLES TO THE TRANSFORMATION"
+    pages: "27-36"
+    notes: |
+      File pages 31-40 (doc pages 27-36).
+      Page 31 (doc p27): "INTRODUCTION TO THE MAJOR ACTIVITY: THE OBSTACLES
+      TO THE TRANSFORMATION" heading. Deming's "parade of obstacles" — 16 of
+      them. Discussion of how they relate to 14 Points and Deadly Diseases.
+      NB about gendered language in Deming's original text.
+      Page 32 (doc p28): Workbook callout: "Major Activity 7-i (pages 28-35)
+      is also on Workbook pages 115-122." Major Activity 7-i pill heading.
+      "Please begin by reading through page 27 again."
+      Obstacle 1: Hope for instant pudding. (Out of the Crisis pages 107-108)
+      Obstacle 2: The supposition that solving problems... will transform
+      industry. (Out of the Crisis page 108)
+      Pages 33-39 (doc pp 29-35): Obstacles 3-16, each with title, Out of the
+      Crisis page references, Appendix page references, and brief commentary.
+      Each obstacle needs a textarea for student notes.
+      Obstacle 3: Search for examples (p29)
+      Obstacle 4: "Our problems are different" (p29)
+      Obstacle 5: Obsolescence in Schools (p30)
+      Obstacle 6: Poor teaching of statistical methods (p30)
+      Obstacle 7: Use of acceptance tables (p31)
+      Obstacle 8: "Our QC Department takes care of all our problems" (p31)
+      Obstacle 9: "Our troubles lie entirely in the workforce" (p32)
+      Obstacle 10: False starts (p32)
+      Obstacle 11: "We installed quality control" (p33)
+      Obstacle 12: The unmanned computer (p33)
+      Obstacle 13: Only necessary to meet specifications (p34)
+      Obstacle 14: The fallacy of zero defects (p34)
+      Obstacle 15: Inadequate testing of prototypes (p35)
+      Obstacle 16: "Anyone that comes to try to help us..." (p35)
+      Page 40 (doc p36): Concluding italic remarks ("So ends our concentration
+      on the 'Old Climate'."). "Out-of-hours" note about Day 8 Major Activity.
+      "Approvals, Acknowledgments and Information" — footnote a: BBC News
+      report quotation (30 Oct 2008).
+
+# ------ Figure Decisions ------
+figures:
+  - page: 17
+    action: "crop"
+    notes: "Newspaper clipping sidebar about OFSTED article"
+    output: "ofsted-clipping.png"
+  - page: 23
+    action: "crop"
+    notes: "LSL/USL specification limits line diagram (simple but worth preserving as-is)"
+    output: "specification-limits.png"
+  - page: 25
+    action: "crop"
+    notes: "Blank graph paper for Taguchi exercise (temperature vs loss)"
+    output: "taguchi-graph-paper.png"
+  - page: 26
+    action: "crop"
+    notes: "Taguchi loss function parabola sketch + Neave's plotted personal graph"
+    output: "taguchi-loss-function.png"
+
+# ------ Context Notes ------
+context_notes: |
+  Schedule from page 3 (approximate):
+  - 9:00am-1:00pm; 3:00pm-6:00pm
+  - Introduction (p1)
+  - Three kinds of numerical targets (p3) → begins Activities 7-a and 7-b
+  - Performance Indicators (p6) → Pause for Thought 7-c
+  - "Just do it"? (p7)
+  - Many more true stories (p9) → continues Activities 7-a and 7-b
+  - Activity 7-d (p18)
+  - The thirteenth obstacle (p19)
+  - Activity 7-e (pp20-22)
+  - Pause for Thought 7-f (p23), 7-g (p24), 7-h (p25)
+  - A cutting process (p26)
+  - Introduction to Major Activity (p27)
+  - Major Activity 7-i (pp28-35) — 16 Obstacles to the Transformation
+  - "Out-of-hours" note (p35-36)
+
+  Key themes: This day tackles the most controversial aspects of Deming's teaching
+  — targets, appraisals, performance indicators, pay for performance, league tables.
+  The Taguchi loss function exercise provides mathematical grounding for why
+  conformance to specifications is inadequate. The Major Activity covers all 16
+  of Deming's "Obstacles to the Transformation" from Out of the Crisis.
+
+  The "Many more true stories" section (10 pages) is heavily narrative with many
+  sub-stories. Most are presented through "John" (anonymous contributor) with
+  italicised commentary from Neave. The Hansard extracts (pp16-17) about DWP
+  targets are particularly long and detailed.
+
+  Footnote a (p15/p36): BBC News report quotation about BT/Ministry of Defence
+  call centre, published 30 October 2008, included with BBC approval.
+
+  "Today definitely needs a full day's work!" — mentioned on page 2.
+
+  This is the last day focused on the "Old Climate" — page 36 marks the
+  transition: "So ends our concentration on the 'Old Climate'. For the rest
+  of the course: forward with the 'New Climate'!"
