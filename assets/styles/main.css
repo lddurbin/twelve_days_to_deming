@@ -68,12 +68,15 @@
 }
 
 /* Override base .callout styles for Quarto's native callout blocks */
-.callout.callout-note {
+.callout.callout-note,
+.callout.callout-warning,
+.callout.callout-important,
+.callout.callout-tip,
+.callout.callout-caution {
   height: auto;
   line-height: normal;
   text-align: left;
   font-style: normal;
-  border: none;
 }
 
 /* ===== FLOATING BOX COMPONENTS ===== */
