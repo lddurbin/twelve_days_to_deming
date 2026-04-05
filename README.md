@@ -62,7 +62,7 @@ Each day includes:
 ### Interactive Online Version (Work in Progress)
 - **Live Course**: [deming.leedurbin.co.nz](https://deming.leedurbin.co.nz) - The interactive version with embedded activities and exercises
 
-**Current Status**: This interactive version is currently under development. As of now, only **Days 1 and 2** are fully implemented with interactive features. The remaining days (3-12) are being converted from the original PDF format to this enhanced interactive experience.
+**Current Status**: This interactive version is currently under development. **Days 1 through 6** are fully implemented with interactive features. The remaining days (7-12) are being converted from the original PDF format to this enhanced interactive experience.
 
 **Enhanced Features in the Online Version:**
 - **Interactive Clock Indicators**: Built-in timing guidance to help you pace your study sessions
@@ -107,15 +107,18 @@ This course is built using:
 If you want to run this locally:
 
 ```bash
-# Install R and Quarto
+# Install R (4.4.0+) and Quarto
 # Clone the repository
-git clone [repository-url]
+git clone https://github.com/lddurbin/twelve_days_to_deming.git
 cd twelve_days_to_deming
 
-# Install R dependencies
-R -e "install.packages(c('knitr', 'rmarkdown', 'ggplot2', 'dplyr', 'here', 'DiagrammeR'))"
+# Restore R dependencies (uses renv for reproducible package management)
+Rscript -e 'renv::restore()'
 
-# Build the book
+# Preview during development
+quarto preview
+
+# Or build the full book
 quarto render
 ```
 
@@ -153,6 +156,10 @@ This course has benefited from contributions from many experts and practitioners
 1. Check existing issues first
 2. Create a new issue with clear description
 3. For substantial changes, consider opening a discussion first
+
+### For Developers
+
+The conversion of remaining days from PDF to interactive Quarto follows a structured 5-phase workflow. See [`workflow/CONVERSION_GUIDE.md`](workflow/CONVERSION_GUIDE.md) for the complete reference, including CSS classes, R functions, interactive element templates, and file naming conventions.
 
 ## 📄 License
 
