@@ -189,7 +189,7 @@ function computeNetEffects(container, areas) {
     }
   }
 
-  grandTotal = colTotals.reduce((a, b) => a + b, 0);
+  const grandTotal = colTotals.reduce((a, b) => a + b, 0);
   const grandCell = container.querySelector("[data-grand-total]");
   if (grandCell) {
     grandCell.textContent = formatNet(grandTotal);
@@ -332,11 +332,9 @@ export function createTableThree(areas, tableTwoContainer) {
   // Find rows with positive net effect from Table Two
   const positiveRows = [];
   tableTwoContainer.querySelectorAll(".net-cell[data-area]").forEach(cell => {
-    const net = parseInt(cell.textContent.replace(/[^0-9-]/g, "")) || 0;
-    // Check if net is positive by looking at the formatted text
     const text = cell.textContent;
     const isPositive = text.includes("+") && !text.startsWith("−") && text !== "0";
-    if (isPositive || ratingValue(cell.textContent.replace(/−/g, "-")) > 0) {
+    if (isPositive) {
       positiveRows.push({ area: cell.dataset.area, option: cell.dataset.option });
     }
   });
