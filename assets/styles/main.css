@@ -63,6 +63,13 @@
   background-color: #b6dde8;
 }
 
+.arrival_callout {
+  background-color: #e8f5e9;
+  padding: 1em;
+  border-radius: 4px;
+  margin: 1em 0;
+}
+
 .info_callout {
   background-color: #c2d69b;
 }

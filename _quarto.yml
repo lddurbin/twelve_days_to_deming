@@ -98,6 +98,16 @@ book:
         - content/days/day-08/05-introduction-to-the-major-activity.qmd
         - content/days/day-08/06-major-activity.qmd
 
+    - part: "Day 9: A System ... of Profound Knowledge"
+      chapters:
+        - content/days/day-09/01-introduction.qmd
+        - content/days/day-09/02-a-system.qmd
+        - content/days/day-09/03-activity-9c-and-organisation-charts.qmd
+        - content/days/day-09/04-major-activity.qmd
+        - content/days/day-09/05-of-profound-knowledge.qmd
+        - content/days/day-09/06-introductions-to-the-system.qmd
+        - content/days/day-09/07-out-of-hours.qmd
+
 format:
   html:
     theme: cosmo

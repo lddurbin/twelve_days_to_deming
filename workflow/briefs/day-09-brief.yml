@@ -1,0 +1,341 @@
+# ============================================================
+# Day 9 Brief
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 9
+  title: "A System ... of Profound Knowledge"
+  source_prefix: "L.Day.9.15Feb22"
+  page_count: 36
+
+# ------ Chapter Plan ------
+chapters:
+  - slug: "introduction"
+    title: "A SYSTEM ... OF PROFOUND KNOWLEDGE"
+    pages: "5"
+    notes: |
+      Pages 1-4 are title/blank/schedule/blank — skip.
+      Page 5 (doc p1): "DAY 9: A SYSTEM ... OF PROFOUND KNOWLEDGE" heading.
+      Today's material in two very distinct halves. Morning: "A System ..."
+      focusing on systems concept. Afternoon: "A System of Profound
+      Knowledge" introducing SoPK and preparing for Second Project.
+      Morning reading-matter relatively short but still plenty to do.
+      Afternoon: mostly reading (extensively varied styles).
+      Chapter 3 of The New Economics is "Introduction to a System" — much
+      more substantial than DemDim Chapter 8, different from its Chapter 3.
+      Neave describes morning material as "sketching a background, rather
+      like an artist's very broad brush-strokes at the earliest stages of
+      creating a painting." One reason for brevity: today's Major Activity
+      needs plenty of time. Mentions Deming's famous flow diagram first
+      seen on Day 1 page 35 and "Summary of Teachings to Top Management
+      and to Engineers in Japan".
+      OUTLINE OF TODAY'S WORK heading is NOT a separate chapter — it is
+      embedded in the intro paragraph structure.
+
+  - slug: "a-system"
+    title: "A SYSTEM ..."
+    pages: "6-10"
+    notes: |
+      Page 6 (doc p2): "A SYSTEM ..." heading. Learning about systems in
+      two senses: (1) the Deming philosophy as a system, (2) an organisation
+      as a system. Morning provides broad thoughts; tomorrow morning gets
+      into more detail. DemDim Chapter 18 has "Appreciation for a System"
+      topic. Why it ended up there rather than earlier — Neave's history.
+      Deming's famous "Organisation Viewed as a System" flow diagram
+      (arrows and boxes). Note: Deming writes "Consumers" not "Customers".
+      FIGURE: Deming flow diagram — crop from page 6.
+
+      Page 7 (doc p3): "What ignited Japan?" heading. Queen Elizabeth
+      Conference Centre 1990 meeting. Deming quote: "I believe that this
+      diagram made the difference in Japan." Extract about the flow diagram
+      as "the spark." Figure 1 description from Deming (small print).
+      "The 'Old Way' and the 'New Way'" heading begins. Shewhart's origin,
+      circle diagram from 1939 book.
+      FIGURE: Shewhart 1939 circle diagram — crop from page 7.
+
+      Page 8 (doc p4): Continuation of Old Way/New Way. Two Pauses for
+      Thought:
+      PAUSE FOR THOUGHT 9-a (red box, with commentary): "So what is the
+      important difference between the 'Old Way' and the 'New Way'?" —
+      includes small line and circle diagrams inside the box.
+      Commentary: "It's simply the difference between a line and a circle!
+      The line stops (or disappears). But the circle keeps going round."
+      PAUSE FOR THOUGHT 9-b (red box, with commentary): "What kind of
+      things does that simple change from a line to a circle signify to you?"
+      Commentary is on page 9 in the red-background boxes.
+
+      Page 9 (doc p5): "The 'Old Way'" and "The 'New Way'" red-background
+      boxes with commentary for Pause 9-b. Then "A dynamic scientific
+      process of acquiring knowledge" heading. Shewhart's language, his
+      1939 book title. Two types of "science" — "exact" vs "probable."
+      Multiple Shewhart quotes about the three steps going in a circle.
+
+      Page 10 (doc p6): "A dynamic scientific process of acquiring
+      knowledge!" continuation. Three figures side by side:
+      Fig. 9a: "The old way" — 3-step line (Design it, Make it, Try to sell it)
+      Fig. 9b: "The new way" — circle with 4th step (test product in service)
+      Fig. 10: "The helix" — spiral of continual improvement
+      Deming quotes from Out of the Crisis on the helix. Connection to
+      Deming Chain Reaction and "Shewhart Cycle" (studied Day 11).
+      FIGURES: Fig. 9a, 9b, 10 — crop from page 10.
+
+  - slug: "activity-9c-and-organisation-charts"
+    title: "ORGANISATION CHARTS AND FLOW DIAGRAMS"
+    pages: "11-14"
+    notes: |
+      Page 11 (doc p7): Workbook callout: Activity 9-c is also on Workbook
+      page 142.
+      ACTIVITY 9-c (green box): "With regard to your organisation, suggest
+      some ways in which the improvement of quality would reduce cost."
+      Hint reference to Appendix page 38.
+      "Organisation charts — vertical or horizontal?" heading. The flow
+      diagram that "ignited Japan" need not be difficult. Deming's
+      "organisation chart" is perpendicular to the conventional one — it is
+      horizontal. Reference to DemDim Figure 24 (page 133) and Figure 25.
+      "Read the short passage which begins just under Figure 25 and
+      continues to midway through the following page."
+
+      Page 12 (doc p8): Peter Scholtes' The Leader's Handbook, train-wreck
+      management history (Massachusetts 1841). Conventional vs Deming
+      organisation chart discussion.
+      Workbook callout: Pause for Thought 9-d (pages 8-9) is also on
+      Workbook page 143.
+      PAUSE FOR THOUGHT 9-d (red box, with commentary): "How would you
+      describe the relationship between Shewhart's diagram of the 'New Way'
+      ... and Deming's 'Production (or Organisation) Viewed as a System'
+      flow diagram on page 2?"
+
+      Page 13 (doc p9): Continuation of Pause 9-d commentary (red background
+      box at top). Then "Where's the fault?" heading. Message about
+      constructing horizontal flow diagrams. Joiner Anecdotes reference on
+      DemDim page 124. Flow diagram comprehensible in their entirety.
+      Org chart figure inset (from a presentation).
+      FIGURE: Complex org chart — crop from page 13.
+
+      Page 14 (doc p10): "Some notes from friends" heading. Dave Young on
+      two types of organisation chart. Alan Hodges on helix diagram in
+      ISO standards. "John" on flow charts. A designer who had "every
+      part of the system" in an electronic flowchart. Large construction
+      company with 5 sheets of A0 paper.
+
+  - slug: "major-activity"
+    title: "MAJOR ACTIVITY 9-e"
+    pages: "15-19"
+    notes: |
+      Page 15 (doc p11): Workbook callout: Major Activity 9-e (pages 11-15)
+      is also on Workbook pages 144-148.
+      MAJOR ACTIVITY 9-e (blue pill title). Construct a "macro" flow
+      diagram of your organisation. Deming quote about system of schools.
+      Five-stage procedure. Deming quote on "system of medical care."
+
+      Page 16 (doc p12): Stage 1 — "beginning to try to construct a system
+      of medical care" in the space below. Keep it "macro." Don't try to
+      make it detailed. Large blank workspace area.
+      Stage 2 — study appendix attempt. Revise Stage 1 diagram.
+
+      Page 17 (doc p13): Stage 3 — develop "Organisation Viewed as a System"
+      flow diagram for own organisation. Start with central track. Ask
+      lots of questions about what comes in, goes out, etc.
+      Large blank workspace area.
+
+      Page 18 (doc p14): Stage 4 — describe examples of how one part of the
+      flow diagram is being hindered by things happening elsewhere.
+      Conventional organisation chart explains why?
+      Large blank workspace area.
+
+      Page 19 (doc p15): Stage 5 — construct modified version showing how
+      the organisation could become a better system than it is now.
+      Large blank workspace area. Section separator at bottom.
+
+      IMPLEMENTATION NOTE: Each stage has a large blank workspace. These
+      will be replaced with textarea inputs for each stage. Stages 1 and
+      3 could also benefit from an Excalidraw embed or similar drawing
+      tool, but textareas are the baseline. No clock icons visible during
+      the Major Activity (clock appears at bottom of page 15 near separator).
+
+  - slug: "of-profound-knowledge"
+    title: "... OF PROFOUND KNOWLEDGE"
+    pages: "20-25"
+    notes: |
+      Page 20 (doc p16): "... OF PROFOUND KNOWLEDGE" heading. "Our '12
+      Days' — what's left?" — chronological structure of the course.
+      Chapter 4 of The New Economics is "A System of Profound Knowledge."
+      SoPK structure: A. Appreciation for a system; B. Some knowledge of
+      theory of variation (statistical theory); C. Theory of knowledge;
+      D. Knowledge of psychology. Five half-days from here through Day 11
+      follow same five-part structure.
+
+      Page 21 (doc p17): "Development of 'Profound Knowledge'" heading.
+      Read short section in DemDim pages 259-261. May notice title
+      variations. "Sources of learning" heading. Three sources: (1) May
+      1990 version, (2) DemDim Chapter 18, (3) The New Economics Chapter 4.
+      Balaji Reddie's articles. One attraction: compactness.
+
+      Page 22 (doc p18): "Guidance for the Second Project (Days 10 and 11)"
+      heading. Two-day project is the climax of the course. Ambitious but
+      limited purpose. The Overture analogy again. Four steps summarised
+      on page 29 (WB 151).
+
+      Page 23 (doc p19): "Step 1: Browsing session" heading. Various
+      browsing options described. "Step 2: Dr Deming's May 1990 version"
+      heading. Immediate reactions, questions, "Really important",
+      "I'm already familiar with this", etc.
+
+      Page 24 (doc p20): Continuation of Step 2. If your initial reaction
+      was "I'm already familiar with this" — write a brief explanation.
+      Don't worry about mastery at this stage.
+
+      Page 25 (doc p21): "Step 4: Activity (connections with the Points/
+      Diseases)" heading — note Step 3 (DemDim version) is mentioned but
+      the activity jumps to Step 4. Rate connections on 0-5 scale between
+      SoPK parts and 14 Points/Deadly Diseases. These data used early on
+      Day 12.
+      "Introductions to the System of Profound Knowledge" heading.
+      Four introductions described: (1) Peter Scholtes's diagram,
+      (2) DemDim Chapter 18 intro, (3) Balaji's articles, (4) Deming's
+      May 1990 version.
+
+  - slug: "introductions-to-the-system"
+    title: "INTRODUCTIONS TO THE SYSTEM OF PROFOUND KNOWLEDGE"
+    pages: "26-29"
+    notes: |
+      Page 26 (doc p22): Peter Scholtes's 4-part SoPK diagram — star/cross
+      shape with four quadrants: Understanding of systems, Understanding a
+      theory of knowledge, Understanding variation, Understanding psychology
+      and human behaviour. Each with 2-3 bullet points.
+      Advance notice for Day 12: "A System of Profound Trouble" parody.
+      Second intro: short introduction in DemDim.
+      FIGURE: Scholtes SoPK diagram — crop from page 26.
+
+      Page 27 (doc p23): Third intro: Balaji Reddie's 25 newspaper articles.
+      "Four Preludes and a Coda" format. History of inclusion. Deming's
+      May 1990 version context.
+
+      Page 28 (doc p24): Deming's May 1990 SoPK text begins (blue text).
+      Four parts listed. Detailed descriptions of each part. "One need
+      not be eminent in any part..." Text about 14 Points following
+      naturally as application. Various segments cannot be separated.
+
+      Page 29 (doc p25): Continuation of Deming's SoPK text (blue).
+      Statisticians and systematic learning. Cooperation over competition.
+      Theory of knowledge and prediction. Management acts on a causal
+      system.
+
+  - slug: "out-of-hours"
+    title: '"OUT-OF-HOURS" PREPARATION'
+    pages: "30-34"
+    notes: |
+      Page 30 (doc p26): "OUT-OF-HOURS" PREPARATION FOR THE SECOND PROJECT
+      heading. Three sections of preparation recommended. First: refresher
+      on 14 Points and Deadly Diseases (DemDim pages 39-52, Out of the
+      Crisis pages 17-107/18-126). Revisit First Project work.
+
+      Page 31 (doc p27): Continuation. Second section: Peter Scholtes's
+      diagram, Balaji's Preludes, SoPK introductions. Third section:
+      familiarise with four-step procedure mechanics. Reference to page
+      30 for duplication guidance. "Please now move over to page 30."
+
+      Page 32 (doc p28): TABLE — 14 Points and Deadly Diseases mapped
+      against three Joiner Triangle bases (Obsession with Quality, All One
+      Team, Scientific Approach). Green-background table with rows for
+      each of the 14 Points and 5 Deadly Diseases. Columns for the three
+      bases. Workbook callout: pages 28-29 also on WB pages 150-151.
+      FIGURE: 14 Points/Diseases table — crop from page 32.
+
+      Page 33 (doc p29): "Summary of the four-step procedure" — Steps 1-4
+      described. Step 1: Browsing session. Step 2: Deming's May 1990
+      version. Step 3: DemDim version. Step 4: Activity (connections).
+      Workbook callout reference.
+
+      Page 34 (doc p30): Green callout: "You should have arrived here
+      after page 27." "Out-of-hours" note — pages worth reproducing
+      (page 22 Scholtes diagram, page 28 table, page 29 summary).
+      Reading assignments: Balaji's "Four Preludes and a Coda" (file Q),
+      DemDim pages 264-280 of Chapter 18.
+
+      Pages 35-36 (doc p31-32): Approvals/Acknowledgements (p31) and
+      blank page (p32) — skip.
+
+# ------ Figure Decisions ------
+figures:
+  - page: 6
+    action: "crop"
+    notes: "Deming's 'Organisation Viewed as a System' flow diagram (arrows and boxes)"
+    output: "deming-flow-diagram.png"
+  - page: 7
+    action: "crop"
+    notes: "Shewhart 1939 circle diagram (3-step circular process)"
+    output: "shewhart-circle.png"
+  - page: 8
+    action: "crop"
+    notes: "Old Way line diagram and New Way circle diagram inside Pause 9-a box — may be small enough to describe in text instead"
+    output: "old-way-new-way-small.png"
+  - page: 10
+    action: "crop"
+    notes: "Fig. 9a (old way, 3-step line), Fig. 9b (new way, circle with 4th step), Fig. 10 (helix) — three figures side by side"
+    output: "figures-9a-9b-10.png"
+  - page: 13
+    action: "crop"
+    notes: "Complex multi-level organisation chart from presentation (small inset)"
+    output: "org-chart-complex.png"
+  - page: 26
+    action: "crop"
+    notes: "Peter Scholtes's 4-part System of Profound Knowledge diagram (star/cross shape)"
+    output: "scholtes-sopk-diagram.png"
+  - page: 32
+    action: "crop"
+    notes: "14 Points and Deadly Diseases vs Joiner Triangle bases table (green background)"
+    output: "points-diseases-table.png"
+
+# ------ Context Notes ------
+context_notes: |
+  Schedule from page 3 (approximate):
+  - 9:00am-12:45pm; 1:45pm-5:45pm
+  - Introduction (p 1); A SYSTEM ... (p 2); What ignited Japan? (p 3)
+  - The "Old Way" and the "New Way" (p 3) — Pauses 9-a and 9-b
+  - "A dynamic scientific process of acquiring knowledge" (p 5)
+  - Activity 9-c (p 7 [WB 142])
+  - Organisation charts — vertical or horizontal? (p 7) — Pause 9-d
+  - Where's the fault? (p 9); Some notes from friends (p 10)
+  - Major Activity 9-e (p 11 [WB 144]); Stages 1-5 (pp 12-15)
+  - ... OF PROFOUND KNOWLEDGE; Our "12 Days" — what's left? (p 16)
+  - Development of "Profound Knowledge"; Sources of learning (p 17)
+  - Guidance for the Second Project (Days 10 and 11) (p 18)
+  - Introductions to the System of Profound Knowledge (p 21)
+  - "Out-of-hours" preparation for the Second Project (p 26)
+  - "Out-of-hours" note (p 30)
+
+  Key themes: Day 9 marks the transition from the practical "New Climate"
+  topics (Day 8) to the theoretical foundations of Deming's teaching.
+  The morning builds the concept of a system — starting from Shewhart's
+  Old Way/New Way distinction (line vs circle), progressing through the
+  dynamic scientific process (the helix), and culminating in the Major
+  Activity where participants construct their own organisational flow
+  diagram. The afternoon introduces the System of Profound Knowledge
+  (SoPK) — the theoretical framework that ties together everything
+  taught so far — and prepares students for the Second Project on
+  Days 10-11.
+
+  This is a heavily text-based day with fewer interactive elements than
+  Days 7-8. Only 3 Pauses for Thought (all with commentary), 1 Activity
+  (text input), and 1 Major Activity (5-stage flow diagram construction).
+  The Major Activity stages each have large blank workspace areas that
+  will become textarea inputs.
+
+  The afternoon is almost entirely reading/reference material — guidance
+  for the Second Project, four introductions to the SoPK (Scholtes
+  diagram, DemDim Chapter 18, Balaji's articles, Deming's May 1990
+  version), and preparation instructions.
+
+  The Deming SoPK text on pages 24-25 is rendered in blue in the
+  original — this should use the deming_quote class or similar
+  blue styling.
+
+  DemDim references:
+  - Chapter 8 "Processes and Systems" (mentioned but not primary reading)
+  - Chapter 18 "Appreciation for a System" (main reference, rewritten)
+  - Chapter 15 connections (from Day 8)
+  - The New Economics Chapter 3 "Introduction to a System"
+  - The New Economics Chapter 4 "A System of Profound Knowledge"
+  - Out of the Crisis pages 154-155/180-181 (Deming's Figure 9)
