@@ -64,12 +64,6 @@ const TABLE_CSS = `
   .coop-area-setup input {
     border: 1px solid #ccc; padding: 4px 8px; margin-right: 1.5em; width: 180px;
   }
-  .coop-add-option { margin: 0.5em 0; }
-  .coop-add-option button {
-    font-size: 0.85em; padding: 3px 10px; cursor: pointer;
-    border: 1px solid #999; background: #f5f5f5; border-radius: 3px;
-  }
-  .coop-add-option button:hover { background: #e0e0e0; }
   .coop-download-btn {
     margin: 1.5em 0; padding: 8px 20px; font-size: 1em;
     cursor: pointer; border: none; border-radius: 4px;
@@ -152,16 +146,6 @@ function getData(container) {
     if (!data[area][opt]) data[area][opt] = {};
     data[area][opt][col] = rating;
   });
-  // Include own-area cells that are clickable (Table Four)
-  container.querySelectorAll(".rating-cell.own-area-clickable").forEach(cell => {
-    const area = cell.dataset.area;
-    const opt = cell.dataset.option;
-    const col = cell.dataset.col;
-    const rating = cell.dataset.rating || "";
-    if (!data[area]) data[area] = {};
-    if (!data[area][opt]) data[area][opt] = {};
-    data[area][opt][col] = rating;
-  });
   const names = {};
   container.querySelectorAll(".option-name input").forEach(inp => {
     const area = inp.dataset.area;
@@ -180,12 +164,6 @@ function computeNetEffects(container, areas) {
     if (!byRow[key]) byRow[key] = [];
     byRow[key].push(ratingValue(cell.dataset.rating || "0"));
   });
-  // Also include own-area-clickable cells
-  container.querySelectorAll(".rating-cell.own-area-clickable").forEach(cell => {
-    const key = `${cell.dataset.area}-${cell.dataset.option}`;
-    if (!byRow[key]) byRow[key] = [];
-    byRow[key].push(ratingValue(cell.dataset.rating || "0"));
-  });
 
   // Update row net cells
   container.querySelectorAll(".net-cell[data-area]").forEach(cell => {
@@ -196,20 +174,11 @@ function computeNetEffects(container, areas) {
     cell.className = `net-cell ${net > 0 ? "positive" : net < 0 ? "negative" : "zero"}`;
   });
 
-  // Update column totals
+  // Calculate column totals from individual cells
   const colTotals = new Array(areas.length).fill(0);
-  let grandTotal = 0;
-  Object.entries(byRow).forEach(([, vals]) => {
-    // We need per-column data, not just row sums
-  });
-
-  // Recalculate column totals from individual cells
   for (let c = 0; c < areas.length; c++) {
     let total = 0;
     container.querySelectorAll(`.rating-cell[data-col="${c}"]:not(.own-area)`).forEach(cell => {
-      total += ratingValue(cell.dataset.rating || "0");
-    });
-    container.querySelectorAll(`.rating-cell.own-area-clickable[data-col="${c}"]`).forEach(cell => {
       total += ratingValue(cell.dataset.rating || "0");
     });
     colTotals[c] = total;
@@ -230,16 +199,34 @@ function computeNetEffects(container, areas) {
 
 function attachRatingClicks(container, areas, onChange) {
   container.querySelectorAll(".rating-cell:not(.own-area)").forEach(cell => {
-    cell.addEventListener("click", () => {
+    cell.setAttribute("role", "button");
+    cell.setAttribute("tabindex", "0");
+    cell.setAttribute("aria-label", buildCellLabel(cell, areas));
+    const cycle = () => {
       const current = cell.dataset.rating || "";
       const next = current === "" ? "+" : nextRating(current);
       cell.dataset.rating = next;
       cell.textContent = next;
       cell.className = `rating-cell ${ratingClass(next)}`;
+      cell.setAttribute("aria-label", buildCellLabel(cell, areas));
       computeNetEffects(container, areas);
       if (onChange) onChange();
+    };
+    cell.addEventListener("click", cycle);
+    cell.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); cycle(); }
     });
   });
+}
+
+function buildCellLabel(cell, areas) {
+  const areaIdx = parseInt(cell.dataset.area);
+  const optNum = parseInt(cell.dataset.option) + 1;
+  const colIdx = parseInt(cell.dataset.col);
+  const optLabel = `option ${String.fromCharCode(97 + areaIdx)}${optNum}`;
+  const targetArea = areas[colIdx] || `Area ${String.fromCharCode(65 + colIdx)}`;
+  const rating = cell.dataset.rating || "empty";
+  return `Effect of ${optLabel} on ${targetArea}: ${rating}`;
 }
 
 // === PUBLIC API ===
@@ -256,11 +243,16 @@ export function createAreaSetup(numAreas) {
     input.type = "text";
     input.placeholder = `e.g. ${["Sales", "Manufacturing", "Admin", "Delivery"][i] || "Department"}`;
     input.dataset.areaIndex = i;
+    input.addEventListener("input", () => {
+      container.value = inputs.map((inp, j) => inp.value || `Area ${String.fromCharCode(65 + j)}`);
+      container.dispatchEvent(new Event("input", { bubbles: true }));
+    });
     container.appendChild(label);
     container.appendChild(input);
     inputs.push(input);
   }
   container._inputs = inputs;
+  container.value = inputs.map((_, j) => `Area ${String.fromCharCode(65 + j)}`);
   return container;
 }
 
@@ -284,29 +276,10 @@ export function createTableOne(areas, initialOptions) {
   });
 
   attachRatingClicks(container, areas, () => {
-    container.dispatchEvent(new Event("change", { bubbles: true }));
-  });
-
-  // Add option buttons
-  areas.forEach((_, areaIdx) => {
-    const addBtn = document.createElement("div");
-    addBtn.className = "coop-add-option";
-    addBtn.innerHTML = `<button data-area="${areaIdx}">+ Add option to ${areas[areaIdx]}</button>`;
-    // Insert after the last option row for this area
-    const areaRows = container.querySelectorAll(`tr[data-area="${areaIdx}"]`);
-    if (areaRows.length > 0) {
-      const lastRow = areaRows[areaRows.length - 1];
-      lastRow.parentNode.insertBefore(createRowFromButton(addBtn, areaIdx, areas, container), lastRow.nextSibling);
-    }
+    container.dispatchEvent(new Event("input", { bubbles: true }));
   });
 
   return container;
-}
-
-function createRowFromButton(btnDiv, areaIdx, areas, container) {
-  // This is a placeholder — actual add-option logic would be more complex
-  // For simplicity, we start with 3 options per area and let users type in them
-  return document.createComment(""); // no-op for now
 }
 
 export function createTableTwo(areas, tableOneContainer) {
@@ -344,7 +317,7 @@ export function createTableTwo(areas, tableOneContainer) {
 
   attachRatingClicks(container, areas, () => {
     computeNetEffects(container, areas);
-    container.dispatchEvent(new Event("change", { bubbles: true }));
+    container.dispatchEvent(new Event("input", { bubbles: true }));
   });
   computeNetEffects(container, areas);
 
@@ -423,15 +396,9 @@ export function createTableFour(areas, initialOptions) {
   const optsPerArea = initialOptions || areas.map(() => 2);
   container.innerHTML = buildTableHTML(areas, optsPerArea, true, true, false, true);
 
-  // In Table Four, own-area cells ARE clickable (and typically negative)
-  // Remove the own-area grey styling but mark them
-  container.querySelectorAll(".rating-cell").forEach(cell => {
-    // All cells are clickable in Table Four
-  });
-
   attachRatingClicks(container, areas, () => {
     computeNetEffects(container, areas);
-    container.dispatchEvent(new Event("change", { bubbles: true }));
+    container.dispatchEvent(new Event("input", { bubbles: true }));
   });
 
   return container;
