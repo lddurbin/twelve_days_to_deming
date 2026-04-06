@@ -145,3 +145,9 @@ For further emphasis, Deming then reiterates the point just made (*Out of the Cr
 > ["Through improvement of quality, guided by consumer research, the ultimate result is not only better quality but also lower cost and improvement of competitive position."]{.deming_quote}
 
 And where do we find ourselves? Surely we are back yet again at the Deming Chain Reaction (*DemDim* page 33). Further, that development of the "helix" leads directly to what Deming (unlike others) always called the "Shewhart Cycle" which we shall study on Day 11.
+
+```{ojs download_all}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof thought_9a, viewof thought_9b], "day9_pauses_9a_9b.txt")
+```

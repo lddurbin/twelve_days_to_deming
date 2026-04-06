@@ -21,7 +21,7 @@ chapters:
       - "A SYSTEM ..."
       - "PAUSE FOR THOUGHT 9–a"
       - "PAUSE FOR THOUGHT 9–b"
-    has_download_button: false
+    has_download_button: true
     has_workbook_callout: true
 
   - file: "03-activity-9c-and-organisation-charts.qmd"

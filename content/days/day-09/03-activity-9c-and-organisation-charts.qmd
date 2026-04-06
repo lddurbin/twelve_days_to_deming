@@ -105,5 +105,5 @@ I visited a designer who had 'every part of the system' available in an electron
 ```{ojs download_all}
 import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-createDownloadButton([viewof activity_9c, viewof thought_9a, viewof thought_9b, viewof thought_9d], "day9_activity_9c_and_pauses.txt")
+createDownloadButton([viewof activity_9c, viewof thought_9d], "day9_activity_9c_and_pause_9d.txt")
 ```
