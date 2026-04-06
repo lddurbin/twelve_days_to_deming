@@ -23,9 +23,9 @@ Instead, I think it would be very useful for you to simply revisit your work on 
 
 While reading through my descriptions and your work in the First Project, you will find it very helpful to use the table on page 28 [WB 150] on which to summarise the strengths of the links that you saw on Days 4 and 5 between the bases in the Joiner Triangle and adopting the Points and curing the Diseases. Then, when thinking of referring back to your work there while carrying out the Second Project, your entries in this table will give you some good clues as to when and where it will be worth your while to look back. I suggest you use the same kind of 0–5 scale as in this table as you used during Day 5 (ranging from 5 = very strong relationship to 0 = no apparent relationship).
 
-![14 Points and Deadly Diseases vs Joiner Triangle bases table](/assets/images/day-09/points-diseases-table.png){.lightbox}
-
 <div class="workbook_callout" role="note" aria-label="Workbook reference">Pages 28–29 are used in the "Preparation for the Second Project" (see page 27) and are also on Workbook pages 150–151.</div>
+
+![14 Points and Deadly Diseases vs Joiner Triangle bases table](/assets/images/day-09/points-diseases-table.png){.lightbox}
 
 For the second section of your preparation (your general grounding in the System of Profound Knowledge before tackling the detail during the project) I suggest the following. First, it would be a good idea to always have a copy of Peter Scholtes's diagram from page 22 in front of you to remind you of a few of the main features and nature of the content of the System of Profound Knowledge. Next, remember that this afternoon you will soon be reading through Balaji's Four Preludes, relating respectively to the four parts of the System of Profound Knowledge. I also recommend that, at the end of this afternoon, you should read through the rest of *DemDim* Chapter 18 (pages 264–280) in order to get a more comprehensive idea of what Balaji's Preludes are introducing you to!
 
@@ -51,7 +51,7 @@ Suggestions:
 
 The purpose of this browsing session is similar to a gymnast's "limbering-up" session before getting onto the strenuous exercise. The difference is of course that, rather than limbering up your muscles, you'll be limbering up your brain!
 
-**Step 2** [analogous to the gymnast's "strenuous exercise"!]**: Dr Deming's May 1990 version**
+**Step 2 [analogous to the gymnast's "strenuous exercise"!]: Dr Deming's May 1990 version**
 
 Choices for your work on each item (remember: "choices"---not to attempt them all)
 
@@ -81,7 +81,7 @@ First, use your notes made with respect to the final bullet-points in both Steps
 
 ### "Out-of-hours" note
 
-<div style="background-color: #e8f5e9; padding: 1em; border-radius: 4px; margin: 1em 0;">
+<div class="arrival_callout" role="note" aria-label="Navigation note">
 
 You should have arrived here after page 27.
 
