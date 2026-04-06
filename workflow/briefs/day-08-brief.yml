@@ -1,0 +1,302 @@
+# ============================================================
+# Day 8 Brief
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 8
+  title: "A New Climate"
+  source_prefix: "K.Day.8.11Jan20"
+  page_count: 42
+
+# ------ Chapter Plan ------
+chapters:
+  - slug: "introduction"
+    title: "A NEW CLIMATE"
+    pages: "5-7"
+    notes: |
+      Pages 1-4 are title/blank/schedule/blank — skip.
+      Page 5 (doc p1): "DAY 8: A NEW CLIMATE" heading. Background on the
+      "New Climate" article ("Deming '88") — three-part article written in
+      1988, published 1989 in Total Quality Management journal. Neave's
+      personal history with the article. Deming read it and said "You must
+      turn this into a book." First part became DemDim Part 3, covering
+      Chapter 13 Joy in Work, Chapter 14 Innovation, Chapter 15 Cooperation.
+      Page 6 (doc p2): The other two parts of the article became Part 5 of
+      DemDim. Mack quote: "There is now intense cooperation where there was
+      intense competition. Everyone wins." Connection to Gallery Furniture
+      and DemDim Part 3. Instructions to re-read Day 1 pages 38-39 ("A New
+      Climate" in "The Deming Story") and DemDim Part 3 intro (pp 195-196).
+      Page 7 (doc p3): "OUTLINE OF TODAY'S WORK" — four-part structure.
+      First three parts: read DemDim Chapters 13, 14, 15 then do Activity.
+      Fourth part: Major Activity based on DemDim Chapter 15 exercise.
+      Two important notes: (1) "Huge financial advantages" title includes
+      Lloyd Nelson's "unknowable/invisible figures" concept, (2) print
+      copies of tables from pages 29-33 (WB 130-134) or 34-38 (WB 135-139).
+
+  - slug: "joy-in-work"
+    title: "JOY IN WORK"
+    pages: "8-9"
+    notes: |
+      Page 8 (doc p4): "JOY IN WORK" heading. Read DemDim Chapter 13
+      (pages 197-203). Workbook callout: Activity 8-a (pages 4-5) is also
+      on Workbook pages 124-125. Activity 8-a in green box with 5 questions:
+      Q1: Is there much Joy in Work in your organisation?
+      Q2: What prevents/obstructs Joy in Work?
+      Page 9 (doc p5): Activity 8-a continued:
+      Q3: What harm does lack of Joy in Work do?
+      Q4: What could be done to encourage more Joy in Work?
+      Q5: What benefits could result from more Joy in Work?
+      Clock icon at bottom right.
+
+  - slug: "innovation"
+    title: "INNOVATION — NOT JUST IMPROVEMENT"
+    pages: "10-11"
+    notes: |
+      Page 10 (doc p6): "INNOVATION — NOT JUST IMPROVEMENT" heading.
+      Read DemDim Chapter 14 (pages 203-212). Workbook callout: Activity 8-b
+      (pages 6-7) is also on Workbook pages 126-127. Activity 8-b in green
+      box — same 5-question structure as 8-a, substituting "innovation".
+      Page 11 (doc p7): Activity 8-b continued (questions 3-5).
+      Clock icon at bottom right.
+
+  - slug: "cooperation"
+    title: "COOPERATION: WIN-WIN — BACKBONE OF THE NEW PHILOSOPHY"
+    pages: "12-13"
+    notes: |
+      Page 12 (doc p8): Heading. Read DemDim Chapter 15 (pages 213-231).
+      Note: postpone final pages of Ch 15 as they relate to the Major
+      Activity. Workbook callout: Activity 8-c (pages 8-9) is also on
+      Workbook pages 128-129. Activity 8-c in green box — same 5-question
+      structure as 8-a, substituting "cooperation".
+      Page 13 (doc p9): Activity 8-c continued (questions 3-5).
+      Clock/info icon at bottom right.
+
+  - slug: "introduction-to-the-major-activity"
+    title: "INTRODUCTION TO THE MAJOR ACTIVITY"
+    pages: "14-17"
+    notes: |
+      Page 14 (doc p10): "INTRODUCTION TO THE MAJOR ACTIVITY" heading.
+      Overview of exercise from DemDim Chapter 15. Personal history of
+      "Deming '88" article. Dark-to-light spectrum metaphor. Mack's
+      Gallery Furniture extract about chimneys of excellence. Three
+      phases of the exercise explained.
+      Page 15 (doc p11): "INTRODUCTION TO THE MAJOR ACTIVITY (continued)"
+      heading. Deming quote on selfish competition vs cooperation
+      (blue/bold). Description of looking at DemDim illustration. Table
+      numbering convention change (a1, b1 notation). Reference to DemDim
+      Figures 43-48 and Table One explanation.
+      Page 16 (doc p12): Table numbering continued. Explanation of how
+      Table One works with the DemDim example (before and after). Note
+      about different notation from DemDim (a1 vs i, ii, etc.).
+      Page 17 (doc p13): Table One figure (before and after, with filled
+      DemDim example). Explanation of left-hand column, greyed cells, and
+      effect notation.
+
+      Note: The DemDim example tables on pages 13-17 (small before/after
+      figures) should be cropped as reference images. The explanatory text
+      introducing the exercise is essential context before the interactive
+      widget.
+
+  - slug: "major-activity"
+    title: "MAJOR ACTIVITY 8-d"
+    pages: "18-28"
+    notes: |
+      Page 18 (doc p14): "MAJOR ACTIVITY 8-d" pill heading with "TABLE ONE".
+      NB about using single-sided copies. Steps 1-3 instructions. Step 1:
+      name three areas. Step 2: decide options. Step 3: mark effects as
+      gains (+). Small DemDim Table One inset on right.
+      Page 19: Blank Table One (3-area) — DO NOT TRANSCRIBE, replaced by
+      interactive widget.
+      Page 20 (doc p16): "TABLE TWO" heading. Steps 4-6. Step 4: copy
+      Table One to Table Two. Step 5: assess effects on other areas.
+      Step 6: insert row totals and net effects. DemDim Table Two inset.
+      Page 21: Blank Table Two (3-area) — interactive widget.
+      Page 22 (doc p18): "TABLE THREE" heading. Steps 7-8. Copy positive
+      net-effect rows only. DemDim Table Three inset.
+      Page 23: Blank Table Three (3-area) — interactive widget.
+      Page 24 (doc p19): "TABLE FOUR" heading. Step 9. Third phase — "New
+      Climate" thinking. Extended description of how areas reconsider
+      options. DemDim Table Four inset.
+      Page 25: Blank Table Four (3-area) — interactive widget.
+      Page 26 (doc p22): "TABLE FIVE" heading. Steps 10-12. Merge Tables
+      Three and Four. "Consider well the lessons." DemDim Table Five inset.
+      Page 27: Blank Table Five (3-area) — interactive widget.
+      Page 28 (doc p24): Reflection on "grades" (+/- vs +++/---). Old
+      Climate vs New Climate judgments. "Out-of-hours" note — prepare
+      copies for Day 9 Major Activity.
+
+      IMPLEMENTATION NOTE: All blank tables (pages 19-42) are replaced by
+      a single interactive JavaScript widget with full progressive cascade:
+      - User names 3 areas (A, B, C) via text inputs
+      - Types option names into Table One left column
+      - Clicks cells to cycle through ratings (+, ++, +++, -, --, ---, 0)
+      - Greyed-out "effect on own area" cells enforced automatically
+      - Net effects auto-calculate
+      - Table Two auto-populates from Table One
+      - Table Three auto-filters to positive net-effect rows
+      - Table Four allows new "New Climate" options (own-area effects now
+        allowed, can be negative)
+      - Table Five merges Three and Four
+      - Download button exports completed exercise as text file
+      - No clock icons during Major Activity (confirmed page 17)
+
+      Pages 29-42 are duplicate blank tables (3-area and 4-area versions)
+      — all replaced by the interactive widget. The 4-area option could be
+      supported by letting users configure 3 or 4 areas at the start.
+
+# ------ Figure Decisions ------
+figures:
+  - page: 13
+    action: "crop"
+    notes: "Table One before/after pair (DemDim example, 3 areas with filled data)"
+    output: "table-one-example.png"
+  - page: 14
+    action: "crop"
+    notes: "Table Two before/after pair (DemDim example, with net effects)"
+    output: "table-two-example.png"
+  - page: 15
+    action: "crop"
+    notes: "Table Three before/after pair (DemDim example, positive selections)"
+    output: "table-three-example.png"
+  - page: 16
+    action: "crop"
+    notes: "Table Four before/after pair (DemDim example, New Climate options)"
+    output: "table-four-example.png"
+  - page: 17
+    action: "crop"
+    notes: "Table Five before/after pair (DemDim example, merged final table)"
+    output: "table-five-example.png"
+  - page: 18
+    action: "crop"
+    notes: "Table One inset — DemDim filled example (right-hand side only)"
+    output: "table-one-inset.png"
+  - page: 20
+    action: "crop"
+    notes: "Table Two inset — DemDim filled example (right-hand side only)"
+    output: "table-two-inset.png"
+  - page: 22
+    action: "crop"
+    notes: "Table Three inset — DemDim filled example (right-hand side only)"
+    output: "table-three-inset.png"
+  - page: 24
+    action: "crop"
+    notes: "Table Four inset — DemDim filled example (right-hand side only)"
+    output: "table-four-inset.png"
+  - page: 26
+    action: "crop"
+    notes: "Table Five inset — DemDim filled example (right-hand side only)"
+    output: "table-five-inset.png"
+  - page: 19
+    action: "skip"
+    notes: "Blank Table One (3-area) — replaced by interactive widget"
+  - page: 21
+    action: "skip"
+    notes: "Blank Table Two (3-area) — replaced by interactive widget"
+  - page: 23
+    action: "skip"
+    notes: "Blank Table Three (3-area) — replaced by interactive widget"
+  - page: 25
+    action: "skip"
+    notes: "Blank Table Four (3-area) — replaced by interactive widget"
+  - page: 27
+    action: "skip"
+    notes: "Blank Table Five (3-area) — replaced by interactive widget"
+  - page: 29
+    action: "skip"
+    notes: "Duplicate blank 3-area tables — replaced by interactive widget"
+  - page: 30
+    action: "skip"
+    notes: "Duplicate blank 3-area tables — replaced by interactive widget"
+  - page: 31
+    action: "skip"
+    notes: "Duplicate blank 3-area tables — replaced by interactive widget"
+  - page: 32
+    action: "skip"
+    notes: "Duplicate blank 3-area tables — replaced by interactive widget"
+  - page: 33
+    action: "skip"
+    notes: "Duplicate blank 3-area tables — replaced by interactive widget"
+  - page: 34
+    action: "skip"
+    notes: "4-area tables — replaced by interactive widget with area count toggle"
+  - page: 35
+    action: "skip"
+    notes: "4-area tables — replaced by interactive widget"
+  - page: 36
+    action: "skip"
+    notes: "4-area tables — replaced by interactive widget"
+  - page: 37
+    action: "skip"
+    notes: "4-area tables — replaced by interactive widget"
+  - page: 38
+    action: "skip"
+    notes: "4-area tables — replaced by interactive widget"
+  - page: 39
+    action: "skip"
+    notes: "Duplicate 4-area tables — replaced by interactive widget"
+  - page: 40
+    action: "skip"
+    notes: "Duplicate 4-area tables — replaced by interactive widget"
+  - page: 41
+    action: "skip"
+    notes: "Duplicate 4-area tables — replaced by interactive widget"
+  - page: 42
+    action: "skip"
+    notes: "Duplicate 4-area tables — replaced by interactive widget"
+
+# ------ Context Notes ------
+context_notes: |
+  Schedule from page 3 (approximate):
+  - 9:00am-1:00pm; 2:00pm-6:00pm
+  - Introduction (p1)
+  - Outline of today's work (p3); Joy in work (p4) → Activity 8-a
+  - Innovation — not just improvement (p6) → Activity 8-b
+  - Cooperation: win-win — backbone of the new philosophy (p8) → Activity 8-c
+  - Introduction to the Major Activity (p10)
+  - Introduction to the Major Activity (continued) (p11)
+  - Major Activity 8-d (p18)
+  - "Out-of-hours" note (p28)
+
+  Key themes: Day 8 marks the transition to the "New Climate" — the three
+  pillars of Joy in Work, Innovation, and Cooperation that Deming/Neave
+  advocate as replacements for the "Old Climate" practices covered in
+  Days 5-7. The Major Activity is the centrepiece: a multi-step exercise
+  demonstrating how cooperation (considering effects on other areas)
+  produces dramatically better outcomes than selfish optimisation.
+
+  The three preliminary activities (8-a, 8-b, 8-c) share an identical
+  5-question template, substituting the topic. This parallel structure
+  is intentional — Neave wants participants to apply the same reflective
+  framework to all three pillars of the New Climate.
+
+  The Major Activity exercises (Tables One-Five) come from DemDim
+  Chapter 15 and illustrate "Huge Financial Advantages" of cooperation.
+  The exercise progresses through three phases:
+  Phase 1 (Table One): "Darkness" — each area adopts options in its own
+    self-interest only
+  Phase 2 (Tables Two-Three): Consider effects on other areas, keep only
+    options with positive net effect on the organisation
+  Phase 3 (Tables Four-Five): "New Climate" — areas consider options that
+    may disadvantage themselves but benefit the organisation as a whole
+
+  The "aha moment" is comparing the heap of + signs in Table Five vs
+  Table One — dramatically better outcomes from cooperation.
+
+  DemDim Chapter references:
+  - Chapter 13: Joy in Work (pp 197-203)
+  - Chapter 14: Innovation — not just Improvement (pp 203-212)
+  - Chapter 15: Cooperation: Win-Win — Backbone of the New Philosophy
+    (pp 213-231, but postpone final pages until Major Activity)
+
+  The DemDim example uses three areas (A, B, C) with 2-3 options each.
+  The course materials also provide 4-area tables for those who want to
+  include a fourth area (e.g. senior management). The interactive widget
+  should support configurable area count (3 or 4).
+
+  "Out-of-hours" note (page 28): Prepare copies of Day 9 pages 13-14
+  (WB 146-147) at Stages 3 and 4, Day 9 page 15 (WB 148), and Day 9
+  page 29 (WB 150) for the next day's Major Activity.
+
+  No Pauses for Thought or Technical Aids in Day 8 — it is purely
+  activity-driven.
