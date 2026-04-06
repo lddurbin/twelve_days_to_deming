@@ -1,0 +1,67 @@
+# Day 8 structural manifest
+# Generated from completed QMD files — baseline for regression checks
+day: 8
+
+chapters:
+  - file: "01-introduction.qmd"
+    viewof_count: 0
+    figures: []
+    headings:
+      - "DAY 8: A NEW CLIMATE"
+      - "OUTLINE OF TODAY'S WORK"
+    has_download_button: false
+    has_workbook_callout: false
+
+  - file: "02-joy-in-work.qmd"
+    viewof_count: 5
+    figures: []
+    headings:
+      - "ACTIVITY 8–a"
+    has_download_button: true
+    has_workbook_callout: true
+
+  - file: "03-innovation.qmd"
+    viewof_count: 5
+    figures: []
+    headings:
+      - "ACTIVITY 8–b"
+    has_download_button: true
+    has_workbook_callout: true
+
+  - file: "04-cooperation.qmd"
+    viewof_count: 5
+    figures: []
+    headings:
+      - "ACTIVITY 8–c"
+    has_download_button: true
+    has_workbook_callout: true
+
+  - file: "05-introduction-to-the-major-activity.qmd"
+    viewof_count: 0
+    figures:
+      - "/assets/images/day-08/table-one-example.png"
+      - "/assets/images/day-08/table-two-example.png"
+      - "/assets/images/day-08/table-three-example.png"
+      - "/assets/images/day-08/table-four-example.png"
+      - "/assets/images/day-08/table-five-example.png"
+    headings:
+      - "INTRODUCTION TO THE MAJOR ACTIVITY (continued)"
+    has_download_button: false
+    has_workbook_callout: false
+
+  - file: "06-major-activity.qmd"
+    viewof_count: 6
+    figures:
+      - "/assets/images/day-08/table-one-inset.png"
+      - "/assets/images/day-08/table-two-inset.png"
+      - "/assets/images/day-08/table-three-inset.png"
+      - "/assets/images/day-08/table-four-inset.png"
+      - "/assets/images/day-08/table-five-inset.png"
+    headings:
+      - "TABLE ONE"
+      - "TABLE TWO"
+      - "TABLE THREE"
+      - "TABLE FOUR"
+      - "TABLE FIVE"
+    has_download_button: true
+    has_workbook_callout: false

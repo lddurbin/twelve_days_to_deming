@@ -1,0 +1,50 @@
+---
+title: "COOPERATION: WIN-WIN — BACKBONE OF THE NEW PHILOSOPHY"
+execute:
+  echo: false
+---
+Now please **read pages 213–231 of *DemDim* Chapter 15: "Cooperation: Win-Win—Backbone of the New Philosophy"**. As mentioned earlier, the final pages of this chapter particularly relate to today's Major Activity, so it will be sensible to postpone those and read them as an introduction to the Major Activity when the time comes. You still have plenty to read here—more than in Chapters 13 and 14 combined—and I have therefore suggested a little more time for this section.
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 8–c (pages 8–9) is also on Workbook pages 128–129.</div>
+
+<div class="thought" role="note" aria-label="Activity">
+
+## ACTIVITY 8–c
+
+Is there much cooperation in your organisation—either on your part or anybody else's?
+
+```{ojs}
+viewof activity_8c_1 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What kind of things in your organisation prevent, or at least obstruct, cooperation?
+
+```{ojs}
+viewof activity_8c_2 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What harm does lack of cooperation do to your organisation?
+
+```{ojs}
+viewof activity_8c_3 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What kind of things could be done in your organisation to encourage and enable more cooperation?
+
+```{ojs}
+viewof activity_8c_4 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What kind of benefits to your organisation could result if there were to be more cooperation?
+
+```{ojs}
+viewof activity_8c_5 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+</div>
+
+```{ojs download_all}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof activity_8c_1, viewof activity_8c_2, viewof activity_8c_3, viewof activity_8c_4, viewof activity_8c_5], "day8_activity_8c.txt")
+```

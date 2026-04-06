@@ -1,0 +1,76 @@
+---
+title: "A NEW CLIMATE"
+execute:
+  echo: false
+---
+## DAY 8: A NEW CLIMATE
+
+In a nutshell, Peter Scholtes's "tremendously good guidance" referenced on Day 5 page 22 [WB 90] regarding major issues was that, in general, management needs to start to develop some right things ("good practice") before it can safely start to dispose of wrong things ("bad practice").
+
+So it might have seemed illogical for me to then spend virtually the whole of yesterday telling you about bad practices rather than *good* ones! But there were three main reasons why I did so. First, despite all that had gone before during the first half of the course, it may be that you were still unconvinced that very much really needs to change. If so then I hope that Day 7 finally altered your opinion. Second, as an interim measure, it might be possible for you to stall attempts by others to introduce yet further bad practices—now that you're aware of how bad they are. At an early stage, this will be easier than getting rid of bad practices that are already well-established. And third, I really wanted to "clear the decks" of studying the bad practices so that from now on in the course we can at last largely concentrate on studying the good!
+
+There will nevertheless still be occasional reminders of the bad: e.g. on Day 12, in contrast to Deming's System of Profound Knowledge, we'll take a look at Peter Scholtes's "System of Profound Trouble"!
+
+As described near the beginning of the course, this overall structure largely reflects the way that the four-day seminars developed during the second half of the 1980s. At the start of that five-year period the concentration was largely on the bad practices—let's call that a focus on the "Old Climate". By the middle of those five years, the "New Climate" had begun to emerge. And, by the end of the five years, the New Climate had become well-established: the New Climate of good practice based on good theory.
+
+By now you know that, from time to time, I tell you some bits and pieces of personal history. Here comes another. Some time in 1988, Dr Gopal Kanji was planning to launch a new journal entitled *Total Quality Management*. Gopal invited me to write an article for the first issue. What an ideal time for such an invitation! The article just had to be on "The New Climate". And, before long, I needed to contact Gopal to ask him if he could find room in his journal not merely for a single paper but for three, to be serialised over the first three issues of the journal. (By now you also know that brevity is not my strongest point!) Gopal agreed. The overall title of the three-part article was simply "Deming '88".
+
+"Deming '88" was not aimed at newcomers. Instead, its purpose was to introduce the "New Climate" to those who were already familiar with Deming's work as portrayed in *Out of the Crisis* (which, recall, was published in 1986) and/or had attended a four-day seminar some time in 1987 or previously, i.e. during the time of what I've just referred to as a focus on the "Old Climate". Part 1 of "Deming '88" was titled "Win-Win, Joy in Work, and Innovation". In Parts 2 and 3 (quoting from the opening page of Part 2) "we revisit the 14 Points, both in the light of these three themes and also incorporating much enlightening material from four-day seminars and other presentations which Dr Deming gave in 1988".
+
+I drafted the three-part article early in 1989 and sent it to Dr Deming for him to read and comment upon if he had the time. When I next saw him he handed the envelope back to me on which he had written a typically concise note. The note began with a compliment which would be embarrassing for me to reproduce here, but finished with: ["You must turn this into a book."]{.deming_quote} It was one of the very few occasions when I was ahead of him: *DemDim* was already under way! The first part of the article became the basis of Part 3 of *DemDim* which comprises just three chapters:
+
+Chapter 13. Joy in Work
+
+Chapter 14. Innovation—Not Just Improvement
+
+Chapter 15. Cooperation: Win-Win—Backbone of the New Philosophy
+
+*Day 8 of 12 Days to Deming*
+
+The other two parts of the article became the basis of Part 5 of *DemDim*.
+
+As will have been clear to you on Day 6, during the 1980s Gallery Furniture was infested with many of the major issues discussed yesterday and more besides: appraisals, reward and punishment, ranking, commissions, fear, internal rivalry, targets, fudging figures. Then, after the transition in the early '90s, what did they do instead? Here is one way that Mack summarised it in 1993 (I didn't quote this on Day 6):
+
+> "There is now intense **cooperation** where there was intense **competition**. Everyone wins."
+
+And, as you have now seen, cooperation is one of the three features that I included in the "New Climate", both in the journal article and in *DemDim* Part 3. Without doubt, all three of the topics in *DemDim* Part 3 figured largely in the Gallery Furniture of the 1990s and subsequently. However, that is not why Part 3 of my book is what it is. Like the article, *DemDim* was written in 1989, two years before I had ever heard of Gallery Furniture—and over a year before Mack had even heard of Dr Deming! Mack said that he did because he learned from Dr Deming. I wrote what I wrote because I learned from Dr Deming. The reason for the similarity between what I wrote and what happened in Gallery Furniture is that both Mack and I were "singing from the same song-sheet".
+
+So first, to set the scene, please
+
+- **look back at Day 1 pages 38–39 to re-read the short section introducing "A New Climate" in "The Deming Story"; and then**
+
+- **read the introduction to Part 3 of *DemDim* (pages 195–196).**
+
+:::: {.columns}
+
+::: {.column width="85%"}
+
+## OUTLINE OF TODAY'S WORK
+
+The structure of today's work is particularly straightforward. It divides into four parts. The first three parts consist respectively of you reading *DemDim* Chapters 13, 14 and 15 on The New Climate and then immediately embarking upon an Activity. The Activity asks you to consider five questions that relate the content of the chapter to "your organisation" (interpreted as on the previous two days). The five questions are of exactly the same form in all three parts.
+
+:::
+
+::: {.column width="15%"}
+<div style="margin-top: 80px">
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+create_clock(9, 0)
+```
+</div>
+:::
+
+::::
+
+The fourth part is today's Major Activity, and this very much follows the lines of the "Example: Huge financial advantages of cooperation" which occupies the final pages of *DemDim* Chapter 15, beginning at page 232. As with the earlier Activities, this Major Activity is entirely concerned with applications to your own organisation. However, in this case you have some considerable choice on the details of how you relate it to your organisation. Those details involve you choosing which parts, departments, sections, etc of the organisation you wish to include. Because of this breadth of choice, it could be very useful (and is entirely feasible within the normal timeframe) to carry out the Major Activity more than once with different selections of the areas to involve. You should therefore print out extra copies of the tables to be used during the Major Activity for this purpose (see Note 2 below).
+
+Although, as always, I am including some suggested timings, today's very straightforward four-part structure will make it easy for you to adapt them, if desired, to suit your own particular circumstances and preferences. My indicated timings have been chosen primarily with the individual student in mind, and include the opportunity to carry out the Major Activity at least twice as just mentioned. However, if you are studying in a group, your discussions following the reading of the three *DemDim* chapters and then considering the applications to your organisation could well become quite lengthy. If so, rather than curtailing the discussions to fit into a suggested timeframe, it could well be more valuable for you to continue with the longer discussions. In this case you might instead aim to carry out the Major Activity just once. Because of these various possibilities, I have not included any timings within today's Major Activity.
+
+*DemDim* Chapters 13 and 14 are quite short—only six and ten pages respectively. Chapter 15 is quite a lot longer, and so I have allocated extra time for the reading there. Further, it makes sense to postpone reading those final pages mentioned above (from *DemDim* page 232) until near the start of the Major Activity.
+
+#### Two important notes
+
+1. The "Huge financial advantages" in the title of the *DemDim* illustration most certainly include some of Lloyd Nelson's "unknowable" or "invisible" figures. *On Out of the Crisis* page 104[121] Dr Deming refers to Lloyd as saying that ["the most important figures that one needs for management are unknown or unknowable"]{.deming_quote}—so have no doubt that they *do* affect the organisation's "bottom line"!
+
+2. On Day 7 page 36 I advised you that you would need to print some copies of the tables to be used in today's Major Activity. I recommend that you print out single-sided copies of those tables. For your convenience, the tables (which you'll first see on pages 19, 21, 23, 25 and 27) are reproduced all together on pages 29–33 [WB 130–134]; you may need up to three or four copies of them. Tables for a slightly different version of the Major Activity are provided on pages 34–38 [WB 135–139]. Further, access to a copier that can produce enlargements would also be useful so that you will have more room in which to write your entries in these tables.
+
+For the rest of today there will be no more writing from me other than to guide you through the reading and the Activities.

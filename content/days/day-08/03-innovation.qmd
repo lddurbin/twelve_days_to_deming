@@ -1,0 +1,50 @@
+---
+title: "INNOVATION — NOT JUST IMPROVEMENT"
+execute:
+  echo: false
+---
+Next please **read *DemDim* Chapter 14 (pages 203–212): "Innovation—not just Improvement"**.
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 8–b (pages 6–7) is also on Workbook pages 126–127.</div>
+
+<div class="thought" role="note" aria-label="Activity">
+
+## ACTIVITY 8–b
+
+Is there much innovation in your organisation—either on your part or anybody else's?
+
+```{ojs}
+viewof activity_8b_1 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What kind of things in your organisation prevent, or at least obstruct, innovation?
+
+```{ojs}
+viewof activity_8b_2 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What harm does lack of innovation do to your organisation?
+
+```{ojs}
+viewof activity_8b_3 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What kind of things could be done in your organisation to encourage and enable more innovation?
+
+```{ojs}
+viewof activity_8b_4 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What kind of benefits to your organisation could result if there were to be more innovation?
+
+```{ojs}
+viewof activity_8b_5 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+</div>
+
+```{ojs download_all}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof activity_8b_1, viewof activity_8b_2, viewof activity_8b_3, viewof activity_8b_4, viewof activity_8b_5], "day8_activity_8b.txt")
+```

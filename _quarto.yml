@@ -89,6 +89,15 @@ book:
         - content/days/day-07/06-taguchi-reflections.qmd
         - content/days/day-07/07-major-activity.qmd
 
+    - part: "Day 8: A New Climate"
+      chapters:
+        - content/days/day-08/01-introduction.qmd
+        - content/days/day-08/02-joy-in-work.qmd
+        - content/days/day-08/03-innovation.qmd
+        - content/days/day-08/04-cooperation.qmd
+        - content/days/day-08/05-introduction-to-the-major-activity.qmd
+        - content/days/day-08/06-major-activity.qmd
+
 format:
   html:
     theme: cosmo

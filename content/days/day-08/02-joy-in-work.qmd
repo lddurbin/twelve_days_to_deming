@@ -1,0 +1,50 @@
+---
+title: "JOY IN WORK"
+execute:
+  echo: false
+---
+So now please **read *DemDim* Chapter 13 (pages 197–202): "Joy in Work"**.
+
+<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 8–a (pages 4–5) is also on Workbook pages 124–125.</div>
+
+<div class="thought" role="note" aria-label="Activity">
+
+## ACTIVITY 8–a
+
+Is there much Joy in Work in your organisation—either on your part or anybody else's?
+
+```{ojs}
+viewof activity_8a_1 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What kind of things in your organisation prevent, or at least obstruct, Joy in Work?
+
+```{ojs}
+viewof activity_8a_2 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What harm does lack of Joy in Work do to your organisation?
+
+```{ojs}
+viewof activity_8a_3 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What kind of things could be done in your organisation to encourage and enable more Joy in Work?
+
+```{ojs}
+viewof activity_8a_4 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+What kind of benefits to your organisation could result if there were to be more Joy in Work?
+
+```{ojs}
+viewof activity_8a_5 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+```
+
+</div>
+
+```{ojs download_all}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof activity_8a_1, viewof activity_8a_2, viewof activity_8a_3, viewof activity_8a_4, viewof activity_8a_5], "day8_activity_8a.txt")
+```

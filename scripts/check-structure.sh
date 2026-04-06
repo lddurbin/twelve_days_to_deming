@@ -286,7 +286,7 @@ main() {
     # ── Check 4: download button ──
     total_checks=$((total_checks + 1))
     if [[ "$expected_dl" == "true" ]]; then
-      if grep -q 'createDownloadButton' "$qmd_path" 2>/dev/null; then
+      if grep -qE 'create(Coop)?DownloadButton' "$qmd_path" 2>/dev/null; then
         pass "download button: present"
         total_pass=$((total_pass + 1))
       else
@@ -294,7 +294,7 @@ main() {
         total_fail=$((total_fail + 1))
       fi
     else
-      if grep -q 'createDownloadButton' "$qmd_path" 2>/dev/null; then
+      if grep -qE 'create(Coop)?DownloadButton' "$qmd_path" 2>/dev/null; then
         warn "download button: found but not in manifest"
         total_pass=$((total_pass + 1))
         total_warn=$((total_warn + 1))
