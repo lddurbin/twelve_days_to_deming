@@ -1,0 +1,380 @@
+# ============================================================
+# Day 10 Brief
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 10
+  title: "A System of Profound Knowledge — Parts A and B"
+  source_prefix: "M.Day.10.16Feb22"
+  page_count: 38
+
+# ------ Chapter Plan ------
+# PNG pages 1-4 are front matter (cover, blank, TOC, blank).
+# Printed pages 1-34 correspond to PNGs 5-38.
+# All page numbers below are the printed page numbers (as in
+# "Day 10 : page N" footer), not PNG file indices.
+
+chapters:
+  - slug: "second-project"
+    title: "THE SECOND PROJECT"
+    pages: "1-2"
+    notes: |
+      PNG 005-006. Opening of Day 10 — Neave's framing of the
+      "Second Project" which spans Days 10 and 11. Establishes
+      Deming's May 1990 version as the canonical text and
+      introduces the four-step procedure (Browsing session → Dr
+      Deming's May 1990 version → DemDim version → Activity).
+      References vacuum-cleaner "network of components that work
+      together" from Preludes A/Day 9 page 2. Warns that Part A
+      contains "considerably more material in the May 1990 version
+      than in the other three parts." Five items (a-e) of prep
+      expected (Preludes A, DemDim 264-270, Points & Diseases
+      refresher, Scholtes diagram, summaries). Sets expectation
+      that Neave's commentary will be interleaved in blue/italic.
+      No Pauses, no Activities, no figures on these pages —
+      pure prose framing.
+
+  - slug: "appreciation-for-a-system"
+    title: "PART A: APPRECIATION FOR A SYSTEM"
+    pages: "3-15"
+    notes: |
+      PNG 007-019. Single large reading chapter covering Steps 1-3
+      of the four-step procedure for Part A.
+
+      Page 3 (PNG 007): "PART A: APPRECIATION FOR A SYSTEM" heading.
+      Step 1 "Browsing session" with reading list (Preludes A pages
+      1-6, DemDim 264-270, Day's material pages 3-14 [WB 154-165]).
+      WORKBOOK CALLOUT: "The rest of this page and the next sixteen
+      pages (pages 3-19) are also on Workbook pages 154-170."
+      Step 2 "Dr Deming's May 1990 version" begins. Item 1 "What is
+      a 'system'?" — Deming's definition of a system as a "network
+      of functions or activities". Vacuum-cleaner and automobile
+      examples. Neave begins interleaved commentary on Scherkenbach
+      diagram (Day 9 page 2) and linking of components.
+
+      Page 4 (PNG 008): Continuation of Neave commentary on inter-
+      dependence between components. Note about the little clock
+      convention being carried away (keep an eye on it).
+      "The components of a system need not all be clearly defined..."
+      paragraph introducing the "all related to each other" theme.
+
+      Page 5 (PNG 009): "The aim of the system must be clear to
+      everyone in the system" — first mention of "aim", constancy
+      of purpose connection. Neave commentary on the aim being a
+      value-judgment. Reference to "The aim proposed here for any
+      organisation is for everybody to gain..." Deming quote from
+      senior executive presentation. BDA Booklet A10 page 8 and
+      DemDim page 265 reference.
+
+      Page 6 (PNG 010): Item 2 "Optimisation of a system" — defin-
+      ition, short-term vs long-term thinking, Mobility of Management
+      (Deadly Disease 4), "job-hopping". Neave commentary on manage-
+      ment responsibility to strive for optimisation and keep the
+      system optimised over time.
+
+      Page 7 (PNG 011): Continuation — aim, size, boundary changes
+      with time. Growth/complexity consideration — "All One Team".
+
+      Page 8 (PNG 012): Stable conditions, string-quartet metaphor
+      ("The string quartet mentioned above may well study under a
+      master"). "Those within a system may understand everything
+      there is to know about the system — except how to improve it."
+
+      Page 9 (PNG 013): Aide to president needed for large
+      organisation (Bill Scherkenbach's role at Ford Motor Company,
+      Lloyd Nelson at Nashua). Flow diagram value for understanding
+      proposed changes and negative consequences.
+
+      Page 10 (PNG 014): Bowling team / Orchestra / Business
+      interdependence spectrum diagram (low-to-high continuum).
+      "A business is not merely an organisation chart..." paragraph.
+      FIGURE: crop the Low-High Bowling/Orchestra/Business diagram.
+
+      Page 11 (PNG 015): A system of schools example (public,
+      private, parochial, trade schools). Performance of any
+      component judged by its contribution to the aim of the
+      system, not individual production. "Transformation of
+      management" reference. Some components may operate at a loss.
+
+      Page 12 (PNG 016): Poor management example — purchasing at
+      lowest price; travellers/transportation night-rate vs duty-rate
+      trade-off (from particular experience related to DemDim p 354).
+
+      Page 13 (PNG 017): "Any system that results in a Win-Lose
+      structure is suboptimised." (blue Deming text).
+      "Optimisation of a system should be the basis for negotiation
+      between any two people, between divisions, between union and
+      management, between competitors, between countries. [How
+      sensible—yet how rare.] Everybody would gain." (blue)
+      Clock icon at bottom right.
+
+      Page 14 (PNG 018): Bulleted list of suboptimisation examples
+      (destroyer of intrinsic motivation; grading; MBO/MBIR; incentive
+      pay; business plans with own aim; quotas for sales/accidents;
+      competition for share of market; barriers to trade; gauging
+      the other). Taguchi loss function preview — "Fortunately,
+      precise optimisation is not necessary. One need only come
+      close to optimisation."
+
+      Page 15 (PNG 019): Step 3 "DemDim version" — read DemDim
+      pages 264-270, revising earlier comments. Bottom of page:
+      small separator graphic, italic note "(After the break,
+      continue to Activity 10-a overleaf.)"
+
+      FIGURES on this chapter:
+      - Page 10 Bowling/Orchestra/Business interdependence diagram (crop).
+      No other figures — all other pages are pure prose with
+      interleaved Neave commentary.
+
+      STYLING NOTES:
+      - Deming's May 1990 text is rendered in blue in the source.
+        Use `.deming_quote` class or blue styling consistent with
+        Day 9 pages 24-25 handling.
+      - Neave interleaved commentary uses italic/brackets — apply
+        `.neave_note` or consistent aside styling.
+      - Small clock icon at the bottom of page 13 indicates timing
+        cue — include a `create_clock(...)` call if possible to
+        preserve the cue (approximate time per TOC: section starts
+        9:00am, Part A ends around midday — clock likely shows
+        ~11:30 but verify by reading source).
+
+  - slug: "activity-10a"
+    title: "ACTIVITY 10–a"
+    pages: "16-19"
+    notes: |
+      PNG 020-023. Step 4 of Part A — revisit the 14 Points and
+      Deadly Diseases in light of "Appreciation for a System".
+
+      Page 16 (PNG 020): ACTIVITY 10-a header. Instructions: rate
+      each Point/Disease on 0-5 scale for how essential it is to
+      adopting the Point or curing the Disease. 0 = no connection,
+      5 = *essential*. Write brief comments. Reference to Day 9
+      page 27 explaining the ratings. Points 1-4 presented with
+      small text input boxes to the right (just rating numbers).
+      References to the relevant Day 4/5 Point pages.
+
+      Page 17 (PNG 021): Points 5-9 with input boxes and page refs.
+      Page 18 (PNG 022): Points 10-14 with input boxes and page refs.
+      Page 19 (PNG 023): Diseases 1-5 with input boxes and page refs.
+
+      IMPLEMENTATION:
+      - This is 19 numbered items (14 Points + 5 Diseases), each
+        with a short rating input AND a text comment area.
+      - Use `.thought_commentary` or similar styled container
+        consistent with Activity templates.
+      - Per item, provide the Point/Disease title (in blue, as in
+        source), the Day/page reference, and two inputs:
+        * `Inputs.text()` for the 0-5 rating
+        * `Inputs.textarea({rows: 3})` for brief comments
+      - Or a single combined textarea per item if that better
+        matches earlier Days (check Day 9 Activity 9-f handling if
+        it exists).
+      - Workbook callout: "Activity 10-a (pages 16-19) is also on
+        Workbook pages 167-170" (confirm exact WB pages against
+        source page 16 header).
+      - Download button at end: captures all 19 activity_10a_* inputs.
+
+      No figures. No Pauses for Thought.
+
+  - slug: "theory-of-variation"
+    title: "PART B: SOME KNOWLEDGE OF THEORY OF VARIATION"
+    pages: "20-28"
+    notes: |
+      PNG 024-032. Single large reading chapter covering Steps 1-3
+      of the four-step procedure for Part B. Structurally parallel
+      to the appreciation-for-a-system chapter.
+
+      Page 20 (PNG 024): "PART B: SOME KNOWLEDGE OF THEORY OF
+      VARIATION (STATISTICAL THEORY)" heading. Step 1 Browsing
+      session (Prelude B pages 7-14, DemDim 270-274, today's
+      material pages 20-27 [WB 171-178]).
+      WORKBOOK CALLOUT: "The rest of this page and the next twelve
+      pages (pages 20-32) are also on Workbook pages 171-183."
+      Step 2 Dr Deming's May 1990 version begins. Item 1 "Some
+      understanding of variation..." Neave begins long personal
+      blood-pressure story ("wibble-wobble") — the reason Deming
+      says understanding such matters "is essential for management".
+
+      Page 21 (PNG 025): Continuation of blood pressure commentary.
+      Item 2 "Variation there will always be, between people..."
+      Neave commentary on common vs special causes, stability,
+      improving the system vs acting on people.
+
+      Page 22 (PNG 026): Item 3 "Understanding of the capability
+      of a process" — stable = predictable. Item 4 "The leadership
+      of people (manager, leader, supervisor, teacher) is entirely
+      different in the two states: stable and unstable."
+      Deming's "Simple point here that, when a process is in
+      statistical control, the control limits indicate what it is
+      capable of consistently producing" paragraph.
+
+      Page 23 (PNG 027): Item 5 "Knowledge about the different
+      sources of uncertainty in the system of management. Is the
+      system of measurement stable, in statistical control?"
+      Neave commentary on measurement process.
+      Item 6 "There are two kinds of mistakes in attempts to
+      improve a process, both costly":
+        Mistake 1: treat as special cause what came from common
+        causes (tampering).
+        Mistake 2: attribute to common causes what came from a
+        special cause.
+
+      Page 24 (PNG 028): Item 7 "Knowledge of procedures aimed at
+      minimum economic loss from these two mistakes (Shewhart
+      control charts). [See Appendix page 4.]"
+      Item 8 "Knowledge about interaction of forces. Interaction
+      may reinforce efforts, or it may nullify efforts..." — tug
+      of war analogy, All One Team.
+
+      Page 25 (PNG 029): Item 9 Enumerative studies vs analytic
+      studies. Unfamiliar terms explained in Neave commentary.
+      References to Deming's 1950 book and papers "On a
+      Classification of the Problems of Statistical Inference",
+      "On the Distinction between Enumerative and Analytic
+      Surveys", "On Probability as a Basis for Action" (with
+      URL www.deming.org). Prediction and change in a process.
+
+      Page 26 (PNG 030): Item 10 "Knowledge about loss functions
+      in relation to optimisation of performance of a system."
+      Reference to Rule 4 of the Funnel and Taguchi loss function
+      on Day 7 page 22.
+      Item 11 "Knowledge about the losses that come from unfortun-
+      ate successive application of random forces..." Examples
+      (Rule 4 of the Funnel): worker training worker in succession;
+      executives working with best efforts on policy without PK;
+      committees working without PK.
+
+      Page 27 (PNG 031): Item 12 "Enlargement of a committee does
+      not necessarily improve the results..." Corollaries "frighten-
+      ing" — popular vote, democracy (Deming Speaks to European
+      Executives, BDA Booklet A10).
+      Item 13 "As a good rule, Profound Knowledge must come from
+      outside, and by invitation. Profound Knowledge cannot be
+      forced onto anybody." Neave commentary on "a system can not
+      understand itself" (The New Economics Ch 4) — link to final
+      member of set of Obstacles (Day 7 page 35).
+
+      Page 28 (PNG 032): Step 3 "DemDim version" — read DemDim
+      pages 270-274. Note that the section of The New Economics
+      Ch 4 relating to Part B is pages 87-69[sic, check]/98-101.
+      Italic note at bottom referring forward to "the additional
+      final chapter in the Third Edition" [of Out of the Crisis].
+
+      NO FIGURES in Part B — pure prose. All Deming text in blue,
+      Neave commentary interleaved in italic/plain. Same styling
+      approach as Part A chapter.
+
+  - slug: "activity-10b"
+    title: "ACTIVITY 10–b"
+    pages: "29-32"
+    notes: |
+      PNG 033-036. Step 4 of Part B — revisit the 14 Points and
+      Deadly Diseases in light of "Some Knowledge of Theory of
+      Variation". Structurally identical to Activity 10-a.
+
+      Page 29 (PNG 033): ACTIVITY 10-b header. "As in Activity 10-a,
+      but now in connection with Part B: 'Some Knowledge of Theory
+      of Variation'." Reminder: incidentally you can be surprised
+      if both here and in similar Activities on Day 11 you find
+      yourself coming up with some of the same thoughts and
+      arguments as in previous Activities from within this project.
+      Points 1-4 with input boxes.
+      Workbook callout: "Activity 10-b (pages 29-32) is also on
+      Workbook pages 180-183" (confirm exact WB pages).
+
+      Page 30 (PNG 034): Points 5-9.
+      Page 31 (PNG 035): Points 10-14.
+      Page 32 (PNG 036): Diseases 1-5.
+
+      IMPLEMENTATION: same pattern as Activity 10-a — 19 items,
+      each with rating + comment inputs. Use `viewof activity_10b_1`
+      through `viewof activity_10b_19` naming. Download button at
+      end captures 10-b inputs.
+
+  - slug: "out-of-hours-note"
+    title: '"OUT-OF-HOURS" NOTE'
+    pages: "33"
+    notes: |
+      PNG 037. Closing page (printed page 33).
+      "Congratulations—you're halfway through this important project!"
+      Reviews preparation needed for Day 11 (Parts C and D of SoPK):
+      - Carefully read through Balaji's Prelude C and DemDim pages
+        274-276 (making notes on links).
+      - Prelude C very helpful and straightforward on Theory of
+        Knowledge — concentrates on a particular aspect of the
+        subject but otherwise possibly all you need.
+      - DemDim Chapter 18 and Deming's May 1990 version coverage
+        of Part C also needed. May take less than five items in
+        front of you for assurance, but then again may not.
+      - Pre-reminder about Part D: Prelude D and DemDim pages
+        277-279. Peter Scholtes's diagram on Day 9 page 22.
+      - "All-important preparation": refresh Obsession with Quality,
+        All One Team, Scientific Approach (Joiner Triangle bases).
+
+      No Pauses, no Activities. Short chapter — wrap-up / farewell
+      from Neave for Day 10 with forward-looking prep guidance for
+      Day 11.
+
+      PNG 038 is a blank verso — skip.
+
+# ------ Figure Decisions ------
+figures:
+  - page: 10
+    action: "crop"
+    notes: "Bowling team / Orchestra / Business interdependence spectrum diagram — horizontal Low-to-High continuum with three labelled positions"
+    output: "bowling-orchestra-business-spectrum.png"
+
+# ------ Context Notes ------
+context_notes: |
+  Day 10 is the first half of the Second Project (Day 11 is the
+  second half). Structurally it is extremely clean: an intro, then
+  Part A (Appreciation for a System) with reading + activity, then
+  Part B (Theory of Variation) with reading + activity, then a
+  short out-of-hours note.
+
+  This day has a very different texture from Days 1-9:
+  - NO Pauses for Thought
+  - NO Technical Aids
+  - NO clocks (except possibly one small icon on page 13)
+  - NO Red Beads, no Funnel, no Dice
+  - NO float boxes, no major activity blue-pill heading
+  - Only ONE figure (the bowling/orchestra/business diagram on p 10)
+
+  The interactive elements are concentrated entirely in the two
+  Activities (10-a and 10-b), each of which is 19 input items
+  (14 Points + 5 Deadly Diseases) with rating + comment boxes.
+
+  STYLING: Deming's May 1990 text is rendered in BLUE in the source
+  throughout Parts A and B. Neave's interleaved commentary is in
+  italic/square brackets. Follow the Day 9 approach for blue Deming
+  text — use `.deming_quote` class or similar blue styling; for
+  Neave interleaved commentary use `.neave_note` or equivalent.
+
+  The chapter plan deliberately keeps Part A and Part B each as a
+  single long chapter rather than splitting at Step 2/Step 3
+  boundaries. Reason: Step 3 (the "now read DemDim version" step)
+  is only a short paragraph pointing the reader elsewhere, not its
+  own substantive content — splitting would create a runt chapter.
+  Activities 10-a and 10-b are split out as their own chapters
+  because they are large interactive components that benefit from
+  their own download scope and workbook callout handling.
+
+  DemDim page references throughout:
+    - Part A: DemDim 264-270 (Chapter 18 "Appreciation for a System")
+    - Part B: DemDim 270-274 (Chapter 18 continued, Theory of Variation)
+    - Out-of-hours note: DemDim 274-279 (for Day 11 prep)
+
+  Workbook page references:
+    - Part A pages 3-19 → WB 154-170
+    - Part B pages 20-32 → WB 171-183
+
+  Reading references to earlier days:
+    - Day 9 page 2 (Scherkenbach flow diagram)
+    - Day 9 page 22 (Scholtes diagram)
+    - Day 9 page 27 (0-5 rating scale explanation)
+    - Day 9 pages 27-28 (Point/Disease refresher table)
+    - Day 7 page 22 (Taguchi loss function)
+    - Day 7 page 35 (Obstacles set)
+    - Day 4 pages 16-25 and Day 5 pages 2-17 (14 Points source)
+    - Day 5 pages 18-27 (Deadly Diseases source)

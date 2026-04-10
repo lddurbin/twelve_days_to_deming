@@ -1,0 +1,39 @@
+---
+title: "DAY 10: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS A AND B"
+execute:
+  echo: false
+---
+
+## DAY 10: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS A AND B
+
+### SECOND PROJECT
+
+Welcome to the Second Project! This is the big one: linking together Deming's teaching in the mid-1980s, particularly on the 14 Points and the Deadly Diseases, with his teaching on the System of Profound Knowledge near the end of his life as expressed in his May 1990 version that we'll be using throughout.
+
+I hope you found my guidance on your preparation for this project to be useful and that you are now ready to get started with the four-step procedure on Part A of the System of Profound Knowledge. One of the suggestions in that guidance, particularly relevant to issues with which you are already relatively happy (and I believe there will be quite a few in Part A), is to think about how you would introduce such issues to your keen, interested friend! I'll expand a little more on that here.
+
+Not only did Dr Deming write extremely concisely, he would consistently use a few words and terms in very specific ways: ways that might not always be apparent to a newcomer (a description which, having reached this late stage of the course, naturally cannot be applied to you!). But you'll need to ensure that you make your keen friend clear about what Deming meant by such terms. A good example is, of course, the word "system" which you know is the subject of this first half-day. To get you started, I have tried to imagine myself in your shoes and have included my own attempts at translating *the first two items* in each of the four parts of the System of Profound Knowledge in ways which your interested friend will be able to understand. In each case I have sometimes written rather more than you could be expected to do in the limited amount of time available---so don't take my efforts as models!
+
+Before you begin, I'll make a few introductory remarks both about Part A and also the project as a whole. Firstly, Dr Deming starts out today with a definition of a "system" which is similar to that which you saw at the beginning of the first of Balaji Reddie's four Preludes. For the moment I'll abbreviate it to [a network of components that work together]{.deming_quote}---an emphasis with which we are already very familiar via the importance of cooperation, "All One Team", etc. And surely, isn't this what people these days are driving at when they talk of "joined-up thinking"?
+
+He next immediately moves on to two examples of non-human systems: a car and a vacuum-cleaner. If just one component is getting worn or completely breaks down, this harms or maybe totally halts what other components can then do---however good they are. And therefore that system, i.e. the car or the vacuum-cleaner, no longer works as it should, or maybe no longer works at all, until the problem is solved. Referring to Prelude A page 2, that faulty component has become the "most important" part of the system.
+
+But that's relatively easy: repair or replace the faulty component. However, that's not so easy if the components are human! How can human "components" be enabled and encouraged to do their jobs in ways that benefit and contribute to the smooth and efficient running of the organisation as a whole? Surely that brings us straight over to Part D of the System of Profound Knowledge: Psychology. Further, as we shall see, Part C: Theory of Knowledge also has a big part to play in enabling people to do their jobs for the best benefit of the system, i.e. for the organisation. And we have, of course, been very familiar for a long while with the way that Part B: Understanding Variation is essential both for discovering the source of problems: special causes or the system itself, and for the whole matter of improvement. Thus again, I want that other important phrase from the first sentence of Deming's introduction (Day 9 page 24) describing the four parts as [all related to each other]{.deming_quote} to stay at the forefront of your mind.
+
+*DemDim* Chapter 18 provides some elaboration on Dr Deming's ultra-compact writing. The chapter contains references to other parts of the book and occasionally to other sources as well. Naturally, you won't have time during the project to explore other sources---those references are mainly there for your future use. In fact, you won't even have time to read through all of the referenced material which is elsewhere in *DemDim*---so don't try! My suggestion is that, if you feel like it, take a quick look at some of such referenced material if it particularly interests you, so that you will have a rough idea of what's there just in case you find you can use it in this project.
+
+During what follows in Days 10 and 11 I have also added what I hope you will find to be a few useful expansions and helpful hints. Sometimes I shall repeat material that you have already seen in Balaji's Preludes. However, any attempt to provide comprehensive "back-of-the-book" discussions on the material would be doomed to failure: that would take up far too much space and, even so, could never be anywhere near sufficient. I have therefore restricted myself to some very brief discussions in the Appendix, but you may still find these helpful, particularly for tackling the Activity in Step 4 of the four-step procedure.
+
+I hope you are working at a reasonable-sized table or desk! For, if you have been able to carry out the copying that I suggested at the top of Day 9 page 30, you can now have no less than five items in front of you for your assistance as and when you need them. They are (a) Peter Scholtes's diagram, (b) your annotated summary of the four-step procedure, (c) the table of the 14 Points and Deadly Diseases which summarises your work in the First Project, (d) Balaji's Preludes, and (e) *DemDim* Chapter 18.
+
+This morning's Part A contains considerably more material in the May 1990 version than in the other three parts. Thus, rather than also cramming the relevant Activity 10-a into this morning, I am postponing it until the start of the afternoon. Even so, you will still need to move through the individual items rather faster than during the other parts. Fortunately, you are already quite well-grounded in the concept of a system.
+
+As usual, Dr Deming's own words here are in blue to make them easily distinguishable from my own comments. I have not added comments if the item seems self-evident or is familiar to us from earlier in the course.
+
+Finally---one more time!---please pay some attention to my guidance about timings, else otherwise you are highly unlikely to get through this project in anything like the recommended time. If, during your preparation, you have already made yourself familiar with most of the content of the initial browsing sessions then you can, of course, make those sessions shorter than I'm suggesting. What's important at this early stage is for you to gain some comprehensive idea of the whole System of Profound Knowledge, not just some detailed understanding of bits and pieces of it and none of the rest! Again, this is just your first exposure to this remarkable---and remarkably valuable---work. You have the rest of your life to build upon it.
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>
