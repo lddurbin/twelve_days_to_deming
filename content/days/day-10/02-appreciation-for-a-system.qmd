@@ -1,0 +1,231 @@
+---
+title: "PART A: APPRECIATION FOR A SYSTEM"
+execute:
+  echo: false
+---
+
+## PART A: APPRECIATION FOR A SYSTEM
+
+### Step 1: Browsing session
+
+Relevant reading:
+
+> Prelude A: "Four Preludes and a Coda": pages 1–6. (From now on I'll simply refer to "Preludes".)
+>
+> *DemDim*: pages 264–270.
+>
+> Today's material: pages 3–14 [*WB* 154–165].
+
+<div class="workbook_callout">
+The rest of this page and the next sixteen pages (pages 3–19) are also on Workbook pages 154–170.
+</div>
+
+### Step 2: Dr Deming's May 1990 version
+
+#### 1. What is a "System"?
+
+<div class="deming_quote">
+A system is a network of functions or activities (sub-processes, stages---hereinafter components) within an organisation that work together for the aim of the organisation. The mechanical and electrical parts that work together to make an automobile or a vacuum-cleaner form a system. [*i.e., you could substitute an "automobile" or a "vacuum-cleaner" for the "organisation" in the first sentence and it's still true.*] The schools of a city, including private schools, parochial schools, and universities, provide an example of components that ought to work together as a system for education. [*This last example is further developed at the top of page 11.*]
+</div>
+
+(Remember, my writing that follows here focuses on what you might say to your interested friend!)
+
+<div class="neave_note">
+No messing about! We're straight in here with what I think may be the most important idea in all of Dr Deming's teaching. And it's not difficult---it's just *different* from the way that most people in management, or in government, or in any kind of authority, seem to think. The reason why I believe it's so important is that, when you come to some other things in Deming's teaching that you might initially think are kind of crazy, referring back to this concept soon starts helping you to see what he's driving at, and why. And all of a sudden it starts making a lot more sense. At least, that's what's been happening with me.
+
+So this is about what Dr Deming (amongst others) refers to as a "system" and describes as a "network". To illustrate this, William W Scherkenbach (a Director of Ford of America) drew the diagram on Day 9 page 2 and simply said: "This is what my organisation is!". Let's look at that page now. What do we see? Two things. Firstly, lots of boxes---representing the "components" of the system. Secondly, lots of lines joining the boxes---indicating that the components are somehow linked up with each other. Considering Deming's car and vacuum-cleaner illustrations, if any component fails or, at least, doesn't work as well as it should, that obstructs or even wholly prevents other components from doing what they're supposed to do---never mind how good they are. Thus the whole system either underperforms or stops working altogether. So that's simple enough.
+
+I'd sum it up like this. "Conventional" management focuses on the *boxes* in that picture "in their own right". By contrast, Deming-guided management focuses on how the boxes are helped or hindered by each other---and that's the *lines* in the picture. As I said, it's not difficult---just *different*. But what a difference it makes!
+</div>
+
+<div class="deming_quote">
+There is almost always some interdependence between the components thereof. The greater the interdependence between components, the greater will be the need for communication and cooperation between them. [*Here and elsewhere, note the implicit comparison between the vertical and horizontal concepts of an "organisation chart".*]
+</div>
+
+<div class="neave_note">
+As you can see, after his initial "mechanical and electrical" illustrations, Deming is now immediately concentrating on human systems. The first sentence is already covered in what I wrote on the previous page. And surely it also follows that the more the people or groups depend upon each other for being able to do their jobs as well as possible, the greater is their need to be in touch with each other and to be willing and able to help each other.
+</div>
+
+(From now on there will always be a little space left after each of Dr Deming's items for your notes---see below.)
+
+<div class="neave_note">
+(That's the end of my sample commentaries for Part A. So over to you from now on. As discussed previously, use the blank space after each item for your reactions, comments, thoughts, questions, references to past experience, links with any of the 14 Points or Deadly Diseases, explanations for your friend---as you prefer. But don't get carried away---keep an eye on the little clocks!)
+</div>
+
+<div class="deming_quote">
+The components need not all be clearly defined and documented: people may merely do what needs to be done. [*In other words, we should keep a sense of proportion between documentation as a real aid and documentation for documentation's sake. I think that few people these days will disagree with that!*] All the people who work within a system can contribute to improvement, and thus enhance their joy in work. Management of a system therefore requires knowledge of the interrelationships between all the components within the system and of the people that work in it. [*Remember "all related to each other"? You'll immediately see plenty of linkages here with Part D: Psychology.*]
+</div>
+
+```{ojs}
+viewof note_10_components = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+The aim of the system must be clear to everyone in the system. [*What is the system for? What should it be attempting to do? For, without clarity on such matters, on what could decisions be sensibly based?*] Without an aim, there is no system. [*There couldn't be a system if neither management nor their staff really understand what they are supposed to be trying to do. On what could they "work together"?*] The aim is a value-judgment. [*i.e. the aim of the system is not a theorem: you don't derive it from axioms and corollaries.*] See *Deming Speaks to European Executives*, BDA Booklet A10 page 8 and *DemDim* page 265.
+</div>
+
+<div class="neave_note">
+[Notice the strong connection between "the aim" and "constancy of purpose", the latter being the main feature of the first of both the 14 Points and the Deadly Diseases.]
+</div>
+
+<div class="deming_quote">
+The aim proposed here for any organisation is for everybody to gain---stockholders, employees, suppliers, customers, community, the environment---over the long term. For example, with respect to employees, the aim might be to provide for them good leadership, opportunities for training and education for further growth, plus other contributors to joy in work.
+</div>
+
+<div class="neave_note">
+[Were I ever asked to select just part of one sentence from Dr Deming's writing, and paint it in big letters for all to see, it would be the opening words of this paragraph: ["The aim proposed here ... is for everybody to gain."]{.deming_quote} It is one of those things from Deming that, at first glance, may seem hopelessly optimistic: ["everybody to gain".]{.deming_quote} But, if that in effect is *not* the aim of the system, why should those all-important "components" of the system---people---"work together" for achievement of whatever that other aim is? Would you, if you were going to lose out as a result?]
+</div>
+
+```{ojs}
+viewof note_10_aim = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+#### 2. Optimisation of a system
+
+<div class="deming_quote">
+Optimisation means accomplishment of the aim: everybody to gain. [*Of course, this is unlikely to be possible in the short term. Deming is thinking long-term.*] Failure to optimise, suboptimisation, causes loss to everybody in the system. [*---again, in the long term. Some may gain in the short term, but if their main objective is to do so then optimisation and the resulting benefits to all will never happen. So even those who gain in the short term will gain less in the longer term than would otherwise have been possible---unless perhaps, as soon as they've made their short-term gain, they quickly move elsewhere to do the same again. Hence Deadly Disease 4 of "Management job-hopping" or, as Dr Deming more politely expressed it, "Mobility of management".*]
+</div>
+
+<div class="deming_quote">
+For optimisation, a system must be managed. Management's responsibility is to strive toward optimisation of the system, and to keep it optimised over time. An additional responsibility of management is to be ready to change the boundary of the system to better serve the aim. [*For example, it might be wise to include factors not previously taken into account when decision-making.*]
+</div>
+
+<div class="deming_quote">
+If the aim, size, or boundary of the organisation changes, then the functions of the components will for optimisation of the new system need to change. Time will bring changes that must be managed to achieve optimisation. [*Two important points in one here which I'd combine by saying that optimisation cannot be static---it's dynamic.*]
+</div>
+
+<div class="deming_quote">
+Growth in size and complexity of a system, and rapid changes with time, may require overall management of efforts of components. The number of people in top and upper management for this purpose should be kept minimal. [*That might perhaps seem to be an unusual point. But surely there is need at the highest level for those concerned to work as "All One Team", particularly with something this major: the larger the number, the less feasible this becomes.*]
+</div>
+
+```{ojs}
+viewof note_10_optimisation = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+The components of a system could in principle, under stable conditions, manage themselves to accomplish their aim. [*Clearly so if the components are human, but also more broadly in any well-designed system.*] A possible example is a string quartet. Each of the four members supports the other three. None of them is there to attract individual attention. Four simultaneous solos do not make a string quartet. They practise singly and together, to accomplish their aim. Their aim is to challenge for self-satisfaction, and to provide pleasure to listeners. [*This was one of Deming's favourite illustrations---and indeed, who could argue against it? A larger version of the same idea appears at the top of page 10.*]
+</div>
+
+<div class="deming_quote">
+Any system needs guidance from outside. The string quartet mentioned above may well study under a master. The master need not be present at a performance. [*Cf. the final Obstacle to the Transformation on Day 7 page 35. Dr Deming would often express this in such terms as: "Those within a system may understand everything there is to know about the system---except how to improve it."*]
+</div>
+
+<div class="deming_quote">
+A large organisation will require someone in the position of aide to the president to teach and facilitate Profound Knowledge. [*This was Bill Scherkenbach's role in the Ford Motor Company (remember, his was the "boxes and lines" diagram we discussed on Day 9 page 2). Lloyd Nelson's role at Nashua was similar. In both cases, the "president" was the CEO: Don Petersen in Ford and Bill Conway in Nashua. Chapter 16 in* Out of the Crisis *is particularly helpful on this issue.*]
+</div>
+
+<div class="deming_quote">
+A flow diagram [*remember what he means by this term: the famous diagram on Day 9 page 2*] is helpful toward understanding a system. By understanding a system, one may be able to trace the consequences of a proposed change. [*---importantly including* negative *consequences that might otherwise be---and very often are---overlooked by enthusiasts for the proposed change.*]
+</div>
+
+```{ojs}
+viewof note_10_aide_flowdiagram = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+An example of a system, well-optimised, is a good orchestra. The players are not there to play solos as prima donnas, to catch the ear of the listener. They are there to support each other. They need not be the best players in the country.
+</div>
+
+<div class="neave_note">
+[To illustrate, Dr Deming sometimes drew a little diagram like the following:
+</div>
+
+![Bowling team / Orchestra / Business interdependence spectrum](/assets/images/day-10/bowling-orchestra-business-spectrum.png){fig-align="center" width="70%" .lightbox}
+
+<div class="neave_note">
+Low and high interdependence are respectively to the left and right. Paradoxically, a (ten-pin) bowling *team* can largely succeed through independent effort and brilliance of its players. An orchestra cannot: it needs a much higher degree of genuine teamwork. A business organisation needs even more.]
+</div>
+
+<div class="deming_quote">
+A business is not merely an organisation chart [*of the conventional kind*], all departments striving for individual goals (sales, profit, productivity). It is a network of people, materials, methods, equipment, all working in support of each other for the common aim.
+</div>
+
+```{ojs}
+viewof note_10_orchestra_business = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+A system of schools (public schools, private schools, parochial schools, trade schools, for example) is not merely pupils, teachers, school boards, and parents. It should be, instead, a component in a system of education in which pupils from toddlers on up take joy in learning, free from fear of grades and gold stars, and in which teachers take joy in their work, free from fear of ranking. It would be a system that recognises [*and appreciates*] differences between pupils and differences between teachers. The reader, after study of the rest of this paper, might wish to try to construct a system of medical care. [*As you will surely remember, you used this suggestion in Day 9's Major Activity, and thus there is no need to comment on that here. So concentrate instead on the points Deming raises earlier in this item.*]
+</div>
+
+<div class="deming_quote">
+The performance of any component is to be judged in terms of its contribution to the aim of the system, not for its individual production or profit, nor for any other competitive measure. [*As we know, Deming sometimes spoke of the need for "transformation of management". This item is a good illustration of how necessary that is.*] Some components may operate at a loss to themselves [*from the viewpoint of the conventional style of management*] for optimisation of the whole system, including the components that take a loss. [*Think back to all that you learned in Major Activity 8--d.*]
+</div>
+
+```{ojs}
+viewof note_10_schools_performance = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+It would be poor management, for example, to purchase materials and service at lowest price, or to maximise sales, or to minimise cost of manufacture, or design of product or of service, or to minimise cost of incoming supplies, to the exclusion of the effect on other stages of production and sales.
+</div>
+
+<div class="deming_quote">
+It would be poor management to save money on travelling expenses without regard to the physical welfare of the travellers. For example, it would be bad management to save money on a night-rate for transportation, which would force the traveller to be up most of the night to take advantage of the reduced rate, but unfit for duty next day. It might be better for the Travel Department to ensure, at whatever cost, that the traveller arrives alert and well. [*This stems from a particular experience which is related on* DemDim *page 354.*]
+</div>
+
+```{ojs}
+viewof note_10_poor_management = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+Any system that results in a Win--Lose structure is suboptimised.
+</div>
+
+<div class="deming_quote">
+Optimisation of a system should be the basis for negotiation between any two people, between divisions, between union and management, between competitors, between countries. [*How sensible---yet how rare.*] Everybody would gain.
+</div>
+
+```{ojs}
+viewof note_10_winlose = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+Some examples follow of suboptimisation in the management of people, causing losses unknown and unknowable: [*You might find it useful to refer back to the "Optimise or maximise?" section beginning on "Preludes" page 5. Deming is simply pointing out here that these examples all indicate the existence of suboptimised rather than optimised systems. Thus they are all indicating that there is a better way.*]
+
+- The merit system (actually, destroyer of intrinsic motivation; emphasis is on rank, not on the work);
+- Grading in school, from toddlers on up through the university;
+- MBO (management by objective), MBIR (management by imposition of results);
+- Incentive pay;
+- Business plans: each division with its own business plan, not coordinated toward an aim; [*Don't just read the first two words here!*]
+- Work standards for production; quotas for sales; quotas for accidents and breakdowns; [*If necessary, refer back to Day 5 page 27 to remind yourself of more about what Deming meant by "work standards".*]
+- Competition for share of market;
+- Barriers to trade;
+- Anybody, team, division, establishment (management, union), gouging the other in negotiation.
+</div>
+
+<div class="deming_quote">
+Fortunately, precise optimisation is not necessary. One need only come close to optimisation. As a matter of fact, the precise optimum would be difficult to define. The loss function will apply [*as emphasised by Taguchi*]. The loss function will be at the bottom (minimum loss) a parabola. Curve and horizontal tangent are for practical purposes coincident over a short range. [*You could look back at Day 7 page 22 to remind yourself about the shape of the Taguchi loss function. The important sentence in this paragraph is the final one which now follows:*] One may move away a short distance along the curve in either direction from the optimum, but rise only an imperceptible distance.
+</div>
+
+<div class="neave_note">
+[It is interesting that the Taguchi loss function is introduced here in the "Appreciation for a System" part of the System of Profound Knowledge in this early version rather than in Part B: "Some Knowledge of Theory of Variation", which is where you will find it in the 1990 version as used in *DemDim* Chapter 18. (See however Item 10 in Part B later today.) Placing it here in Part A to help in the interpretation of "optimisation of the system" strikes me as particularly appropriate. In *The New Economics* it is one of the topics that has been moved away from the main writing on the System of Profound Knowledge, in fact to Dr Deming's final chapter: "Some Lessons in Variation". This is an illustration of how Deming's earlier writing that is being used here has some advantage in the way it is organised.
+
+There is, of course, no need to include in your comments the technical details of the Taguchi loss function: concentrate instead on what it teaches us.]
+</div>
+
+```{ojs}
+viewof note_10_suboptimisation_taguchi = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+That completes the items which Dr Deming included for Part A in his May 1990 version of the System of Profound Knowledge. There were rather more of them than for any of the other three parts. As mentioned earlier, that is why the relevant Activity (concerning links between Part A and the 14 Points and Deadly Diseases) is postponed to the beginning of this afternoon rather than being crammed into this morning. In all other cases, the similar Activity will conclude the relevant half-day.
+
+### Step 3: *DemDim* version
+
+Now read through *DemDim* pages 264–270, revising your earlier comments and adding any new points below.
+
+```{ojs}
+viewof note_10_demdim_parta = Inputs.textarea({placeholder: "Additional notes from DemDim pages 264–270.", rows: 6})
+```
+
+<div class="neave_note">
+For your later reference (but not now!), the sections of *The New Economics* most relevant to Part A of the System of Profound Knowledge are Chapter 3 and pages 65–67[95–98] in Chapter 4.
+</div>
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>
+
+*(After the break, continue to Activity 10-a overleaf.)*

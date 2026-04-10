@@ -1,0 +1,191 @@
+---
+title: "PART B: SOME KNOWLEDGE OF THEORY OF VARIATION"
+execute:
+  echo: false
+---
+
+## PART B: SOME KNOWLEDGE OF THEORY OF VARIATION (STATISTICAL THEORY)
+
+### Step 1: Browsing session
+
+Relevant reading:
+
+> Prelude B: "Preludes" pages 7–14.
+>
+> *DemDim*: pages 270–274.
+>
+> Today's material: pages 20–27 [*WB* 171–178].
+
+<div class="workbook_callout">
+The rest of this page and the next twelve pages (pages 20–32) are also on Workbook pages 171–183.
+</div>
+
+### Step 2: Dr Deming's May 1990 version
+
+<div class="deming_quote">
+1. Some understanding of variation, including appreciation of a stable system, and some understanding of special causes and common causes of variation, is essential for management of a system, including leadership of people.
+</div>
+
+(Again, the following thoughts are for your interested friend. Thus, clearly, some words and terms used here will need to be "translated", which is why this commentary is relatively lengthy.)
+
+<div class="neave_note">
+I'll start by using some personal experience to illustrate a few of the words and terms that you will see here.
+
+Long ago I was diagnosed as having high blood pressure, so was put on some appropriate medication and had to visit my doctor regularly for check-ups. However, being a statistician, I felt I should collect some data to find out how the medication was working, rather than simply waiting for the next check-up. Therefore I bought a blood-pressure monitor, kept a daily record of my blood pressures and pulse, and plotted the numbers on some simple charts. 35+ years later, I still do! I've learned a lot from doing so.
+
+First, I found that my blood pressure varied quite a lot from day to day even when there seemed to be no reason for the change. I felt the same, was doing the same kinds of things, and took the readings at roughly the same time each day, etc. There were usually no trends or any kind of patterns apparent in the data. The numbers simply varied up and down, seemingly "at random", over a certain range. A friend of mine refers to that kind of variation as "wibble-wobble"! I can't remember what that range was so long ago: nowadays my systolic blood pressure is almost always between 120 and 150.
+
+Just now and again I get a value outside that range, usually on the high side. When that happens I can often understand a good reason for it, e.g. I'm particularly excited or stressed about something, or I'm suffering from some kind of bug. But occasionally, over the 35 and more years, I've started getting some high values that I can't explain, or even see a slow trend upwards. When that happens I've shown my doctor the graphs and she has changed my medication, and invariably that has brought the variation back to "stable system" behaviour.
+
+The "wibble-wobble" situation is what Deming refers to in this item as a "stable system". There are bound to be *some* reasons for the ups and downs (else presumably the blood pressure would stay the same, day after day), but they are probably so many and various---and small---that nobody could identify their individual effects. These are what Deming calls "common" causes of variation. I've learned that every system has them. Causes of variation outside the usual range, or causes which actually change the behaviour of the variation from what it has been over recent readings, are what he calls "special" causes. Not all systems have them, and usually we prefer that they don't: for, without them, we can predict that the variation will continue to be very similar to what we've been seeing recently---and that's very useful in practice.
+
+The reason why Deming says that understanding of such matters [*"is essential for management"*]{.deming_quote} is this: If the system is stable, i.e. the variation is just "wibble-wobble", then relatively high or low values just cannot be "explained"---in particular, there is then no justification for blaming or indeed praising anybody for such values. It's the same kind of "random variation" as you get when throwing dice or shuffling and dealing playing cards. High or low is then just a matter of luck. Should you praise or blame people merely for being lucky or unlucky? I'd say you're a pretty lousy manager or leader if you do.
+</div>
+
+<div class="deming_quote">
+2. Variation there will always be, between people, in output, in service, in product. What is the variation trying to tell us about a process, and about the people that work in it?
+</div>
+
+<div class="neave_note">
+So we can never *eliminate* variation in what our processes produce. We can and should, of course, try to *reduce* it, particularly if the extent of the variation is really troublesome. But how do we set about that? It all depends on whether or not there are special causes affecting the results (remember, there are *always* common causes). If there are special causes then we need to identify them and deal with them appropriately. E.g., somebody might have been moved onto a particular job without the right kind of training: OK, then provide that training. But if the system is stable (and both theory and experience show that this is more often the case) then, as we now know, individual causes cannot be found: and, in particular, there is no justification for blaming anyone for the results that are being obtained. In this situation, results can only be improved if action is taken to improve the *system* in which the people are working. Such action is the responsibility of management, for the people working within that system have neither the opportunity nor the wherewithal (nor the authority) to do it themselves.
+</div>
+
+```{ojs}
+viewof note_10_variation_12 = Inputs.textarea({placeholder: "Your notes on these items.", rows: 4})
+```
+
+(So, again, it's now over to you for reactions, comments, etc throughout Part B. Keep an eye on Step 2 in the guidance which was summarised on Day 9 page 29.)
+
+<div class="deming_quote">
+3. Understanding of the capability of a process. When no data indicate that a process is stable? The distribution of the output of a stable system is predictable with a high degree of belief. A process that is stable, in the state of statistical control, has a definable capability.
+</div>
+
+<div class="neave_note">
+[*How different, and how much more sensible, than traditional definitions of process capability that involve specifications. Deming is making the very simple point here that, when a process is in statistical control, the* control limits *indicate what it is capable of consistently producing.*]
+</div>
+
+<div class="deming_quote">
+4. The leadership of people (manager, leader, supervisor, teacher) is entirely different in the two states: stable and unstable. Confusion between the two states leads to calamity. [*Already touched upon, particularly near the end of what I have written for the first item---see the top of page 21.*]
+</div>
+
+```{ojs}
+viewof note_10_capability_leadership = Inputs.textarea({placeholder: "Your notes on these items.", rows: 4})
+```
+
+<div class="deming_quote">
+5. Knowledge about the different sources of uncertainty in the system of management. Is the system of measurement stable, in statistical control?
+</div>
+
+<div class="neave_note">
+[*The quality of the* **measurement process** *itself seems to be too little considered by conventional statisticians, let alone non-statisticians. The numbers that are obtained using the measurement process are often never questioned. However, if you're wise, try carrying out repeated measurements of the same thing---e.g. the length of a piece of string (but at different times so that you don't remember what you got before)---you might surprise yourself! Or get some other people to take the measurements as well. This is even more important if that measurement process is likely to be employed under differing circumstances.*]
+</div>
+
+<div class="deming_quote">
+6. There are two kinds of mistakes in attempts to improve a process, both costly:
+
+**Mistake 1:** To treat as a special cause any outcome, any fault, complaint, mistake, breakdown, accident, shortage, when actually it came from common causes (tampering).
+
+**Mistake 2:** To attribute to common causes any outcome, any fault, complaint, mistake, breakdown, accident, shortage, when actually it came from a special cause.
+</div>
+
+<div class="neave_note">
+[*This and the next item are, of course, very familiar to us from early in the course, including the fact that Mistake 1 is usually by far the more prevalent of the two.*]
+</div>
+
+```{ojs}
+viewof note_10_measurement_mistakes = Inputs.textarea({placeholder: "Your notes on these items.", rows: 4})
+```
+
+<div class="deming_quote">
+7. Knowledge of procedures aimed at minimum economic loss from these two mistakes (Shewhart control charts). [*See Appendix page 4.*]
+</div>
+
+<div class="deming_quote">
+8. Knowledge about interaction of forces. Interaction may reinforce efforts, or it may nullify efforts. Effect of the system on the performance of people. Knowledge of dependence and interdependence between people, groups, divisions, companies, countries.
+</div>
+
+<div class="neave_note">
+[*Some clear connections with Appreciation for a System here, so why is "Interaction of forces" in the "Understanding Variation" part? Working together as "All One Team" with common aims and purpose must reduce variation. The reverse statement is perhaps even more obvious: **failure** to work as All One Team is bound to **increase** variation. The analogy of a "tug of war" may be helpful for linking Parts A and B: a "tug of war" is obviously the direct opposite of "pulling together", i.e. of "working together", and results in unstable, unpredictable variation.*]
+</div>
+
+```{ojs}
+viewof note_10_shewhart_interaction = Inputs.textarea({placeholder: "Your notes on these items.", rows: 4})
+```
+
+<div class="deming_quote">
+9. [*You will see some unfamiliar terms here. I'll briefly explain them in my comments below.*] Understanding of the distinction between enumerative studies and analytic problems. An enumerative study produces information about a frame. The theory of sampling and design of experiments are for enumerative studies. Our Census is an enumerative study. Another example is a shipload of iron ore. Buyer and seller need to know how much iron is on board. The interpretation of results of a test or experiment is something else. It is prediction that a specific change in a process or procedure will be a wise choice, or that no change would be better. Either way, the choice is prediction. This is known as an analytic problem.
+</div>
+
+<div class="neave_note">
+[*If you're interested, there'll be plenty for you to read in time to come. See Chapter 7 of Deming's 1950 book:* Some Theory of Sampling*, and also his papers: "On a Classification of the Problems of Statistical Inference", "On the Distinction between Enumerative and Analytic Surveys", and "On Probability as a Basis for Action". The Deming Institute---<www.deming.org>---should be able to help you locate such papers.*
+
+*It is worth pointing out that Deming's comment regarding "design of experiments" relates to traditional statistical methods. They can only have predictive power if similar circumstances prevail in the future to those in which the experiments were carried out. More enlightened approaches which include that vital matter can usefully contribute to analytic studies.*
+
+*The essential issues in this item were briefly alluded to in Obstacle 6 on Day 7 page 30. I'll expand a little on them here. A "frame" is some finite collection or "population". Examples are suggested above by Dr Deming. Given the time and money, a frame can be 100% inspected, enabling complete information about that frame to be obtained (within the limits of our observational powers, etc). Traditional statistical techniques are concerned with sampling some **fraction** of the frame, and trying to infer what **would** have happened in the case of 100% inspection. In either case, the only concern is **what** is in the frame, not **why** it is there. The **"what"** is an enumerative problem; the **"why"** is an analytic problem.*
+
+*Enumerative studies involve no temporal spread, i.e. no relevance over time except for the time during which the data were collected; in particular they imply no* **predictive** *ability. Yet sensible practical interest is surely on what is to come, not merely on what is past or present. In other words, most "real" problems are analytic, yet most statistical techniques are enumerative---the control chart being a notable exception.*
+
+*These matters are further discussed in Part C of the Optional Extras.*]
+</div>
+
+```{ojs}
+viewof note_10_enumerative_analytic = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+10. Knowledge about loss functions in relation to optimisation of performance of a system. Which quality-characteristic has the steepest loss function, and is hence most critical for management to work on? [*This is another neat link between the first two parts of the System of Profound Knowledge. As previously, refer back to the your work on the Taguchi loss function on and around Day 7 page 22 if you need to.*]
+</div>
+
+<div class="deming_quote">
+11. Knowledge about the losses that come from unfortunate successive application of random forces or random changes that may individually be unimportant (exemplified in the Experiment with the Funnel).
+
+Examples [*all of Rule 4 of the Funnel*]:
+
+- Worker training worker in succession;
+- Executives working with best efforts on policy, but without guidance of Profound Knowledge;
+- Committees in industry, education, and government, working without guidance of Profound Knowledge.
+</div>
+
+```{ojs}
+viewof note_10_loss_random = Inputs.textarea({placeholder: "Your notes on these items.", rows: 4})
+```
+
+<div class="deming_quote">
+12. Enlargement of a committee does not necessarily improve the results of the efforts of the committee. Enlargement of a committee is not a way to acquire Profound Knowledge. [*It certainly seems an unlikely way to improve understanding of variation! In any case, members of small committees are generally more able to "work together".*]
+
+Corollaries of this theorem are frightening.
+</div>
+
+<div class="neave_note">
+[*In later writing, Dr Deming remarks on the relevance of this comment to the fundamental plank of democracy: the popular vote. See also pages 16--17 in* Deming Speaks to European Executives*, BDA Booklet A10.*]
+</div>
+
+<div class="deming_quote">
+13. As a good rule, Profound Knowledge must come from the outside, and by invitation. Profound Knowledge cannot be forced onto anybody. [*Note that this provides a strong link with the final member of the set of Obstacles (Day 7 page 35).*]
+</div>
+
+<div class="neave_note">
+[*It is interesting that, both here and in* The New Economics*, this apparently very general point appears at the end of the section on Knowledge of Variation. Maybe this indicates Dr Deming's feeling that it is in the matter of understanding variation that organisations need the greatest external help. Sadly, they will not get it from conventional statisticians. His final comment in the Knowledge of Variation section in Chapter 4 of* The New Economics *is "Again, a system can not understand itself. One may learn a lot about ice, yet know very little about water". E.g. see Preludes page 18.*]
+</div>
+
+```{ojs}
+viewof note_10_committee_outside = Inputs.textarea({placeholder: "Your notes on these items.", rows: 4})
+```
+
+### Step 3: *DemDim* version
+
+Now read through *DemDim* pages 270–274, revising your earlier comments and adding new points below.
+
+```{ojs}
+viewof note_10_demdim_partb = Inputs.textarea({placeholder: "Additional notes from DemDim pages 270–274.", rows: 6})
+```
+
+<div class="neave_note">
+The section of *The New Economics* Chapter 4 relating to Part B is pages 67–69[98–101]. However, there is much more: indeed, all of the book's final four chapters (other than the additional final chapter in the Third Edition) are also immediately relevant.
+</div>
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

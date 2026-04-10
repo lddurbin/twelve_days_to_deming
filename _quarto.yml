@@ -108,6 +108,15 @@ book:
         - content/days/day-09/06-introductions-to-the-system.qmd
         - content/days/day-09/07-out-of-hours.qmd
 
+    - part: "Day 10: A System of Profound Knowledge — Parts A and B"
+      chapters:
+        - content/days/day-10/01-second-project.qmd
+        - content/days/day-10/02-appreciation-for-a-system.qmd
+        - content/days/day-10/03-activity-10a.qmd
+        - content/days/day-10/04-theory-of-variation.qmd
+        - content/days/day-10/05-activity-10b.qmd
+        - content/days/day-10/06-out-of-hours-note.qmd
+
 format:
   html:
     theme: cosmo
