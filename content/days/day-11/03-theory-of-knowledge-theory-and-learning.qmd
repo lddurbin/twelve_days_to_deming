@@ -38,7 +38,7 @@ I recall attending a four-day seminar in America in the year which followed a ma
 
 #### A Theory of Knowledge in seven words
 
-Finally, now that you have seen the Deming/Shewhart Cycle as well as being familiar with the general concept of Shewhart's circle definition of the "New Way", I cannot resist showing you the following illustration. This was constructed by Bill Scherkenbach and appears on page 198 of his second book: *Deming's Road to Continual Improvement*. Bill rightly claims that this seven-word diagram "really represents a complete theory of knowledge. If at some time you would like to read a much more substantial discussion on Theory of Knowledge, I can do no better than recommend you to pages 190--220 of Bill's book.
+Finally, now that you have seen the Deming/Shewhart Cycle as well as being familiar with the general concept of Shewhart's circle definition of the "New Way", I cannot resist showing you the following illustration. This was constructed by Bill Scherkenbach and appears on page 198 of his second book: *Deming's Road to Continual Improvement*. Bill rightly claims that this seven-word diagram "really represents a complete theory of knowledge." If at some time you would like to read a much more substantial discussion on Theory of Knowledge, I can do no better than recommend you to pages 190--220 of Bill's book.
 
 ![A Theory of Knowledge in seven words](/assets/images/day-11/theory-of-knowledge-circle.png){fig-align="center" width="60%" .lightbox}
 
