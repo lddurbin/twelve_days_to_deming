@@ -117,6 +117,17 @@ book:
         - content/days/day-10/05-activity-10b.qmd
         - content/days/day-10/06-out-of-hours-note.qmd
 
+    - part: "Day 11: A System of Profound Knowledge — Parts C and D"
+      chapters:
+        - content/days/day-11/01-introduction.qmd
+        - content/days/day-11/02-theory-of-knowledge-prediction.qmd
+        - content/days/day-11/03-theory-of-knowledge-theory-and-learning.qmd
+        - content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd
+        - content/days/day-11/05-activity-11a.qmd
+        - content/days/day-11/06-knowledge-of-psychology.qmd
+        - content/days/day-11/07-activity-11b.qmd
+        - content/days/day-11/08-coda.qmd
+
 format:
   html:
     theme: cosmo

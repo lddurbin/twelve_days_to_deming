@@ -1,0 +1,186 @@
+---
+title: "ACTIVITY 11–b"
+execute:
+  echo: false
+---
+
+## Step 4: ACTIVITY 11–b
+
+<div class="workbook_callout">
+Activity 11–b (pages 32–35) is also on Workbook pages 211–214.
+</div>
+
+<div class="thought_commentary">
+
+Last lap! As previously, but now in connection with Part D: "Knowledge of Psychology". In this case, there are definitely links of both the kinds (i.e. the "what and why" and the "how") considered in Activity 11--a. That is, some parts of this Psychology section of the System of Profound Knowledge demonstrate the need to adopt the 14 Points and cure the Deadly Diseases; other parts give very helpful guidance on how to do those things successfully.
+
+<div class="activity_afterthought">(See Appendix page 42.)</div>
+
+**POINT 1.** [Create constancy of purpose.]{.deming_quote} *(Day 4 pages 16--17.)*
+
+```{ojs}
+viewof activity_11b_point1_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point1 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 2.** [Adopt the new philosophy. We are in a new economic age, created in Japan.]{.deming_quote} *(Day 4 pages 18--19.)*
+
+```{ojs}
+viewof activity_11b_point2_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point2 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 3.** [Eliminate the need for mass inspection as a way to achieve quality.]{.deming_quote} *(Day 4 pages 20--21.)*
+
+```{ojs}
+viewof activity_11b_point3_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point3 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 4.** [End the practice of awarding business solely on the basis of price tag.]{.deming_quote} *(Day 4 pages 22--23.)*
+
+```{ojs}
+viewof activity_11b_point4_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point4 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 5.** [Improve constantly and for ever the system.]{.deming_quote} *(Day 4 pages 24--25.)*
+
+```{ojs}
+viewof activity_11b_point5_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point5 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 6.** [Institute modern methods of training.]{.deming_quote} *(Day 4 pages 26--27.)*
+
+```{ojs}
+viewof activity_11b_point6_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point6 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 7.** [Adopt and institute leadership aimed at helping people to do a better job.]{.deming_quote} *(Day 5 pages 2--3.)*
+
+```{ojs}
+viewof activity_11b_point7_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point7 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 8.** [Encourage effective two-way communication and other means to drive out fear throughout the organisation.]{.deming_quote} *(Day 5 pages 4--5.)*
+
+```{ojs}
+viewof activity_11b_point8_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point8 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 9.** [Break down barriers between departments and staff areas.]{.deming_quote} *(Day 5 pages 6--7.)*
+
+```{ojs}
+viewof activity_11b_point9_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point9 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 10.** [Eliminate the use of slogans, posters, and exhortations.]{.deming_quote} *(Day 5 pages 8--9.)*
+
+```{ojs}
+viewof activity_11b_point10_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point10 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 11.** [Eliminate work standards that prescribe quotas for the workforce and numerical goals for people in management.]{.deming_quote} *(Day 5 pages 10--11.)*
+
+```{ojs}
+viewof activity_11b_point11_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point11 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 12.** [Remove the barriers that rob hourly workers, and people in management, of their right to pride of workmanship.]{.deming_quote} *(Day 5 pages 12--13.)*
+
+```{ojs}
+viewof activity_11b_point12_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point12 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 13.** [Institute a vigorous programme of education, and encourage self-improvement for everyone.]{.deming_quote} *(Day 5 pages 14--15.)*
+
+```{ojs}
+viewof activity_11b_point13_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point13 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**POINT 14.** [Clearly define top management's permanent commitment to ever-improving quality and productivity.]{.deming_quote} *(Day 5 pages 16--17.)*
+
+```{ojs}
+viewof activity_11b_point14_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_point14 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**DISEASE 1.** [The crippling disease is lack of constancy of purpose.]{.deming_quote} *(Day 5 pages 18--19.)*
+
+```{ojs}
+viewof activity_11b_disease1_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_disease1 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**DISEASE 2.** [Short-term thinking defeats constancy of purpose.]{.deming_quote} *(Day 5 pages 20--21.)*
+
+```{ojs}
+viewof activity_11b_disease2_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_disease2 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**DISEASE 3.** [The effects of performance appraisal are devastating.]{.deming_quote} *(Day 5 pages 22--23.)*
+
+```{ojs}
+viewof activity_11b_disease3_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_disease3 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**DISEASE 4.** [Mobility of management causes instability.]{.deming_quote} *(Day 5 pages 24--25.)*
+
+```{ojs}
+viewof activity_11b_disease4_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_disease4 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+**DISEASE 5.** [One cannot be successful on visible figures alone.]{.deming_quote} *(Day 5 pages 26--27.)*
+
+```{ojs}
+viewof activity_11b_disease5_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
+viewof activity_11b_disease5 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+```
+
+*Please move to the next page for the conclusion.*
+
+</div>
+
+```{ojs download_all_11b}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof activity_11b_point1_rating, viewof activity_11b_point1,
+  viewof activity_11b_point2_rating, viewof activity_11b_point2,
+  viewof activity_11b_point3_rating, viewof activity_11b_point3,
+  viewof activity_11b_point4_rating, viewof activity_11b_point4,
+  viewof activity_11b_point5_rating, viewof activity_11b_point5,
+  viewof activity_11b_point6_rating, viewof activity_11b_point6,
+  viewof activity_11b_point7_rating, viewof activity_11b_point7,
+  viewof activity_11b_point8_rating, viewof activity_11b_point8,
+  viewof activity_11b_point9_rating, viewof activity_11b_point9,
+  viewof activity_11b_point10_rating, viewof activity_11b_point10,
+  viewof activity_11b_point11_rating, viewof activity_11b_point11,
+  viewof activity_11b_point12_rating, viewof activity_11b_point12,
+  viewof activity_11b_point13_rating, viewof activity_11b_point13,
+  viewof activity_11b_point14_rating, viewof activity_11b_point14,
+  viewof activity_11b_disease1_rating, viewof activity_11b_disease1,
+  viewof activity_11b_disease2_rating, viewof activity_11b_disease2,
+  viewof activity_11b_disease3_rating, viewof activity_11b_disease3,
+  viewof activity_11b_disease4_rating, viewof activity_11b_disease4,
+  viewof activity_11b_disease5_rating, viewof activity_11b_disease5
+], "activity_11b.txt")
+```
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

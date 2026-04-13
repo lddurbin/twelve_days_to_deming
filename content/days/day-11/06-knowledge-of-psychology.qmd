@@ -1,0 +1,233 @@
+---
+title: "PART D: KNOWLEDGE OF PSYCHOLOGY"
+execute:
+  echo: false
+---
+
+## PART D: KNOWLEDGE OF PSYCHOLOGY
+
+For Part D we return to the more usual procedure as described on Day 9 and as largely used for both Parts A and B yesterday.
+
+### Step 1: Browsing session
+
+Relevant reading:
+
+> Prelude D: "Preludes" pages 20--25.
+>
+> *DemDim*: pages 277--279. Although there are only three pages here, they contain quite a lot of fleshing out of the various topics, some of which is from Dr Deming and some is from me. I think this section will be particularly helpful to you as you tackle this final part of the System of Profound Knowledge.
+>
+> Today's material: pages 22--30 [*WB* 201--209].
+
+<div class="workbook_callout">
+The rest of this page and the next thirteen pages (pages 22--35) are also on Workbook pages 201--214.
+</div>
+
+### Step 2: Dr Deming's May 1990 version
+
+<div class="deming_quote">
+1. Psychology helps us to understand people, interactions between people and circumstances, interactions between teacher and pupil, interactions between a leader and his people and any system of management.
+</div>
+
+(As usual, I'll suggest a few possible thoughts for your interested friend:)
+
+<div class="neave_note">
+Like Part C, Part D starts off without anything controversial. Don't think that the only job of a psychologist is to help people who have "psychological problems". This is for you, this is for me, this is likely to be for most people that we know or with whom we have any contact. For whom might Dr Deming's teaching on Psychology be inappropriate? I suppose it could be for some who <em>do</em> have serious psychological problems. Using a couple of familiar adjectives, the latter need special care and consideration whereas the relevance of Deming's teaching is otherwise common to everybody.
+
+Note also that, as you would expect, Deming concentrates in this opening statement on the interactions between people and all sorts of things---<em>interactions</em>: the big feature of systems. In terms of the "boxes and lines" diagram on Day 9 page 9, that diagram is too simple. The boxes representing people should have many more lines attached to them.
+</div>
+
+```{ojs}
+viewof note_11_psych_1 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+2. People are different from one another. A leader must be aware of these differences, and use them for optimisation of everybody's abilities and inclinations. Management of industry, education, and government operate today under the supposition that all people are alike.
+</div>
+
+<div class="neave_note">
+Some care is needed in interpreting that first short sentence. A common reaction is: "Of course, people are different"---often intended pejoratively. But, in particular, I think we must beware of confusing perceived differences in effort and in <em>natural ability</em>.
+
+Dr Deming's second sentence clarifies that he is thinking of the latter. Surely it is a fact of life that there are huge natural differences between people. Should we just rue that fact, thinking it makes management more difficult? It is surely more fruitful and profitable to regard the differences positively, realising that potential for progress is greatly enhanced by recognising and combining different abilities and talents in a cooperative environment. After all, "diversity" is, as we pointed out long ago, "the spice of life".
+
+Item 3 on the next page is also highly relevant to this: "People learn in different ways". Of course that's true. The frightening thing is that the way those who are trying to learn are tested and examined often means they are being assessed inappropriately. They are being assessed more on how well or badly their natural tendencies happen to fit the teaching and examination methods than on how hard they've worked or on how good they might be at using the subject-matter.
+
+Now look at the final sentence. I'm sure most managers would deny that they were managing under such a supposition, particularly as regards natural ability. But isn't it much of what they do only <em>justifiable</em> under such a supposition? Consider merit ranking, financial incentives, bonuses. Aren't these intended to both encourage and reward effort? But isn't it the truth that <em>in practice</em> they are often just as much, if not more so, a judgment on <em>natural ability</em>? What's the point of rating natural abilities where, as discussed in my second paragraph, the real gains are achievable by recognising and combining them?
+
+Finally, isn't effort greatly dependent on the way an individual reacts to, and interacts with, the "system" within which he finds himself? It isn't at all uncommon to find that a person who produces little effort in one system (environment, culture, job, etc) nevertheless makes massive effort in another system---and it isn't just a case of whether he's paid more or has the greater pressure put on him. So really, isn't it the <em>system</em> that should be appraised rather than the individual? Considerations of intrinsic and extrinsic motivation, to be studied in Item 5 and onward, are also highly relevant here.
+</div>
+
+```{ojs}
+viewof note_11_psych_2 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+(Now, for the final time, I hand over to you to write your thoughts and comments in the gaps provided, with the help of my guidance for Step 2 of the four-step procedure.)
+
+<div class="deming_quote">
+3. People learn in different ways, and at different speeds. Some learn best by reading, some by listening, some by watching pictures, still or moving, some by watching someone do it.
+</div>
+
+```{ojs}
+viewof note_11_psych_3 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+4. A leader, by virtue of his authority, has obligation to make changes in the system of management that will bring improvement.
+</div>
+
+<div class="neave_note">
+[Yet again we return to the issue of the major sources of difficulty and waste being the systems (common-cause variation) within which people work, rather than the people themselves (possibly part of special-cause variation). The responsibility for improvement therefore lies with those who have authority over systems, not with those who suffer from them. Implicit in the statement is the need for managers to improve their understanding and mode of leadership. There will be some important material on improving leadership in the morning of Day 12.]
+</div>
+
+```{ojs}
+viewof note_11_psych_4 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+5. There is intrinsic motivation, extrinsic motivation, overjustification.
+</div>
+
+<div class="neave_note">
+["There is" is a rather innocent beginning to this substantial section (which continues all the way through to page 30). Dr Deming placed great value on a deep understanding of these three concepts.
+
+<em>Intrinsic motivation</em> for work (of any kind) is motivation coming "from within": i.e. one approaches the work with the desire to do a good job because of <em>wanting to</em>, because of job-satisfaction, because of interest and excitement in the task, because of desire to please the customer, indeed because of "joy in work".
+
+As opposed to this, <em>extrinsic motivation</em> is motivation for reasons unrelated to the job itself: e.g. to do with pay, or fear of being fired; external target-setting and competition also belong in this category. Dr Deming believed that we are all born with considerable natural intrinsic motivation but that management fails to recognise this; the consequence is that management concentrates on less-fruitful extrinsic motivation, regrettably simultaneously <strong>destroying</strong> much of that precious intrinsic motivation.
+
+<em>Overjustification</em> is concerned with the devaluing effect of extrinsic reward being given when the intrinsic reward was more than sufficient. It demonstrates to the recipient that the giver does not understand or value intrinsic motivation. This can start to change the balance between the two in the recipient's mind, and a vicious circle is likely to be generated. See also the "Life Diagram" (highly recommended) on <em>DemDim</em> page 369.
+
+All that follows on the next five and a half pages concerns these matters.]
+</div>
+
+<div class="deming_quote">
+
+- People are born with a need for relationships with other people, and with need to be loved and esteemed by others. There is innate need for self-esteem and respect.
+
+</div>
+
+```{ojs}
+viewof note_11_psych_5a = Inputs.textarea({placeholder: "Your notes.", rows: 4})
+```
+
+<div class="deming_quote">
+
+- Circumstances provide some people with dignity and self-esteem. Circumstances deny other people these advantages. [*---e.g. through procedures and practices and indeed cultures that obstruct pride of workmanship.*]
+
+</div>
+
+<div class="deming_quote">
+
+- Management that deny to their employees dignity and self-esteem will smother intrinsic motivation.
+
+</div>
+
+```{ojs}
+viewof note_11_psych_5b = Inputs.textarea({placeholder: "Your notes.", rows: 4})
+```
+
+<div class="deming_quote">
+
+- Some extrinsic motivators rob employees of dignity and of self-esteem. If for higher pay, or for higher rating, I do what I know to be wrong, I am robbed of dignity and self-esteem.
+
+</div>
+
+<div class="neave_note">
+["Wrong" can be interpreted in two ways. If I am encouraged to do what I believe to be <strong>incorrect</strong>, there may be some loss of dignity and self-esteem; there will certainly be loss of respect for the company and its management. If I am encouraged, or indeed required, to do what I know to be <strong>morally wrong</strong>, these losses become vast.]
+</div>
+
+<div class="deming_quote">
+
+- No-one, child or other, can enjoy learning if he must constantly be concerned about grading and gold stars for his performance, or about rating on the job. Our educational system would be improved immeasurably by abolishment of grading.
+
+</div>
+
+<div class="neave_note">
+[For yet more about Dr Deming's thoughts on the harm of merit rating etc, see <em>DemDim</em> Chapter 30; for particular arguments relating to education, see Chapter 31.]
+</div>
+
+```{ojs}
+viewof note_11_psych_5c = Inputs.textarea({placeholder: "Your notes.", rows: 4})
+```
+
+<div class="deming_quote">
+
+- One is born with a natural inclination to learn and to be innovative. One inherits a right to enjoy his work. Psychology [as Deming viewed the subject] helps to nurture and preserve these positive innate attributes of people.
+
+</div>
+
+<div class="deming_quote">
+
+- Extrinsic motivation is submission to external forces that neutralise intrinsic motivation. Pay is not a motivator.
+
+</div>
+
+<div class="neave_note">
+[At least, pay is not an <strong>intrinsic</strong> motivator; there is also considerable evidence that it is often not as important an <strong>extrinsic</strong> one as many people think. Some appreciation of Maslow's well-known Hierarchy of Needs is helpful for understanding this matter. For a discussion of this and other related topics, see the BDA booklet A8: <em>Performance Appraisal and All That</em>.
+
+"Pay is not a motivator" is worth long consideration and discussion. Note that on <em>DemDim</em> page 279 this is usefully qualified to "... pay, <strong>above a certain level</strong>, is not a motivator" (my emphasis). One might possibly add "... except to get yet more pay". And this, of course, is in contrast to motivation for doing a better job, which is what Deming is focusing on here. Recall one of the many points raised while contrasting the horizontal with the conventional vertical organisation chart---the contrast between (a) pleasing the customer and (b) pleasing the boss.
+
+Regarding these matters, recall also the reference to Norb Keller of General Motors on "Preludes" page 21.]
+</div>
+
+```{ojs}
+viewof note_11_psych_5d = Inputs.textarea({placeholder: "Your notes.", rows: 4})
+```
+
+<div class="deming_quote">
+
+- Under extrinsic motivation, learning and joy in learning in school are submerged in order to capture top grades. On the job, joy in work and innovation become secondary to a good rating. Under extrinsic motivation, one is ruled by external forces. He tries to protect what he has. He tries to avoid punishment. He knows not joy in learning. Extrinsic motivation is a Zero-Defect mentality. [*---i.e. based on limited concepts such as, or equivalent to, the meeting of specifications and requirements as opposed to continual improvement.*]
+
+</div>
+
+<div class="deming_quote">
+
+- Removal of a demotivator does not create motivation. [*Refer back to Day 7 page 8 on the danger of leaving a vacuum.*]
+
+</div>
+
+```{ojs}
+viewof note_11_psych_5e = Inputs.textarea({placeholder: "Your notes.", rows: 4})
+```
+
+<div class="deming_quote">
+
+- Overjustification comes from faulty systems of reward. Overjustification is resignation to outside forces. It could be monetary reward to somebody, or a prize, for an act or achievement that he did for sheer pleasure and self-satisfaction. The result of reward under these conditions is to throttle repetition; he will lose interest in such pursuits.
+
+</div>
+
+<div class="neave_note">
+[This is addressed with illustrations on the second half of <em>DemDim</em> page 279, at the end of the Psychology section in Chapter 18. Also recall "Preludes" page 25 (following the heading "Are we no better than rats?").]
+</div>
+
+<div class="deming_quote">
+
+- Monetary reward under such conditions is a way out for managers that do not understand how to manage intrinsic motivation.
+
+</div>
+
+<div class="neave_note">
+[This, Deming's final remark in the May 1990 version of the System of Profound Knowledge, is yet one further observation that deserves much consideration and discussion.]
+</div>
+
+```{ojs}
+viewof note_11_psych_5f = Inputs.textarea({placeholder: "Your notes.", rows: 4})
+```
+
+### Step 3: *DemDim* version
+
+Now read through *DemDim* pages 277--279 again, revising your earlier comments and adding new thoughts below.
+
+```{ojs}
+viewof note_11_demdim_partd = Inputs.textarea({placeholder: "Additional notes from DemDim pages 277–279.", rows: 6})
+```
+
+<div class="neave_note">
+For your future reference, the section of <em>The New Economics</em> Chapter 4 relating to Part D is on pages 73--78[107--115].
+</div>
+
+*(Continue to Activity 11-b overleaf.)*
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

@@ -1,0 +1,129 @@
+---
+title: "PART C, AREA 1: PREDICTION"
+execute:
+  echo: false
+---
+
+## PART C: THEORY OF KNOWLEDGE
+
+The details of how we'll work through Part C are somewhat different from the procedure we use in the other three parts. Not only is Deming's writing particularly brief here: almost all of the material will be new to you---and it is powerful stuff! That's why I shall provide you with rather more help and additional reading in this part.
+
+One way that I have found to be helpful to newcomers is to divide the items in Part C into three areas---rather than throwing them at you all at once! The three areas are:
+
+> Area 1. Prediction;
+>
+> Area 2. Theory and learning; and
+>
+> Area 3. Operational definitions;
+
+and there will be just three items in each area. Naturally, as you would expect in Dr Deming's work, there are plenty of links between these three main areas. However, it is easier to start by working on them separately and then letting the links between them develop naturally---as they soon will.
+
+Therefore, one of the main changes this morning will be for you to carry out the first three steps of the four-step procedure (i.e. the browsing session, Dr Deming's May 1990 version, and *DemDim* Chapter 18) separately for each of the three areas rather than trying to deal with everything all together. Thus, in each case, you will only deal with the extracts from this morning's material and *DemDim* Chapter 18 which relate to that particular area. This will take up the bulk of the time. Then, just before finally moving on to Activity 11--a, I'll suggest you carry out the normal complete Step 3, i.e. take another look through the whole of the relevant section of *DemDim* Chapter 18. This will be in order to bring all three areas together in your mind before starting the Activity: of course, you won't need to spend long on it since you will by then have already introduced yourself to the whole section during the three "mini Step 3's". There's no need for you to try to memorise all these logistics---I'll carefully guide you through them as and when the time comes!
+
+There are some other differences specific to Part C. Firstly, Deming did not make many changes to Part C before the time that I rewrote *DemDim* Chapter 18 in 1992. So the *DemDim* version is quite similar to the 1990 version in that it comprises a relatively small number (ten in that case) of compactly-stated items. However, I have added quite a lot of associated commentary, most often using Deming's own words and occasionally my own. The same is true of what follows here in the course material except that most of this commentary is mine. Nevertheless, the overall amount of material in both the *DemDim* version and here is still quite small. Therefore, in this case, I recommend that you definitely read through all of what's available during your initial short browsing sessions (even though you will already have looked at it all during your preparation time) whereas in Parts A and B you may have skipped some of the similar material.
+
+The final major difference in Part C compared with elsewhere will be for you to read through two chapters from *DemDim* that you haven't previously looked at. In both cases I shall provide an introduction to the subject-matter here. The chapters concerned (both around ten pages) are Chapter 9 for Area 2 and Chapter 7 for Area 3.
+
+### Part C, Area 1: Prediction
+
+#### Area 1, Step 1: Browsing session
+
+Relevant reading:
+
+> Prelude C: "Preludes" pages 15--19. Prelude C is mostly related to Area 2, but there are also a couple of matters directly related to this first area.
+>
+> *DemDim*: page 274, paragraph 1 to page 275, paragraph 4.
+>
+> Today's material: pages 4--6 [*WB* 186--188].
+
+<div class="workbook_callout">
+The rest of this page and the next three pages (pages 4--7) are also on Workbook pages 186--189.
+</div>
+
+#### Area 1, Step 2: Dr Deming's May 1990 version
+
+<div class="deming_quote">
+1. Any rational plan, however simple, requires prediction concerning conditions, behaviour, comparison of performance of each of two procedures or materials.
+</div>
+
+> *For example, how will I go home this evening? I predict that my automobile will start up and run satisfactorily, and I plan accordingly. Or I predict that the bus will come, or the train.*
+>
+> *Or, I will continue to use Method A, and not change to Method B, because at this moment evidence that Method B will be dependably better in the future is not convincing.*
+
+(As on Day 10, in the first two items here and on the next page I will start by suggesting how you might explain these items to your interested friend. But then also keep an eye on your summary of the four-step procedure to guide you in making further notes on these topics.)
+
+<div class="neave_note">
+Part C starts out more straightforwardly than did Parts A and B. Any plan is surely resting on thin ice if it <em>isn't</em> founded on wise predictions! And this is clearly very pertinent to management. In fact, elsewhere (<em>DemDim</em> page 184) Deming stated more pointedly that <strong>"Management ... is action based on prediction"</strong>. It certainly is! But how do people in management make their predictions? For a start, do they know anything about stable and unstable processes, common and special causes, interpreting a control chart? To put it mildly, that's all pretty relevant for figuring out what's predictable and what isn't! Or do they just depend on "experience" or citing examples of where "it worked before"? (See also Items 4 and 5 in Area 2.) Say I tossed a coin yesterday and it came down Heads. I now have some experience, I now have an example. Does it predict anything about what will happen if I toss the coin today?
+
+So yes, of course, managers along with others need to predict successfully. But what do they know about how to do it? Deming's work can help them---a lot.
+</div>
+
+```{ojs}
+viewof note_11_prediction_1 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+2. A statement devoid of prediction or explanation of past events is no help in management of a system.
+</div>
+
+<div class="neave_note">
+[We need to be careful about that word "explanation": some people are skilled at finding a "reason" for anything! An observation from Dr Don Wheeler that I have often repeated is:
+
+<strong>"Prediction requires knowledge; explanation does not."</strong>
+
+Dr Deming was instead presumably referring to the kind of explanation that <em>does</em> require some knowledge! By the time of <em>The New Economics</em> (page 69[102]), he had avoided the problem by revising his wording to:
+
+> "... a statement, if it conveys knowledge, predicts future outcome, with risk of being wrong, and ... fits without failure observations of the past."
+
+which is closer to the version you have already seen on Prelude C page 15.
+
+An important emphasis in the Theory of Knowledge part of <em>The New Economics</em> Chapter 4 page 72 [105] is that "information is not knowledge". Indeed, a considerable part of Theory of Knowledge concerns how to use information to create and develop knowledge. Again you had a good introduction to this in Prelude C.]
+</div>
+
+<div class="neave_note">
+Let's develop that important emphasis since it will add focus to this item. As soon as you think about it, it is obvious enough that information and knowledge are indeed different. Particularly because of ever-developing technology, information has mushroomed in recent decades. I do not believe that knowledge has increased at anything like the same rate. I'd say this suggests that not all of that information is being used very effectively to develop knowledge.
+
+Dr Deming was particularly conscious of the difference between information and knowledge in the context of education. He spoke of it at the dedication of the Cedar Crest Academy, Washington in October 1985, referring in particular to an article titled "Why Johnny can't think" in <em>Harper's Magazine</em> (April 1985). Here are some brief extracts from his address:
+
+<em>"Johnny never had the chance to think. Children don't get a chance to think any more. Examinations are check-block [tick-box] systems. Children fill their heads with answers. If you have enough information in your head, you can mark the right answers, very simple. It is a labour-saver, because the teacher can tabulate in a flash the results of fifty pupils, bar diagram and comparisons. Neither the teacher or pupil need to think. All so simple. The Educational Testing Service grades applicants the same way, am I right?</em>
+
+<em>Johnny with his head full of answers, like a dictionary, is not thinking. A dictionary is pretty important, of course. I use one frequently. But the dictionary can't think for me. The dictionary does not lay out a course of action for us. It does not contain knowledge. It contains words.</em>
+
+<em>Marking the right blocks [ticking the right boxes] does not explain anything. They don't help Johnny to predict or explain what happened in the past. Science has advanced by explaining what happened in the past, as in geology, geometry, anthropology, geography, chemistry. Science is not a dictionary full of words, but is knowledge of the world, and this means temporal spread to explain what happened in the past, and what to predict in the future."</em>
+</div>
+
+```{ojs}
+viewof note_11_prediction_2 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+(Over to you now for your reactions, thoughts, comments for the rest of Part C.)
+
+<div class="deming_quote">
+3. Interpretation of data from a test or experiment is prediction---what will happen on application of the conclusions or recommendations that are drawn from a test or experiment? This prediction will depend largely on knowledge of the subject-matter. It is only in the state of statistical control that statistical theory aids prediction.
+</div>
+
+<div class="neave_note">
+[These last two sentences contain important emphases for statisticians in particular. Sometimes it seems that conventional statisticians act as if "knowledge of the subject-matter" should, on the contrary, be effectively ignored lest it bias or prejudice conclusions, i.e. as if conclusions should depend wholly on the data being analysed. Further, as regards the use of data for prediction purposes, we are again reminded that the essence of the difference between statistical control and the lack of it is respectively predictability and the lack of it.
+
+If you are a statistician, you might prefer to remain unaware of the following paragraph! It is an extract from Chapter 7: "Management is Prediction" on page 263 of <em>The Essential Deming</em>. Here Deming was primarily (but not wholly) discussing the area in which he first became famous: sampling and survey analysis.
+
+<em>"The procedure of sampling, the construction of a satisfactory questionnaire, and the proper procedure for interviewing, all require thorough knowledge of the subject and of the difficulties that are to be met in carrying out the survey. That is why it has been stated that applied statistics is 90 percent knowledge of the subject-matter and only 10 percent statistics; it was Shewhart who first made this statement with regard to statistical work in engineering and manufacturing."</em>]
+</div>
+
+```{ojs}
+viewof note_11_prediction_3 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+#### Area 1, Step 3: *DemDim* version
+
+Now briefly read through *DemDim* page 274, paragraph 1 to page 275, paragraph 4 again, revising your earlier comments if necessary and adding any further notes below.
+
+```{ojs}
+viewof note_11_demdim_area1 = Inputs.textarea({placeholder: "Additional notes from DemDim pages 274–275.", rows: 6})
+```
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+---
+title: "CODA"
+execute:
+  echo: false
+---
+
+## CODA
+
+You're there! I hardly need to tell you that this has been a massive piece of work. And, if you have managed to make a really good attempt at it, I venture to suggest that you're now probably further down the road in your understanding of Dr Deming's unique System of Profound Knowledge than virtually anybody else has ever been after just two (or even eleven) days' work (except for others who have also worked up to, and then through, this project!).
+
+There is one remaining page from Balaji Reddie: his own Coda on page 26 of "Four Preludes and a Coda". I suggest there could be no better way of concluding this project than for you to remind yourself of what he wrote there. So please do that now.
+
+### "Out-of-hours" note
+
+I need to give you advance notice of some unusual equipment you'll need to find in order to carry out one of Day 12's Activities (see the middle of Day 12 page 2). Make a note in your diary!
+
+Please try to collect together a few different-coloured pens and/or pencils---at least half-a-dozen or so, maybe two or three more. The reason is that that Activity will ask you to draw a very multi-coloured diagram!
+
+You would also find it useful to make some extra copies of Day 12 page 9 [*WB* 218] or, preferably, enlargements of the diagram on that page. Finally, a separate copy of the table on Day 12 page 4 [*WB* 216] would save you some time as you fill it in by referring back to Days 10 and 11.
+
+---
+
+#### Approvals, Acknowledgments and Information
+
+^a^ (page 5) This quotation from *Dedication of the Cedar Crest Academy, Washington in October 1985* has been reproduced with the approval of the Cedar Crest Academy.
+
+^b^ (page 6) This quotation from *The Essential Deming: Leadership Principles from the Father of Quality* has been included with the approval of the W Edwards Deming Institute and McGraw-Hill Education.
+
+^c^ (page 9) This diagram from *Deming's Road to Continual Improvement* has been reproduced with the approval of Bill Scherkenbach and SPC Press Inc.
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

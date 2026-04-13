@@ -1,0 +1,309 @@
+# ============================================================
+# Day 11 Brief
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 11
+  title: "A System of Profound Knowledge — Parts C and D"
+  source_prefix: "N.Day.11.18Jan20"
+  page_count: 40
+
+# ------ Chapter Plan ------
+# PNG pages 1-4 are front matter (cover, blank, TOC, blank).
+# Printed pages 1-36 correspond to PNGs 5-40.
+# All page numbers below are the printed page numbers (as in
+# "Day 11 : page N" footer), not PNG file indices.
+
+chapters:
+  - slug: "introduction"
+    title: "INTRODUCTION"
+    pages: "1-2"
+    notes: |
+      PNG 005-006. Opening of Day 11 — welcome back to the Second
+      Project continued. "Second Project Continued" banner graphic
+      on page 1. Introduces Parts C (Theory of Knowledge) and D
+      (Knowledge of Psychology). Notes that Part C is "deceptively
+      short" and Part D covers Psychology. Discusses how newcomers
+      might react to Deming and the importance of background built
+      up over the course.
+
+      FIGURE: "Second Project Continued" banner graphic on page 1
+      (orange/gold decorative banner) — crop from PNG 005.
+
+      No Pauses, no Activities, no clocks — pure prose framing.
+
+  - slug: "theory-of-knowledge-prediction"
+    title: "PART C, AREA 1: PREDICTION"
+    pages: "3-7"
+    notes: |
+      PNG 007-011. Part C header on page 3, introducing the three
+      areas (Prediction; Theory and Learning; Operational Definitions).
+      Follows the four-step procedure established in Day 10.
+
+      Page 3 (PNG 007): "PART C: THEORY OF KNOWLEDGE" heading.
+      Introduces three areas of Part C. Explains approach of working
+      through each area using the four-step procedure, noting
+      differences specific to Part C.
+
+      Page 4 (PNG 008): Area 1 "Prediction". Step 1 browsing session.
+      Step 2 Dr Deming's May 1990 version begins. Item 1 on prediction.
+      Commentary on prediction and management.
+
+      Page 5 (PNG 009): Item 2 on prediction vs explanation.
+      Commentary on information vs knowledge, Deming's Cedar Crest
+      Academy speech ("Why Johnny can't think").
+
+      Page 6 (PNG 010): Item 3 on interpretation of data from tests/
+      experiments being prediction. Commentary on statisticians and
+      prediction. Quote from "Management is Prediction" in The
+      Essential Deming. Quote on sampling and subject-matter knowledge.
+
+      Page 7 (PNG 011): Area 1, Step 3 — DemDim version. Instruction
+      to read DemDim pages 274-275. Blank note-taking space.
+
+      No figures. Same styling as Day 10: Deming text in blue
+      (.deming_quote), Neave commentary interleaved (.neave_note).
+
+  - slug: "theory-of-knowledge-theory-and-learning"
+    title: "PART C, AREA 2: THEORY AND LEARNING"
+    pages: "8-12"
+    notes: |
+      PNG 012-016. Theory and Learning — the Deming/Shewhart (PDSA)
+      Cycle and theory-based learning.
+
+      Page 8 (PNG 012): "Area 2: Theory and Learning" heading.
+      Step 1 browsing session. Step 1a: A chapter from DemDim.
+      Introduction to the Deming/Shewhart Cycle (PDSA Cycle).
+      Discussion of DemDim Chapter 9, references to "Old Way" and
+      "New Way" diagrams, Professor George Box's diagram.
+
+      Page 9 (PNG 013): "A Theory of Knowledge in seven words" —
+      circular diagram (Theory -> Question -> Data -> Prediction ->
+      Knowledge -> Wisdom -> Action -> Theory). Attributed to Bill
+      Scherkenbach from Deming's Road to Continual Improvement.
+      Instruction to read DemDim Chapter 9.
+      FIGURE: crop the circular diagram from PNG 013.
+
+      Page 10 (PNG 014): Area 2, Step 2. Item 4 on theory and
+      experience. Item 5 on examples needing theory. Commentary.
+
+      Page 11 (PNG 015): Item 6 — "No number of examples establishes
+      a theory, yet a single unexplained failure of a theory requires
+      modification or even abandonment of the theory." Reference to
+      Daniel Boorstin and Pause for Thought 2-b.
+
+      Page 12 (PNG 016): Area 2, Step 3 — DemDim version. Instruction
+      to read DemDim pages 275-276. Blank note-taking space.
+
+  - slug: "theory-of-knowledge-operational-definitions"
+    title: "PART C, AREA 3: OPERATIONAL DEFINITIONS"
+    pages: "13-17"
+    notes: |
+      PNG 017-021. Operational definitions — preventing ambiguity
+      and fitness for purpose.
+
+      Page 13 (PNG 017): "Area 3: Operational Definitions" heading.
+      Step 1 browsing session. Step 1a: A chapter from DemDim.
+      Introduction to operational definitions — difference from
+      ordinary definitions, two prime aspects (preventing ambiguity;
+      fitness for purpose). Three examples: punctual, unemployed, clean.
+
+      Page 14 (PNG 018): Instruction to read DemDim Chapter 7.
+      Area 3, Step 2. Item 7 on communication/negotiation requiring
+      operational definitions. Item 8 on "no true value" — measurement
+      changes with procedure. Anecdote about Deming at lunch.
+
+      Page 15 (PNG 019): Item 9 — "There is no such thing as a fact
+      concerning an empirical observation." Extended commentary on
+      empirical observations, operational definitions, and facts.
+
+      Page 16 (PNG 020): Area 3, Step 3 — DemDim version. Instruction
+      to read paragraphs 8-10 on DemDim page 276. Blank note-taking
+      space.
+
+      Page 17 (PNG 021): Step 3 (complete) — instruction to read
+      complete DemDim pages 274-276 one more time before Activity 11-a.
+      Reference note about The New Economics Chapter 4 pages 66-72.
+
+      No figures. Pure prose with same blue/italic styling.
+
+  - slug: "activity-11a"
+    title: "ACTIVITY 11–a"
+    pages: "18-21"
+    notes: |
+      PNG 022-025. Step 4 of Part C — revisit the 14 Points and
+      Deadly Diseases in light of "Theory of Knowledge".
+      Structurally identical to Activities 10-a and 10-b.
+
+      Page 18 (PNG 022): ACTIVITY 11-a header. Instructions for the
+      activity — linking 14 Points and 5 Diseases to Part C.
+      Points 1-4 with rating input boxes (0-5 scale).
+      References to Appendix page 41.
+
+      Page 19 (PNG 023): Points 5-9 with input boxes.
+      Page 20 (PNG 024): Points 10-14 with input boxes.
+      Page 21 (PNG 025): Diseases 1-5 with input boxes.
+
+      IMPLEMENTATION: same pattern as Activities 10-a and 10-b —
+      19 items (14 Points + 5 Deadly Diseases), each with rating +
+      comment inputs. Use viewof activity_11a_1 through
+      viewof activity_11a_19 naming. Download button at end.
+
+      Red/blue divider bar at bottom of page 21 marks end of
+      Activity 11-a.
+
+  - slug: "knowledge-of-psychology"
+    title: "PART D: KNOWLEDGE OF PSYCHOLOGY"
+    pages: "22-31"
+    notes: |
+      PNG 026-035. Single large reading chapter covering Steps 1-3
+      of the four-step procedure for Part D. This section is
+      dominated by the very long Item 5 on intrinsic/extrinsic
+      motivation and overjustification.
+
+      Page 22 (PNG 026): "PART D: KNOWLEDGE OF PSYCHOLOGY" heading.
+      Step 1 browsing session. Step 2 Dr Deming's May 1990 version.
+      Item 1 on psychology helping understand people, interactions.
+      Commentary on interactions and systems.
+
+      Page 23 (PNG 027): Item 2 — "People are different from one
+      another." Commentary on natural differences, abilities, natural
+      ability vs effort, the system vs the individual. Discussion of
+      assessment, grading, appraisal.
+
+      Page 24 (PNG 028): Item 3 — "People learn in different ways
+      and at different speeds." Item 4 — "A leader has obligation to
+      make changes in the system of management that will bring
+      improvement." Commentary on systems and leadership.
+
+      Page 25 (PNG 029): Item 5 begins — "There is intrinsic
+      motivation, extrinsic motivation, overjustification." Extended
+      definitions and discussion. First bullet: "People are born
+      with a need for relationships... self-esteem and respect."
+
+      Page 26 (PNG 030): Continuation of Item 5 bullets.
+      "Circumstances provide some people with dignity and self-esteem..."
+      "Management that deny to their employees dignity and self-esteem
+      will smother intrinsic motivation."
+
+      Page 27 (PNG 031): More Item 5 bullets. "Some extrinsic
+      motivators rob employees of dignity and self-esteem." "No-one,
+      child or other, can enjoy learning if he must constantly be
+      concerned about grading and gold stars." References to DemDim
+      Chapters 30 and 31.
+
+      Page 28 (PNG 032): More Item 5 bullets. "One is born with a
+      natural inclination to learn and to be innovative." "Extrinsic
+      motivation is submission to external forces... Pay is not a
+      motivator." Commentary on pay and motivation, Maslow's hierarchy,
+      Norb Keller reference.
+
+      Page 29 (PNG 033): More Item 5 bullets. "Under extrinsic
+      motivation, learning and joy in learning in school are
+      submerged." Zero-Defect mentality discussion. "Removal of a
+      demotivator does not create motivation."
+
+      Page 30 (PNG 034): Final Item 5 bullets. "Overjustification
+      comes from faulty systems of reward." "Monetary reward under
+      such conditions is a way out for managers that do not understand
+      how to manage intrinsic motivation."
+
+      Page 31 (PNG 035): Step 3 — DemDim version. Read DemDim pages
+      277-279. Reference to The New Economics Chapter 4 pages 73-78.
+      Note: "Continue to Activity 11-b overleaf."
+
+      No figures. Pure prose — very dense on motivation psychology.
+      Same blue/italic styling throughout.
+
+  - slug: "activity-11b"
+    title: "ACTIVITY 11–b"
+    pages: "32-35"
+    notes: |
+      PNG 036-039. Step 4 of Part D — revisit the 14 Points and
+      Deadly Diseases in light of "Knowledge of Psychology".
+      Structurally identical to Activities 10-a, 10-b, and 11-a.
+
+      Page 32 (PNG 036): ACTIVITY 11-b header. Same structure as
+      11-a but for Part D. Points 1-4 with input boxes.
+      References to Appendix page 42.
+
+      Page 33 (PNG 037): Points 5-9 with input boxes.
+      Page 34 (PNG 038): Points 10-14 with input boxes.
+      Page 35 (PNG 039): Diseases 1-5 with input boxes.
+      "Please move to the next page for the conclusion."
+
+      IMPLEMENTATION: same pattern — 19 items, viewof activity_11b_1
+      through viewof activity_11b_19. Download button at end.
+
+  - slug: "coda"
+    title: "CODA"
+    pages: "36"
+    notes: |
+      PNG 040. Closing remarks — reference to Balaji Reddie's Coda
+      from "Four Preludes and a Coda". Out-of-hours note about Day 12
+      preparation: gather coloured pens/pencils (at least 5-6) for
+      a Day 12 Activity involving a multi-coloured diagram. Suggests
+      making extra copies of Day 12 page 9 and the table on Day 12
+      page 4. Approvals, Acknowledgments and Information section
+      (footnotes a, b, c).
+
+      Short chapter — single page of wrap-up content.
+
+# ------ Figure Decisions ------
+figures:
+  - page: 1
+    action: "crop"
+    notes: "Second Project Continued banner graphic (orange/gold decorative banner)"
+    output: "second-project-continued-banner.png"
+
+  - page: 9
+    action: "crop"
+    notes: "Theory of Knowledge in seven words — circular diagram (Theory -> Question -> Data -> Prediction -> Knowledge -> Wisdom -> Action)"
+    output: "theory-of-knowledge-circle.png"
+
+# ------ Context Notes ------
+context_notes: |
+  Day 11 is the second half of the Second Project (Day 10 was the
+  first half). It covers Parts C and D of Deming's System of Profound
+  Knowledge, completing the set begun on Day 10 (Parts A and B).
+
+  Structurally very similar to Day 10:
+  - NO Pauses for Thought (none at all in Day 11)
+  - NO Technical Aids
+  - NO clocks visible in the source material
+  - NO Red Beads, no Funnel, no Dice
+  - NO float boxes, no major activity blue-pill heading
+  - Only TWO figures (banner graphic and circular diagram)
+
+  The interactive elements are concentrated in the two Activities
+  (11-a and 11-b), each with 19 input items (14 Points + 5 Deadly
+  Diseases) — exactly the same pattern as Activities 10-a and 10-b.
+
+  STYLING: Same as Day 10 — Deming's May 1990 text in BLUE
+  (.deming_quote), Neave's interleaved commentary in italic
+  (.neave_note). Follow Day 10's established approach.
+
+  Part C is split into three Areas (Prediction, Theory and Learning,
+  Operational Definitions), each following the same four-step
+  procedure. Part D stays as one chapter because it doesn't subdivide
+  into areas — Item 5 (intrinsic/extrinsic motivation) runs very
+  long but is continuous.
+
+  DemDim page references:
+    - Part C Area 1: DemDim 274-275 (Prediction)
+    - Part C Area 2: DemDim 275-276 (Theory and Learning)
+    - Part C Area 3: DemDim 276 paragraphs 8-10 (Operational Definitions)
+    - Part C complete: DemDim 274-276
+    - Part D: DemDim 277-279 (Knowledge of Psychology)
+
+  Cross-references to earlier days:
+    - Day 10 (Parts A and B of SoPK, Activities 10-a and 10-b)
+    - Day 9 page 27 (0-5 rating scale explanation)
+    - Day 4 pages 16-25 and Day 5 pages 2-17 (14 Points source)
+    - Day 5 pages 18-27 (Deadly Diseases source)
+    - Pause for Thought 2-b (referenced on page 11 re: theory)
+
+  The New Economics references:
+    - Part C: Chapter 4 pages 66-72
+    - Part D: Chapter 4 pages 73-78
