@@ -1,0 +1,27 @@
+---
+title: "DAY 11: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS C AND D"
+execute:
+  echo: false
+---
+
+## DAY 11: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS C AND D
+
+### SECOND PROJECT CONTINUED
+
+![Second Project Continued](/assets/images/day-11/second-project-continued-banner.png){fig-align="center" width="60%" .lightbox}
+
+Welcome back to the second half of this major project. Here we shall study Parts C and D of the System of Profound Knowledge: respectively "Theory of Knowledge" and "Knowledge of Psychology".
+
+In the May 1990 version of the System of Profound Knowledge, Part C is deceptively short. If I were simply to reproduce that version here then it would occupy no more than two-thirds of a page, and almost a third of that would be taken up by the blank lines between the paragraphs! Part C contains just nine items, along with a couple of brief examples of the first issue raised. Dr Deming expanded quite considerably on his wording by the time of *The New Economics*, but I think there is much value in sticking to these few briefly-stated but deep issues for your initial study of this subject. However, in their original ultra-compact form, they most certainly are not easy material for the newcomer. In fact, the material is not necessarily easy for many "old hands" either! But (and you'll surely have become aware of this already) "Deming does what he does because he wants us to *think*". Those were, in fact, the exact words that Bill Scherkenbach said to me on the evening before that first London four-day seminar in 1985, i.e. on the day before I first met Dr Deming. I'm sure of that because I wrote them down at the time!
+
+In the context of this course, the relatively small number of issues in Part C has the advantage of leaving time within the half-day to carry out some extra learning. This learning is on two topics that have been mentioned several times but so far never actually studied during the course. In fact, they are both extremely important and useful topics in their own right and would therefore be well worth studying even outside the context of the System of Profound Knowledge. Further, like our understanding of variation and the use of control charts, both have their origin in the work of Walter Shewhart, one quite explicitly and the other in concept with Dr Deming then providing the finishing touches.
+
+Were you (ill-advisedly!) attempting to study the System of Profound Knowledge without any previous exposure to Deming's work, you would probably expect Part D to be the most immediately accessible of the four parts. To many newcomers, Deming's statements about appreciation for a system, optimisation of a system, suboptimisation, variation, statistical control, common and special causes, etc, etc, plus what is still to come in Part C, might all seem pretty daunting. By comparison, Part D is on Psychology: it's about people---how people behave, how people react in various situations, what motivates or demotivates them, and so on. Much more familiar---so one might think.
+
+And therein lies the problem. For, without the benefit of the background that we have now built up during this course, the newcomer is rather likely to jump to hasty conclusions about what Deming writes in that final part: "I agree with what he says there", or "No, that's not true", or even "Come on---that's ridiculous!". But hopefully you'll be much more wary about jumping in with reactions such as "No, he's wrong about that". By now you should be pretty confident that Deming never said or wrote anything without good reason. So, rather than "He's wrong!", the much wiser and more fruitful reaction would be to wonder: "Why is he saying this?"---which, you'll recall, was one of the sample reactions included in my guidance for Step 2 of the four-step procedure. And, in some cases, you might not be able to discover the reasons today, or tomorrow, or for a while longer. But keep at it, and in time the answers will come. And then you'll have really learned something new---and fruitful. At least, that's repeatedly been my experience over more than 30 years. And since you've now managed to reach the 11th Day out of the 12 in this course, I believe it will prove to be true for you as well.
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

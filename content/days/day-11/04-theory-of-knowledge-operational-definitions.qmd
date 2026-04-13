@@ -1,0 +1,116 @@
+---
+title: "PART C, AREA 3: OPERATIONAL DEFINITIONS"
+execute:
+  echo: false
+---
+
+### Part C, Area 3: Operational Definitions
+
+#### Area 3, Step 1: Brief browsing session
+
+Relevant reading:
+
+> *DemDim*: page 276, paragraphs 8--10.
+>
+> Today's material: pages 14--15 [*WB* 193--194].
+
+#### Area 3, Step 1a: A chapter from *DemDim*
+
+The other chapter for your additional reading is Chapter 7, which has the same title as above. Before turning to that chapter, I'll summarise the main features of operational definitions and the important ways in which they differ from what are more ordinarily regarded simply as "definitions". As with Area 2, this introduction will ask you to take an initial look at a couple of points within the chapter before going back to the beginning. It will not be necessary for you to ponder over every detail of this chapter: it mainly consists of a host of illustrations and you'll only need to get a broad idea of what those illustrations are telling you.
+
+So what's the difference between an ordinary definition and an *operational* definition? Attempting single-word answers, I'd say that it's the difference between *what* and *how*. Whereas a definition is concerned with ideas and concepts, an operational definition is concerned with how something is to be observed, measured, counted, recorded, decided, etc. In Dr Deming's own words (*Out of the Crisis* page 231[276]):
+
+> **"An operational definition puts communicable meaning into a concept."**
+
+There are two prime aspects of an operational definition:
+
+- preventing ambiguity; and
+- fitness for purpose.
+
+Easy enough? Well, maybe not. I'll illustrate with three examples: "punctual", "unemployed" and "clean":
+
+1. **punctual:** I guess none of us would have much difficulty in defining the word "punctual", say in relation to the arrival time of a train at a station. However, recalling what we saw on Day 7 page 11, our definition would probably differ from the "official" one! Re-read the top of *DemDim* page 113. You will notice that the brief extract from the newspaper article there also suggests a purpose for the change of (operational) definition!
+
+2. **unemployed:** Similarly, presumably we all know what is meant by "unemployed"; some readers may be all too familiar with the concept. But look at the bottom paragraph of *DemDim* page 111. Apparently the British Government was having some difficulties with the "fitness for purpose" aspect of its operational definition!
+
+3. **clean:** This was one of Dr Deming's favourite illustrations, and he would use it to demonstrate the importance of the "fitness for purpose" aspect. He would point out that if somebody asked him to "clean this table", he would not know what to do unless he understood *why* it should be cleaned. Clean enough to eat off it? That would be one thing. Clean enough to perform a surgical operation on it? That would be quite another.
+
+One consequence of this thinking is that, in general, an operational definition cannot be classified in any absolute sense as "right" or "wrong". Well, OK, maybe it could be so bad that it's useless for every conceivable purpose. But the more important point is that an operational definition that is "right" for one purpose could be either wholly inadequate or else unnecessarily sophisticated for another.
+
+**Now turn to *DemDim* page 109 and read Chapter 7.**
+
+<div class="workbook_callout">
+Pages 14--21 are also on Workbook pages 193--200.
+</div>
+
+#### Area 3, Step 2: Dr Deming's May 1990 version
+
+<div class="deming_quote">
+7. Communication and negotiation (as between customer and supplier, between management and union, between countries) require for optimisation operational definitions. [*Otherwise there are bound to be misunderstandings and disputes.*]
+</div>
+
+```{ojs}
+viewof note_11_opdef_7 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+8. There is no true value of any characteristic, state, or condition that is defined in terms of measurement or observation. Change of procedure for measurement or observation produces a new number. [*---depending, of course, on the precision with which they are expressed.*]
+</div>
+
+<div class="neave_note">
+[Both Items 8 and 9 (on the next page) can seem very puzzling at first glance. I expect that might have been the case with you had you not recently read <em>DemDim</em> Chapter 7---for careful thought concerning operational definitions should help. Skim through some of Chapter 7 again if you need to.
+
+At least I can assure you that these versions of Items 8 and 9 are rather more helpful than when I first heard Dr Deming broach these matters. I remember the occasion well. He had the impression that the members of his audience were becoming a little inattentive and instead thinking too much about their forthcoming lunch. So he stared at them for a moment and then said: <strong>"There is no true value of anything"</strong> and, after a short pause: <strong>"There is no such thing as a fact"</strong>. He then walked off the stage in silence, leaving the audience (including me) looking somewhat dumbfounded. It had the desired effect: the conversations over lunch turned out to be rather more focused than they might have been otherwise. He was a great teacher!]
+</div>
+
+```{ojs}
+viewof note_11_opdef_8 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+9. There is no such thing as a fact concerning an empirical observation. Any two people may have different ideas about what is important to know about any event. [*E.g. in obtaining some result, one person may be most concerned with how long it takes to obtain the result whereas another may be more interested in its precision.*]
+</div>
+
+<div class="neave_note">
+[Don't forget: an empirical observation depends on the operational definition by which it was obtained---and an operational definition is neither "right" nor "wrong". Of course, if no operational definition was in place on which to base the empirical observation, still less could it convey a "fact".
+
+However, Deming's second sentence indicates that he is thinking in much broader terms than just this. That second sentence is obviously true. But why does it appear in the same item? What are the links between the two sentences?
+
+Many news bulletins report empirical observations on matters such as unemployment, inflation, growth, the stock market, the structural deficit, national debt, and so on. Yet what happens in interpretations by politicians? It often seems that an empirical observation provides ammunition for both those in government and those in opposition---because of entirely different "facts" concerning that observation! It is also very likely that the two parties may indeed <em>"have different ideas about what is important to know about"</em> the observation.
+
+It is worth pointing out that, at a trivial level, Deming's first sentence is not literally true. "We have just recorded the value 1.23" and "The value we have just obtained lies between 1.00 and 2.00" are facts---but such facts are more information rather than knowledge (see Item 2). Deming was surely referring here to facts that might yield knowledge and aid better practice. An empirical observation cannot e.g. indicate whether the process from which it came is in or out of statistical control. So should we not question how important are our particular "empirical observations"? Further, a process can be in control with respect to some features but not others. So the choice of quantity to record and chart is also of consequence.
+
+Would you trust apparently important "facts" deduced from unimportant or inappropriate data? I fear that many do.]
+</div>
+
+```{ojs}
+viewof note_11_opdef_9 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+*(Continue to Area 3, Step 3 overleaf.)*
+
+#### Area 3, Step 3: *DemDim* version
+
+And so, finally with Area 3, read through paragraphs 8--10 on *DemDim* page 276 again, revising your earlier comments and adding any new points below.
+
+```{ojs}
+viewof note_11_demdim_area3 = Inputs.textarea({placeholder: "Additional notes from DemDim page 276.", rows: 6})
+```
+
+### Step 3 (complete): *DemDim* version
+
+As you know, the complete *DemDim* version of Part C is on pages 274--276. So read through those three pages one more time (jotting down any final notes and revisions) to bring together all three areas into your mind before proceeding to Activity 11--a.
+
+```{ojs}
+viewof note_11_demdim_partc_complete = Inputs.textarea({placeholder: "Final notes from DemDim pages 274–276.", rows: 6})
+```
+
+<div class="neave_note">
+For your future reference, the section of Chapter 4 in <em>The New Economics</em> which relates to Part C runs from the middle of page 69[bottom of page 101] to page 72[107].
+</div>
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

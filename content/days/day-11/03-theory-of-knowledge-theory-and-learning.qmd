@@ -1,0 +1,111 @@
+---
+title: "PART C, AREA 2: THEORY AND LEARNING"
+execute:
+  echo: false
+---
+
+### Part C, Area 2: Theory and Learning
+
+#### Area 2, Step 1: Brief browsing session
+
+Relevant reading:
+
+> Prelude C: "Preludes" pages 15--19. You've already read this earlier. But since Prelude C is mostly related to this second area, you might like to skim through it one more time before proceeding.
+>
+> *DemDim*: page 275, paragraphs 5--7 (ending on page 276). Note that paragraph 5 neatly provides a strong link between the first two of our three areas.
+>
+> Today's material: pages 10--11 [*WB* 190--191].
+
+#### Area 2, Step 1a: A chapter from *DemDim*
+
+The first topic for your additional reading is what the Japanese and others call the Deming Cycle---though, as mentioned on Day 9, Deming himself always referred to it as the Shewhart Cycle. For reasons that you will soon see, it is also known as the PDSA Cycle. I think you will recognise it as a formalisation of what was happening in the little story related by Balaji in his Prelude C.
+
+The Deming Cycle is the subject of *DemDim* Chapter 9. So please read through the whole of that chapter after this introduction. I'll ask you to take a couple of initial looks inside the chapter before you read it all. In fact, you'll be able to turn the pages of Chapter 9 relatively quickly since you were already introduced to much of its content during Day 9.
+
+Recall those beautifully simple diagrams that we saw early on Day 9. Walter Shewhart's distinction between the "Old Way" and the "New Way". They are redrawn near the beginning of *DemDim* Chapter 9 (*DemDim* page 140). Also recall that magnificent phrase by which Shewhart described the "New Way" (i.e. the circle connected with the line) as "a dynamic scientific process of acquiring knowledge" (Day 9 pages 5--6).
+
+On Day 9 we recognised both the "Organisation Viewed as a System" diagram and the Deming Chain Reaction as applications or extensions of that "New Way" thinking. Just as immediately, here we can surely extend it to the Shewhart Cycle---and, of course, we can now recognise why Dr Deming gave it that name. Look at the illustration of the Cycle on *DemDim* page 143---and, if proof were needed of what Dr Deming called it, his sketch on that page is reproduced directly from an overhead-projector "scroll" on which he wrote during a four-day seminar.
+
+Also take a look at the late Professor George Box's diagram of the "Scientific Improvement Process" (*DemDim* page 141). This is an excellent alternative representation of the same kind of thinking. Suppose we start with some tentative theory (which, as Deming observed, might be as little as a hunch---see *DemDim* page 247). A plan is carried out in order to test the theory and, as a result, some data are obtained. Those data are analysed and, as a result of that analysis, the theory is updated. Then the sequence is repeated in order to test the updated theory---and so on. And, all the time (referring to the bottom of Professor Box's diagram), knowledge increases.
+
+I suggest that we have here yet another "simple and profound" combination. If you have not come across it before, take a couple of minutes to study carefully Dr Deming's sketch on *DemDim* page 143---I think it speaks for itself. Now, you may have come across something like it elsewhere under the name of the PDCA (Plan-Do-Check-Act) Cycle---see *DemDim* page 144. But, instead, Dr Deming always referred to the Shewhart Cycle as PDSA (Plan-Do-**Study**-Act). The difference is crucial: the third step of the Cycle is the one where the real learning takes place (as the question in his sketch indicates), so "Study" is much more appropriate than the simplistic "Check" which rather sounds like a mere Yes or No. Indeed, Deming sometimes suggested that one might consider use of the Cycle as starting with "Study" since that study could lead to the initial theory or hunch (as indeed we saw in one of the illustrations in Prelude C).
+
+Note also the remark in brackets in the second step: "Carry it out (preferably on a small scale)". Why a small scale? Because "it" might not work---and it would be preferable to have this demonstrated by a small amount of harm rather than a lot!
+
+I recall attending a four-day seminar in America in the year which followed a major revision of the American income-tax paperwork. In order to illustrate this aspect of the second step of the PDSA Cycle, Dr Deming observed:
+
+> *"You know, a sample of five would have been sufficient for the Internal Revenue Service to learn how impossible is this tax form. They did not need a sample of 80 million."*
+
+#### A Theory of Knowledge in seven words
+
+Finally, now that you have seen the Deming/Shewhart Cycle as well as being familiar with the general concept of Shewhart's circle definition of the "New Way", I cannot resist showing you the following illustration. This was constructed by Bill Scherkenbach and appears on page 198 of his second book: *Deming's Road to Continual Improvement*. Bill rightly claims that this seven-word diagram "really represents a complete theory of knowledge. If at some time you would like to read a much more substantial discussion on Theory of Knowledge, I can do no better than recommend you to pages 190--220 of Bill's book.
+
+![A Theory of Knowledge in seven words](/assets/images/day-11/theory-of-knowledge-circle.png){fig-align="center" width="60%" .lightbox}
+
+**Now turn to *DemDim* page 139 and read Chapter 9.** You'll be able to skip through some of these pages very quickly.
+
+<div class="workbook_callout">
+Pages 10--12 are also on Workbook pages 190--192.
+</div>
+
+*(Continue to Area 2, Step 2 overleaf.)*
+
+#### Area 2, Step 2: Dr Deming's May 1990 version
+
+<div class="deming_quote">
+4. Without theory, there is nothing to modify or to learn by comparison with experience.
+</div>
+
+<div class="neave_note">
+[In earlier versions, Dr Deming combined this with Item 5 and stated compactly that "Both experience and examples teach nothing without theory". It is helpful to consider the PDSA Cycle in relation to all three items (4, 5 and 6) in this second area.
+
+And don't be put off by that word "theory". I'll reproduce here the whole of the quotation from <em>DemDim</em> page 247 to which I referred earlier:
+
+<em>"A theory may be complex. It may be simple. It may only be a hunch, and the hunch may be wrong. We learn by acceptance, or by modification of our theory, or even by abandoning it and starting over."</em> (Also see Item 6 opposite.)
+
+We are surely back to Shewhart's "dynamic scientific process of acquiring knowledge".]
+</div>
+
+```{ojs}
+viewof note_11_theory_4 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+5. An example is no help in management unless studied with the aid of theory. To copy an example of success, without understanding it with the aid of theory, may lead to disaster.
+</div>
+
+<div class="neave_note">
+[Recall my warnings about case studies on the opening page of Day 6. Also, isn't it possible to find examples of success of just about <strong>any</strong> idea or proposal? The trouble is that you can often find examples of its failure as well. So where does that get us?]
+</div>
+
+```{ojs}
+viewof note_11_theory_5 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+<div class="deming_quote">
+6. No number of examples establishes a theory, yet a single unexplained failure of a theory requires modification or even abandonment of the theory.
+</div>
+
+<div class="neave_note">
+[Doubtless, the people to whom Daniel Boorstin referred, relating to Pause for Thought 2-b, had countless examples to confirm that the Earth is flat ... .]
+</div>
+
+```{ojs}
+viewof note_11_theory_6 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+```
+
+*(Continue to Area 2, Step 3 overleaf.)*
+
+#### Area 2, Step 3: *DemDim* version
+
+Now briefly read through *DemDim* pages 275--276, paragraphs 5 to 7 again, as usual revising your earlier comments if necessary and adding any further points below.
+
+```{ojs}
+viewof note_11_demdim_area2 = Inputs.textarea({placeholder: "Additional notes from DemDim pages 275–276.", rows: 6})
+```
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>
