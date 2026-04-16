@@ -90,7 +90,7 @@ only more people—especially those in management and government—had listened 
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 250px">
+<div class="spacer-xl">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 25)
 ```

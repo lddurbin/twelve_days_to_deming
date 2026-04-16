@@ -94,7 +94,7 @@ When extracting tables, charts, photos, or other figures from original PDF mater
 ### Usage in Quarto
 Reference cropped images in `.qmd` files:
 ```markdown
-![Description](/assets/images/day-XX/filename.png){.lightbox}
+![Description](/assets/images/day-XX/filename.png)
 ```
 
 ## Deployment Architecture

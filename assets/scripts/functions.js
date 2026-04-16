@@ -9,9 +9,15 @@ export function createDownloadButton(inputs, fileName) {
 
 export function downloadNotes(inputs, fileName) {
   const combinedText = combineInputValues(inputs);
+
+  if (!combinedText.replace(/[\s—-]+/g, "").length) {
+    alert("You haven't written any notes yet. Fill in at least one field before downloading.");
+    return;
+  }
+
   const blob = createTextBlob(combinedText);
   const url = URL.createObjectURL(blob);
-  
+
   triggerDownload(url, fileName);
   cleanupUrl(url);
 }

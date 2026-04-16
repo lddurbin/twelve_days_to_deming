@@ -1,6 +1,7 @@
 library(ggplot2)
 library(dplyr)
 library(gt)
+library(DiagrammeR)
 
 # --- Named constants ---
 

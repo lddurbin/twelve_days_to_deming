@@ -104,7 +104,7 @@ keep flitting between alternative terms for the same thing.</span>
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 290px">
+<div class="spacer-xl">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(9, 55)
 ```
@@ -179,7 +179,7 @@ about it! Makes good sense to me. And that is precisely what Dr Shewhart produce
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 400px">
+<div class="spacer-2xl">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(10, 00)
 ```
@@ -313,7 +313,7 @@ guidance on timings at all closely then please “stop the clock” whilst you a
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 40px">
+<div class="spacer-sm">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(10, 10)
 ```

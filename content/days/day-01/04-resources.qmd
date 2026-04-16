@@ -133,7 +133,7 @@ his work in that country in the summer of 1950—see today’s [page 35](#sec-pa
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 130px">
+<div class="spacer-lg">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(10, 25)
 ```

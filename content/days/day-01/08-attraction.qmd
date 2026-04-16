@@ -83,7 +83,7 @@ some thoughts that might help you to make some useful connections as the course 
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 600px">
+<div class="spacer-3xl">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 00)
 ```
@@ -143,7 +143,7 @@ viewof activity_1e_2 = Inputs.number([10, 0], {step: 1, label: "Dissatisfied cal
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 1300px">
+<div class="spacer-4xl">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(12, 10)
 ```

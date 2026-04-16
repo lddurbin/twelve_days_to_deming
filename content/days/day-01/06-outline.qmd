@@ -167,7 +167,7 @@ the end of the 12th day! Perhaps I should have simply titled Day 12 as “The En
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 100px">
+<div class="spacer-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(10, 55)
 ```

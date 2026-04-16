@@ -75,7 +75,7 @@ you with a “surrogate” organisation to use in your study!
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 300px">
+<div class="spacer-xl">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(10, 35)
 ```

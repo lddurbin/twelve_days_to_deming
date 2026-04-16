@@ -48,7 +48,7 @@ this opening day of our *12 Days to Deming*.
 :::
   
 ::: {.column width="15%"}
-<div style="margin-top: 80px">
+<div class="spacer-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(3, 40)
 ```

@@ -55,7 +55,7 @@ top management runs the company—and how the company is run depends on top mana
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 400px">
+<div class="spacer-2xl">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(11, 10)
 ```
@@ -90,7 +90,7 @@ viewof thought_1b = Inputs.textarea({label: "Why does managing by results reduce
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 400px">
+<div class="spacer-2xl">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(11, 20)
 ```
@@ -120,7 +120,7 @@ viewof thought_1c = Inputs.textarea({label: "Why might the word quality provoke 
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 580px">
+<div class="spacer-3xl">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(11, 25)
 ```
@@ -180,7 +180,7 @@ these words are of fundamental importance.
 :::
 
 ::: {.column width="15%"}
-<div style="margin-top: 100px">
+<div class="spacer-md">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(11, 35)
 ```
