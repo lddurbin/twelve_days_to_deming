@@ -1,4 +1,4 @@
-name: Build and Deploy (Current)
+name: Build and Deploy
 
 permissions:
   contents: read
@@ -37,14 +37,23 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5
-      
+
     - name: Setup R
       id: setup-r
       uses: r-lib/actions/setup-r@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590  # v2
       with:
-        r-version: '4.5.1'  # Must match renv.lock R version
-        
-    - name: Install minimal system dependencies
+        r-version: '4.5.1'
+        use-public-rspm: true
+
+    - name: Cache system dependencies
+      id: cache-sys-deps
+      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830  # v4
+      with:
+        path: /var/cache/apt
+        key: ${{ runner.os }}-sys-deps-v1
+
+    - name: Install system dependencies
+      if: steps.cache-sys-deps.outputs.cache-hit != 'true'
       run: |
         sudo apt-get update
         sudo apt-get install -y \
@@ -61,68 +70,46 @@ jobs:
           libgmp3-dev \
           libglpk-dev
 
-    - name: Install renv
-      run: Rscript -e 'install.packages("renv", version = "1.0.3", repos = "https://cran.rstudio.com")'
+    - name: Setup Pandoc
+      uses: r-lib/actions/setup-pandoc@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590  # v2
+      with:
+        pandoc-version: '3.1.11'
 
-    - name: Ensure renv library directory exists
-      run: mkdir -p renv/library
+    - name: Cache Quarto installation
+      id: cache-quarto
+      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830  # v4
+      with:
+        path: /opt/quarto
+        key: quarto-1.4.549
+
+    - name: Install Quarto
+      if: steps.cache-quarto.outputs.cache-hit != 'true'
+      run: |
+        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
+        sudo dpkg -i quarto-1.4.549-linux-amd64.deb
+
+    - name: Add Quarto to PATH
+      run: echo "/opt/quarto/bin" >> $GITHUB_PATH
 
     - name: Cache R packages
       uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830  # v4
       with:
-        path: renv/library
+        path: ~/.local/share/renv
         key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
+        restore-keys: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
 
-    - name: Setup Pandoc
-      uses: r-lib/actions/setup-pandoc@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590  # v2
-      with:
-        pandoc-version: '3.1.11'  # Pinned for reproducible builds (reviewed 2026-03)
-      
-    - name: Install Quarto
-      # Pinned to 1.4.549 — last tested version (reviewed 2026-03). Upgrade intentionally.
+    - name: Restore R packages
+      shell: Rscript {0}
       run: |
-        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
-        sudo dpkg -i quarto-1.4.549-linux-amd64.deb
-        quarto --version
-        
-    - name: Restore R packages with renv
-      run: |
-        Rscript -e 'renv::restore()'
-
-    - name: Check renv status
-      run: |
-        Rscript -e 'renv::status()'
-
-    - name: List installed packages in renv library
-      run: |
-        Rscript -e 'print(.libPaths()); print(list.files(.libPaths()[1]))'
-
-    - name: Manually install knitr and rmarkdown if missing
-      run: |
-        Rscript -e 'if (!requireNamespace("knitr", quietly = TRUE) || !requireNamespace("rmarkdown", quietly = TRUE)) install.packages(c("knitr", "rmarkdown"), lib = .libPaths()[1])'
-        Rscript -e 'print(.libPaths()); print(list.files(.libPaths()[1]))'
-
-    - name: Verify renv library
-      run: Rscript -e 'cat("Library path:", .libPaths()[1], "\n"); cat("Packages:", length(list.files(.libPaths()[1])), "\n")'
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", version = "1.0.3")
+        renv::restore()
 
     - name: Run R unit tests
       run: Rscript -e 'testthat::test_dir("tests/testthat")'
 
     - name: Build Quarto book
-      run: |
-        echo "=== Building Quarto book ==="
-        
-        # Ensure clean environment without renv
-        export RENV_PROJECT=""
-        unset RENV_PROJECT
-        
-        # Build the book
-        quarto render
-        echo "Build completed successfully"
-        
-    # Keep in sync with deploy-optimized.yml
+      run: quarto render
+
     - name: Smoke test build output
       run: |
         echo "Checking index.html exists..."
@@ -130,7 +117,6 @@ jobs:
 
         HTML_COUNT=$(find _book -name "*.html" | wc -l)
         echo "Found $HTML_COUNT HTML files"
-        # Minimum expected HTML files — prevents rsync --delete from wiping production on partial builds
         if [ "$HTML_COUNT" -lt 10 ]; then
           echo "FAIL: Build produced fewer than 10 HTML files — aborting deploy"
           exit 1
@@ -144,46 +130,18 @@ jobs:
         done
 
         echo "Smoke test passed"
-        
-    - name: Setup SSH with key verification
+
+    - name: Setup SSH
       run: |
-        echo "=== Setting up SSH ==="
-        
-        # Create SSH directory
         mkdir -p ~/.ssh
-        echo "SSH directory created"
-        
-        # Check if secret is available
-        if [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
-          echo "ERROR: SSH_PRIVATE_KEY secret is not set or empty"
-          exit 1
-        fi
-        
-        # Write SSH key
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        echo "SSH key written"
-        
-        # Set permissions
         chmod 600 ~/.ssh/id_rsa
-        echo "SSH key permissions set"
-        
-        # Verify key format
-        # Test key format
-        if ! ssh-keygen -l -f ~/.ssh/id_rsa > /dev/null 2>&1; then
-          echo "ERROR: SSH key format is invalid"
-          exit 1
-        fi
-        echo "SSH key format is valid"
-        
-        # Add host to known_hosts (port 18765, matching rsync's SSH)
         ssh-keyscan -p 18765 -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/dev/null
         if [ ! -s ~/.ssh/known_hosts ]; then
           echo "ERROR: ssh-keyscan failed to retrieve host key"
           exit 1
         fi
-        echo "Host key added to known_hosts"
 
-    # Keep in sync with deploy-optimized.yml
     - name: Backup current deployment
       run: |
         DEPLOY_PATH="www/deming.leedurbin.co.nz/public_html"
@@ -202,23 +160,13 @@ jobs:
 
     - name: Deploy to server
       run: |
-        set -e
-        echo "Starting rsync deployment..."
         rsync -avz --delete -e "ssh -p 18765" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
-        echo "Deployment completed successfully"
-        
+
     - name: Tag deployment
       run: |
         git tag "deploy-$(date +%Y%m%d%H%M%S)"
         git push --tags
 
     - name: Cleanup SSH
-      run: |
-        rm -rf ~/.ssh/id_rsa
-        echo "SSH cleanup completed"
-        
-    - name: Deployment Summary
-      run: |
-        echo "✅ Build and deployment completed successfully!"
-        echo "📚 Quarto book built and deployed to deming.leedurbin.co.nz"
-        echo "🔄 Next deployment will occur on next push to main branch" 
+      if: always()
+      run: rm -f ~/.ssh/id_rsa
