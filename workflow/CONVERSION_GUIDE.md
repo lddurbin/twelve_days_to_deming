@@ -182,13 +182,15 @@ Each day is a `part:` with nested `chapters:`:
 
 ## CSS Classes
 
+**Naming convention:** Use kebab-case for all new CSS classes (e.g. `.float-box`, `.fe-button`). Legacy snake_case classes (e.g. `.workbook_callout`) are retained as-is to avoid churn.
+
 | Class | Purpose | Visual |
 |-------|---------|--------|
 | `.thought` | Pause for Thought (no commentary) | Green border |
 | `.thought_commentary` | Pause for Thought with commentary | Red border |
 | `.thought_commentary .collapse` | Hidden commentary revealed by button | Red background |
 | `.technical_aid` | Technical Aid box | Purple background, black border |
-| `.neave_note` | Author's explanatory aside | Serif font, justified |
+| `.neave_note` | Author's explanatory aside | Serif font, left-aligned |
 | `.deming_quote` | Inline Deming quotation highlight | Blue, bold |
 | `.foreman-remark` | Red Beads foreman's dialogue | Navy italic, centered |
 | `.workbook_callout` | Workbook page reference | Yellow background |
