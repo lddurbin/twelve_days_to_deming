@@ -1,0 +1,78 @@
+---
+title: "SECTION 6: MAJOR ACTIVITY 12–e"
+execute:
+  echo: false
+---
+
+<div class="workbook_callout">
+Major Activity 12–e (pages 34–41) is also on Workbook pages 240–247.
+</div>
+
+<div class="thought_commentary">
+
+<div class="major_activity_title">
+
+## MAJOR ACTIVITY 12–e
+
+</div>
+
+This final Major Activity of the course is in two parts. The first part is for everyone. The second part is in two versions: choose which version is the more appropriate for you. The choice will largely depend on the position you hold in your organisation. Divide your time that remains today fairly equally between the two parts.
+
+As you will soon see, you may find it helpful to read through "Leadership for the Transformation" (pages 22--29) one more time before embarking upon Part 1.
+
+### Part 1
+
+Again you may not have the time to produce anything like a complete version of what will be requested here. That does not matter. What does matter is to summarise (perhaps just as brief notes---see below) the major issues as you now see them. If you can afford to spend more time on this after completing the course, first study Chapters 5 ("Questions to help managers"), 14 ("Two reports to management") and 16 ("Organisation for improvement of quality and productivity") in *Out of the Crisis*. And then revise this first attempt---I have left you plenty of space.
+
+During this course you have read a great deal of both Deming's writing and his spoken word. Hopefully you may also have seen something of him on video. But now it's your turn!
+
+Let us imagine that Dr Deming has accepted an invitation to spend time in your organisation. He has permission to go anywhere, to look at anything, and to speak with anybody that he wishes, from all levels in the company, in order to learn how the organisation is managed. (He would not have accepted the invitation otherwise.)
+
+And now imagine that you are Dr Deming. Draft his subsequent report, addressed to the organisation's Chief Executive (or whoever is the "top box" in the vertical organisation chart). You do not have to try to imitate Dr Deming's unique style of writing (although you may do so if you wish). But you are, of course, welcome to use his terminology and phraseology with which you have become familiar. In practice, you would, of course, need to make yourself available to explain any language with which the addressee might be unfamiliar.
+
+Dr Deming's reports to management were often written in note form, the notes being numbered 1, 2, 3, ... and subdivided into a, b, c, ..., when appropriate. The individual notes were often quite short.
+
+If you would like to see a couple of examples of such reports, and have available a copy of *Out of the Crisis*, turn to Chapter 14: "Two Reports to Management" beginning on page 339[397].
+
+*(The following three pages have been left blank for Dr Deming's draft report.)*
+
+```{ojs}
+viewof activity_12e_part1 = Inputs.textarea({placeholder: "Draft your 'Deming report' to the Chief Executive here.", rows: 16})
+```
+
+### Part 2
+
+Your choice of option here largely depends on your position in your organisation. If you are the Chief Executive, or are part of the small top management team around the Chief Executive, then Option 1 is appropriate. Otherwise, Option 2 would generally seem to be the more appropriate. Both options follow straight on from Dr Deming's report (that you have just written).
+
+### Option 1
+
+Formulate your plans for change in your organisation in order to implement the points raised in Dr Deming's report. You will need both a short-term and a longer-term plan. The short-term plan needs to contain some detailed proposals of what to do in the next 8 to 12 months, and the longer-term plan needs to paint the general picture of change in your organisation over at least the next five years. As emphasised both by Dr Deming and by Dave Young in his "Guidance for Middle Managers", one of the earliest priorities will surely be to develop appropriate education for your people: indicate some of its main content.
+
+**OR**
+
+### Option 2
+
+Since you have now nearly completed this course, assume you have been promoted to the position referred to by Dr Deming on Day 10 page 9 as [aide to the president]{.deming_quote}, "the president" being interpreted as your Chief Executive along with the most senior management team. Members of the senior management team have not embarked upon this course (yet!), and thus the first task in your new role will be to work through Dr Deming's report, point by point, with them. Explain where necessary the points and recommendations that he has made, and then help them to formulate their plans to implement appropriate change. During the Second Project you have had plenty of practice at interpreting Dr Deming's guidance in the System of Profound Knowledge for your interested friend, and so the experience gained there should be helpful for this current task.
+
+*(The following three pages have been left blank for your thoughts and ideas.)*
+
+```{ojs}
+viewof activity_12e_part2 = Inputs.textarea({placeholder: "Your plans and thoughts for Part 2 (Option 1 or Option 2).", rows: 16})
+```
+
+```{ojs download_12e}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof activity_12e_part1,
+  viewof activity_12e_part2
+], "major_activity_12e.txt")
+```
+
+</div>
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

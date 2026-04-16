@@ -1,0 +1,132 @@
+---
+title: 'SECTION 3: "BUT WHAT CAN I DO?"'
+execute:
+  echo: false
+---
+
+## Section 3: "BUT WHAT CAN *I* DO?"
+
+Many people who genuinely appreciate the Deming philosophy can feel very frustrated. They now know something of a "better way", but may be too junior in their organisation to feel that they can do anything about it. However, their time may come: after all, many seniors used to be juniors themselves ...
+
+Let me first quote some wise words from Dr Deming that apply to seniors and juniors alike. This short section comes from near the beginning of *The New Economics* Chapter 4. These are some thoughts that were not seen in the early versions of the System of Profound Knowledge. I have already quoted a little of this passage back on Day 7 page 28.
+
+<blockquote>
+“The first step is transformation of the individual. [This first short sentence probably sounds pretty intimidating! So let me make a suggestion. On the assumption that you are not doing so already, how about letting the concept of Win-Win become a major influence in your decision-making and indeed in your life in general? Then you’ll be on the way. If you are doing so already then you are already on the way. The transformation is initially largely a transformation in the way we think, and then as a result (as I have so often said before) in what we do.] This transformation is discontinuous. It comes from understanding of the System of Profound Knowledge. The individual, transformed, will perceive new meaning to his life, to events, to numbers, to interactions between people.
+
+Once the individual understands the System of Profound Knowledge, he will apply its principles in every kind of relationship with other people. He will have a basis for judgment of his own decisions and for transformation of the organisation that he belongs to. The individual, once transformed, will
+
+- Set an example
+- Be a good listener, but will not compromise
+- Continually teach other people
+- Help people to pull away from their current practice and beliefs and move into the new philosophy without a feeling of guilt about the past.”
+</blockquote>
+
+<div class="workbook_callout">
+Pause for Thought 12–c is also on Workbook page 219.
+</div>
+
+<div class="thought" role="note" aria-label="Thought">
+
+## PAUSE FOR THOUGHT 12–c
+
+What do you understand by Dr Deming's second short sentence above: [This transformation is discontinuous]{.deming_quote}?
+
+```{ojs}
+viewof thought_12c = Inputs.textarea({placeholder: "Your thoughts.", rows: 4})
+```
+
+</div>
+
+Much understanding develops gradually---but not all. It may come "in a blinding flash"---or in several blinding flashes, usually well-separated. That has been my experience with learning about the Deming philosophy, and I know it is also true of many of my friends. I wonder if you have experienced any blinding flashes while studying this course. I hope so. But if not---keep at it: they'll come!
+
+That powerful extract from *The New Economics* can apply to anybody---if they are willing. I recommend that you read it and think about how it can relate personally to you, whatever situation you are in, however junior or senior, and to do so repeatedly in the time to come. I think you will also appreciate that (as Deming implies) those wise words represent valuable guidance not only in the workplace but more generally in life as a whole. In particular, it can work well in clubs, associations, etc.---as well as at home!
+
+If, now or later, you find yourself in some position of relative seniority, so that it becomes more possible for you to affect significantly what happens in your organisation or your part of it, what particular guidance comes from Dr Deming? That will be addressed in today's fourth section which begins on page 22. I shall concentrate in this third section on those of you who may well have already been asking yourself---perhaps somewhat plaintively, and maybe from some long way back in the course---the question which heads this section: "But what can *I* do?".
+
+After reading what I have written here, my friend Dr Jackie Graham in Australia e-mailed me as follows:
+
+> "You could be the cleaner and still be an influencer in the organisation, someone who sparks ideas and gets others thinking. It is often the case that effective influencers are not official leaders---but they can still become unofficial leaders. I wonder whether you should state that that is what you are trying to encourage your students to do."
+
+That's well expressed, Jackie. Yes, that is indeed what I would love my students to do.
+
+The guidance for action over the next several pages is split into three levels. I shall ask you first to read through both the rest of this section and all of fourth section since these levels do not have strict boundaries. However, in the Activity which then follows on page 30 *[WB 235]*, I shall recommend that you concentrate particularly on the level(s) that you regard as best applying to your own position in your organisation.
+
+Pages 14--18 *[WB 220--224]* are focused on those who are at staff level---I hesitate to simply call them the "workers" (as some do) because I appreciate that those in management also work! Then attention in the remainder of the current section (pages 19--21 *[WB 225--227]*) moves to those in middle management. Some people in middle management regard themselves, maybe with justification, as "lying between the Devil and the deep blue sea"! Their duty is to manage those for whom they have responsibility but, at the same time, they are in a lowly position compared with the senior management. So, relative to the senior management, they are also "staff" and thus pages 14--18 *[WB 220--224]* could also be pretty relevant to them.
+
+In fact, in terms of the conventional vertical organisation chart (i.e. what Peter Scholtes referred to as the "train-wrecks" chart near the beginning of *The Leader's Handbook*---see Day 9 pages 7--8), self-evidently everyone except those at the very bottom or at the very top are squeezed between those below and those above them. So again, the "levels" to which I am referring cannot have strict boundaries. Even those at the top of an organisation are likely to have yet others "above" them: e.g. the Government in the case of public-service organisations or the market in the case of listed companies.
+
+Then follows Section 4 titled: "Leadership for the Transformation". As that title implies, this is focused on the senior management level. For them it occurs to me that, in comparison with the title of this current section, that next section could be subtitled: "But what *should* I do?".
+
+It is worth mentioning here a very brief remark from Dr Deming in *The Deming of America*:
+
+[A manager is a leader---should be.]{.deming_quote}
+
+If so then there is plenty of substance in "Leadership for the Transformation" for middle management as well.
+
+Almost all of what remains in this current section (pages 14--21 *[WB 220--227]*) has been provided by my good friend Dave Young, for whose contribution I repeat that I am very sincerely grateful. Dave is one of several people that I know who (like me) effectively changed careers soon after Dr Deming arrived on the British scene in the mid-1980s, keen to become more involved with Deming's teaching and understanding, and to help others do likewise. Dave's recommendations here are especially appropriate because, when he was helping organisations to move in this direction, he spent a relatively large proportion of his time working with those at quite junior levels. Dave's advice for the relative "juniors" is thus particularly valuable and of fine pedigree. Back in those far-off days in the early 1980s when I was involved with the Nashua Corporation, I was similarly able to spend a lot of time with those at staff level, and I shall be ever grateful for having had that opportunity: in many ways I learned just as much as (indeed, probably more than) they did---and that, of course, was exceedingly valuable to me for improving my own teaching.
+
+In the style to which you are now accustomed, my own comments both here and in the following section are in italics and smaller print. In the fourth section I have, in fact, added hardly anything to Dr Deming's words on pages 23--29 *[WB 228--234]*. They are expressed in plainer English than his material during the Second Project and I believe that, at this late stage of the course, little "translation" is necessary.
+
+In my timing guidance, you have the rest of this morning to work with the valuable material in these two sections. You can best decide exactly how you work with it and on which parts you concentrate. In particular, you may like to tackle just a few issues but go quite deeply into them. Or you may prefer to take rather briefer looks at a wider selection of the issues, leaving more comprehensive consideration until later. As I said at the start, the rest of the time today is intentionally customisable to you and the position you hold in your organisation---thus you are obviously the better judge about what would be of most benefit and interest to you.
+
+So, wherever you are in your organisation, I recommend that you now **start by reading through all of what follows in this section and the next (i.e. pages 14--29** *[or WB 220--234 along with today's page 23]***)** at a pace that is comfortable for you. I have tentatively suggested a half-hour for this, but feel free to use more or less time as suits you. Don't be put off by the thought of such a large number of pages! As has often been the case, much space is left blank for your own notes and comments.
+
+As you read through these pages for the first time, highlight (here or in the Workbook) those parts which immediately strike you as being particularly relevant and/or interesting to you since that will guide you on how to spend the rest of your time this morning. I'll offer some more guidance in Activity 12–d which immediately follows on page 30 *[WB 235]*. Make some occasional brief notes if you wish during your first read-through, but the main use for the space left after each item is for your observations while you are working on Activity 12–d. The work that you do this morning should be extremely helpful to you in the final Major Activity (very major!) of the course which will then occupy almost the whole of this afternoon.
+
+<div class="workbook_callout">
+Pages 14–21 are also on Workbook pages 220–227.
+</div>
+
+### Guidance for Staff
+
+The obvious one first---if your manager hasn't already seen it, show them this stuff! Invite your manager to get involved with it, and volunteer yourself for any ensuing improvement work.
+
+*[In Dave Young's context (and recall that I am now reproducing his words), this was probably relatively straightforward. The fact that he was working within a particular organisation presumably implied that the manager concerned knew something about what he was teaching and (hopefully) approved of it. Similarly, the fact that you have been working on this course may imply the same about your manager. However, it might be the case that you have been studying this course for other reasons, and your manager may know nothing about it---and, if you're really unlucky, might not care anything about it either! If so then you will, of course, have to tread more carefully. You might have to cultivate interest among friends and colleagues (as I began to do well over 30 years ago!). Some of those friends and colleagues may have a manager who is more inclined and receptive to this kind of thinking, in which case it might be more fruitful for you to channel your efforts in that more favourable direction. If this is the case then naturally you will need to adapt appropriately some of the advice that follows.]*
+
+You are familiar with Deming's "Organisation Viewed as a System" flow diagram. But now construct one for your own personal "system". *[Of course, you are already quite well-practised at drawing such diagrams through Major Activity 9–e (Day 9 pages 11--15). But this is now personally focused on* you *and therefore should probably come together rather more quickly than did your examples on Day 9. The "central track" of the diagram will now be specifically the main aspects of what you do.]* Think hard about, and identify, who are your personal suppliers and customers within the organisation (i.e. rather than the organisation's suppliers and customers). They may or may not work in the same department as you. In other words, identify and map out what "system" you personally work in. Every one of us works in a system [in Deming's sense of the word] and that system usually crosses both departmental and hierarchical boundaries.
+
+*[It may be that you have two (or more) roles in your organisation, involving different activities and different inputs and outputs. If that is the case then, due to time-considerations, it will probably be sensible for you to concentrate on just one of those roles here. However, I would strongly recommend that you return here when convenient at a later date and repeat this paragraph in terms of your other role(s). Are there any interactions between your various roles---or, indeed, any conflicts? This might lead to some interesting new understanding of your situation and perhaps to some useful improvements.]*
+
+Quoting Deming from *The New Economics* page 36[50]:
+
+[A system must have an aim. Without an aim, there is no system.]{.deming_quote}
+
+Think hard about, and identify, the true aim of your personal system. *[Recall that you worked on the concept of the* aim *of a system on Day 10 page 5. But there, similarly as with the flow diagrams in Day 9's Major Activity (Day 9 pages 11--15), the concentration was primarily on the "system" being an organisation. Again, here we are instead concentrating on your own personal system. Also, in this current context, you may sometimes (as previously) find it useful to interpret "aim" as "purpose".]* Hopefully, the true aim of your system should have less to do with meeting targets and more to do with pleasing your customer(s).
+
+When you have identified your system and its aim, think hard about, and identify, what can tell you whether or not you are successfully working toward that aim, i.e. your "system measure(s)". You may discover something important that is not currently being measured by your organisation; what will you do if you find this to be the case? Is it possible to control-chart your key measure(s)? If you can (a) get a good picture of your system, (b) identify its aim, and (c) if possible, examine its key measures on control charts, necessary improvement actions are likely to start becoming obvious. At this point, you may wish to check back to Day 5 pages 26--27 on the fifth Deadly Disease; also, Dr Deming wrote about [running a company on visible figures alone]{.deming_quote} on *Out of the Crisis* pages 103--107(121--126). If you believe that "unknown and unknowable figures" apply to you (as they do to most people) then both they and visible figures need to be taken into account. Something that can always be done is to maintain a continuing conversation with your internal suppliers and customers *[for mutual help, cooperation and improvement---see Dave's next item]*.
+
+When you have identified your internal customer(s), talk to them. Ask them:
+
+- What do you need from me?
+- What do you do with what I give you?
+- Is there anything you need from me that I am not giving you?
+
+Areas of improvement may become obvious---and you may get a few surprises!
+
+Are there any people in your organisation whom you perceive to be your competitors? Given what you have learned during this course, what do you want to do about this? Would it make a difference if they (or their manager) had also been working on the course?
+
+Identify what power to act you possess. What can you do by yourself or with the help of your colleagues, and what would you need permission to do? Identify which of Deming's teachings you can apply yourself, and where. Where you haven't the authority to act, try to involve your manager---but be careful that you don't leave your manager feeling threatened or belittled in any way.
+
+### Guidance for Middle Managers
+
+*[As I have already pointed out, middle managers are effectively at staff level in relation to the senior management, and so the preceding pages have relevance to them as well. In addition, Dave has also provided some useful thoughts about what they should try to do to help their own staff; these follow on this and the next two pages. But those in middle management need to tread carefully: as already observed, they can well be in the unenviable position of "between the Devil and the deep blue sea". To cultivate some friendships with "those in high places" can be helpful for all.*
+
+*So spend a little time thinking about each of these six issues that Dave raises here, and jot down any thoughts and reactions that occur to you about how they could apply to you and what actions you might be able to take.]*
+
+Encourage and help your staff to get involved with this stuff.
+
+Set up a study programme for your staff, wherever they are in the organisation.
+
+Give them time to study.
+
+Give them time and support to apply what they have learned.
+
+Institute a regime/culture of continual improvement by your staff, throughout the organisation.
+
+If you want this stuff to work in your organisation, you will need to make a serious commitment in time and resources to it.
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

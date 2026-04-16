@@ -1,0 +1,101 @@
+---
+title: "SECTION 4: LEADERSHIP FOR THE TRANSFORMATION"
+execute:
+  echo: false
+---
+
+## Section 4: LEADERSHIP FOR THE TRANSFORMATION
+
+Early on Day 5 we looked at the page of "Attributes of a Leader" (*DemDim* page 335) which Dr Deming started to use in some four-day seminars around 1989. That page showed the first version he produced. Over the next few months the list grew and developed. Further, going back to *Out of the Crisis* pages 99--101(116--118), there is a fine section called "Modern principles of leadership". That section commences with two incredibly powerful paragraphs (see near the top of the next page *[WB 228]*) that unambiguously demonstrate how Dr Deming considered the usual judgmental type of performance appraisal as being utterly incompatible with genuine leadership. In contrast, that introduction is then followed by a list of innocently-termed "suggestions" for genuine leadership.
+
+Following those two introductory paragraphs, I present here an expanded list of such suggestions derived both from what is contained in *Out of the Crisis* along with later versions of the "Attributes of a Leader". I have made no attempt to exclude topics that we saw in the first "Attributes" list---they bear repetition!
+
+If and when you find yourself in a position of leadership, I hope this expanded list will be helpful to you. But before that---i.e. right now!---I'd like you to start thinking about some of the implications of this guidance in the context of your organisation. As usual, I have left some space for you to write your notes after each part of the guidance. Those notes will then come in useful when you reach the final Major Activity this afternoon. However, as with the System of Profound Knowledge on Days 10 and 11, a proper study and discussion of this material would take an order of magnitude longer than you have available at this time; therefore, as with the Second Project, there will clearly be much more to do after this course is finished.
+
+As regards the remaining time this morning, you will soon notice that my timing guidance is rather rushing you through Dr Deming's material on the next seven pages. Those timings are advising you to start by having a fairly quick look-through these pages, making very brief notes of your first reactions and highlighting what strike you as particularly important items. But that will then leave you with plenty of time for Activity 12–d on pages 30--33 *[WB 235--238]* which will focus you on various specific considerations about the issues involved with Dr Deming's material. Write your thoughts on specific items directly underneath those items and more general considerations on the blank pages left for you in Activity 12–d.
+
+So, over to Dr Deming:
+
+<div class="workbook_callout">
+Pages 23–33 are also on Workbook pages 228–234.
+</div>
+
+### Modern principles of leadership
+
+> “Modern principles of leadership ... will replace the annual performance review. The first step in a company will be to provide education in leadership. The annual performance review may then be abolished. Leadership will take its place. This is what Western management should have been doing all along.
+>
+> The annual performance review sneaked in and became popular because it does not require anyone to face the problems of people. It is easier to rate them; focus on the outcome. What Western industry needs is methods that will improve the outcome. *Suggestions follow.*”
+
+<div class=”deming_blue”>
+
+**1.** Institute education in leadership: obligations, principles, and methods.
+
+**2.** Ensure more careful selection of people in the first place.
+
+**3.** After selection, ensure better training and education.
+
+- A leader encourages his people to study.
+- He tries to optimise the education, skills, and abilities of everyone to improve.
+- He provides, when possible and feasible, seminars and courses for advancement of learning.
+- He encourages continued education in college or university for people that are so inclined.
+
+**4.** A leader understands that all people are different from each other.
+
+- He creates trust. He is aware that creation of trust requires that he take a risk.
+- He tries to create for everybody interest and challenge, and joy in work.
+
+**5.** He creates freedom and innovation.
+
+- Improvement and innovation are his aim.
+
+**6.** A leader is coach and counsel, not a judge.
+
+- Instead of being a judge, he will be a colleague, counselling and leading the people on a day-to-day basis, learning from them and with them.
+
+**7.** A leader is an unceasing learner.
+
+- He listens and learns without passing judgment on him that he listens to.
+- He does not expect perfection.
+
+**8.** A leader will discover who if any of his people is (a) outside the system on the good side, (b) outside the system on the poor side, (c) belonging to the system. If numbers are used for measures of performance, the calculations required (i.e. of control limits) are fairly simple.
+
+- Monetary reward for outstanding performance outside the system, without other more satisfactory recognition, may be counterproductive.
+- People that are on the poor side of the system may require special help. Simple rearrangement of the work might be the answer.
+
+**9.** Ranking of people (outstanding down to unsatisfactory) that belong to the system violates scientific logic and is ruinous as a policy.
+
+- The people of a group that form a system will all be subject to the company's formula for raises in pay. This formula may involve (e.g.) seniority. It will not depend on rank within the group, as the people within the system will not be ranked No. 1, No. 2, ... No. last. (In bad times, there may be no raise for anybody.)
+- The day is here when anybody deprived of a raise or of any privilege through misuse of figures for performance (as by ranking the people in a group) may with justice file a grievance. *[I certainly wish that our legal system encouraged this.]*
+
+**10.** Figures on performance should be used not to rank the people in a group that fall within the system, but to assist the leader to accomplish improvement of the system.
+
+- A leader will study results with the aim to improve his work.
+- These figures may also point out to him some of his own weaknesses.
+
+**11.** In the absence of numerical data, a leader must make subjective judgment.
+
+- He will hold a long interview with every one of his people, three or four hours, at least once a year, not for criticism, but for help and understanding on the part of everybody. They will know what kind of help they need.
+- There will sometimes be incontrovertible evidence of excellent performance, such as patents, publication of papers, invitations to give lectures.
+
+**12.** A leader has three sources of power: (1) Formal; (2) Knowledge; (3) Personality.
+
+A successful leader develops (2) and (3); does not rely on (1). He has nevertheless obligation to use (1), as this source of power enables him to change the system---equipment, material, methods---to bring improvement, such as to reduce variation in output.
+
+- He understands a stable system. What to do about mistakes and failures of people, how to help them. What to do about accidents and breakdowns in a stable system is entirely different from action to take in an unstable system.
+
+**13.** Everybody must be on a team to work for improvement of quality in the four steps of the Shewhart Cycle.
+
+- Improvement of the system will help everybody, and will decrease the spread between the figures for the performances of people.
+
+**14.** A leader and his people understand the meaning of a system, and how the work of his group may support its aim.
+
+- A leader works in cooperation with preceding stages and with following stages toward optimisation of the efforts of all stages. He sees his group as a component in a system.
+- He understands the benefits of cooperation and the losses from competition between people and between groups.
+
+</div>
+
+<div class=”separator”>
+  <div class=”separator_white”>
+  <div class=”separator_blue”></div>
+  </div>
+</div>

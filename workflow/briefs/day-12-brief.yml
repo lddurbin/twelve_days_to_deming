@@ -1,0 +1,556 @@
+# ============================================================
+# Day 12 Brief
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 12
+  title: "Bringing It All Together — and Making It Happen"
+  source_prefix: "O.Day.12.16Feb22"
+  page_count: 48
+
+# ------ Chapter Plan ------
+# PNG pages 1-4 are front matter (cover, blank, section TOC, blank).
+# Printed pages 1-44 correspond to PNGs 5-48.
+# Page numbers below are printed page numbers (as in
+# "Day 12 : page N" footer), not PNG file indices.
+
+chapters:
+  - slug: "overture"
+    title: "OVERTURE"
+    pages: "1"
+    notes: |
+      PNG 005. Opens Day 12 with an overview of the seven sections
+      and how the day's time will be apportioned. Summarises what
+      each section contains (Your Radar Diagram; Wisdom from Peter
+      Scholtes; "But what can I do?"; Leadership for the
+      Transformation; Activity 12-d; Major Activity 12-e; Epilogue).
+
+      SESSION TOC (PNG 003) can optionally be referenced here via the
+      section list; no need to crop the TOC figure itself since its
+      contents (section/page/timing) are expressed in the prose.
+
+      No Pauses, no Activities, no clocks on this page — pure framing.
+
+  - slug: "your-radar-diagram"
+    title: "SECTION 1: YOUR RADAR DIAGRAM"
+    pages: "2-6"
+    notes: |
+      PNG 006-010. Participants collect their 0-5 scores from Day 10
+      (Activities 10a-b) and Day 11 (Activities 11a-b) into a table,
+      then plot them on a radar / quadrilateral diagram with axes
+      PSYCHOLOGY / SYSTEM / VARIATION / KNOWLEDGE. Interpretation
+      guidance follows.
+
+      Page 2 (PNG 006): Section 1 heading. ACTIVITY 12-a, Part 1
+      (collect scores into table on page 4) and Part 2 (choose KEY
+      colours/shapes for 14 Points + 5 Diseases, entered into KEY
+      column of table on page 4).
+
+      Page 3 (PNG 007): Small radar-diagram figure (empty) with
+      PSYCHOLOGY/VARIATION/SYSTEM/KNOWLEDGE axes, 0-5 scale. Text
+      sets up "Point 1" example with broken green lines. ACTIVITY
+      12-a Part 3 instruction: carry out procedure using table on
+      page 4 to plot all 14 Points and 5 Diseases on page 5.
+      FIGURE: crop the small radar diagram on page 3.
+
+      Page 4 (PNG 008): The 14 Points + Deadly Diseases KEY table
+      (blank grid — KEY | Appreciation for a system | Knowledge of
+      variation | Theory of knowledge | Knowledge of psychology).
+      This is the working table for Activity 12-a Parts 1-3.
+      FIGURE: crop the table from page 4.
+
+      Page 5 (PNG 009): Larger radar-diagram figure (blank, empty
+      quadrilateral with axes) for the user to plot their scores.
+      Section "Interpretation of your radar diagram" begins —
+      discussion of what high/low scores, spread shapes, and
+      "quadrilaterals" reveal.
+      FIGURE: crop the larger radar diagram from page 5.
+
+      Page 6 (PNG 010): Interpretation continues. References back to
+      Days 4-5 for 14 Points/Deadly Diseases sources. Expanded
+      discussion of DemDim Part 5, Out of the Crisis Chapter 3, and
+      Bill Scherkenbach's two books (The Deming Management Method;
+      Deming's Road to Continual Improvement). Discussion of The
+      New Economics for further reading.
+
+      IMPLEMENTATION: Activity 12-a has three parts.
+        - Part 1 is data collection (copy scores from prior
+          activities into the table). We can't transcribe filled-in
+          values — provide a blank interactive table or a note that
+          participants use their downloaded notes.
+        - Part 2 is the KEY colour/shape decision — open text input
+          or a note directing users to Workbook page 215.
+        - Part 3 is the plotting step (physical / Workbook action) —
+          represent with a workbook_callout and instruction.
+        Simplest render: prose + cropped figures + a single combined
+        Activity 12-a block noting the three parts and pointing to
+        Workbook pages 215-217.
+
+      Workbook callouts observed:
+        - "Activity 12-a, Part 1 is also on Workbook page 215."
+        - "As with Part 1 of this Activity, Part 2 is also on
+           Workbook page 215."
+        - "Activity 12-a, Part 3 is also on Workbook page 215."
+        - Table caption: "This table is used in Activity 12-a, Parts
+           1-3 and is also on Workbook page 216."
+        - Large diagram (page 5) caption: "Activity 12-a, Part 3 is
+           also on Workbook page 217."
+
+  - slug: "wisdom-from-peter-scholtes"
+    title: "SECTION 2: WISDOM FROM PETER SCHOLTES"
+    pages: "7-10"
+    notes: |
+      PNG 011-014. Long extract from Peter Scholtes' The Leader's
+      Handbook (a Motor Equipment Operation case study), followed by
+      Peter's interlinked Profound Knowledge diagram and its parody
+      ("A System of Profound Trouble!").
+
+      Page 7 (PNG 011): Section 2 heading. Intro: "Profound Knowledge
+      in a motor equipment operation". Long Peter Scholtes quotation
+      begins — First Street Garage, City of Madison WI; Scholtes'
+      story about Motor Equipment Operation. Cycle time, morale,
+      customer feedback.
+
+      Page 8 (PNG 012): Scholtes quote continues (cycle time analysis,
+      improvement). "Introduction to Activity 12-b" section begins —
+      recalls Peter's diagram from Day 1 and points to the four-area
+      interlinking (Balaji Reddie's "Contributions" on Day 10 page 34
+      mentioned).
+      FIGURE: crop the FILLED Peter Scholtes Profound Knowledge
+      diagram on page 8 (4 outer boxes + 4 triangles + 6 inter-link
+      labels including "PREDICTION" at centre).
+
+      Page 9 (PNG 013): ACTIVITY 12-b — empty version of the Scholtes
+      diagram for the user to fill in. Instruction: identify and
+      write important connections between pairs of the four parts.
+      FIGURE: crop the EMPTY version of the Scholtes diagram on
+      page 9 (same layout, empty link areas).
+      Workbook callout: "Activity 12-b is also on Workbook page 218."
+
+      Page 10 (PNG 014): "A System of Profound Trouble!" — Peter
+      Scholtes' parody/mirror diagram. Four boxes of failure modes:
+        - Not understanding systems
+        - Not understanding a theory of knowledge
+        - Not understanding variation
+        - Not understanding psychology and human behaviour
+      FIGURE: crop the "System of Profound Trouble" diagram.
+
+      IMPLEMENTATION: Activity 12-b is a drawing/reflection activity.
+      Represent with a thought_commentary box containing a textarea
+      (viewof activity_12b_1) plus the cropped empty-diagram image.
+      No commentary block needed — it's a discussion-style activity.
+
+  - slug: "but-what-can-i-do"
+    title: 'SECTION 3: "BUT WHAT CAN I DO?"'
+    pages: "11-21"
+    notes: |
+      PNG 015-025. Large section combining Dr Deming's quote on
+      individual transformation, Pause for Thought 12-c, and Dave
+      Young's "Guidance for Staff" and "Guidance for Middle Managers"
+      sequences (each a six-item structured list of practical
+      suggestions).
+
+      Page 11 (PNG 015): Section 3 heading. Extended Deming quote
+      from The New Economics Chapter 4 ("The first step is
+      transformation of the individual...") — render the quoted
+      passage with .deming_quote styling. Callout: "Pause for
+      Thought 12-c is also on Workbook page 219." Then PAUSE FOR
+      THOUGHT 12-c: "What do you understand by Dr Deming's second
+      short sentence above: 'This transformation is discontinuous'?"
+
+      IMPLEMENTATION PfT 12-c: thought_commentary box with textarea
+      (viewof thought_12c). The source has NO explicit commentary
+      reveal — it's a pure reflection prompt before discussion on
+      page 12 continues. Use the plain .thought (green box) class
+      OR .thought_commentary without the collapse button — check
+      Days 10-11 for the prevailing style when no Appendix commentary
+      is indicated. Spot-check source page 11 for any "(For brief
+      discussion see Appendix page N.)" line; if absent, use .thought.
+
+      Page 12 (PNG 016): PfT 12-c continues briefly (flash of
+      understanding metaphor — render as prose, not as PfT body).
+      Discussion of senior / middle / junior levels. Jackie Graham
+      quote (Australia) on influencers vs official leaders. The
+      remainder of Section 4 (Leadership for the Transformation)
+      is the 4th level; this section addresses levels 1-3 via Dave
+      Young's guidance. Reference to WB pages 220-224, 225-227 for
+      Dave's material.
+
+      Page 13 (PNG 017): Very brief Deming aside: "A manager is a
+      leader — should be." Intro to Dave Young's guidance —
+      biographical note (Nashua, NH; Pensacola; mid-1980s). "Start
+      by reading through all of this section and the next" directive.
+      References WB pages 220-234.
+
+      Page 14 (PNG 018): Callout: "Pages 14-21 are also on Workbook
+      pages 220-227." GUIDANCE FOR STAFF heading. Dave Young context
+      paragraph (italic). First guidance point: "The obvious one
+      first — if your manager hasn't already seen it, show them this
+      stuff! Invite your manager to get involved with it, and
+      volunteer yourself for any ensuing improvement work."
+
+      Pages 14-21 (PNGs 018-025) present Dave's guidance as a
+      sequence of one-sentence / short-paragraph bold directives
+      separated by large blocks of intentionally-blank writing space.
+      Transcribe each directive and preserve the whitespace
+      (structurally — we won't literally blank out the screen but
+      the directives are signposted, not buried).
+
+      Directives observed:
+        Staff (pages 14-18):
+          p.14: "Encourage and help your staff to get involved with this stuff."
+          p.15: "You are familiar with Deming's "Organisation Viewed
+                 as a System" flow diagram..." (extended italic
+                 instruction — a reflection prompt about mapping
+                 your own system).
+          p.16: Quoting Deming "A system must have an aim..."
+                discussion of 'system measure(s)', references to
+                control charts and Day 9 page 27; extended italic
+                reflection on unknown/unknowable figures (Out of
+                the Crisis Diseases 2-3).
+          p.17: "When you have identified your internal customer(s),
+                talk to them. Ask them:
+                - What do you need from me?
+                - What do you do with what I give you?
+                - Is there anything you need from me that I am not
+                  giving you?"
+                Later: "Are there any people in your organisation
+                whom you perceive to be your competitors? Given what
+                you have learned..." (reflection prompt).
+          p.18: "Identify what power to act you possess..." (power
+                to act; involving your manager; care not to threaten
+                them).
+
+        Middle Managers (pages 19-21):
+          p.19: GUIDANCE FOR MIDDLE MANAGERS heading; italic context
+                paragraph. Directive: "Encourage and help your staff
+                to get involved with this stuff." Later: "Set up a
+                study programme for your staff, wherever they are in
+                the organisation."
+          p.20: "Give them time to study." (large whitespace) "Give
+                them time and support to apply what they have learned."
+          p.21: "Institute a regime / culture of continual improvement
+                by your staff, throughout the organisation." (large
+                whitespace) "If you want this stuff to work in your
+                organisation, you will need to make a serious
+                commitment in time and resources to it." (Clock at
+                bottom-right.)
+
+      IMPLEMENTATION: Present Dave's directives as a run of
+      highlighted prose, each directive in bold or a .neave_note-like
+      treatment. Do NOT render the literal whitespace — instead,
+      keep the directives as short sections separated by normal
+      paragraph breaks. Italic/context paragraphs (e.g. the
+      Guidance-for-Middle-Managers preface) should use .neave_note.
+      A single clock appears at PNG 025 (printed page 21) — include.
+
+  - slug: "leadership-for-the-transformation"
+    title: "SECTION 4: LEADERSHIP FOR THE TRANSFORMATION"
+    pages: "22-29"
+    notes: |
+      PNG 026-033. Section 4 introduction plus "Modern Principles of
+      Leadership" — a numbered 14-item list (numbered 1-14, 2 per
+      printed page across pages 23-29). Items are in BLUE text.
+
+      Page 22 (PNG 026): Section 4 heading. Intro paragraphs —
+      recalls Day 5 "Attributes of a Leader" (DemDim page 335),
+      Out of the Crisis pages 99-101/116-118. The extended list that
+      follows is Dr Deming's later "suggestions" for genuine
+      leadership. Notes that participants should read-through and
+      highlight first, then revisit for Activity 12-d.
+
+      Callout on page 23: "Pages 23-33 are also on Workbook pages
+      228-234."
+
+      Pages 23-29 (PNGs 027-033): Fourteen principles, two per page,
+      all in BLUE text. Each principle has a heading bullet + one or
+      more sub-bullets. Transcribe verbatim with .deming_quote
+      styling OR a dedicated blue-principles class — spot-check Day
+      5 for the existing convention.
+
+      Principles (from source):
+        1. Institute education in leadership: obligations, principles, and methods.
+        2. Ensure more careful selection of people in the first place.
+        3. After selection, ensure better training and education.
+           - A leader encourages his people to study.
+           - He tries to optimise the education, skills, and abilities of everyone to improve.
+           - He provides, when possible and feasible, seminars and courses for advancement of learning.
+           - He encourages continued education in college or university for people that are so inclined.
+        4. A leader understands that all people are different from each other.
+           - He creates trust. He is aware that creation of trust requires that he take a risk.
+           - He tries to create for everybody interest and challenge, and joy in work.
+        5. He creates freedom and innovation.
+           - Improvement and innovation are his aim.
+        6. A leader is coach and counsel, not a judge.
+           - Instead of being a judge, he will be a colleague, counselling and leading the people on a day-to-day basis, learning from them and with them.
+        7. A leader is an unceasing learner.
+           - He listens and learns without passing judgment on him that he listens to.
+           - He does not expect perfection.
+        8. A leader will discover who if any of his people is (a) outside the system on the good side, (b) outside the system on the poor side, (c) belonging to the system. If numbers are used for measures of performance, the calculations required (i.e. of control limits) are fairly simple.
+           - Monetary reward for outstanding performance outside the system, without other more satisfactory recognition, may be counterproductive.
+           - People that are on the poor side of the system will require special help. Simple rearrangement of the work might be the answer.
+        9. Ranking of people (outstanding down to unsatisfactory) that belong to the system violates scientific logic and is ruinous as a policy.
+           - The people of a group that form a system will all be subject to the company's formula for raises in pay. This formula may involve (e.g.) seniority. It will not depend on rank within the group, as the people within the system will not be ranked No. 1, No. 2, ... No. last. (In bad times, there may be no raise for anybody.)
+           - The day is here when anybody deprived of a raise or any privilege through misuse of figures for performance (as by ranking the people in a group) may with justice file a grievance. [I certainly hope that our legal system encouraged this.]
+       10. Figures on performance should be used not to rank the people in a group that fall within the system, but to assist the leader to accomplish improvement of the system.
+           - A leader will study results with the aim to improve his work.
+           - These figures may also point out to him some of his own weaknesses.
+       11. In the absence of numerical data, a leader must make subjective judgment.
+           - He will hold a long interview with every one of his people, three or four hours, at least once a year, not for criticism, but for help and understanding on the part of everybody. They will know what kind of help they need.
+           - There will sometimes be incontrovertible evidence of excellent performance, such as patents, publication of papers, invitations to give lectures.
+       12. A leader has three sources of power: (1) Formal; (2) Knowledge; (3) Personality.
+           - A successful leader develops (2) and (3); does not rely on (1). He has nevertheless obligation to use (1), as this source of power enables him to change the system — equipment, material, methods — to bring improvement, such as to reduce variation in output.
+           - He understands a stable system. What to do about mistakes and failures of people, how to help them. What to do about accidents and breakdowns in a stable system is entirely different from action to take in an unstable system.
+       13. Everybody must be on a team to work for improvement of quality in the four steps of the Shewhart Cycle.
+           - Improvement of the system will help everybody, and will decrease the spread between the figures for the performances of people.
+       14. A leader and his people understand the meaning of a system, and how the work of his group may support its aim.
+           - A leader is working in cooperation with preceding stages and with following stages toward optimisation of the efforts of all stages. He sees his group as a component in a system.
+           - He understands the benefits of cooperation and the losses from competition between people and between groups.
+
+      Clocks: PNGs 029 (printed p.25), 031 (printed p.27), 033
+      (printed p.29) each carry a clock glyph.
+
+      IMPLEMENTATION: render all 14 principles as one long blue
+      ordered/nested list, with the top-level points bold and
+      sub-points as bullets. Use a section-level .deming_quote wrapper
+      if that's how Day 5 handled Deming's attributes; otherwise use
+      a dedicated class — confirm by reading a Day 5 chapter.
+
+  - slug: "activity-12d"
+    title: "SECTION 5: ACTIVITY 12–d"
+    pages: "30-33"
+    notes: |
+      PNG 034-037. Section 5 is Activity 12-d — a reflection Activity
+      that invites the user to pick items from Dr Deming's "Modern
+      Principles of Leadership" (Section 4) and Dave's "Guidance"
+      (Section 3) that are most relevant and most interesting to their
+      own situation, and jot their answers in the space provided.
+
+      Page 30 (PNG 034): Callout "Activity 12-d (pages 30-33) is
+      also on Workbook pages 235-239." ACTIVITY 12-d header.
+      Introduction + guiding questions (bulleted lists: "Why is this
+      item in the guidance?", "What will happen if I succeed in
+      doing this?", "What will happen if I don't?", practical
+      questions list ending in "What plan of action would make sense?
+      i.e. what is Step 1, Step 2, Step 3, ... ?").
+
+      Page 31 (PNG 035): "Jot down your answers to some of these
+      questions and other notes..." italic instruction. Then
+      "(continued overleaf)".
+
+      Pages 32-33 (PNGs 036-037): Intentionally-blank writing pages
+      (green border on page 32, green border + red/blue separator at
+      bottom of page 33; clock on page 33). "(Page intentionally
+      left blank.)" label top-right.
+
+      IMPLEMENTATION: Wrap the guiding text in a thought_commentary
+      block; render the two bulleted question lists as ordinary
+      bullet lists inside the Activity. Provide a single large
+      textarea (viewof activity_12d_1, rows=20) for user notes,
+      replacing the two blank pages. Include the closing red/blue
+      separator at end of chapter. Include a clock at end (matches
+      page 33).
+
+  - slug: "major-activity-12e"
+    title: "SECTION 6: MAJOR ACTIVITY 12–e"
+    pages: "34-41"
+    notes: |
+      PNG 038-045. The final Major Activity of the course, in two
+      parts. Part 1 is for everyone; Part 2 has two variant options
+      and uses the chosen one depending on user's position.
+
+      Page 34 (PNG 038): Major activity blue-pill heading "MAJOR
+      ACTIVITY 12-e". Callout "Major Activity 12-e (pages 34-41) is
+      also on Workbook pages 240-247." "Section 6" prose. Part 1
+      heading. Dr Deming is imagined as invited into the user's
+      organisation — the user drafts Dr Deming's subsequent report
+      addressed to the Chief Executive. Reference to Out of the
+      Crisis Chapter 14 ("Two Reports to Management" p.339[397]).
+      "(The following three pages have been left blank for Dr
+      Deming's draft report.)"
+
+      Pages 35-37 (PNGs 039-041): Intentionally-blank writing pages
+      for Part 1 (clock on page 37; "(Part 2 of this Major Activity
+      begins overleaf.)").
+
+      Page 38 (PNG 042): Part 2 heading. Two options:
+        Option 1 (if Chief Executive / small top-management team):
+          Formulate your plans for change in your organisation in
+          order to implement the points raised in Dr Deming's
+          report. Short-term and longer-term plans.
+        Option 2 (otherwise):
+          Assume you have been promoted to "aide to the president"
+          (as referred to on Day 10 page 9). Explain the president's
+          plans to implement Dr Deming's guidance.
+        "(The next three pages have been left blank for your
+        thoughts and ideas.)"
+
+      Pages 39-41 (PNGs 043-045): Intentionally-blank writing pages
+      for Part 2 (clock on page 41; "(Please move on to the
+      'Epilogue' overleaf.)").
+
+      IMPLEMENTATION: One chapter with .major_activity_title pill,
+      clear Part 1 / Part 2 sub-headings, and THREE textareas:
+        viewof activity_12e_part1   (Part 1 draft report — rows=25)
+        viewof activity_12e_option1 (Part 2 Option 1 plans — rows=20)
+        viewof activity_12e_option2 (Part 2 Option 2 explanation — rows=20)
+      Both Options presented with an "OR" separator between them;
+      the user chooses one. Include one clock at end.
+
+  - slug: "epilogue"
+    title: "SECTION 7: EPILOGUE"
+    pages: "42-43"
+    notes: |
+      PNG 046-047 (plus blank PNG 048). Closing of the entire course.
+      Extract from the soundtrack near the end of The Deming of
+      America. Priscilla Petty interviews Dr Deming about the medal
+      he received from the Emperor of Japan.
+
+      Page 42 (PNG 046): Section 7 heading. Dialogue script format
+      (Priscilla Petty / Narrator / Dr Deming). Background: in 1960
+      the Prime Minister of Japan, on behalf of Emperor Hirohito,
+      awarded Deming Japan's Second Order Medal of the Sacred
+      Treasure. PHOTO of the medal in the middle of the page.
+      Dialogue:
+        P P: How did you feel when he gave that to you?
+        Dr Deming: Oh, totally unworthy.
+        P P: You felt unworthy?
+        Dr D: Yes.
+        P P: Why?
+        Dr D: Oh, it was a matter of luck.
+      Narrator commentary on the cultural paradox — Deming a hero
+      in Japan, unknown in the United States.
+        P P: I asked about another medal from our President.
+        Dr D: Well, the medal from the President of the United States
+              came 28 years after the medal from the Emperor of Japan.
+
+      FIGURE: crop the medal photo from page 42.
+
+      Page 43 (PNG 047): Epilogue closes. "28 years after..."
+      meditation. "Better late than never" — "I have done my best."
+      as the closing line (display as centred bold — matches
+      major-principle formatting).
+      Final clock glyph in bottom-right of page 43.
+
+      Page 44 (PNG 048): Blank / end of Day 12.
+
+      IMPLEMENTATION: Use .foreman-remark-style dialogue styling OR
+      a similar speaker-tagged prose treatment — check existing days
+      (the Red Beads foreman dialogue pattern may work, but this is
+      an interview, not a call-and-response). If no suitable class
+      exists, render as speaker: italic quoted text with a left
+      indent via plain markdown blockquotes.
+
+      Close the chapter (and therefore the book) with the centred
+      bold line "I have done my best." — ideally inside a styled
+      block (e.g. .deming_quote with text-align:center if the
+      existing class supports it).
+
+# ------ Figure Decisions ------
+figures:
+  - page: 3
+    action: "crop"
+    notes: "Empty small radar diagram (PSYCHOLOGY/SYSTEM/VARIATION/KNOWLEDGE, 0-5 scale)"
+    output: "radar-diagram-small.png"
+
+  - page: 4
+    action: "crop"
+    notes: "14 Points + Deadly Diseases KEY table (blank grid for Activity 12-a)"
+    output: "radar-diagram-key-table.png"
+
+  - page: 5
+    action: "crop"
+    notes: "Larger radar diagram (empty quadrilateral) for plotting all 19 scores"
+    output: "radar-diagram-large.png"
+
+  - page: 8
+    action: "crop"
+    notes: "Peter Scholtes' Profound Knowledge diagram — FILLED version with 6 inter-link labels and central PREDICTION triangle"
+    output: "scholtes-profound-knowledge-filled.png"
+
+  - page: 9
+    action: "crop"
+    notes: "Peter Scholtes' Profound Knowledge diagram — EMPTY version for Activity 12-b"
+    output: "scholtes-profound-knowledge-empty.png"
+
+  - page: 10
+    action: "crop"
+    notes: "A System of Profound Trouble! — Scholtes' parody with 4 failure-mode boxes"
+    output: "system-of-profound-trouble.png"
+
+  - page: 42
+    action: "crop"
+    notes: "Photograph of Japan's Second Order Medal of the Sacred Treasure"
+    output: "deming-medal.png"
+
+# ------ Context Notes ------
+context_notes: |
+  Day 12 is the culminating day of the course — "Bringing It All
+  Together". Structurally it has seven sections, rendered as eight
+  chapters (overture + the seven sections).
+
+  Scope of interactive elements:
+    - Activity 12-a (3 parts: data-collection, KEY choice, plotting)
+    - Activity 12-b (Scholtes diagram fill-in)
+    - Pause for Thought 12-c (transformation is discontinuous)
+    - Activity 12-d (reflection on leadership principles + guidance)
+    - Major Activity 12-e (two parts; Part 2 has two options)
+    NO Red Beads, no Funnel, no Dice. NO Technical Aids.
+
+  Cross-references to earlier days (verify during transcription):
+    - Day 1 (Peter Scholtes' original Profound Knowledge diagram)
+    - Day 4 pages 16-25 and Day 5 pages 2-17 (14 Points)
+    - Day 5 pages 18-27 (Deadly Diseases)
+    - Day 5 DemDim page 335 / Out of the Crisis pp.99-101, 116-118
+      ("Attributes of a Leader")
+    - Day 9 page 27 (0-5 rating scale explanation, system measures)
+    - Day 9 Major Activity 9-e pages 11-15 (Organisation Viewed as
+      a System)
+    - Day 10 page 9 ("aide to the president" reference)
+    - Day 10 page 34 (Balaji Reddie's "Contributions" re: inter-area
+      connections in Profound Knowledge)
+    - Days 10-11 (scores from Activities 10-a, 10-b, 11-a, 11-b
+      feed Activity 12-a)
+
+  External references:
+    - Out of the Crisis Chapters 3, 14 (pp.99-101, 116-118, 339[397])
+    - DemDim pages 274-279 (Parts C/D); DemDim Part 5 Chapter 2;
+      DemDim page 335 (Attributes of a Leader); DemDim page 337
+    - The New Economics Chapters 4, 9 (pp.66-78 for Parts C/D;
+      p.36[50] for systems aim)
+    - Bill Scherkenbach: The Deming Management Method (1986);
+      Deming's Road to Continual Improvement
+    - Peter Scholtes: The Leader's Handbook (Chapter 2 "Logical
+      Change"; Chapters 5, 7, 14)
+
+  Clocks observed: printed pp.2, 5, 12, 17, 21, 25, 27, 29, 33, 37,
+  41, 43. Include clock glyphs in chapters where they appear.
+
+  Workbook page map:
+    - Activity 12-a: WB 215-217
+    - Activity 12-b: WB 218
+    - Pause for Thought 12-c: WB 219
+    - Dave Young "Guidance for Staff": WB 220-224
+    - Dave Young "Guidance for Middle Managers": WB 225-227
+    - Modern Principles of Leadership: WB 228-234
+    - Activity 12-d: WB 235-239
+    - Major Activity 12-e: WB 240-247
+
+  STYLING:
+    - Deming's own quoted words: .deming_quote (blue bold)
+    - Neave's interleaved commentary / editorial asides: .neave_note
+    - Modern Principles of Leadership (pages 23-29): printed in BLUE
+      in the source — needs either .deming_quote wrapper or a
+      dedicated blue-list class. Confirm Day 5 "Attributes of a
+      Leader" styling before authoring.
+    - Activity 12-b diagram drawing: textarea only (users describe
+      their links in prose rather than drawing)
+    - Epilogue dialogue: speaker-tagged interview format — use
+      blockquotes or existing dialogue class
+    - Final line "I have done my best." — centred bold, display-
+      sized
+
+  DELIVERABLE: this is the last day of the course. Ensure the final
+  chapter's closing leaves a clean emotional note and links back
+  into the _quarto.yml as the last part:.

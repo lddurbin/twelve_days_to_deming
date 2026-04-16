@@ -128,6 +128,17 @@ book:
         - content/days/day-11/07-activity-11b.qmd
         - content/days/day-11/08-coda.qmd
 
+    - part: "Day 12: Bringing It All Together — and Making It Happen"
+      chapters:
+        - content/days/day-12/01-overture.qmd
+        - content/days/day-12/02-your-radar-diagram.qmd
+        - content/days/day-12/03-wisdom-from-peter-scholtes.qmd
+        - content/days/day-12/04-but-what-can-i-do.qmd
+        - content/days/day-12/05-leadership-for-the-transformation.qmd
+        - content/days/day-12/06-activity-12d.qmd
+        - content/days/day-12/07-major-activity-12e.qmd
+        - content/days/day-12/08-epilogue.qmd
+
 format:
   html:
     theme: cosmo

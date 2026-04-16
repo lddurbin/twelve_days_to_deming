@@ -1,0 +1,54 @@
+---
+title: "SECTION 7: EPILOGUE"
+execute:
+  echo: false
+---
+
+## Section 7: EPILOGUE
+
+This is an extract from the soundtrack near the end of *The Deming of America*. You first read part of the Narrator's introduction and saw the picture of the medal long ago: on Day 1 page 36.
+
+*Priscilla Petty (the interviewer):* I asked Dr Deming to show me the medal he received from the Emperor of Japan for his
+contribution to their economic recovery after World War 2.
+
+*Narrator:* In 1960, the Prime Minister of Japan, acting on behalf of Emperor Hirohito, awarded Dr Deming
+Japan’s Second Order Medal of the Sacred Treasure. The citation on the medal attributes Japan’s
+industrial rebirth and its worldwide success to W Edwards Deming. No honour among business-men and industrialists in Japan is more coveted.
+
+*PP:* How did you feel when he gave that to you?
+
+*Dr Deming:* Oh, totally unworthy.
+
+*PP:* *You* felt unworthy?
+
+*Dr Deming:* Yes.
+
+*PP:* Why?
+
+*Dr Deming:* Oh, it was a matter of luck.
+
+![The Second Order Medal of the Sacred Treasure, awarded to Dr Deming by the Emperor of Japan](/assets/images/day-12/deming-medal.png){fig-align=”center” width=”30%” .lightbox}
+
+*Narrator:* Quite obviously, a grateful Japanese people don’t share Dr Deming’s humble view that it was only “a matter of luck”. Each year, since 1951, the Japanese have awarded a medal named in Dr Deming’s honour to those companies which have attained the highest level of quality. His presence at an award ceremony ... is considered the ultimate honour.
+
+And it’s a strange paradox that this American, who is a national hero in Japan, until recent years was virtually unknown in the United States---a prophet without honour in his own country.
+
+*PP:* I asked about another medal from *our* President.
+
+*Dr Deming:* **Well, the medal from the President of the United States came 28 years after the medal from the Emperor of Japan.**
+
+And that's all he had to say about it: *"58 years after"*. However, by now you will have become very familiar with the way in which that gentleman could express so much in so few words. Indeed, it was very late in his life that the Western world began to appreciate the genius of this man. It is, to me, a shattering thought that we could permanently have lost the opportunity to ever learn anything from him. But, as the old saying has it: "Better late than never". Otherwise, for example, it is certain that you would not have had the opportunity to embark upon this course---because it would not exist.
+
+But it does. "Better late than never" meant that I was one of the fortunate people that had the incredible honour and privilege to meet Dr Deming, to get to know him, to learn from him, and to work with him. Like many others from that time, I can truthfully claim that Dr Deming changed my life. However, we are all getting older and, at this time of writing, it is already more than a quarter-century since anyone had the opportunities that I was so fortunate to enjoy.
+
+But, during the 20 years or so before my retirement, I had the further privilege of presenting many hundreds of seminars and courses---thus involving many thousands of delegates and students---that were solidly focused on Dr Deming's teaching. I have tried to pour as much as possible of the experience that I thus gained into every one of these *12 Days to Deming*. So I hope that this course may also change some lives, and that those whose lives are thus changed will carry on to change yet more. Now that you have made a start, I beg you to continue on this path of lifelong learning and help others to also make a start. Please do all that you can to ensure that the part of the world in which you live knows about Dr Deming and becomes familiar with his priceless wisdom and the guidance that stems from it. If you do then you will truly be able to share with Dr W Edwards Deming the five little words with which invariably he concluded his four-day seminars:
+
+::: {style="text-align: center; font-size: 1.3em; font-weight: bold; margin: 1.5em 0;"}
+"I have done my best."
+:::
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>

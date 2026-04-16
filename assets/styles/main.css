@@ -139,6 +139,10 @@ Usage:
   padding-left: 0.5em;
 }
 
+.deming_blue {
+  color: #0000b3;
+}
+
 .foreman-remark {
   display: block;
   font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
