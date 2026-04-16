@@ -1,0 +1,210 @@
+# ============================================================
+# Day 1 Brief — The Overture (retroactive)
+# ============================================================
+# Created: 2026-04-16 (retroactive — documenting existing conversion)
+# Day 1 was converted before the brief system was introduced.
+# This brief reconstructs the chapter-to-page mapping from the
+# finished QMD files and source PDF.
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 1
+  title: "The Overture"
+  source_prefix: "D.Day.1.07Feb22"
+  page_count: 50
+
+# ------ Page Mapping ------
+# Day 1 source PNGs do NOT exist in 12-Days-to-Deming/PNGs/.
+# The conversion was done before the PNG workflow was established.
+# Page numbers below are ESTIMATED printed page numbers based on
+# content alignment with the PDF. The PDF has 50 pages total;
+# front matter (title, blank, TOC) likely occupies pages 1-4,
+# giving printed pages 1-46.
+#
+# Because the source PNGs are unavailable, page ranges are
+# approximate and cannot be verified against images.
+
+# ------ Chapter Plan ------
+# 13 chapters covering the full day (morning + afternoon sessions).
+# The morning session (chapters 01-10) runs through introductory
+# and contextual material. The afternoon session (chapters 11-13)
+# covers The Deming Story and the first Major Activity.
+
+chapters:
+  - slug: "overture"
+    title: "DAY 1 (morning): THE OVERTURE"
+    pages: "1-2"
+    notes: |
+      Opening page with Dr Deming and Dr Neave photo (day_1_fig_1.jpg).
+      Clock at 9:30. Sets the scene for the course.
+    interactive: "none"
+
+  - slug: "rediscovered"
+    title: "DEMING (RE)DISCOVERED"
+    pages: "3-8"
+    notes: |
+      Historical overview of Deming's rediscovery by Western industry.
+      Photos: William E Conway (day_1_fig_2.png), Deming Medal
+      (day_1_fig_3.jpg), Dr Lloyd S Nelson (day_1_fig_4.png),
+      Dr Walter A Shewhart (day_1_fig_5.png). Clock at 9:40.
+    interactive: "none"
+
+  - slug: "statistics"
+    title: "'STATISTICS? OH NO!'"
+    pages: "9-13"
+    notes: |
+      Reassurance about the statistical content of the course.
+      Three stats levels (0, 1, 2) explained.
+      Clocks at 9:55, 10:00, 10:10.
+    interactive: "none"
+
+  - slug: "resources"
+    title: "HELPFUL BOOKS AND VIDEOS"
+    pages: "14-16"
+    notes: |
+      Reading list and video resources. Clock at 10:25.
+    interactive: "none"
+
+  - slug: "activities"
+    title: "ACTIVITIES, MAJOR ACTIVITIES, PAUSES FOR THOUGHT, PROJECTS AND 'YOUR ORGANISATION'"
+    pages: "17-19"
+    notes: |
+      Explains the interactive element types used throughout the course.
+      Clock at 10:35.
+    interactive: "none"
+
+  - slug: "outline"
+    title: "OUTLINE OF THE COURSE"
+    pages: "20-24"
+    notes: |
+      Overview of all 12 days. Clock at 10:55.
+    interactive: "none"
+
+  - slug: "quality-theory"
+    title: "QUALITY, THEORY, PHILOSOPHY, MANAGEMENT,..."
+    pages: "25-30"
+    notes: |
+      First substantive content section. Contains Pauses for Thought
+      1-a, 1-b, 1-c. Two workbook callouts (WB pages 1, 2).
+      Clocks at 11:10, 11:20, 11:25, 11:35. Download button for
+      thoughts 1a/1b/1c.
+    interactive: "3 Pauses for Thought (viewof thought_1a, thought_1b, thought_1c), 1 download button"
+
+  - slug: "attraction"
+    title: "THE ATTRACTION OF DEMING'S WORK"
+    pages: "31-35"
+    notes: |
+      Activity 1-d (WB page 3) and Activity 1-e (WB page 4).
+      The "dissatisfied callers" number input exercise.
+      Clocks at 11:45, 12:00, 12:10. Download button for
+      activities 1d/1e.
+    interactive: "2 activities (viewof activity_1d, activity_1e_1, activity_1e_2), 1 download button"
+
+  - slug: "different"
+    title: "DEMING IS DIFFERENT"
+    pages: "36-38"
+    notes: |
+      Distinguishes Deming's approach from other quality gurus.
+      Clock at 12:25.
+    interactive: "none"
+
+  - slug: "relief"
+    title: "SOME LIGHT RELIEF"
+    pages: "39"
+    notes: |
+      Brief humorous interlude before lunch. Clock at 12:30.
+    interactive: "none"
+
+  - slug: "deming-story"
+    title: "DAY 1 (afternoon): THE DEMING STORY"
+    pages: "40-46"
+    notes: |
+      Biographical narrative of Deming's life and career.
+      Photos: Ken-ichi Koyanagi with Dr Deming (day_1_fig_6.png),
+      Japan's Second Order Medal of the Sacred Treasure
+      (day_1_fig_7.png). Clocks at 1:30, 1:40, 2:20, 2:30,
+      2:50, 3:30. Longest chapter in Day 1.
+    interactive: "none"
+
+  - slug: "intro-activity"
+    title: "INTRODUCTION TO THE MAJOR ACTIVITY"
+    pages: "47"
+    notes: |
+      Sets up Major Activity 1-f. Clock at 3:40.
+    interactive: "none"
+
+  - slug: "major-activity"
+    title: "MAJOR ACTIVITY 1-f"
+    pages: "48-50"
+    notes: |
+      Final chapter. 10 paired textareas (a/b for items 1-10)
+      covering Deming's key teachings. Workbook callout referencing
+      WB pages 5-7. Download button for all 20 viewof fields.
+      Most interactive chapter of Day 1.
+    interactive: "21 viewof fields (10 pairs + extras), 1 download button"
+
+# ------ Figure Decisions ------
+# Day 1 images use legacy naming (day_1_fig_N) rather than the
+# descriptive naming convention adopted from Day 3 onward.
+
+figures:
+  - page: 1
+    action: "existing"
+    notes: "Dr Deming and Dr Neave photo → day_1_fig_1.jpg"
+
+  - page: 4
+    action: "existing"
+    notes: "William E Conway photo → day_1_fig_2.png"
+
+  - page: 5
+    action: "existing"
+    notes: "Deming Medal photo → day_1_fig_3.jpg"
+
+  - page: 7
+    action: "existing"
+    notes: "Dr Lloyd S Nelson photo → day_1_fig_4.png"
+
+  - page: 8
+    action: "existing"
+    notes: "Dr Walter A Shewhart photo → day_1_fig_5.png"
+
+  - page: 43
+    action: "existing"
+    notes: "Ken-ichi Koyanagi with Dr Deming → day_1_fig_6.png"
+
+  - page: 45
+    action: "existing"
+    notes: "Japan's Second Order Medal of the Sacred Treasure → day_1_fig_7.png"
+
+# ------ Context Notes ------
+context_notes: |
+  Day 1 was the first day converted and predates the structured
+  5-phase workflow. Key differences from later days:
+
+  1. Source PNGs do not exist — the PDF was used directly during
+     the original conversion. Page numbers in this brief are
+     estimates based on content alignment; they cannot be verified
+     against source images.
+
+  2. Image naming uses legacy convention (day_1_fig_N) rather
+     than the descriptive names adopted from Day 3 onward.
+
+  3. The morning/afternoon split is reflected in the chapter
+     titles ("Day 1 (morning)" and "Day 1 (afternoon)").
+
+  4. Cross-references to other materials:
+     - Workbook pages 1-7 referenced (WB callouts in chapters
+       07, 08, 13)
+     - Appendix page 6 referenced in chapter 07
+       (appendix.html#sec-page6)
+     - DemDim, Out of the Crisis, and The New Economics cited
+       throughout
+
+  5. No clocks appear in Day 2, but Day 1 uses them extensively
+     (20+ clock indicators across the day).
+
+  Gaps: No pages appear to be missing from coverage. The 13
+  chapters span the full 50-page PDF. The only content excluded
+  would be front matter (title page, TOC) and any trailing
+  blank pages.

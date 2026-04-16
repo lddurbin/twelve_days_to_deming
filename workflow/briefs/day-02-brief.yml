@@ -1,0 +1,219 @@
+# ============================================================
+# Day 2 Brief — The Experiment on Red Beads (retroactive)
+# ============================================================
+# Created: 2026-04-16 (retroactive — documenting existing conversion)
+# Day 2 was converted before the brief system was introduced.
+# This brief reconstructs the chapter-to-page mapping from the
+# finished QMD files and source PDF.
+# ============================================================
+
+# ------ Day Metadata ------
+day:
+  number: 2
+  title: "The Experiment on Red Beads"
+  source_prefix: "E.Day.2.12Oct21"
+  page_count: 44
+
+# ------ Page Mapping ------
+# Source PNGs exist at 12-Days-to-Deming/PNGs/E.Day.2.12Oct21_page_NNN.png
+# (44 files, pages 005-048 — suggesting 4 pages of front matter).
+#
+# Page offset: printed_page = png_page - 4
+# (4 pages of front matter: title, blank, TOC pages)
+#
+# Page numbers below are ESTIMATED printed page numbers based on
+# content in the QMD files. Without a Phase 1 recon, these are
+# approximate but informed by workbook callouts and content flow.
+
+# ------ Chapter Plan ------
+# 9 chapters covering the full day. The Red Beads Experiment is
+# the centrepiece, with run charts as warm-up and a postscript
+# closing.
+
+chapters:
+  - slug: "run-charts"
+    title: "RUN CHARTS"
+    pages: "1-5"
+    notes: |
+      Opening section reviewing run charts. Includes a run chart
+      image (Picture 1.jpg) showing declining values. Pause for
+      Thought 2-a (WB page 9). Download button.
+    interactive: "1 Pause for Thought (viewof thought_2a), 1 download button"
+
+  - slug: "intro-to-the-red-beads-experiment"
+    title: "INTRODUCTION TO THE RED BEADS EXPERIMENT"
+    pages: "6-8"
+    notes: |
+      Sets up the Red Beads Experiment. Pause for Thought 2-b
+      (WB page 10) and Pause for Thought 2-c (WB page 11).
+      Six viewof fields (5 text inputs for worker names + 1
+      textarea). Download button.
+    interactive: "6 viewof fields (thought_2b, thought_2c, 4 text inputs), 1 download button"
+
+  - slug: "a-brief-overview"
+    title: "A BRIEF OVERVIEW"
+    pages: "9-12"
+    notes: |
+      Overview of the experiment mechanics. Handwritten results
+      table image (image-2.png) shown twice (in-flow and in a
+      float-box). Pause for Thought 2-d (WB pages 12-13).
+      Download button.
+    interactive: "1 Pause for Thought (viewof thought_2d), 1 download button"
+
+  - slug: "our-first-control-chart"
+    title: "OUR FIRST CONTROL CHART"
+    pages: "13-14"
+    notes: |
+      Introduction to control charts using Red Beads data. Pause
+      for Thought 2-e (WB page 13). Download button.
+      No images — control chart is generated in R.
+    interactive: "1 Pause for Thought (viewof thought_2e), 1 download button"
+
+  - slug: "the-truth-the-whole-truth-and-nothing-but"
+    title: "THE TRUTH, THE WHOLE TRUTH, AND NOTHING BUT ..."
+    pages: "15-21"
+    notes: |
+      Deep dive into what the Red Beads Experiment teaches.
+      Photo of Red Beads apparatus (image-4.jpg). Workbook
+      callout. No viewof fields (drawing pad mentioned in
+      callout but no textarea).
+    interactive: "none"
+
+  - slug: "your-turn"
+    title: "YOUR TURN"
+    pages: "22-27"
+    notes: |
+      Activity 2-f (WB pages 14-19). The user runs their own
+      version of the Red Beads Experiment. 20 viewof fields
+      (number inputs for Red Beads data entry — 6 workers x
+      4 weeks, plus totals and calculations). Heavy interactive
+      chapter with R-generated tables and control charts.
+    interactive: "20 viewof fields (number inputs for data entry)"
+
+  - slug: "some-recollections"
+    title: "SOME RECOLLECTIONS"
+    pages: "28-37"
+    notes: |
+      Activity 2-g (WB pages 20-25). Recollections of real Red
+      Beads experiments. The most figure-heavy chapter: 10 images
+      (image-5.jpg through image-14.png) showing results tables
+      from professional statisticians and Spanish participants.
+      12 viewof fields. Longest chapter of Day 2.
+    interactive: "12 viewof fields, no download button"
+
+  - slug: "major-activity"
+    title: "MAJOR ACTIVITY"
+    pages: "38-39"
+    notes: |
+      Major Activity 2-h (WB pages 26-29). Workbook callout
+      references Appendix pages 1-5. 2 viewof fields (textareas
+      for user responses).
+    interactive: "2 viewof fields (textareas)"
+
+  - slug: "postscript"
+    title: "POSTSCRIPT"
+    pages: "40"
+    notes: |
+      Brief closing section. Spanish Red Beads Experiment results
+      table (postscript-table.png). No interactive elements. No
+      workbook callout. Final page of Day 2 content.
+    interactive: "none"
+
+# ------ Figure Decisions ------
+# Day 2 images use legacy naming (Picture 1.jpg, image-N.ext)
+# rather than the descriptive naming convention adopted from
+# Day 3 onward.
+
+figures:
+  - page: 2
+    action: "existing"
+    notes: "Run chart of declining values → Picture 1.jpg"
+
+  - page: 10
+    action: "existing"
+    notes: "Handwritten Red Beads results table → image-2.png"
+
+  - page: 16
+    action: "existing"
+    notes: "Red Beads apparatus photo → image-4.jpg"
+
+  - page: 28
+    action: "existing"
+    notes: "Professional statisticians' results table → image-5.jpg"
+
+  - page: 29
+    action: "existing"
+    notes: "Spaniards' results table → image-6.png"
+
+  - page: 30
+    action: "existing"
+    notes: "Week 1 professional statisticians → image-7.png"
+
+  - page: 31
+    action: "existing"
+    notes: "Week 2 professional statisticians → image-8.png"
+
+  - page: 32
+    action: "existing"
+    notes: "Week 3 professional statisticians → image-9.png"
+
+  - page: 33
+    action: "existing"
+    notes: "Week 4 professional statisticians → image-10.png"
+
+  - page: 35
+    action: "existing"
+    notes: "Week 1 Spaniards' results → image-11.png"
+
+  - page: 36
+    action: "existing"
+    notes: "Week 2 Spaniards' results → image-12.png"
+
+  - page: 37
+    action: "existing"
+    notes: "Week 3 Spaniards' results → image-13.png"
+
+  - page: 38
+    action: "existing"
+    notes: "Week 4 Spaniards' results → image-14.png"
+
+  - page: 40
+    action: "existing"
+    notes: "Spanish Red Beads Experiment results → postscript-table.png"
+
+# ------ Context Notes ------
+context_notes: |
+  Day 2 was converted early in the project, before the structured
+  5-phase workflow. Key differences from later days:
+
+  1. Source PNGs exist (E.Day.2.12Oct21_page_NNN.png, 44 files)
+     but no Phase 1 recon was performed. Page ranges in this brief
+     are estimates based on content and workbook callout references.
+
+  2. Image naming uses legacy convention (Picture 1.jpg, image-N)
+     rather than the descriptive names adopted from Day 3 onward.
+
+  3. No clocks are used in Day 2 (unlike Day 1 which has 20+).
+
+  4. The Red Beads data entry (chapter 06, "Your Turn") is the
+     first major interactive R-powered section in the book — users
+     enter their own experimental data and see generated control
+     charts.
+
+  5. Cross-references:
+     - Appendix pages 1-5 referenced in Major Activity 2-h
+     - Red Beads data and concepts are referenced heavily in
+       Days 3-12
+     - Sales data from Day 2 is revisited on Day 3 page 14
+
+  6. Download buttons appear in chapters 01-04 only. Chapters
+     05-09 lack download buttons — this may be an inconsistency
+     from the early conversion.
+
+  Gaps: Pages 41-44 of the PDF are likely blank/end matter and
+  are not covered by any chapter. All substantive content appears
+  to be accounted for across the 9 chapters.
+
+  Page coverage summary:
+    Pages 1-40: covered by chapters 01-09
+    Pages 41-44: presumed blank/end matter (not covered)
