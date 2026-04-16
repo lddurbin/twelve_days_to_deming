@@ -163,7 +163,19 @@ figures:
 
   - page: 35
     action: "existing"
-    notes: "Week 1-4 Spaniards' results → image-11 through image-14.png"
+    notes: "Week 1 Spaniards' results → image-11.png"
+
+  - page: 36
+    action: "existing"
+    notes: "Week 2 Spaniards' results → image-12.png"
+
+  - page: 37
+    action: "existing"
+    notes: "Week 3 Spaniards' results → image-13.png"
+
+  - page: 38
+    action: "existing"
+    notes: "Week 4 Spaniards' results → image-14.png"
 
   - page: 40
     action: "existing"
