@@ -345,6 +345,11 @@ Usage:
     padding: 15px;
   }
   
+  /* Large spacers: reduce on mobile to avoid huge blank gaps */
+  .spacer-2xl { margin-top: 100px; }
+  .spacer-3xl { margin-top: 150px; }
+  .spacer-4xl { margin-top: 200px; }
+
   /* Activity titles */
   .major_activity_title {
     margin: 15px auto;
