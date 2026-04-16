@@ -255,6 +255,13 @@ Usage:
 /* ===== UTILITY CLASSES ===== */
 .mt-sm { margin-top: 10px; }
 .mt-md { margin-top: 20px; }
+.spacer-sm  { margin-top: 50px; }
+.spacer-md  { margin-top: 100px; }
+.spacer-lg  { margin-top: 175px; }
+.spacer-xl  { margin-top: 300px; }
+.spacer-2xl { margin-top: 400px; }
+.spacer-3xl { margin-top: 600px; }
+.spacer-4xl { margin-top: 1300px; }
 .text-highlight-red { color: var(--color-outcome); font-weight: bold; }
 .data-sequence-mono { text-align: center; font-family: monospace; }
 .table-cell-highlight { background: var(--color-highlight-green); font-weight: bold; }

@@ -131,7 +131,7 @@ before Dr Deming resumed his teaching. However, he was always there: watching, l
 :::
   
 ::: {.column width="15%"}
-<div style="margin-top: 170px">
+<div class="spacer-lg">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(9, 40)
 ```

@@ -255,7 +255,7 @@ What did he mean by <span class=deming_quote>“the theory of a system, and coop
 
 ::: {.column width="15%"}
 
-<div style="margin-top: 100px">
+<div class="spacer-md">
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 create_clock(2, 30)
@@ -274,8 +274,6 @@ create_clock(2, 30)
 </span>
 
 ```{r day1_flowchart1}
-
-library(DiagrammeR)
 
 grViz("
   digraph flowchart {
@@ -522,12 +520,9 @@ inter-depend. This is a *rich* legacy.
 :::
 
 ::: {.column width="50%"}
-<div style="margin-top: 50px">
+<div class="spacer-sm">
 ```{r day1_plot}
 #| crop: true
-
-# Load necessary libraries
-library(ggplot2)
 
 # Create a data frame for the rectangles and their labels
 rectangles <- data.frame(
