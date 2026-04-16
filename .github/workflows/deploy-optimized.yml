@@ -1,5 +1,8 @@
 name: Build and Deploy (Optimized)
 
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
     inputs:
@@ -113,6 +116,13 @@ jobs:
       run: |
         echo "Checking index.html exists..."
         test -f _book/index.html || { echo "FAIL: _book/index.html missing"; exit 1; }
+
+        HTML_COUNT=$(find _book -name "*.html" | wc -l)
+        echo "Found $HTML_COUNT HTML files"
+        if [ "$HTML_COUNT" -lt 10 ]; then
+          echo "FAIL: Build produced fewer than 10 HTML files — aborting deploy"
+          exit 1
+        fi
 
         echo "Checking converted days..."
         for day_dir in content/days/day-*/; do
