@@ -130,6 +130,7 @@ jobs:
 
         HTML_COUNT=$(find _book -name "*.html" | wc -l)
         echo "Found $HTML_COUNT HTML files"
+        # Minimum expected HTML files — prevents rsync --delete from wiping production on partial builds
         if [ "$HTML_COUNT" -lt 10 ]; then
           echo "FAIL: Build produced fewer than 10 HTML files — aborting deploy"
           exit 1
