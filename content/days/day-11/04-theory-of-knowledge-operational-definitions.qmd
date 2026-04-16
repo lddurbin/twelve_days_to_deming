@@ -109,6 +109,16 @@ viewof note_11_demdim_partc_complete = Inputs.textarea({placeholder: "Final note
 For your future reference, the section of Chapter 4 in <em>The New Economics</em> which relates to Part C runs from the middle of page 69[bottom of page 101] to page 72[107].
 </div>
 
+```{ojs download_all_11_area3}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof note_11_opdef_7, viewof note_11_opdef_8,
+  viewof note_11_opdef_9, viewof note_11_demdim_area3,
+  viewof note_11_demdim_partc_complete
+], "notes_11_operational_definitions.txt")
+```
+
 <div class="separator">
   <div class="separator_white">
   <div class="separator_blue"></div>

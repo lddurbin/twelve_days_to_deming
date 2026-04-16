@@ -224,6 +224,19 @@ viewof note_11_demdim_partd = Inputs.textarea({placeholder: "Additional notes fr
 For your future reference, the section of <em>The New Economics</em> Chapter 4 relating to Part D is on pages 73--78[107--115].
 </div>
 
+```{ojs download_all_11_partd}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof note_11_psych_1, viewof note_11_psych_2,
+  viewof note_11_psych_3, viewof note_11_psych_4,
+  viewof note_11_psych_5a, viewof note_11_psych_5b,
+  viewof note_11_psych_5c, viewof note_11_psych_5d,
+  viewof note_11_psych_5e, viewof note_11_psych_5f,
+  viewof note_11_demdim_partd
+], "notes_11_knowledge_of_psychology.txt")
+```
+
 *(Continue to Activity 11-b overleaf.)*
 
 <div class="separator">

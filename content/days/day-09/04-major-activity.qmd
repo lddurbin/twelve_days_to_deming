@@ -5,7 +5,7 @@ execute:
 ---
 <div class="workbook_callout" role="note" aria-label="Workbook reference">Major Activity 9–e (pages 11–15) is also on Workbook pages 144–148.</div>
 
-<div class="major_activity_title">MAJOR ACTIVITY 9–e</div>
+<div class="major_activity_title"><h2>MAJOR ACTIVITY 9–e</h2></div>
 
 With what you have learned this morning fresh in mind, it is now time for you to try to develop a "macro" flow diagram of your organisation. To prepare the ground for that, I will quote in advance an extract in Dr Deming's own words from Day 10:
 

@@ -228,4 +228,16 @@ For your later reference (but not now!), the sections of *The New Economics* mos
   </div>
 </div>
 
+```{ojs download_all_10_parta}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof note_10_components, viewof note_10_aim,
+  viewof note_10_optimisation, viewof note_10_aide_flowdiagram,
+  viewof note_10_orchestra_business, viewof note_10_schools_performance,
+  viewof note_10_poor_management, viewof note_10_winlose,
+  viewof note_10_suboptimisation_taguchi, viewof note_10_demdim_parta
+], "notes_10_appreciation_for_a_system.txt")
+```
+
 *(After the break, continue to Activity 10-a overleaf.)*
