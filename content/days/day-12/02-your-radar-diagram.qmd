@@ -16,7 +16,7 @@ Activity 12–a, Part 1 is also on Workbook page 215.
 
 <div class="thought_commentary">
 
-# ACTIVITY 12–a, Part 1
+## ACTIVITY 12–a, Part 1
 
 Your first task is simply to collect together all of your 0--5 scores from Activities 10a–b and 11a–b into the table on page 4. If you haven't printed out an extra copy of that table (suggested on Day 11 page 36), it will make life easier if you temporarily detach that page so that you won't have to keep turning back to it. (The table is deliberately set on a left-hand page because it will be convenient for you to have the table and the radar diagram on facing pages in the third part of this Activity.)
 
@@ -32,7 +32,7 @@ As with Part 1 of this Activity, Part 2 is also on Workbook page 215.
 
 <div class="thought_commentary">
 
-# ACTIVITY 12–a, Part 2
+## ACTIVITY 12–a, Part 2
 
 So now choose your 19 combinations of colours and line styles and indicate them in the KEY column on page 4, one against each of the 14 Points and each of the five Deadly Diseases. For example, if you've decided that your four-line shape for Point 1 (Create Constancy of Purpose) is to be drawn with broken green lines: −−−−−− as in the diagram on page 3, indicate that as I've shown in the KEY column on page 4.
 
@@ -50,7 +50,7 @@ Activity 12–a, Part 3 is also on Workbook page 215.
 
 <div class="thought_commentary">
 
-# ACTIVITY 12–a, Part 3
+## ACTIVITY 12–a, Part 3
 
 Ready, go! Using your chosen KEYs in turn, carry out this procedure on the large radar diagram below, illustrating your scores that you've recorded in the table for all the 14 Points and five Deadly Diseases.
 

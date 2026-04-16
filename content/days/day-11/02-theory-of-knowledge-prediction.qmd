@@ -122,6 +122,15 @@ Now briefly read through *DemDim* page 274, paragraph 1 to page 275, paragraph 4
 viewof note_11_demdim_area1 = Inputs.textarea({placeholder: "Additional notes from DemDim pages 274–275.", rows: 6})
 ```
 
+```{ojs download_all_11_area1}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof note_11_prediction_1, viewof note_11_prediction_2,
+  viewof note_11_prediction_3, viewof note_11_demdim_area1
+], "notes_11_prediction.txt")
+```
+
 <div class="separator">
   <div class="separator_white">
   <div class="separator_blue"></div>

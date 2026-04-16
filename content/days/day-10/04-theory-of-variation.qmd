@@ -184,6 +184,17 @@ viewof note_10_demdim_partb = Inputs.textarea({placeholder: "Additional notes fr
 The section of *The New Economics* Chapter 4 relating to Part B is pages 67–69[98–101]. However, there is much more: indeed, all of the book's final four chapters (other than the additional final chapter in the Third Edition) are also immediately relevant.
 </div>
 
+```{ojs download_all_10_partb}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof note_10_variation_12, viewof note_10_capability_leadership,
+  viewof note_10_measurement_mistakes, viewof note_10_shewhart_interaction,
+  viewof note_10_enumerative_analytic, viewof note_10_loss_random,
+  viewof note_10_committee_outside, viewof note_10_demdim_partb
+], "notes_10_theory_of_variation.txt")
+```
+
 <div class="separator">
   <div class="separator_white">
   <div class="separator_blue"></div>
