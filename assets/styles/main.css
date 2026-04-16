@@ -39,13 +39,13 @@
   --color-outcome: #cc0000;
   --color-bg-light: #f9f9f9;
   --color-border-gray: #999;
-  --color-highlight-green: #90EE90;
+  --color-highlight-green: #90ee90;
   --color-callout-emphasis: #ffe0e0;
 }
 
 /* ===== CALLOUT COMPONENTS ===== */
-/* Base callout styles */
-.callout {
+.workbook_callout {
+  background-color: yellow;
   border: 2px solid black;
   text-align: center;
   height: 40px;
@@ -55,12 +55,15 @@
   font-style: italic;
 }
 
-.workbook_callout {
-  background-color: yellow;
-}
-
 .return_callout {
   background-color: #b6dde8;
+  border: 2px solid black;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-style: italic;
 }
 
 .arrival_callout {
@@ -72,18 +75,13 @@
 
 .info_callout {
   background-color: #c2d69b;
-}
-
-/* Override base .callout styles for Quarto's native callout blocks */
-.callout.callout-note,
-.callout.callout-warning,
-.callout.callout-important,
-.callout.callout-tip,
-.callout.callout-caution {
-  height: auto;
-  line-height: normal;
-  text-align: left;
-  font-style: normal;
+  border: 2px solid black;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-style: italic;
 }
 
 /* ===== FLOATING BOX COMPONENTS ===== */
@@ -123,7 +121,7 @@ Usage:
 
 /* ===== CONTENT STYLES ===== */
 .neave_note {
-  text-align: justify;
+  text-align: left;
   font-family: serif;
   margin: 20px 0;
   line-height: 1.6;
@@ -216,13 +214,13 @@ Usage:
 /* ===== SEPARATOR COMPONENTS ===== */
 .separator {
   height: 40px;
-  background-color: #FF0000;
+  background-color: #ff0000;
   border: 5px solid #000000;
   padding: 5px;
 }
 
 .separator_white {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   height: 20px;
   padding: 5px;
 }
@@ -322,7 +320,9 @@ Usage:
   }
   
   /* Callout adjustments */
-  .callout {
+  .workbook_callout,
+  .return_callout,
+  .info_callout {
     height: auto;
     min-height: 40px;
     line-height: 1.4;
@@ -330,7 +330,7 @@ Usage:
     margin: 10px 5px;
     font-size: 14px;
   }
-  
+
   /* Thought boxes */
   .thought,
   .thought_commentary {
@@ -571,6 +571,10 @@ button:focus,
 }
 .fe-button-reset:hover {
   background-color: #b02a37;
+}
+.fe-button:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
 }
 
 /* Status bar */
