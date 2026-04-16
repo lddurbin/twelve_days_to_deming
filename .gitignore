@@ -21,3 +21,6 @@ issues/
 **/*.quarto_ipynb
 
 docs/context/analysis/
+
+venv/
+temp/
