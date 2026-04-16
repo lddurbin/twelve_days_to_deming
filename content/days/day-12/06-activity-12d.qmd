@@ -1,0 +1,66 @@
+---
+title: "SECTION 5: ACTIVITY 12–d"
+execute:
+  echo: false
+---
+
+<div class="workbook_callout">
+Activity 12–d (pages 30–33) is also on Workbook pages 235–239.
+</div>
+
+<div class="thought_commentary">
+
+## Section 5: ACTIVITY 12–d
+
+This Activity builds upon the sections that you have just read through, particularly on the parts that are most relevant and of most interest to you. You will have highlighted some already. Here I'll make some general and natural observations about what to choose.
+
+If you are in senior management, or indeed you are the Chief Executive, then have no doubt that Dr Deming's "Modern Principles of Leadership" will be more than adequate to keep you busy for far longer than the rest of this morning! Indeed, that is likely to be true of just those items which you have already highlighted. So be guided by them.
+
+If your position can be described as "staff" then, equally obviously, your focus will be on the "Guidance for Staff" section (pages 14--18). However, "staff" covers a wide range. Some staff are relative newcomers whereas others have been around for quite a while and thus have a lot of knowledge about, and experience of, the organisation. The latter are therefore likely to be given some additional responsibilities from time to time. Consequently, it could well be that some of the guidance for middle management (pages 19--21) will also be important.
+
+If you are already in middle management then that term also covers a wide range: from "lower middle" to "upper middle". So, in addition to the half-dozen items that Dave has provided in his "Guidance for Middle Managers", "lower middle" managers may also find some of the "Guidance for Staff" of relevance whereas "upper middle" managers may similarly find some of the "Modern Principles of Leadership" to be of importance.
+
+So then, how to tackle the items that you want to pursue? As we have previously seen from time to time, a good way to proceed is to ask yourself lots of questions. Perhaps most important of these are:
+
+- Why is this item in the guidance?
+- What will happen if I succeed in doing this?
+- What will happen if I don't?
+
+Maybe the answers will be obvious to you. Even if so, you are likely to have to explain the pros and cons to others.
+
+- So what would you say to them?
+
+If you are going ahead, there are bound to be plenty of practical questions that need answering:
+
+- Do I need to do other things before embarking upon this item? If so, what?
+- Will I need to get somebody's support in order to proceed with this? If so, whom?
+- What shall I say to them?
+- Will I need anybody's help with this? If so, whom?
+- How can I get them involved?
+- What plan of action would make sense? I.e., what is Step 1, Step 2, Step 3, ... ?
+
+By that stage, doubtless you will have created yet more questions that need answers!
+
+Jot down your answers to some of these questions and other notes either in the space following the relevant items or on the following blank pages, as you find convenient. Also include any general notes about your work in this Activity, in particular why you have chosen your particular selection of topics on which to concentrate.
+
+*(You will note that my guidance allows you plenty of time for this Activity. You may well need yet more.)*
+
+```{ojs}
+viewof activity_12d = Inputs.textarea({placeholder: "Your notes for Activity 12–d.", rows: 12})
+```
+
+```{ojs download_12d}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof activity_12d
+], "activity_12d.txt")
+```
+
+</div>
+
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
+  </div>
+</div>
