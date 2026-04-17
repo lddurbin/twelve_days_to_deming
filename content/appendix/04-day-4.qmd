@@ -1,0 +1,55 @@
+---
+title: "DAY 4 — DISCUSSION"
+execute:
+  echo: false
+---
+
+# DAY 4 {#sec-page22}
+
+## ACTIVITY 4–a
+
+(1) In the event that you are having difficulties here, I believe that plenty of thoughts will come to you as we work through the 14 Points and the Deadly Diseases. But here are a few guidelines which may trigger some thoughts right now: anything that encourages quantity rather than quality, unreasonable deadlines, judgmental and unhelpful management, lack of cooperation at any level, quotas, commissions, fear, targets.
+
+    *(Return to Workbook page 49 / Day 4 page 4.)*
+
+(2) Control limits inform us about the extent of variation being produced by the system. It follows that *where* a result lies between those limits—relatively high, medium or low—is in effect just a matter of luck. Thus the size of the *difference* between two values which are both between the limits is similarly just a matter of luck or, as Deming put it, will literally "mean nothing". And, almost always, the large majority of what or whom are being ranked do lie between the limits.
+
+    *(Return to Workbook page 50 / Day 4 page 5.)*
+
+(3) Some that we shall consider later are pride of workmanship, indeed joy in work (see Day 1 pages 38–39), self-esteem, respect, reputation, willingness to cooperate, dignity, value of training, and (even more so) value of education.
+
+    *(Return to Workbook page 50 / Day 4 page 5.)*
+
+## ACTIVITY 4–d
+
+(a) You are likely to talk about it in the case of Scenarios 1 or 3, with the obvious recommendations to avoid it or try it respectively. But with Scenario 2 there is little or nothing to talk about. A (merely) "satisfied customer" has nothing to complain about and nothing to rave about—so the experience is hardly much of a conversation-piece!
+
+(b) With Scenario 1, obviously you won't be back there—either then or at any other time! With Scenario 3, you are very likely to be back there again: in fact, you will probably have been finding excuses to go and spend more of your money there long before another year has passed by. With Scenario 2 ("satisfied customer"), it is possible but unlikely you will be back there in a year's time. Particularly for such special events, you *want* something special; and, unless you are unlucky enough to have a life full of disappointments, merely being satisfied is not special.
+
+Regarding the final part of the question, I suggest the answers are simply (1) harmed it; (2) nothing or worse (lost opportunity); and (3) benefited it.
+
+This Activity reminds me of an e-mail I received from my friend Dave Young after he had read through parts of this course while on holiday early in 2015 (there is more from Dave elsewhere, especially on Day 12):
+
+> "We come back to this hotel (the Copthorne Orchid in Penang) year after year, as do many more people from the four corners of the Earth. The hotel is old, run-down in parts, and badly in need of renovation. So why do we all keep returning here when we could easily afford to go wherever we wish in Penang? The staff, well-trained, respond immediately to our every request, and they provide each of us with the personal touch. They know us all by name and take a sincere interest in us and in our lives, our families, etc. Their simple customer service knocks the more "swanky" hotels (probably run by accountants) into a cocked hat. Your material could completely transform the hotel business here within a year."
+
+*(Return to Workbook page 54 / Day 4 page 10 or continue on Day 4 page 11.)*
+
+## ADDENDA TO POINTS 1 AND 3 {#sec-page23}
+
+A couple of issues are discussed here which arise from the wording of Points 1 and 3: there was insufficient space to deal with these in the main text.
+
+You might possibly regard the first issue as somewhat "quirky", but some people are puzzled by it. Both phrases "continuous improvement" and "continual improvement" clearly imply *unceasing* improvement—so does the difference in adjectives mean anything? Is it just a matter of semantics? You may be sure that Deming took great care here as elsewhere with his particular choice of words.
+
+I imagine that his choice in this case was largely due to his background in Mathematics. For illustration, suppose it were possible to chart "quality" against time, and consider these two graphs:
+
+![Graph A and Graph B](/assets/images/appendix/continuous-improvement-graphs.png){.lightbox}
+
+We would all (including mathematicians) agree that Graph A shows continuous improvement. But the mathematician *wouldn't* describe Graph B as showing *continuous* improvement because it contains a *discontinuity*—a jump or step-change. What could have caused that? Perhaps we have started using some new method or new material or other innovation which immediately and noticeably improves quality. You may be sure that Dr Deming wanted to include Graph B in his description! "Continual" simply implies that the improvement doesn't stop, *not* that it must improve *gradually*. So "continual" fits the bill without any ambiguity.
+
+Part of our work on Day 8 will be to study Chapter 14 in *DemDim*: "Innovation—Not Just Improvement".
+
+*(Return to Workbook page 56 / Day 4 page 16.)*
+
+Secondly, the more general lesson to learn from the words "the need for" in Point 3 is as follows. Although it may be feasible to start work on adopting some of the 14 Points and on designing the cure of some of the Deadly Diseases without a great deal of delay, honest consideration must surely always be given as to *why* those practices that Deming advises us to get rid of, including the Diseases, are there right now. If there are some good reasons why they are there (rather than e.g. "We've always done it that way!"), clearly those reasons must be understood and addressed first. In the case of Point 3, if mass inspection is being used it is probably because the quality of our product or service is just not good enough. In other cases, Deming would say, "the management knows not how to manage". It becomes even more difficult if the reason is due to external influences or requirements. Whichever it is, if the practice or the Disease is dispensed with before the ground is adequately prepared, the obvious consequence is that a vacuum is left. I expect you know the old saying: "Nature abhors a vacuum". So then what happens? Something else floods in to fill the vacuum—and it could well be that that "something" is worse than what has just been thrown out! It is foolhardy to do anything just because "Deming said so" (as he readily agreed—see Day 1 page 22). Instead, you need good understanding of *why* "Deming said so" and also of why the problem he identifies is present. Your route forward needs to be mapped out with full attention to both.
+
+*(Return to Workbook page 60 / Day 4 page 20.)*

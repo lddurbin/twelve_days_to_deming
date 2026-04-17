@@ -1,0 +1,222 @@
+---
+title: "DAY 2 — RED BEADS, CONTROL LIMITS & DAVE KERR’S WRAP-UP"
+execute:
+  echo: false
+---
+
+[]{#sec-page7}
+
+## PAUSE FOR THOUGHT 2–b
+
+I can give some personal answers to these questions which have considerable relevance to what follows. (The “bullets” here relate to the four parts of this Pause for Thought.)
+
+- A very long while ago, I used to teach control-charting the “conventional” way, i.e. trying to interpret control limits in terms of probabilities, saying that it is necessary to have normally distributed data, quoting the Central Limit Theorem to “justify” *X̄*-charts, etc. Yet again, as previously, don’t worry if you’ve never even heard of any such things—*you don’t need to know*! But read on.
+
+- I did this because of the way I had been taught—the conventional way. At the time I thought that the subject of Statistics was dependent on probability theory and all that that implies. So control charts, like everything else, had to be based upon such mathematical requirements.
+
+- I changed my mind for two reasons. The first is that eventually I had two excellent and patient teachers: Dr Deming and Dr Don Wheeler. Secondly, I found in practice that control charts were enormously useful *without* being dressed up in the traditional mathematical finery, including situations where the traditional assumptions were clearly contradicted.
+
+- Yes!
+
+*(Return to Workbook page 10 / Day 2 page 7 or continue on Day 2 page 8.)*
+
+## PAUSE FOR THOUGHT 2–c
+
+- “Illusion of knowledge” comes from how we are taught, both formally and informally. And, sometimes, the more impressive the teacher, the more dangerous he is! It also comes from jumping to conclusions: presuming something is “obvious” without thinking it through. Referring far ahead to Day 11, it comes from “experience and examples without theory”.
+
+- Yes!
+
+*(Return to Workbook page 11 / Day 2 page 8 or continue on Day 2 page 9.)*
+
+## PAUSE FOR THOUGHT 2–e
+
+What do we see? All the data are contained between the Lower and Upper Control Limits (LCL and UCL). Even Ernie’s 3, just after the forthcoming performance appraisal was announced, is above the Lower Control Limit. There is no indication here that the process is out of statistical control. The control chart’s assessment of the data is that essentially all the variation in the results is due to common causes, to the system, not in any way to the Willing Workers.
+
+That is not what the Foreman thought—he thought it was *all* due to the Willing Workers!
+
+*(Return to Workbook page 13 / Day 2 page 16.)*
+
+[]{#sec-page8}
+
+## ACTIVITY 2–f
+
+### Day 1
+
+| Worker | Remark |
+|---|---|
+| Audrey’s 16 | “What a terrible start. But you’ve only just been trained—weren’t you watching?” |
+| John’s 9 | “That’s better.” |
+| Al’s 4 | “Excellent: continual improvement.” |
+| Carol’s 7 | “What a disappointment.” |
+| Ben’s 9 | “No, no—it’s WHITE beads that we want. Have you forgotten?” |
+| Ed’s 9 | “Don’t just copy Ben: he’s no example to follow.” |
+
+### Day 2
+
+| Worker | Remark |
+|---|---|
+| Audrey’s 10 | “At least it’s not as bad as yesterday.” |
+| John’s 11 | “Hey—that’s *worse* than yesterday. Concentrate!” |
+| Al’s 9 | “You were yesterday’s top performer—must have let it go to your head.” |
+| Carol’s 11 | “This is ridiculous.” |
+| Ben’s 17 | “Hold it—stop the line!” |
+| Ed’s 7 | *(to them all)* “68? That’s a lot worse than the *first* week! Quite dreadful.” |
+
+### Day 3
+
+| Worker | Remark |
+|---|---|
+| Audrey’s 7 | “Audrey, you’re in danger of impressing me.” |
+| John’s 12 | “Must I remind you all again?—the customer will *not* accept red beads.” |
+| Al’s 13 | “From bad to worse.” |
+| Carol’s 14 | “Even more ridiculous.” |
+| Ben’s 9 | “I’m glad you learned your lesson.” |
+| Ed’s 12 | “No, no, no. Remember how you did it yesterday.” |
+| To them all | “How *could* you have done it again? That’s even worse than yesterday.” |
+
+### Day 4
+
+| Worker | Remark |
+|---|---|
+| Audrey’s 6 | “You’re a slow learner. But I’m proud of you.” |
+| John’s 10 | “Very consistent. Consistently bad.” |
+| Al’s 11 | “Look—if Audrey can get down to 6, *anybody* can get it 6.” |
+| Carol’s 11 | “Has the rot stopped?” |
+| Ben’s 13 | “I thought you’d learned your lesson.” |
+| Ed’s 7 | “You did that on Day 2. So why didn’t you do it yesterday?” |
+
+*(Continue on Day 2 page 27.)*
+
+## ACTIVITY 2–g
+
+The upper and lower control limits for the statisticians’ data are UCL = 16.4 and LCL = 0.5.
+
+*(Return to Workbook page 22 / Day 2 page 34.)*
+
+The upper and lower control limits for the Spaniards’ data are UCL = 20.1 and LCL = 2.4.
+
+*(Return to Workbook page 25 / Day 2 page 37.)*
+
+[]{#sec-page9}
+
+<div class="technical_aid" role="note" aria-label="Technical aid">
+
+## Technical Aid 4
+
+### Statisticians’ data
+
+The statisticians’ unusually low total number of red beads was 203.
+
+So the average number of red beads obtained by the statisticians was $\bar{X} = 203 \div 24 = 8.458$.
+
+The average *proportion* of red beads was $\bar{p} = \bar{X} \div n = 8.458 \div 50 = 0.1692$ which gives $1 - \bar{p} = 0.8308$.
+
+So $\bar{X}(1 - \bar{p}) = 8.458 \times 0.8308 = 7.0269064$, and $\sqrt{\bar{X}(1 - \bar{p})} = \sqrt{7.0269064} = 2.6508$.
+
+Finally, the distance from $\bar{X}$ out to the two control limits is $3\sqrt{\bar{X}(1 - \bar{p})} = 3 \times 2.6508 = 7.952$. This gives the upper and lower control limits as
+
+$$\text{UCL} = \bar{X} + 3\sqrt{\bar{X}(1 - \bar{p})} = 8.458 + 7.952 = 16.41,\ \text{and}$$
+$$\text{LCL} = \bar{X} - 3\sqrt{\bar{X}(1 - \bar{p})} = 8.458 - 7.952 = 0.51.$$
+
+*(Return to Workbook page 22 / Day 2 page 34.)*
+
+### Spaniards’ data
+
+At the other extreme, the Spaniards produced no less than 270 red beads.
+
+Then the average number of red beads obtained by the Spaniards was $\bar{X} = 270 \div 24 = 11.250$.
+
+The average *proportion* of red beads was $\bar{p} = \bar{X} \div n = 11.250 \div 50 = 0.2250$ which gives $1 - \bar{p} = 0.7750$.
+
+So $\bar{X}(1 - \bar{p}) = 11.250 \times 0.7750 = 8.71875$, and $\sqrt{\bar{X}(1 - \bar{p})} = \sqrt{8.71875} = 2.9528$.
+
+Then the distance from $\bar{X}$ out to the two control limits is $3\sqrt{\bar{X}(1 - \bar{p})} = 3 \times 2.9528 = 8.858$. This gives the control limits as
+
+$$\text{UCL} = \bar{X} + 3\sqrt{\bar{X}(1 - \bar{p})} = 11.250 + 8.858 = 20.11,\ \text{and}$$
+$$\text{LCL} = \bar{X} - 3\sqrt{\bar{X}(1 - \bar{p})} = 11.250 - 8.858 = 2.39.$$
+
+*(Return to Workbook page 25 / Day 2 page 37.)*
+
+</div>
+
+[]{#sec-page10}
+
+## MAJOR ACTIVITY 2–h
+
+There is, of course, so much to learn from the Experiment on Red Beads that I could not possibly attempt to cover everything here. Regarding messages from the experiments studied during today, along with Chapter 6 of *DemDim*, hopefully you now have a pretty comprehensive list of notes which can be used during this Major Activity. But in these few pages I shall include some further important thoughts and emphases that have not been sufficiently explored earlier.
+
+### Common-cause variation is much larger than expected
+
+One important fact to learn and appreciate is how *large* common-cause variation (variation produced by the system) can be. With 20% of the beads being red, it might seem reasonable to assume that the long-term average number of red beads per worker per week would be 10. Actually, even that is untrue, as is evidenced on the next page. But suppose for the moment that it is true. If the overall average was 10 out of 50, naturally we would not expect everyone to get exactly 10 every time. But what would be a reasonable departure from 10? Now that you have seen various sets of results and a typical control chart, you know that the answer is something like 7 or 8 either way. It is reasonable to occasionally be as bad as 17 or 18. And you do *not* have to be specially gifted to occasionally get down to 2 or 3!
+
+But take a look back at Activity 1–e (Day 1 page 25 *[WB 4]*) concerning the manager of the call-centre. What were your answers? The question there was in effect the same: how much variation away from 10 would you expect “by chance”? I presented that question to many of my seminar audiences before they knew the nature of the “work” in the Red Beads Experiment (during which they would, of course, then see—to their considerable surprise—the amount of variation to be expected by chance). The answer which I was given more often than all other answers put together was … 10 plus or minus 2! Anything between 8 and 12 is fair enough. But anything better than 8 or worse than 12 apparently invites comment!
+
+This is a very common phenomenon (no pun intended!). Even when people get to understand the concept of common-cause variation, they almost always hopelessly underestimate how large it is, often by a factor of two or three times or even more. This is yet another reason why use of the control chart is so crucial. For without it, even with some understanding of common-cause variation, you’d still be likely to “see” more special-cause variation than actually exists. The result is that your good intentions about trying to improve the system will be far more likely to result in *tampering* with the system rather than improving it. (“Tampering” was Dr Deming’s favourite word for describing this effect.) As we shall see tomorrow, the almost inevitable consequence is not *only* to fail to *improve* performance: it is actually to make performance *worse*. Hopefully, some of those words will sound familiar to you—refer back to the bottom of Day 1 page 17 and the top of Day 1 page 18. As you already know, in tomorrow’s Major Activity you will be carrying out a version of the Funnel Experiment, and the problem of tampering is the main focus of that experiment.
+
+### The Tribus experiment
+
+Many years ago the late Dr Myron Tribus, a respected consultant and speaker, took around with him some randomly-generated data, displayed in a format somewhat similar to that used in the Red Beads Experiment. When visiting any company or management team with whom he hadn’t previously been involved, he presented them with these data and asked them to give their opinions on what should be done—as a useful indication about their current style and method of management. As Myron reported (see page 13 of BDA Booklet W2: *The Germ Theory of Management*), during a lengthy period of time “only three out of thousands of people have suggested that perhaps the problem was in the system itself”—i.e. everybody else interpreted the data in a way appropriate to special-cause variation rather than to common-cause variation. Yet Myron’s data *were* merely random—just like the red beads.
+
+[]{#sec-page11}
+
+### Financial information
+
+One of the many needs for understanding the Red Beads process as a stable system is that, were this a real production process, such understanding would enable sensible decisions to be made on costing and pricing. With an unstable system, such decisions are always something of a gamble, but with a stable system the necessary information for prediction is available—prediction, not with certainty (which is never possible) but with a high, though never exactly quantifiable, degree of belief.
+
+### The big message
+
+Practically, surely the most important conclusion of all is that, if improvement is desired (as it should surely be), it is the *system* within which the workers work that must be improved; the workers cannot do it by themselves. Improvement of the system, as has already been argued (and is similarly argued in *DemDim* Chapter 4), is *management’s* responsibility. The red beads are already there in the system before our Willing Workers have had anything to do with them. Of course, having realised this, the job of the Willing Workers could be changed to include some sifting operation so that not so many red beads reach the customer (or even the Inspection Department). But this is a costly way to improve the figures. The red beads have already been made, and therefore paid for. If they came direct from the supplier, it is no good arguing that there may be a penalty clause so that the supplier refunds us for the bad product. Like us, he has to balance his books, so *someone* has to pay, directly or indirectly. What about all the extra administrative costs, both his and ours, involved in our returning the faulty goods and getting the money back? Who pays? Or maybe, instead, the red beads have been produced early in our own operation. Again, they’ve been paid for. And, once they’ve been made, any subsequent inspection and sifting process is additional cost. As always, the moral must surely be that prevention is better than cure. As Bill Scherkenbach put it (on *Out of the Crisis* page 303[355]): “Search upstream provides powerful leverage toward improvement … .”
+
+### Mechanical *vs* random sampling
+
+Several further “profound messages” are to be found in the references provided earlier. But I shall content myself here with just one more. And this is (or should be) a particularly scary one for most statisticians. I implied earlier that the presumption of a long-term average of 10 out of 50 red beads per worker per week (based on there being 20% red beads in the container) is invalid. Here is some *un*arguable evidence which Deming himself provides (*Out of the Crisis* page 303[pages 351–352]). Over the years he tried four different paddles, two of them for large numbers of experiments. “Paddle No. 1, used for 30 years, shows an average of 11.3” whereas “the cumulated average for paddle No. 2 over many experiments in the past has settled down to 9.4 red beads per lot of 50”. We do not know the numbers of experiments on which those figures were based; however, bearing in mind the length of time involved, statisticians would have little option but to conclude that not only is the difference between these averages “very highly significant” but that both of those averages are rather significantly different from 10!
+
+> Here’s a little exercise for the statisticians—all others should skip this small-print section.
+>
+> If you are keen on hypothesis tests, you might like to confirm that, if we try sample sizes (i.e. the number of experiments) of just 100 for both paddle No. 1 and paddle No. 2, the standard two-sided test for difference in means produces significance at about the α = 0.0002% level! The actual numbers of experiments were surely much larger than 100 and so the real significance would have been even stronger than that.
+
+The almost automatic presumption that the long-term proportion of red beads obtained in the experiment must equal the proportion of red beads in the container is based on a false premise: that the sampling method used is—or is equivalent to—*random* sampling. Random sampling implies that every possible []{#sec-page12} selection of 50 beads from the container is precisely as likely to occur as each and every other selection of 50 beads. This implies, in particular, that each and every bead (red or white) has exactly the same chance of being selected as any other at any one time—the “mathematically ideal” model. Does the paddle do that? The numerical evidence plainly shows that it does not. Should we expect it to? A little thought would indicate not. The red and white beads are obviously different as regards *colour*—but is that their *only* difference? Unlikely. Very probably there are differences in weight, size, and surface “tackiness” or roughness. They might not just *look* different—they might *feel* different; and, if they feel different to our hand, why not to the paddle? Clearly, paddle No. 1 had a greater attraction to its red beads than did paddle No. 2 to its red beads. Just as clearly, 20% was a wholly irrelevant figure in both cases.
+
+Random sampling can only properly be done by allocating a number to each bead and then selecting the beads according to genuine random numbers (or, more practically, using a well-researched and thoroughly tested system of computer-generated pseudo-random numbers). The paddle is clearly not random sampling. It is instead *mechanical* sampling.
+
+But what kind of sampling does one carry out in industrial experiments and other “real-life” data-gathering: random or mechanical?
+
+*Right!* So where does that leave those who depend in practical applications only on standard statistical theory based on ideal mathematical models and random sampling? Worrying, isn’t it?
+
+I hope so.
+
+*(If, at some time, you would like to study such matters in greater depth, you will find much to read in Parts C, D and E of the “Optional Extras”.)*
+
+*(Return to Workbook page 26 / Day 2 page 38.)*
+
+## Dave Kerr’s “Wrap-Up Brief” following the Red Beads Experiment
+
+So indeed, at one level, this is a “stupidly simple” experiment. At another level, however, it is enormously rich and profound—and is it not surely close to many real-life organisational situations and experiences?
+
+Within the context of a desire to improve our organisations, I’d like to suggest to you that there are some key principles we can take and learn from the experiment that will help us to ensure our organisations, existing and new, do not become (either intentionally or accidentally) like the Red Beads company.
+
+We need …
+
+- to “lift our gaze up” and see *the wider system*—customers, suppliers, employees, managers, stakeholders …, and we may also need to “look back in time”.
+
+- to understand something *about processes* that is still not widely taught, i.e. that they are always “uppy and downy”. *[Dave thanks Mark Sheasby of the West Midlands Police for what he describes as his “wonderfully evocative phrase”. My friend Peter Worthington, who contributes to Day 3, would refer to it as “wibble-wobble”; clearly, the two descriptors are not unrelated!]* More technically, this is what we call *variation*—it is not the same as *variety*. Some key questions follow. As examples, when is the “uppy and downy” meaningful of anything, and how do we know; and what are the implications for decisions and consequent actions? You were all quick to note that the numbers in the experiment were “random”—yet the Foreman treated them as a factual basis for firing people!
+
+[]{#sec-page13}
+
+- a practical and effective method for helping us to *really learn* about what is necessary for future improvement and success. Further, we need a method that helps to expose many of our false and limiting beliefs, such as the Foreman’s apparent belief in the Red Beads Experiment that “what we need is better people”.
+
+- to understand something about how we *behave in organisations*—in particular, to know and understand the *interactions* between the *system* in which we are working and our behaviours. *[Think back to Day 1’s Major Activity.]* In his work, Deming put very great emphasis on the distinction between intrinsic and extrinsic motivation, and he was strident in challenging the prevailing view that we are only motivated extrinsically: this, he believed, was both wrong and highly destructive. In his later work, Deming put great emphasis on *everyone’s* (thus including managers) right to “Joy in Work”. It is when we have “Joy in Work” that we are most likely to join in and contribute to the development and improvement of our organisation.
+
+We also, very significantly, need to understand that *those four needs are **not independent** of each other*: indeed, the *interactions* between them are probably more significant and potent than any of them individually. In effect, we can think of these needs as *four interdependent components of a “system of thinking and seeing”*: a system that helps us to understand how organisations really work and thus helps us to understand how to be able to improve them—both continually and sustainably.
+
+As an example, using this “system” to “view” the Red Beads company, we can e.g. see and understand how:
+
+- they are not “seeing” the whole production system.
+
+- the (poor) system of work and management is imposed on the employees (including the Foreman) and causes them to, for example,
+    - ascribe all “uppy and downy” to people, and thence focusing action on “getting the best people”;
+    - treat the “Willing” Workers as *unintelligent units of production*. Just think how much creativity goes begging because of this kind of attitude!
+
+Finally, but very significantly, we need to clearly understand that an absolutely vital function of leading is to give an organisational system *vision, meaning, direction and focus*—continually. Unclear and/or inconsistent purpose and direction and lack of focus create organisational ambiguity and individual confusion. In consequence, the organisation suffers from chaos and dysfunction.
+
+*(Return to Day 2 page 43.)*

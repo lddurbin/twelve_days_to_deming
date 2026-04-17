@@ -1,0 +1,31 @@
+---
+title: "DAY 10 — DISCUSSION"
+execute:
+  echo: false
+---
+
+# DAY 10 {#sec-page39}
+
+![Second Project](/assets/images/appendix/second-project-banner.png){.lightbox}
+
+## ACTIVITY 10–a
+
+Let's recall Deming's very first words today: he defined a system as: ["a network of … components … that work together for the aim … "]{.deming_quote}. I then immediately emphasised ["work together"]{.deming_quote} and ["aim"]{.deming_quote} as being the most crucial words of this definition. These emphases were further strengthened later on, e.g. around his illustration of a good orchestra being a well-optimised system.
+
+As already observed, there cannot be much that was written earlier under "All One Team" that does not identify directly here with ["work together"]{.deming_quote}. We have also noted Deming's observation that ["the aim proposed here … is for everybody to gain"]{.deming_quote}—i.e. an aim which it is in everybody's interest to achieve, thus strengthening the relevance of "All One Team" to a yet greater extent. Note also that one of the entries under "All One Team" in the detailed version of the Joiner Triangle on Day 4 was "Optimise the system as a whole". And further, that seemingly ambitious aim does not seem likely to be achievable without one of the other constituents of the Joiner Triangle: the "Obsession With Quality". So that is yet a further route for accessing your work in the First Project in order to contribute to your answers here.
+
+And, having got that far, we may as well complete the job! As we know, a large part of the "Scientific Approach" is based on the understanding of Shewhart's founding principles about variation. And we are also very familiar with one of the greatest consequences of his work: that the large majority of problems and opportunities are to be found in the *system*—the subject of this first part of the System of Profound Knowledge.
+
+So the inevitable conclusion is that just about everything said on Days 4 and 5 as regards links between the Joiner Triangle to the 14 Points and Deadly Diseases is relevant here! You will appreciate much of that relevance without difficulty. So, for a little extra learning, think about the items where you *cannot* recognise the connections so immediately, and see if you can then build them.
+
+*(Return to Workbook pages 167–170 / Day 10 pages 16–19.)*
+
+## ACTIVITY 10–b
+
+The style of what I have to say here is much the same as for Activity 10–a. In this case, the eye is most immediately drawn to the "Scientific Approach" corner of the Joiner Triangle. Indeed, virtually everything that I have written in the Scientific Approach sections of the First Project has focused on the understanding of variation and its consequences.
+
+But the links are stronger still. In one of my seminars I often used a slide which simply shows the Joiner Triangle with two words inscribed in the middle: "Reduce variation". For that is intimately connected with the other two corners as well. First, what could be a major part of "Obsession With Quality" if not an obsession for reducing variation? Secondly, it is worth repeating some of what I wrote in the "Interaction of Forces" item on Day 10 page 24 *[WB 175]*. Working together, *pulling* together, as "All One Team" with common aims and purpose must reduce variation. The reverse statement is perhaps even more obvious: *failure* []{#sec-page40} to work as All One Team is bound to *increase* variation. And then there was the reference to a "tug of war". What happens there, with the forces pulling in diametrically opposite directions? First, one side gains a bit of advantage so that everything moves one way; then everything moves the other way; then back again. So the opposing forces actually *produce instability.* Rather obviously, that instability includes something of a zig-zag pattern!
+
+Thus, yet again (as promised!), there may often have been no need for you to add to those matters which you had already raised back on Days 4 and 5—though, of course, if you have done so then I'm not complaining!
+
+*(Return to Workbook pages 180–183 / Day 10 pages 29–32.)*

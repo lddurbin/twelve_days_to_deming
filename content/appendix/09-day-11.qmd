@@ -1,0 +1,35 @@
+---
+title: "DAY 11 — DISCUSSION"
+execute:
+  echo: false
+---
+
+# DAY 11 {#sec-page41}
+
+![Second Project Continued](/assets/images/day-11/second-project-continued-banner.png){.lightbox}
+
+## ACTIVITY 11–a
+
+Links to the Joiner Triangle are less direct in the case of Theory of Knowledge, but nonetheless they are still there. Consider my grouping of the issues into "Prediction", "Theory and Learning" and "Operational Definitions". "Obsession with Quality" is Obsession with *improving* Quality, and that is wholly concerned with *predicting* the consequences of changes that might be made. Next, there is surely a clear major link between "Prediction" and the "Scientific Approach". Indeed, as we have seen, Deming spells that out in Item 3 of Part C when he reminds us that the practical difference between the states of statistical control and non-control is the difference between predictability and non-predictability. The three items in the "Theory and Learning" group are all to do with genuine improvement—so back we go again to "Obsession with Quality". And the use of "Operational Definitions" is undoubtedly an important contributor to reducing variation (the "Scientific Approach" and "Obsession with Quality" yet again) and is *necessary* to help make "All One Team" effective (see Item 7 of Part C in particular).
+
+But, since the links with the Joiner Triangle are not quite so all-embracing here as in the first two parts of the System of Profound Knowledge, I'll now make some references to particular Points and Diseases. An immediate focus is on Point 13: "Institute … education". Remember the way that I introduced Theory of Knowledge when we first heard of it on the opening day of the course: " … how do we know things, how do we learn things, how do we *improve* that learning and knowledge?" (Day 1 page 39). So we are talking about real education here, not the type of "education" to which (as we saw when discussing Point 13 on Day 5 page 14 *[WB 82]*) Deming ruefully referred near the end of *The Deming of America*:
+
+> "Our education is failing. We just don't educate people, youngsters. We grade them, but don't educate them, don't teach them to think."
+
+As we know, Points 1 and 5 and the first Deadly Disease are concerned with genuine, sustained and sustainable improvement, and that most certainly is what the Deming Cycle is for. Although the Plan–Do–Study–Act cycle is not specifically referred to in Deming's words in Part C, you still do not have to look very hard to find it—e.g. consider Item 6 alongside his sketch which we have already looked at on *DemDim* page 143. Indeed, the purpose of the whole of that second group, "Theory and Learning", is to make improvement genuine and sustainable rather than ill-founded and illusory.
+
+The three items under "Operational Definitions" also have some interesting contributions to make. Item 7 is particularly important with reference to Point 9: "Break down barriers". Barriers between groups, departments, or indeed between companies, which harm customer-supplier relationships, are toughened by the very differences which the use of operational definitions avoids—differences in ways of measuring, of testing, of classifying. Operational definitions help to create a *common language*—and what could be a greater aid to communication? And those initially mysterious Items 8 and 9 ("no true value" and "no such thing as a fact") have interesting reflections in the final Deadly Disease: that of dependence on only visible figures. The more that one thinks about these items from Part C, the more that dependence on only visible figures is seen to be dangerously insecure.
+
+*(Return to Workbook pages 197–200 / Day 11 pages 18–21.)*
+
+## ACTIVITY 11–b {#sec-page42}
+
+At the very start of the Psychology section, we observed a considerable concentration on system thinking, concerning interactions not only between people and other people but between people and circumstances, etc. So, as a vital constituent of that concentration, again we could head for the Joiner Triangle, particularly the "All One Team" corner.
+
+But instead, let's go more directly to the Points and Deadly Diseases. In Part D you will have seen strong emphasis on matters such as dignity, self-esteem, respect, intrinsic motivation. Here we have some of the most apparent diametrically-opposite differences between much of the "conventional" management (and government) that surrounds us in the 21st Century on the one hand and the Deming approach on the other. Much conventional management and government *destroys* rather than enhances those reflections of what we might call the "inner worth" of people. Is conventional management and government concerned more with intrinsic motivation or with extrinsic motivation? I doubt whether you'll have much trouble answering *that* question. It is in such human matters that Deming's teaching is often particularly striking to the newcomer. However, it would be a mistake to deduce that the Deming approach is "humanitarian" for the sake of being humanitarian: the truth is that those "humanitarian" aspects are *necessary ingredients* for creating that better future which he wanted so much to help us toward.
+
+Nevertheless, it could well be possible to see strong links between just this one aspect of Part D (let alone all the rest of it) and the need to adopt all the 14 Points and eliminate all the Deadly Diseases. E.g., the link with Point 12 ("Pride of Workmanship") is obvious. But remember the "*inter alia*": abolition of performance appraisal, dealt with explicitly in the third Deadly Disease. Everything to do with enabling people to contribute better must also provide strong links, e.g. to Points 1 and 5 and the first Deadly Disease. It is worth noting the emphasis in all three of these on the longer rather than the shorter term: genuine, substantial improvement and indeed innovation need both opportunity and time—which takes us to both the second and the fourth of the Deadly Diseases. Then the matter of invisible versus visible figures strongly emerges: how can you *measure* dignity, self-esteem, respect, intrinsic motivation? The *effects* are clear to see, but how could you *measure* them in any significant way? As Deming says in his discussion of the fifth Deadly Disease on *Out of the Crisis* page 103*[121]*, a manager who ignores these unmeasurable figures "will in time have neither company nor figures". We're also close to Point 8: "Drive out fear". One of the greatest fears in organisations today is that of being measured and judged on inappropriate figures. In fact, those judgment (appraisal) schemes almost invariably push people toward getting figures which will be regarded as acceptable, and often the only way to get them involves the *reduction* or *destruction* of those "inner worth" properties. Which brings us to Point 11 on arbitrary targets … .
+
+I could go on, but there is probably no need!
+
+*(Return to Workbook pages 211–214 / Day 11 pages 32–35.)*

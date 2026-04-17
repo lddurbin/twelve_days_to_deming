@@ -139,6 +139,19 @@ book:
         - content/days/day-12/07-major-activity-12e.qmd
         - content/days/day-12/08-epilogue.qmd
 
+  appendices:
+    - content/appendix/00-welcome.qmd
+    - content/appendix/01-day-1.qmd
+    - content/appendix/02-day-2.qmd
+    - content/appendix/03-day-3.qmd
+    - content/appendix/04-day-4.qmd
+    - content/appendix/05-day-5.qmd
+    - content/appendix/06-day-7.qmd
+    - content/appendix/07-day-9.qmd
+    - content/appendix/08-day-10.qmd
+    - content/appendix/09-day-11.qmd
+    - content/appendix/10-optional-extras.qmd
+
 format:
   html:
     theme: cosmo
