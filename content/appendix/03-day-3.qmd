@@ -45,7 +45,7 @@ I have chosen to show you a couple of those simulations that demonstrate rather 
 
 First, let's compare the histograms for Rules 1 and 2. If you look back to the similar histograms in the Ford example, remember that the Ford people were initially using Rule 2 but then eventually (on their statistician's advice!) tried Rule 1. I'll show the histograms here in that same order.
 
-![Simulations A and B: Rule 2 (top) and Rule 1 (bottom) histograms](/assets/images/appendix/simulation-rules-1-2.png)
+![Simulations A and B: Rule 2 (top) and Rule 1 (bottom) histograms](/assets/images/appendix/simulation-rules-1-2.png){.lightbox}
 
 That should make clear the considerable reduction of variation produced by Rule 1 compared with Rule 2. If you look back to the histograms, matching what was seen to occur in the Ford example, Rule 2 produces data which are much more unpredictable because they encounter a wider range of variation. For example, it's actually around 30% narrower. Because of Rule 4's "wandering" nature, it is likely to soon be producing plenty of points outside either type of control limits. However, that wandering nature soon becomes obvious with or without control limits; and so, unlike most kinds of special causes, there is nothing to learn from when exactly you start to get points outside the limits. []{#sec-page16}
 
@@ -53,7 +53,7 @@ That should make clear the considerable reduction of variation produced by Rule 
 
 The run chart for Simulation A's Rule 3 surprised me. I imagine it may also surprise you, assuming you had lots of fun and used games with Rule 3. In other words, that the behaviour of Rule 3 usually *isn't* dramatic! But the behaviour of Rule 3 usually *is* dramatic! Recall that I asked you to predict what you thought Rule 3 would produce before you started working with it—I wonder what you suggested! For remember that, when it was introduced, Rule 3 may have seemed to simply be a relatively innocent variant of Rule 2. Well, not so. It was rather easier to carry out: I expect you may have developed your Rule 3 data in maybe half the time that you took for Rule 2. (That's unless you became worried when huge zig-zags began to occur and you spent time checking for your mistake!) What was the difference between Rules 2 and 3? One way of expressing it is that, in Rule 3, attention to the vital factor of the funnel's position was instead replaced by undue and inappropriate attention to the target. That may raise some analogies in your mind!
 
-![Simulations A and B: Rule 3](/assets/images/appendix/simulation-rule-3.png)
+![Simulations A and B: Rule 3](/assets/images/appendix/simulation-rule-3.png){.lightbox}
 
 ### Rule 4
 
@@ -61,7 +61,7 @@ There is now no zig-zags with Rule 4. Instead, Rule 4 usually just gently "wande
 
 In Simulation B, Rule 4 initially slowly drifts downward but then eventually moves back up to roughly where it started—i.e. close to the desired value of 30. At that stage, maybe this would have inspired some relief in those involved with the process: "It took a while to settle down, but now it looks OK!". But not for long … ! []{#sec-page17}
 
-![Simulations: Rule 4 (with Sim B Rule 3 over 40 stages at top)](/assets/images/appendix/simulation-rule-4.png)
+![Simulations: Rule 4 (with Sim B Rule 3 over 40 stages at top)](/assets/images/appendix/simulation-rule-4.png){.lightbox}
 
 Since there is considerable discussion on the Funnel Experiment in *DemDim* Chapter 5 and also in both *Out of the Crisis* (pages 280–284 [327–332]) and *The New Economics* (Chapter 9), there is no need for much more here. Being wise after the event (if not before), Rules 2, 3 and 4 show differing levels of stupidity in trying to improve results. If a process is out of statistical control, the *only* way to improve it is to identify and deal with special causes. If a process is in statistical control, the *only* way to improve the results is to improve the process—not just "tamper" with it. So, as previously mentioned, isn't it frightening that, after learning from the Funnel Experiment, the delegates in both Dr Deming's seminars and []{#sec-page18} mine would then so readily recognise having seen these Rules active in their own work and elsewhere in life? Several examples will be presented on pages 20–21 in the discussion on Activity 3–j.
 

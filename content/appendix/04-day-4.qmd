@@ -42,7 +42,7 @@ You might possibly regard the first issue as somewhat "quirky", but some people 
 
 I imagine that his choice in this case was largely due to his background in Mathematics. For illustration, suppose it were possible to chart "quality" against time, and consider these two graphs:
 
-![Graph A and Graph B](/assets/images/appendix/continuous-improvement-graphs.png)
+![Graph A and Graph B](/assets/images/appendix/continuous-improvement-graphs.png){.lightbox}
 
 We would all (including mathematicians) agree that Graph A shows continuous improvement. But the mathematician *wouldn't* describe Graph B as showing *continuous* improvement because it contains a *discontinuity*—a jump or step-change. What could have caused that? Perhaps we have started using some new method or new material or other innovation which immediately and noticeably improves quality. You may be sure that Dr Deming wanted to include Graph B in his description! "Continual" simply implies that the improvement doesn't stop, *not* that it must improve *gradually*. So "continual" fits the bill without any ambiguity.
 

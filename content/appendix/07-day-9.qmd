@@ -14,6 +14,6 @@ A hint here is first to ask yourself what prevents you (and others) from doing y
 
 ## MAJOR ACTIVITY 9–e
 
-![Medical research organisation flow diagram](/assets/images/appendix/medical-research-organisation.png)
+![Medical research organisation flow diagram](/assets/images/appendix/medical-research-organisation.png){.lightbox}
 
 *(Return to Workbook page 145 / Day 9 page 12.)*

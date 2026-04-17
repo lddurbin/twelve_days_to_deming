@@ -32,19 +32,19 @@ All One Team implies working together for the benefit of all. But fear results i
 
 ### Scientific Approach
 
-Fear increases variation in so many obvious ways. People or groups "doing their own thing" for personal survival clearly increases variation. Another frequent observation from Dr Deming was: "… <span class=deming_quote>where there is fear, there will be wrong figures</span>" *[Out of the Crisis* page 228*[266]*): people report what they can get away with and / or what they think management would like to see. Do you doubt it? Again, can you blame them? Where lies the fault?
+Fear increases variation in so many obvious ways. People or groups "doing their own thing" for personal survival clearly increases variation. Another frequent observation from Dr Deming was: "… [where there is fear, there will be wrong figures]{.deming_quote}" *[Out of the Crisis* page 228*[266]*): people report what they can get away with and / or what they think management would like to see. Do you doubt it? Again, can you blame them? Where lies the fault?
 
 ## Point 9. Break down barriers []{#sec-page25} *(Workbook pages 74–75 / Day 5 pages 6–7)*
 
 ### Obsession With Quality
 
-As we have seen several times, the "Quality" being referred to at the top of the Joiner Triangle is quality on a very broad front. What happens in one part of the organisation can have dire effects on what happens elsewhere. As examples, suppose Purchasing buys <span class=deming_quote>"on the basis of price alone"</span> (Point 4) or Sales promises delivery times that just cannot be met.
+As we have seen several times, the "Quality" being referred to at the top of the Joiner Triangle is quality on a very broad front. What happens in one part of the organisation can have dire effects on what happens elsewhere. As examples, suppose Purchasing buys ["on the basis of price alone"]{.deming_quote} (Point 4) or Sales promises delivery times that just cannot be met.
 
 > My friend Alan Hodges observes that it would be valuable to add "Purchasing" to the list of areas in the statement of Point 9. Indeed so.
 
 ### All One Team
 
-The strong link here is wholly obvious. But note the implications concerning management style. Anything (and there is often much) that management does to erect or strengthen <span class=deming_quote>"barriers between departments or staff areas"</span> harms and can indeed destroy any chance of All One Team. An obvious example is the setting of departmental numerical targets, particularly if reward and punishment are involved. It is often easy to improve your own figures by harming what goes on elsewhere (yes, more suboptimisation).
+The strong link here is wholly obvious. But note the implications concerning management style. Anything (and there is often much) that management does to erect or strengthen ["barriers between departments or staff areas"]{.deming_quote} harms and can indeed destroy any chance of All One Team. An obvious example is the setting of departmental numerical targets, particularly if reward and punishment are involved. It is often easy to improve your own figures by harming what goes on elsewhere (yes, more suboptimisation).
 
 ### Scientific Approach
 
@@ -58,7 +58,7 @@ The kind of poster suggested in that extract from *Out of the Crisis* would demo
 
 ### All One Team
 
-One of the slogans Dr Deming cites on *Out of the Crisis* page 57*[66]* is "Getting Better Together". He comments: <span class=deming_quote>"… workers have told me that this slogan makes them furious. Together! What is that when no one will listen to our problems and suggestions?"</span>.
+One of the slogans Dr Deming cites on *Out of the Crisis* page 57*[66]* is "Getting Better Together". He comments: ["… workers have told me that this slogan makes them furious. Together! What is that when no one will listen to our problems and suggestions?"]{.deming_quote}.
 
 ### Scientific Approach
 
@@ -68,7 +68,7 @@ Yet again, the thrust of this Point is that the lack of quality, productivity, b
 
 ### Obsession With Quality
 
-Again, this is quality "across the board". Those <span class=deming_quote>"arbitrary numerical targets"</span> do the opposite—they focus attention on bits and pieces of the picture and, if associated with reward and punishment, encourage cheating even with those bits and pieces.
+Again, this is quality "across the board". Those ["arbitrary numerical targets"]{.deming_quote} do the opposite—they focus attention on bits and pieces of the picture and, if associated with reward and punishment, encourage cheating even with those bits and pieces.
 
 ### All One Team
 
@@ -96,7 +96,7 @@ The Scientific Approach, and all the understanding and useful aids for improveme
 
 ### Obsession With Quality
 
-First, whereas training is very focused, "education" implies breadth—learning about other areas—and this often provides inspiration about what could be helpful for improvement in our own area. Further, an []{#sec-page27} Obsession With Quality is involved with innovation as well as improvement. Dr Deming's interpretation of "education" is therefore instrumental in encouraging and developing—not destroying—the creativity needed for innovation. Indeed, <span class=deming_quote>self-improvement</span> (which is mentioned in the first sentence of the statement of this Point) is itself encouraged and stimulated by education. And who benefits? Win-Win.
+First, whereas training is very focused, "education" implies breadth—learning about other areas—and this often provides inspiration about what could be helpful for improvement in our own area. Further, an []{#sec-page27} Obsession With Quality is involved with innovation as well as improvement. Dr Deming's interpretation of "education" is therefore instrumental in encouraging and developing—not destroying—the creativity needed for innovation. Indeed, [self-improvement]{.deming_quote} (which is mentioned in the first sentence of the statement of this Point) is itself encouraged and stimulated by education. And who benefits? Win-Win.
 
 ### All One Team
 
@@ -112,7 +112,7 @@ In Point 6 we observed that the Scientific Approach is certainly tied in with *t
 
 ### Obsession With Quality
 
-Remember Dr Deming's familiar observation: <span class=deming_quote>"Quality is made at the top"</span> (which was discussed on Day 1 page 20 *[WB 1]* in the very first Pause for Thought) or equivalently, on other occasions, <span class=deming_quote>"Quality is made in the Boardroom"</span>. For numerous reasons already discussed, Obsession With Quality is so different from conventional views and approaches to quality that what chance is there without Point 14?
+Remember Dr Deming's familiar observation: ["Quality is made at the top"]{.deming_quote} (which was discussed on Day 1 page 20 *[WB 1]* in the very first Pause for Thought) or equivalently, on other occasions, ["Quality is made in the Boardroom"]{.deming_quote}. For numerous reasons already discussed, Obsession With Quality is so different from conventional views and approaches to quality that what chance is there without Point 14?
 
 ### All One Team
 
@@ -126,7 +126,7 @@ Here we go again! With the Scientific Approach's emphasis on the system (common 
 
 ### Obsession With Quality
 
-Recall the emphasis on *innovation* in the discussion of Point 1 in *Out of the Crisis*. There (on page 24*[25]* of his book) Dr Deming states unambiguously that <span class=deming_quote>"Innovation, the foundation of the future, can not thrive unless the top management have declared unshakable commitment to quality and productivity"</span>. I could equally well have included this in the discussion on Point 14. Yet again, <span class=deming_quote>"Quality is made at the top"</span>.
+Recall the emphasis on *innovation* in the discussion of Point 1 in *Out of the Crisis*. There (on page 24*[25]* of his book) Dr Deming states unambiguously that ["Innovation, the foundation of the future, can not thrive unless the top management have declared unshakable commitment to quality and productivity"]{.deming_quote}. I could equally well have included this in the discussion on Point 14. Yet again, ["Quality is made at the top"]{.deming_quote}.
 
 ### All One Team
 
@@ -152,7 +152,7 @@ All One Team includes development of personal relationships, learning to work to
 
 Short-termism implies knee-jerk reactions: "Act now, pay later". Remember "tampering"? What could more effectively *increase* variation?
 
-The destructive nature of short-termism on the Scientific Approach is compactly expressed by Dr Deming in that sentence: <span class=deming_quote>"Cut down on research, education, training"</span>. In other words: "Cut down on the Scientific Approach, both on what it needs and hence on what it can produce".
+The destructive nature of short-termism on the Scientific Approach is compactly expressed by Dr Deming in that sentence: ["Cut down on research, education, training"]{.deming_quote}. In other words: "Cut down on the Scientific Approach, both on what it needs and hence on what it can produce".
 
 ## Disease 3. Appraisal of performance []{#sec-page29} *(Workbook pages 90–91 / Day 5 pages 22–23)*
 
@@ -164,7 +164,7 @@ Obsession With Quality has to imply obsession with improving the system which pr
 
 Here are some words from the video *Management's Five Deadly Diseases*. If you watched it earlier, I think you will remember them:
 
-> <span class=deming_quote>"Annual appraisal of performance … annihilates teamwork: people can not work together … you have to get ahead. By working with a team, you help other people. You may help yourself equally, but you don't get ahead by being equal: you get ahead by being ahead."</span>
+> ["Annual appraisal of performance … annihilates teamwork: people can not work together … you have to get ahead. By working with a team, you help other people. You may help yourself equally, but you don't get ahead by being equal: you get ahead by being ahead."]{.deming_quote}
 
 ### Scientific Approach
 
@@ -180,11 +180,11 @@ Obsession With Quality implies having the time to learn how to genuinely improve
 
 This is where Dr Deming saw this Deadly Disease as being its most damaging (*Out of the Crisis* page 103 *[121]*):
 
-> <span class=deming_quote>"Mobility annihilates teamwork, so vital for continued existence. A new manager comes in. Everyone wonders what will happen. Unrest becomes rampant when the board of directors go outside the company to bring someone in for a rescue operation. Everyone takes to his life preserver."</span>
+> ["Mobility annihilates teamwork, so vital for continued existence. A new manager comes in. Everyone wonders what will happen. Unrest becomes rampant when the board of directors go outside the company to bring someone in for a rescue operation. Everyone takes to his life preserver."]{.deming_quote}
 
 ### Scientific Approach
 
-It is evident that mobility of management increases variation; how could it do otherwise? In the case of a "job-hopping" culture as opposed to a learning culture, new managers must quickly justify their existence, make their mark. As we have seen, Dr Deming says it in typically few words: <span class=deming_quote>"Mobility of management causes instability"</span>. "Instability" is one of the ways in which we describe "out of statistical control".
+It is evident that mobility of management increases variation; how could it do otherwise? In the case of a "job-hopping" culture as opposed to a learning culture, new managers must quickly justify their existence, make their mark. As we have seen, Dr Deming says it in typically few words: ["Mobility of management causes instability"]{.deming_quote}. "Instability" is one of the ways in which we describe "out of statistical control".
 
 ## Disease 5. Use of only visible figures []{#sec-page30} *(Workbook pages 94–95 / Day 5 pages 26–27)*
 
@@ -198,7 +198,7 @@ The summary already includes the value of a specific team as amongst the importa
 
 ### Scientific Approach
 
-A delegate at a four-day seminar ventured to quote the well-known saying: "If you can't measure it, you can't manage it". Deming's typically brief and pointed response was: <span class=deming_quote>"You'd darn well better manage it"</span>.
+A delegate at a four-day seminar ventured to quote the well-known saying: "If you can't measure it, you can't manage it". Deming's typically brief and pointed response was: ["You'd darn well better manage it"]{.deming_quote}.
 
 With regard to that response I have often noticed how, once people have become familiar with control charts and how to interpret them—particularly in terms of changing focus onto the system rather than scratching around for possible special causes—they would similarly change their behaviour even without visible figures.
 

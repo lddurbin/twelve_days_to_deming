@@ -99,7 +99,7 @@ The upper and lower control limits for the Spaniards’ data are UCL = 20.1 and 
 
 []{#sec-page9}
 
-<div class="technical_aid">
+<div class="technical_aid" role="note" aria-label="Technical aid">
 
 ## Technical Aid 4
 

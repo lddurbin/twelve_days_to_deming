@@ -6,7 +6,7 @@ execute:
 
 # DAY 11 {#sec-page41}
 
-![Second Project Continued](/assets/images/day-11/second-project-continued-banner.png)
+![Second Project Continued](/assets/images/day-11/second-project-continued-banner.png){.lightbox}
 
 ## ACTIVITY 11–a
 

@@ -6,13 +6,13 @@ execute:
 
 # DAY 10 {#sec-page39}
 
-![Second Project](/assets/images/appendix/second-project-banner.png)
+![Second Project](/assets/images/appendix/second-project-banner.png){.lightbox}
 
 ## ACTIVITY 10–a
 
-Let's recall Deming's very first words today: he defined a system as: <span class=deming_quote>"a network of … components … that work together for the aim … "</span>. I then immediately emphasised <span class=deming_quote>"work together"</span> and <span class=deming_quote>"aim"</span> as being the most crucial words of this definition. These emphases were further strengthened later on, e.g. around his illustration of a good orchestra being a well-optimised system.
+Let's recall Deming's very first words today: he defined a system as: ["a network of … components … that work together for the aim … "]{.deming_quote}. I then immediately emphasised ["work together"]{.deming_quote} and ["aim"]{.deming_quote} as being the most crucial words of this definition. These emphases were further strengthened later on, e.g. around his illustration of a good orchestra being a well-optimised system.
 
-As already observed, there cannot be much that was written earlier under "All One Team" that does not identify directly here with <span class=deming_quote>"work together"</span>. We have also noted Deming's observation that <span class=deming_quote>"the aim proposed here … is for everybody to gain"</span>—i.e. an aim which it is in everybody's interest to achieve, thus strengthening the relevance of "All One Team" to a yet greater extent. Note also that one of the entries under "All One Team" in the detailed version of the Joiner Triangle on Day 4 was "Optimise the system as a whole". And further, that seemingly ambitious aim does not seem likely to be achievable without one of the other constituents of the Joiner Triangle: the "Obsession With Quality". So that is yet a further route for accessing your work in the First Project in order to contribute to your answers here.
+As already observed, there cannot be much that was written earlier under "All One Team" that does not identify directly here with ["work together"]{.deming_quote}. We have also noted Deming's observation that ["the aim proposed here … is for everybody to gain"]{.deming_quote}—i.e. an aim which it is in everybody's interest to achieve, thus strengthening the relevance of "All One Team" to a yet greater extent. Note also that one of the entries under "All One Team" in the detailed version of the Joiner Triangle on Day 4 was "Optimise the system as a whole". And further, that seemingly ambitious aim does not seem likely to be achievable without one of the other constituents of the Joiner Triangle: the "Obsession With Quality". So that is yet a further route for accessing your work in the First Project in order to contribute to your answers here.
 
 And, having got that far, we may as well complete the job! As we know, a large part of the "Scientific Approach" is based on the understanding of Shewhart's founding principles about variation. And we are also very familiar with one of the greatest consequences of his work: that the large majority of problems and opportunities are to be found in the *system*—the subject of this first part of the System of Profound Knowledge.
 

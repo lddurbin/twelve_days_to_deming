@@ -16,9 +16,9 @@ Part E of the Optional Extras: "Is There *Anything* Normal about Control Charts?
 
 So the original readers, like Balaji, of the seventh article were already familiar with the previous six articles—whereas you, of course, are not. Alternatively, had you reached this Appendix section after already reading Parts D and E of the Optional Extras then again you would have covered the relevant material from those earlier articles. However, since instead you might have arrived here as a result of what Balaji wrote in his "Lessons from History", you may not have that background. In particular, you may know nothing about the conventional statisticians' favourite toy, the normal distribution, with which they can endlessly entertain themselves. In fact (as you might perhaps guess from the title of Part E as stated above), inappropriate use of the normal distribution is actually the prime source of all these various superstitions. If at some time later you decide you'd like to learn something about the normal distribution from Part D of the Optional Extras, the "crash-course in conventional Statistics!", is ready and waiting for you; there is also more about it in Part F. But, for now, you'll just have to accept what I tell you about it!
 
-A useful start is a sentence from Day 7 page 26: <span class=deming_quote>"If you are uncomfortable with the use of the concept of 'distribution' … , you can simply think in terms of a histogram having roughly the shape illustrated"</span>. And alongside is a typical "shape illustrated" in the case of the normal distribution; for obvious reasons, it is often described as a "bell-shaped curve". As you can imagine even from your brief work on histograms on Day 3, it's not at all unusual for a histogram formed from some process-data to have a shape roughly approximating the shape of a normal distribution.
+A useful start is a sentence from Day 7 page 26: ["If you are uncomfortable with the use of the concept of 'distribution' … , you can simply think in terms of a histogram having roughly the shape illustrated"]{.deming_quote}. And alongside is a typical "shape illustrated" in the case of the normal distribution; for obvious reasons, it is often described as a "bell-shaped curve". As you can imagine even from your brief work on histograms on Day 3, it's not at all unusual for a histogram formed from some process-data to have a shape roughly approximating the shape of a normal distribution.
 
-![](/assets/images/appendix/normal-bell-curve.png)
+![Bell-shaped curve of the normal distribution](/assets/images/appendix/normal-bell-curve.png){.lightbox}
 
 So it is not surprising that conventional statisticians often use the normal distribution in their mathematical derivations with the hope that their results will have some relevance to real data.
 
@@ -46,11 +46,11 @@ Stated concisely, "six-sigma" quality is achieved when that tolerance reaches or
 
 First, here is a situation which is definitely *not* of "six-sigma" quality:
 
-![](/assets/images/appendix/six-sigma-control-chart-1.png)
+![Control chart showing an in-control process whose distance from the Central Line to either Specification Limit is only about 4.5σ, short of six-sigma quality](/assets/images/appendix/six-sigma-control-chart-1.png){.lightbox}
 
 The process appears to be in statistical control, but the distance from the Central Line to either Specification Limit is only around 4.5σ rather than the desired 6σ. So what can be done? It is unlikely that whoever has set the specifications will be kind enough to relax them, i.e. move them further out, in view of the fact that []{#sec-page46}our process is not good enough to satisfy their "six-sigma" criterion! So it's σ that has to change, i.e. we have to improve the process so that, in due course, we'll get a chart which looks more like this:
 
-![](/assets/images/appendix/six-sigma-control-chart-2.png)
+![Control chart showing the same process after improvement: σ has been reduced so the distance from the Central Line to each Specification Limit is now about 6σ](/assets/images/appendix/six-sigma-control-chart-2.png){.lightbox}
 
 Spot the difference! Yes, we have now improved the process, i.e. reduced σ, sufficiently enough for the distance between the Central Line and either Specification Limit to now be about 6σ. (Note that the Specification Limits are where they were before.) Of course, this will not have been achieved overnight!
 
@@ -68,7 +68,7 @@ I'll ask you to look one more time at the Optional Extras, this time on page 49.
 
 []{#sec-page47}Note in the diagrams that the area in either tail of the normal distribution beyond 3σ from the mean μ is 0.135%. (This is what led to the existence of the first superstition dealt with in the sixth article and similarly in Part E of the Optional Extras.) Since (in the mathematical world) the normal curve never gets down to the axis, there will *always* be some area in a tail, never mind how far out that tail starts. Since we couldn't hope to indicate any further such detail in pictures, the following table shows a variety of such "tail areas", i.e. probabilities.
 
-![](/assets/images/appendix/tail-probabilities-table.png)
+![Table of tail probabilities for the normal distribution at various sigma distances from the mean, including 0.00000340 (3.4 parts per million) at 4.5σ and 0.000000000987 at 6σ](/assets/images/appendix/tail-probabilities-table.png){.lightbox}
 
 Can you see it? Do you see the "3.4 parts per million"? It's the 0.00000340 for a tail area starting at 4.5σ from μ. *Why there?* That's a very good question.
 
@@ -82,7 +82,7 @@ The truth of all this (if "truth" can mean anything in the midst of such fantasy
 
 My great friend Don Wheeler (from whom I've learned so much over the years) told me about a family of probability distributions that was studied by Irving W Burr. Some of them look remarkably like normal distributions (where you can see them). One such is shown below, with a normal distribution drawn in for comparison. Don has kindly allowed me to reproduce this figure from page 196 of his *Advanced Topics in Statistical Process Control*. (He chose there to illustrate the "standardised" versions of the distributions, i.e. those having μ = 0 and σ = 1, which explains the numbers on his horizontal axis.)
 
-![](/assets/images/appendix/normal-vs-burr.png)
+![Side-by-side comparison of a normal distribution and a Burr distribution in standardised form (μ = 0, σ = 1), showing nearly identical bell shapes in the visible central region](/assets/images/appendix/normal-vs-burr.png){.lightbox}
 
 But what happens out in the tails—tails starting at 4.5σ or 6σ away from the mean, for example?
 
@@ -118,9 +118,9 @@ During Day 3 you were introduced to the ancient but valuable study by Don Wheele
 
 ### A Better Way
 
-<span class=deming_quote>"A better description of the world is the Taguchi loss function"</span> said Deming on *Out of the Crisis* page 120 *[141]*. What's that when it's at home?! Basically it's the rather reasonable hypothesis that the best is ideal and that, the further away from the ideal you get, the worse off you are, in fact, the more rapidly things get worse. This is covered during Day 7, particularly in Activity 7–e (where you'll be guided on how to discover the Taguchi loss function for yourself) and Pause for Thought 7-f (see Day 7 pages 20–23 *[WB 109–112]*). This <span class=deming_quote>"better description of the world"</span> was described by Genichi Taguchi at a famous meeting in Tokyo in 1960 at which Dr Deming was present.
+["A better description of the world is the Taguchi loss function"]{.deming_quote} said Deming on *Out of the Crisis* page 120 *[141]*. What's that when it's at home?! Basically it's the rather reasonable hypothesis that the best is ideal and that, the further away from the ideal you get, the worse off you are, in fact, the more rapidly things get worse. This is covered during Day 7, particularly in Activity 7–e (where you'll be guided on how to discover the Taguchi loss function for yourself) and Pause for Thought 7-f (see Day 7 pages 20–23 *[WB 109–112]*). This ["better description of the world"]{.deming_quote} was described by Genichi Taguchi at a famous meeting in Tokyo in 1960 at which Dr Deming was present.
 
-[]{#sec-page50}So Deming's statement is guidance for us to focus instead on what would be *best*, and work steadily to get closer and closer to it. It's called "continual improvement". <span class=deming_quote>"Create constancy of purpose for continual improvement"</span> was the first of Deming's 14 Points (Day 4 page 16 *[WB 56]*). Subsequently he referred to <span class=deming_quote>"lack of constancy of purpose"</span> as <span class=deming_quote>"the crippling disease"</span> (Day 5 page 18 *[WB 86]*).
+[]{#sec-page50}So Deming's statement is guidance for us to focus instead on what would be *best*, and work steadily to get closer and closer to it. It's called "continual improvement". ["Create constancy of purpose for continual improvement"]{.deming_quote} was the first of Deming's 14 Points (Day 4 page 16 *[WB 56]*). Subsequently he referred to ["lack of constancy of purpose"]{.deming_quote} as ["the crippling disease"]{.deming_quote} (Day 5 page 18 *[WB 86]*).
 
 ### A (useful) Mathematical Footnote
 
