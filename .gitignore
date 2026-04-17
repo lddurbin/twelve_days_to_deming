@@ -24,3 +24,5 @@ docs/context/analysis/
 
 venv/
 temp/
+
+.claude/*.lock
