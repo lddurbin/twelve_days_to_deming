@@ -62,7 +62,7 @@ Each day includes:
 ### Interactive Online Version (Work in Progress)
 - **Live Course**: [deming.leedurbin.co.nz](https://deming.leedurbin.co.nz) - The interactive version with embedded activities and exercises
 
-**Current Status**: This interactive version is currently under development. **Days 1 through 6** are fully implemented with interactive features. The remaining days (7-12) are being converted from the original PDF format to this enhanced interactive experience.
+**Current Status**: All 12 days are now fully converted from the original PDF format into the interactive experience. Content refinements, accessibility improvements, and activity polish are ongoing.
 
 **Enhanced Features in the Online Version:**
 - **Interactive Clock Indicators**: Built-in timing guidance to help you pace your study sessions
@@ -71,7 +71,7 @@ Each day includes:
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Search and Navigation**: Easy content discovery and cross-referencing
 - **Print-Friendly**: Clean, formatted output for printing or PDF generation
-- **Accessibility Features**: Enhanced readability and navigation options
+- **Accessibility**: Skip-link, optional dyslexia-friendly font, ARIA-labelled interactive elements, and reduced-motion support — see the [Accessibility](#-accessibility) section below for the full list
 
 ### Complete PDF Version
 The full course material is available as free PDF downloads from several sources:
@@ -95,6 +95,21 @@ The PDF version includes:
 - **Online Study Groups**: The Geelong Quality Council hosts regular free online study groups led by Richard Hamilton
 - **Mentorship**: Dr. Jackie Graham, who worked closely with Dr. Deming, mentors study groups
 - **Local Groups**: Many quality organizations facilitate local study groups
+
+## ♿ Accessibility
+
+Accessibility is a first-class concern in the interactive version. Current features include:
+
+- **Skip-to-content link**: Keyboard and screen-reader users can bypass the sidebar on every page
+- **OpenDyslexic font toggle**: Fixed bottom-right button switches body and heading text to the OpenDyslexic typeface; the preference is remembered across sessions via `localStorage`
+- **Visible focus indicators**: Keyboard focus is clearly outlined on interactive controls (`:focus-visible`) without affecting mouse users
+- **ARIA labelling**: Interactive SVGs (the Funnel Experiment), data tables (cooperation activities), and Observable JS input widgets expose accessible names to assistive technology
+- **Live regions**: Status updates in the Funnel Experiment are announced via `aria-live="polite"`
+- **Non-colour status indicators**: Funnel-experiment state is conveyed through shape and text as well as colour, meeting WCAG 1.4.1
+- **Reduced-motion support**: Animated transitions respect the `prefers-reduced-motion: reduce` media query
+- **Print-safe styling**: Decorative controls and colour overrides are suppressed in print media so hard-copy notes render cleanly
+
+If you encounter an accessibility issue, please open a GitHub issue — a11y regressions are treated as bugs.
 
 ## 🛠 Technical Requirements
 
