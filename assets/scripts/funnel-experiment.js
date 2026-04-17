@@ -460,7 +460,10 @@ export function renderStatusHTML(rule, description, counter, visible, totalStage
 
   // Announce state changes to screen readers via the persistent live region.
   // Skip counter === 0 so the initial page render doesn't spam announcements
-  // before the user has interacted.
+  // before the user has interacted. Assumes OJS only re-evaluates this cell
+  // when rule2Counter/rule2Visible (etc.) actually change — i.e. on user
+  // clicks. If a future change introduces non-interaction re-runs with the
+  // same counter, those would produce duplicate announcements.
   if (counter > 0) {
     announceFunnelStatus(
       `Rule ${rule}, stage ${counter} of ${totalStages}. Marble at ${lastOutcome}. ${funnelLabel} ${funnelPos}.`
