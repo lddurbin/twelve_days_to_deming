@@ -50,3 +50,9 @@ As I often heard Dr Deming say,
 > <span class="deming_quote">“You could write a book on what can be learned from the Experiment on Red Beads.”</span>
 
 Maybe now you’ve already made a start!
+
+```{ojs download_2h}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof activity_2h_i, viewof activity_2h_ii], "activity_2h.txt")
+```

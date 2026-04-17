@@ -154,6 +154,41 @@ Usage:
   letter-spacing: 0.5px;
 }
 
+.foreman-transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  margin: 1.5em 0;
+  padding: 1em 1.25em;
+  border-left: 4px solid #3333a6;
+  background-color: #f5f5fa;
+}
+
+.foreman-transcript-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  padding: 0.5em 0;
+  border-bottom: 1px dashed #c8c8d6;
+}
+
+.foreman-transcript-entry:last-child {
+  border-bottom: none;
+}
+
+.foreman-transcript-context {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.foreman-transcript-entry .foreman-remark {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
 /* ===== THOUGHT COMPONENTS ===== */
 .thought {
   border: 2px solid #008000;

@@ -402,6 +402,60 @@ Here are a few more suggestions:
 Now, if you haven’t done so already, go back and try to complete your remarks for all the remaining results.
 
 <span class="neave_note">*(Then, finally, take a look at my complete set of remarks on Appendix page 8.)*</span>
+
+### The Foreman’s Transcript
+
+Here is every reaction you gave—to pure, random variation. Read them back and let the absurdity sink in.
+
+```{ojs transcript_2f}
+{
+  const entries = [
+    { label: "Week 1 — worker 5 (9 red beads)", value: activity_2f_i },
+    { label: "Week 1 — worker 6 (9 red beads)", value: activity_2f_ii },
+    { label: "Week 2 — worker 1 (10 red beads)", value: activity_2f_iii },
+    { label: "Week 2 — worker 2 (11 red beads)", value: activity_2f_iv },
+    { label: "Week 2 — worker 3 (9 red beads)", value: activity_2f_v },
+    { label: "Week 2 — worker 4 (11 red beads)", value: activity_2f_vi },
+    { label: "Week 2 — worker 5 (17 red beads)", value: activity_2f_vii },
+    { label: "Week 2 — worker 6 (7 red beads)", value: activity_2f_viii },
+    { label: "Week 3 — worker 1 (7 red beads)", value: activity_2f_ix },
+    { label: "Week 3 — worker 2 (12 red beads)", value: activity_2f_x },
+    { label: "Week 3 — worker 3 (13 red beads)", value: activity_2f_xi },
+    { label: "Week 3 — worker 4 (14 red beads)", value: activity_2f_xii },
+    { label: "Week 3 — worker 5 (9 red beads)", value: activity_2f_xiii },
+    { label: "Week 3 — worker 6 (12 red beads)", value: activity_2f_xiv },
+    { label: "Week 4 — Audrey (6 red beads)", value: activity_2f_xv },
+    { label: "Week 4 — worker 2 (10 red beads)", value: activity_2f_xvi },
+    { label: "Week 4 — worker 3 (11 red beads)", value: activity_2f_xvii },
+    { label: "Week 4 — John (11 red beads)", value: activity_2f_xviii },
+    { label: "Week 4 — worker 5 (13 red beads)", value: activity_2f_xix },
+    { label: "Week 4 — worker 6 (7 red beads)", value: activity_2f_xx }
+  ];
+  const filled = entries.filter(e => e.value && e.value.trim());
+  if (!filled.length) {
+    return html`<p role="status"><em>No Foreman reactions yet — scroll up and play the role. Your comments will appear here as a transcript.</em></p>`;
+  }
+  return html`<div class="foreman-transcript" role="list" aria-label="Your Foreman reactions">
+    ${filled.map(e => html`<div class="foreman-transcript-entry" role="listitem">
+      <div class="foreman-transcript-context">${e.label}</div>
+      <span class="foreman-remark">“${e.value}”</span>
+    </div>`)}
+  </div>`;
+}
+```
+
+```{ojs download_2f}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof activity_2f_i, viewof activity_2f_ii, viewof activity_2f_iii, viewof activity_2f_iv,
+  viewof activity_2f_v, viewof activity_2f_vi, viewof activity_2f_vii, viewof activity_2f_viii,
+  viewof activity_2f_ix, viewof activity_2f_x, viewof activity_2f_xi, viewof activity_2f_xii,
+  viewof activity_2f_xiii, viewof activity_2f_xiv, viewof activity_2f_xv, viewof activity_2f_xvi,
+  viewof activity_2f_xvii, viewof activity_2f_xviii, viewof activity_2f_xix, viewof activity_2f_xx
+], "activity_2f.txt")
+```
+
 </div>
 
 After a couple of pages of introduction to the Experiment on Red Beads at the beginning of *DemDim* Chapter 6, the data presented in Activity 2–f are discussed from the top of *DemDim* page 103. So now that you

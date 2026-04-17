@@ -35,6 +35,12 @@ What do you understand by Dr Deming's second short sentence above: [This transfo
 viewof thought_12c = Inputs.textarea({label: "What do you understand by Dr Deming's second short sentence: 'This transformation is discontinuous'?", placeholder: "Your thoughts.", rows: 4})
 ```
 
+```{ojs download_12c}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof thought_12c], "thought_12c.txt")
+```
+
 </div>
 
 Much understanding develops gradually---but not all. It may come "in a blinding flash"---or in several blinding flashes, usually well-separated. That has been my experience with learning about the Deming philosophy, and I know it is also true of many of my friends. I wonder if you have experienced any blinding flashes while studying this course. I hope so. But if not---keep at it: they'll come!
