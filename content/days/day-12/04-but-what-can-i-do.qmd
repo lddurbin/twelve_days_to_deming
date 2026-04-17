@@ -32,7 +32,7 @@ Pause for Thought 12–c is also on Workbook page 219.
 What do you understand by Dr Deming's second short sentence above: [This transformation is discontinuous]{.deming_quote}?
 
 ```{ojs}
-viewof thought_12c = Inputs.textarea({placeholder: "Your thoughts.", rows: 4})
+viewof thought_12c = Inputs.textarea({label: "What do you understand by Dr Deming's second short sentence: 'This transformation is discontinuous'?", placeholder: "Your thoughts.", rows: 4})
 ```
 
 </div>

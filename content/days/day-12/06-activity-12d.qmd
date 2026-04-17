@@ -46,7 +46,7 @@ Jot down your answers to some of these questions and other notes either in the s
 *(You will note that my guidance allows you plenty of time for this Activity. You may well need yet more.)*
 
 ```{ojs}
-viewof activity_12d = Inputs.textarea({placeholder: "Your notes for Activity 12–d.", rows: 12})
+viewof activity_12d = Inputs.textarea({label: "Your notes and answers for Activity 12–d", placeholder: "Your notes for Activity 12–d.", rows: 12})
 ```
 
 ```{ojs download_12d}

@@ -13,7 +13,7 @@ execute:
 What does this shape of the Taguchi loss function (the "parabola") tell you about how the loss varies with temperature (or whatever else is being represented on the horizontal axis)?
 
 ```{ojs}
-viewof thought_7f = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_7f = Inputs.textarea({label: "What does the parabola shape of the Taguchi loss function tell you about how loss varies with temperature?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_7f" aria-expanded="false" aria-controls="collapse_7f">
@@ -46,7 +46,7 @@ But, in comparison, let's return to the concept of conformance to specifications
 So, rather than the Taguchi shape, what shape of loss function would justify the use of "conformance to specifications" thinking and behaviour? Remember: *all* values inside the specifications are then treated just the same as if they were exactly at the optimum, whereas *no* value outside the specifications is accepted: that's rejected or illegal, etc *irrespective* of how close it is to the relevant specification limit.
 
 ```{ojs}
-viewof thought_7g = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_7g = Inputs.textarea({label: "What shape of loss function would justify 'conformance to specifications' thinking?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_7g" aria-expanded="false" aria-controls="collapse_7g">
@@ -83,7 +83,7 @@ What do those two loss functions apparently tell you about:
 &nbsp;&nbsp;&nbsp;&nbsp; *Conformance to specifications loss function:*
 
 ```{ojs}
-viewof thought_7h = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_7h = Inputs.textarea({label: "What do the two loss functions tell you about (1) the need for continual improvement and (2) keeping a process properly centred?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_7h" aria-expanded="false" aria-controls="collapse_7h">

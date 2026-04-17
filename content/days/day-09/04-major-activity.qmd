@@ -20,13 +20,13 @@ The procedure in this Major Activity is divided into five stages. The first stag
 **Stage 1.** Therefore first spend a little time beginning to try to construct a system of medical care in the space below, of similar layout to Dr Deming's famous flow diagram and repeatedly referring back to it on page 2 or *DemDim* page 133. But remember to keep it "macro": do not try to make it detailed or complicated---be guided by the nature of what is in his diagram. Also, don't expect to complete this task right now, as there is some help for you in the Appendix. However, as usual, do what you can first before turning to the Appendix, for that is Stage 2 below. Then at Stage 3 I shall give you some suggestions about how to tackle the flow diagram of your organisation. You might like to look ahead at those thoughts in Stage 3 right now (on the next page) and then also use them to help you with this initial practice diagram.
 
 ```{ojs}
-viewof stage1 = Inputs.textarea({placeholder: "Sketch out your system of medical care here. Think about the major components and how they connect.", rows: 15})
+viewof stage1 = Inputs.textarea({label: "Stage 1: Sketch a 'macro' flow diagram of a system of medical care", placeholder: "Sketch out your system of medical care here. Think about the major components and how they connect.", rows: 15})
 ```
 
 **Stage 2.** Now study my attempt on Appendix page 38. That may give you some further ideas as to what you might include in your attempt at Stage 1. So then spend a little more time revising your Stage 1 diagram.
 
 ```{ojs}
-viewof stage2 = Inputs.textarea({placeholder: "Revise your Stage 1 diagram here after studying the Appendix.", rows: 15})
+viewof stage2 = Inputs.textarea({label: "Stage 2: Revise your Stage 1 diagram after studying the Appendix", placeholder: "Revise your Stage 1 diagram here after studying the Appendix.", rows: 15})
 ```
 
 **Stage 3.** And now try to apply what you have learned during the first two stages to develop an "Organisation Viewed as a System" flow diagram of your own organisation.
@@ -34,19 +34,19 @@ viewof stage2 = Inputs.textarea({placeholder: "Revise your Stage 1 diagram here 
 It would probably be sensible to start with the central track, broadly summarising the main aspects of what the organisation does. In Deming's diagram the central track starts at "Receipt and test of materials", then proceeds through production, assembly and inspection, and goes as far as "Distribution". A useful way to then proceed with the rest of the diagram is to ask yourself lots of questions. What comes into the system? Where does it come from? What important contributions enter the central track "from the side" (like the "Tests of processes, machines, methods, costs" in Deming's diagram)? What goes out of our system? To where, to whom? That is, who and where are our "consumers"? How do we get to learn what our consumers think about what they get from us? What do we do with that information? How do we use it to help improve the system?
 
 ```{ojs}
-viewof stage3 = Inputs.textarea({placeholder: "Develop an 'Organisation Viewed as a System' flow diagram for your own organisation.", rows: 15})
+viewof stage3 = Inputs.textarea({label: "Stage 3: Develop an 'Organisation Viewed as a System' flow diagram for your own organisation", placeholder: "Develop an 'Organisation Viewed as a System' flow diagram for your own organisation.", rows: 15})
 ```
 
 **Stage 4.** Next, considering your flow diagram constructed at Stage 3, describe examples of how what happens in one part of the flow diagram is being hindered by some things happening (or not happening) elsewhere in the flow diagram. Does consideration of the *conventional* organisation chart explain why those harmful things are happening? What could be done to *help* rather than *hinder*?
 
 ```{ojs}
-viewof stage4 = Inputs.textarea({placeholder: "Describe examples of how parts of your flow diagram are being hindered by things happening elsewhere.", rows: 15})
+viewof stage4 = Inputs.textarea({label: "Stage 4: Describe examples of how parts of your flow diagram are hindered by things happening elsewhere", placeholder: "Describe examples of how parts of your flow diagram are being hindered by things happening elsewhere.", rows: 15})
 ```
 
 **Stage 5.** Finally construct a modified version of your Stage 3 diagram, bearing in mind your answers at Stage 4, thus showing how your organisation could become a *better* system than it is now.
 
 ```{ojs}
-viewof stage5 = Inputs.textarea({placeholder: "Construct a modified version showing how your organisation could become a better system.", rows: 15})
+viewof stage5 = Inputs.textarea({label: "Stage 5: Construct a modified version showing how your organisation could become a better system", placeholder: "Construct a modified version showing how your organisation could become a better system.", rows: 15})
 ```
 
 <div class="separator">

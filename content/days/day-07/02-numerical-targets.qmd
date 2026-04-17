@@ -38,19 +38,19 @@ Think of a few further examples of the three kinds of numerical targets. With Ca
 Category 1—facts of life:
 
 ```{ojs}
-viewof activity_7a_1 = Inputs.textarea({placeholder: "Type your examples here.", rows: 5})
+viewof activity_7a_1 = Inputs.textarea({label: "Category 1 — facts of life: examples", placeholder: "Type your examples here.", rows: 5})
 ```
 
 Category 2—numbers for guidance and help:
 
 ```{ojs}
-viewof activity_7a_2 = Inputs.textarea({placeholder: "Type your examples here.", rows: 5})
+viewof activity_7a_2 = Inputs.textarea({label: "Category 2 — numbers for guidance and help: examples", placeholder: "Type your examples here.", rows: 5})
 ```
 
 Category 3—numbers for judgment, punishment, reward:
 
 ```{ojs}
-viewof activity_7a_3 = Inputs.textarea({placeholder: "Type your examples here.", rows: 5})
+viewof activity_7a_3 = Inputs.textarea({label: "Category 3 — numbers for judgment, punishment, reward: examples", placeholder: "Type your examples here.", rows: 5})
 ```
 
 <div class="activity_afterthought">(There is a little discussion on Appendix page 31.)</div>
@@ -65,7 +65,7 @@ viewof activity_7a_3 = Inputs.textarea({placeholder: "Type your examples here.",
 Remind yourself (e.g. by looking back at what you've written about Point 11 and the 3rd and 5th Deadly Diseases (on Day 5 pages 10–11, 22–23 and 26–27 respectively)) of some of the reasons why Category 3 is incompatible with the Deming philosophy. Again include specific examples from the true stories on Day 6 and be ready to add more here as you read through today's further true stories on pages 9–18.
 
 ```{ojs}
-viewof activity_7b = Inputs.textarea({placeholder: "Type your comments here.", rows: 15})
+viewof activity_7b = Inputs.textarea({label: "Reasons why Category 3 is incompatible with the Deming philosophy, with specific examples", placeholder: "Type your comments here.", rows: 15})
 ```
 
 </div>

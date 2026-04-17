@@ -12,7 +12,7 @@ execute:
 With regard to your organisation, suggest some ways in which the improvement of quality would reduce cost.
 
 ```{ojs}
-viewof activity_9c = Inputs.textarea({placeholder: "Type your suggestions here.", rows: 10})
+viewof activity_9c = Inputs.textarea({label: "Suggest some ways in which the improvement of quality would reduce cost in your organisation", placeholder: "Type your suggestions here.", rows: 10})
 ```
 
 [If you need a hint, you will find one on Appendix page 38.]
@@ -52,7 +52,7 @@ If you would like to study more on this, I strongly recommend Chapter 1 of *The 
 How would you describe the relationship between Shewhart's diagram of the "New Way" (refer back to the diagram on page 3 and also to your thoughts on page 4) with Deming's "Production (or Organisation) Viewed as a System" flow diagram on page 2? And what might that tell you about the *purpose* of Deming's flow diagram?
 
 ```{ojs}
-viewof thought_9d = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_9d = Inputs.textarea({label: "How would you describe the relationship between Shewhart's 'New Way' diagram and Deming's flow diagram, and what does that tell you about the purpose of Deming's flow diagram?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_9d" aria-expanded="false" aria-controls="collapse_9d">

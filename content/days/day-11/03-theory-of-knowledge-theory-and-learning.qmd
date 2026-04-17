@@ -67,7 +67,7 @@ We are surely back to Shewhart's "dynamic scientific process of acquiring knowle
 </div>
 
 ```{ojs}
-viewof note_11_theory_4 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_theory_4 = Inputs.textarea({label: "Your notes on item 4: without theory, there is nothing to modify or to learn from", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -79,7 +79,7 @@ viewof note_11_theory_4 = Inputs.textarea({placeholder: "Your notes on this item
 </div>
 
 ```{ojs}
-viewof note_11_theory_5 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_theory_5 = Inputs.textarea({label: "Your notes on item 5: an example is no help in management unless studied with theory", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -91,7 +91,7 @@ viewof note_11_theory_5 = Inputs.textarea({placeholder: "Your notes on this item
 </div>
 
 ```{ojs}
-viewof note_11_theory_6 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_theory_6 = Inputs.textarea({label: "Your notes on item 6: examples never establish a theory, but a single failure requires its modification", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 *(Continue to Area 2, Step 3 overleaf.)*
@@ -101,7 +101,7 @@ viewof note_11_theory_6 = Inputs.textarea({placeholder: "Your notes on this item
 Now briefly read through *DemDim* pages 275--276, paragraphs 5 to 7 again, as usual revising your earlier comments if necessary and adding any further points below.
 
 ```{ojs}
-viewof note_11_demdim_area2 = Inputs.textarea({placeholder: "Additional notes from DemDim pages 275–276.", rows: 6})
+viewof note_11_demdim_area2 = Inputs.textarea({label: "Additional notes after re-reading DemDim pages 275–276 on Theory and Learning", placeholder: "Additional notes from DemDim pages 275–276.", rows: 6})
 ```
 
 ```{ojs download_all_11_area2}
