@@ -773,6 +773,32 @@ html.dyslexic-font body .fe-summary-table td, body.dyslexic-font .fe-summary-tab
   margin-right: 6px;
 }
 
+/* Breathing room for OpenDyslexic — taller glyphs need more line-height
+   and fixed-height containers need to flex so wrapped text doesn't overflow. */
+html.dyslexic-font body,
+body.dyslexic-font {
+  line-height: 1.7;
+}
+html.dyslexic-font body .workbook_callout,
+html.dyslexic-font body .return_callout,
+html.dyslexic-font body .info_callout,
+body.dyslexic-font .workbook_callout,
+body.dyslexic-font .return_callout,
+body.dyslexic-font .info_callout {
+  height: auto;
+  min-height: 40px;
+  line-height: 1.5;
+  padding: 8px 14px;
+}
+html.dyslexic-font body .page-navigation .nav-page,
+body.dyslexic-font .page-navigation .nav-page,
+html.dyslexic-font body .page-navigation .chapter-title,
+body.dyslexic-font .page-navigation .chapter-title {
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 @media print {
   .dyslexia-toggle { display: none !important; }
   html.dyslexic-font body,
