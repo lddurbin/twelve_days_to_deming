@@ -4,14 +4,42 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/assets/fonts/dm-serif-display-regular.woff2') format('woff2');
+  src: url('../fonts/dm-serif-display-regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'DM Serif Display';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/assets/fonts/dm-serif-display-italic.woff2') format('woff2');
+  src: url('../fonts/dm-serif-display-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/opendyslexic-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/opendyslexic-bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/opendyslexic-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/opendyslexic-bolditalic.woff2') format('woff2');
 }
 
 /* ===== SKIP-TO-CONTENT LINK ===== */
@@ -675,5 +703,81 @@ button:focus,
 .fe-summary-table th {
   background: #e8e8e8;
   font-weight: bold;
+}
+
+/* ===== DYSLEXIA-FRIENDLY FONT TOGGLE ===== */
+/* Applied to <html> by an inline head script (FOUC prevention) and/or
+   to <body> by the toggle click handler. Both selectors keep the rule
+   active in either state. */
+html.dyslexic-font body,
+body.dyslexic-font,
+html.dyslexic-font body h1, html.dyslexic-font body h2, html.dyslexic-font body h3,
+html.dyslexic-font body h4, html.dyslexic-font body h5, html.dyslexic-font body h6,
+body.dyslexic-font h1, body.dyslexic-font h2, body.dyslexic-font h3,
+body.dyslexic-font h4, body.dyslexic-font h5, body.dyslexic-font h6,
+html.dyslexic-font body p, html.dyslexic-font body li, html.dyslexic-font body td, html.dyslexic-font body th,
+html.dyslexic-font body label, html.dyslexic-font body button, html.dyslexic-font body input, html.dyslexic-font body textarea,
+html.dyslexic-font body .callout, html.dyslexic-font body blockquote,
+body.dyslexic-font p, body.dyslexic-font li, body.dyslexic-font td, body.dyslexic-font th,
+body.dyslexic-font label, body.dyslexic-font button, body.dyslexic-font input, body.dyslexic-font textarea,
+body.dyslexic-font .callout, body.dyslexic-font blockquote {
+  font-family: 'OpenDyslexic', sans-serif;
+}
+
+/* Preserve monospace for code and data tables — OpenDyslexic kills readability there */
+html.dyslexic-font body code, body.dyslexic-font code,
+html.dyslexic-font body pre, body.dyslexic-font pre,
+html.dyslexic-font body .cell pre, body.dyslexic-font .cell pre,
+html.dyslexic-font body .data-sequence-mono, body.dyslexic-font .data-sequence-mono,
+html.dyslexic-font body .fe-data-table, body.dyslexic-font .fe-data-table,
+html.dyslexic-font body .fe-data-table th, body.dyslexic-font .fe-data-table th,
+html.dyslexic-font body .fe-data-table td, body.dyslexic-font .fe-data-table td,
+html.dyslexic-font body .fe-summary-table, body.dyslexic-font .fe-summary-table,
+html.dyslexic-font body .fe-summary-table th, body.dyslexic-font .fe-summary-table th,
+html.dyslexic-font body .fe-summary-table td, body.dyslexic-font .fe-summary-table td {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.dyslexia-toggle {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1040;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #3333a6;
+  border: 2px solid #3333a6;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.dyslexia-toggle:hover,
+.dyslexia-toggle:focus-visible {
+  background-color: #fff;
+  color: #3333a6;
+}
+.dyslexia-toggle:focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+.dyslexia-toggle[aria-pressed="true"] {
+  background-color: #fff;
+  color: #3333a6;
+}
+.dyslexia-toggle .dyslexia-toggle-icon {
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+@media print {
+  .dyslexia-toggle { display: none !important; }
+  html.dyslexic-font body,
+  body.dyslexic-font {
+    font-family: inherit !important;
+  }
 }
 
