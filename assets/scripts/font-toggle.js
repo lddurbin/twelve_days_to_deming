@@ -33,6 +33,7 @@
     button.type = "button";
     button.className = "dyslexia-toggle";
     button.setAttribute("aria-pressed", initialOn ? "true" : "false");
+    button.setAttribute("aria-label", "Dyslexia font");
     button.innerHTML =
       '<span class="dyslexia-toggle-icon" aria-hidden="true">Aa</span>' +
       '<span class="dyslexia-toggle-label">Dyslexia font</span>';
@@ -45,11 +46,25 @@
     });
 
     document.body.appendChild(button);
+    return button;
+  }
+
+  function yieldToPageNav(button) {
+    if (!("IntersectionObserver" in window)) return;
+    var nav = document.querySelector(".page-navigation");
+    if (!nav) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        button.classList.toggle("is-yielding", entry.isIntersecting);
+      });
+    });
+    observer.observe(nav);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     var on = isEnabled();
     applyClass(on);
-    build(on);
+    var button = build(on);
+    yieldToPageNav(button);
   });
 })();
