@@ -59,7 +59,7 @@ Were there a prize for the best-ever combination of simple and profound, this wo
 So what is the important difference between the "Old Way" and the "New Way"?
 
 ```{ojs}
-viewof thought_9a = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_9a = Inputs.textarea({label: "What is the important difference between the 'Old Way' and the 'New Way'?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_9a" aria-expanded="false" aria-controls="collapse_9a">
@@ -80,7 +80,7 @@ It's simply the difference between a line and a circle! The line stops (or disap
 What kind of things does that simple change from a line to a circle signify to you?
 
 ```{ojs}
-viewof thought_9b = Inputs.textarea({placeholder: "Type your comments here.", rows: 10})
+viewof thought_9b = Inputs.textarea({label: "What does that simple change from a line to a circle signify to you?", placeholder: "Type your comments here.", rows: 10})
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_9b" aria-expanded="false" aria-controls="collapse_9b">

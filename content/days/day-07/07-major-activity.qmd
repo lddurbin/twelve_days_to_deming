@@ -33,25 +33,25 @@ Please begin by reading through page 27 again.
 **1. [Hope for instant pudding.]{style="color: blue"}** (*Out of the Crisis* pages 107–108[126–127]; Appendix page 32.) The ever-lasting search for the "quick fix"! The term "instant pudding" relates to certain kinds of what are known as "convenience foods": buy a packet, stir in some water, heat, and serve! Expensive and not very nutritious.
 
 ```{ojs}
-viewof activity_7i_1 = Inputs.textarea({placeholder: "Your notes on Obstacle 1.", rows: 5})
+viewof activity_7i_1 = Inputs.textarea({label: "Obstacle 1: Hope for instant pudding — your notes", placeholder: "Your notes on Obstacle 1.", rows: 5})
 ```
 
 **2. [The supposition that solving problems, automation, gadgets, and new machinery will transform industry.]{style="color: blue"}** (*Out of the Crisis* page 108 [pages 127–128]; Appendix page 32.) Firstly, solving problems only puts right what should not have been wrong. For the other items mentioned here, the point is that you cannot "buy" transformation. At the beginning of *The New Economics* Chapter 4, Dr Deming emphasises that ["The first step is transformation of the individual"]{.deming_quote} who then "will perceive new meaning to his life, to events, to numbers, to interactions between people". Again, you cannot "buy" that.
 
 ```{ojs}
-viewof activity_7i_2 = Inputs.textarea({placeholder: "Your notes on Obstacle 2.", rows: 5})
+viewof activity_7i_2 = Inputs.textarea({label: "Obstacle 2: The supposition that solving problems, automation, gadgets, and new machinery will transform industry — your notes", placeholder: "Your notes on Obstacle 2.", rows: 5})
 ```
 
 **3. [Search for examples.]{style="color: blue"}** (*Out of the Crisis* pages 109–110[128–128]; Appendix pages 32–33.) A large topic, the subject of *DemDim* Chapter 16. Also see Paragraph 7 (pages 275–276) in the Theory of Knowledge section of *DemDim* Chapter 18. One trouble is that you can usually find numerous examples to support just about any idea, whether that idea be good or bad. Mindless copying of examples is therefore—well—mindless! Dr Deming similarly warns against simply relying on experience. You have seen something of this on Day 6 pages 1–2; you will see more on Day 11.
 
 ```{ojs}
-viewof activity_7i_3 = Inputs.textarea({placeholder: "Your notes on Obstacle 3.", rows: 5})
+viewof activity_7i_3 = Inputs.textarea({label: "Obstacle 3: Search for examples — your notes", placeholder: "Your notes on Obstacle 3.", rows: 5})
 ```
 
 **4. ["Our problems are different."]{style="color: blue"}** (*Out of the Crisis* page 110[130]; Appendix page 33.) This is one of the most common excuses by managers who do not want to learn and do not want to change.
 
 ```{ojs}
-viewof activity_7i_4 = Inputs.textarea({placeholder: "Your notes on Obstacle 4.", rows: 5})
+viewof activity_7i_4 = Inputs.textarea({label: "Obstacle 4: 'Our problems are different' — your notes", placeholder: "Your notes on Obstacle 4.", rows: 5})
 ```
 
 **5. [Obsolescence in Schools [i.e. Schools of Business].]{style="color: blue"}** (*Out of the Crisis* pages 110–111[130–131]; Appendix page 33.) On *Out of the Crisis* page 110[130], Deming quotes Robert Reich in a private communication as follows: "As profits declined, generally, from 1970 onward, many American companies attempted to bolster their earnings by acquisition and paper profits. The people in finance and law became the important people in the company. Quality and competitive position were submerged. Schools of Business responded to populate demand for finance and creative accounting. The results are decline."
@@ -59,73 +59,73 @@ viewof activity_7i_4 = Inputs.textarea({placeholder: "Your notes on Obstacle 4."
 Robert Reich, who was Secretary of Labour in Bill Clinton's administration, is featured in conversation with Dr Deming in the first two of the Deming Library videos: *The New Economic Age* and *The 14 Points*.
 
 ```{ojs}
-viewof activity_7i_5 = Inputs.textarea({placeholder: "Your notes on Obstacle 5.", rows: 5})
+viewof activity_7i_5 = Inputs.textarea({label: "Obstacle 5: Obsolescence in Schools (of Business) — your notes", placeholder: "Your notes on Obstacle 5.", rows: 5})
 ```
 
 **6. [Poor teaching of statistical methods in industry.]{style="color: blue"}** (*Out of the Crisis* pages 111–113[131–133]; Appendix pages 33–34.) A basic problem here is that the large majority of "conventional" statistics teaching is to do with matters such as probabilities, distributions, sampling from "populations", and the like. The subject is essentially treated as a branch of Mathematics, dependent on mathematical models. But the real world is primarily concerned with ever-changing processes that therefore do not fit neat mathematical models. Quite unlike most statistical tools, the control chart, as understood, taught and used by Drs Shewhart and Deming, is not dependent on mathematical models: it is designed for the real world. Because of not understanding this fact and its importance, many teachers try to force the control chart into the conventional mathematical mould—thus destroying its unique virtue! This is all touched upon in the Overture, in my discussion on Pause for Thought 2–b on Appendix page 7, and in the Springboard article cited on Day 1 page 8. There is also much more in the Optional Extras section.
 
 ```{ojs}
-viewof activity_7i_6 = Inputs.textarea({placeholder: "Your notes on Obstacle 6.", rows: 5})
+viewof activity_7i_6 = Inputs.textarea({label: "Obstacle 6: Poor teaching of statistical methods in industry — your notes", placeholder: "Your notes on Obstacle 6.", rows: 5})
 ```
 
 **7. [Use of [Military Standard 105D and other] tables for acceptance.]{style="color: blue"}** (*Out of the Crisis* page 113[133]; Appendix page 34.) This alludes to old-fashioned "acceptance sampling" schemes where batches are sampled and then accepted or rejected according to the number of defective items found in the sample. What's wrong with that? Well, for a start, an essential requirement for deciding on the details of such a plan is the specification of an acceptable proportion of defectives! And, having mentioned that word "specification", how is a "defective" defined?—which brings us back to some of the problems with "conformance to specifications" and also takes us forward to operational definitions on Day 11. There is much more in *Out of the Crisis* Chapter 15.
 
 ```{ojs}
-viewof activity_7i_7 = Inputs.textarea({placeholder: "Your notes on Obstacle 7.", rows: 5})
+viewof activity_7i_7 = Inputs.textarea({label: "Obstacle 7: Use of Military Standard 105D and other tables for acceptance — your notes", placeholder: "Your notes on Obstacle 7.", rows: 5})
 ```
 
 **8. ["Our Quality Control Department takes care of all our problems of quality."]{style="color: blue"}** (*Out of the Crisis* pages 113–114[133–134]; Appendix page 34.) Substantially, this takes us back to the delusion that quality can be obtained by inspection (c.f. the third of the 14 Points on Day 4 pages 20–21) or by "quality assurance".
 
 ```{ojs}
-viewof activity_7i_8 = Inputs.textarea({placeholder: "Your notes on Obstacle 8.", rows: 5})
+viewof activity_7i_8 = Inputs.textarea({label: "Obstacle 8: 'Our Quality Control Department takes care of all our problems of quality' — your notes", placeholder: "Your notes on Obstacle 8.", rows: 5})
 ```
 
 **9. ["Our troubles lie entirely in the workforce."]{style="color: blue"}** (*Out of the Crisis* pages 114–115[134–135]; Appendix pages 34–35.) Same comment as with Obstacle 4 (page 29). This nonsense is, of course, entirely contradictory to all we have learned about most of the problems (85%, 94%, 98%?) lying in the system (common causes).
 
 ```{ojs}
-viewof activity_7i_9 = Inputs.textarea({placeholder: "Your notes on Obstacle 9.", rows: 5})
+viewof activity_7i_9 = Inputs.textarea({label: "Obstacle 9: 'Our troubles lie entirely in the workforce' — your notes", placeholder: "Your notes on Obstacle 9.", rows: 5})
 ```
 
 **10. [False starts.]{style="color: blue"}** (*Out of the Crisis* pages 115–117[135–138]; Appendix page 35.) Just think back over the years in your organisation. How many great new initiatives, flavours of the month, the latest panacea, have been tried? Where are they now?
 
 ```{ojs}
-viewof activity_7i_10 = Inputs.textarea({placeholder: "Your notes on Obstacle 10.", rows: 5})
+viewof activity_7i_10 = Inputs.textarea({label: "Obstacle 10: False starts — your notes", placeholder: "Your notes on Obstacle 10.", rows: 5})
 ```
 
 **11. ["We installed quality control."]{style="color: blue"}** (*Out of the Crisis* page 117 [pages 138–139]; Appendix page 35.) As with Obstacle 2, quality cannot be "bought"; see my comments on that Obstacle (page 28). Any management that thinks it can "install quality control" will achieve neither quality nor control.
 
 ```{ojs}
-viewof activity_7i_11 = Inputs.textarea({placeholder: "Your notes on Obstacle 11.", rows: 5})
+viewof activity_7i_11 = Inputs.textarea({label: "Obstacle 11: 'We installed quality control' — your notes", placeholder: "Your notes on Obstacle 11.", rows: 5})
 ```
 
 **12. [The unmanned computer.]{style="color: blue"}** (*Out of the Crisis* page 118[139]; Appendix page 35.) With the great changes in computer technology since the mid-1980s when *Out of the Crisis* was published, the nature of this Obstacle has changed—but it is still an Obstacle! The complaint then was that computers would mostly produce "reams of figures" which were difficult to analyse. Nowadays one can produce a proliferation of multi-coloured multi-dimensional graphs at the touch of a key—which are also often difficult to analyse! See the superb fifth chapter: "Graphical Purgatory" in Don Wheeler's *Making Sense of Data*.
 
 ```{ojs}
-viewof activity_7i_12 = Inputs.textarea({placeholder: "Your notes on Obstacle 12.", rows: 5})
+viewof activity_7i_12 = Inputs.textarea({label: "Obstacle 12: The unmanned computer — your notes", placeholder: "Your notes on Obstacle 12.", rows: 5})
 ```
 
 **13. [The supposition that it is only necessary to meet specifications.]{style="color: blue"}** (*Out of the Crisis* pages 118–119[139–141]; Appendix page 36.) After your work with the Taguchi loss function, I think I need add nothing here! And you are now so familiar with this matter that I suggest you soon move on to the remaining three Obstacles.
 
 ```{ojs}
-viewof activity_7i_13 = Inputs.textarea({placeholder: "Your notes on Obstacle 13.", rows: 5})
+viewof activity_7i_13 = Inputs.textarea({label: "Obstacle 13: The supposition that it is only necessary to meet specifications — your notes", placeholder: "Your notes on Obstacle 13.", rows: 5})
 ```
 
 **14. [The fallacy of zero defects.]{style="color: blue"}** (*Out of the Crisis* pages 119–120[141–142]; Appendix page 36.) With "defect" = "outside specifications", this is equivalent to Obstacle 13 above. In addition, Dr Deming saw zero-defects policies as often inviting tampering, suffering effects we have seen in the Funnel Experiment. Recall also Mack's mention of Zero Defects (Day 6 page 11).
 
 ```{ojs}
-viewof activity_7i_14 = Inputs.textarea({placeholder: "Your notes on Obstacle 14.", rows: 5})
+viewof activity_7i_14 = Inputs.textarea({label: "Obstacle 14: The fallacy of zero defects — your notes", placeholder: "Your notes on Obstacle 14.", rows: 5})
 ```
 
 **15. [Inadequate testing of prototypes.]{style="color: blue"}** (*Out of the Crisis* pages 120–121[142–143]; Appendix pages 36–37.) Prototypes are usually tested in "laboratory-controlled conditions"—which are likely to be substantially different from the very variable conditions to be experienced in use.
 
 ```{ojs}
-viewof activity_7i_15 = Inputs.textarea({placeholder: "Your notes on Obstacle 15.", rows: 5})
+viewof activity_7i_15 = Inputs.textarea({label: "Obstacle 15: Inadequate testing of prototypes — your notes", placeholder: "Your notes on Obstacle 15.", rows: 5})
 ```
 
 **16. ["Anyone that comes to try to help us must understand all about our business."]{style="color: blue"}** (*Out of the Crisis* page 121[143]; Appendix page 37.) Strongly linked with Obstacle 4 (page 29) and my comment there. We have already pointed out on Day 6 page 6 that Dr Deming referred to Profound Knowledge as ["outside knowledge"]{.deming_quote}; another pertinent quote (e.g. on *The New Economics* page 39[54]) is ["A system can not understand itself."]{.deming_quote} Real help comes from *new* knowledge.
 
 ```{ojs}
-viewof activity_7i_16 = Inputs.textarea({placeholder: "Your notes on Obstacle 16.", rows: 5})
+viewof activity_7i_16 = Inputs.textarea({label: "Obstacle 16: 'Anyone that comes to try to help us must understand all about our business' — your notes", placeholder: "Your notes on Obstacle 16.", rows: 5})
 ```
 
 </div>

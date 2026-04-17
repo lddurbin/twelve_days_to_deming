@@ -59,7 +59,7 @@ So yes, of course, managers along with others need to predict successfully. But 
 </div>
 
 ```{ojs}
-viewof note_11_prediction_1 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_prediction_1 = Inputs.textarea({label: "Your notes on item 1: rational plans require prediction", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -93,7 +93,7 @@ Dr Deming was particularly conscious of the difference between information and k
 </div>
 
 ```{ojs}
-viewof note_11_prediction_2 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_prediction_2 = Inputs.textarea({label: "Your notes on item 2: a statement devoid of prediction is no help in management", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 (Over to you now for your reactions, thoughts, comments for the rest of Part C.)
@@ -111,7 +111,7 @@ If you are a statistician, you might prefer to remain unaware of the following p
 </div>
 
 ```{ojs}
-viewof note_11_prediction_3 = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_prediction_3 = Inputs.textarea({label: "Your notes on item 3: interpretation of data is prediction; statistical control aids prediction", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 #### Area 1, Step 3: *DemDim* version
@@ -119,7 +119,7 @@ viewof note_11_prediction_3 = Inputs.textarea({placeholder: "Your notes on this 
 Now briefly read through *DemDim* page 274, paragraph 1 to page 275, paragraph 4 again, revising your earlier comments if necessary and adding any further notes below.
 
 ```{ojs}
-viewof note_11_demdim_area1 = Inputs.textarea({placeholder: "Additional notes from DemDim pages 274–275.", rows: 6})
+viewof note_11_demdim_area1 = Inputs.textarea({label: "Additional notes after re-reading DemDim pages 274–275 on Prediction", placeholder: "Additional notes from DemDim pages 274–275.", rows: 6})
 ```
 
 ```{ojs download_all_11_area1}

@@ -14,31 +14,31 @@ Now please **read pages 213–231 of *DemDim* Chapter 15: "Cooperation: Win-Win�
 Is there much cooperation in your organisation—either on your part or anybody else's?
 
 ```{ojs}
-viewof activity_8c_1 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8c_1 = Inputs.textarea({label: "Is there much cooperation in your organisation — either on your part or anybody else's?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 What kind of things in your organisation prevent, or at least obstruct, cooperation?
 
 ```{ojs}
-viewof activity_8c_2 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8c_2 = Inputs.textarea({label: "What kind of things in your organisation prevent, or at least obstruct, cooperation?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 What harm does lack of cooperation do to your organisation?
 
 ```{ojs}
-viewof activity_8c_3 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8c_3 = Inputs.textarea({label: "What harm does lack of cooperation do to your organisation?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 What kind of things could be done in your organisation to encourage and enable more cooperation?
 
 ```{ojs}
-viewof activity_8c_4 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8c_4 = Inputs.textarea({label: "What kind of things could be done in your organisation to encourage and enable more cooperation?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 What kind of benefits to your organisation could result if there were to be more cooperation?
 
 ```{ojs}
-viewof activity_8c_5 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8c_5 = Inputs.textarea({label: "What kind of benefits to your organisation could result if there were to be more cooperation?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 </div>

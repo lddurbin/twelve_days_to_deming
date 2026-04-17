@@ -256,7 +256,7 @@ UK readers may have recognised several parallels between the above account and s
 (b) The space below is left for some brief notes on your own true stories (see the top of page 9).
 
 ```{ojs}
-viewof activity_7d = Inputs.textarea({placeholder: "Type your own true stories here.", rows: 10})
+viewof activity_7d = Inputs.textarea({label: "Brief notes on your own true stories of numerical targets", placeholder: "Type your own true stories here.", rows: 10})
 ```
 
 </div>

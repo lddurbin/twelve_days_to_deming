@@ -22,133 +22,133 @@ As mentioned on Day 9 page 27, in each case please put a number on a 0--5 scale 
 
 ```{ojs}
 viewof activity_10a_point1_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point1 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point1 = Inputs.textarea({label: "Comments — Point 1: Create constancy of purpose", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 2.** [Adopt the new philosophy. We are in a new economic age, created in Japan.]{.deming_quote} *(Day 4 pages 18--19.)*
 
 ```{ojs}
 viewof activity_10a_point2_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point2 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point2 = Inputs.textarea({label: "Comments — Point 2: Adopt the new philosophy", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 3.** [Eliminate the need for mass inspection as a way to achieve quality.]{.deming_quote} *(Day 4 pages 20--21.)*
 
 ```{ojs}
 viewof activity_10a_point3_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point3 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point3 = Inputs.textarea({label: "Comments — Point 3: Eliminate the need for mass inspection", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 4.** [End the practice of awarding business solely on the basis of price tag.]{.deming_quote} *(Day 4 pages 22--23.)*
 
 ```{ojs}
 viewof activity_10a_point4_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point4 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point4 = Inputs.textarea({label: "Comments — Point 4: End the practice of awarding business on price tag alone", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 5.** [Improve constantly and for ever the system.]{.deming_quote} *(Day 4 pages 24--25.)*
 
 ```{ojs}
 viewof activity_10a_point5_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point5 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point5 = Inputs.textarea({label: "Comments — Point 5: Improve constantly and forever the system", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 6.** [Institute modern methods of training.]{.deming_quote} *(Day 4 pages 26--27.)*
 
 ```{ojs}
 viewof activity_10a_point6_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point6 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point6 = Inputs.textarea({label: "Comments — Point 6: Institute modern methods of training", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 7.** [Adopt and institute leadership aimed at helping people to do a better job.]{.deming_quote} *(Day 5 pages 2--3.)*
 
 ```{ojs}
 viewof activity_10a_point7_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point7 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point7 = Inputs.textarea({label: "Comments — Point 7: Adopt and institute leadership", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 8.** [Encourage effective two-way communication and other means to drive out fear throughout the organisation.]{.deming_quote} *(Day 5 pages 4--5.)*
 
 ```{ojs}
 viewof activity_10a_point8_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point8 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point8 = Inputs.textarea({label: "Comments — Point 8: Drive out fear", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 9.** [Break down barriers between departments and staff areas.]{.deming_quote} *(Day 5 pages 6--7.)*
 
 ```{ojs}
 viewof activity_10a_point9_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point9 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point9 = Inputs.textarea({label: "Comments — Point 9: Break down barriers between departments and staff areas", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 10.** [Eliminate the use of slogans, posters, and exhortations.]{.deming_quote} *(Day 5 pages 8--9.)*
 
 ```{ojs}
 viewof activity_10a_point10_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point10 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point10 = Inputs.textarea({label: "Comments — Point 10: Eliminate slogans, posters, and exhortations", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 11.** [Eliminate work standards that prescribe quotas for the workforce and numerical goals for people in management.]{.deming_quote} *(Day 5 pages 10--11.)*
 
 ```{ojs}
 viewof activity_10a_point11_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point11 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point11 = Inputs.textarea({label: "Comments — Point 11: Eliminate work standards and numerical goals", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 12.** [Remove the barriers that rob hourly workers, and people in management, of their right to pride of workmanship.]{.deming_quote} *(Day 5 pages 12--13.)*
 
 ```{ojs}
 viewof activity_10a_point12_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point12 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point12 = Inputs.textarea({label: "Comments — Point 12: Remove barriers to pride of workmanship", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 13.** [Institute a vigorous programme of education, and encourage self-improvement for everyone.]{.deming_quote} *(Day 5 pages 14--15.)*
 
 ```{ojs}
 viewof activity_10a_point13_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point13 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point13 = Inputs.textarea({label: "Comments — Point 13: Institute education and self-improvement for everyone", placeholder: "Your comments.", rows: 3})
 ```
 
 **POINT 14.** [Clearly define top management's permanent commitment to ever-improving quality and productivity.]{.deming_quote} *(Day 5 pages 16--17.)*
 
 ```{ojs}
 viewof activity_10a_point14_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_point14 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_point14 = Inputs.textarea({label: "Comments — Point 14: Top management's permanent commitment to ever-improving quality", placeholder: "Your comments.", rows: 3})
 ```
 
 **DISEASE 1.** [The crippling disease is lack of constancy of purpose.]{.deming_quote} *(Day 5 pages 18--19.)*
 
 ```{ojs}
 viewof activity_10a_disease1_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_disease1 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_disease1 = Inputs.textarea({label: "Comments — Disease 1: Lack of constancy of purpose", placeholder: "Your comments.", rows: 3})
 ```
 
 **DISEASE 2.** [Short-term thinking defeats constancy of purpose.]{.deming_quote} *(Day 5 pages 20--21.)*
 
 ```{ojs}
 viewof activity_10a_disease2_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_disease2 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_disease2 = Inputs.textarea({label: "Comments — Disease 2: Short-term thinking", placeholder: "Your comments.", rows: 3})
 ```
 
 **DISEASE 3.** [The effects of performance appraisal are devastating.]{.deming_quote} *(Day 5 pages 22--23.)*
 
 ```{ojs}
 viewof activity_10a_disease3_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_disease3 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_disease3 = Inputs.textarea({label: "Comments — Disease 3: The devastating effects of performance appraisal", placeholder: "Your comments.", rows: 3})
 ```
 
 **DISEASE 4.** [Mobility of management causes instability.]{.deming_quote} *(Day 5 pages 24--25.)*
 
 ```{ojs}
 viewof activity_10a_disease4_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_disease4 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_disease4 = Inputs.textarea({label: "Comments — Disease 4: Mobility of management causes instability", placeholder: "Your comments.", rows: 3})
 ```
 
 **DISEASE 5.** [One cannot be successful on visible figures alone.]{.deming_quote} *(Day 5 pages 26--27.)*
 
 ```{ojs}
 viewof activity_10a_disease5_rating = Inputs.text({label: "Rating (0–5):", placeholder: "0–5"})
-viewof activity_10a_disease5 = Inputs.textarea({placeholder: "Your comments.", rows: 3})
+viewof activity_10a_disease5 = Inputs.textarea({label: "Comments — Disease 5: Running on visible figures alone", placeholder: "Your comments.", rows: 3})
 ```
 
 </div>

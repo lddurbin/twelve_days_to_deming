@@ -57,7 +57,7 @@ The components need not all be clearly defined and documented: people may merely
 </div>
 
 ```{ojs}
-viewof note_10_components = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_components = Inputs.textarea({label: "Your notes on the system's components and management's role", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -77,7 +77,7 @@ The aim proposed here for any organisation is for everybody to gain---stockholde
 </div>
 
 ```{ojs}
-viewof note_10_aim = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_aim = Inputs.textarea({label: "Your notes on 'the aim of the system' (everybody to gain)", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 #### 2. Optimisation of a system
@@ -99,7 +99,7 @@ Growth in size and complexity of a system, and rapid changes with time, may requ
 </div>
 
 ```{ojs}
-viewof note_10_optimisation = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_optimisation = Inputs.textarea({label: "Your notes on optimisation, suboptimisation, and the boundary of the system", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -119,7 +119,7 @@ A flow diagram [*remember what he means by this term: the famous diagram on Day 
 </div>
 
 ```{ojs}
-viewof note_10_aide_flowdiagram = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_aide_flowdiagram = Inputs.textarea({label: "Your notes on guidance from outside, the 'aide to the president', and the flow diagram", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -141,7 +141,7 @@ A business is not merely an organisation chart [*of the conventional kind*], all
 </div>
 
 ```{ojs}
-viewof note_10_orchestra_business = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_orchestra_business = Inputs.textarea({label: "Your notes on the orchestra example and a business as a network", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -153,7 +153,7 @@ The performance of any component is to be judged in terms of its contribution to
 </div>
 
 ```{ojs}
-viewof note_10_schools_performance = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_schools_performance = Inputs.textarea({label: "Your notes on the system of schools and judging a component's performance", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -165,7 +165,7 @@ It would be poor management to save money on travelling expenses without regard 
 </div>
 
 ```{ojs}
-viewof note_10_poor_management = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_poor_management = Inputs.textarea({label: "Your notes on the examples of poor management (lowest price, travel costs, etc.)", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -177,7 +177,7 @@ Optimisation of a system should be the basis for negotiation between any two peo
 </div>
 
 ```{ojs}
-viewof note_10_winlose = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_winlose = Inputs.textarea({label: "Your notes on Win–Lose structures and optimisation as the basis for negotiation", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 <div class="deming_quote">
@@ -205,7 +205,7 @@ There is, of course, no need to include in your comments the technical details o
 </div>
 
 ```{ojs}
-viewof note_10_suboptimisation_taguchi = Inputs.textarea({placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_suboptimisation_taguchi = Inputs.textarea({label: "Your notes on examples of suboptimisation and the relevance of the Taguchi loss function", placeholder: "Your notes on this item.", rows: 4})
 ```
 
 That completes the items which Dr Deming included for Part A in his May 1990 version of the System of Profound Knowledge. There were rather more of them than for any of the other three parts. As mentioned earlier, that is why the relevant Activity (concerning links between Part A and the 14 Points and Deadly Diseases) is postponed to the beginning of this afternoon rather than being crammed into this morning. In all other cases, the similar Activity will conclude the relevant half-day.
@@ -215,7 +215,7 @@ That completes the items which Dr Deming included for Part A in his May 1990 ver
 Now read through *DemDim* pages 264–270, revising your earlier comments and adding any new points below.
 
 ```{ojs}
-viewof note_10_demdim_parta = Inputs.textarea({placeholder: "Additional notes from DemDim pages 264–270.", rows: 6})
+viewof note_10_demdim_parta = Inputs.textarea({label: "Additional notes after reading DemDim pages 264–270 on Appreciation for a System", placeholder: "Additional notes from DemDim pages 264–270.", rows: 6})
 ```
 
 <div class="neave_note">

@@ -37,7 +37,7 @@ If you would like to see a couple of examples of such reports, and have availabl
 *(The following three pages have been left blank for Dr Deming's draft report.)*
 
 ```{ojs}
-viewof activity_12e_part1 = Inputs.textarea({placeholder: "Draft your 'Deming report' to the Chief Executive here.", rows: 16})
+viewof activity_12e_part1 = Inputs.textarea({label: "Part 1: Draft Dr Deming's report to your organisation's Chief Executive", placeholder: "Draft your 'Deming report' to the Chief Executive here.", rows: 16})
 ```
 
 ### Part 2
@@ -57,7 +57,7 @@ Since you have now nearly completed this course, assume you have been promoted t
 *(The following three pages have been left blank for your thoughts and ideas.)*
 
 ```{ojs}
-viewof activity_12e_part2 = Inputs.textarea({placeholder: "Your plans and thoughts for Part 2 (Option 1 or Option 2).", rows: 16})
+viewof activity_12e_part2 = Inputs.textarea({label: "Part 2: Your plans for change (Option 1) or your work as 'aide to the president' (Option 2)", placeholder: "Your plans and thoughts for Part 2 (Option 1 or Option 2).", rows: 16})
 ```
 
 ```{ojs download_12e}

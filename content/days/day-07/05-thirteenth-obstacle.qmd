@@ -44,7 +44,7 @@ Everybody's work is affected to some extent by the conditions under which they a
 **1.** Write down what you would regard as the most comfortable, the "ideal", temperature for your work:
 
 ```{ojs}
-viewof activity_7e_1 = Inputs.text({placeholder: "e.g. 21°C", width: 200})
+viewof activity_7e_1 = Inputs.text({label: "Step 1: Your most comfortable, 'ideal' working temperature", placeholder: "e.g. 21°C", width: 200})
 ```
 
 **2.** Now write down a fairly wide temperature scale around that ideal value (for illustration, I'm using three steps of 5°C either side of 21°):
@@ -52,13 +52,13 @@ viewof activity_7e_1 = Inputs.text({placeholder: "e.g. 21°C", width: 200})
 Thus, e.g., &nbsp;&nbsp;&nbsp; 6°C &nbsp;&nbsp;&nbsp; 11°C &nbsp;&nbsp;&nbsp; 16°C &nbsp;&nbsp;&nbsp; 22°C &nbsp;&nbsp;&nbsp; 26°C &nbsp;&nbsp;&nbsp; 31°C &nbsp;&nbsp;&nbsp; 36°C
 
 ```{ojs}
-viewof activity_7e_2 = Inputs.text({placeholder: "Write your seven temperatures here, e.g. 6°C, 11°C, 16°C, 21°C, 26°C, 31°C, 36°C", width: 600})
+viewof activity_7e_2 = Inputs.text({label: "Step 2: A fairly wide temperature scale around your ideal value (seven temperatures)", placeholder: "Write your seven temperatures here, e.g. 6°C, 11°C, 16°C, 21°C, 26°C, 31°C, 36°C", width: 600})
 ```
 
 **3.** Presumably, whatever work you are doing, you will do it best at your "ideal" temperature. So let's represent that amount and quality of work done at the ideal temperature by 100% in whatever connections you deem relevant: accuracy, amount, creativity, concentration, quality in any appropriate sense. Now think of working at those other temperatures. If it is noticeably hotter or colder than your ideal temperature, your work is very likely to suffer. So, compared with the 100% at the ideal temperature, what would be the approximate percentages representing the amount and goodness of your work at those other six temperatures? Firstly, copy over your seven temperatures from step 2 and then write in your approximate percentages underneath them:
 
 ```{ojs}
-viewof activity_7e_3 = Inputs.textarea({placeholder: "Write your temperatures and percentages here, e.g.\n6°C → 5%\n11°C → 50%\n16°C → 85%\n21°C → 100%\n26°C → 90%\n31°C → 55%\n36°C → 15%", rows: 8})
+viewof activity_7e_3 = Inputs.textarea({label: "Step 3: Approximate percentages of your work quality at each of the seven temperatures", placeholder: "Write your temperatures and percentages here, e.g.\n6°C → 5%\n11°C → 50%\n16°C → 85%\n21°C → 100%\n26°C → 90%\n31°C → 55%\n36°C → 15%", rows: 8})
 ```
 
 Here are my own answers:
@@ -69,7 +69,7 @@ Here are my own answers:
 **4.** Now subtract your percentages from 100%, therefore obtaining the percentage loss in your work through having to suffer a temperature which is too high or too low:
 
 ```{ojs}
-viewof activity_7e_4 = Inputs.textarea({placeholder: "Write your temperatures and percentage losses here, e.g.\n6°C → 95%\n11°C → 50%\n16°C → 15%\n21°C → 0%\n26°C → 10%\n31°C → 45%\n36°C → 85%", rows: 8})
+viewof activity_7e_4 = Inputs.textarea({label: "Step 4: Percentage loss in your work at each temperature (100% minus your Step 3 values)", placeholder: "Write your temperatures and percentage losses here, e.g.\n6°C → 95%\n11°C → 50%\n16°C → 15%\n21°C → 0%\n26°C → 10%\n31°C → 45%\n36°C → 85%", rows: 8})
 ```
 
 Here are my answers:

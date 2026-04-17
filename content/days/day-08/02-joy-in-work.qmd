@@ -14,31 +14,31 @@ So now please **read *DemDim* Chapter 13 (pages 197–202): "Joy in Work"**.
 Is there much Joy in Work in your organisation—either on your part or anybody else's?
 
 ```{ojs}
-viewof activity_8a_1 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8a_1 = Inputs.textarea({label: "Is there much Joy in Work in your organisation — either on your part or anybody else's?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 What kind of things in your organisation prevent, or at least obstruct, Joy in Work?
 
 ```{ojs}
-viewof activity_8a_2 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8a_2 = Inputs.textarea({label: "What kind of things in your organisation prevent, or at least obstruct, Joy in Work?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 What harm does lack of Joy in Work do to your organisation?
 
 ```{ojs}
-viewof activity_8a_3 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8a_3 = Inputs.textarea({label: "What harm does lack of Joy in Work do to your organisation?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 What kind of things could be done in your organisation to encourage and enable more Joy in Work?
 
 ```{ojs}
-viewof activity_8a_4 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8a_4 = Inputs.textarea({label: "What kind of things could be done in your organisation to encourage and enable more Joy in Work?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 What kind of benefits to your organisation could result if there were to be more Joy in Work?
 
 ```{ojs}
-viewof activity_8a_5 = Inputs.textarea({placeholder: "Type your comments here.", rows: 8})
+viewof activity_8a_5 = Inputs.textarea({label: "What kind of benefits to your organisation could result if there were to be more Joy in Work?", placeholder: "Type your comments here.", rows: 8})
 ```
 
 </div>
