@@ -32,7 +32,6 @@
     var button = document.createElement("button");
     button.type = "button";
     button.className = "dyslexia-toggle";
-    button.setAttribute("aria-label", "Toggle dyslexia-friendly font");
     button.setAttribute("aria-pressed", initialOn ? "true" : "false");
     button.innerHTML =
       '<span class="dyslexia-toggle-icon" aria-hidden="true">Aa</span>' +

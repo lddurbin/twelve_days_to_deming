@@ -706,36 +706,54 @@ button:focus,
 }
 
 /* ===== DYSLEXIA-FRIENDLY FONT TOGGLE ===== */
-/* Applied to <html> by an inline head script (FOUC prevention) and/or
-   to <body> by the toggle click handler. Both selectors keep the rule
-   active in either state. */
-html.dyslexic-font body,
-body.dyslexic-font,
-html.dyslexic-font body h1, html.dyslexic-font body h2, html.dyslexic-font body h3,
-html.dyslexic-font body h4, html.dyslexic-font body h5, html.dyslexic-font body h6,
-body.dyslexic-font h1, body.dyslexic-font h2, body.dyslexic-font h3,
-body.dyslexic-font h4, body.dyslexic-font h5, body.dyslexic-font h6,
-html.dyslexic-font body p, html.dyslexic-font body li, html.dyslexic-font body td, html.dyslexic-font body th,
-html.dyslexic-font body label, html.dyslexic-font body button, html.dyslexic-font body input, html.dyslexic-font body textarea,
-html.dyslexic-font body .callout, html.dyslexic-font body blockquote,
-body.dyslexic-font p, body.dyslexic-font li, body.dyslexic-font td, body.dyslexic-font th,
-body.dyslexic-font label, body.dyslexic-font button, body.dyslexic-font input, body.dyslexic-font textarea,
-body.dyslexic-font .callout, body.dyslexic-font blockquote {
-  font-family: 'OpenDyslexic', sans-serif;
-}
+/* The inline head script sets .dyslexic-font on <html> before paint
+   (FOUC prevention); the toggle handler keeps html+body in lockstep.
+   All selectors scope to html.dyslexic-font — body is always in sync. */
+@media not print {
+  html.dyslexic-font body,
+  html.dyslexic-font body h1, html.dyslexic-font body h2, html.dyslexic-font body h3,
+  html.dyslexic-font body h4, html.dyslexic-font body h5, html.dyslexic-font body h6,
+  html.dyslexic-font body p, html.dyslexic-font body li,
+  html.dyslexic-font body td, html.dyslexic-font body th,
+  html.dyslexic-font body label, html.dyslexic-font body button,
+  html.dyslexic-font body input, html.dyslexic-font body textarea,
+  html.dyslexic-font body .callout, html.dyslexic-font body blockquote {
+    font-family: 'OpenDyslexic', sans-serif;
+  }
 
-/* Preserve monospace for code and data tables — OpenDyslexic kills readability there */
-html.dyslexic-font body code, body.dyslexic-font code,
-html.dyslexic-font body pre, body.dyslexic-font pre,
-html.dyslexic-font body .cell pre, body.dyslexic-font .cell pre,
-html.dyslexic-font body .data-sequence-mono, body.dyslexic-font .data-sequence-mono,
-html.dyslexic-font body .fe-data-table, body.dyslexic-font .fe-data-table,
-html.dyslexic-font body .fe-data-table th, body.dyslexic-font .fe-data-table th,
-html.dyslexic-font body .fe-data-table td, body.dyslexic-font .fe-data-table td,
-html.dyslexic-font body .fe-summary-table, body.dyslexic-font .fe-summary-table,
-html.dyslexic-font body .fe-summary-table th, body.dyslexic-font .fe-summary-table th,
-html.dyslexic-font body .fe-summary-table td, body.dyslexic-font .fe-summary-table td {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* Preserve monospace for code and data tables — OpenDyslexic kills readability there */
+  html.dyslexic-font body code,
+  html.dyslexic-font body pre,
+  html.dyslexic-font body .cell pre,
+  html.dyslexic-font body .data-sequence-mono,
+  html.dyslexic-font body .fe-data-table,
+  html.dyslexic-font body .fe-data-table th,
+  html.dyslexic-font body .fe-data-table td,
+  html.dyslexic-font body .fe-summary-table,
+  html.dyslexic-font body .fe-summary-table th,
+  html.dyslexic-font body .fe-summary-table td {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  /* Breathing room for OpenDyslexic — taller glyphs need more line-height
+     and fixed-height containers need to flex so wrapped text doesn't overflow. */
+  html.dyslexic-font body {
+    line-height: 1.7;
+  }
+  html.dyslexic-font body .workbook_callout,
+  html.dyslexic-font body .return_callout,
+  html.dyslexic-font body .info_callout {
+    height: auto;
+    min-height: 40px;
+    line-height: 1.5;
+    padding: 8px 14px;
+  }
+  html.dyslexic-font body .page-navigation .nav-page,
+  html.dyslexic-font body .page-navigation .chapter-title {
+    line-height: 1.4;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
 }
 
 .dyslexia-toggle {
@@ -748,62 +766,33 @@ html.dyslexic-font body .fe-summary-table td, body.dyslexic-font .fe-summary-tab
   padding: 10px 14px;
   font-size: 14px;
   font-weight: 600;
-  color: #fff;
-  background-color: #3333a6;
+  color: #3333a6;
+  background-color: #fff;
   border: 2px solid #3333a6;
   border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-.dyslexia-toggle:hover,
-.dyslexia-toggle:focus-visible {
-  background-color: #fff;
-  color: #3333a6;
+.dyslexia-toggle:hover {
+  background-color: #e8e8f4;
 }
 .dyslexia-toggle:focus-visible {
   outline: 3px solid #ffbf00;
   outline-offset: 2px;
 }
 .dyslexia-toggle[aria-pressed="true"] {
-  background-color: #fff;
-  color: #3333a6;
+  background-color: #3333a6;
+  color: #fff;
+}
+.dyslexia-toggle[aria-pressed="true"]:hover {
+  background-color: #262680;
 }
 .dyslexia-toggle .dyslexia-toggle-icon {
   font-weight: 700;
   margin-right: 6px;
 }
 
-/* Breathing room for OpenDyslexic — taller glyphs need more line-height
-   and fixed-height containers need to flex so wrapped text doesn't overflow. */
-html.dyslexic-font body,
-body.dyslexic-font {
-  line-height: 1.7;
-}
-html.dyslexic-font body .workbook_callout,
-html.dyslexic-font body .return_callout,
-html.dyslexic-font body .info_callout,
-body.dyslexic-font .workbook_callout,
-body.dyslexic-font .return_callout,
-body.dyslexic-font .info_callout {
-  height: auto;
-  min-height: 40px;
-  line-height: 1.5;
-  padding: 8px 14px;
-}
-html.dyslexic-font body .page-navigation .nav-page,
-body.dyslexic-font .page-navigation .nav-page,
-html.dyslexic-font body .page-navigation .chapter-title,
-body.dyslexic-font .page-navigation .chapter-title {
-  line-height: 1.4;
-  white-space: normal;
-  overflow-wrap: anywhere;
-}
-
 @media print {
   .dyslexia-toggle { display: none !important; }
-  html.dyslexic-font body,
-  body.dyslexic-font {
-    font-family: inherit !important;
-  }
 }
 
