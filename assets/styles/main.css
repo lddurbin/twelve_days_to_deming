@@ -674,6 +674,21 @@ button:focus,
   color: #333;
 }
 
+/* Persistent visually-hidden live region for screen reader announcements.
+   Kept in the DOM across OJS re-renders so status updates are reliably
+   announced (the visible .fe-status is replaced on each render). */
+.fe-sr-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Comparison grid (2×2 charts) */
 .fe-comparison-grid {
   display: grid;

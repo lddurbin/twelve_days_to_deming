@@ -397,6 +397,56 @@ export function renderDataTable(rule, stages, tableIndex) {
   return html;
 }
 
+// --- Screen reader live region ---
+// OJS replaces a cell's output element on each re-render, so an aria-live
+// attribute on the visible `.fe-status` isn't reliably announced — screen
+// readers monitor nodes that persist across mutations. A single persistent,
+// visually-hidden live region appended once to the document is the pattern
+// VoiceOver/NVDA pick up consistently.
+
+let feLiveRegion = null;
+
+function ensureLiveRegion() {
+  if (typeof document === "undefined") return null;
+  if (feLiveRegion && feLiveRegion.isConnected) return feLiveRegion;
+  // Prefer attaching inside the Quarto main-content landmark. VoiceOver
+  // is more reliable monitoring live regions that sit inside <main> than
+  // those orphaned at <body> level.
+  const host = document.getElementById("quarto-document-content") || document.body;
+  if (!host) return null;
+  feLiveRegion = document.createElement("div");
+  feLiveRegion.className = "fe-sr-live";
+  feLiveRegion.setAttribute("role", "status");
+  feLiveRegion.setAttribute("aria-live", "polite");
+  feLiveRegion.setAttribute("aria-atomic", "true");
+  host.appendChild(feLiveRegion);
+  return feLiveRegion;
+}
+
+// Create the region eagerly at module load so assistive tech is already
+// monitoring it before the user's first interaction. Creating it on the
+// first announcement is too late — screen readers swallow the mutation
+// when the element is inserted and written in the same task.
+if (typeof document !== "undefined") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", ensureLiveRegion, { once: true });
+  } else {
+    ensureLiveRegion();
+  }
+}
+
+export function announceFunnelStatus(message) {
+  const el = ensureLiveRegion();
+  if (!el) return;
+  // Delay the write so VoiceOver can finish the web-area/landmark
+  // announcement it emits when OJS replaces the focused button on
+  // re-render. Without this delay, VO collapses the landmark chatter
+  // and our polite message into a single transition and drops ours.
+  setTimeout(() => {
+    if (feLiveRegion === el) el.textContent = message;
+  }, 200);
+}
+
 // --- Chapter-level helpers ---
 // These reduce duplication across OJS cells in chapters 11 and 12.
 // Each returns an HTML string; OJS cells wrap with html`${...}`.
@@ -408,7 +458,19 @@ export function renderStatusHTML(rule, description, counter, visible, totalStage
   const funnelPos = counter > 0 ? visible[visible.length - 1].funnelAfter : target;
   const funnelLabel = rule === 1 ? "Funnel always at" : (counter > 0 ? "Funnel now at" : "Funnel at");
 
-  let s = `<div class="fe-status" role="status" aria-live="polite" aria-atomic="true">`;
+  // Announce state changes to screen readers via the persistent live region.
+  // Skip counter === 0 so the initial page render doesn't spam announcements
+  // before the user has interacted. Assumes OJS only re-evaluates this cell
+  // when rule2Counter/rule2Visible (etc.) actually change — i.e. on user
+  // clicks. If a future change introduces non-interaction re-runs with the
+  // same counter, those would produce duplicate announcements.
+  if (counter > 0) {
+    announceFunnelStatus(
+      `Rule ${rule}, stage ${counter} of ${totalStages}. Marble at ${lastOutcome}. ${funnelLabel} ${funnelPos}.`
+    );
+  }
+
+  let s = `<div class="fe-status">`;
   s += `<strong>Rule ${rule} — ${description}</strong><br>`;
   s += `Stage: <strong>${counter}</strong> of ${totalStages}`;
   if (lastOutcome !== null) {
