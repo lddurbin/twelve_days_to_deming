@@ -189,6 +189,14 @@ Usage:
   margin-bottom: 0.25em;
 }
 
+.foreman-transcript-empty {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  color: #555;
+  background-color: #f5f5fa;
+  border-left: 4px solid #c8c8d6;
+}
+
 /* ===== THOUGHT COMPONENTS ===== */
 .thought {
   border: 2px solid #008000;

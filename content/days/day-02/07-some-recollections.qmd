@@ -290,7 +290,7 @@ Regarding conclusions from the control charts, they are surely similar to those 
 
 ### The Foreman’s Transcript
 
-Here are all your Foreman reactions to the statisticians’ and the Spaniards’ results — set against the fact that both sets are nothing more than common-cause variation.
+Here are your Foreman reactions to the statisticians’ results — set against the fact that every count is nothing more than common-cause variation.
 
 ```{ojs transcript_2e}
 {
@@ -302,7 +302,7 @@ Here are all your Foreman reactions to the statisticians’ and the Spaniards’
   ];
   const filled = entries.filter(e => e.value && e.value.trim());
   if (!filled.length) {
-    return html`<p role="status"><em>No Foreman reactions yet — scroll up and play the role through all four weeks. Your comments will appear here as a transcript.</em></p>`;
+    return html`<p class="foreman-transcript-empty"><em>No Foreman reactions yet — scroll up and play the role through all four weeks. Your comments will appear here as a transcript.</em></p>`;
   }
   return html`<div class="foreman-transcript" role="list" aria-label="Your Foreman reactions">
     ${filled.map(e => html`<div class="foreman-transcript-entry" role="listitem">

@@ -433,7 +433,7 @@ Here is every reaction you gave—to pure, random variation. Read them back and 
   ];
   const filled = entries.filter(e => e.value && e.value.trim());
   if (!filled.length) {
-    return html`<p role="status"><em>No Foreman reactions yet — scroll up and play the role. Your comments will appear here as a transcript.</em></p>`;
+    return html`<p class="foreman-transcript-empty"><em>No Foreman reactions yet — scroll up and play the role. Your comments will appear here as a transcript.</em></p>`;
   }
   return html`<div class="foreman-transcript" role="list" aria-label="Your Foreman reactions">
     ${filled.map(e => html`<div class="foreman-transcript-entry" role="listitem">
