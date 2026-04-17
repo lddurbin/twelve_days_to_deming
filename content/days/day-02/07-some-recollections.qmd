@@ -287,3 +287,38 @@ As before, insert the two control limits to turn the run chart into a control ch
 Regarding conclusions from the control charts, they are surely similar to those for Pause for Thought 2–e (on Appendix page 7) except that this time we would presumably comment on statistician John's 3 or Ignacio's 16 and Paco's 17 in similar ways to Ernie's 3—they're *all* within the control limits.
 
 </div>
+
+### The Foreman’s Transcript
+
+Here are your Foreman reactions to the statisticians’ results — set against the fact that every count is nothing more than common-cause variation.
+
+```{ojs transcript_2e}
+{
+  const entries = [
+    { label: "Statisticians — Week 1", value: thought_2e_i },
+    { label: "Statisticians — Week 2", value: thought_2e_ii },
+    { label: "Statisticians — Week 3", value: thought_2e_iii },
+    { label: "Statisticians — Week 4", value: thought_2e_iv }
+  ];
+  const filled = entries.filter(e => e.value && e.value.trim());
+  if (!filled.length) {
+    return html`<p class="foreman-transcript-empty"><em>No Foreman reactions yet — scroll up and play the role through all four weeks. Your comments will appear here as a transcript.</em></p>`;
+  }
+  return html`<div class="foreman-transcript" role="list" aria-label="Your Foreman reactions">
+    ${filled.map(e => html`<div class="foreman-transcript-entry" role="listitem">
+      <div class="foreman-transcript-context">${e.label}</div>
+      <span class="foreman-remark">“${e.value}”</span>
+    </div>`)}
+  </div>`;
+}
+```
+
+```{ojs download_2e}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([
+  viewof thought_2e_i, viewof thought_2e_ii, viewof thought_2e_iii, viewof thought_2e_iv
+], "thought_2e.txt")
+```
+
+</div>
