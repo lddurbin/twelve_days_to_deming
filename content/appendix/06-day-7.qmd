@@ -1,0 +1,193 @@
+---
+title: "DAY 7 — DISCUSSION"
+execute:
+  echo: false
+---
+
+# DAY 7 {#sec-page31}
+
+## ACTIVITY 7–a
+
+Just a few comments here that I hope may be helpful. Regarding Category 1—"facts of life", i.e. matters that are unarguable and not a matter of opinion, remember that in Point 11 Deming used the word "arbitrary": <span class=deming_quote>"Eliminate arbitrary numerical targets."</span> So that rules out "facts of life" since, by definition, facts are not arbitrary and therefore, most certainly, cannot be eliminated. Regarding Categories 2 and 3, I will just re-emphasise that many suggestions which can arise in this Activity *could* go into either category—it all depends on how they are used. Will the number be used for guidance and help, or will it be used for judgment and possibly punishment or reward?
+
+On Day 7 pages 7–8, I include what I trust are some wise words on putting theory into practice. I advise doing things gradually rather than precipitously and I spend a little time there on performance appraisal in particular. But, regarding numerical targets, I suggest that the little I have just said provides some useful clues. As part of the move toward better management, those who set targets should consider well their "arbitrariness" and also shift the balance in how they are treated and used from Category 3 to Category 2.
+
+*(Return to Workbook page 105 / Day 7 page 4.)*
+
+## TRANSCRIPT OF LETTER
+
+> Sir: I have to take issue with the assertion in your leading article that Ofsted inspections are a "rigorous procedure … which has done so much to keep standards high". I went to a school that appears high in your tables and recently received an excellent Ofsted report, possibly in part due to the fact that, whenever an inspector was present, each question asked by the teacher would be greeted with a sea of raised hands, and that the pupil selected to answer would almost always give a perfect response.
+>
+> How? We had all been coached to raise our right hands if we knew the answer, and our left hands if we didn't. Any child at our school could have told you that the quality most rewarded by Ofsted is not so much excellent teaching as low cunning.
+>
+> M HOPWOOD\
+> *Queen's College*\
+> *Oxford*
+
+*(Return to Day 7 page 13.)*
+
+## MORE ON TARGETS IN GOVERNMENT
+
+In connection with what is often referred to as the UK Government's "hostile immigration environment", Home Secretary Amber Rudd told the Home Affairs Select Committee on 25 April 2018: "We don't have targets for removals". A little later, she said: "If you're asking me: 'Are there numbers of people we expect to be removed?', that's not how we operate." The next day, evidence of regional removal targets came to light: Ms Rudd apologised, saying that she had not been aware of their existence. On 28 April the *Guardian* revealed a six-page memo dated 21 June 2017 that was sent to Ms Rudd and others. It referred to the Home Office's "target of achieving 12,800 enforced removals in 2017–18"; it also said that: "We have exceeded our target of assisted returns". Ms Rudd insisted she had never seen it. On 29 April a letter, sent to Prime Minister Theresa May in January 2017, was leaked in which Ms Rudd outlined her plans to increase removals by 10%. In the evening of 29 April she resigned from her post as Home Secretary.
+
+**PS**   On 16 November 2018 she returned to the Government as Secretary of State for Work and Pensions (!)
+
+*(Return to Day 7 page 18.)*
+
+## MAJOR ACTIVITY 7–i {#sec-page32}
+
+### 1. Hope for instant pudding.
+
+Letters and telephone calls received by this author disclose prevalence of the supposition that one or two consultations with a competent statistician will set the company on the road to quality and productivity—instant pudding. "Come, spend a day with us, and do for us what you did for Japan; we too wish to be saved." And they hang up in sorrow. It is not so simple: it will be necessary to study and to go to work. One man actually wrote to me for my formula, and the bill therefore.
+
+An example of expectation of quick results without effort and without sufficient education for the job is exemplified in a letter received by Dr Lloyd Nelson, statistician with the Nashua Corporation, which reads as follows:
+
+> "The President of my company has appointed me to the same position that you hold in your company. He has given me full authority to proceed, and he wishes me to carry on my new job without bothering him. What ought I to do? How do I go about my new job?"
+
+Appointment of someone to the same job that Dr Nelson has will not create another Dr Nelson. It would be difficult to convey in three lines so much misunderstanding. The President's supposition that he can resign from his obligation to lead improvement of quality is a glaring fallacy. And who would accept such a mandate from the head of an organisation? Only someone that is a complete novice on quality and improvement of quality.
+
+*(Return to Workbook page 115 / Day 7 page 28.)*
+
+### 2. The supposition that solving problems, automation, gadgets, and new machinery will transform industry.
+
+A group of workers took pride in changes that saved \$500 a year. Every net contribution to efficiency is important, however small.
+
+The big gain is not the \$500 per year that the men saved. What is important is that these men could now take pride in the improvement. They felt important to the job and to the company. The quality of their output improved along with outturn *[i.e. the quantity]*. Moreover, this improvement brought forth better quality, productivity, and morale all along the line. This improvement can not be quantified. It remains as one of the invisible figures, so important for management.
+
+*(Return to Workbook page 115 / Day 7 page 28.)*
+
+### 3. Search for examples.
+
+A man just called on the telephone from Johannesburg with the proposal that he come to this country and visit with me six companies that are doing well. He needed examples, he said.
+
+Too often this is the story. The management of a company, seized with a desire to improve quality and productivity, knowing not how to go about it, having not guidance from principles, seeking enlightenment, embark on excursions to other companies that are ostensibly doing well. They are received with open arms, and the exchange of ideas commences. They (visitors) learn what the host is doing, some of which may by accident be in accordance with the 14 Points. Devoid of guiding principles, they are both adrift. Neither company knows whether or why any procedure is right, nor whether or why another is wrong. The []{#sec-page33} question is not whether a business is successful, but why? And why was it not more successful? One can only hope the visitors enjoy the ride. They are more to be pitied than censured.
+
+It was related to me during a seminar that the management of a company that makes furniture, doing well, took it into their heads to expand their line into pianos. Why not make pianos? They bought a Steinway piano, took it apart, made or bought the parts, and put a piano together exactly like the Steinway, only to discover that they could only get thuds out of their product. So they put the Steinway piano back together with the intention to get their money back on it, only to discover that it too would now only make thuds.
+
+*(Return to Workbook page 116 / Day 7 page 29.)*
+
+### 4. "Our problems are different."
+
+A common disease that afflicts management and government administration the world over is the impression that "Our problems are different". They are different, to be sure, but the principles that will help to improve quality of product and of service are universal in nature.
+
+And that is all Dr Deming wrote on this one.
+
+*(Return to Workbook page 116 / Day 7 page 29.)*
+
+### 5. Obsolescence in Schools *(of Business).*
+
+Most students in Schools of Business in America have had no experience in production or in sales. To work on the factory floor with pay equal to half what he hoped to get upon receipt of the MBA, just to get experience, is a horrible thought to an MBA, not the American way of life. As a consequence, he struggles on, unaware of his limitations, or unable to face the need to fill in the gaps. The results are obvious.
+
+Faults in education were stated well by Edward A Reynolds in *Standardization News* (Philadelphia), April 1983, page 7:
+
+> "There are many reasons why US quality / productivity (they go hand in hand) have not kept ahead. A few of the major ones are: the educational system that turns out math ignoramuses and emphasises the MBA (which teaches management how to take over companies, but not how to run them); the short-term goals of corporate heads (this year's profit for bonus or a better job elsewhere); the practice of moving about the country, and finally out of it, for cheaper labour (despite the fact that direct labour is a small minority of costs); the change from honest leadership and work ethic to 'get yours' and 'everyone does it' at all levels.
+>
+> Practically all of our major corporations were started by technical men—inventors, mechanics, engineers, and chemists, who had a sincere interest in quality of products. Now these companies are largely run by men interested in profit, not product. Their pride is in the Profit & Loss statement or stock report."
+
+*(Return to Workbook page 117 / Day 7 page 30.)*
+
+### 6. Poor teaching of statistical methods in industry.
+
+Awakening to the need for quality, and with no idea what quality means nor how to achieve it, American management have resorted to mass assemblies for crash courses in statistical methods, employing hacks for teachers, being unable to discriminate between competence and ignorance. The result is that hundreds of people are learning what is wrong. []{#sec-page34} People with Master's degrees in statistical theory accept jobs in industry and government to work with computers. Most if not all computer packages for analysis of data, as they are called, provide flagrant examples of inefficiency. It is a vicious cycle. Statisticians do not know what statistical work is, and are satisfied to work with computers. People that hire statisticians likewise have no knowledge about statistical work, and somehow suppose that computers are the answer. Statisticians and management thus misguide each other and keep the vicious cycle rolling.
+
+*(Return to Workbook page 117 / Day 7 page 30.)*
+
+### 7. Use of *[Military Standard 105D and other]* tables for acceptance.
+
+Many thousands of dollars worth of product changes hands hourly, lots *[i.e. batches]* subjected to acceptance or rejection, depending on tests of samples drawn from the lots. Such plans can only increase costs, as will be clear from Chapter 15 *[in Out of the Crisis]*. If used for quality audit of final product as it goes out the door, they guarantee that some customers will get defective product. *[Recall I have just pointed out that "an essential requirement for deciding on the details of such a plan is the specification of an acceptable proportion of defectives".]* The day of such plans is finished. American industry can not afford the losses that they cause.
+
+Incredibly, courses and books in statistical methods still devote time and pages to acceptance sampling.
+
+*(Return to Workbook page 118 / Day 7 page 31.)*
+
+### 8. "Our Quality Control Department takes care of all our problems of quality."
+
+Unfortunately, Quality Control Departments have taken the job of quality away from the people that can contribute most to quality—management, supervisors, managers of purchasing, and production workers. They have failed to explain to management the importance of good management, including the evils of (e.g.) purchase of materials on the basis of price tag, evils of multiple vendors, of work standards, awkward and costly arrangements of plant. Management, mystified by control charts and statistical thinking, are glad to leave quality to people that mystify them.
+
+The function of quality assurance in many companies is too often to provide hindsight, to keep the management informed about the amount of defective product produced week by week, or comparisons month by month on levels of quality, costs of warranty, etc. What management needs are charts to show whether the system has reached a stable state (in which case management must take on the chief role for improvement), or it is still infested with special causes.
+
+*(Return to Workbook page 118 / Day 7 page 31.)*
+
+### 9. "Our troubles lie entirely in the workforce."
+
+The supposition is prevalent the world over that there would be no problems in production or in service if only our workers would do their jobs in the way that they were taught. Pleasant dreams.
+
+Only recently, the entire management of a large manufacturing concern supposed, by their own declaration, that if all 2,700 operations in the plant were carried off without blemish, there would be no problems. I listened for three hours to their exciting achievements with statistical methods on the shop floor. Their engineers, I found, were treating every problem as a special cause—find it and remove it—not working on the system itself. At the same time, costs of warranty were soaring upward, and business was on the decline. The management seemed to be totally unaware of the need for better design of their main prod []{#sec-page35}uct, and more attention to incoming materials. Why did they put so much faith in statistical methods on the shop floor? Answer: What else is there? Quality is for other people, not for us.
+
+Presumably the "statistical methods" alluded to here were those relating to Obstacle 6.
+
+*(Return to Workbook page 119 / Day 7 page 32.)*
+
+### 10. False starts.
+
+False starts are deceptive. They give satisfaction, something to show for effort, but they lead to frustration, despair, disappointment, and delay.
+
+One kind of false start arises from the supposition that wholesale teaching of statistical methods to enough people in production will turn things around. Understanding of variation, special causes and common causes, and the necessity to reduce constantly the variation from common causes, is vital. It is a fact, though, with a clean record, that a company whose management abrogates their responsibility for quality and depends wholly on statistical methods on the shop floor, and forces these methods on to suppliers, will within three years toss those methods out, along with the people engaged on them.
+
+I refer you yet again to the final "bare bone" of the ten in Shewhart's Breakthrough (Day 1 page 33).
+
+*(Return to Workbook page 119 / Day 7 page 32.)*
+
+### 11. "We installed quality control."
+
+No. You can install a new desk, or a new carpet, or a new dean, but not quality control. Anyone that proposes to "install quality control" unfortunately has little knowledge about quality control.
+
+Improvement of quality and productivity, to be successful in any company, must be a learning process, year by year, top management leading the whole company.
+
+As with Obstacle 4, this is all that Deming wrote here: brief but very much to the point.
+
+*(Return to Workbook page 120 / Day 7 page 33.)*
+
+### 12. The unmanned computer.
+
+Some people make good use of computers. Few people are aware, however, of the negative input of computers. Time and time again, in my experience, when I ask for data on inspection, to learn whether they indicate that the process is in control, or out of control, and at what time of day it went out, and why, or ask about differences between inspectors and between production workers, or between production workers and inspectors, in an attempt to find sources of trouble and to improve efficiency, the answer is "The data are in the computer". And there they sit.
+
+People are intimidated by the computer. They can not tell it what data or charts they need; instead, they take whatever the computer turns out.
+
+A computer can be a blessing. It can also be a curse.
+
+*(Return to Workbook page 120 / Day 7 page 33.)*
+
+### 13. The supposition that it is only necessary to meet specifications. []{#sec-page36}
+
+Specifications can not tell the whole story. The supplier must know what the material is to be used for. If the supplier knows that the steel will be used for the inside door panel of an automobile, he may be able to supply steel that will do the job. Steel that merely meets the specifications can cause a lot of trouble. A vice-president in charge of manufacturing told me that half his problems arise from materials that meet the specifications.
+
+A programmer has a similar problem. She learns, after she finishes the job, that she has programmed very well the specifications as delivered to her, but that they were deficient. If she had only known the purpose of the program, she could have done it right for the purpose, even though the specifications were deficient.
+
+My friend Robert Piketty of Paris put it this way: listen to the Royal Philharmonic Orchestra of London play Beethoven's Fifth Symphony. Now listen to some amateur orchestra play it. Of course, you like both performances: you enjoy home-grown talent. Both orchestras met the specifications: not a mistake. But listen to the difference. Just listen to the difference!
+
+*(Return to Workbook page 121 / Day 7 page 34.)*
+
+### 14. The fallacy of zero defects.
+
+There is obviously something wrong when a measured characteristic barely inside a specification is declared to be conforming; outside it is declared to be nonconforming. A better description of the world is the Taguchi loss function in which there is minimum loss at the nominal value, and an ever-increasing loss with departure either way from the nominal value.
+
+Yes, Dr Deming did write this under Obstacle 14, not Obstacle 13.
+
+It will not suffice to have customers that are merely satisfied. As unhappy customer will switch. Unfortunately, a satisfied customer may also switch, on the theory that he could not lose much, and might gain. Profit in business comes from repeat customers, customers that boast about your product and service, and that bring friends with them. Fully allocated costs may well show that the profit in a transaction with a customer that comes back voluntarily may be 10 times the profit realised from a customer that responds to advertising and other persuasion.
+
+*(Return to Workbook page 121 / Day 7 page 34.)*
+
+### 15. Inadequate testing of prototypes.
+
+A common practice among engineers is to put together a prototype of an assembly with every part close to the nominal or intended measured characteristic. The test may go off well. The problem is that when the assembly goes into production, all characteristics will vary. The fact is that volume production may turn out only one part in 100,000 that will perform like the prototype.
+
+Anyone engaged in testing should ask himself the following questions:
+
+1. What will the results refer to?
+2. Will they refer to tomorrow's run or to next year's crop?
+3. Under what conditions will these results predict results of tomorrow's run or of next year's crop? []{#sec-page37}
+
+Failure to understand variation in tests delayed some years the science of genetics. Ratios of (e.g.) tall and dwarf peas varied wildly below and above nature's average value 1 : 4. This variation bothered everyone, including Gregor Mendel, discoverer of the simple dominant gene.
+
+*(Return to Workbook page 122 / Day 7 page 35.)*
+
+### 16. "Anyone that comes to try to help us must understand all about our business."
+
+All evidence points to the fallacy of this supposition. Competent men in every position, if they are doing their best, know all there is to know about their work except how to improve it. Help toward improvement can come only from some other kind of knowledge. Help may come from outside the company, combined with knowledge already possessed by people within the company but not being utilised.
+
+> And for the third time, here I have quoted all that Dr Deming wrote for a particular Obstacle.
+>
+> This Obstacle struck a loud chord for me. In my very early days of trying to help a company learn about the Deming philosophy, I would spend much time before my visit trying to learn as much as I could about that company: I did not want to seem ignorant about what they did or how they did it. It was an utter waste of effort. However much time I spent on this fruitless task, I would still only know the merest fraction of what was known to everybody I spoke to—and that would be painfully obvious to them! When I changed tack, told the truth upfront that I knew nothing about what they did and knew about—but that perhaps I knew something that they knew nothing about and thought it might be helpful to them, the reception I received was much more positive. What is needed is the combination, indeed the coalescing, of the two volumes of knowledge. Clearly I did not have the time or ability for that: but they did, with my help.
+
+*(Return to Workbook page 122 / Day 7 page 35.)*

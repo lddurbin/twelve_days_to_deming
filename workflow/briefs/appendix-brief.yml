@@ -1,0 +1,833 @@
+# ============================================================
+# Appendix Brief — Discussions and Information
+# ============================================================
+# Issue: #132
+# The Appendix is a reference companion to Days 1–11: discussion
+# on Pauses for Thought, hints for Activities, Major Activity
+# walk-throughs, and a block of Optional Extras on "Six-Sigma"
+# superstitions (by request of Balaji Reddie).
+# ============================================================
+
+# ------ Source Metadata ------
+# Not a "day" — lives under `appendices:` in _quarto.yml, not
+# under any `part:`. Still follows the Phase 3–5 build workflow.
+source:
+  kind: "appendix"
+  title: "Appendix — Discussions and Information"
+  source_pdf: "12-Days-to-Deming/PDFs/P.Appendix.09Feb22.pdf"
+  source_prefix: "P.Appendix.09Feb22"
+  pdf_page_count: 56
+  appendix_page_count: 52     # numbered Appendix pages 1–51 plus one trailing blank (52)
+  page_offset: 4              # PDF page = Appendix page + 4
+                              # PDF 001-004 = front matter (cover, blank, TOC, blank)
+                              # PDF 005 = Appendix page 1
+                              # PDF 056 = Appendix page 52 (blank)
+
+# ------ Section Anchors (MANDATORY) ------
+# Every numbered Appendix page (1–51) MUST have an {#sec-pageNN}
+# anchor so existing cross-references from Days 1–11 resolve.
+# The anchor pattern `appendix.html#sec-pageN` is already baked
+# into links such as:
+#   - day-01/07-quality-theory.qmd → appendix.html#sec-page6
+#   - (implicit via text) "Appendix page N" / "Appendix pages N–M"
+#     across Days 2, 3, 4, 5, 9, 10, 11.
+#
+# Convention: place {#sec-pageNN} on the first heading of each
+# Appendix page. For pages that begin in the middle of a topic
+# (no heading of their own), attach the anchor to a spanning
+# div or an empty heading immediately before the continuation
+# paragraph — whatever keeps prose flow intact.
+section_anchors:
+  required_pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+                   16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
+                   28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+                   40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+  known_external_references:
+    - from: "day-01/07-quality-theory.qmd"
+      target: "sec-page6"
+      context: "Pause for Thought 1-c discussion"
+    - from: "day-02/04-our-first-control-chart.qmd"
+      target: "sec-page7"
+      context: "Pause for Thought 2-e"
+    - from: "day-02/06-your-turn.qmd"
+      target: "sec-page8"
+      context: "Activity 2-f complete remarks"
+    - from: "day-02/07-some-recollections.qmd"
+      target: "sec-page8, sec-page9"
+      context: "Stats-level 0 control-limit lookup; Technical Aid 4"
+    - from: "day-02/08-major-activity.qmd"
+      target: "Appendix pages 1-5"
+      context: "Return-from-Appendix organising step"
+    - from: "day-02/09-postscript.qmd"
+      target: "sec-page12, sec-page13"
+      context: "Dave Kerr's Wrap-Up Brief"
+    - from: "day-03/01-variation-the-enemy-of-quality.qmd"
+      target: "sec-page14"
+      context: "Activity 3-b discussion"
+    - from: "day-03/05-how-do-we-compute-control-limits.qmd"
+      target: "sec-page15"
+      context: "Activity 3-g arithmetic check"
+    - from: "day-03/13-summary.qmd"
+      target: "sec-page15 through sec-page21"
+      context: "Funnel Experiment computer simulations, Rules 1–4 run charts"
+    - from: "day-04/02-the-joiner-triangle.qmd"
+      target: "sec-page21, sec-page22"
+      context: "Joiner Triangle activity hints"
+    - from: "day-04/04-points-1-to-6.qmd"
+      target: "sec-page23"
+      context: "Addenda to Points 1 and 3 — vacuum warning"
+    - from: "day-05/02-points-7-to-14.qmd"
+      target: "sec-page24, sec-page25, sec-page26, sec-page27"
+      context: "Points 7–14 discussion"
+    - from: "day-05/03-the-deadly-diseases.qmd"
+      target: "sec-page28, sec-page29, sec-page30"
+      context: "Deadly Diseases 1–5 discussion"
+    - from: "day-09/03-activity-9c-and-organisation-charts.qmd"
+      target: "sec-page38"
+      context: "Activity 9-c hint"
+    - from: "day-09/04-major-activity.qmd"
+      target: "sec-page38"
+      context: "Major Activity 9-e — medical-research organisation diagram"
+    - from: "day-10/03-activity-10a.qmd"
+      target: "sec-page39"
+      context: "Activity 10-a discussion"
+    - from: "day-10/04-theory-of-variation.qmd"
+      target: "sec-page4"
+      context: "Procedures aimed at minimum economic loss — Shewhart control charts"
+    - from: "day-10/05-activity-10b.qmd"
+      target: "sec-page39, sec-page40"
+      context: "Activity 10-b discussion"
+    - from: "day-11/05-activity-11a.qmd"
+      target: "sec-page41"
+      context: "Activity 11-a discussion"
+    - from: "day-11/07-activity-11b.qmd"
+      target: "sec-page42"
+      context: "Activity 11-b discussion"
+
+# ------ Chapter Plan ------
+# 11 files. Day 6, Day 8, and Day 12 have NO Appendix content
+# (TOC shows em-dash for those days) — no chapters created for them.
+# Pages below are printed Appendix page numbers.
+
+chapters:
+  - slug: "00-welcome"
+    title: "WELCOME — RECOMMENDED \"OUT-OF-HOURS\" PREPARATION"
+    pages: "1"
+    pdf_pages: "5"
+    notes: |
+      Single-page reference list of preparatory tasks to carry out
+      between the different days of the course. Lists:
+        - Before Day 2 (basic calculator reminder)
+        - Before Day 3 (Funnel Experiment prep; print Day 2 pp.43-44
+          and Day 3 p.36)
+        - Before Day 6 (print Day 5 p.28)
+        - Before Day 8 (Day 7 p.36 and Day 8 p.3)
+        - Before Day 9 (Day 8 p.28)
+        - Before Day 10 (Day 9 pp.26-30)
+        - Before Day 11 (Day 10 p.33)
+        - Before Day 12 (Day 11 p.36)
+        - Optional Extras — print pages 6-7 of Part A and pages 24-25
+          of Part B before studying those parts.
+      Closing note about Part A and Part B Optional Extras printing.
+
+      No figures, no interactive elements. Pure prose.
+      Place `{#sec-page1}` anchor on the WELCOME heading.
+
+  - slug: "01-day-1"
+    title: "DAY 1 — DISCUSSION ON THE FIRST PARADOX"
+    pages: "2-6"
+    pdf_pages: "6-10"
+    notes: |
+      Five pages of Neave's discussion backing the First Paradox
+      from Day 1's "Springboard" article.
+
+      Page 2 (PDF 6): "DAY 1" header; "DISCUSSION ON THE FIRST
+      PARADOX". Extended essay on Shewhart's "3σ-limits",
+      statistical control, SPC confusion, and the term "one-at-a-
+      time" data. References to Understanding Variation.
+
+      Page 3 (PDF 7): Continues the discussion — Shewhart, Nashua's
+      Statistical Process Control course, autobiographical note on
+      Neave's first statistics teaching at Nottingham. References
+      Dr Deming's Out of the Crisis Chapter 11.
+
+      Page 4 (PDF 8): Definitions of statistical control, "special
+      cause" vs "common cause", contrasting definitions with the
+      orthodox Mathematical Statistician position. Footnote on
+      Shewhart's 1924 rules (published 1931). References Out of
+      the Crisis page 277 for Dr Deming's defined criterion.
+
+      Page 5 (PDF 9): Discussion about Mathematical Statisticians
+      and why most find this hard. Rhetorical "good exercise for the
+      statisticians — all others should skip this small-print
+      section". Statistical-control-is-an-acceptable-economic-value
+      quotation (Deming).
+
+      Page 6 (PDF 10): **PAUSE FOR THOUGHT 1–c** commentary —
+      explains why Deming/Shewhart definitions differ from
+      mathematicians'; why statisticians' probability theory misleads.
+      Followed by **MAJOR ACTIVITY 1–f** commentary — brief notes on
+      acceptable targets, "last" at Day 1's end.
+
+      Place `{#sec-page2}` through `{#sec-page6}` anchors — page 6
+      especially important (Day 1 §07 links directly to it).
+
+      No figures. Interactive-element references mentioned in prose
+      but implemented only on the Day pages themselves.
+
+  - slug: "02-day-2"
+    title: "DAY 2 — RED BEADS, CONTROL LIMITS & DAVE KERR'S WRAP-UP"
+    pages: "7-13"
+    pdf_pages: "11-17"
+    notes: |
+      Seven-page chapter spanning Pauses for Thought 2-b/2-c/2-e,
+      Activities 2-f and 2-g, Technical Aid 4, Major Activity 2-h,
+      and Dave Kerr's Wrap-Up Brief.
+
+      Page 7 (PDF 11): **PAUSE FOR THOUGHT 2–b** bulleted discussion.
+      **PAUSE FOR THOUGHT 2–c** bullets. **PAUSE FOR THOUGHT 2–e**
+      text about LCL/UCL context — brief mention of Foreman + Willing
+      Workers. Return-to-Workbook notes for each.
+
+      Page 8 (PDF 12): **ACTIVITY 2–f** tabular answers:
+        - Day 1 (Ernie, John, Carol, Ben, Ed)
+        - Day 2 (Audrey, John, Al, Carol, Ben, Mr T's "68?" comment)
+        - Day 3 (Audrey, John, Al, Ed, To them all)
+        - Day 4 (Audrey, John, Al, Carol, Ben, Ed)
+      Tabular / aligned columns ("Name: quip").
+      **ACTIVITY 2–g** — control-limit reference values for
+      Statisticians' data and Spaniards' data.
+
+      Page 9 (PDF 13): **TECHNICAL AID 4** — bordered box titled
+      "Statisticians' data" and "Spaniards' data" with control-limit
+      formulas:
+        - x̄ = 203 ÷ 24 = 8.458
+        - R̄ = 1 − p̄ = 0.1692
+        - x̄(1 − p̄) = 8.458 × 0.8308 = 7.0269064, and √7.0269064 = 2.6508
+        - UCL/LCL formulas for both datasets
+      FIGURE: crop the bordered Technical Aid 4 box (spans full page).
+
+      Page 10 (PDF 14): **MAJOR ACTIVITY 2–h** discussion —
+      common-cause variation is larger than expected. Three paragraphs
+      on ownership of the process, tampering.
+
+      Page 11 (PDF 15): "Financial information", "The big message",
+      "Mechanical vs random sampling" sections. Long paragraph on
+      profound messages in Red Beads Experiment; paddle-size exercise;
+      reference to "3 or 30 years, shows an average of 11.3"; paddle
+      No. 2 over-many-experiments discussion; paddle No. 1 experiment
+      summary. Footnote-style call-out.
+
+      Page 12 (PDF 16): Continues sampling / paddle discussion.
+      Bottom half: **Dave Kerr's "Wrap-Up Brief" following the
+      Red Beads Experiment** begins. Bulleted list:
+        - To "lift our gaze up" and see the wider system
+        - To understand something about how we behave in organisations
+
+      Page 13 (PDF 17): Dave Kerr's Wrap-Up Brief continues:
+        - A practical and effective method for helping us really learn
+        - To understand how we behave in organisations
+      Four interdependent needs framed as a "system of thinking and
+      seeing". Example using Red Beads company. Finally the role of
+      leading. Return-to-Day-2-page-43 close.
+
+      Anchors `{#sec-page7}` through `{#sec-page13}` — especially
+      important: pages 7, 8, 9, 12, 13 (Day 2 cross-references).
+
+      FIGURES:
+        - Technical Aid 4 bordered box on page 9 → crop to
+          technical-aid-4.png.
+
+  - slug: "03-day-3"
+    title: "DAY 3 — FUNNEL EXPERIMENT SIMULATIONS & RULES"
+    pages: "14-21"
+    pdf_pages: "18-25"
+    notes: |
+      Eight-page chapter — the most figure-heavy of the Day chapters.
+      Covers Activities 3-b, 3-g, Major Activity 3-h (Funnel
+      Experiment computer simulations), Activity 3-i, Activity 3-j,
+      and Rule 4 ("wandering") examples.
+
+      Page 14 (PDF 18): **DAY 3** header. **ACTIVITY 3–b** — two
+      bulleted-paragraph blocks on variation vs variety, causes of
+      variation (including consequences for resulting service and
+      product). References to Design of Experiments, Analysis of
+      Variance, stats-level 3.
+
+      Page 15 (PDF 19): **ACTIVITY 3–g** — first-12 calculation
+      showing x̄ = 192 ÷ 12 = 16.00, numbers in italics, values
+      separated. Formula for MR̄ = 2.66 × MR = 2.66 × 1.00 = 2.66.
+      Commentary on control limits. **MAJOR ACTIVITY 3–h** intro:
+      computer simulation of the Funnel Experiment — Simulation A
+      and Simulation B run charts for Rule 2 and Rule 1.
+      FIGURES: Simulation A Rule 2 chart, Simulation B Rule 2 chart,
+      Simulation A Rule 1 chart, Simulation B Rule 1 chart — crop
+      all four run-charts from page 15.
+
+      Page 16 (PDF 20): Continuation of simulation discussion.
+      Simulation A vs Simulation B for Rule 3 (zig-zags). Second set
+      of charts showing Rule 3 behaviour — upward drift discussion.
+      FIGURES: Simulation A Rule 3 chart and Simulation B Rule 3
+      chart. Run chart for Rule 4 begins — upward drift in simulation B.
+
+      Page 17 (PDF 21): Rule 3 and Rule 4 continued. Commentary on
+      Rule 4 rearward drift ("wanders around"); mathematical tie-in
+      to "random walk". Simulation B Rule 4 chart.
+      FIGURE: Simulation B Rule 4 chart.
+
+      Page 18 (PDF 22): **ACTIVITY 3–i** — three-paragraph
+      examination of Rule 3 catastrophe behaviour; tampering parallel
+      with Red Beads Experiment; reference to "stupidly simple" and
+      Activity 3-j. Return to Day 3 page 56.
+
+      Page 19 (PDF 23): Continuation of Activity 3-i — general
+      practical lessons. Reference to trying to reduce variation
+      when the tooling prevents it; affects the central tendency.
+      Shift into "the general management" narrative.
+
+      Page 20 (PDF 24): **ACTIVITY 3–j** — Fran Wheeler's list of
+      Rule 2 ("catchup") examples: procurement, rifle adjustments,
+      MRP systems, calibration, etc. Dialogue: **"Little boy"** and
+      mother adjusting bath temperature — canonical Rule-3 over-
+      adjustment anecdote. Copyright-note-style remark.
+
+      Page 21 (PDF 25): Little boy dialog concluded ("Now it's too
+      deep!"). **Rule 4 ("wandering")** bullet list:
+        - Matching colour by saving the last swatch
+        - Adjustment of meeting time based on last actual start time
+        - Copy examples. Learn by example with no theory.
+        - Hanging wallpaper
+        - If part does not fit gauge, fit gauge to part
+        - Reacting to rumour
+        - The man who blew the mill whistle sets his watch by the
+          jeweller's clock on the way to work. The jeweller goes
+          by the mill whistle.
+        - Interpretation of a law based on precedence
+        - Getting together to share ideas
+        - Changing company policy based on the last attitude survey
+      "Finally, see the bottom of Day 3 page 58."
+
+      Anchors `{#sec-page14}` through `{#sec-page21}` — page 15
+      (Day 3 §05) and pages 15–21 (Day 3 §13 summary range) are
+      all cross-referenced.
+
+      FIGURES:
+        - Page 15: 4 Funnel Experiment run-charts (Sim A Rule 2,
+          Sim B Rule 2, Sim A Rule 1, Sim B Rule 1).
+          NOTE: These are small run-charts inside prose. These look
+          like recreations of simulations, but reproducing them
+          exactly in R would require the original random-number
+          seed. RECOMMEND: crop from source PNGs.
+        - Page 16: Sim A Rule 3 chart, Sim B Rule 3 chart —
+          crop from PDF 20.
+        - Page 17: Sim B Rule 4 chart — crop from PDF 21.
+
+  - slug: "04-day-4"
+    title: "DAY 4 — ACTIVITIES 4-a, 4-d & ADDENDA TO POINTS 1 AND 3"
+    pages: "22-23"
+    pdf_pages: "26-27"
+    notes: |
+      Two-page chapter covering Day 4 discussion items.
+
+      Page 22 (PDF 26): **DAY 4** header. **ACTIVITY 4–a** —
+      three numbered paragraphs:
+        (1) Control limits insight on system behaviour — references
+            Day 4 page 4 Workbook p.49.
+        (2) Control limits on quality, pride of workmanship —
+            references Day 4 page 5, "mean nothing" reference.
+        (3) Some discussion later on pride of workmanship — Day 1
+            pages 38-39, self-esteem, respect, reputation, etc.
+      **ACTIVITY 4–d** — three bulleted paragraphs (a, b, c) on
+      avoiding trouble, "satisfied customer" argument, inversion of
+      scenarios in Scenario 1 / Scenario 2. Dave Young email about
+      Malaysian hotel (Copthorne Orchid in Penang) reproduced in full.
+
+      Page 23 (PDF 27): **ADDENDA TO POINTS 1 AND 3** — discussion
+      of "continuous improvement" vs "continual improvement"
+      distinction. Mathematician's perspective. Graph A (smooth
+      continuous curve) vs Graph B (step-wise discontinuous).
+      Commentary on Deming's choice of "continual". Discussion of
+      "the need for" in Point 3 — Deadly Diseases adoption. Reference
+      to Day 4 page 22 and Day 1 page 22.
+
+      FIGURES:
+        - Page 23: **Graph A and Graph B** — hand-drawn red curves
+          illustrating continuous vs step-wise improvement. Crop
+          from PDF 27 as graph-a-and-b.png (or two separate crops).
+
+      Anchors `{#sec-page22}` (Day 4 §02 joiner-triangle hints),
+      `{#sec-page23}` (Day 4 §04 points-1-6 vacuum-warning reference,
+      also cited by Day 5 §03 deadly-diseases).
+
+  - slug: "05-day-5"
+    title: "DAY 5 — POINTS 7–14 & THE DEADLY DISEASES"
+    pages: "24-30"
+    pdf_pages: "28-34"
+    notes: |
+      Seven-page chapter covering Points 7–14 discussions (paired
+      with Obsession-With-Quality / All-One-Team / Scientific-
+      Approach Joiner Triangle framework) and the five Deadly
+      Diseases. Mirrors Day 5's own chapter structure.
+
+      Page 24 (PDF 28): **DAY 5** header. **Point 7: Institute
+      leadership of people** with three sub-sections: Obsession With
+      Quality, All One Team, Scientific Approach. **Point 8: Drive
+      out fear** — same three sub-sections. Workbook page refs
+      (WB 70-71 / D5 pp.2-3; WB 72-73 / D5 pp.4-5).
+
+      Page 25 (PDF 29): **Point 9: Break down barriers** —
+      three sub-sections (WB 74-75 / D5 pp.6-7). Quote from My
+      friend Alan Hodgkiss. **Point 10: Eliminate exhortations**
+      — three sub-sections (WB 76-77 / D5 pp.8-9). Workers-have-
+      told-me-the-big-slogan-made-them-furious note.
+
+      Page 26 (PDF 30): **Point 11: Eliminate arbitrary numerical
+      targets** — three sub-sections (WB 78-79 / D5 pp.10-11).
+      **Point 12: Permit pride of workmanship** — three sub-sections
+      (WB 80-81 / D5 pp.12-13). "The second half of Day 6 page 13
+      is worth reading on this." **Point 13: Encourage education**
+      begins — Obsession With Quality sub-section (WB 82-83 /
+      D5 pp.14-15).
+
+      Page 27 (PDF 31): Continuation of Point 13 (All One Team,
+      Scientific Approach sub-sections). **Point 14: Top management
+      commitment and action** — all three sub-sections (WB 84-85 /
+      D5 pp.16-17). "Quality is made at the top" / "Quality is
+      made in the Boardroom" cross-references.
+
+      Page 28 (PDF 32): **Disease 1: Lack of constancy**
+      (WB 86-87 / D5 pp.18-19) — three sub-sections. Quote on
+      innovation from Dr Deming. **Disease 2: Short-termism**
+      (WB 88-89 / D5 pp.20-21) — three sub-sections. "Cut down on
+      research, education, training" quote.
+
+      Page 29 (PDF 33): **Disease 3: Appraisal of performance**
+      (WB 90-91 / D5 pp.22-23) — three sub-sections. "Annual
+      appraisal of performance ... annihilates teamwork" quote.
+      **Disease 4: Management job-hopping** (WB 92-93 /
+      D5 pp.24-25) — three sub-sections. "Mobility annihilates
+      teamwork" quote from Out of the Crisis page 103 [121].
+      "Mobility of management causes instability" quote.
+
+      Page 30 (PDF 34): **Disease 5: Use of only visible figures**
+      (WB 94-95 / D5 pp.26-27) — three sub-sections. "You'd darn
+      well better manage it". Reference to DemDim Chapter 10 pages
+      151-152 (start of mock reflection).
+
+      Anchors `{#sec-page24}` through `{#sec-page30}` — all heavily
+      cross-referenced from Day 5 §02 and §03.
+
+      No figures in this chapter.
+
+  - slug: "06-day-7"
+    title: "DAY 7 — ACTIVITIES, TRANSCRIPTS & OBSTACLES"
+    pages: "31-37"
+    pdf_pages: "35-41"
+    notes: |
+      Seven-page chapter covering Day 7 material: Activity 7-a,
+      Transcript of M Hopwood Letter, More on Targets in Government,
+      Major Activity 7-i (16 Obstacles to Transformation).
+
+      Page 31 (PDF 35): **DAY 7** header. **ACTIVITY 7–a** — brief
+      discussion framing which "Category" each kind of target falls
+      into (Category 1 = facts of life; Category 2 = matters that
+      are unarguable and not a matter of opinion; Category 3 =
+      "Eliminate arbitrary numerical targets"). References Day 7
+      pages 7-8 and Day 3 page 36. **TRANSCRIPT OF LETTER** —
+      letter from M Hopwood (Queen's College, Oxford) about Ofsted
+      inspections being a "rigorous procedure". **MORE ON TARGETS
+      IN GOVERNMENT** — note on UK Government's hostile immigration
+      environment: Home Secretary Amber Rudd's 25 April 2018 letter;
+      PS about 16 November 2018 appointment as Secretary of State.
+
+      Page 32 (PDF 36): **MAJOR ACTIVITY 7–i** — 16 Obstacles to
+      Transformation begin:
+        1. Hope for instant pudding (letters and telephone calls
+           received)
+        2. The supposition that solving problems, automation, gadgets,
+           and new machinery will transform industry
+        3. Search for examples (Johannesburg man telephones)
+
+      Page 33 (PDF 37): Obstacles continue. Finale of Obstacle 3
+      (success ≠ examples). **4. "Our problems are different"**.
+      **5. Obsolescence in Schools [of Business]** (reference to
+      Standardization News April 1983 page 7).
+
+      Page 34 (PDF 38): Obstacles continued. **6. Poor teaching of
+      statistical methods in industry** — quote about people with
+      Master's degrees misguiding one another. **7. Use of [Military
+      Standard 105D and other] tables for acceptance**. **8. "Our
+      Quality Control Department takes care of all our problems of
+      quality"**. **9. "Our troubles lie entirely in the workforce"**.
+
+      Page 35 (PDF 39): **10. False starts** (supposition that
+      wholesale teaching of statistical methods is enough). **11. "We
+      installed quality control"**. **12. The unmanned computer**
+      (computers not a blessing or a curse).
+
+      Page 36 (PDF 40): **13. The supposition that it is only
+      necessary to meet specifications** (sheet steel anecdote, Royal
+      Philharmonic Orchestra analogy from Robert Parts). **14. The
+      fallacy of zero defects**. **15. Inadequate testing of
+      prototypes** (car manufacturing 100,000 units).
+
+      Page 37 (PDF 41): **16. "Anyone that comes to try to help us
+      must understand all about our business"** — This Obstacle
+      should be a long chord for me. Commentary on tracing the
+      Deming philosophy; humility; the Japanese Obstacle; Neave's
+      UK shows of hands over years. Return to Workbook page 122 /
+      Day 7 page 35.
+
+      Anchors `{#sec-page31}` through `{#sec-page37}`. None of these
+      pages are cross-referenced from Days today, but include them
+      for completeness (Day 12 may later reference them).
+
+      No figures. Pure prose, heavy bullet-style formatting.
+
+  - slug: "07-day-9"
+    title: "DAY 9 — ACTIVITY 9-c & MAJOR ACTIVITY 9-e"
+    pages: "38"
+    pdf_pages: "42"
+    notes: |
+      Single-page chapter for Day 9 Appendix content.
+
+      Page 38 (PDF 42): **DAY 9** header. **ACTIVITY 9–c** — hint
+      for asking yourself what prevents you (and others) from doing
+      your job as well as you would prefer. References frequent
+      candidates ("cost or indeed lost customers", poor or nonexistent
+      training, lurking not far behind). Return to Workbook page 142 /
+      Day 9 page 7. **MAJOR ACTIVITY 9–e** — Neave's attempt at a
+      medical-research organisation chart showing how cause analysis,
+      diagnosis, treatment, surgery, and preventive education connect
+      to categories of patients, practitioners, insurers, policy
+      bodies, etc. Return to Workbook page 145 / Day 9 page 12.
+
+      FIGURE: **Medical-research organisation diagram** — network
+      diagram with central cluster (Preventive education; diagnosis;
+      treatment; surgery; database, cause analysis; checks on success-
+      rates, side-effects, costs) surrounded by input boxes and
+      downstream nodes (Treated patient, Aftercare, Social sciences,
+      District nurses, Therapy, Friends/family/employers). Crop
+      from PDF 42 as medical-research-diagram.png.
+
+      Anchor `{#sec-page38}` — referenced from Day 9 §03 and §04.
+
+  - slug: "08-day-10"
+    title: "DAY 10 — SECOND PROJECT (ACTIVITIES 10-a, 10-b)"
+    pages: "39-40"
+    pdf_pages: "43-44"
+    notes: |
+      Two-page chapter — Day 10 Appendix content (activities around
+      Joiner Triangle link to 14 Points and Deadly Diseases).
+
+      Page 39 (PDF 43): **DAY 10** header. **SECOND PROJECT** banner
+      (orange/gold graphic). **ACTIVITY 10–a** — Deming's "All One
+      Team" definition: "a network of ... components ... that work
+      together for the aim ... ". Discussion of "work together" and
+      "aim". Also familiar with one of the greatest consequences of
+      his work: that the large majority of problems and opportunities
+      are found in the system — the subject of this first part of the
+      System of Profound Knowledge. **ACTIVITY 10–b** begins — style
+      of what I have to say is much the same as for Activity 10-a.
+      Reduce variation. First, what could be a major part of
+      "Obsession With Quality" if not an obsession for reducing
+      variation? Secondly, it is worth repeating some of what I wrote
+      in "Interaction of Forces" item on Day 10 page 24 [WB 175].
+      Working together, pulling together, as "All One Team" with
+      common aims and purpose must reduce variation.
+
+      Page 40 (PDF 44): Activity 10-b continued — tug-of-war analogy,
+      opposing forces produce instability, zig-zag pattern. Return to
+      Workbook pages 180–183 / Day 10 pages 29–32.
+
+      FIGURES:
+        - **Second Project banner** on page 39 — crop from PDF 43
+          as second-project-banner.png. Orange/gold styled header.
+
+      Anchors `{#sec-page39}` and `{#sec-page40}` — both referenced
+      from Day 10 §03 and §05.
+
+  - slug: "09-day-11"
+    title: "DAY 11 — SECOND PROJECT CONTINUED (ACTIVITIES 11-a, 11-b)"
+    pages: "41-42"
+    pdf_pages: "45-46"
+    notes: |
+      Two-page chapter — Day 11 Appendix content.
+
+      Page 41 (PDF 45): **DAY 11** header. **SECOND PROJECT
+      CONTINUED** banner. **ACTIVITY 11–a** — links to Joiner Triangle,
+      grouping Points and Diseases across "Prediction", "Theory and
+      Learning", "Operational Definitions". References DemDim, The
+      Deming of America. "Our education is failing. We just don't
+      educate people, youngsters. We grade them, but don't educate
+      them, don't teach them to think." Return to Workbook pages
+      197-200 / Day 11 pages 18-21.
+
+      Page 42 (PDF 46): **ACTIVITY 11–b** — links with Knowledge
+      of Psychology. Points 1 and 5 and the third Deadly Disease
+      connected with genuine, sustained, substantial improvement,
+      and most certainly is what the Deming Cycle is for. References
+      Plan-Do-Study-Act cycle as "specifically referred to in
+      Deming's words in Part C, you still do not have to look very
+      hard to find it". Humanitarian approach to "All One Team"
+      effective item 7 of Part C in particular. Return to Workbook
+      pages 211-214 / Day 11 pages 32-35.
+
+      FIGURES:
+        - **Second Project Continued banner** on page 41 — crop
+          from PDF 45 as second-project-continued-banner.png.
+          NOTE: Day 11 already has this banner at
+          assets/images/day-11/second-project-continued-banner.png
+          (see day-11-brief.yml). Check whether to reuse that path
+          or re-crop for an appendix-specific copy.
+
+      Anchors `{#sec-page41}` (Day 11 §05) and `{#sec-page42}`
+      (Day 11 §07).
+
+  - slug: "10-optional-extras"
+    title: "OPTIONAL EXTRAS — \"SIX-SIGMA\" SUPERSTITIONS"
+    pages: "43-51"
+    pdf_pages: "47-55"
+    notes: |
+      Nine-page chapter containing the Optional Extras requested by
+      Balaji Reddie. The Optional Extras are a rewrite of the sixth
+      of the eight articles Neave drafted around 20 years earlier
+      (series SPC—Back to the Future), condensed to what has most
+      relevance to readers of the other articles and parts of the
+      "Optional Extras" Part D.
+
+      Page 43 (PDF 47): **OPTIONAL EXTRAS** header.
+      **(BY REQUEST OF BALAJI REDDIE ...)** sub-title.
+      **Introduction** section. Normal-distribution bell-curve
+      illustration (small inline image). References to Day 3 and
+      Day 7's Major Activity, "bell-shaped curve" and "not at all
+      unusual for a histogram formed from some process-data to
+      have a shape roughly approximating the shape of a normal
+      distribution".
+
+      Page 44 (PDF 48): Continued Introduction — absolutely any
+      number may appear in the data, tails of the distribution,
+      normal distribution assumed to be centred on the process
+      average, standard deviation σ (sigma), Greek letter μ (mu).
+      Reference to "six-sigma" quality as conformance to
+      specifications.
+
+      Page 45 (PDF 49): **"SIX-SIGMA" SUPERSTITIONS** header.
+      Story of Motorola's six-sigma programme. Definitions of σ,
+      UCL, LCL, USL, LSL. Tolerance concept. Chart of a situation
+      that is definitely NOT six-sigma quality (process needing σ
+      to change / improve). Discussion of "near-optimal" process.
+      FIGURE: Chart showing process with USL/LSL and UCL/LCL (red
+      zigzag line between them) → crop from PDF 49 as
+      six-sigma-capable.png.
+
+      Page 46 (PDF 50): Continued — barely-capable process chart
+      showing σ reduced. **Superstition no. 3: 3.4 parts per
+      million**. Long discussion of the claim; mathematical world
+      vs real world. Reference to histogram explaining why Mathematical
+      Statisticians are so fond of it.
+      FIGURE: Chart showing barely-capable six-sigma process
+      → crop from PDF 50 as six-sigma-barely-capable.png.
+
+      Page 47 (PDF 51): **Tail Probabilities in the Normal
+      Distribution** table — three-column table showing standard
+      deviation offsets (left-hand and right-hand tails, area
+      probability). Rows: μ − 2.5σ through μ + 6.0σ in half-sigma
+      steps. The famous 3.4 parts per million figure appears at
+      μ + 4.5σ (area 0.0000030 when centred, 0.0000034 when shifted
+      by 1.5σ). Extensive discussion about how distant 3.4 parts
+      per million figure is and how practical it is in real-world
+      manufacturing.
+      FIGURE: Tail Probabilities table → crop from PDF 51 as
+      tail-probabilities-table.png.
+
+      Page 48 (PDF 52): **An Alternative "Truth"** — My great friend
+      Don Wheeler (from whom I've learned so much over the years)
+      told me about a family of probability distributions that was
+      studied by Irving W Burr. Normal vs Burr distributions
+      comparison with μ = 0 and σ = 1 (fictional "standardised"
+      versions). 312 parts per million for Burr distribution's
+      non-symmetric version. Neave argues this is truly a useful
+      message rather than strict Mathematical pedantry.
+      FIGURE: Normal vs Burr distributions comparison chart → crop
+      from PDF 52 as normal-vs-burr.png.
+
+      Page 49 (PDF 53): **Superstitions** — damaging superstitions
+      general discussion. Tightening specifications doesn't solve
+      the problem. Football / training example.
+      **Wise Words from Mr Don Wheeler** — quoted in-block:
+      "The total conformance to specifications is no longer enough.
+      Rather that specifications are a compromise created when we
+      could do no better. Now that we can do better, those who are
+      content to live with the compromises of the past will only
+      become increasingly noncompetitive."
+      **A Better Way** — "better description of the world is the
+      Taguchi loss function" (Deming, Out of the Crisis page 120
+      [141]). What's that when it's at home?! Basically it's the
+      rather reasonable hypothesis that the best is ideal and that,
+      the further away from the ideal you get, the worse off you
+      are, in fact, the more rapidly things get worse. Reference
+      to Day 7 Pause for Thought 7-f (see Day 7 pages 20-23).
+
+      Page 50 (PDF 54): Continued — "better description of the world"
+      was described by Genichi Taguchi at a famous meeting in Tokyo
+      in 1960 at which Dr Deming was present. **A (useful) Mathematical
+      Footnote** — σ² + (non-centredness)² formula showing how
+      Taguchi's study of "loss" leads to non-centredness. Notes on
+      experience and six-sigma enthusiasts. Return to Contributions
+      from Balaji Reddie page 33.
+
+      Page 51 (PDF 55): **Approvals, Acknowledgments and Information**
+      — footnote ᵃ (page 10): "This quotation from the Deming A5
+      Booklet W2 (formally BDA Booklet W2) has been reproduced with
+      the approval of the Deming Transformation Forum."
+
+      FIGURES (four crops total):
+        - Page 45: Six-Sigma capable process chart
+        - Page 46: Six-Sigma barely-capable chart
+        - Page 47: Tail Probabilities table (multi-column table)
+        - Page 48: Normal vs Burr comparison chart
+
+      Anchors `{#sec-page43}` through `{#sec-page51}` — not
+      currently cross-referenced from any Day, but include them
+      all for completeness.
+
+      This is a self-contained section with no embedded interactive
+      elements — purely expository.
+
+# ------ Figure Decisions ------
+# Appendix has roughly 13 figures to crop. None need R recreation
+# (the simulation run-charts cannot be reproduced with matching
+# random seeds). All are static material from the PDF.
+
+figures:
+  - page: 9
+    action: "crop"
+    notes: "Technical Aid 4 — bordered box with Statisticians' and Spaniards' data control-limit formulas"
+    output: "technical-aid-4.png"
+
+  - page: 15
+    action: "crop"
+    notes: "Simulation A and B run-charts for Rule 2 and Rule 1 (4 panels)"
+    output: "simulation-rules-1-2.png"
+
+  - page: 16
+    action: "crop"
+    notes: "Simulation A and B run-charts for Rule 3 (zig-zags)"
+    output: "simulation-rule-3.png"
+
+  - page: 17
+    action: "crop"
+    notes: "Simulation B run-chart for Rule 4 (wandering / upward drift)"
+    output: "simulation-rule-4.png"
+
+  - page: 23
+    action: "crop"
+    notes: "Graph A (smooth continuous curve) and Graph B (step-wise) — Addenda to Points 1 and 3"
+    output: "graphs-a-and-b.png"
+
+  - page: 38
+    action: "crop"
+    notes: "Major Activity 9-e medical-research organisation diagram — network diagram with central cluster"
+    output: "medical-research-diagram.png"
+
+  - page: 39
+    action: "crop"
+    notes: "Second Project banner (orange/gold styled header)"
+    output: "second-project-banner.png"
+
+  - page: 41
+    action: "reuse"
+    notes: "Second Project Continued banner already cropped for Day 11 at assets/images/day-11/second-project-continued-banner.png — reuse that file rather than re-cropping"
+
+  - page: 43
+    action: "crop"
+    notes: "Normal-distribution bell-curve small inline illustration"
+    output: "normal-distribution-bell.png"
+
+  - page: 45
+    action: "crop"
+    notes: "Six-Sigma capable process chart with UCL/LCL and USL/LSL"
+    output: "six-sigma-capable.png"
+
+  - page: 46
+    action: "crop"
+    notes: "Six-Sigma barely-capable process chart (reduced σ)"
+    output: "six-sigma-barely-capable.png"
+
+  - page: 47
+    action: "crop"
+    notes: "Tail Probabilities in the Normal Distribution — full table"
+    output: "tail-probabilities-table.png"
+
+  - page: 48
+    action: "crop"
+    notes: "Normal vs Burr distributions comparison chart"
+    output: "normal-vs-burr.png"
+
+# ------ Context Notes ------
+context_notes: |
+  The Appendix is not a "day" — it wires into _quarto.yml under
+  `appendices:` rather than `chapters:` with a `part:` wrapper.
+
+  STRUCTURE:
+    appendices:
+      - content/appendix/00-welcome.qmd
+      - content/appendix/01-day-1.qmd
+      - content/appendix/02-day-2.qmd
+      - content/appendix/03-day-3.qmd
+      - content/appendix/04-day-4.qmd
+      - content/appendix/05-day-5.qmd
+      - content/appendix/06-day-7.qmd
+      - content/appendix/07-day-9.qmd
+      - content/appendix/08-day-10.qmd
+      - content/appendix/09-day-11.qmd
+      - content/appendix/10-optional-extras.qmd
+
+  CROSS-REFERENCES (summary — see section_anchors for the full
+  list):
+    - 30+ inbound references from Days 1–11 rely on Appendix page
+      anchors being exactly `sec-pageN` where N is the printed
+      Appendix page number (1–51).
+    - Existing inline page-number mentions in Days' prose
+      ("Appendix page N") are NOT hot-links today. They become hot
+      after conversion if we add matching anchors — which is one
+      of issue #132's acceptance criteria.
+
+  CONVENTIONS:
+    - Neave text is rendered as standard prose (no special styling).
+    - Pause for Thought / Activity commentary blocks are regular
+      paragraphs, not the interactive `viewof` inputs (those live
+      on the Day pages, not the Appendix). Headers like
+      "PAUSE FOR THOUGHT 1-c" become `### PAUSE FOR THOUGHT 1–c`.
+    - Bullet lists preserve the original `•` bullets as markdown
+      `-` or `*` lists.
+    - Back-references like "(Return to Workbook page X / Day Y
+      page Z.)" render as italic paragraphs, mirroring Day style.
+
+  DAYS WITHOUT APPENDIX CONTENT:
+    - Day 6, Day 8, Day 12 have em-dashes in the TOC — no chapters
+      created for them. Days' own text will not have cross-
+      references to Appendix for these days.
+
+  FRONT MATTER:
+    - PDF pages 1-4 (cover "P", blank, TOC, blank) are NOT converted
+      to QMD. The title + TOC will be handled automatically by
+      Quarto (the book structure itself shows a sidebar).
+
+  NAMING:
+    - Files live at `content/appendix/NN-slug.qmd` (not under
+      `content/days/`).
+    - Image crops live at `assets/images/appendix/` — create this
+      directory as part of Phase 3.
+
+  TESTING:
+    - After Phase 3 build, run:
+        scripts/validate-transcription.sh   (if applicable to
+                                              appendix pages)
+        scripts/check-structure.sh
+    - Confirm `quarto render` succeeds without cross-reference
+      warnings about unresolved `#sec-pageNN` anchors.
+    - Spot-check a few existing Day cross-references
+      (Day 1 → sec-page6, Day 5 → sec-page28, etc.) by navigating
+      the rendered HTML.
