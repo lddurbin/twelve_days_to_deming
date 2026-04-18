@@ -127,7 +127,7 @@ Well, he never answered my question. Some five years later, a certain Henry Neav
 
 I had the good fortune to meet Dr Juran in 2002. He gave me further insights on how people distorted important and valid ideas to create such monstrosities. He said that the Japanese improved continually and never stopped at any numerical target (3.4 errors, etc). He was puzzled about how and why Six Sigma had become so popular.
 
-The explanation of the fallacy behind the whole thinking was so beautifully laid out by Henry in that paper that I thought it best for you to read about it in the way that he wrote it. So, at my request, he has included it in the material for *12 Days to Deming*: it begins on Appendix page 43.
+The explanation of the fallacy behind the whole thinking was so beautifully laid out by Henry in that paper that I thought it best for you to read about it in the way that he wrote it. So, at my request, he has included it in the material for *12 Days to Deming*: it begins in the [Optional Extras](../10-optional-extras.qmd#sec-page43) section of the Appendix.
 
 Today, when I teach my students about how Dr Deming's teachings have been abused, I talk to them about the "Six-Sigma Superstition". I'm sure you'll love the way Henry explains it so simply. I quote Henry completely from that paper. Nobody explains it better. Let me tell you, it's very difficult to explain such things in a way that is easy to understand … but Henry does it.
 
