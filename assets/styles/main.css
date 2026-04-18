@@ -91,6 +91,28 @@
   outline-offset: 2px;
 }
 
+/* ===== COSMO GRAY-TEXT CONTRAST OVERRIDES ===== */
+/* Cosmo ships several grayed-out text styles that fall fractionally short of
+   WCAG AA's 4.5:1 threshold on white:
+     - `.blockquote`   at hsl(210, 10.3%, 47.7%)   → ~4.39:1
+     - `caption`       at rgba(52,58,64,.75)       → ~4.39:1
+     - `.figure-caption` at rgba(52,58,64,.75)     → ~4.39:1
+   Bumping to the theme's own gray-700 token lifts contrast to ~7.9:1 while
+   keeping these elements distinguishably lighter than body text at #343a40.
+   Quarto emits `<blockquote class="blockquote">` — the class selector matches
+   Cosmo's `.blockquote` rule specificity, then wins by source order. */
+blockquote,
+.blockquote,
+caption,
+.figure-caption,
+figcaption,
+.margin-caption,
+div.aside,
+aside,
+.column-margin {
+  color: var(--bs-gray-700, #495057);
+}
+
 /* ===== DESIGN TOKENS ===== */
 :root {
   --color-funnel: #3366cc;

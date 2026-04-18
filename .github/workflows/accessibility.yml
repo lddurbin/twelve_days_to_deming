@@ -1,0 +1,109 @@
+name: Accessibility
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pa11y:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+    - name: Setup R
+      id: setup-r
+      uses: r-lib/actions/setup-r@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590  # v2
+      with:
+        r-version: '4.5.1'
+        use-public-rspm: true
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libcurl4-openssl-dev \
+          libssl-dev \
+          libxml2-dev \
+          libpng-dev \
+          libjpeg-dev \
+          libcairo2-dev \
+          libfontconfig1-dev \
+          libfreetype6-dev \
+          build-essential \
+          gfortran \
+          libgmp3-dev \
+          libglpk-dev
+
+    - name: Setup Pandoc
+      uses: r-lib/actions/setup-pandoc@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590  # v2
+      with:
+        pandoc-version: '3.1.11'
+
+    - name: Cache Quarto installation
+      id: cache-quarto
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae  # v5.0.5
+      with:
+        path: /opt/quarto
+        key: quarto-1.4.549
+
+    - name: Install Quarto
+      if: steps.cache-quarto.outputs.cache-hit != 'true'
+      run: |
+        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
+        sudo dpkg -i quarto-1.4.549-linux-amd64.deb
+
+    - name: Add Quarto to PATH
+      run: echo "/opt/quarto/bin" >> $GITHUB_PATH
+
+    - name: Cache R packages
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae  # v5.0.5
+      with:
+        path: ~/.local/share/renv
+        key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
+        restore-keys: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
+
+    - name: Restore R packages
+      shell: Rscript {0}
+      run: |
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+        renv::restore()
+
+    - name: Setup Node.js
+      uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f  # v6.3.0
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install npm dependencies
+      run: npm ci
+
+    - name: Build Quarto book
+      run: quarto render
+
+    - name: Start local server
+      run: npm run a11y:serve &
+
+    - name: Wait for server
+      run: |
+        for i in $(seq 1 30); do
+          if curl -sf http://localhost:8765/ > /dev/null; then
+            echo "Server up after ${i}s"; exit 0
+          fi
+          sleep 1
+        done
+        echo "Server did not start within 30s"; exit 1
+
+    - name: Run pa11y-ci
+      run: npm run a11y

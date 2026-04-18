@@ -1,0 +1,40 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "wait": 500,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
+    },
+    "ignore": [
+      "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.EmptyNoId",
+      "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2"
+    ],
+    "hideElements": ".btn-primary, .fe-marble, .fe-button-complete"
+  },
+  "urls": [
+    "http://localhost:8765/",
+    "http://localhost:8765/content/appendix/00-welcome.html",
+    "http://localhost:8765/content/appendix/01-day-1.html",
+    "http://localhost:8765/content/appendix/02-day-2.html",
+    "http://localhost:8765/content/appendix/03-day-3.html",
+    "http://localhost:8765/content/appendix/04-day-4.html",
+    "http://localhost:8765/content/appendix/05-day-5.html",
+    "http://localhost:8765/content/appendix/06-day-7.html",
+    "http://localhost:8765/content/appendix/07-day-9.html",
+    "http://localhost:8765/content/appendix/08-day-10.html",
+    "http://localhost:8765/content/appendix/09-day-11.html",
+    "http://localhost:8765/content/appendix/10-optional-extras.html",
+    "http://localhost:8765/content/days/day-01/01-overture.html",
+    "http://localhost:8765/content/days/day-01/02-rediscovered.html",
+    "http://localhost:8765/content/days/day-01/07-quality-theory.html",
+    "http://localhost:8765/content/days/day-01/13-major-activity.html",
+    "http://localhost:8765/content/days/day-02/01-run-charts.html",
+    "http://localhost:8765/content/days/day-02/04-our-first-control-chart.html",
+    "http://localhost:8765/content/days/day-02/07-some-recollections.html",
+    "http://localhost:8765/content/days/day-02/09-postscript.html",
+    "http://localhost:8765/content/days/day-03/11-the-first-two-rules-of-the-funnel.html",
+    "http://localhost:8765/content/days/day-03/12-rules-3-and-4-of-the-funnel.html"
+  ]
+}

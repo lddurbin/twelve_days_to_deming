@@ -34,7 +34,7 @@ All One Team implies working together for the benefit of all. But fear results i
 
 Fear increases variation in so many obvious ways. People or groups "doing their own thing" for personal survival clearly increases variation. Another frequent observation from Dr Deming was: "… [where there is fear, there will be wrong figures]{.deming_quote}" *[Out of the Crisis* page 228*[266]*): people report what they can get away with and / or what they think management would like to see. Do you doubt it? Again, can you blame them? Where lies the fault?
 
-## Point 9. Break down barriers []{#sec-page25} *(Workbook pages 74–75 / Day 5 pages 6–7)*
+## Point 9. Break down barriers *(Workbook pages 74–75 / Day 5 pages 6–7)* {#sec-page25}
 
 ### Obsession With Quality
 
@@ -64,7 +64,7 @@ One of the slogans Dr Deming cites on *Out of the Crisis* page 57*[66]* is "Gett
 
 Yet again, the thrust of this Point is that the lack of quality, productivity, behaviour, performance—just about everything—comes from the system (common causes) not the individual (which might perhaps relate to some special causes). Yet at what or whom are the slogans, posters and exhortations that are referred to in this Point aimed? As my friend Mitch Beedie astutely pointed out to me: "Exhortations suggest that managers know what is wrong before they look".
 
-## Point 11. Eliminate arbitrary numerical targets []{#sec-page26} *(Workbook pages 78–79 / Day 5 pages 10–11)*
+## Point 11. Eliminate arbitrary numerical targets *(Workbook pages 78–79 / Day 5 pages 10–11)* {#sec-page26}
 
 ### Obsession With Quality
 
@@ -122,7 +122,7 @@ All One Team means what it says. Many approaches to quality improvement involve 
 
 Here we go again! With the Scientific Approach's emphasis on the system (common causes), and with the system being management's responsibility: one more time—what chance is there without Point 14?
 
-## Disease 1. Lack of constancy []{#sec-page28} *(Workbook pages 86–87 / Day 5 pages 18–19)*
+## Disease 1. Lack of constancy *(Workbook pages 86–87 / Day 5 pages 18–19)* {#sec-page28}
 
 ### Obsession With Quality
 
@@ -154,7 +154,7 @@ Short-termism implies knee-jerk reactions: "Act now, pay later". Remember "tampe
 
 The destructive nature of short-termism on the Scientific Approach is compactly expressed by Dr Deming in that sentence: ["Cut down on research, education, training"]{.deming_quote}. In other words: "Cut down on the Scientific Approach, both on what it needs and hence on what it can produce".
 
-## Disease 3. Appraisal of performance []{#sec-page29} *(Workbook pages 90–91 / Day 5 pages 22–23)*
+## Disease 3. Appraisal of performance *(Workbook pages 90–91 / Day 5 pages 22–23)* {#sec-page29}
 
 ### Obsession With Quality
 
@@ -186,7 +186,7 @@ This is where Dr Deming saw this Deadly Disease as being its most damaging (*Out
 
 It is evident that mobility of management increases variation; how could it do otherwise? In the case of a "job-hopping" culture as opposed to a learning culture, new managers must quickly justify their existence, make their mark. As we have seen, Dr Deming says it in typically few words: ["Mobility of management causes instability"]{.deming_quote}. "Instability" is one of the ways in which we describe "out of statistical control".
 
-## Disease 5. Use of only visible figures []{#sec-page30} *(Workbook pages 94–95 / Day 5 pages 26–27)*
+## Disease 5. Use of only visible figures *(Workbook pages 94–95 / Day 5 pages 26–27)* {#sec-page30}
 
 ### Obsession With Quality
 

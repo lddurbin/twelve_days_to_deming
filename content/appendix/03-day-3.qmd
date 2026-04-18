@@ -20,7 +20,7 @@ execute:
 
 *(Return to Workbook page 32 / Day 3 page 4 or continue on Day 3 page 5.)*
 
-## ACTIVITY 3–g []{#sec-page15}
+## ACTIVITY 3–g {#sec-page15}
 
 Using the first 12 values we have
 
