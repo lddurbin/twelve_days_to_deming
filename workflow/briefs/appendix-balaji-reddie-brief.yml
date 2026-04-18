@@ -1,0 +1,628 @@
+# ============================================================
+# Appendix Brief — Contributions from Balaji Reddie
+# ============================================================
+# Issue: #133
+# A self-contained appendix: two essays by Balaji S Reddie
+# (Founder of the Deming Forum of India), based on 25 short
+# newspaper articles he wrote. Part 1 is "Four Preludes and a
+# Coda" — a guided re-reading of Deming's System of Profound
+# Knowledge. Part 2 is "Some Lessons from History" — Japan's
+# post-war industrial story, the mis-copied Japanese management
+# techniques (Kaizen, Quality Circles, JIT, Six Sigma), and
+# India's missed opportunity.
+# ============================================================
+
+# ------ Source Metadata ------
+# Not a "day" — wires into _quarto.yml under `appendices:`,
+# placed immediately after 10-optional-extras.qmd.
+source:
+  kind: "appendix"
+  title: "Contributions from Balaji Reddie"
+  source_pdf: "12-Days-to-Deming/PDFs/Q.Contributions.from.Balaji.Reddie.11Sep21.pdf"
+  source_prefix: "Q.Contributions.from.Balaji.Reddie.11Sep21"
+  pdf_page_count: 42
+  content_page_count: 38    # numbered Contributions pages 1-38 (Reddie's own numbering)
+  page_offset: 4            # PDF page = Contributions page + 4
+                            # PDF 001-004 = front matter (Q cover, blank, inner title, Four Preludes intro/TOC)
+                            # PDF 005 = Contributions page 1 (Prelude A starts)
+                            # PDF 042 = Contributions page 38 (Approvals/Acknowledgments)
+
+# ------ Section Anchors ------
+# No inbound cross-references from any Day or other appendix
+# file target this material — so no {#sec-pageNN} anchors are
+# required. Free to use natural heading structure.
+#
+# OUTBOUND references (from inside this brief) that should work:
+#   - Page 34 cross-references "Fig. 12-b on Day 9 page 9/116"
+#     (Peter Scholtes diagram). This diagram lives on a Day 9
+#     page — render as a cross-reference link to the Day 9 file,
+#     not as a re-cropped figure.
+#   - Day 1 and Day 9 of the course reference Balaji Reddie by
+#     name in passing (e.g. Day 1 welcome; Day 9 out-of-hours
+#     reading). After conversion, consider whether those mentions
+#     should hot-link to this appendix — that's a separate
+#     issue, not in scope for #133.
+section_anchors:
+  required_pages: []
+  known_external_references: []
+
+# ------ Chapter Plan ------
+# 8 files, all living under `content/appendix/contributions-balaji-reddie/`.
+# Pages below are printed Contributions page numbers (Reddie's
+# own numbering, 1-38).
+
+chapters:
+  - slug: "00-introduction"
+    title: "Four Preludes and a Coda — introduction"
+    pages: "front matter"
+    pdf_pages: "3-4"
+    notes: |
+      Front matter for Part 1 of the essay. Renders the inner
+      title block and the author's own introduction / TOC.
+
+      PDF 3 (inner title): "FOUR PRELUDES AND A CODA / and /
+      SOME LESSONS FROM HISTORY / These contributions to the
+      '12 Days to Deming' course are based on a series of 25
+      short newspaper articles written by Balaji S Reddie /
+      Founder of the Deming Forum of India".
+
+      PDF 4 (introduction): "An introduction to a System of
+      Profound Knowledge" — opens with Deming's Japanese
+      discovery, cites The New Economics Chapter 4. Stated aim:
+      "provide an outside view — a lens — that I call a system
+      of profound knowledge". Bulleted preview of the four
+      preludes (A Appreciation for a system, B Some knowledge
+      of theory of variation, C Theory of knowledge,
+      D Knowledge of psychology). Lists page numbers for each
+      Prelude and the Coda.
+
+      Treatment: render the TOC as a markdown list rather than
+      a styled dot-leader table (cleaner HTML).
+
+      No figures, no interactive elements.
+
+  - slug: "01-prelude-a-system"
+    title: "Prelude A — Understanding a System"
+    pages: "1-6"
+    pdf_pages: "5-10"
+    notes: |
+      Six pages introducing Deming's first part of SoPK — an
+      "Appreciation for a system".
+
+      Page 1 (PDF 5): "The aim of a system" — tiger as a system
+      with three possible aims (regulate forest animals, regulate
+      humans, carpet). Walt Disney / Bill Gates / Steve Jobs
+      company aims. Deming quote: "for everybody to gain … over
+      the long term". "Interconnections" section-break.
+
+      Page 2 (PDF 6): Capra's *The Hidden Connections*;
+      mutual reinforcement/complementariness example of human
+      body (heart, lungs, ears, eyes, sight, hearing). "The 'most
+      important' part of the system" — negative diagnostic
+      question "In the case of a human being it's the heart" vs
+      proper question "what is not working". Tree with no "most
+      important" part as analogy.
+
+      Page 3 (PDF 7): Cause and effect may be far apart
+      "in time and space". Motorcycle-manual allegory — steamed
+      rice, Rule Book vs Book of Rules, five instructors.
+
+      Page 4 (PDF 8): Puddle-under-washer resolution —
+      "no isolated events, but eventualities" Deming quote.
+      "Comparing, competing, ranking, rating" heading —
+      Bishen Bedi spin-bowler anecdote, "ranking" means "choose
+      Number 1, choosing Number 3 and all the rest". Family
+      Numbers 1 to 5.
+
+      Page 5 (PDF 9): "work together" nature of family systems;
+      classroom competition; patterned questionnaire example.
+      "We must learn to cooperate instead of trying to compete"
+      Deming quote. "Optimise or maximise?" heading —
+      sub-optimisation (cholesterol drugs example, body's
+      oxygen).
+
+      Page 6 (PDF 10): Cholesterol discovery (1970s people with
+      high blood pressure, pharmaceutical "cholesterol killers"
+      released); HDL vs LDL difference; narrowing the "normal"
+      window as its own harm. "Performing 'within limits'"
+      bridge closes the chapter into Prelude B.
+
+      Highlighted Deming quotes (Neave's blue-italic convention):
+        - "A system is a network of interdependent components
+           that work together to try to accomplish the aim of the
+           system." (p.1)
+        - "work together"; "aim" (p.1 — keyword highlights)
+        - "for everybody to gain ... over the long term" (p.1)
+        - "a network of interdependent components that work
+           together" (p.2)
+        - "The part that is not working" (p.2)
+        - "There is no isolated events, but eventualities" (p.4)
+        - "work together"; "working together?"; "competing
+           against each other" (p.5)
+        - "We must learn to cooperate instead of trying to
+           compete" (p.5)
+
+      No figures, no interactive elements.
+
+  - slug: "02-prelude-b-statistical-thinking"
+    title: "Prelude B — Understanding Statistical Thinking"
+    pages: "7-14"
+    pdf_pages: "11-18"
+    notes: |
+      Eight pages introducing SoPK's second part — theory of
+      variation / statistical thinking. Two small inline data
+      tables appear in this chapter (render as markdown tables).
+
+      Page 7 (PDF 11): "Normal and abnormal variation" — body
+      temperature 98.6°F "built-in" limits; brilliant Shewhart
+      and Deming insights; "Optimise or maximise?" revisited;
+      "man-made processes" contrast; "hoped for results";
+      Deming quote about "voluntarily" going outside limits.
+
+      Page 8 (PDF 12): Shewhart / "common causes" / "special
+      causes" vocabulary; "behaving abnormally" Deming quote.
+      "Getting to work on time" heading — 9:10am commute
+      observation; upper process limit 40 minutes; 8:30am
+      leaves one minute to spare. Never-seen-it-happen-but-it
+      awful reasoning.
+
+      Page 9 (PDF 13): "Computing the process limits" section.
+      DATA TABLE 1 (commute times):
+        Mon 21, Tue 18, Wed 20, Thu 14, Fri 15, Mon 18,
+        Tue 19, Wed 20, Thu 22, Fri 17, Mon 19, Tue 15,
+        Wed 17, Thu 19, Fri 21
+      DATA TABLE 2 (moving ranges below each consecutive pair):
+        Mon 21, Tue 18(3), Wed 20(2), Thu 14(6), Fri 15(1),
+        Mon 18(3), Tue 19(1), Wed 20(1), Thu 22(2), Fri 17(5),
+        Mon 19(2), Tue 15(4), Wed 17(2), Thu 19(2), Fri 21(2)
+      Average moving range MR̄ = 18 ÷ 9 = 2, process average
+      200 ÷ 10 = 20. UPL = 18 + 9 × 2 = 36. LPL = 18 - 9 × 2 = 0.
+      "What we've covered so far" bridge.
+
+      Tables stored inline as markdown.
+
+      Page 10 (PDF 14): HR Manager story begins. Ravi's seven
+      months on the job; tried this, tried that, no progress.
+      DATA TABLE 3 (four-day scores for four workers):
+        Worker 1: 9  11  7  8    average 8.75
+        Worker 2: 6  11 11  9    average 9.25
+        Worker 3: 12  7  5  5    average 7.25
+        Worker 4: 11  8  9 11    average 10.50
+      Misinterpreted as signals of difference — classic wasteful
+      "do something" response.
+
+      Page 11 (PDF 15): "Knee-jerk reactions" heading — after
+      firing Ravi, Vice-President turns to new hire; same
+      pattern. "common cause" vs "special cause" confusion.
+
+      Page 12 (PDF 16): Ravi moves to another company. Repeats
+      same pattern. System, not person, in control.
+
+      Page 13 (PDF 17): "More wisdom from Dr Shewhart" —
+      asking the right question. Three bullet points on
+      matters we have touched upon during this Prelude.
+      "Discussion" section.
+
+      Page 14 (PDF 18): Three-way, four-way, five-way
+      interlinking; "mind go numb". Deming's agreement: we
+      cannot have complete knowledge of a system. Third part of
+      SoPK: "Theory of Knowledge". Theory is the "opposite to
+      practice" critique. Bridge to Prelude C.
+
+      Highlighted Deming quotes (blue italic):
+        - "Performing 'within limits'" (p.7 chapter title)
+        - "Optimise or maximise?" (p.7)
+        - "common causes" (p.8)
+        - "behaving abnormally" (p.8)
+        - "special cause" (p.8)
+        - "Abnormal" (p.8)
+        - "may only be a hunch, and the hunch may be wrong"
+           (heading at p.15 — belongs to Prelude C)
+
+      FIGURES: None. Two data tables converted to markdown.
+
+  - slug: "03-prelude-c-learning"
+    title: "Prelude C — Understanding Learning"
+    pages: "15-19"
+    pdf_pages: "19-23"
+    notes: |
+      Five pages introducing SoPK's third part — theory of
+      knowledge / learning. Uses the scooter-start child's
+      theory as a running example.
+
+      Page 15 (PDF 19): Chapter opens with The New Economics
+      p.69 [102] quote: "with risk of being wrong, otherwise
+      it is not knowledge, and that it fits without observations
+      of the past". Dr Shewhart's echo: "control limits".
+      "What makes the scooter start?" heading — boy watches
+      sequence of events, kick → stand → seat-in-order → lever
+      press → kick lever → scooter starts. First theory:
+      "Kick ⇒ Start". (The arrow symbol ⇒ means "implies" or
+      simply "leads to".)
+
+      Page 16 (PDF 20): Scooter fails to start one day.
+      Theory disproven. Mechanic replaces battery — "New battery
+      needed!". Boy revises theory. Heading: "Rate of Change of
+      Momentum = Force". "Information and knowledge" subheading
+      — information becomes knowledge when it leads to
+      prediction. "A further improvement to the theory" —
+      after more observation, theory adds context.
+
+      Page 17 (PDF 21): "Why is the Sun so bright?" heading —
+      boy answers "Because it is very hot". Wise reply:
+      "Bright ⇒ Very Hot". The next sun-bright example.
+      Subheading: "A theory may be a hunch". Deming quote:
+      "may only be a hunch, and the hunch may be wrong."
+      Subheading: "Theory: the starting-point for learning".
+
+      Page 18 (PDF 22): "Theory leads to questions" pull-quote
+      (DemDim page 247). Examples of children's questions
+      forming theory: "Why is it that ice floats on water
+      although it is 'thicker' than water?" etc.
+
+      Page 19 (PDF 23): "Summary" — "Examples teaches nothing
+      without theory" Deming quote. Deming's eleventh maxim:
+      "The job of a teacher". Bridge to Prelude D.
+
+      Highlighted Deming quotes (blue italic):
+        - "with risk of being wrong" (p.15)
+        - "may only be a hunch, and the hunch may be wrong"
+           (p.17)
+        - "Theory leads to questions" (p.18)
+        - "Examples teaches nothing without theory" (p.19)
+
+      No figures, no interactive elements.
+
+  - slug: "04-prelude-d-people"
+    title: "Prelude D — Understanding People"
+    pages: "20-25"
+    pdf_pages: "24-29"
+    notes: |
+      Six pages on the fourth part of SoPK — knowledge of
+      psychology.
+
+      Page 20 (PDF 24): "'What is the job of a teacher?'"
+      heading. Important issue from Prelude C. Innate desire to
+      learn. Sidebar: "people learn in different ways, and at
+      different speeds" (DemDim p.278). Notes on ranking/rating
+      teachers at school. Subheading: "What exactly did Dr
+      Deming mean by a 'Teacher'?".
+
+      Page 21 (PDF 25): Inner-life Deming question. "'Does pay
+      'motivate'?'" heading. The Deming of America video quote:
+      Norb Keller, GM VP meeting. Salary double, pay not a
+      motivator. Joy in learning and joy in work.
+
+      Page 22 (PDF 26): Intrinsic vs extrinsic motivation
+      continued. "risk of being wrong" — creating artificial
+      competition kills intrinsic motivation. "Competition"
+      heading — "Competition has ruined us" Deming quote (DemDim
+      p.219). Organisational self-sabotage.
+
+      Page 23 (PDF 27): Survival-of-the-fittest misreading
+      (Darwin's "Origin of Species"). Olympic Games critique —
+      only one winner. Healthy sport vs competition. Subheading:
+      "Competing against or competing with?" — Borg vs Connors;
+      Vijay Amritraj Davis Cup match against Jimmy Connors.
+
+      Page 24 (PDF 28): Dress designer analogy; customer as
+      opponent vs partner. Salespeople "Number 1, the winner"
+      vs cooperation. Question: "Is it 'natural' to compete
+      against?".
+
+      Page 25 (PDF 29): Performance appraisal critique.
+      "restore the individual" Deming quote. "Are we no better
+      than rats?" subheading — Alfie Kohn's *Punished by
+      Rewards*; "Rat and Cheese" metaphor. The New Economics
+      pp.75-77 [110-113] reference.
+
+      Highlighted Deming quotes (blue italic):
+        - "people learn in different ways, and at different
+           speeds" (p.20)
+        - "Joy in learning" / "Joy in work" (p.21)
+        - "Sure you have to have enough to live on, and to live
+           right. Beyond that, pay is not a motivator." (p.21,
+           five-line block quote from The Deming of America
+           video)
+        - "Pay is not a motivator!" (p.21)
+        - "may only be a hunch, and the hunch may be wrong"
+           (p.22 — recurring)
+        - "Competition has ruined us." (p.22)
+        - "Everyone will win; no losers." (p.23)
+        - "restore the individual, and do so in the complexities
+           of interaction with the rest of the world" (p.25)
+
+      No figures, no interactive elements.
+
+  - slug: "05-coda"
+    title: "Coda"
+    pages: "26"
+    pdf_pages: "30"
+    notes: |
+      Single page closing Part 1 of the appendix. The
+      caterpillar-to-butterfly metaphor for transformation;
+      The New Economics pp.85 [123] extended quote about the
+      transformation of the individual — increasing joy in
+      work, joy in learning, appreciation for individuality.
+
+      Closes with Reddie's personal reflection on the "heavy
+      responsibility" of teaching the material.
+
+      Page 26 (PDF 30): Opens "Even before Prelude A began…"
+      Journey metaphor (caterpillar → butterfly). Reddie's
+      footnote-style pair of paragraphs on personal gratitude
+      to Henry Neave and on the responsibility that comes with
+      being convinced by the material.
+
+      Highlighted Deming quotes (blue italic):
+        - "The transformation will take us into a new method of
+           award. We must restore the individual, and do so in
+           the complexities of interaction with the rest of the
+           world. In place of competition for high rating, high
+           grades, to be Number One, there will be cooperation
+           on common interest between people, divisions,
+           companies, competitors, governments, countries. The
+           result will in time be greater innovation, applied
+           science, technology, expansion of market, greater
+           service, greater material reward for everyone. There
+           will be joy in work, joy in learning. Everyone will
+           win; no losers." (p.26, long block quote — render as
+           styled blockquote with blue-italic highlighting)
+
+      Closes with a horizontal rule (per the PDF's typographic
+      break before Reddie's personal coda paragraph).
+
+      No figures, no interactive elements.
+
+  - slug: "06-lessons-from-history"
+    title: "Some Lessons from History"
+    pages: "27-35"
+    pdf_pages: "31-39"
+    notes: |
+      The larger of the two essays (9 pages). Covers:
+        - Inner title + TOC (p.27)
+        - Introduction (p.28)
+        - "... but they don't know what to copy!" (p.29)
+          including Kaizen (p.29), Quality Circles (p.30),
+          Just In Time (p.31), Six Sigma (p.32), Summary (p.33)
+        - Back to Deming's Legacy (p.34-35)
+
+      Page 27 (PDF 31): Inner title "SOME LESSONS FROM HISTORY"
+      with TOC. Treatment: render as a markdown list, same
+      convention as 00-introduction.qmd.
+
+      Page 28 (PDF 32): "INTRODUCTION" heading. Opens:
+      "I'd like to set the scene by repeating some brief
+      extracts from the Psychology part of the System of
+      Profound Knowledge that you have been studying on Day 1."
+      Bulleted list of four SoPK-Psychology extracts (bullet
+      points — render each as a blue-italic highlighted line
+      per Neave convention). Mosques as built-at-the-outskirts
+      metaphor; Gurudwara in Amritsar vs Western churches.
+      "Copy" vs "understand and actually feel" contrast.
+
+      Page 29 (PDF 33): "'... BUT THEY DON'T KNOW WHAT TO
+      COPY!'" heading. Marathi-language viewer's question from
+      the 1980 NBC documentary *If Japan Can, Why Can't We?*.
+      Quote: "I think that people here expect miracles.
+      American management thinks they can just copy from Japan
+      — but they don't know what to copy!" (large block
+      quote). DemDim p.250: "People go to Japan, and learn
+      nothing, for they have no theory to learn with." / "To
+      copy without knowledge of theory a company that is doing
+      well is to invite destruction." Subheading: "KAIZEN" —
+      KAI + ZEN decomposition ("change for good", "creating a
+      beneficial change in whatever we do"). Misinterpretation
+      as cost reduction / ROI. "visible figure" trap.
+
+      Page 30 (PDF 34): Kaizen critique continues. Marathi
+      reader's quote. Subheading: "QUALITY CIRCLES" — Deming's
+      Japan teaching vs US misuse as narrow tool. "We have
+      Quality Circles" = worse misdemeanor than no quality
+      circles at all. "They exist but contribute nothing"
+      observation.
+
+      Page 31 (PDF 35): Quality Circles illustration — solder
+      tin story, electronics factory, alarm switch, supervisor
+      brings problem to the Quality Circle. Real-life Japanese
+      diagnosis. Subheading: "JUST IN TIME" — Eiji Toyoda
+      Toyota origin story. 5,000 cars per day. Extreme detail:
+      colours, panels, electric windows, different engines.
+      Toyota Production System genuinely misunderstood.
+
+      Page 32 (PDF 36): Just In Time continued: Taiichi Ohno
+      (Toyota VP Manufacturing). The "TPS not JIT" point.
+      "stock" vs "no stock". Subheading: "SIX SIGMA" — 1980s
+      Motorola origin. Reddie's own involvement.
+
+      Page 33 (PDF 37): Six Sigma continued — "in a different
+      sense". The Optional Extras cross-reference. Subheading:
+      "SUMMARY" — these are fragments, not a system. "I am sure
+      that every one of them is pure common sense". References
+      the Part A/Part B reading done earlier.
+
+      Page 34 (PDF 38): "BACK TO DEMING'S LEGACY" heading.
+      In case you might find it helpful, I would like to try
+      to give you my own brief summary… rather along the lines
+      of the expanded version of Peter Scholtes's diagram that
+      you can see on Day 9 page 9 [WB 116]. (CROSS-REFERENCE:
+      link to the existing Day 9 figure file rather than
+      re-cropping. Day 9 page 9 PDF crop exists in
+      assets/images/day-09/.)
+      Four subheadings mirroring the SoPK parts:
+        - **Appreciation for a System** — three bullets
+        - **Some Knowledge of Theory of Variation** — three
+          bullets
+        - **Theory of Knowledge** — three bullets
+        - **Knowledge of Psychology** — three bullets
+
+      Page 35 (PDF 39): Legacy continued — Peter Scholtes
+      diagram reference. 60-year-ago Japanese retry; 30-years-
+      later parallel to GE, Ford, Motorola; "fit for everyone
+      to copy Japan's success today" invitation. Footnote
+      marker ᵃ (page 35) attached to the final quote —
+      "The 'Epilogue' on pages 241-244 of Mary Walton's book
+      *The Deming Management Method* contains a much more
+      substantial account of Dr Deming's presentation at that
+      Deming Prize Ceremony. The above extract comes from
+      page 243." (The footnote resolves on PDF p.42.)
+
+      Block quote (styled blockquote):
+        "Western management operates on management by objective,
+        QC Circles, quality of work life, employee involvement,
+        daily reports on performance, QC reports, and/or rating
+        on performance. It is important to note that Japanese
+        management remain strong, not weakened and diluted by
+        adoption of some of the practices that are largely
+        responsible for the decline of Western industry. It is
+        possible for a strong body to become infected, to
+        become weak. Japanese management has responsibilities
+        to continue to be strong and not to pick up infections
+        from Western management." (p.35, ends with footnote ᵃ)
+
+      Highlighted Deming quotes (blue italic):
+        - Four bullet-list items in Introduction (p.28) — render
+          as blue-italic blockquote-style lines.
+        - "I think that people here expect miracles." block
+          quote (p.29 — first paragraph of the essay title
+          section).
+        - "To copy without knowledge of theory..." (p.29)
+        - "People go to Japan, and learn nothing..." (p.29)
+        - "The journey of knowledge teaches us that a statement,
+           if it conveys knowledge, predicts future outcome,
+           with risk of being wrong, and that it fits without
+           further observations of the past." (p.29 — DemDim
+           citation)
+
+      FIGURES: None in this chapter (cross-references Day 9
+      figure for Scholtes diagram — no re-crop).
+
+  - slug: "07-indias-missed-opportunity"
+    title: "India's Missed Opportunity"
+    pages: "36-38"
+    pdf_pages: "40-42"
+    notes: |
+      The closing chapter — Reddie's personal take on India's
+      parallel to Japan, ending with the acknowledgments
+      footnote.
+
+      Page 36 (PDF 40): "INDIA'S MISSED OPPORTUNITY" heading.
+      Opens: "Dr Deming had critical words for our Business
+      Schools and Engineering Schools. He described them as
+      preparing students for the past rather than for the
+      future. Their students are not being taught how to
+      contribute or how to learn." National Parallels: Business
+      and Engineering Schools of London's. Their students are
+      not being taught how to learn to contribute to the
+      Japanese are famous. He described the Japanese success
+      of Sampling, the National Bureau of the Census and the
+      US War Department; as well as ensuring its own freshwater,
+      his Chairman of the Planning Commission, one of the jobs
+      he wanted to carry out was a country-wide survey.
+      Prasanta Mahalanobis was on the faculty of London College
+      of Technology under Dr Walter Shewhart in 1939.
+      Subsequently, his work was in this country — particularly
+      that he first attracted some international attention! But
+      I also know the Mahalanobis distance.
+
+      Page 37 (PDF 41): India continued — Vidyatree Modern
+      World College. Bullet list:
+        - Learning without Cramming
+        - Excellence without Distress
+        - Discipline without Fear
+        - Caring without Conditions
+      "**There's so much to learn: it's exciting, fun!**"
+      close (render as emphasised large text — bolded
+      blockquote is acceptable).
+
+      Page 38 (PDF 42): "Approvals, Acknowledgments and
+      Information" heading. Single footnote:
+        ᵃ (page 35) — This quotation from *The Deming
+          Management Method* has been included with the approval
+          of Mary Walton.
+      Render the footnote as a proper Markdown footnote
+      (`[^a]`), linked from its call-site on p.35 of the
+      Lessons-from-History chapter.
+
+      Highlighted Deming quotes (blue italic):
+        - "There's so much to learn: it's exciting, fun!" (p.37)
+
+      No figures.
+
+# ------ Figure Decisions ------
+# This appendix has no figures to crop. Two small inline data
+# tables exist on Prelude B pp.9-10 — both render as markdown
+# tables. One cross-reference to an existing Day 9 figure.
+
+figures: []
+
+# ------ Context Notes ------
+context_notes: |
+  STRUCTURE:
+    Files live at `content/appendix/contributions-balaji-reddie/NN-slug.qmd`.
+    Wire into _quarto.yml under `appendices:`, immediately
+    after `10-optional-extras.qmd`:
+
+      appendices:
+        - content/appendix/00-welcome.qmd
+        - content/appendix/01-day-1.qmd
+        # ... existing 8 files ...
+        - content/appendix/10-optional-extras.qmd
+        - content/appendix/contributions-balaji-reddie/00-introduction.qmd
+        - content/appendix/contributions-balaji-reddie/01-prelude-a-system.qmd
+        - content/appendix/contributions-balaji-reddie/02-prelude-b-statistical-thinking.qmd
+        - content/appendix/contributions-balaji-reddie/03-prelude-c-learning.qmd
+        - content/appendix/contributions-balaji-reddie/04-prelude-d-people.qmd
+        - content/appendix/contributions-balaji-reddie/05-coda.qmd
+        - content/appendix/contributions-balaji-reddie/06-lessons-from-history.qmd
+        - content/appendix/contributions-balaji-reddie/07-indias-missed-opportunity.qmd
+
+  CONVENTIONS:
+    - No Pause-for-Thought / Activity / Technical-Aid blocks,
+      no interactive `viewof` inputs. Pure prose.
+    - Reddie's Neave-style highlighted quotes render using the
+      existing blue-italic convention (see other converted
+      appendix chapters for the CSS class).
+    - Long attributed extracts (Deming on Coda p.26; the
+      Japanese-management block on p.35; the Mary Walton
+      quotation cross-referenced by footnote ᵃ) render as
+      blockquotes.
+    - Bullet lists preserve the PDF's • bullets as markdown `-`.
+    - Dot-leader TOC tables (pp.4 and 27) render as plain
+      markdown lists.
+
+  FRONT MATTER:
+    - PDF pages 1-2 (Q cover, blank page) are NOT converted.
+      Quarto's own chapter sidebar handles navigation.
+    - PDF pages 3-4 (inner title + author's TOC) become
+      `00-introduction.qmd`.
+
+  CROSS-REFERENCES:
+    - Outbound: p.34 cites "Fig. 12-b on Day 9 page 9/116"
+      (Peter Scholtes diagram). Link to the existing Day 9
+      chapter rather than re-cropping.
+    - Inbound: none as of issue #133. (Day 1's welcome and
+      Day 9's out-of-hours reading mention Balaji Reddie by
+      name but do not link. Adding those links is out of
+      scope — file a follow-up issue after #133 ships.)
+
+  NAMING:
+    - New subdirectory: `content/appendix/contributions-balaji-reddie/`.
+    - Image-crop directory: none needed (no figures).
+
+  TESTING:
+    - `scripts/check-structure.sh` should still pass.
+    - `quarto render` should complete without warnings.
+    - Spot-check: navigate from the chapter sidebar to each
+      of the 8 new pages; confirm the Day 9 cross-reference on
+      the Lessons-from-History chapter resolves.
+    - pa11y-ci: new appendix URLs will be added to
+      `.pa11yci.json` — verify lang attrs and heading order
+      on each new page.
+
+  RIGHTS:
+    - Non-commercial verbatim reproduction is authorised (see
+      project-level rights memory).
+    - The Mary Walton footnote on p.38 confirms that the
+      *Deming Management Method* excerpt on p.35 is reproduced
+      with permission.

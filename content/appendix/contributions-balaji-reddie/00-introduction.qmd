@@ -1,0 +1,42 @@
+---
+title: "FOUR PRELUDES AND A CODA — INTRODUCTION"
+execute:
+  echo: false
+---
+
+::: {style="text-align: center;"}
+*Contributions from Balaji Reddie*
+
+**FOUR PRELUDES AND A CODA**
+
+**and**
+
+**SOME LESSONS FROM HISTORY**
+:::
+
+*These contributions to the "12 Days to Deming" course are based on a series of 25 short newspaper articles written by*
+
+**Balaji S Reddie**
+
+*Founder of the Deming Forum of India*
+
+---
+
+## An introduction to a System of Profound Knowledge
+
+When Dr Deming was asked what it was that the Japanese learned from him, one of his answers was that he taught them a different way of perceiving things around them. He pointed out that, although people see the same event, they may nonetheless observe different things. In the opening paragraph of Chapter 4 in *The New Economics*, Dr Deming described the purpose of that chapter using these words: ["The aim of this chapter is to provide an outside view—a lens—that I call a system of profound knowledge"]{.deming_quote}.
+
+The System of Profound Knowledge is the interaction of four substantial areas of thinking and understanding. Deming referred to them using titles such as
+
+A. [Appreciation for a system]{.deming_quote}
+B. [Some knowledge of theory of variation]{.deming_quote}
+C. [Theory of knowledge]{.deming_quote}
+D. [Knowledge of psychology]{.deming_quote}.
+
+Our Preludes here respectively contain some introductory thoughts and illustrations on each of those four parts:
+
+- Prelude A: Understanding a System — *page 1*
+- Prelude B: Understanding Statistical Thinking — *page 7*
+- Prelude C: Understanding Learning — *page 15*
+- Prelude D: Understanding People — *page 20*
+- Coda — *page 26*

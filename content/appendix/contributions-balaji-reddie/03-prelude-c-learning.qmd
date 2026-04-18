@@ -1,0 +1,111 @@
+---
+title: "PRELUDE C: UNDERSTANDING LEARNING"
+execute:
+  echo: false
+---
+
+At the end of Prelude B we introduced some thoughts about the word "theory". Dr Deming emphasised that all theory leads to knowledge, indeed that no knowledge is possible without theory.
+
+The following sentence (*The New Economics* page 69 [102]) is a summary of what Dr Deming saw as necessary for conveying knowledge (as opposed to information):
+
+> "The theory of knowledge teaches us that a statement, if it conveys knowledge, predicts future outcome, [with risk of being wrong]{.deming_quote}, and that it fits without failure observations of the past."
+
+His exact wording would change from time to time, but that phrase [with risk of being wrong]{.deming_quote} was always there. He was an honest man! There is little in life that is absolutely certain to occur. But Part C of his System of Profound Knowledge largely focuses on *reducing* that risk of being wrong as much as possible. (Interestingly, that's effectively the same objective as Dr Shewhart had when deciding upon his "control limits".)
+
+Let's illustrate some of this with the aid of an example.
+
+### What makes the scooter start?
+
+A man drives to work every day on his Bajaj scooter. Most mornings, his young son watches him leave. The son is curious to know how the scooter starts. He notices a lot of things that always happen, one after the other:
+
+- His father puts his bag on the scooter's handle;
+- then he moves the scooter off its stand;
+- he wheels the scooter to the front of the yard;
+- he sets the scooter back on its stand;
+- he then kicks the lever; and
+- the scooter starts.
+
+After observing for a long time, the boy realises something. It is only after his father kicks the lever that the scooter starts. So he has a theory: "Kick ⇒ Start" (where the symbol "⇒" means "implies").
+
+Is the theory true? One morning he is lying down on his bed, and so isn't watching his father. But he hears his father kicking the lever. Because of his theory he tells himself: "Now the scooter will start". Indeed, the scooter starts. His theory is correct! Or is it?
+
+At the weekend, when nobody else is around, he decides it would be fun to start the scooter himself. He wants to do—he has the theory: "Kick ⇒ Start". So he goes to the scooter and starts to kick the lever. But, to his horror, the scooter does not start. How can this be? His theory is wrong! Obviously he has not observed properly.
+
+So the next Monday morning he starts watching even more keenly. Does his father do anything that he hadn't noticed before? After a week or so he spots something. His father does not start kicking the lever until he has inserted and turned a key in a slot on the scooter. Could this be the missing step? His observations confirm this. So now he revises his theory; it becomes: "Key + Kick ⇒ Start".
+
+Three further days of observation appear to confirm his new theory. But he is a little wary about this since he recalls how, on the previous occasion that he had tested a theory, it turned out to be wrong. So, the next time he was alone at home, he took the key and inserted it into the slot on the scooter. He turned it, then kicked the lever. Lo and behold: the scooter started! His new theory was correct: "Key + Kick ⇒ Start".
+
+However, one day he saw his father kicking away at the scooter but the scooter did not start. Remembering his theory, he thought to himself: "Looks like he has forgotten to turn the key!". So he went down and asked his father: "Have you turned the key?". His father smiled and said: "Yes". "Then why is the scooter not starting?", he wondered to himself. What was the reason? He asked his father the same question. But his father was just as puzzled.
+
+So his father then approached their neighbour, an elderly gentleman who often solved their problems. He listened patiently while the boy's father explained the difficulty to him. Then he nodded his head knowingly and did something which left the boy baffled. The neighbour first ran with the scooter, then he jumped onto it while it was in motion, and then he jerked the clutch handle. Lo and behold: the scooter started!
+
+So the boy's new theory of "Key + Kick ⇒ Start", which he thought he had confirmed, did not hold good after all! He asked his father to explain. His father replied: "When you get older, you will learn".
+
+### Information and knowledge
+
+Now, after some years, the son reached the eighth standard. His question of "How did the scooter start?" had remained unanswered. One day in class, his teacher spoke of Newton's Laws of Motion. When she reached the law:
+
+> Rate of Change of Momentum = Force,
+
+this was more information for every other child in that class. But, for the boy, this statement became *knowledge*.
+
+> *There is a difference between information and knowledge.*
+
+When *information* answers a question that has come from *theory*, it becomes *knowledge*. Now the boy understood that, when he or his father kicked the lever or the neighbour ran with the scooter, there was a rate of change of momentum which generated a force that in turn made the scooter start.
+
+### A further improvement to the theory
+
+A few years later the son inherited the scooter. Every time he encountered starting problems, he would run with the scooter to make it start. But, one day, even running with it failed to make it start. Frustrated, he took the scooter to the mechanic down the road. The mechanic patiently heard out the problem. Then he bent down, put his hand underneath the scooter, and took out a little contraption called the "spark plug". He then pointed out how dirty it had become, proceeded to clean it, put it back in its place and kick-started the scooter into life.
+
+So now the young man's theory became as follows. "When I kick the lever, or run with the scooter, there is a rate of change of momentum which results in a force. This force gives rise to a spark, and it is this spark that ignites the petrol which in turn makes the scooter start." Now the theory had become comprehensive, practical, and more successful than before.
+
+Let's sum up this little story. First, the more the boy was proved to be wrong, the more he learned. Every time he discovered he was wrong, it gave him the chance to create a better theory. He was able to convert information into knowledge because he already had a theory. His theory encouraged him to ask questions. This is the only way to create and advance real knowledge.
+
+Let's take a look at a couple of shorter illustrations. They have some differences from this first one, and are also different from each other; but it will be useful to study what's *similar* about them all.
+
+### Why is the Sun so bright?
+
+A little girl comes to you and asks you why the Sun is so bright. You promptly reply: "Because it is very hot". ("Very Hot ⇒ Bright.") Very quickly she associates "bright" with "very hot". The next time she sees something bright she comes and tells you that it must be very hot. You then gently point out her error and say that not everything which is bright is very hot (i.e., although "Very Hot ⇒ Bright" is true, "Bright ⇒ Very Hot" is not necessarily true). The child understands and so now has greater knowledge. Are we not all familiar with this? Children between the age of two and four come to us with so many questions that they flood our ears!
+
+Then, one busy day, in sheer impatience and exasperation you may just say: "It's like that because I *told* you so". That is the day the child stops asking questions, stops creating theories, and stops learning. Maybe all of us have experienced this as children at home and in school, as teenagers in college, as employees at our place of work. Sometimes, the moment we start asking questions, we are labelled as "weird", "crazy", self-indulgent, or just a nuisance. Worse, we also find some people reacting by saying something like: "You think I am an idiot for doing this for the past 30 years?". Well, my answer to them is this: "The fact that you have 30 years of 'experience' doing the same thing does not necessarily imply that you were learning for all those years. It could be just one year of learning multiplied by 30. Think about it!".
+
+### A theory may only be a hunch
+
+Suppose we are studying a particular process. Let's assume we know of five factors that are likely to be affecting its performance. After observing the process for some time, we have a hunch that one factor affects another factor in a positive way. (With language similar to that used in Prelude B, we think they may be "positively correlated".) This hunch could have come from having previously seen something similar, or from something that we may have read somewhere, or from something we have studied. No matter that it is just a hunch: as Dr Deming pointed out (*DemDim* page 247), a theory [may only be a hunch, and the hunch may be wrong]{.deming_quote}. The important point is that it can still be used as the starting-point for learning.
+
+The next step is to test our theory. How? We create different situations where we vary the factors and see how they behave with each other. If the effect in which we are interested still appears to be true, we should test it yet again to check whether our findings were just a fluke. We could also repeat this to try to confirm that we hadn't missed anything out. If at any time the effect is contrary to what we expected, we haven't "failed"—we have just learned something: we have learned that our current theory is wrong and that accordingly we need to look for something different. I repeat: this isn't "failure"—instead, it is new and better knowledge. Theory gives us a method to create knowledge from observations. Theory provides a way of *generalising* as a consequence of *specifics*.
+
+### Theory: the starting-point for learning
+
+Theory is the ground upon which knowledge and practice are founded. There can never be any knowledge or learning without theory. The children are using theory even if they don't know the word. Adults can learn without realising they are using theory. But they are. And their learning will be helped and enhanced if they do realise it.
+
+So how do we create theory? How do we start? We have seen some different ways. First, the young boy observed the scooter starting and wondered: "What makes it start?". Then the little girl knew that the Sun was so bright that it was dangerous for her to look at it—and wondered: "Why is it so bright?". In the case of our five-factor process we had the hunch that two of the factors were positively correlated. And we wondered: "Is that really true and, if so, why?".
+
+These were the starting-points in the three cases. Then what? In the case of the young boy, he began to observe carefully and eventually came up with his initial theory: "Kick ⇒ Start". The little girl came and asked you a question. She didn't quite understand the answer because, as we can see from what happened next, she came up with a theory which was not correct: "Bright ⇒ Very Hot". But remember, the young boy's initial theory wasn't correct either. In the case of that five-factor process, our initial theory was just a hunch—again arising from observation. But, nevertheless, that hunch soon led to questions, just as in the other two cases. That's exactly as Dr Deming often simply stated: ["Theory leads to questions"]{.deming_quote} (*DemDim* page 275). In the case of the five-factor process, the hunch resulted in some experimentation to find out whether that initial theory (the hunch) was in fact correct and generally to learn more about the process.
+
+Notice that, without the initial theory, there would have been no learning! If he hadn't started with his theory: "Kick ⇒ Start", the young boy would not have observed more and more keenly, would not have asked questions, and almost surely would *not* have eventually finished up by understanding that:
+
+> "When I kick the lever, or run with the scooter, there is a rate of change of momentum which results in a force. This force gives rise to a spark, and it is this spark that ignites the petrol which in turn makes the scooter start".
+
+The young boy's simple and wrong initial theory eventually led to some considerable knowledge which many people do not have. Without my initial theory, the little girl would not have learned that "A ⇒ B" does *not* imply that "B ⇒ A"—a mistake which many adults (including some politicians and managers) continue to make. Without our initial hunch, we wouldn't have learned what we subsequently learned about that five-factor process.
+
+So this summarises the sequence of learning, of acquiring knowledge. Actually, we could even have begun the sequence one step earlier. Why did the little boy—or the little girl, or we ourselves—observe what was seen in the first place? The answer must surely have been interest and curiosity. Children have both of them "in spades", as the expression has it. Hopefully, so do we.
+
+Here are some typical questions that could well arise from observation and can thus lead to theory which may then be examined, tested, modified, then re-examined, retested, modified again, and so on, all the while developing learning, understanding, knowledge:
+
+- Why is it that ice floats on water although it is "thicker" than water?
+- How come a piece of iron sinks in water but a ship made of iron floats?
+- How come when I eat only one ice cream I catch a cold but, when my friend eats ten ice creams, nothing happens to him?
+- Why does my television set not start?
+
+Without doubt, you can think of many more good examples.
+
+### Summary
+
+Let's summarise more generally what we have covered. We have seen how theory is the basis of all learning and development of knowledge. We have seen that theory begins by observing or asking questions or, more usually, both. When we, because of our interest, inquisitiveness and curiosity, observe and/or ask questions, we lay the foundations of a theory that we can then test, confirm, expand upon, or indeed abandon. In every case, we learn. In every case, we need theory. A beautifully concise way in which Dr Deming said all this was: ["Experience teaches nothing without theory"]{.deming_quote}. Similarly, he often stated that ["Examples teach nothing without theory"]{.deming_quote}.
+
+We have also emphasised that all of us are born with a natural desire to learn—it's a normal characteristic of human beings and, indeed, of other animal life. We see children, from a very young age, asking questions. Why are they asking questions? It is not for a prize, it is not to be top of the class, it is not for an increase in their pocket-money. Those are all what psychologists call "extrinsic motivators"—motivators that are nothing to do with the questions and the learning themselves. Children ask questions simply because they want to know, they are curious, they are intrinsically connected with the questions and the learning. It is so important that this learning be encouraged. It is sadly common that we, as their elders, crush this learning by unsympathetic and inappropriate reactions to their questions.
+
+Where are we now? We have just mentioned matters to do with psychology. "Knowledge of Psychology" is the fourth and final part of the System of Profound Knowledge. Yet again, while discussing one part of the System of Profound Knowledge, we have effortlessly glided into another part! That is the very nature of Dr Deming's System of Profound Knowledge. Do you remember the opening words of his introduction on Day 9? They were simply: ["The System of Profound Knowledge appears here in four parts, *all related to each other*"]{.deming_quote}.
+
+What is psychology? My dictionary defines it as "the science concerned with understanding and explaining mental processes and behaviour". I think this can be simply abbreviated to "Understanding People". And that is Prelude D.
