@@ -49,6 +49,7 @@ import {
   generateDiceSequence, saveDiceSequence, loadDiceSequence,
   runAllStages, renderStatusHTML, renderTrackHTML,
   renderStageButtonsHTML, renderDataTablesHTML,
+  restoreStageFocus,
   TARGET, TOTAL_STAGES
 } from "../../../assets/scripts/funnel-experiment.js"
 ```
@@ -100,10 +101,14 @@ html`${renderTrackHTML(rule2Visible, rule2AllStages)}`
 {
   const el = html`${renderStageButtonsHTML(rule2Counter, TOTAL_STAGES)}`;
   el.querySelector('.fe-stage-next').onclick = () => {
-    if (rule2Counter < TOTAL_STAGES) mutable rule2Counter = rule2Counter + 1;
+    if (rule2Counter < TOTAL_STAGES) {
+      mutable rule2Counter = rule2Counter + 1;
+      restoreStageFocus(el, '.fe-stage-next');
+    }
   };
   el.querySelector('.fe-stage-complete').onclick = () => {
     mutable rule2Counter = TOTAL_STAGES;
+    restoreStageFocus(el, '.fe-stage-complete');
   };
   return el;
 }
@@ -192,10 +197,14 @@ html`${renderTrackHTML(rule1Visible, rule1AllStages)}`
 {
   const el = html`${renderStageButtonsHTML(rule1Counter, TOTAL_STAGES)}`;
   el.querySelector('.fe-stage-next').onclick = () => {
-    if (rule1Counter < TOTAL_STAGES) mutable rule1Counter = rule1Counter + 1;
+    if (rule1Counter < TOTAL_STAGES) {
+      mutable rule1Counter = rule1Counter + 1;
+      restoreStageFocus(el, '.fe-stage-next');
+    }
   };
   el.querySelector('.fe-stage-complete').onclick = () => {
     mutable rule1Counter = TOTAL_STAGES;
+    restoreStageFocus(el, '.fe-stage-complete');
   };
   return el;
 }

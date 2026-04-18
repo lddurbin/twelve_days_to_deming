@@ -496,6 +496,57 @@ export function renderStageButtonsHTML(counter, totalStages) {
        + `<button class="fe-button fe-button-complete fe-stage-complete"${d}>Complete Remaining Stages</button></div>`;
 }
 
+// Restore keyboard focus after an OJS re-render replaces the button container.
+// OJS mutates the counter inside the click handler, which re-evaluates the
+// cell and swaps the returned element — so the just-clicked button is
+// destroyed and focus falls to <body>. Screen readers then announce the
+// web-area landmark on every click (see issue #178).
+//
+// Call this synchronously *after* the `mutable counter = ...` assignment that
+// triggers the re-render. OJS schedules cell re-evaluation on a microtask,
+// so the observer registered here is guaranteed to be in place before the
+// DOM swap. Moving the call before the mutation, or deferring it to a
+// setTimeout, would break that ordering guarantee.
+//
+// currentEl: the button container from the current render. Must be passed in
+//   while it is still mounted, so we can capture `.parentElement` — the
+//   cell's output slot, which persists across re-renders.
+// preferred: '.fe-stage-next' or '.fe-stage-complete' — the button the user
+//   activated. If it is disabled in the replacement DOM, we fall back to the
+//   other button so keyboard flow continues gracefully.
+export function restoreStageFocus(currentEl, preferred = ".fe-stage-next") {
+  if (typeof MutationObserver === "undefined" || !currentEl) return;
+  const cellContainer = currentEl.parentElement;
+  if (!cellContainer) return;
+
+  const observer = new MutationObserver(() => {
+    const next = cellContainer.querySelector(".fe-stage-next");
+    const complete = cellContainer.querySelector(".fe-stage-complete");
+    // Wait until both buttons are mounted. `renderStageButtonsHTML` emits
+    // them in a single HTML string so they typically arrive together, but
+    // observer callbacks can fire mid-insertion — guarding on both avoids
+    // focusing a fallback that simply hasn't been mounted yet.
+    if (!next || !complete) return;
+
+    observer.disconnect();
+    const primary = preferred === ".fe-stage-complete" ? complete : next;
+    const fallback = primary === next ? complete : next;
+    const target = primary && !primary.disabled
+      ? primary
+      : fallback && !fallback.disabled
+        ? fallback
+        : null;
+    if (target) target.focus();
+    // If both are disabled (final stage), focus has already dropped to
+    // <body>. Future enhancement: move focus to the histogram container
+    // that appears once the run completes.
+  });
+  observer.observe(cellContainer, { childList: true, subtree: true });
+  // Safety cap — disconnect if OJS never inserts replacement buttons
+  // (e.g. the cell errored). Prevents the observer from outliving the click.
+  setTimeout(() => observer.disconnect(), 1000);
+}
+
 // Three sub-tables wrapped in scroll containers (indices 0/1/2 → stages 1-14, 15-27, 28-40)
 export function renderDataTablesHTML(rule, visible) {
   return `<div class="fe-track-container">${renderDataTable(rule, visible, 0)}</div>`
