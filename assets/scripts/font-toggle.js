@@ -46,7 +46,29 @@
     });
 
     document.body.appendChild(button);
+    syncLabelVisibility(button);
     return button;
+  }
+
+  function syncLabelVisibility(button) {
+    // On narrow viewports the button collapses to icon-only, with the
+    // label visually hidden but still announced by screen readers
+    // (aria-label on the button + the live label text both contribute).
+    // matchMedia keeps this in sync across viewport-size changes without
+    // duplicating the hiding rule in CSS.
+    var label = button.querySelector(".dyslexia-toggle-label");
+    if (!label || !window.matchMedia) return;
+    var mq = window.matchMedia("(max-width: 700px)");
+    function sync() {
+      label.classList.toggle("visually-hidden", mq.matches);
+    }
+    sync();
+    if (mq.addEventListener) {
+      mq.addEventListener("change", sync);
+    } else if (mq.addListener) {
+      // Safari < 14 fallback
+      mq.addListener(sync);
+    }
   }
 
   function yieldToPageNav(button) {

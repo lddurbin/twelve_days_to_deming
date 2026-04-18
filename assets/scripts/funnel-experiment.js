@@ -415,7 +415,10 @@ function ensureLiveRegion() {
   const host = document.getElementById("quarto-document-content") || document.body;
   if (!host) return null;
   feLiveRegion = document.createElement("div");
-  feLiveRegion.className = "fe-sr-live";
+  // fe-sr-live is the semantic identifier (discoverable in DevTools /
+  // future diagnostic styles); visually-hidden provides the off-screen
+  // positioning defined once in main.css.
+  feLiveRegion.className = "fe-sr-live visually-hidden";
   feLiveRegion.setAttribute("role", "status");
   feLiveRegion.setAttribute("aria-live", "polite");
   feLiveRegion.setAttribute("aria-atomic", "true");
