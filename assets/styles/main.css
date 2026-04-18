@@ -42,6 +42,37 @@
   src: url('../fonts/opendyslexic-bolditalic.woff2') format('woff2');
 }
 
+/* ===== VISUALLY HIDDEN UTILITY ===== */
+/* Standard pattern for content that must be available to screen readers
+   but not shown visually. Used for:
+   - Persistent live regions (announced state updates)
+   - Icon-only button labels (preserved as accessible names)
+
+   Bootstrap 5 (shipped via Cosmo) also defines .visually-hidden, with
+   !important on every property. For the shared properties Bootstrap's
+   rule wins the cascade — in practice harmless because both patterns
+   produce identical behaviour. Our clip-path: inset(50%) does add
+   value: Bootstrap only declares the deprecated clip: rect(...), so
+   our declaration is what gives modern browsers the supported
+   property. If we ever need to diverge from Bootstrap's semantics on
+   the shared properties, this rule will need !important to win.
+
+   Apply by adding the class directly in HTML/JS. For cases where
+   visibility is conditional (e.g. viewport-dependent), toggle the class
+   from JS via matchMedia rather than duplicating the rule in a media
+   query. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ===== SKIP-TO-CONTENT LINK ===== */
 .skip-link {
   position: fixed;
@@ -674,20 +705,10 @@ button:focus,
   color: #333;
 }
 
-/* Persistent visually-hidden live region for screen reader announcements.
-   Kept in the DOM across OJS re-renders so status updates are reliably
-   announced (the visible .fe-status is replaced on each render). */
-.fe-sr-live {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+/* Persistent live region for screen reader announcements. Kept in the DOM
+   across OJS re-renders so status updates are reliably announced (the
+   visible .fe-status is replaced on each render). Hiding styles come from
+   the .visually-hidden utility class applied in funnel-experiment.js. */
 
 /* Comparison grid (2×2 charts) */
 .fe-comparison-grid {
@@ -821,17 +842,9 @@ button:focus,
   .dyslexia-toggle .dyslexia-toggle-icon {
     margin-right: 0;
   }
-  .dyslexia-toggle .dyslexia-toggle-label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
+  /* On narrow viewports the toggle collapses to icon-only. font-toggle.js
+     adds the .visually-hidden class to .dyslexia-toggle-label via
+     matchMedia so the label stays announced by screen readers. */
 }
 
 @media print {
