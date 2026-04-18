@@ -1,0 +1,170 @@
+---
+title: "REFERENCES AND SOURCES"
+execute:
+  echo: false
+---
+
+# REFERENCES AND SOURCES {#sec-references-page1}
+
+- [Books](#books)
+- [Booklets](#booklets)
+- [Videos / DVDs](#videos-dvds)
+- [Internet contacts and addresses](#internet-contacts-and-addresses)
+
+## BOOKS
+
+AGUAYO, R, *Dr Deming—the Man who Taught the Japanese about Quality*.  Carol Inc, NY (1990); Mercury, London (1991).
+
+BALESTRACCI, Davis.  *Data Sanity*.  Medical Group Management Association, Colorado (2nd edition, 2015).
+
+BOORSTIN D J, *The Discoverers*.  Random House (1983); Penguin Books (1986).
+
+CAPRA F, *The Hidden Connections*.  HarperCollins, London (2002).
+
+CARLISLE J A and PARKER R C, *Beyond Negotiation*.  John Wiley & Sons (1989).
+
+DELAVIGNE K T and ROBERTSON J D, *Deming's Profound Changes*.  Prentice Hall, NJ (1994).
+
+DEMING W Edwards, *Some Theory of Sampling*.  John Wiley & Sons (1950); Dover Publications, NY (1966).
+
+DEMING W Edwards, *Sample Design in Business Research*.  John Wiley & Sons (1960).
+
+DEMING W Edwards, *Quality, Productivity and Competitive Position*.  Massachusetts Institute of Technology, Center for Advanced Engineering Study (1982).
+
+DEMING W Edwards, *Out of the Crisis*.  Massachusetts Institute of Technology, Center for Advanced Engineering Study (1986); Cambridge University Press (1988).
+
+DEMING W Edwards, *The New Economics for Industry, Government, Education*.  Massachusetts Institute of Technology, Center for Advanced Engineering Study, Cambridge University Press (1993, 2nd edition 1994, 3rd edition 2018).
+
+*EST*.  Abbreviation for my *Elementary Statistics Tables* (see below).
+
+HUFF Darrell, *How to Lie with Statistics*.  W W Norton & Co (1954); Penguin Books (1991).
+
+ISHIWAWA I, *Introduction to Quality Control*.  Chapman and Hall (3rd edition 1990).  Originally published as *Hinshitsu Kanri Nyūmon* JUSE Press Ltd (1954, 3rd edition 1989).
+
+KILIAN Cecelia S, *The World of W Edwards Deming*.  SPC Press, Knoxville, TN (2nd edition 1992).
+
+KOHN Alfie, *No Contest: The Case Against Competition*.  Houghton Mifflin (1986).
+
+KOHN Alfie, *Punished by Rewards—the Trouble with Gold Stars, Incentive Plans, A's, Praise and Other Bribes*.  Houghton Mifflin (1993, 2000)
+
+KOYANAGI Ken-Ichi, *The Deming Prize*.  See under "Booklets".
+
+MANN Nancy R, *The Keys to Excellence*.  Prestwick Books, Los Angeles (1985); Mercury Books, London (1989).
+
+NEAVE, H R, *Elementary Statistics Tables*.  George Allen & Unwin (1981), Routledge (2nd edition 2011).
+
+NEAVE, H R, *Statistics Tables for Mathematicians, Engineers, Economists and the Behavioural and Management Sciences*.  George Allen & Unwin (1978), Routledge (2nd edition 2011).
+
+NEAVE, H R, *The Deming Dimension*.  SPC Press, Knoxville, TN (1990).
+
+ORSINI, Joyce Nilsson, *The Essential Deming—Leadership Principles from the Father of Quality*.  McGraw Hill (2013).
+
+SCHERKENBACH W W, *The Deming Route to Quality and Productivity*.  CEEPress Books, Washington DC (1986).
+
+SCHERKENBACH W W, *Deming's Road to Continual Improvement*.  SPC Press, Knoxville, TN (1991).
+
+SCHOLTES P R, *The Team Handbook*.  Joiner Associates, Madison, WI (1988), Oriel Inc, Madison, WI (3rd edition 2003).
+
+SCHOLTES P R, *The Leader's Handbook*.  McGraw-Hill (1998).
+
+SHEWHART W A, *Economic Control of Quality of Manufactured Product*.  Van Nostrand (1931); American Society for Quality Control (1980); CEEPress Books, Washington DC (1986).
+
+SHEWHART W A, *Statistical Method from the Viewpoint of Quality Control*.  Graduate School of the Department of Agriculture, Washington DC (1939); Dover Publications, NY (1986).
+
+*ST*.  Abbreviation for my *Statistics Tables for Mathematicians, Engineers* … (see above).
+
+WALTON Mary, *The Deming Management Method*.  Dodd, Mead & Co Inc (1986), Mercury, London (1989).
+
+WALTON Mary, *Deming Management at Work*.  Putnam NY (1990), Mercury, London (1991).
+
+WHEELER D J, *Advanced Topics in Statistical Process Control*.  SPC Press, Knoxville, TN (2005).
+
+WHEELER D J, *Making Sense of Data—SPC for the Service Sector*.  SPC Press, Knoxville, TN (2003).
+
+WHEELER D J, *Understanding Variation—the Key to Managing Chaos*.  SPC Press, Knoxville, TN (1993, 2nd edition 2000).
+
+WHEELER D J and CHAMBERS D S, *Understanding Statistical Process Control*.  SPC Press, Knoxville, TN (1985, 3rd edition 2010).
+
+## BOOKLETS
+
+BDA BOOKLETS (now known as the Deming A5 Booklets and obtainable from the UK Deming Transformation Forum—see the "[Internet contacts](#internet-contacts-and-addresses)" section).
+
+- A6.  BDA, *Profound Knowledge* (1990).
+- A8.  BDA, *Performance Appraisal and All That!* (1991).
+- A9.  BDA, *A System of Profound Knowledge* (1991).
+- A10.  BDA, *Deming Speaks to European Executives* (1991).
+- W2.  TRIBUS M, *The Germ Theory of Management* (1993).
+
+KOYANAGI Ken-Ichi, *The Deming Prize*.  Union of Japanese Scientists and Engineers (JUSE), 1960.
+
+## VIDEOS / DVDs
+
+*For information on accessing items in this list, please see the "[Internet contacts and addresses](#internet-contacts-and-addresses)" section.*
+
+*A Japanese Control Chart*.  SPC Press Inc (1990).
+
+*A Prophet Unheard*.  "Business Matters" series, British Broadcasting Corporation (1992)
+
+*Analysis of the Red Beads Experiment*.  WEDI.
+
+*Doctor's Orders*.  Central ITV (1988).  Regrettably does not appear to be currently available.
+
+*If Japan Can, Why Can't We?*  NBC White Paper, Films Inc, Chicago. (Contact WEDI.)
+
+*Management's Five Deadly Diseases*.  Encyclopaedia Britannica.
+
+*The Deming Library*.  Films Inc, Chicago.  (Contact WEDI or the UK Deming Transformation Forum.)
+
+- Volume 1.  *The New Economic Age*.
+- Volume 2.  *The 14 Points*.
+- Volume 7.  *The Red Bead Experiment and Life*.
+- Volume 8.  *Lessons of the Red Bead Experiment*.
+- Volume 21.  *A Theory of a System for Educators and Managers*.
+
+*The Deming of America*.  Petty Consulting Productions, Cincinnati.
+
+*The Experiment with the Red Beads*.  WEDI.
+
+## INTERNET CONTACTS AND ADDRESSES
+
+*(checked correct in January 2022)*
+
+(Note that [0]{.underline} and [1]{.underline} are digits and [O]{.underline} and [I]{.underline} are capital letters.)
+
+*A Prophet Unheard*: <https://www.youtube.com/playlist?list=PLCADAD0F2F91BD570>
+
+Balaji Reddie at the Deming Forum of India: <balaji@deming.org.in>
+
+Chartered Quality Institute (UK): <https://www.quality.org>
+
+Deming Alliance (UK): <https://www.demingalliance.org>
+
+Deming Transformation Forum (UK): <https://www.deming.org.uk>
+
+> *NB*  At the time of the current revision of this file (February 2022) this website is "being upgraded".  The Booklets etc are however still obtainable via the website's "Learning Store".
+
+Deming Learning Network (Scotland): <tony@jmiller.co.uk>
+
+Gallery Furniture: <https://www.galleryfurniture.com>
+
+JUSE (Union of Japanese Scientists and Engineers): <http://www.juse.or.jp/deming_en/>
+
+*Management's Five Deadly Diseases*: <https://www.youtube.com/watch?v=ehMAw8HGN0Y>
+
+MIT Press (*Out of the Crisis* and *The New Economics*): <https://mitpress.mit.edu/contributors/w-edwards-deming>
+
+Petty Consulting Productions (USA): <https://www.PriscillaPetty.com>
+
+SPC Press Inc (USA): <https://www.spcpress.com>
+
+"Springboard" article: <https://demingalliance.org/resources/articles/understanding-variation-the-springboard-for-process-improvement>
+
+WEDI (The W Edwards Deming Institute) (USA): <https://www.deming.org>
+
+---
+
+*Some colleagues (see my Preface in the "A. PLEASE START HERE" file) and I have made considerable efforts to trace copyright holders of content quoted in the course material.  I would welcome correspondence from any that we have missed or been unable to trace.*
+
+*I would similarly welcome correspondence if you discover any errors in the above contact addresses or indeed anywhere in these References and Sources or elsewhere in the course material.*
+
+*Please contact me direct on <henryneave@sky.com>.*
