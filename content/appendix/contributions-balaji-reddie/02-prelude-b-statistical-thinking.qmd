@@ -1,0 +1,161 @@
+---
+title: "PRELUDE B: UNDERSTANDING STATISTICAL THINKING"
+execute:
+  echo: false
+---
+
+## Normal and abnormal variation
+
+The final section of Prelude A was: "Performing 'within limits'". The study of whether a process is or is not performing within its limits, and what that implies, is called "Statistical Thinking". Let's refer to those limits as the process's ["natural"]{.deming_quote} limits or simply the "process" limits.
+
+So here, as pointed out at the very end of Prelude A, we have an immediate strong link between our first two Preludes. The salesman who lied to the customers and the lady in the call-centre who did not provide adequate help to her callers were both performing *outside* the natural limits. And we know why. Recall that section in Prelude A headed "Optimise or maximise?". As opposed to being encouraged by their management to work toward *optimisation* of the system, which is to *everybody's* benefit, they were instead being encouraged (by the reward system instituted by the management) to *maximise* their personal "scores", i.e. to simply work toward *their own* apparent benefit irrespective of any harm this caused elsewhere.
+
+You will recall that this topic of Statistical Thinking was born in the 1920s due to the brilliant insights of Dr Walter Shewhart. He made a discovery about processes, something which we take for granted these days but was not as well understood all that long time ago. He said that no process in the world gives you an absolutely constant steady output. This applies to both natural processes and man-made processes.
+
+Your body temperature is an example of what I call a "natural" process. Its optimum value is said to be 98.4°F or 98.6°F, depending on the country in which you live). But the truth is that it keeps fluctuating during the course of the day. The same is true of your blood pressure, your pulse rate, all the various quantities that are measured when you have a blood test: blood count, glucose level, cholesterol, etc, etc.
+
+On the other hand, probably all the figures reported at monthly management meetings are from what I call "man-made" processes. Obviously, they are reported at the monthly meetings because they fluctuate from month to month—there wouldn't be much point in reporting them if they always stayed the same! The time taken for me to reach my place of work (e.g. school, college, office, factory) from home each day is a "man-made" process. The time taken does not remain constant: it keeps changing from day to day. We'll consider this process in detail in the next section.
+
+Of course, some processes fluctuate so slowly or over such a small range that they may be regarded as "constant" for practical purposes. But be sure that, if you examine them at more precise levels of measurement, you'll eventually see some small changes. (If even that isn't true then you're not dealing with a "process" at all.) However, with most of the processes that affect us in important ways in our work or elsewhere in our lives, the fluctuations and their consequences are unfortunately all too easily seen and experienced. It is these that we are interested in studying and working to improve if at all possible.
+
+What causes processes to fluctuate? If we consider man-made processes, there is usually a host of "built-in" causes: the way the process has been designed, the way it has been set up, the way it is affected by the circumstances and environment in which it is operated, the way people have been trained to carry it out, the way those people are managed, and so on. Such causes are inherent to the process: they will always be there—at least until the process is changed, hopefully improved. The same is largely true of natural processes except that man hasn't had such a direct hand in their design.
+
+It is when processes are *only* being affected by such inherent causes that they fluctuate between their natural process limits. We say that processes are "normal" or "behaving normally" as long as their data remain within these limits. But when they go outside the limits then we conclude that something "abnormal" has happened: the process is then behaving "abnormally".
+
+Walter Shewhart referred to both types of fluctuations as "variation". By a process behaving "normally" we mean it has "normal" variation. (Incidentally, in case you know about such things, that's nothing to do with the statistician's "normal distributions"—here we are simply using the word "normal" in its ordinary English sense.) When the process is varying within its band of normal variation, we have just argued that this is simply because of the *inherent* properties of the process. Shewhart referred to such causes of variation as "constant causes"; Deming called them ["common causes"]{.deming_quote}. So, in fact, *all* processes have common causes which produce the normal variation in the way that they fluctuate. But what is going on when a process is "behaving abnormally"? ["Behaving abnormally"]{.deming_quote} means that some of its values are now outside the process limits. In that case, something out of the ordinary or "abnormal" has arrived on the scene, something that has pushed the process outside its natural limits. That "something out of the ordinary" is what Shewhart called an "assignable cause"; Deming called it a ["special cause"]{.deming_quote}. "Abnormal" variation is the consequence of special causes.
+
+> [You will probably immediately recognise that what I describe as behaving normally or abnormally are respectively the same as what Drs Shewhart and Deming called being in or out of statistical control.]{.deming_quote}
+
+## Getting to work on time
+
+So how does all this help us?
+
+I'll illustrate that very simply with the time it takes me to travel to work. Suppose that I have been keeping records and have carried out some simple calculations. I've found that, on average, it takes me 20 minutes to drive to work, and that the lower and upper process limits (to be calculated shortly) are 0 and 40 minutes, say 15 and 25 minutes respectively. (I'll remind you of how to calculate these limits in the next section.) I usually need to be at work by 9.00 am. The upper limit tells me that if I leave my house at 8.30 am then, in normal circumstances, I will always be at work on time and with at least five minutes to spare—time to scratch a coffee!
+
+But one day I didn't get to work until 9.10 am—it took me 40 minutes to get there; the traffic was awful! Since 40 minutes is way above the upper process limit, something abnormal (a "special cause") must have occurred, such as a serious accident somewhere up ahead. Perhaps I'd better find out, so that I can make my excuse to the boss.
+
+Now, maybe I haven't quite told the truth there. Perhaps the truth was that I'd overslept and actually didn't leave my house until 8.45 am. In that case the lower process limit (15 minutes) immediately tells me that, although it is still fairly possible that I could just get to work by 9.00 am, it's highly unlikely. So, if I'm honest, I would have to give a different reason to the boss for my late arrival. The usual process, in the different circumstances that I had now given it, just could not get me to work on time that day.
+
+There was another possibility. I also have a motorcycle. I don't often use it to get me to work, since it's more stressful—both to me and to the car-drivers as I weave in and out between them! But I also know the process limits for the journey using the motorcycle: the lower and upper limits are 12 minutes and 20 minutes respectively and the average is 16 minutes. If I were to use the motorcycle then I would have some chance of getting there on time, although it would by no means be certain. That day I was lucky—I just made it! That fits in with what the process limits told me: they told me that if I used the motorcycle then it would be *possible* for me to get there by 9.00 (but with little time to spare) although the odds would be against it.
+
+Notice how much weaker this whole account would have been if I had *only* calculated averages rather than the process limits as well. Yet the average is all that most people would bother with. The small amount of extra calculation to obtain the process limits can be very valuable!
+
+## Computing the process limits
+
+Do you remember how to compute those natural process limits? Deming usually called them the "control limits". You may have to do it on Day 3. Day 3 may seem a long while ago—you've covered a lot of ground since then! So here's a reminder in case you need it. But you're very welcome to skip this—you will not need to do any such calculations either in these Preludes or in the rest of the course.
+
+Here are the times in minutes taken for me to drive to work, Monday to Friday mornings, over two consecutive weeks.
+
+| Mon 11 | Tue 12 | Wed 13 | Thu 14 | Fri 15 | Mon 18 | Tue 19 | Wed 20 | Thu 21 | Fri 22 |
+|---|---|---|---|---|---|---|---|---|---|
+| 21 | 18 | 20 | 20 | 22 | 23 | 19 | 21 | 19 | 17 |
+
+To determine the average time taken we add up these times and divide by the number of data, i.e. 10. This gives the average time taken as 200 ÷ 10 = 20 minutes.
+
+Then we determine the differences between successive times, the "moving ranges", shown in italics below the data:
+
+| Mon 11 | Tue 12 | Wed 13 | Thu 14 | Fri 15 | Mon 18 | Tue 19 | Wed 20 | Thu 21 | Fri 22 |
+|---|---|---|---|---|---|---|---|---|---|
+| 21 | 18 | 20 | 20 | 22 | 23 | 19 | 21 | 19 | 17 |
+|  | *3* | *2* | *0* | *2* | *1* | *4* | *2* | *2* | *2* |
+
+The moving ranges add up to 18. There are nine of them and so the average moving range is $\overline{MR}$ = 18 ÷ 9 = 2 minutes. Then, if you recall, we compute the distance on the control chart between the Central Line (the average of 20 minutes) and the process limits as 2.66 × $\overline{MR}$ = 2.66 × 2 = 5.32. So the process limits are 20 − 5.32 and 20 + 5.32. These give us 14.68 and 25.32 or, rounding to the nearer whole numbers, the lower and upper process limits are respectively 15 and 25 minutes.
+
+This method of determining process limits can be used for many kinds of processes. For instance, it has been used extensively in the field of medicine. When we go to the doctor's surgery for our blood tests, there is a lower and an upper process limit for the haemoglobin count. There is a lower and an upper process limit for the glucose level. A complete blood count includes a host of further measures, e.g. the percentages or numbers of red cells and white cells per litre, the numbers and average sizes of platelets, and so on. The analysis of the test results that we receive are based on comparisons of all such measurements with one or both of their natural process limits.
+
+## What we've covered so far
+
+So, to summarise. When a process is operating within its natural process limits, we should not be surprised by any particular value it produces. These are a collection of common causes, often varying by many of them, for the behaviour of any process, and no value within its process limits can be regarded as unusual. There is no point trying to discover any reason or cause for any such value since it's the kind of value which the process produces entirely naturally. If you don't like the range of values between the process limits and want to do something about it, really you have only two options. If it is a process to which you have some access, you should get to work on improving that process, i.e. with the objective of changing the range of variation indicated by the current process limits to a range with which you'd be happier. Alternatively, if you do not have any access to the process, all you can do is to increase your protection against the consequences arising from that process. But, at least, if the process is in statistical control then you can predict what you are likely to be faced with, and that will help you to figure out how much and what kind of protection would be wise.
+
+However, when one or more values clearly fall outside the process limits then the situation is wholly different. (Note that I am not talking about a very occasional value which *just* squeezes outside the limits—this isn't an exact science, and couldn't be.) If you have clear departures from the norm then there is now something abnormal or "special" producing a definite change in the process's behaviour. In these circumstances there is rather little point in trying to improve the process even if you are able to: for, however much you improve it, such special causes are still likely to continue seriously affecting the process's behaviour from time to time. So now the sensible action is to try to identify the special cause (or causes, but often there is only one important one) which has produced the extra disturbance. And, because use of the process limits has alerted you about *when* to look for it (i.e. when you get such clear departures), it often turns out to be relatively easy to find. Then presumably you will eliminate it if at all possible, or take some other appropriate remedial action.
+
+Mixing up the two situations is dangerous—and very easy to do if you are not using process limits. "Gut feel" is not very reliable. Trying to find and eliminate specific causes—"doing something"—just because of seeing a particular outcome almost invariably does more harm than good when the process is actually behaving normally (recall the Funnel Experiment). On the other hand, ignoring special causes of abnormal variation when they are present will, of course, mean they are likely to continue giving you trouble.
+
+## Two true stories
+
+Let's look at a couple of true stories to illustrate these important matters.
+
+Some defective items were being made in a manufacturing operation. The HR (Human Resources) Manager felt that this was due to the "improper attitude" of the workers involved in that operation. She was considering implementing a so-called "reward and recognition" scheme based on the average number of rejects that each of them was making. Here are the data, recorded over four days:
+
+|  | Day 1 | Day 2 | Day 3 | Day 4 | Average |
+|---|---|---|---|---|---|
+| Worker 1 | 9 | 11 | 7 | 8 | 8.75 |
+| Worker 2 | 6 | 11 | 11 | 9 | 9.25 |
+| Worker 3 | 12 | 7 | 5 | 5 | 7.25 |
+| Worker 4 | 11 | 10 | 13 | 9 | 10.75 |
+| Worker 5 | 14 | 8 | 9 | 11 | 10.50 |
+| Worker 6 | 4 | 11 | 12 | 12 | 9.75 |
+
+The HR Manager calculated the average: 9.38. Ah! we see that the first three workers all produced less than the average number of rejects, the second three produced more. In particular, Worker 3 was much better than the others while both Workers 4 and 5 went into double figures. Going by the HR Manager's logic, Workers 4 and 5 and maybe even Worker 6 should be blamed for poor performance whereas the other three, especially Worker 3, should be praised and perhaps rewarded.
+
+But you will probably have already recognised this as equivalent to a table from the Red Beads Experiment. So, thinking back to Day 2, you know the sort of process limits to expect if you compute them appropriately. In this case they are 1.1 and 17.7 or, rounding, 1 and 18. Yes, none of the 24 counts of rejects is anywhere *near* either process limit, let alone beyond it. If the HR Manager had had her way then the workers would have been praised or blamed for the quality of their work which was, in fact, entirely beyond their control. Her intended "reward and recognition" scheme would have been even worse, with rewards and punishments being involved, all presumably with the aim of "motivating" the workers to improve their performance. It wouldn't work: it couldn't work. They were at the mercy of the system.
+
+After much convincing, the HR Manager was finally persuaded that it might just be the process that was creating the rejects, not the workers. Upon investigation, it was found that the material used in the process was faulty. When that problem was corrected, along with some other changes made to the method and equipment, rejects were virtually eliminated.
+
+Once people have become familiar with Statistical Thinking, it alters their way of thinking and acting even when they are not using any data. Here is an illustration:
+
+An organisation had a process whereby the drivers of their cars would fill up with petrol from a petrol pump that was installed on the organisation's premises under contract with an oil company. To obtain petrol from the pump, drivers had to insert a voucher which had been signed by a manager. At the end of each month the vouchers were collected from the pump and the organisation then paid the oil company for the petrol that had been used.
+
+But at the end of one month it was discovered that the vouchers and the amount of petrol taken did not match up. This meant that some petrol was being taken illegally. The Finance Manager reacted to this by creating a new process whereby the drivers had to use vouchers signed by the Vice-President of Finance in order to fill up with petrol from the pump.
+
+One day, one of the managers was being driven back home when the car suddenly stopped. The manager asked the driver the reason the car had stopped: he was promptly told that the car had run out of petrol. When the manager asked why, the driver replied that the Vice-President of Finance was not in his office and so he had been unable to obtain his signature in order to fill up with petrol.
+
+Using elementary Statistical Thinking, what should have been done instead? The organisation should surely have investigated to see if the problem was occurring with *all* their cars (a system fault, i.e. common causes) or with only one (a fault external to the system, i.e. a special cause). If the inconsistency was occurring across all cars then the organisation would indeed have needed to change the process—though acquiring signatures from the Vice-President of Finance would hardly have been a useful change! But if it was occurring with only this car then the relevant driver should surely have been questioned and warned to stop stealing.
+
+## Knee-jerk reactions
+
+We face many such instances in life where we simply react to what has just occurred—sometimes called a "knee-jerk reaction"—whether at home or in our place of work. With knee-jerk reactions one does not stop to analyse whether that occurrence is one of the many feasible consequences of the system or process while it is behaving normally or whether there could actually be an identifiable special cause for what has just occurred, justifying an appropriate reaction. In the former case, a knee-jerk reaction is far more likely to make things worse rather than better (the Funnel Experiment again).
+
+Here is another example of knee-jerk reactions: hastily-made decisions based on what has just occurred without consideration of why:
+
+Ravi is a member of staff in a Credit Control department. One month he was told by his manager to collect money from different retailers after their predetermined credit period had ended. He was given a target: it was to collect Rs. 5 lakhs every day. How did the manager decide on this target? Simple! During the previous month, another member of staff who had been given the same task had collected an average of Rs. 4 lakhs per day. Great!! The manager decided to set a "stretch" goal to "motivate" Ravi.
+
+But then something funny happened. One day Ravi managed to collect no less than Rs. 20 lakhs! Now, your guess is as good as mine as to whether he reported this. Oh, what did you say? OK, you're right: he did not! Instead, he did not even come to work during the next three days except when he had to deliver money to his manager.
+
+What would have happened if Ravi *had* reported his collection of Rs. 20 lakhs? Chances are that his manager would have promptly revised his target to Rs. 21 lakhs per day!! The "logic" would have been that if Ravi could collect Rs. 20 lakhs today then, with a little more effort, he could collect Rs. 21 lakhs tomorrow. Working for such a manager, I'd say that Ravi was much more sensible to take his three-day holiday!
+
+However, suppose Ravi had been working for a different manager, one who had some understanding of the fact that (irrespective of whether or not he set a target for Ravi) there are limits as to what a process is normally able to accomplish. Then, presuming he had set a target which was somewhere between those process limits, he would have appreciated the fact that sometimes Ravi would be above target and sometimes below target. For example, suppose the process limits were 1 lakh and 8 lakhs. But when Ravi collected that total of 20 lakhs, which was of course far above the upper process limit, clearly something "special" (abnormal) must have occurred. As a result, it would have been sensible for the manager to sit down with Ravi to discuss what had happened and why—there was clearly something to learn.
+
+Dr Deming often pointed out that people working in a process may know everything about that process except for realising the importance of what they know! By discussing the matter, this second manager could probably discover why Ravi had managed to collect so much. He might then be able to help him to replicate that success. Indeed, he might learn something that could be incorporated into the process so that *everyone's* results would improve.
+
+Which type of manager would do the better job for the organisation: the one who understood something about Statistical Thinking or the one who didn't? And which one would you rather work for?
+
+## How *not* to manage a process
+
+When a process is performing "within limits", it is essentially the *process* which is producing the results. But nevertheless, even when this is the case, people are often still compared against each other in terms of "their" results. This happens at the place of work, and in schools and colleges and universities. But it just isn't logical to make comparisons between two numbers and judge people accordingly when those numbers are being produced by the *process* or the *system* within which they are working.
+
+Sadly, we do not have to look far to see innumerable examples of this being done. Children are ranked and graded by comparison with the average marks obtained. Those with marks above the average are termed "above-average" students, and the others are termed "below-average" students. It would be much more logical to determine the natural process limits of the marks and only subsequently judge whether a student is "inside" or "outside" the system. If outside the system then it could be on either the good or the bad side. In the latter case the student would need some special attention; in the former case the student might have some special talent or some special knowledge which could, with advantage, be shared with others. Indeed, being aware of that special knowledge might help the teachers improve their teaching: the system would thus be improved. Simply slotting the children or students into different grades does none of these things: on the contrary, it often has the effect of ruining their confidence.
+
+Similar situations can and often do occur in the workplace. We have already discussed the possibility of a "reward and recognition" scheme being introduced which is based on the last few results without consideration of the system as a whole. In such circumstances, comparing the results of two or more people and then either applauding or reprimanding them is pointless, misleading and wrong.
+
+In summary, it is futile to try to evaluate the performance of a system or process by merely estimating its average output and trying to manage the process accordingly. Also, when a process is performing within limits, it is harmful to react to every output of the process or to compare two outputs from the process with each other (remember the Funnel Experiment yet again).
+
+## More wisdom from Dr Shewhart
+
+Dr Walter Shewhart's writing was often not easy to understand—as Dr Deming readily agreed! But Deming saw a purpose in Shewhart's style of writing—it was to help make his readers *think*. The importance of encouraging people to think rather than always spelling things out in the clearest imaginable terms was a style which Deming himself sometimes adopted—as you may already have noticed from time to time during this course! Be sure there will be more of such style to come—and for the same purpose—particularly on Days 10 and 11.
+
+Amongst many profound observations from Walter Shewhart were the following, and they all relate to matters upon which we have already touched:
+
+- Data have no meaning apart from their context *[e.g. precisely how were they recorded, and under what conditions?]*.
+- Comparison between two numbers has no meaning except as part of a larger comparison over a reasonably long period of time.
+- Averages and other static measures of a system can lead the observer to come to incorrect conclusions about the process under consideration compared with watching how the process behaves over a passage of time.
+
+As I said, these all relate to matters we have touched upon during this Prelude. Can you think about them and see how they do so?
+
+## Discussion
+
+Let's now collect together some of the important learning from our first two Preludes and then consider some of the consequences of that learning. We have seen that systems are generally composed of several interlinked parts, maybe many, which combine to produce the system's output. But we have also seen that the performance of each part of the system is never constant but subject to variation: this is because each part of the system is involved with one or more *processes*, and processes keep on fluctuating. The system's output, i.e. its "performance", is also never constant but keeps changing.
+
+Actually, it's worse than that! Of course, each individual process has its own varying output. But the different parts of the system are interlinked in various ways—and that means their processes are interlinked as well. That interlinking also has some effect on their outputs. The interlinking between any two processes may be of all sorts of different types: it may be strong, it may be weak, it may be somewhere in between. There may be what's called "positive correlation" between the outputs of two processes: this means there is a tendency for one to increase if the other does. Or there may be "negative correlation" which means the opposite: there is a tendency for one to go down when the other goes up. And that's only considering the interlinking between *two* processes. But there is also likely to be three-way interlinking: the values from two processes may both have an effect on, and/or be affected by, the values of a third process. And there may be some four-way interlinking. And five-way interlinking …
+
+Could we ever be able to figure all this out? The very thought makes the mind go numb!
+
+But don't worry: Deming knew this too! He never claimed that we could ever have complete knowledge about a system and its performance. Indeed, instead he claimed the opposite was true: complete knowledge would *never* be possible.
+
+That may sound pessimistic! But is it? Can we predict with exact precision the output of any process, e.g. our pulse rate at any moment? No, we cannot. Nobody can, and nobody will ever be able to. The best we can ever say is that the pulse rate will usually vary within certain limits. The same is the case with the time taken to reach a destination, the time taken to complete a certain task, and so on.
+
+Again, is all this really as pessimistic as it sounds? No, it is not. Although it is not possible to gain "complete" knowledge about a system, there are most certainly ways of thinking logically and learning plenty about it, often sufficient to make considerable improvements to it—which in many ways summarises the purpose of both Drs Shewhart's and Deming's lives' work. Statistical Thinking is very helpful in this respect. And so is the third part of the System of Profound Knowledge: "Theory of Knowledge".
+
+In order to make progress with the Theory of Knowledge, we must first understand what the word "theory" really means. If you ask people the meaning of "theory", many will say something like "theory is the opposite of practice". There are many who believe that theory is unimportant, that *real* understanding instead comes from practice, examples, experience. Deming agreed that these are important—*but not on their own; only when related to theory*. (This may ring a few bells from what you learned early on Day 6.)
+
+So Deming had a very different take on the word "theory". Theory is not the "opposite" to practice: to him, the purpose of theory was to guide *better* practice. Theory is not some additional complication to all of those problems raised above: instead, it helps us to deal with them. Theory does not provide exact solutions to those problems; nothing could—again, this is not an exact science. Instead, theory is the salvation which helps us to overcome them. These observations take us straight into Prelude C: "Understanding Learning".

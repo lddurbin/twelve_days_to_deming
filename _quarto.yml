@@ -153,6 +153,14 @@ book:
     - content/appendix/08-day-10.qmd
     - content/appendix/09-day-11.qmd
     - content/appendix/10-optional-extras.qmd
+    - content/appendix/contributions-balaji-reddie/00-introduction.qmd
+    - content/appendix/contributions-balaji-reddie/01-prelude-a-system.qmd
+    - content/appendix/contributions-balaji-reddie/02-prelude-b-statistical-thinking.qmd
+    - content/appendix/contributions-balaji-reddie/03-prelude-c-learning.qmd
+    - content/appendix/contributions-balaji-reddie/04-prelude-d-people.qmd
+    - content/appendix/contributions-balaji-reddie/05-coda.qmd
+    - content/appendix/contributions-balaji-reddie/06-lessons-from-history.qmd
+    - content/appendix/contributions-balaji-reddie/07-indias-missed-opportunity.qmd
 
 format:
   html:

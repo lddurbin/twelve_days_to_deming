@@ -1,0 +1,36 @@
+---
+title: "INDIA'S MISSED OPPORTUNITY"
+execute:
+  echo: false
+---
+
+Dr Deming had critical words for our Business Schools and Engineering Schools. He described them as preparing students for the past rather than for the future. Their students are not being taught how to *contribute* or how to *learn*. Instead they are merely being taught how to *earn*.
+
+Well, there is nothing wrong with earning; but there is a need for people to understand that they also have a duty to make a contribution—be it to industry, to government, to education, to healthcare. Remember how Deming told Japan's leadership that these same four sectors must come together as a system. They made considerable progress with this. This is one of the greatest things for which the Japanese are famous. But Dr Deming had similar feeling and faith for India.
+
+In 1936, when he was in England studying the theory of statistics with Sir Ronald Fisher at London's University College, he befriended a very famous Indian statistician by the name of Prashanta Chandra Mahanalobis. Dr Mahanalobis became the first Chairman of independent India's First Planning Commission. He also established the Indian Statistical Institute in 1945, even before we received our independence. When he became Chairman of the Planning Commission, one of the jobs he wanted to carry out was a country-wide census. Recall from Day 1 page 33 that in America Dr Deming ["was appointed Head Mathematician and Adviser in Sampling at the National Bureau of the Census"]{.deming_quote} in 1939. Subsequently "his work there, particularly with the 1940 American Census, turned out to be supremely successful, and it was in this capacity that he first attracted some international attention". So it is hardly surprising that in 1946 Dr Mahanalobis invited Dr Deming to India and, as the result, Dr Deming visited India as a Consultant in Sampling early in 1947. This was when he was also en *route* to Japan as Adviser in Sampling Techniques to the Supreme Command of the Allied Powers in Tokyo.
+
+Dr Deming was very impressed with the quality of Indian statisticians. On his return to this country, he told Dr Mahanalobis about his visit to Japan and how he would like to work with Indian statisticians as well. He was keen to teach them what he had just begun to teach the Japanese. Dr Mahanalobis was very open to the idea! But Deming wanted a high authority to lead this work since he felt that the reason he had so far failed in his native America, other than with his work for their Census, was that the top people were not involved. Mahanalobis understood this. So he spoke to the then-Prime Minister of India, Pandit Jawaharlal Nehru, about Deming.
+
+However, Nehruji was not very keen to meet Dr Deming. He feared that Deming was a capitalist and a typical "ugly American". Besides, the Americans were not exactly liked nor respected after dropping the Atom Bombs on Hiroshima and Nagasaki. He did allow an appointment with Deming, but did not listen to him. In fact, Deming once told a very good friend of this writer that Nehruji did not allow him to speak a word! Whatever was the truth, it is tragic that we missed the opportunity to learn from Deming what he taught the Japanese in the following few years. We can only speculate as to what the effects would have been. But I feel it is not too late even now.
+
+There are a lot of efforts now being carried out to teach Dr Deming's work in schools and colleges here in our country. One such school exists in Lucknow: the Vidyatree Modern World College. This college was founded in 1979–80 by Mr Rakesh Kapoor who has been primarily responsible for the emphasis on Dr Deming's work and is now the school's Dean Emeritus.
+
+The students at this college are taught from a young age about Dr Deming's wisdom. The four principles on which the school is run, and which appear in its Mission Statement, are:
+
+- Learning without Cramming;
+- Excellence without Distress;
+- Discipline without Fear;  and
+- Caring without Conditions.
+
+Children are taught the importance of *understanding* a subject. Teachers are taught how to help a student *love* a subject. There are video cameras in every classroom, not to "keep an eye" on the students as is usually done elsewhere, but to see whether the teaching methods are really effective. With these kinds of efforts being made, I feel that we can quickly learn and adapt to what Dr Deming taught. In his own words:
+
+> ["There's so much to learn: it's exciting, fun!"]{.deming_quote}
+
+It is in the television documentary having the tongue-in-cheek title *Doctor's Orders* that Dr Deming is seen uttering those words. I feel the same. But I am still only half the age that he was when he said them. Will I still feel the same if and when I reach his great age? I believe so. I would like to conclude by hoping and trusting that the same may prove to be true of you, dear reader.
+
+---
+
+## Approvals, Acknowledgments and Information
+
+The quotation from Mary Walton's book *The Deming Management Method* (the Deming Prize Ceremony speech footnoted in the previous chapter) has been included with the approval of Mary Walton.

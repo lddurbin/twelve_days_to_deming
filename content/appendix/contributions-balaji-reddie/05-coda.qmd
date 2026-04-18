@@ -1,0 +1,17 @@
+---
+title: "CODA"
+execute:
+  echo: false
+---
+
+Even before Prelude A began, we observed that Dr Deming, the man who largely catalysed the industrial turnround of Japan after World War Two, thought differently about how to look at things happening around us. Such a different way of thinking, he said, would lead to a transformation. He often summarised this transformation as a "metamorphosis": a change of such magnitude as a caterpillar turning into a butterfly. After that, there can be no going back to the old way of being. Here, in his own words, is a comprehensive description of that transformation (from *The New Economics* page 85 [123]):
+
+> ["The transformation will take us into a new method of reward. We must restore the individual, and do so in the complexities of interaction with the rest of the world. The transformation will release the power of human resource contained in intrinsic motivation. In place of competition for high rating, high grades, to be Number One, there will be cooperation on problems of common interest between people, divisions, companies, competitors, governments, countries. The result will in time be greater innovation, applied science, technology, expansion of market, greater service, greater material reward for everyone. There will be joy in work, joy in learning. Anyone who enjoys his work is a pleasure to work with. Everyone will win; no losers."]{.deming_quote}
+
+Thus he envisioned the transformed world. He, of course, did not live to see it happen. Sadly, much of what he taught has not been accepted by the premier institutions of the world, including those in his own country. Harvard, Wharton and Stanford Universities discarded his teachings and labelled them "absurd". But all good things have their time. Maybe the current generation might comprehend the power of his wisdom, and work hard toward bringing it to use.
+
+Dr Deming touched many lives both directly and indirectly. One amongst those, as you know from Day 6, was James McIngvale of Gallery Furniture. I finished my series of short newspaper articles (on which these introductions to Dr Deming's teaching have been based) with the closing words from Mack's own story as told to you on Day 6. I cannot imagine that you will have forgotten them. Whether you have or not, please look back briefly to Day 6 page 16 and read them one more time.
+
+---
+
+I still shiver slightly when I read those final words. We who have the privilege to now be learning about Dr Deming's unique and priceless teaching, so long after he passed on, do indeed bear a heavy responsibility. Can we, will we, live up to it? If I am convinced of one thing—and I am—it is that we must surely try.

@@ -1,0 +1,190 @@
+---
+title: "SOME LESSONS FROM HISTORY"
+execute:
+  echo: false
+---
+
+- [Introduction](#introduction)
+- [*"… but they don't know what to copy!"*](#but-they-dont-know-what-to-copy)
+    - [Kaizen](#kaizen)
+    - [Quality Circles](#quality-circles)
+    - [Just In Time](#just-in-time)
+    - [Six Sigma](#six-sigma)
+    - [Summary](#summary)
+- [Back to Deming's Legacy](#back-to-demings-legacy)
+- [India's Missed Opportunity](07-indias-missed-opportunity.qmd)
+
+---
+
+## INTRODUCTION
+
+I'd like to set the scene by repeating some brief extracts from the Psychology part of the System of Profound Knowledge that you have been studying on Day 11:
+
+- [One is born with a natural inclination to learn and to be innovative.]{.deming_quote}
+- [There is innate need for self-esteem and respect.]{.deming_quote}
+- [Some extrinsic motivators rob employees of dignity and of self-esteem.]{.deming_quote}
+- [Management that deny to their employees dignity and self-esteem will smother intrinsic motivation.]{.deming_quote}
+
+Dr Deming believed that we are born with great willingness and desire to learn. But, sadly, in time we may become largely conditioned by rewards and incentives, and thus soon "sell" ourselves to those rewards and incentives and actually feel bad when we do not get them. Worse, we are told to *compete* for them, thus destroying the reasons to live life to the full. The result is that self-esteem and the enthusiasm to learn decline and die.
+
+The Japanese understood Deming's beliefs on these matters and were guided by them. One might remark that, in a way, they took a leaf out of religion—and to a remarkable extent. They observed that "All places of religious interest were always built in inaccessible areas because *the journey is more fulfilling than the destination*". If we look further, we find that they did indeed act in line with this thinking. Temples were built at the tops of mountains. Churches were built in the outskirts of settlements. Mosques were also built way out of reach. The Gurudwara in Amritsar was built in the middle of a lake. A similar interpretation is: "The process of *doing* something is more fulfilling than the *result* of doing it".
+
+However, that way of thinking is not at all familiar to us in the West or in India. Most people in these countries are *results*-oriented: results, and the sooner the better. They are looking for the "quick fix", something to copy.
+
+## "… BUT THEY DON'T KNOW WHAT TO COPY!"
+
+For many thousands of people, the first (and, unfortunately in many cases, maybe the only) time they've seen Dr Deming on television or video was in the 1980 American documentary: *If Japan Can, Why Can't We?*. A hard-hitting but surely accurate observation from him during that documentary was:
+
+> ["I think that people here expect miracles. American management thinks they can just copy from Japan—*but they don't know what to copy*!"]{.deming_quote}
+
+You can probably immediately recognise what he meant by that. It's well-summarised in his words on *DemDim* page 250:
+
+> ["People go to Japan, and learn nothing, for they have no theory to learn with."]{.deming_quote}
+
+which is then immediately followed by:
+
+> ["To copy without knowledge of theory a company that is doing well is to invite destruction."]{.deming_quote}
+
+Now, having nearly completed this course, you are hardly likely to fall into that kind of trap! But you still need to be wary. Many consultants and other "experts" specialise in initiatives, approaches, methods, tools, techniques, etc originating in Japan, yet are seemingly unaware of the part that Deming played in laying the foundations upon which those initiatives were built. The consequence is that, when companies try to implement them, guided by "experts" who lack that knowledge, the results may be disappointing.
+
+I would like to give you some background concerning four such well-known initiatives in order to indicate what can go wrong if they are attempted without Deming's wisdom solidly underlying them. Forewarned is forearmed.
+
+### KAIZEN
+
+This Japanese term is composed of two words:
+
+> KAI, which means "nothing stays the same"; and
+>
+> ZEN, which means "a system that is growing beneficially".
+
+Putting these two together, the true meaning of "KAIZEN" is "*creating a beneficial change in whatever we do*".
+
+One often sees shorter translations of those two little words: simply KAI = "change" and ZEN = "good". These miss the depth of the true meaning as expressed above. Thus many companies have tried to copy this concept from Japan but without understanding what it really means. The difference with the genuine approach is that this beneficial change is done *purely* for the sake of making a beneficial change *without* any other consideration.
+
+However in America, for example, an improvement is not considered to be an improvement unless there is a "visible figure" to support it: some cost reduction or return on investment—but yet the approach is still sometimes referred to as KAIZEN. Even in my country, many say things have improved only if we have saved some money. Worse, there even exist competitions: how *much* money? What a pity! The real concept of KAIZEN is that you carry out an improvement (a beneficial change) simply because you want to carry it out—you don't *need* recognition or reward from anybody for having done it. It also encourages improvements for the benefit of the system, the *organisation*, not just for yourself—indeed not necessarily for yourself at all.
+
+Let me relate a sad experience I had whilst visiting a very famous company in Pune. I came across a poster on the shop-floor which supposedly described KAIZEN. First of all, I was aghast at how the whole concept was being so horribly misrepresented in that poster. I was still trying to digest what was written there when a worker who spotted me staring at the poster came to me and asked me (in the Marathi language) what I was doing. I counter-questioned him about his understanding of the word KAIZEN. His answer amused but saddened me: "Kaahi Jan kartat mhanun KAIZEN". This translates to say that it is called KAIZEN because only a select few carry out this activity! He showed me another poster which carried the words "Quality Circle", so I also asked him what he understood by this. His answer was simple and again horrible: "It is another way to blame us (workers) for everything that goes wrong".
+
+I felt so sad that two of the most powerful concepts which had been inspired by Deming's teachings in Japan were being so horribly misinterpreted and implemented by us here in India. In the Western World I have seen both these terms being badly written about by so-called experts. Again, just as with KAIZEN, competition enters those wrong interpretations of Quality Circles.
+
+### Quality Circles
+
+As far as I know, the Quality Circle movement originated in Japan around 1962. Some companies started to encourage informal groups who, during their breaks and free time, would come together to learn from each another and to solve problems. This became very popular and spread throughout Japanese industry.
+
+In 1974, a famous organisation in India was tying up with a Japanese company for exchange of technology and know-how. To impress the Japanese, the then-leader of this famous organisation visited the headquarters of the Japanese company. During a speech, he tried to demonstrate to the Japanese how strict they were in his company about quality by boasting that they employed no less than 300 people in their Quality Control Department. But the Japanese, instead of being impressed, were utterly shocked by this statement. Puzzled, he asked the Japanese managers why they were shocked. One of them stood up and asked him: "Is your quality so bad that you need all those people to inspect it?". He was completely flummoxed by this question. So he asked the Japanese what they did. They answered; "We have Quality Circles who come together to solve each others' problems and continually improve processes and products. We have improved so much that whatever we do has quality built into it. We do not need inspection except to confirm to us that things are still going fine". Of course, he misunderstood this and proclaimed: "But my workers are useless! They need to be like your workers". The Japanese laughed. "Workers are not useless. If they *appear* to be useless, they have been *made* useless. You use their hands: we use their brains."
+
+This leader did not learn from what was said there, and nor have many others. Today, there exist prizes for the "best" Quality Circles in India. Do you really think that these people are carrying out improvements for others and sharing their knowledge? I have doubts, very serious doubts.
+
+Quite simply, the Quality Circle concept was created as one of many ways to promote cooperation and learning. Let me now take this a step further. I would like to tell you about an Indian man who went to Japan in 1964 and worked in a Japanese company as part of a course that he was undergoing there.
+
+The course was of six months' duration. In the morning sessions the students had classroom interactions with the teachers. Then, in the afternoons, they worked in the company assigned to them—this was, of course, to enable the students to implement what they had learned. It was also in consideration of the fact that many people feel sleepy after lunch so that they might not be able to absorb mentally but could surely carry out some physical activity to keep themselves awake. On the first day that the Indian man went to the company to which he had been assigned, he was introduced to a Quality Circle during the tea-break. He was told that he would be welcome to join in the discussions if he so wished.
+
+On the following day this man was given a job of carrying out some soldering. All he had to do was to take a board with components on it and immerse it in a vessel containing the molten solder liquid. If the board was immersed for too long or too deeply, it would develop some superficial cracks. Although these would not generally impair the performance of the board, they could cause problems under extreme usage by a customer. The Japanese instructor demonstrated the process to this Indian man at least 15 times before allowing him to try it. During the demonstrations, he continued to explain why and how the process was to be carried out. Finally he let the Indian man carry out the process himself several times until he became confident. He then explained to the Indian that if, by chance, he made a faulty piece with one or more cracks on it then he should pull a cord which would set off an alarm and switch on a red light indicating to the supervisor where something had gone wrong.
+
+The Indian man started carrying out the process alone. After about ten pieces, a fault occurred and a crack appeared on the surface. He was now in a quandary. Should he pull the cord? It was only his tenth piece. What would this Japanese supervisor think about Indian people? Besides, the crack was just superficial. (What would you, the reader, have done in this situation?)
+
+Good sense prevailed and he pulled the cord. The Japanese supervisor came running. He saw what had happened. Very coolly he went on to demonstrate the process again until the Indian man properly understood it. He removed any remaining doubts in the Indian man's mind, and then left him alone again to continue carrying out the soldering process.
+
+After about an hour, it was time for the tea-break and for the Quality Circle to get together. The supervisor started talking about something. Since almost immediately everybody present started staring at him, the Indian man realised that the talk was centred around the mistake he had made! After the supervisor finished what he was saying, they all applauded and shook hands with the Indian man. He was amazed. What was it all about? So he asked one of the people to translate what had been said and why they had clapped their hands. The answer which came was that the supervisor had greatly appreciated the fact that he had pulled the cord and alerted him of the problem. The Indian asked: "But why?". The man continued: "It was because we have a saying here that if, after I have explained something ten times, the person listening still has not followed, then there must have been something wrong with the way I explained it".
+
+Imagine this scene in a Quality Circle in India or perhaps in your company. I leave it to you to think what could have happened. By the way, what do you think this Indian man did when he made another mistake?
+
+There is one detail that I have not mentioned to you. This Indian man was none other than my late father. I did not understand the importance of this story when he narrated it to me. I do now.
+
+### Just In Time
+
+Here is one more very famous Japanese invention, in this case originating in the Toyota Motor Company. Americans named it "Just in Time" because they did not understand what they were witnessing. The Japanese were not responsible for that description.
+
+What exactly is it? Let's assume that Toyota makes 5,000 cars per day. (In fact the number is much larger, but 5,000 will suffice for this illustration.) They have more than 70 models with different variants (colours, powered windows, power steering, automatic gears, satellite navigation, and many other options). If, as an individual customer, you call them up at 9.00 am and tell them about the model you want, the configuration you want, the extras you want, and so on, they can manufacture the car as per your requirements and deliver it to you within four hours without disturbing their regular production of the 5,000 cars. Besides, they do not stock any inventory for such individual orders. But—where did all this come from?
+
+Thoughts for this concept were in the making for over 80 years. The first recorded instance was when Eigi Toyoda (one of Toyota's founders) came home late from work on three consecutive evenings and ate the food that had been waiting for him on the table. Of course, it was usually cold by this time and so he would never finish it. The food was getting wasted and Toyoda's mother did not like this.
+
+On the fourth night when he arrived home late, he was surprised to see his mother sitting and waiting for him at the table. She said to him: "I was angry that you were wasting food. So I realised that the fault was mine since nobody likes to eat cold food. So I decided to wait and prepare your meal after you got home". Toyoda was amazed. He said: "How do you know what I want to eat?". "I don't—but why don't you tell me now? I'll prepare it right away." So her son told her what he would like, she made the dish, and he ate every morsel. She was happy; he was happy.
+
+When he went to work the following day, he told his trusted aides, Taichi Ohno and Shiego Shengo, what had happened. They were puzzled. "What do you want us to do?" His reply was: "If my mother can make a meal upon request almost straightaway with no wastage and no real stocks, I want to be able to make a car upon request almost straightaway with no wastage and no real stocks". It took the Toyota Motor Company another 30 years before they were able to achieve this.
+
+People who do not understand what had been happening have confused this by calling it "Zero Stock" production. That is not what it is. Zero Stock is the effect of the Toyota Production System. As usual, people who do not understand have been doing the wrong things under this name with no awareness as to the true depth of what had been going on in Toyota. There are more than a hundred books available on this miraculous way of manufacturing cars. Would you believe that none of the authors are Japanese and most are American? These authors have no clue about how and why this works. But look carefully. Is there not much to learn from our womenfolk at home? Do they "stock" more food than necessary? Do they provide "bad quality" of product? Don't they "organise" themselves at home so that there is no waste?
+
+Toyota has become one of the most admired companies in the world. But recently, when they recalled many of their cars worldwide, people started pointing fingers at them. Guess how many complaints they had received which prompted them to recall over 15 million cars? The answer: two!
+
+They have such a strong process and work ethic that they did not hesitate before recalling the cars. Will our Indian companies copy this from the Japanese? Will the American companies copy this from the Japanese? What do you think?
+
+### Six Sigma
+
+Just one further example of poor understanding—although this one is not from Japan. In 1995 I embarked on a course in Management of Quality which was titled: "Postgraduate Diploma in Quality Management". That was where I first heard of Drs Deming and Juran. It was an exciting period of my life. Whenever I reminisce about those times, a smile appears on my face. I so much wanted to know about everything about the world of Quality. I remember how I would ask many questions in class. Unfortunately, some people (both my classmates and my teachers) misinterpreted this as arrogance. I was, of course, unphased by this.
+
+One evening (it was an evening course), the discussion topic was "Zero Defects". The gentleman teaching us was trying to motivate (provoke?) us by giving us examples from NASA, ISRO, the medical field, etc, telling us how you need to avoid errors altogether.
+
+In the flow of his lecture he said something like " … and you can then aim for Six Sigma!". He then stopped and said: "I hope you know what I'm talking about. Six Sigma? Six Sigma?".
+
+We, of course, had never heard of it. He then went on to tell us how Motorola, the famous electronic component giant from the USA, had started a Quality initiative in 1985 which they called "Six Sigma". He said that when you attain (?!?) Six Sigma, the proportion of your errors would be minuscule: something to the tune of 3.4 errors in a million products!
+
+All of us were in a state of disbelief! 3.4? … in a million? Did we hear that right? He was, of course, most pleased with himself for having given us a shock! I remember all of us looking at each other, shrugging our shoulders, scratching our heads, etc.
+
+I then raised my hand. I wanted to know where the 3.4 came from. The professor looked in my direction. The expression on his face gave away what he might have been thinking: "Oh no! Not him again!". I proceeded to ask him: "Where does the 3.4 come from? Is it something to do with the Control Chart?". He seemed offended at this. His reply was: "Do you think I'm a liar? You think I'm a fool? Why would I want to share this if it isn't true?".
+
+Well, he never answered my question. Some five years later, a certain Henry Neave (who had by then taken me under his tutelage via some serious correspondence) was writing a series of articles for the BDA titled *SPC—Back to the Future*. Part 7 of that series covered the topic of Six Sigma. When I read that paper it was then that, at last, I understood where 3.4 in a million came from—and what nonsense it is!
+
+I had the good fortune to meet Dr Juran in 2002. He gave me further insights on how people distorted important and valid ideas to create such monstrosities. He said that the Japanese improved continually and never stopped at any numerical target (3.4 errors, etc). He was puzzled about how and why Six Sigma had become so popular.
+
+The explanation of the fallacy behind the whole thinking was so beautifully laid out by Henry in that paper that I thought it best for you to read about it in the way that he wrote it. So, at my request, he has included it in the material for *12 Days to Deming*: it begins in the [Optional Extras](../10-optional-extras.qmd#sec-page43) section of the Appendix.
+
+Today, when I teach my students about how Dr Deming's teachings have been abused, I talk to them about the "Six-Sigma Superstition". I'm sure you'll love the way Henry explains it so simply. I quote Henry completely from that paper. Nobody explains it better. Let me tell you, it's very difficult to explain such things in a way that is easy to understand … but Henry does it.
+
+### Summary
+
+We have discussed some of the errors made when those without knowledge have tried to copy KAIZEN, Quality Circles, and "Zero Stock" or "Just In Time".
+
+It is such a trite error to imagine that, by merely copying a few Japanese words and trying to copy a few of their concepts (excluding Six Sigma—this was a Western invention) without knowledge of where they came from, one can somehow both become as efficient and effective as them. There is no "short cut". Those Japanese concepts result from long chains of thought and learning and efforts.
+
+As you know, the Japanese began their major learning from Dr Deming in 1950. We have pointed out that Quality Circles started to develop in 1962. Practices recognised today as KAIZEN date back to the 1970s.
+
+So the Japanese were already well-steeped in what Deming taught long before these practices came into existence, and thus they were able to develop the concepts in ways that were wholly in line with his teaching. That learning has mostly been lacking by those who have supposedly adopted them in the West and in India—so it is small wonder that they have often made such a mess of it.
+
+## BACK TO DEMING'S LEGACY
+
+After writing so much on what can and does go wrong, let's return to the System of Profound Knowledge. In case you might find it helpful, I would like to give you my own brief summary, rather along the lines of the expanded version of Peter Scholtes's diagram that you saw on Day 9 page 22: three important issues for each of the four parts. In particular, I think you may find it useful to refer to both summaries when you reach Activity 12–b on Day 12 page 9 *[WB 216]*.
+
+### Appreciation for a System
+
+- Understanding the importance of a common aim or purpose for the system;
+- Understanding that cause and effect are often not closely related in time and space;
+- Understanding that outputs are the results of a myriad of inputs.
+
+### Some Knowledge of Theory of Variation
+
+- Awareness of the distinction between common and special causes of variation and of how to interpret control charts;
+- Learning how to ask the right questions;
+- Understanding that reducing variation is synonymous to improving quality.
+
+### Theory of Knowledge
+
+- Understanding the importance of theory in interpreting observations (experience);
+- Understanding the importance of the relationship between theory and practice;
+- Understanding how to learn faster and better.
+
+### Knowledge of Psychology
+
+- Understanding that people are inherently good: they *want* to do a good job;
+- Understanding that different people learn differently and hence think differently: working with people's learning processes rather than exhorting them will be better for us all;
+- Understanding how ranking and competition destroy people.
+
+Along with all of this knowledge, we have seen something of how the Japanese not only learned from, but also *interpreted* and *applied*, Deming's teaching. They learned from him and he, in turn, also learned from them. He never "knew it all" as some teachers and consultants pretend they do. Quite the opposite: he never ceased to continue learning. What an example to us all! The Americans, and thereafter the rest of the Western world, have not been able to experience the extent of success that the Japanese had. Perhaps the reason is that they have never really understood that we need to *apply all of the above* four sciences *simultaneously* in order to see things the way they really *are* rather than how we *imagine* them to be.
+
+Many here in India have instead been trying to copy the Americans and others elsewhere in the West without really getting into the depth of things. If they were only to look carefully at what you have been learning in this course, they would instead recognise a lot of genuine, traditional Indian philosophy and approach in Dr Deming's teaching.
+
+Deming told Japan's leadership that industry, government, education and healthcare must come together as a system and work forward getting Japan out of their crisis. They applied his thinking to these sectors and brought them together with improving results.
+
+After Japan faced the repeated wrath of the tsunamis and earthquakes in 2011, they managed to resurrect themselves remarkably quickly. A note was sent from the W Edwards Deming Institute in America which expressed their concern and solidarity with the Japanese at that time of tragedy. The note ended with: "At that time you had Dr Deming: this time you still have his teachings. You have come back from worse."
+
+That note was written by Dr Deming's elder daughter, Diana. One of the most distinguishing features of the Deming philosophy is the understanding of the pros and cons respectively of cooperation and competition. The Japanese were quick to imbibe and were successful in implementing this learning. They began by developing lifetime employment schemes with training that sometimes lasted as long as 12 years! However, of late there have been reports from Sony and briefly from Toyota when these schemes were discontinued. The results have already been seen. Sony had invented a new market for music players when they launched the Walkman in 1979. In 2010 they finally shut down production of that product. Apple came up with a new product called the iPod, and Sony has been trying to play "catch up" ever since. In the television market, they've lost out to Samsung.
+
+So some are forgetting the lessons learned from Dr Deming more than 60 years ago. In 1985, he visited Japan for the annual Deming Prize Ceremony. While there he began to notice some things which considerably disturbed him. When his turn came to speak, he said the following:
+
+> "Western management operates on management by numbers, management by objective, QC Circles, quality of work life, employee involvement, daily reports on people, and/or rating on performance of people.
+>
+> It is important that Japanese management remain strong, not weakened and diluted by adoption of some of the practices that are largely responsible for the decline of Western industry. It is possible for a strong body to become infected, to become weak. Japanese management has responsibilities to continue to be strong and not to pick up infections from Western management."[^a]
+
+Quite some message for his audience! Did he have a premonition of things to come? I think so. Even at Toyota, things seemed to slip "off the rails" for a while. Fortunately, the great-grandson of one of the founders is back at the helm. He is causing things to move back to their older and better ways. Despite reports to the contrary, the Japanese are not finished—not just yet!
+
+[^a]: The "Epilogue" on pages 241–244 of Mary Walton's book *The Deming Management Method* contains a much more substantial account of Dr Deming's presentation at that Deming Prize Ceremony. The above extract comes from page 243.
