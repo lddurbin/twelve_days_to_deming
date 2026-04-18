@@ -58,6 +58,8 @@
     // duplicating the hiding rule in CSS.
     var label = button.querySelector(".dyslexia-toggle-label");
     if (!label || !window.matchMedia) return;
+    // Breakpoint matches the .dyslexia-toggle @media rule in main.css.
+    // Keep both values in sync if the responsive threshold changes.
     var mq = window.matchMedia("(max-width: 700px)");
     function sync() {
       label.classList.toggle("visually-hidden", mq.matches);

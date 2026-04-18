@@ -47,10 +47,20 @@
    but not shown visually. Used for:
    - Persistent live regions (announced state updates)
    - Icon-only button labels (preserved as accessible names)
+
+   Bootstrap 5 (shipped via Cosmo) also defines .visually-hidden, with
+   !important on every property. For the shared properties Bootstrap's
+   rule wins the cascade — in practice harmless because both patterns
+   produce identical behaviour. Our clip-path: inset(50%) does add
+   value: Bootstrap only declares the deprecated clip: rect(...), so
+   our declaration is what gives modern browsers the supported
+   property. If we ever need to diverge from Bootstrap's semantics on
+   the shared properties, this rule will need !important to win.
+
    Apply by adding the class directly in HTML/JS. For cases where
    visibility is conditional (e.g. viewport-dependent), toggle the class
    from JS via matchMedia rather than duplicating the rule in a media
-   query — the rule lives here, in one place. */
+   query. */
 .visually-hidden {
   position: absolute;
   width: 1px;
