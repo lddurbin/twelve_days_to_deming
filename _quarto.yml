@@ -161,6 +161,7 @@ book:
     - content/appendix/contributions-balaji-reddie/05-coda.qmd
     - content/appendix/contributions-balaji-reddie/06-lessons-from-history.qmd
     - content/appendix/contributions-balaji-reddie/07-indias-missed-opportunity.qmd
+    - content/appendix/11-references-and-sources.qmd
 
 format:
   html:
