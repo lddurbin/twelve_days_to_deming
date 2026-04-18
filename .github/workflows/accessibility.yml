@@ -14,6 +14,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+# Opt r-lib/actions into Node 24 ahead of the Sept 2026 Node 20 removal.
+# Remove once r-lib publishes a v3 tag that runs on Node 24 natively.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   pa11y:
     runs-on: ubuntu-latest
@@ -70,7 +75,7 @@ jobs:
     - name: Cache R packages
       uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae  # v5.0.5
       with:
-        path: ~/.local/share/renv
+        path: ~/.cache/R/renv
         key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
         restore-keys: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
 
