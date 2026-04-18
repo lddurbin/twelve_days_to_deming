@@ -438,6 +438,39 @@ FOOTNOTES
 
 ---
 
+## Accessibility Conventions
+
+### Language attributes for non-English terms
+
+Screen readers mispronounce foreign-language terms unless they're wrapped in a
+`<span>` with a `lang` attribute telling the engine which language to use.
+
+**When to wrap:** Any non-English word or phrase that a reader would recognise
+as foreign — Japanese management terms (*kaizen*, *gemba*, *muda*), German
+philosophy terms, French or Latin phrases like *raison d'être* or *sine qua
+non*, etc.
+
+**When NOT to wrap** (WCAG 3.1.2 exceptions):
+
+- Proper names (people, places, companies — *Toyota*, *Taiichi Ohno*)
+- Words fully naturalised in English — `i.e.`, `e.g.`, `etc.`, `vice versa`,
+  `status quo`, `ad hoc`. These are in the vernacular; marking them as Latin
+  can actually *regress* pronunciation on modern screen readers.
+- Single technical terms that have become English (*café*, *résumé*)
+
+**Syntax:**
+
+```markdown
+Deming often emphasised <span lang="ja">kaizen</span> (continuous improvement).
+
+The French phrase <span lang="fr">raison d'être</span> captures this well.
+```
+
+Use ISO 639-1 codes: `ja` Japanese, `de` German, `fr` French, `la` Latin,
+`es` Spanish.
+
+---
+
 ## Image Cropping Workflow
 
 When a figure needs to be extracted from a source PNG:

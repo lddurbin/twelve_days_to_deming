@@ -4,9 +4,13 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "a11y": "pa11y-ci --config .pa11yci.json",
+    "a11y:serve": "http-server _book -p 8765 --silent"
   },
   "devDependencies": {
+    "http-server": "^14.1.1",
+    "pa11y-ci": "^4.1.0",
     "vitest": "^3.1.1"
   }
 }

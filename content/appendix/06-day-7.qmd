@@ -148,7 +148,7 @@ A computer can be a blessing. It can also be a curse.
 
 *(Return to Workbook page 120 / Day 7 page 33.)*
 
-### 13. The supposition that it is only necessary to meet specifications. []{#sec-page36}
+### 13. The supposition that it is only necessary to meet specifications. {#sec-page36}
 
 Specifications can not tell the whole story. The supplier must know what the material is to be used for. If the supplier knows that the steel will be used for the inside door panel of an automobile, he may be able to supply steel that will do the job. Steel that merely meets the specifications can cause a lot of trouble. A vice-president in charge of manufacturing told me that half his problems arise from materials that meet the specifications.
 
