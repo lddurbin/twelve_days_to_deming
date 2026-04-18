@@ -502,6 +502,12 @@ export function renderStageButtonsHTML(counter, totalStages) {
 // destroyed and focus falls to <body>. Screen readers then announce the
 // web-area landmark on every click (see issue #178).
 //
+// Call this synchronously *after* the `mutable counter = ...` assignment that
+// triggers the re-render. OJS schedules cell re-evaluation on a microtask,
+// so the observer registered here is guaranteed to be in place before the
+// DOM swap. Moving the call before the mutation, or deferring it to a
+// setTimeout, would break that ordering guarantee.
+//
 // currentEl: the button container from the current render. Must be passed in
 //   while it is still mounted, so we can capture `.parentElement` — the
 //   cell's output slot, which persists across re-renders.
@@ -516,7 +522,11 @@ export function restoreStageFocus(currentEl, preferred = ".fe-stage-next") {
   const observer = new MutationObserver(() => {
     const next = cellContainer.querySelector(".fe-stage-next");
     const complete = cellContainer.querySelector(".fe-stage-complete");
-    if (!next && !complete) return;
+    // Wait until both buttons are mounted. `renderStageButtonsHTML` emits
+    // them in a single HTML string so they typically arrive together, but
+    // observer callbacks can fire mid-insertion — guarding on both avoids
+    // focusing a fallback that simply hasn't been mounted yet.
+    if (!next || !complete) return;
 
     observer.disconnect();
     const primary = preferred === ".fe-stage-complete" ? complete : next;
