@@ -1,10 +1,8 @@
 ---
-title: "PRELUDE B — UNDERSTANDING STATISTICAL THINKING"
+title: "PRELUDE B: UNDERSTANDING STATISTICAL THINKING"
 execute:
   echo: false
 ---
-
-# PRELUDE B: UNDERSTANDING STATISTICAL THINKING
 
 ## Normal and abnormal variation
 

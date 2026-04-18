@@ -4,15 +4,15 @@ execute:
   echo: false
 ---
 
-- Introduction — *page 28*
-- *"… but they don't know what to copy!"* — *page 29*
-    - Kaizen — *page 29*
-    - Quality Circles — *page 30*
-    - Just In Time — *page 31*
-    - Six Sigma — *page 32*
-    - Summary — *page 33*
-- Back to Deming's Legacy — *page 34*
-- India's Missed Opportunity — *page 36*
+- [Introduction](#introduction)
+- [*"… but they don't know what to copy!"*](#but-they-dont-know-what-to-copy)
+    - [Kaizen](#kaizen)
+    - [Quality Circles](#quality-circles)
+    - [Just In Time](#just-in-time)
+    - [Six Sigma](#six-sigma)
+    - [Summary](#summary)
+- [Back to Deming's Legacy](#back-to-demings-legacy)
+- [India's Missed Opportunity](07-indias-missed-opportunity.qmd)
 
 ---
 

@@ -6,7 +6,7 @@ execute:
 
 As you know, these four Preludes respectively introduce some of the concepts in the four parts of Dr Deming's System of Profound Knowledge which you will study more fully on Days 10 and 11. At the end of Prelude C we again recalled that Deming emphasised these four parts are [all related to each other]{.deming_quote}. It should therefore be of little surprise that, during this final Prelude, we shall see several important links to all of the earlier Preludes.
 
-### "What is the job of a teacher?"
+## "What is the job of a teacher?"
 
 For a start, a particularly important issue which arose in Prelude C is that we are all born with the natural desire to learn. Dr Deming most certainly subscribed to this belief, but also pointed out that [people learn in different ways, and at different speeds]{.deming_quote} (*DemDim* page 278). Some learn by watching. Some learn by doing. Some need a combination of watching and doing. Some need to read. Some need to hear. For some, one word is enough. For others, after ten attempts, the person understands during the eleventh. Some learn faster and some learn slower. Which of all these and other possibilities characterise you? Whichever they are, are they not also things that you were born with?
 
@@ -20,7 +20,7 @@ So what should be done instead? As seniors—parents, teachers, managers—our r
 
 Dr Deming was once asked: "What is the job of a teacher?". He replied that a teacher has three obligations to his students: (1) to make them fall in love with the subject, (2) to provide thorough subject-matter knowledge, and (3) to discover their inherent learning processes so that the subject makes more sense to them. I think we need to read and re-read that reply and apply it to our lives. Through that reply, Deming not only clearly defines the importance of discovering a person's natural learning process but also then the need to sharpen the point of that discovery to where that person may start *enjoying* his work and learning. In so doing, Dr Deming has also clearly defined our jobs as teachers, parents and managers. Be prepared!
 
-### Does pay "motivate"?
+## Does pay "motivate"?
 
 When we discover and understand people's learning processes, whether they be our children, our students or our colleagues at work, and then we put them on the right jobs or give them something appropriate to study, it often becomes hard to stop them working! We will then have given them what Deming had no hesitation in describing as "Joy in learning" and "Joy in work".
 
@@ -48,7 +48,7 @@ The most damaging effect of extrinsic motivation is that it so often kills off t
 
 Rather than dangling that carrot in front of a child ("If you do that then I'll reward you like this"), were we instead to give them the privilege of enjoying their learning, their reward would be in the learning itself. Does that sound altruistic and far-fetched? It is not. It is scientific, systemic, emotional and logical, all at the same time. Besides, of course, it has been done before. Why stop now? It can be done again.
 
-### Competition
+## Competition
 
 During Day 8 you have already seen another "startling" statement, this time on *DemDim* page 219 when reading about competition in Chapter 15. It was:
 
@@ -66,7 +66,7 @@ This has led to a relative scarcity of "winners". People no longer engage in spo
 
 One genuinely fit and healthy athlete does come readily to my mind. That is the great Dara Singh, who always believed in being fit and healthy the natural way. The bouts that he won were not won because he trained to *win*: rather, he trained to be *the fittest*. The winning was a natural *by-product* and *consequence* of his being so fit. Sadly, I regard him as being something of an exception.
 
-### Competing against or competing with?
+## Competing against or competing with?
 
 It is useful to consider competition in two forms: competing *with* and competing *against*. One might term them *friendly* and *unfriendly* competition respectively. In effect, we have just seen both cases. The Olympic Games began in the spirit of competing *with*: competing with each other *for everybody's benefit*. The Olympics later degenerated into merely competing *against*.
 
@@ -78,7 +78,7 @@ He was making the point just mentioned: he had been competing *against* instead 
 
 I remember a nasty joke one of my students blurted out when I mentioned this in class. He said: "If you keep looking at your competitor and what he is doing when you are in business then your product will end up looking like the competitor's backside!" I think that summed it up most aptly!
 
-### Is it "natural" to compete *against*?
+## Is it "natural" to compete *against*?
 
 Understanding the distinction between "competing with" and "competing against" can make all the difference between success and failure. But, if we look around us, we find that we always seem to be involved in competition *against* someone in some form or other. Children compete against each other for the attention of their parents at home and their teachers at school; grown-ups compete against each other to attract the attention of their bosses; friends compete against each other to grab attention in a group. We see and experience this competition and manifestations of this competition all around us. Many claim that we are born with these traits. Deming argued otherwise. His claim was that, instead of being born with such traits, we *acquired* them because of the way we were treated while and since we were children. We have been taught from a young age that, in order to get ahead, someone else has to lose.
 
@@ -94,7 +94,7 @@ Today I see people leaving for their places of work without a smile on any face.
 
 So, as we shall see on the next page, in *The New Economics* Dr Deming said that our need is to ["restore the individual, and do so in the complexities of interaction with the rest of the world"]{.deming_quote}. He saw that failure to do so would be a major obstacle to a nation's growth. As an important contribution, he taught the Japanese that a manager must understand that, in an organisation, people work *in* the system whereas the job of managers is to work *on* the system, in order to improve it. How? Encouraging and enabling people to take pride and joy in their work is fundamental. For this there needs to be continual learning. This is the combination that results in continual improvement. He had already advocated the removal of the dreaded "performance appraisal" system which actually does not really "motivate" a person at all. How many do you know that look forward to their annual appraisal? So how *could* it be "motivational"?
 
-### Are we no better than rats?
+## Are we no better than rats?
 
 The notion that people always need a "reward" for doing good things has become so deep-seated that Dr Deming occasionally fell into the same trap himself! He referred to this mistake as "overjustification". Toward the end of his days he often told his audiences at four-day seminars of the occasion when he had arrived on a flight from America to England. He was tired, frail, stooped, clearly very old. An air-hostess at Heathrow was kind to him and carried his luggage for him all the way to the exit. When they reached the exit, Deming put his hand into his pocket and fished out 50 dollars to pay her for this extra service that she had provided. His intention was, of course, to make her happy with this gift. Instead, she politely declined and went away. He realised later that he had hurt her. She had done it for the joy of helping someone in need, and he had turned that joy into sadness by thinking about her the way that he did. He writes with clearly deep regret about this and other similar occasions on *The New Economics* pages 75–77 [110–113].
 

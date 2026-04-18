@@ -35,8 +35,8 @@ D. [Knowledge of psychology]{.deming_quote}.
 
 Our Preludes here respectively contain some introductory thoughts and illustrations on each of those four parts:
 
-- Prelude A: Understanding a System — *page 1*
-- Prelude B: Understanding Statistical Thinking — *page 7*
-- Prelude C: Understanding Learning — *page 15*
-- Prelude D: Understanding People — *page 20*
-- Coda — *page 26*
+- [Prelude A: Understanding a System](01-prelude-a-system.qmd)
+- [Prelude B: Understanding Statistical Thinking](02-prelude-b-statistical-thinking.qmd)
+- [Prelude C: Understanding Learning](03-prelude-c-learning.qmd)
+- [Prelude D: Understanding People](04-prelude-d-people.qmd)
+- [Coda](05-coda.qmd)

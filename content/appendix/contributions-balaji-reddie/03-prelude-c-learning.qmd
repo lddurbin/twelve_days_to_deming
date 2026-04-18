@@ -14,7 +14,7 @@ His exact wording would change from time to time, but that phrase [with risk of 
 
 Let's illustrate some of this with the aid of an example.
 
-### What makes the scooter start?
+## What makes the scooter start?
 
 A man drives to work every day on his Bajaj scooter. Most mornings, his young son watches him leave. The son is curious to know how the scooter starts. He notices a lot of things that always happen, one after the other:
 
@@ -41,7 +41,7 @@ So his father then approached their neighbour, an elderly gentleman who often so
 
 So the boy's new theory of "Key + Kick ⇒ Start", which he thought he had confirmed, did not hold good after all! He asked his father to explain. His father replied: "When you get older, you will learn".
 
-### Information and knowledge
+## Information and knowledge
 
 Now, after some years, the son reached the eighth standard. His question of "How did the scooter start?" had remained unanswered. One day in class, his teacher spoke of Newton's Laws of Motion. When she reached the law:
 
@@ -53,7 +53,7 @@ this was more information for every other child in that class. But, for the boy,
 
 When *information* answers a question that has come from *theory*, it becomes *knowledge*. Now the boy understood that, when he or his father kicked the lever or the neighbour ran with the scooter, there was a rate of change of momentum which generated a force that in turn made the scooter start.
 
-### A further improvement to the theory
+## A further improvement to the theory
 
 A few years later the son inherited the scooter. Every time he encountered starting problems, he would run with the scooter to make it start. But, one day, even running with it failed to make it start. Frustrated, he took the scooter to the mechanic down the road. The mechanic patiently heard out the problem. Then he bent down, put his hand underneath the scooter, and took out a little contraption called the "spark plug". He then pointed out how dirty it had become, proceeded to clean it, put it back in its place and kick-started the scooter into life.
 
@@ -63,19 +63,19 @@ Let's sum up this little story. First, the more the boy was proved to be wrong, 
 
 Let's take a look at a couple of shorter illustrations. They have some differences from this first one, and are also different from each other; but it will be useful to study what's *similar* about them all.
 
-### Why is the Sun so bright?
+## Why is the Sun so bright?
 
 A little girl comes to you and asks you why the Sun is so bright. You promptly reply: "Because it is very hot". ("Very Hot ⇒ Bright.") Very quickly she associates "bright" with "very hot". The next time she sees something bright she comes and tells you that it must be very hot. You then gently point out her error and say that not everything which is bright is very hot (i.e., although "Very Hot ⇒ Bright" is true, "Bright ⇒ Very Hot" is not necessarily true). The child understands and so now has greater knowledge. Are we not all familiar with this? Children between the age of two and four come to us with so many questions that they flood our ears!
 
 Then, one busy day, in sheer impatience and exasperation you may just say: "It's like that because I *told* you so". That is the day the child stops asking questions, stops creating theories, and stops learning. Maybe all of us have experienced this as children at home and in school, as teenagers in college, as employees at our place of work. Sometimes, the moment we start asking questions, we are labelled as "weird", "crazy", self-indulgent, or just a nuisance. Worse, we also find some people reacting by saying something like: "You think I am an idiot for doing this for the past 30 years?". Well, my answer to them is this: "The fact that you have 30 years of 'experience' doing the same thing does not necessarily imply that you were learning for all those years. It could be just one year of learning multiplied by 30. Think about it!".
 
-### A theory may only be a hunch
+## A theory may only be a hunch
 
 Suppose we are studying a particular process. Let's assume we know of five factors that are likely to be affecting its performance. After observing the process for some time, we have a hunch that one factor affects another factor in a positive way. (With language similar to that used in Prelude B, we think they may be "positively correlated".) This hunch could have come from having previously seen something similar, or from something that we may have read somewhere, or from something we have studied. No matter that it is just a hunch: as Dr Deming pointed out (*DemDim* page 247), a theory [may only be a hunch, and the hunch may be wrong]{.deming_quote}. The important point is that it can still be used as the starting-point for learning.
 
 The next step is to test our theory. How? We create different situations where we vary the factors and see how they behave with each other. If the effect in which we are interested still appears to be true, we should test it yet again to check whether our findings were just a fluke. We could also repeat this to try to confirm that we hadn't missed anything out. If at any time the effect is contrary to what we expected, we haven't "failed"—we have just learned something: we have learned that our current theory is wrong and that accordingly we need to look for something different. I repeat: this isn't "failure"—instead, it is new and better knowledge. Theory gives us a method to create knowledge from observations. Theory provides a way of *generalising* as a consequence of *specifics*.
 
-### Theory: the starting-point for learning
+## Theory: the starting-point for learning
 
 Theory is the ground upon which knowledge and practice are founded. There can never be any knowledge or learning without theory. The children are using theory even if they don't know the word. Adults can learn without realising they are using theory. But they are. And their learning will be helped and enhanced if they do realise it.
 
@@ -100,7 +100,7 @@ Here are some typical questions that could well arise from observation and can t
 
 Without doubt, you can think of many more good examples.
 
-### Summary
+## Summary
 
 Let's summarise more generally what we have covered. We have seen how theory is the basis of all learning and development of knowledge. We have seen that theory begins by observing or asking questions or, more usually, both. When we, because of our interest, inquisitiveness and curiosity, observe and/or ask questions, we lay the foundations of a theory that we can then test, confirm, expand upon, or indeed abandon. In every case, we learn. In every case, we need theory. A beautifully concise way in which Dr Deming said all this was: ["Experience teaches nothing without theory"]{.deming_quote}. Similarly, he often stated that ["Examples teach nothing without theory"]{.deming_quote}.
 

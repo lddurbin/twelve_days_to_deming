@@ -1,10 +1,8 @@
 ---
-title: "PRELUDE A — UNDERSTANDING A SYSTEM"
+title: "PRELUDE A: UNDERSTANDING A SYSTEM"
 execute:
   echo: false
 ---
-
-# PRELUDE A: UNDERSTANDING A SYSTEM
 
 What exactly did Dr Deming mean by a "system"? On *The New Economics* page 35 *[50]* he provided this description: ["A system is a network of interdependent components that work together to try to accomplish the aim of the system"]{.deming_quote}. That says a lot in just a single sentence! Note in particular ["work together"]{.deming_quote} and the ["aim"]{.deming_quote}. Let's first consider the "aim" of a system.
 
