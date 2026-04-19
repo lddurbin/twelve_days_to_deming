@@ -1,0 +1,165 @@
+---
+title: "Welcome"
+execute:
+  echo: false
+---
+
+::: {style="text-align: center;"}
+**Welcome to**
+
+::: {style="font-size: 2.2em; font-weight: 700; letter-spacing: 0.02em;"}
+12 DAYS TO [DEMING]{style="color: #d7263d;"}
+:::
+
+*an active–learning course*
+
+*developed by Dr Henry R Neave*
+
+Retired W Edwards Deming Professor of Leadership and Management
+in the Business School of the Nottingham Trent University, England,
+2001 recipient of the American Society for Quality's Deming Medal,
+Honorary Fellow of the Chartered Quality Institute,
+and author of *The Deming Dimension*
+:::
+
+---
+
+## A BRIEF INTRODUCTION TO THE LIFE AND WORK OF W EDWARDS DEMING
+
+Speaking in a 1988 British television programme, part of a series titled "Business Matters", Dr W Edwards Deming said:
+
+> "They asked me to come in 1949. … I was able to go in June 1950. Top management asked me to come. The whole world knows that they listened."
+
+Whether or not "the whole world … listened", there certainly was widespread awareness of the effects of that visit. So: "asked me to come" where? And what "top management"?
+
+The invitation came from Ken-ichi Koyanagi who in 1946 had founded JUSE, the Union of Japanese Scientists and Engineers. During that summer of 1950, Deming addressed large audiences, including some 100 Japanese senior managers. He began on 13 July with the presidents of 21 of Japan's leading companies. He reached a further 400 or so senior managers in 1951. What was he teaching them?
+
+As a very brief description I can use the title of the celebrated four-day seminars that he began presenting in his home country of America and elsewhere when he was at long last "discovered" in the Western world some 30 years later. That title was "Quality, Productivity and Competitive Position". For the content of that teaching I can abbreviate his own seven-point "Summary of Teachings to Top Management and to Engineers in Japan". Apart perhaps from the first of those seven points, his words need little if any explanation or elaboration. You may find some of the content surprising.
+
+He called the first point "Production Viewed as a System", although the concept can easily be generalised to any kind of organisation—as indeed he did. Basically, he was emphasising the need for what is nowadays commonly referred to as "joined-up thinking" in the way that organisations, and all that they do, are managed. For any parts of the organisation, be they departments, sections, groups or individuals, the emphasis is not on e.g. "Are we meeting our targets?" but instead "How does what we do here help or hinder other parts of the organisation and/or our customers?"—or similarly "How does what other parts do help or hinder us?". The aim is, of course, to continually increase the "help" and decrease the "hinder" throughout the organisation: i.e. to aim for what Deming called "optimisation of the system".
+
+How about his other six points? Briefly:
+
+2. Quality cannot be better than the intentions of the management.  (In the 1980s he expressed this simply as "Quality is made at the top".)
+
+3. The consumer is most important.  What will help him in the future?
+
+4. Your supplier is your partner.  Work together on continual improvement.
+
+5. Chain reaction from improvement of processes:
+
+    - Improve process and product
+        - → Costs decrease
+            - → Capture the market with better quality and lower price
+                - → Stay in business
+                    - → Provide jobs and more jobs
+
+6. Need for trust and cooperation between companies.
+
+7. Development of trust and respect.
+
+Unrealistic? Impractical? "Pie in the sky"? It didn't seem to do Japanese industry much harm in the subsequent decades.
+
+I've mentioned that Deming was "discovered" in the West around 30 years later. How?
+
+In the 1970s, a medium-sized American company, the Nashua Corporation, was an agent for copying machines made by Ricoh, the well-known Japanese manufacturer. In 1974, Ricoh was awarded Japan's Deming Prize. The people at Nashua, including Chief Executive William E Conway, did not know who or what "Deming" was. All they knew was that the illustrious and eagerly-sought Deming Prize was Japan's best-known award for quality. In fact, the Deming Prize had been set up as long ago as December 1950 by JUSE in recognition of the importance of what Dr Deming had taught them that summer.
+
+![William E Conway](/assets/images/welcome/conway-portrait.png){.lightbox fig-alt="Portrait photograph of William E Conway in suit and tie against a blue background."}
+
+![](/assets/images/welcome/deming-medal.png){.lightbox fig-alt="Silver Deming Medal awarded by the American Society for Quality, showing a profile portrait of Dr Deming encircled by the legend 'Deming Prize Committee — JUSE' and inscribed 'Deming Medal' below."}
+
+The inscription near the bottom of the medal is a quotation from Dr Deming:
+
+> "The right quality and uniformity are foundations of commerce, prosperity and peace."
+
+Almost five more years passed before Bill Conway discovered that this "Deming" was in fact an American. He searched him out and had many discussions with him—discussions covering ranging over the previous 30 and more years, the content of which Bill found extraordinary and initially almost unbelievable. Eventually, Bill persuaded Dr Deming, now nearly 79 years old, to teach him and his people something of what Japanese industrialists had learned from him all that long time ago. And so his four-day seminars were born—soon to be attracting audiences typically of 500 or more delegates at a time.
+
+It is worth observing some evidence of the increasing relevance of Deming's wisdom and foresight long after his death in 1993. For example, he forcibly warned against the use of numerical targets, and nowadays the dangers of the "target culture" become more and more evident (e.g. the part that that culture played here in the UK in the Stafford Hospital scandal during 2013). Currently there is increasing awareness in Britain of how deterioration in the country's care system is causing ever-increasing difficulties to the National Health Service, e.g. in the pressures on Accident & Emergency services and in the ever-increasing delays because of "bed-blocking", etc. Again and again, severe problems arise because of lack of that "joined-up thinking" which was so fundamental in Dr Deming's teaching to the Japanese some 70 years ago. He warned against the dangers of "lack of constancy of purpose" and of short-termism, of poor education and training, of poor leadership, and even of excessive medical costs and "excessive costs of liability, swelled by lawyers that work on contingency fees"—although at the time he said the latter were just "peculiar to industry in the US". Sadly, no longer.
+
+Basic in Deming's reasoning was the need to understand the difference between "common" and "special" causes of problems. At a time when problems in Britain's prisons are being increasingly reported, I find it intriguing that Deming traced the origin of those terms to a conversation he had about prison riots in 1947. Officials and sociologists turn out a detailed report about this prison, with a full explanation of why and how it happened there, ignoring the fact that the causes were common to a majority of prisons, and that the riot could have happened anywhere.
+
+---
+
+## *12 Days to Deming*: SOME BACKGROUND
+
+I began drafting some distance-learning material based on Dr Deming's invaluable teaching over 20 years ago. But various events, combined with lack of time, interrupted that work, and, when I retired at the end of 2004, it had remained untouched for almost five years.
+
+These past few years have been very different. With the encouragement of my old friend Richard Capper, who, 25 years ago, founded a superb little consultancy named The Universal Improvement Company (UIC), I revisited those early jottings in 2012. Richard had always sent recruits to his staff to my public seminars, but these had, of course, now been unavailable for over seven years. So, when he contacted me in January 2012, Richard first tentatively explored whether I could come sufficiently out of retirement to present some in-house seminars for him and his people: but I knew I had grown far too rusty to attempt that! Instead, I offered to try to tie up some loose ends in the work that I'd left in 2000 and hand it over to him to use with his staff and clients as he saw fit. He enthusiastically accepted the offer.
+
+However, soon after I got to work, I began to wonder how many others were in a similar position to Richard—keen to introduce their colleagues to Deming's work but regrettably feeling they had no good means of doing so. Also, there must be many others who come across Deming, perhaps in some books that they are reading about management and quality, etc, or by finding some videos of him while browsing the internet. But, if they get interested, how can they really learn something substantial—in both breadth and depth—about what he taught? Just from reading a few books or watching a few videos? I don't think so; I know that that wouldn't have worked with me. But, extremely fortunately, I had the relatively rare opportunity to attend and be involved with many of Dr Deming's four-day seminars. And even then, to be honest with you, it was only at the third of those seminars that his teaching really began to take some shape in my mind. Before then I had remained pretty puzzled and confused—it was so different.
+
+Incidentally, that's as good a reason as any about why I have laid out this course in the form of "12 Days" of learning. If it took 3 × 4 = 12 days of Deming's teaching for his wisdom to begin to get through to me, how could I expect anyone else to need anything less?
+
+A few months after that first occasion, I began to develop my own teaching on Dr Deming's work—tentatively at first to my students at the University of Nottingham and then, before long, offering some short public introductory seminars. Subsequently, during the nearly 20 years before I retired, I had the privilege of presenting many hundreds of seminars and courses—thus involving many thousands of delegates and students—that were solidly focused on Dr Deming's teaching.
+
+By the end of 2012 I had begun to feel confident that I could incorporate much more of the experience I had thus gained over those years into what I had started back in 1999. But I also realised I would need a lot of help. I thus contacted a number of old friends and colleagues to let them know what I was up to and to ask if any of them might be interested in reading what I was drafting and hopefully giving me some feedback and guidance on how I could improve it. It was one of the best decisions that I've made in my life! The amount of constructive feedback, along with extremely useful information and the many contributions to the course that I have received during the subsequent years, has enabled me to transform those early jottings into some teaching and learning material which has been greeted with enthusiasm and excitement by those who have been helping me. I sincerely hope that similar enthusiasm and excitement will be generated in others who can now also be introduced to the wise and illuminating teaching that I and others were so fortunate to learn direct from the man who is, and I hope always will be, often referred to in such terms as "the father of quality": Dr W Edwards Deming.
+
+---
+
+## *12 Days to Deming*: 12 MAIN FEATURES
+
+1. *12 Days to Deming* is designed to be entirely suitable for interested newcomers—there is genuinely "no previous knowledge required" of *anything* relevant to the course.
+
+2. Nevertheless, this is not a superficial introduction to Dr Deming's teaching: there's some deep-down learning involved, especially toward the end of the course.
+
+3. It is an "active-learning" course—there is *much* more to do than just reading!
+
+4. Since much of what is involved in the non-reading work is very open-ended, the material includes considerable guidance and help with timing.
+
+5. Just about all courses, whatever type they are, suggest that the learner obtains one or more prescribed texts. Not surprisingly, the prescribed text for this course is my book *The Deming Dimension*^[*The Deming Dimension* is available direct from its publishers in the USA, [www.spcpress.com](https://www.spcpress.com). Elsewhere you may have a local source: here in the UK it is the Deming Transformation Forum, [www.deming.org.uk](https://www.deming.org.uk). It may be wise to obtain a quote from both, including delivery: SPC Press Inc has an excellent reputation for both price and service. If you are able to find a second-hand copy elsewhere, please make sure that you do not get a very early version: in 1992 I completely rewrote Chapter 18, and that rewritten version is vital for carrying out the course's important Second Project on Days 10 and 11. More guidance about *The Deming Dimension* is given in the initial file "A. PLEASE START HERE" (see the Contents list on the next page).] which was first published by SPC Press Inc in 1990 (and seems to have stood the test of time pretty well!). Don't worry—it's not expensive!
+
+6. The course is only available to print out or simply view on-screen. However, to seriously engage in the promised "active learning" (as opposed to just browsing), you will need to print out some of it^[All the Activities, Pauses for Thought, the two Projects and anything else where the student is asked to make a contribution in writing have all been collected together in a "Workbook", so, if you prefer, you will only need to print out the Workbook rather than the whole course. The Workbook is provided in four instalments (see the Contents list on the next page) so that you won't even need to print it all at once! Guidance on printing is given in the initial file "A. PLEASE START HERE" (again see the Contents list). The material is designed to be printed preferably back-to-back—but don't worry if you have no access to a duplex printer: the guidance in "A. PLEASE START HERE" will enable you to do it simply using an ordinary basic colour printer.] since all of the activities and projects etc are designed to be carried out in writing directly onto the course material.
+
+7. The course has been primarily designed for individual study, but is also fine for use in small groups.
+
+8. "I've heard that Deming was a statistician. Do I need to know anything about Statistics?" NO! A thousand times NO!! (Honestly, most of what is taught in standard Statistics courses is not relevant here.)
+
+9. The course is designed to be easily adaptable to the student's preference as regards technical content. Thus the student is asked to self-classify as "Stats-level" 0 (absolute minimum technical stuff, please!), or Stats-level 3 (the more technical stuff, the better!), or Stats-level 1 or 2 in between those two extremes, and then follow my guidance as appropriate!
+
+10. The learning in the course is designed chronologically: the content is largely developed in the same order as Dr Deming developed it in his own learning and teaching.
+
+11. From Day 6 onward there is increasing emphasis on relating the learning from the course with what is happening—and could happen—in the student's own organisation. This is in order to develop a pretty vital part of the thinking needed for putting the theory into practice.
+
+12. There are no fees, commissions etc involved in receiving and using *12 Days to Deming*. Why? Simply because I want more people to benefit from his wisdom: it enables better leadership and management, and thus happier workplaces—and happier customers. You may reach it via your choice from the websites detailed at the bottom of the next page.
+
+---
+
+## *12 Days to Deming* "HOSTS"
+
+All the *12 Days to Deming* PDF files may be viewed at, and downloaded from, any of the websites [www.spcpress.com](https://www.spcpress.com), [www.theuic.com/deming](https://www.theuic.com/deming), [www.sergentresults.com/12-days-to-deming](https://www.sergentresults.com/12-days-to-deming) and, most recently, [www.rqoq.org.nz](https://www.rqoq.org.nz) (the New Zealand Organisation for Quality).
+
+---
+
+## ENDORSEMENTS
+
+> "Finally—a sorely-needed authoritative, definitive, robust summary of W Edwards Deming's philosophy that will stand the test of time.
+>
+> Professor Neave has been my 'stealth' mentor since 1992 when I had a serendipitous interaction with this kind, gracious gentleman at a Deming conference. I was frustrated and in the midst of a struggle to understand Dr Deming's 1986 book *Out of the Crisis*, but Henry's subsequent book *The Deming Dimension* then became a huge 'Aha' and catalyst in my 35-year study and synthesis of Dr Deming's work.
+>
+> Henry has subsequently added 25 more years of wisdom gleaned from his teaching. His course design and non-pedantic, sincere, entertaining style coupled with his deep humility is a joy to experience." *Davis Balestracci, Harmony Consulting, Portland, Maine, USA and author of the book 'Data Sanity'.*
+
+> "I am studying a course called *12 Days to Deming: an Active-Learning Course* by Henry Neave. It is fantastic! I originally studied Deming during my junior year of college. I then was reintroduced to his teaching in 2008. For some reason I got away from it, but the principles appear to have stuck with me. I am glad that much of what I do uses this philosophy; but I am learning so much more now. I look forward to learning yet more about these better ways. I now understand how Deming's philosophy shows how to generate comprehensive improvements by creating genuine, reciprocal, selfish, selfless, synergistic interactions so that everyone and everything benefits." *Dr Craig Becker, Professor at East Carolina University in the Department of Health Education and Promotion, USA.*
+
+> "I came to Deming because of my interest in Energy and Environmental Management, as his approach seemed ideal for tackling those areas as well as many others. I found the whole course compelling, and it explains Deming's teachings in real depth. I've read a fair amount by and about Deming over the years, but there's a lot of good information in this course that I'd not seen before. Also interesting background information on Deming himself from when Henry worked with him. As Henry remarks in the course, Deming would often say a lot in a very few words. But Henry fills in many of the gaps.
+>
+> The course explains Deming's scientific approach to quality improvement, and shows how it applies to a huge variety of 'processes'. The practical activities help you to apply the learning to your own life and your organisation. The course is a vitally important contribution to both understanding and using what Deming taught. I heartily recommend it." *Mitch Beedie, freelance writer, Cornwall, UK.*
+
+> "Henry Neave is dedicated to helping people learn about Dr Deming's ideas and how to apply them. He does this with great skill and enthusiasm. His course follows faithfully what Deming taught in a comprehensive and user-friendly way. As a participant, the active-learning method provides ample opportunities to check your understanding as you progress and see how it relates to your experience and needs. *12 Days to Deming* is a monumental work. Following the course gives you knowledge to transform your style of management to succeed in this ever-changing world." *Nick Gardener, engineer, learning and applying Deming since 1989, UK.*
+
+> "I highly recommend this course to newcomers through to those who are already well-versed in Dr Deming's work. The course builds knowledge and understanding, enabling the participant to make real change and to achieve improved outcomes." *Dr Jackie Graham, Managing Director, Statistical Edge Pty Ltd, Australia.*
+
+> "The BIG question is: 'How *should* we manage work?'. There are thousands of books on management but there is probably only one author who offers an all-encompassing approach to management with such a clear success record. Reading Deming's books is valuable, but understanding the messages is more about thinking than simply reading and then applying the ideas. Henry Neave's active-learning course *12 Days to Deming* fills this gap, giving an interactive framework for thinking about your situation and how these ideas can apply to your organisation. For even greater benefits, form a study group so that you can discuss several peoples' ideas together." *Alan Hodges, Quality Manager for BAM Nuttall (retired), Steering Group member of the CQI's Deming Special Interest Group, UK.*
+
+> "Dr Deming's teaching has influenced my career since I first heard him speak in 1990. With his book *The Deming Dimension* Henry Neave then opened my eyes to Deming on a whole new level (don't ask me why I didn't discover the book until 2012!). In the summer of 2017, Professor Neave was gracious enough to send me an early version of *12 Days to Deming*—I jumped right in. While the book opened my eyes, his course has enabled me to integrate the Deming philosophy into my everyday thinking beyond what I had imagined possible. Intuitively, I knew that I had happened upon the truth when I discovered Deming all those years ago, but the comprehensive understanding I craved and some of the finer points remained stubbornly elusive. Professor Neave has helped me to now see Deming's leadership philosophy as a whole, and with that an understanding of how each of its components relates to the others. He makes Deming accessible. Throw yourself into *12 Days to Deming*, and be ready to be transformed!" *Eric Lawson, management consultant, Columbus, Ohio, USA.*
+
+> "I have had a wonderful time learning from *12 Days to Deming*, and I am delighted that it will soon be 'officially' launched. The difference between orthodox statistics versus Shewhart/Deming statistics was just one illuminating idea learned. But there are far too many insights for me to list here." *Allen Scott, independent Quality Management Consultant, North Carolina, USA.*
+
+> "The *12 Days* are not a walk in the park! You will need to engage in some serious study. But if you stick with it and take time to reflect as you progress through each Day, you will finish immeasurably wiser. Professor Henry Neave, who worked alongside Dr Deming at many of his four-day seminars, has produced an outstanding product. Roll your sleeves up, immerse yourself, and enjoy your study!" *Stuart Swalwell, Continual Improvement Manager, Rolls-Royce plc (retired), UK.*
+
+> "I have found that *12 Days to Deming* has provided me with not only an effective but also an efficient route to deeper understanding and useful knowledge about Dr Deming's theories. It accelerates such understanding because it is derived from the direct experience of Professor Henry Neave who can be justifiably termed a Subject Matter Expert. My work is focused on getting *safer* work through introducing people to the concept of *better* work. This is achievable through understanding better the effectiveness of taking an approach to management that is informed by the wisdom of Dr Deming. *12 Days* facilitates this superbly." *Charles Tortise, Charles Tortise & Associates, Wellington, New Zealand.*
+
+> "I consider this a real gift from you to the Deming Community. Words cannot convey how thankful I am to you for all the time and effort you have put in to produce *12 Days to Deming*. To learn from people like you, who had close personal association with Dr Deming and learned directly from him, minimises the risk of his message going 'off to the Milky Way'. The aim of *12 Days to Deming* is perhaps captured in Dr Deming's quote on page 22 of Day 1: "I do not want you to do something because 'Deming said so'; I want you to do it because you *understand* why 'Deming said so'." Well done. Congratulations!" *Al Viswanathan, retired after working for 26 years at the Boeing Company, Seattle, Washington, USA.*
+
+> "Henry … this course is nothing less than brilliant!" *Donald J Wheeler, Statistician, Author and Instructor, Statistical Process Controls, Knoxville, Tennessee, USA.*
+
+> "I have managed people for over 25 years and worked hard to support them, encourage them and be a 'good' manager and leader. When you begin to really understand Dr Deming's work you realise just how much you need to unlearn if you are to truly engage with and get the best out of your people. Nothing in management training ever taught me about the need to focus on the system in which people work and the processes for which they are responsible. My gut always told me that there must be a better way to achieve efficiency but I simply continued asking my employees to work harder, I awarded pay rises and issued staff awards and commendations. All I ever got were short-term results and indeed I made people work against each other. Completing *12 Days to Deming* is challenging but it will enable you to see your organisation differently and make you a wiser manager and leader. Working on the processes to reduce variation, I saw first-hand the impact it had. But it is so much more than that! It was amazing not only in terms of making my organisation more efficient but the impact it had on my people. I have seen my teams move from feeling helpless and despondent to feeling they are valued in their role, listened to and actually enjoying what they do. Henry's work to pull together Dr Deming's wisdom is a gift that every manager, director and CEO should explore. It is not easy to unlearn how we have always worked but the rewards can be great. You owe it to yourself and your people to work differently and be brave and swim against the tide of management practices that we know are flawed and limiting." *Fiona Wilkie, formerly of the Symphony Housing Group in Liverpool, UK in which she held various senior management positions.*

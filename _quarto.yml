@@ -20,6 +20,7 @@ book:
     collapse-level: 1
   
   chapters:
+    - welcome.qmd
     - index.qmd
     - part: "Day 1: The Overture"
       chapters:
