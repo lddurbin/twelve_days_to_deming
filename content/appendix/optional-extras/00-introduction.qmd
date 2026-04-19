@@ -1,0 +1,104 @@
+---
+title: "OPTIONAL EXTRAS — INTRODUCTION"
+execute:
+  echo: false
+---
+
+::: {style="text-align: center;"}
+**OPTIONAL EXTRAS**
+
+*(all more or less related to control-charting)*
+:::
+
+---
+
+## Contents
+
+- [Introduction](#sec-optional-extras-introduction)
+- [Part A: Using control charts on Funnel Experiment data — an extension of Major Activity 3–h](01-part-a-funnel-charts.qmd#sec-optional-extras-part-a)
+    1. Introduction
+    2. Rules 1 and 2 of the Funnel *(**NB** See the Note below)*
+    3. Rules 3 and 4 of the Funnel
+    4. Control charts for the computer-generated data
+    5. [Discussion](01-part-a-funnel-charts.qmd#sec-optional-extras-page-15)
+- [Part B: A-few-at-a-time data](02-part-b-subgrouped.qmd#sec-optional-extras-part-b)
+    1. Introduction
+    2. Calculations on a subgroup
+    3. Control charts for subgrouped data
+    4. Discussion
+- [Part C: Ne'er the twain shall meet?](03-part-c-ne-er-twain.qmd#sec-optional-extras-part-c)
+    1. Introduction
+    2. The essence of the argument
+        - Two types of "statistical studies"
+        - A typical syllabus for an introductory Statistics course
+        - The conventional statistician's view of control charts, …
+        - … and what can be done about it
+- [Part D: A crash-course in conventional Statistics!](04-part-d-crash-course.qmd#sec-optional-extras-part-d)
+    - Histograms and sample statistics
+    - Probability
+    - Linking it all together
+    - Probability distributions, particularly the binomial distribution
+    - Continuous probability distributions, particularly the normal distribution
+    - The Central Limit Theorem
+    - Confidence intervals
+    - Hypothesis tests (also known as significance tests or tests of significance)
+- [Part E: Is there *anything* normal about control charts?](05-part-e-normality.qmd#sec-optional-extras-part-e)
+    1. Back to basics
+    2. Two computer simulation studies
+    3. "Control-chart constants depend on normally-distributed data, so unless your data are normally distributed your control chart isn't valid."
+    4. "If your data are normally distributed then the probability of a false signal is 0.0027."
+- [Part F: Technical section](06-part-f-technical.qmd#sec-optional-extras-part-f)
+    1. Length of the baseline
+    2. "Expected" values — the great misnomer!
+        - Some more notation (mathematical shorthand)
+        - "Expected" values
+        - Combining expected values
+    3. Proofs and uses of expected values
+    4. Why are control-chart constants what they are?
+    5. More on the binomial and normal distributions
+        - The binomial distribution
+        - The normal distribution
+
+---
+
+::: {.callout-note}
+## NOTE
+
+*(This note would have been referred to elsewhere as an "Out-of-hours" note; however, of course, all of the Optional Extras section is "out-of-hours"!)*
+
+If you are intending to study Part A: "Using Control Charts on Funnel Experiment data" then on pages 6 and 7 you will need to draw run-charts and then control charts of your data for the first two Rules of the Funnel. Your data for Rule 1 and Rule 2 are in the [Day 3 chapter on the first two Rules of the Funnel](../../days/day-03/11-the-first-two-rules-of-the-funnel.qmd) *[WB 38–40]*. You may therefore find it convenient to open those pages in a separate browser tab in order to save you from lots of page-turning while you are constructing those charts.
+:::
+
+---
+
+## INTRODUCTION {#sec-optional-extras-introduction}
+
+Yes: this material *is* all "optional extra". Your understanding of the main material of *12 Days to Deming* does *not* depend on your reading any of this. So then the obvious question is why *should* you bother to read any of it?! The only reason right now, as you read this page for the first time, would be that one or more of the topics in the list of Contents that you've just seen have struck you as being of possible interest to you. If not then, indeed, don't bother!
+
+But, in addition to the main title "Optional Extras", there were some words in brackets. Yes, these Optional Extras *are* all connected with control-charting—although some of what's in that list of Contents does not appear to fit that description. In particular, what has "A crash-course in conventional Statistics!" got to do with control-charting? I'll get onto that very soon.
+
+On Days 2 and 3 and during parts of both of the projects, the emphasis was on understanding variation and why that is useful, and the role it plays in the improvement of processes of all kinds, especially management processes. That main material naturally included some initial work on constructing and interpreting control charts, with the section "Control Chart + Brain" on Day 3 pages 26–29 being particularly important for helping you to interpret them. But, as with valuable tools in any area of work, there is always much more experience to be gained on how to use them wisely and to best advantage over and above merely following the basic guidance in the instruction leaflet. So this optional extra material focuses not on *why* control charts should be used—which I believe you now know already—but *how to use them wisely*.
+
+So there can be little doubt as to why Parts A and B are here. Firstly, following the coverage of understanding variation and control charts in the morning of Day 3, you spent the afternoon working with the Funnel Experiment. But unfortunately there was insufficient time available there to gain much more experience by using control charts on data (both yours and mine) from that experiment. So Part A here fills that gap.
+
+Secondly, the coverage of control charts during the main course included their use only with what I called "one-at-a-time" data, because that is all that is available in most areas of application. However, there are some areas, particularly (but not only) in manufacturing, where "a-few-at-a-time" data are easy to obtain: so Part B provides some introductory details and guidance on that further development of the technique.
+
+However, as already mentioned, on looking further down the list of Contents there is little doubt that the title of Part D catches your eye! Why on Earth should "A crash-course in conventional Statistics!" be here? For doubtless you will have noticed in the main course material that both Dr Deming and I, amongst others, have been at some pains to emphasise the *irrelevance* of conventional Statistics to the understanding of variation as developed by Walter Shewhart and so enthusiastically adopted by Dr Deming that I sometimes refer to it as the "launchpad" of his vitally important life's work.
+
+But don't misinterpret what I have said about conventional Statistics. It is a fascinating subject, and it is a very *useful* subject in many areas. Hopefully, if you have no background in conventional Statistics, what we have developed in this course regarding the understanding of variation and the use of control charts will have seemed pretty sensible. But that might not have been so true if you *have* had some background in conventional Statistics since some conflicts between the two approaches may well have then become apparent to you. Let me refer ahead to the start of the very final part of these Optional Extras:
+
+> "When introducing control charts (for one-at-a-time data) to delegates at my seminars, reactions were usually very positive, even from those who started out by saying such things as 'I can't do Statistics' or, worse still, telling me in advance that they hated the subject! A little while later there were instead expressions of relief, even surprise, when they discovered how straightforward the technique is, how relatively simple are the calculations involved, and before long, how they were able to interpret what the charts were telling them."
+
+But there were exceptions. On Day 1 page 6 I said:
+
+> "Over the nearly 20 years of my seminars on Dr Deming's teaching I rarely suffered from any 'difficult' delegates. The few that I had could be divided into two types. One type were very senior managers, the other type were those with some qualification in Statistics."
+
+To tell you the truth, the latter were often the more difficult type. That may sound rather flippant, but it isn't. It can be very serious. If it happens to you then I want to help you to deal with it. For *you* may not have any qualification in Statistics. So are the people in your organisation likely to believe you or the one who *is* qualified in the subject?
+
+If you had a good teacher on conventional Statistics then, wholly unlike those delegates referred to at the bottom of the previous page, you may have become very enthusiastic about that version of the subject. I know, for I was one who *was* fortunate enough to have such an excellent teacher. He was the late Dr Clive Granger who was eventually awarded the Nobel Memorial Prize in Economic Sciences in 2003 and was knighted in 2005. Had it not been for the way he taught the subject, I might have joined the ranks of those who "couldn't do Statistics" and who "hated the subject"! As it was, I decided to specialise in Statistics, had Clive as the supervisor of my PhD research, and subsequently became the first full-time Lecturer in Statistics in the University of Nottingham's Department of Mathematics. *But …* recall some of what I said about my first exposure to the Red Beads Experiment on Day 2 and to some of Deming's other teaching on the more statistical aspects of his work. Where were the probabilities, where was the normal distribution, why that "rough-and-ready" guidance about "3σ" coming from Shewhart rather than, for example, "3.09σ" which has a really nice probability interpretation? Fortunately, *very* fortunately, I also had two very excellent teachers in the shape of Drs Deming and Wheeler to help me through all that. But relatively few others have had all that supreme good fortune.
+
+So, whether or not you have a background in conventional Statistics, there you have many clues as to why much of the remaining content has been included within these Optional Extras. If, like me, you had a good grounding in conventional Statistics, I hope that what you will find here, starting at Part C, will help you through the problems that I had. And if you haven't, but there are others around you in your organisation who do have such a background, they are likely to be quite an obstacle to your progress with what I may call "the real thing". The "crash-course" will help you to understand what their view of Statistics is all about and why they don't think much of what you are trying to tell them (and *vice-versa*)! That understanding will help you to communicate with them. If you understand the way that they think, and why, they are likely to be more willing to listen to you. So there is more material here to help you to then make progress. I would point in particular to (a) some writing about "statistical studies" from Deming which I describe in Part C and to (b) some computer simulation studies that are in Part E. Those simulation studies are actually set wholly within the conventional statistician's understanding of the subject; nevertheless, they prove conclusively that some of the main arguments which are often voiced about control charts by the conventional statistician are patently and completely wrong.
+
+Finally, Part F is a "Technical Section" which is likely to be of more interest to mathematically-inclined students: a number of results are verified here that are simply quoted and then used either elsewhere in the course or in these Optional Extras, and there is also some additional discussion on the practical problem which is faced by anyone who starts using control charts: how many data to use when computing your control limits.
+
+So please just pick and choose what, if anything, you read here in these Optional Extras. Or just browse through them and see if anything catches your eye. Maybe there will be nothing—if so, that's fine: just stick to the main course. But these Optional Extras will, of course, all still be here if and when the time comes later when you suspect that some of them *might* be useful to you after all.

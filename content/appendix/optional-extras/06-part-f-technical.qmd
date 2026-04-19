@@ -1,0 +1,570 @@
+---
+title: "PART F — TECHNICAL SECTION"
+execute:
+  echo: false
+---
+
+# PART F: TECHNICAL SECTION {#sec-optional-extras-part-f}
+
+## 1. Length of the baseline
+
+When introducing control charts (for one-at-a-time data) to delegates at my seminars, reactions were usually very positive, even from those who started out by saying such things as "I can't do Statistics" or, worse still, telling me in advance that they hated the subject! A little while later there were instead expressions of relief, even surprise, when they discovered how straightforward the technique is, how relatively simple are the calculations involved, and before long, how they were able to interpret what the charts were telling them. As you might imagine, discussions on a set of processes such as those on Day 3 page 19 were exceedingly helpful for the latter. Further, the delegates could usually quickly understand the wisdom of basing the measurement of variation in an ongoing process on moving ranges, even those who were familiar with the standard deviation through some basic course on Statistics.
+
+The one thing they often remained understandably uneasy about was the matter of choosing the baseline, i.e. the number of data to use for computing the control limits. The kind of guidance that I gave them might still not satisfy them—they might want to know the *reasons* for my guidance. It may well be that the same is true of you. If so then I hope this discussion will provide you with some thoughts and information that will be helpful to you when *you* are faced with deciding what length of baseline to try.
+
+There was some brief discussion on Day 3 about the length of the baseline in Technical Aids 8 (page 17) and 9 (page 27). In practice, the choice of baseline length has to partly depend on how quickly the data are coming in and, if slowly, how soon you want to make at least a tentative start on the control chart. There are no "rules" on this matter. But for broad guidance I'd usually suggest, say, maybe 12 to 15 if the data are coming in fairly quickly (e.g. as in the Funnel Experiment), or if rather slower then perhaps around 10. Monthly data are of course rather a pain—perhaps initially just 5 or 6 there.
+
+> In the case-study that I retold in *ST*, Don Wheeler did once use a baseline of length 4—but that was when there were only four data-points before the process was deliberately changed—what else could he do?!
+
+If you have a conventional Statistics background, you may well be a little startled by how short my suggested baseline lengths are. The general sense in conventional Mathematical Statistics concerning sample sizes used when involved with methods of statistical inference (such as hypothesis testing and forming confidence intervals which were briefly introduced in the "crash-course" on pages 54–55) is that "the more data, the better". The conventional statistician may have carried out calculations on how many data are needed to estimate a parameter (such as the mean) to within a certain precision with some high degree of confidence—and come up with sample sizes in the hundreds if not the thousands! The same can happen in computations concerned with the "power" of hypothesis tests. As usual, other readers who are not familiar with these matters do *not* need to know about them! For here we are dealing with an entirely different situation. In those traditional types of calculations it is effectively assumed that there is a virtually limitless pot of data available, totally unlike our basic situation here of data being generated (often rather slowly) over time. In those mathematical exercises, the object is to get a correct number. But heed well what Don Wheeler has repeated dozens of times in his own seminars: "We are not so much concerned with getting right numbers: we are concerned with taking right actions." And that is a very different—and much more important—matter.
+
+If and when you have the time, you could gain some useful experience quite quickly about the pros and cons of using different lengths of baseline by carrying out some experimentation on the Funnel Experiment data that you generated in Major Activity 3–h. Try using some different baselines from whatever you chose in Part A of these Optional Extras, and see what happens. That is, examine the ways in which different baseline lengths may affect your judgment of what is happening with the four Rules, and when.
+
+As you know by now, I have always been quite keen on using computer simulation studies when faced with problems that are difficult or impossible to solve just by Mathematics: simulation studies do not "solve" problems but they can throw light on them. On pages 82–84 in the second edition of my book of *Statistics Tables* (which I've been abbreviating by *ST*), I included details of a simulation study that I carried out to help me get some "feel" for the pros and cons of different baseline lengths used in computing control limits for the usual type of control chart using one-at-a-time data. I'll discuss below some of the results which came from that simulation study.
+
+However, I should first point out that simulation studies do have some similar drawbacks to mathematical solutions, in particular that it is necessary to make some choices and assumptions in the details to be used in the design of these studies—just as that is necessary in order to carry out mathematical derivations. (So yes, e.g. I confess that my simulation study did involve generating data from normal distributions—which were introduced in the "crash-course"). Of course, as with mathematical derivations, there is no expectation that the results obtained will *exactly* reflect what will happen in practice when such choices and assumptions do not hold. However, with choices and assumptions that are made with an eye on the kind of things which might be expected to *approximately* reflect practical situations, it is reasonable to hope that the main results from both Mathematics and computer simulations will at least roughly indicate the general lines of what will happen in practice—otherwise, of course, they're not much use! The assumption that I needed to make in this study was that the process remained in statistical control throughout the baseline period. However, I shall also briefly discuss the situation where this assumption does not hold.
+
+Firstly I'll look at the possibility of "false alarms", i.e. signals that a special cause exists when in fact the process has remained stable. False alarms can be costly. A signal, i.e. a point outside the control limits, is a signal that guides you to start looking for a special cause. And that can be time-consuming and expensive—and even more so if there is no special cause to find, and then perhaps even kid ourselves that we've found one! So here's the first of two rather similar questions for the simulation study to tackle:
+
+### (A) How often will false alarms occur when the control chart is being used "live"? {.unnumbered}
+
+With the assumptions made in the simulation study, and with the variety of baseline lengths as shown, here are the percentages of false alarms (i.e. signals that occur *if the process remains stable*) when the control chart is "up and running" (i.e. after the baseline period ends):
+
+| Baseline length            | 4     | 6     | 10    | 15    | 20    | 30    | 50    | 100   |
+|----------------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Prob of any false alarm(s) | 7.65% | 4.28% | 2.17% | 1.34% | 0.99% | 0.68% | 0.48% | 0.35% |
+
+As is immediately obvious, that percentage is high for short baselines but improves as the baseline length increases. This, of course, coincides with the conventional statistician's almost automatic expectation—and for similar reasons. The longer the baseline, i.e. the greater the number of data from which the control limits are computed, the closer they will be to those which would have been computed directly from the normal distribution that is being assumed, and so the better they will "fit" the data that are being encountered.
+
+### (B) What is the likelihood of there being any signals (i.e. false alarms) *during* the baseline period? {.unnumbered}
+
+Let's look straightaway at results from the simulation study:
+
+| Baseline length            | 4 | 6    | 10   | 15   | 20   | 30   | 50    | 100   |
+|----------------------------|---|------|------|------|------|------|-------|-------|
+| Prob of any false alarm(s) | 0 | 1.3% | 2.1% | 3.5% | 4.8% | 7.4% | 12.2% | 23.3% |
+
+So yes, it is possible to have signals *within* the baseline period. Indeed, if you read Part A of these Optional Extras then you will have seen some on page 13 when considering Rule 4 of the Funnel. But, of course, those were *justified* signals: the process was already out of control. And fortunately that is almost always the case if you get a signal within the baseline. But not *always*, as the short table of probabilities shows. So, if you are doubtful about whether a signal is or is not a false alarm, you might be sensible to wait and recompute the control limits after you have recorded, say, another two or three data, and then check again. That's especially the case if you are using a particularly short baseline. My reason for that advice is that a false alarm *within the baseline* is liable to be even more costly than a false alarm *after* the baseline period. For, of course, the control limits are supposed to guide us about *when* the process goes out of control—but now we have an indication that the process is out of control already! So not only would time and money be fruitlessly spent on searching for the reason for that signal—it would be illogical to even continue using this control chart.
+
+As you can see from the short table of probabilities, the probability of one or more false alarms occurring during the baseline steadily *rises* as the baseline length increases. Because of the problems that such false alarms cause, this immediately indicates that it is unwise to use a very long baseline. Seeing that, as just pointed out, it would be illogical to extend the control limits beyond the baseline and continue to use the chart if there are already any points outside the limits during the baseline, my computer program was written to reflect common practice by only including those cases where the chart was clear of signals during the baseline for the purposes of answering Questions **(A)** and **(C)** below.
+
+But *why* does the probability of false alarms occurring within the baseline behave in the way shown? In particular, why is the probability actually *zero* with that really short baseline of 4? Remembering that the control limits are calculated directly from the data that are within the baseline (using that familiar method using the 2.66), it turns out to be arithmetically *impossible* for any of the four values to lie outside those control limits. If you like, try it for yourself with *any* set of four numbers that you care to choose: never mind how weird a selection of numbers you'd like to dream up, you'll find that that remains true! But it does become *just* possible with a baseline length of 5 and then, as you've seen, ever more possible with longer baselines. Why is that? One obvious reason is that, the longer the baseline, the more opportunities there are for a false alarm to occur within it.
+
+So, in summary, we had evidence with Question **(A)** that to use very *short* baselines is dangerous, and now we have evidence with Question **(B)** that to use very *long* baselines is also dangerous! Such conflicting evidence is not unexpected: there are conflicting interests in play here and so the conclusion is that we shall have to finish up with some kind of compromise between them. But what will guide our choice of such a compromise?
+
+Our third question may help. Here, instead of false alarms, we focus on *justified* signals, i.e. points which fall outside the control limits *after* the process has *changed*. Then, obviously, we would like to get a signal without much delay so that the search for a special cause is (correctly) triggered sooner rather than later. To examine this we'll use a traditional method for describing the sensitivity of a control chart which is to compute the average number of data occurring after a process change up to and including when the chart gives its first signal; this is known as the Average Run Length (ARL). So our third question is:
+
+### (C) How do the Average Run Lengths behave for different lengths of baseline? {.unnumbered}
+
+Remembering that we are generating data from a normal distribution, I considered three cases of a sudden process change: a shift in the process average by an amount of σ, 2σ or 3σ, σ being the standard deviation of that normal distribution. Whereas the answers to the first two questions might not have surprised you, these results may do so:
+
+| Baseline length        | 4     | 6     | 10    | 15    | 20    | 30    | 50    | 100   |
+|------------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| ARL following shift σ  | 7.1   | 10.1  | 14.9  | 19.6  | 23.1  | 28.0  | 33.8  | 39.7  |
+| ARL following shift 2σ | 3.21  | 3.73  | 4.35  | 4.83  | 5.14  | 5.53  | 5.91  | 6.25  |
+| ARL following shift 3σ | 1.888 | 1.949 | 1.992 | 2.016 | 2.028 | 2.040 | 2.049 | 2.055 |
+
+So the ARLs steadily *increase (worsen)* as the baseline gets longer. This might indeed initially appear rather surprising since the conventional statistician's "obvious" argument is that, the more data we use to derive the control limits, the more "accurate" and therefore "better" the chart will be. But that argument reflects the Mathematical Statistician's almost automatic way of thinking rather than considering what actually happens in practice. Remember that, in line with common and sensible practice, one really does not usually continue with some newly-computed control limits if there are any points outside those limits *during that baseline*. As already argued, what would be the logic of extending the control limits into the future if we have been sent a signal that the process is likely to be out of control already? So, reflecting that "common and sensible practice", recall that in the computer simulation I did not continue with any such cases as regards answering Questions **(A)** and **(C)**.
+
+Let's consider in more detail what happens if we are using a long baseline. Clearly, the longer the baseline, the greater is the chance that a signal will occur during it—as has already been pointed out, there are then simply more opportunities for it to do so (whether or not the process stays in control). But if the process does actually stay in control throughout the baseline then that signal is, of course, a false alarm. We've seen that the results for Question **(B)** confirm the increasing chance of such a false alarm with longer baselines: in fact, except for the very shortest baselines, those percentages increase by about 0.25% for each extra data-point included in the baseline. So, as examples, if the baseline-length is 40 then there is about a 1-in-10 chance of there being such a false alarm, while if the baseline-length is 100 then the chance rises to almost 1 in 4. Now, naturally the control limits will vary when computed from different sets of baseline data: with some data-sets the gap between the limits will be "fairly typical", but with others the gap will be either relatively narrow or relatively wide. So in which cases are those false alarms within the baseline (i.e. the cases which will *not* be considered in Question **(C)**) most likely to occur? Surely it will be those where the gap between the control limits is relatively *narrow*. But those discontinued cases are the very ones that would have been the most likely to produce signals when the process goes *out* of control! *That's* the combination of theory and practice which explains why the ARL increases as the baseline gets longer.
+
+Thus, whereas Questions **(A)** and **(B)** produced evidence in favour of longer or shorter baselines respectively, I suggest that the evidence in Question **(C)** provides a valid casting vote! *Very* short baselines need care because of the evidence in **(A)**, but otherwise the weight of evidence points to the wisdom of using reasonably short baselines rather than the longer ones that may appeal to a conventional statistician.
+
+Finally, recall where we saw our first control chart: it was in the Red Beads Experiment. The control limits there were computed from all 24 of the available data. So why don't we forget all this stuff about baseline lengths and use "all the available data" in "live" control charting? Of course, that would mean recomputing the control limits every time a new data-value arrives. That would be tedious manually, but a computer could easily do it for us. The reason we don't is, believe it or not, that this is liable to actually *reduce* the ability of the chart to produce useful information. As evidence of that, I'll finish here with the following sad memory:
+
+> This recalls the occasion when a delegate came up to me with tears of gratitude after I had emphasised this point in the seminar. Her company had installed some quality-control software on their computers. This software had been written to use "all the available data" in the manner I have just described. I repeat that it is, of course, very easy and not at all tedious for a computer to immediately recompute the control limits after each new reading arrives. The trouble was that the lady's process was slowly trending upward (which was a very undesirable state of affairs with her process) but the consequence of using that software was that the control limits *also* kept trending upward—and so she never obtained a value above the (current up-to-date) Upper Control Limit because it also kept moving further up and away! Her boss refused to consider any action unless the chart produced an officially out-of-control signal. So it was my poor delegate who was increasingly being blamed for the worsening behaviour of this process.
+
+On Day 7, Deming cited ["We installed quality control"]{style="color: blue"} as an ["Obstacle to the Transformation"]{style="color: blue"}. There's always more to learn!
+
+## 2. "Expected" values — the great misnomer!
+
+**NB** Some of the mathematical material on this topic and others in this Technical Section may be seen as overly basic by those who are experienced in Mathematical Statistics. But remember that this material is all written for a quite general audience—so feel free to skim over any of it that is already familiar to you.
+
+### Some more notation (mathematical shorthand) {.unnumbered}
+
+Let's start by revisiting the development of the two illustrations on pages 37–42 in Part D of (a) tossing two coins and counting the number of Heads and of (b) throwing three dice and counting the number of sixes. I said there that these were simple examples of what are known as *binomial* distributions. In the final section of these Optional Extras I shall develop some main ideas about the whole family of binomial distributions.
+
+We also saw that, with the usual symmetry assumptions (i.e. a 50-50 chance of Head or Tail at each toss of a coin and a 1 in 6 chance of getting a six when a die in thrown), we finished up with the following probability distributions:
+
+$$\begin{aligned}
+\text{Probability of no Heads} &= \tfrac{1}{4} \\
+\text{Probability of 1 Head and 1 Tail} &= \tfrac{1}{2} \\
+\text{Probability of 2 Heads} &= \tfrac{1}{4}
+\end{aligned}$$
+
+and
+
+$$\begin{aligned}
+\text{Probability of 0 sixes} &= \tfrac{125}{216} & \text{Probability of 1 six} &= \tfrac{75}{216} \\
+\text{Probability of 2 sixes} &= \tfrac{15}{216} & \text{Probability of 3 sixes} &= \tfrac{1}{216} .
+\end{aligned}$$
+
+We then moved on to expressing the mean $\mu$ and the variance $\sigma^2$ of the first of these distributions as
+
+$$\mu = 0 \times \tfrac{1}{4} + 1 \times \tfrac{1}{2} + 2 \times \tfrac{1}{4} = 1$$
+
+and
+
+$$\sigma^2 = (0-1)^2 \times \tfrac{1}{4} + (1-1)^2 \times \tfrac{1}{2} + (2-1)^2 \times \tfrac{1}{4} = \tfrac{1}{2} .$$
+
+If you then carried out the voluntary exercise on page 42 of computing the mean and variance of the second distribution, this is what you should have obtained:
+
+$$\mu = 0 \times \tfrac{125}{216} + 1 \times \tfrac{75}{216} + 2 \times \tfrac{15}{216} + 3 \times \tfrac{1}{216} = \tfrac{1}{2}$$
+
+and
+
+$$\begin{aligned}
+\sigma^2 &= \left(0 - \tfrac{1}{2}\right)^2 \times \tfrac{125}{216} + \left(1 - \tfrac{1}{2}\right)^2 \times \tfrac{75}{216} + \left(2 - \tfrac{1}{2}\right)^2 \times \tfrac{15}{216} + \left(3 - \tfrac{1}{2}\right)^2 \times \tfrac{1}{216} \\
+&= \left(-\tfrac{1}{2}\right)^2 \times \tfrac{125}{216} + \left(\tfrac{1}{2}\right)^2 \times \tfrac{75}{216} + \left(\tfrac{3}{2}\right)^2 \times \tfrac{15}{216} + \left(\tfrac{5}{2}\right)^2 \times \tfrac{1}{216}
+\end{aligned}$$
+
+which, after some careful arithmetic, comes out as $\sigma^2 = \tfrac{5}{12}$.
+
+If we denote the random variable concerned in each case by $X$ then we have been calculating $\mu$ and $\sigma^2$ as
+
+$$\mu = \text{the sum of all values of } \{x \text{ multiplied by the probability that } X = x\}$$
+
+and
+
+$$\sigma^2 = \text{the sum of all values of } \{(x - \mu)^2 \text{ multiplied by the probability that } X = x\} .$$
+
+As you might suspect, there exists some mathematical shorthand for such expressions. Typically it's
+
+$$\mu = \sum x \cdot \mathrm{Prob}(X = x) \qquad \text{and} \qquad \sigma^2 = \sum (x - \mu)^2 \cdot \mathrm{Prob}(X = x) .$$
+
+Obviously enough, there I have abbreviated "the probability of" by "Prob( )". And, as you can see, "$\Sigma$" is shorthand for "the sum of all values of". (Confusingly, $\Sigma$ is actually the *capital* Greek letter "sigma"!) Further, because "*x*" is the mathematician's favourite letter and so is likely to appear in many such expressions, in order to avoid yet further confusion I am now abbreviating "multiplied by" by just a simple dot rather than the usual multiplication sign which, of course, looks very much like the letter *x*! Indeed, often the dot is omitted as long as that doesn't cause any ambiguity. All of this is very common notation in the books, and I have introduced it here since we shall need it in some of what follows.
+
+### "Expected" values {.unnumbered}
+
+As you know, a concept that we have used quite a lot in Parts C and D is that of what happens "in the long term" when we consider random samples getting larger and larger, in particular "long-term average values" and "long-term proportions". We developed the idea of the probability of an event as being the long-term proportion of times that the specified event occurs when considering random samples of, say, trials of some operation or procedure. Or if we measure or count something—let's denote it by $X$ (again, the mathematician's favourite letter!)—then the long-term average $\bar{X}$ of the recorded values of $X$ gives us the "true mean" $\mu$ of $X$'s probability distribution which, as we have now seen, can be expressed as
+
+$$\mu = \sum x \cdot \mathrm{Prob}(X = x) .$$
+
+And then we also had the variance $\sigma^2$ expressed as $\sum (x - \mu)^2 \cdot \mathrm{Prob}(X = x) .$
+
+We shall make further use of this concept of long-term average values in this Technical Section. But "long-term average value" is also rather a mouthful. And so, not surprisingly, there's also a standard notation (shorthand) for that! The notation is "$\mathrm{E}[\ \,]$". So, for example, $\mu$ can now be expressed as $\mathrm{E}[X]$. Similarly, $\sigma^2$ can be expressed as $\mathrm{E}[(X - \mu)^2]$. This concept can be generalised to any so-called *function of X*, $g(X)$: say, such as $g(X) = X^2$ or $g(X) = (X + 1)(X + 2)$—remember the latter means $(X + 1)$ *multiplied by* $(X + 2)$. A "function" of $X$ simply means anything that can be evaluated once the value of $X$ is known. So then
+
+$$\mathrm{E}[g(X)] = \sum g(x) \cdot \mathrm{Prob}(X = x) .$$
+
+Unfortunately, that $\mathrm{E}[\ \,]$ notation is an abbreviation for surely one of the biggest misnomers in the whole subject of Statistics! It stands for "Expectation" or "Expected Value". What's unfortunate about that is that $\mathrm{E}[X]$ is very often either a very rare value or sometimes an *impossible* value of $X$, so it seems rather odd to then call it the Expected Value of $X$! The same unfortunate fact is also true for the Expected Value of most functions $g(X)$ of $X$.
+
+With a discrete distribution, sometimes $\mathrm{E}[X]$ is a possible value of $X$. For example, when we considered tossing two coins and counting the number of Heads, then $\mu$, i.e. $\mathrm{E}[X]$ (the long-term average value of $X$), turned out to be equal to 1. However, when we then moved on to considering the number of sixes when three dice were thrown, we had $\mathrm{E}[X]$ as being equal to $\tfrac{1}{2}$—hardly an "expected" value of a number which can actually only be 0, 1, 2 or 3! And if a random variable $X$ has a continuous probability distribution then we reached the conclusion in Part D that the probability of $X$ being equal to *any* specified value is zero—so, again, whatever $\mu$ turns out to be, it will hardly be an "expected" value of $X$!
+
+However, the language and the notation of expected values is so common—pretty much universal—that we are stuck with it. So let's get on and use it. As you will soon see, expected values (long-term average values) are very helpful in explaining some of the mysteries that have emerged both in the main text and earlier in these Optional Extras.
+
+### Combining expected values {.unnumbered}
+
+A straightforward yet vital property of expected values is that they are *additive*. If we express this property in terms of "long-term averages" you will soon see how straightforward it is. Suppose we are considering the sum of two random variables: $X + Y$. Then surely the long-term average value of $X + Y$ must be equal to the long-term average value of $X$ plus the long-term average value of $Y$. Think about it—how could it be otherwise? So simple, yet so incredibly useful: $\mathrm{E}[X+Y] = \mathrm{E}[X] + \mathrm{E}[Y]$. And it's not restricted to adding just two random variables together: the same thought-process works for the sum of 3 or 4 or any number of random variables—or, indeed, *functions* of random variables! It also includes subtraction rather than just addition: e.g. $\mathrm{E}[X-Y] = \mathrm{E}[X] - \mathrm{E}[Y]$.
+
+So, if expected values can be *added* together, perhaps a natural follow-on question is whether they can be straightforwardly *multiplied* together. That's not quite so straightforward: the answer is sometimes Yes and sometimes No. But, as an interim step, what happens if we want to find the expected value of some *multiple* of a random variable, i.e. what is $\mathrm{E}[cX]$ where $c$ is some constant value, e.g. 2? In this case there is no difficulty. Again thinking of long-term average values, it is surely obvious that if we double all of our sampled values of $X$ then we also double their average. Actually, we then could have used the additivity property to verify this particular case, i.e. $\mathrm{E}[2X] = \mathrm{E}[X+X] = \mathrm{E}[X] + \mathrm{E}[X] = 2\mathrm{E}[X]$. But the general result is true as well: $\mathrm{E}[cX]$ *is equal to* $c\mathrm{E}[X]$ for any value of $c$.
+
+But what about the expected value of the *product* of two random variables? ("Product" is the jargon for *multiplying* two or more things together.) So is $\mathrm{E}[XY]$ equal to $\mathrm{E}[X].\mathrm{E}[Y]$? In order to answer that question we need to introduce yet more statistical terminology, but at least in this case the statistical interpretations of the words used are pretty consistent with their ordinary English meanings. It is the concept of the *independence* or otherwise of two (or more) events. "Independence" of two events simply implies that the occurrence or non-occurrence of either event has absolutely no influence on the occurrence or nonoccurrence of the other one. The statistical definition of independence of two events $A$ and $B$ is simply that the probability of *both* events occurring is equal to the product of their individual probabilities, i.e. in shorthand, $\mathrm{Prob}(A \text{ and } B) = \mathrm{Prob}(A).\mathrm{Prob}(B)$; this is often called the "simple multiplication rule".
+
+Now, the fact that the statistical definition of independence of events is true of events that are truly independent of each other in the ordinary English sense of the word is so obvious that we have already used it several times in this material without comment! An early instance was in Part D near the bottom of page 41 where, having assumed that there was a one-in-six chance of a six showing when a die was thrown, we immediately deduced the probability distribution of the number of sixes showing when *three* dice were thrown. The first probability calculated there was of all three dice showing a six:
+
+$$\begin{aligned}
+\mathrm{Prob}(3 \text{ sixes}) &= \mathrm{Prob}(\text{six on the first die \emph{and} six on the second die \emph{and} six on the third die}) \\
+&= \mathrm{Prob}(\text{six on the first die}) . \mathrm{Prob}(\text{six on the second die}) . \mathrm{Prob}(\text{six on the third die}) \\
+&= \tfrac{1}{6} \times \tfrac{1}{6} \times \tfrac{1}{6} = \tfrac{1}{216} .
+\end{aligned}$$
+
+In other words, we were (quite reasonably!) *assuming* that the three events "six on the first die" and "six on the second die" and "six on the third die" were all independent of each other and thus implicitly using the multiplication rule for independent events.
+
+But back to the original question: is the expected value of the product of two (or more) random variables equal to the product of their individual expected values? I.e., in the case of two random variables, $X$ and $Y$, is $\mathrm{E}[XY]$ equal to $\mathrm{E}[X].\mathrm{E}[Y]$? As you might expect from the build-up, (a) there is an entirely analogous concept of the independence of *random variables* to the above concept of independence of *events*, and (b) the answer to the question about the expected value of a product of random variables is Yes if the random variables are independent (but otherwise No, except by an occasional fluke). If that seems obvious to you then you can move straight on to this page's final short paragraph. Otherwise, I'll sketch a proof for you.
+
+In order to prove this important multiplication rule for expected values, i.e. that if $X$ and $Y$ are *independent* random variables then $\mathrm{E}[XY] = \mathrm{E}[X].\mathrm{E}[Y]$, it's easiest to first verify it for a couple of very simple discrete random variables. This will show a pattern that is then easily extended to more general cases (although rather lengthy to write down).
+
+So let's suppose $X$ can take on just two possible values $x_1$ and $x_2$ with probabilities $p_1$ and $p_2$ respectively, and similarly $Y$ can take on just two possible values $y_1$ and $y_2$ with probabilities $q_1$ and $q_2$ respectively. Then, summing over all possible outcomes, we have
+
+$$\begin{aligned}
+\mathrm{E}[XY] &= \sum xy \cdot \mathrm{Prob}(X = x \text{ and } Y = y) \\
+&= x_1 y_1 \cdot \mathrm{Prob}(X = x_1 \text{ and } Y = y_1) + x_1 y_2 \cdot \mathrm{Prob}(X = x_1 \text{ and } Y = y_2) \\
+&\quad + x_2 y_1 \cdot \mathrm{Prob}(X = x_2 \text{ and } Y = y_1) + x_2 y_2 \cdot \mathrm{Prob}(X = x_2 \text{ and } Y = y_2)
+\end{aligned}$$
+
+which, if $X$ and $Y$ are *independent* random variables, can be rewritten
+
+$$\begin{aligned}
+&x_1 y_1 \cdot \mathrm{Prob}(X = x_1) . \mathrm{Prob}(Y = y_1) + x_1 y_2 \cdot \mathrm{Prob}(X = x_1) . \mathrm{Prob}(Y = y_2) \\
+&\quad + x_2 y_1 \cdot \mathrm{Prob}(X = x_2) . \mathrm{Prob}(Y = y_1) + x_2 y_2 \cdot \mathrm{Prob}(X = x_2) . \mathrm{Prob}(Y = y_2)
+\end{aligned}$$
+
+which can then be cleverly rewritten as
+
+$$\{ x_1 \cdot \mathrm{Prob}(X = x_1) + x_2 \cdot \mathrm{Prob}(X = x_2) \} . \{ y_1 \cdot \mathrm{Prob}(Y = y_1) + y_2 \cdot \mathrm{Prob}(Y = y_2) \} .$$
+
+Multiply out all the terms in that expression if you don't believe me! And this is indeed equal to $\mathrm{E}[X].\mathrm{E}[Y]$. As I said, that pattern of proof can be extended to *any* discrete probability distributions.
+
+The same result is true of *continuous* random variables. But, of course, then we cannot use that same method of verification. A similar approach to the proof *can* be developed but only in terms of the branch of Mathematics known as Calculus. So, as I do not intend to also attempt to provide you with a crash-course in Calculus, I'm afraid you'll just have to trust me!
+
+## 3. Proofs and uses of expected values
+
+There are quite a few little results and a couple of big ones in this section. The proof of later results often depends on one or more of the results proved earlier. So, to keep track, it will be wise for me to identify the results in a way that will enable you to easily trace back. I shall do that in red print on the right-hand side of the page.
+
+To begin with, let's restate the results about expected values derived in the previous section. First we had the additivity property. We started with the simplest result that, for any random variables $X$ and $Y$, we had $\mathrm{E}[X+Y] = \mathrm{E}[X]+\mathrm{E}[Y]$. I then pointed out that this also works with subtraction and can be extended to more than two random variables and even to functions of them. Here is a selection of simple additivity results:
+
+$$\begin{aligned}
+&\mathrm{E}[X+Y] = \mathrm{E}[X] + \mathrm{E}[Y]; \qquad \mathrm{E}[X-Y] = \mathrm{E}[X] - \mathrm{E}[Y]; \\
+&\mathrm{E}[X^2+Y^2] = \mathrm{E}[X^2] + \mathrm{E}[Y^2]; \qquad \mathrm{E}[X+Y+Z+\dots] = \mathrm{E}[X] + \mathrm{E}[Y] + \mathrm{E}[Z] + \dots
+\end{aligned} \tag*{\color{red}{\{E1\}}}$$
+
+It is worth emphasising that these results are entirely general: they apply whether *or not* the random variables are independent.
+
+Then we had the simple and pretty obvious result about a multiple of a random variable:
+
+$$\text{For any (constant) value } c, \ \mathrm{E}[cX] = c\,\mathrm{E}[X]. \tag*{\color{red}{\{E2\}}}$$
+
+Finally, we had the important multiplication rule:
+
+$$\text{If } X \text{ and } Y \text{ are \textit{independent} random variables then } \mathrm{E}[XY] = \mathrm{E}[X].\mathrm{E}[Y]. \tag*{\color{red}{\{E3\}}}$$
+
+Similarly to the additivity property, this is also extendable to more than two independent random variables.
+
+Next we shall derive some results about *variances*. As you will recall, the variance $\sigma^2$ of a random variable $X$ is defined as $\mathrm{E}[(X-\mu)^2]$ where $\mu = \mathrm{E}[X]$ (and remember that $\sigma$ itself is the *standard deviation*). Firstly, we'll find a useful alternative expression for $\sigma^2$.
+
+We have $\sigma^2 = \mathrm{E}[(X-\mu)^2]$ which, multiplying out $(X-\mu)^2$, gives
+
+$$\sigma^2 = \mathrm{E}[X^2 + \mu^2 - 2\mu X].$$
+
+Using both [{E1}]{style="color:#c0392b;"} and [{E2}]{style="color:#c0392b;"} and the obvious fact that the expected value of a constant is simply that constant, this gives
+
+$$\begin{aligned}
+\sigma^2 &= \mathrm{E}[X^2] + \mathrm{E}[\mu^2] - 2\mathrm{E}[\mu X] = \mathrm{E}[X^2] + \mu^2 - 2\mu . \mathrm{E}[X], \\
+\text{i.e. } \sigma^2 &= \mathrm{E}[X^2] + \mu^2 - 2\mu^2, \text{ which gives } \sigma^2 = \mathrm{E}[X^2] - \mu^2.
+\end{aligned} \tag*{\color{red}{\{V1\}}}$$
+
+Secondly, let's consider the variance of a multiple $cX$ of $X$. From [{E2}]{style="color:#c0392b;"} we know that $\mathrm{E}[cX] = c\,\mathrm{E}[X]$. So, using [{V1}]{style="color:#c0392b;"},
+
+$$\begin{aligned}
+\text{the variance of } cX &= \mathrm{E}[(cX)^2] - (\mathrm{E}[cX])^2 = c^2\mathrm{E}[X^2] - c^2(\mathrm{E}[X])^2 = c^2\bigl(\mathrm{E}[X^2] - (\mathrm{E}[X])^2\bigr) \\
+&= c^2\bigl(\mathrm{E}[X^2] - \mu^2\bigr) = c^2\sigma^2.
+\end{aligned} \tag*{\color{red}{\{V2\}}}$$
+
+This is, of course, consistent with the standard deviation being a measure of variability since, as you would expect, it gives the standard deviation of $cX$ as $c\sigma$.
+
+Next, variances also have an additivity property. However, it isn't as all-embracing as [{E1}]{style="color:#c0392b;"}: in general, it applies only to *independent* random variables. So if $X$ and $Y$ are independent random variables then, using all of [{E1}]{style="color:#c0392b;"}, [{E2}]{style="color:#c0392b;"}, [{E3}]{style="color:#c0392b;"} and [{V1}]{style="color:#c0392b;"} we have
+
+$$\begin{aligned}
+\text{the variance of } (X + Y) &= \mathrm{E}\bigl[\{(X+Y) - \mu'\}^2\bigr] \quad\text{where } \mu' = \mathrm{E}[X+Y] \\
+&= \mathrm{E}[X^2 + Y^2 + 2XY] - \{\mathrm{E}[X] + \mathrm{E}[Y]\}^2 \\
+&= \mathrm{E}[X^2] + \mathrm{E}[Y^2] + 2\mathrm{E}[XY] - \bigl\{\mathrm{E}[X]^2 + \mathrm{E}[Y]^2 + 2\mathrm{E}[X]\mathrm{E}[Y]\bigr\}
+\end{aligned}$$
+
+which, since $X$ and $Y$ are independent,
+
+$$\begin{aligned}
+&= \mathrm{E}[X^2] + \mathrm{E}[Y^2] + 2\mathrm{E}[X]\mathrm{E}[Y] - \bigl\{\mathrm{E}[X]^2 + \mathrm{E}[Y]^2 + 2\mathrm{E}[X]\mathrm{E}[Y]\bigr\} \\
+&= \mathrm{E}[X^2] + \mathrm{E}[Y^2] - \mathrm{E}[X]^2 - \mathrm{E}[Y]^2 \\
+&= \bigl(\mathrm{E}[X^2] - \mathrm{E}[X]^2\bigr) + \bigl(\mathrm{E}[Y^2] - \mathrm{E}[Y]^2\bigr)
+\end{aligned}$$
+
+$$\text{i.e. the variance of } (X + Y) = \text{the variance of } X + \text{the variance of } Y. \tag*{\color{red}{\{V3\}}}$$
+
+Similarly to [{E1}]{style="color:#c0392b;"}, this additivity property can be extended to three or more independent random variables.
+
+The purpose of producing all these relatively small results is to be able to prove some *big* results that have been quoted and used previously. The first of these provides the variance of the mean $\bar{X}$ of a random sample of $n$ values of the random variable $X$. As usual, we'll denote the mean and variance of $X$ by $\mu$ and $\sigma^2$.
+
+Previously we have regarded the fact that $\mathrm{E}[\bar{X}] = \mu$ as obvious directly through our considerations of long-term sampling. We could now instead effectively prove it using [{E1}]{style="color:#c0392b;"}, [{E2}]{style="color:#c0392b;"} and [{E3}]{style="color:#c0392b;"}:
+
+$$\mathrm{E}[\bar{X}] = \mathrm{E}\!\left[\tfrac{1}{n}\sum X\right] = \tfrac{1}{n}\mathrm{E}\!\left[\sum X\right] = \tfrac{1}{n}\sum \mathrm{E}[X] = \tfrac{1}{n}\sum \mu.$$
+
+Remembering that the sum is over $n$ terms, this is therefore simply $\tfrac{1}{n} n\mu = \mu$.
+
+However, rather than using the shorthand summation symbol $\sum$, I suspect that such lines of mathematics might be more easily understood by reverting to longhand! So let's denote our sample by $X_1, X_2, \dots, X_n$ and rewrite the above as
+
+$$\begin{aligned}
+\mathrm{E}[\bar{X}] &= \mathrm{E}\!\left[\tfrac{1}{n}(X_1 + X_2 + \dots + X_n)\right] = \tfrac{1}{n}\mathrm{E}[X_1 + X_2 + \dots + X_n] = \tfrac{1}{n}\bigl(\mathrm{E}[X_1] + \mathrm{E}[X_2] + \dots + \mathrm{E}[X_n]\bigr) \\
+&= \tfrac{1}{n}(\mu + \mu + \dots + \mu) = \tfrac{1}{n} n\mu = \mu.
+\end{aligned} \tag*{\color{red}{\{E4\}}}$$
+
+Now let's move on to the variance of $\bar{X}$. Having obtained these recent results, this now turns out to be very easy to find by using [{V2}]{style="color:#c0392b;"} and [{V3}]{style="color:#c0392b;"}. Abbreviating "the variance of" by "var", and remembering that $X_1, X_2, \dots, X_n$ are all independent random variables having variance $\sigma^2$, we have
+
+$$\begin{aligned}
+\mathrm{var}(\bar{X}) &= \mathrm{var}\!\left\{\tfrac{1}{n}(X_1 + X_2 + \dots + X_n)\right\} = \tfrac{1}{n^2}\mathrm{var}(X_1 + X_2 + \dots + X_n) \\
+&= \tfrac{1}{n^2}\bigl\{\mathrm{var}(X_1) + \mathrm{var}(X_2) + \dots + \mathrm{var}(X_n)\bigr\} \\
+&= \tfrac{1}{n^2}(\sigma^2 + \sigma^2 + \dots + \sigma^2) = \tfrac{1}{n^2} n\sigma^2 = \tfrac{1}{n}\sigma^2.
+\end{aligned}$$
+
+Thus we have proved the very important result (as used, in particular, in the statement of the Central Limit Theorem in terms of $Z$ on page 51) that
+
+$$\text{the variance of } \bar{X} \text{ is } \tfrac{1}{n}\sigma^2. \tag*{\color{red}{\{V4\}}}$$
+
+Finally as far as variances are concerned, let's return to that mystery of why, given a random sample of size $n$, the sample variance $s^2$ was defined with the divisor $n-1$ rather than $n$ as might have been expected, i.e.
+
+$$s^2 = \frac{1}{n-1}\sum (X - \bar{X})^2.$$
+
+Let's now see why it is defined that way.
+
+Clearly, if we knew the value of $\mu$, it would have made sense to use it in the expression for the sample variance rather than $\bar{X}$. $\bar{X}$ is there because, in general, we *wouldn't* know the value of $\mu$. Now, the role that we want $s^2$ to play is as an *estimator* of the unknown value of $\sigma^2$, in the same way that we use $\bar{X}$ as an *estimator* of the unknown value of $\mu$. The difference between them is that, whereas with the "obvious" estimator of $\mu$, i.e. $\bar{X}$, we know it is true that $\mathrm{E}[\bar{X}] = \mu$, the expected value of the "obvious" estimator of $\sigma^2$ turns out to be slightly smaller than $\sigma^2$. Very annoying! What *would* have been true is that, in the unlikely event that we knew the value of $\mu$ and therefore were able to use it when estimating $\sigma^2$, all would have been well: yes, the expected value of the "obvious" estimator of $\sigma^2$ in *those* unlikely circumstances would indeed have been $\sigma^2$. That's very simple to verify, so let's do that first.
+
+$$\begin{aligned}
+\mathrm{E}\!\left[\tfrac{1}{n}\sum (X - \mu)^2\right] &= \tfrac{1}{n}\mathrm{E}\!\left[\sum (X - \mu)^2\right] = \tfrac{1}{n}\mathrm{E}\bigl\{[(X_1-\mu)^2] + [(X_2-\mu)^2] + \dots + [(X_n-\mu)^2]\bigr\} \\
+&= \tfrac{1}{n}\bigl(\mathrm{E}[(X_1-\mu)^2] + \mathrm{E}[(X_2-\mu)^2] + \dots + \mathrm{E}[(X_n-\mu)^2]\bigr) \\
+&= \tfrac{1}{n}(\sigma^2 + \sigma^2 + \dots + \sigma^2) \\
+&= \sigma^2.
+\end{aligned}$$
+
+However, let's now investigate $\mathrm{E}\!\left[\sum (X - \bar{X})^2\right]$ without any divisor for the moment.
+
+A useful trick here is to subtract and then add back $\mu$ within the brackets, like this:
+
+$$\begin{aligned}
+\sum (X - \bar{X})^2 &= \sum (X - \mu - \bar{X} + \mu)^2 = \sum \{(X - \mu) - (\bar{X} - \mu)\}^2 \\
+&= \sum \{(X-\mu)^2 + (\bar{X}-\mu)^2 - 2(X-\mu)(\bar{X}-\mu)\}.
+\end{aligned}$$
+
+I think it would be wise to return to longhand to sort this out. It's the amateur way, but also the safer way! So
+
+$$\begin{aligned}
+\sum \{(X-\mu)^2 + (\bar{X}-\mu)^2 &- 2(X-\mu)(\bar{X}-\mu)\} \\
+= \ &(X_1-\mu)^2 + (\bar{X}-\mu)^2 - 2(\bar{X}-\mu)(X_1-\mu) \\
++ \ &(X_2-\mu)^2 + (\bar{X}-\mu)^2 - 2(\bar{X}-\mu)(X_2-\mu) \\
++ \ &\quad\dots \\
++ \ &(X_n-\mu)^2 + (\bar{X}-\mu)^2 - 2(\bar{X}-\mu)(X_n-\mu).
+\end{aligned}$$
+
+Let's add up these terms column by column. The first column is $(X_1-\mu)^2 + (X_2-\mu)^2 + \dots + (X_n-\mu)^2$. The second column's terms are all the same, and so their sum is simply $n(\bar{X}-\mu)^2$. The final column has $2(\bar{X}-\mu)$ as a factor throughout, and so the sum is $-2(\bar{X}-\mu)(X_1 + X_2 + \dots + X_n - n\mu)$.
+
+And now let's find the expected value of $\sum (X - \bar{X})^2$. It's the sum of the expected values of all those terms.
+
+The expected value of the first column is $\mathrm{E}[(X_1-\mu)^2] + \mathrm{E}[(X_2-\mu)^2] + \dots + \mathrm{E}[(X_n-\mu)^2]$. But every one of these $n$ terms is simply $\sigma^2$, and so therefore their sum is $n\sigma^2$. Next, the expected value of the second column is $\mathrm{E}[n(\bar{X}-\mu)^2] = n\mathrm{E}[(\bar{X}-\mu)^2]$. But that's just $n$ times the variance of $\bar{X}$ which we know from [{V4}]{style="color:#c0392b;"} to be $\sigma^2/n$. So the expected value of the second column is just $\sigma^2$. The sum of the terms in the third column includes $X_1 + X_2 + \dots + X_n$, which is, of course, equal to $n\bar{X}$. So the total in the third column can now be expressed as $-2(\bar{X}-\mu)(X_1 + X_2 + \dots + X_n - n\mu) = -2(\bar{X}-\mu)(n\bar{X} - n\mu)$, i.e. simply $-2n(\bar{X}-\mu)^2$. But the expected value of this is clearly $-2n$ times the variance of $\bar{X}$, so this simply boils down to $-2\sigma^2$. The expected value of the whole expression is therefore $n\sigma^2 + \sigma^2 - 2\sigma^2 = (n-1)\sigma^2$. That's why the sample variance is defined as
+
+$$s^2 = \frac{1}{n-1}\sum (X - \bar{X})^2;$$
+
+it's so that $\mathrm{E}[s^2] = \sigma^2$. As we saw on page 65, an estimator whose expected value is equal to the thing that it is trying to estimate is known as an *unbiased estimator*. Mathematical statisticians are understandably keen to have unbiased estimators—as the name they've given it suggests! And, in fact, it is the aim to devise *unbiased estimators* which underlies most of the probability-momentous facts that have been quoted both in the main text and earlier in these Optional Extras, particularly involving those "control-chart constants". In light of that, you'll take another look in the next section at all of the control-chart constants that we've seen.
+
+However, to conclude here, there was yet another example of the use of an unbiased estimator in Part B of these Optional Extras: see page 20. It was adjustment of the MAD to make it comparable with, i.e. on the same scale as, the standard deviation. Yes, as indicated there, in the same way that we now know that $s^2$ is an unbiased estimator of $\sigma^2$, we need to scale up the MAD by a factor of 1.253 in order that its square also becomes an unbiased estimator of $\sigma^2$. The only difference is that, whereas the divisor of $n-1$ always serves the purpose using $s^2$, the computation of that 1.253 factor is derived using the normal distribution assumption, as is the case with almost all of the control-chart constants. This is for the usual reason that the mathematics just can't be carried out without some such assumption.
+
+There are two "asides" worth mentioning here.
+
+First, the fact that $s^2$ is an *unbiased* estimator of $\sigma^2$ might sound impressive. But, actually, unbiasedness is *not* a particularly strong property for an estimator (although Mathematical Statisticians are pretty keen on it). All it says is, of course, that the estimator gets closer and closer to the thing being estimated as $n \to \infty$. But our sample sizes $n$ are usually rather smaller than that! The property of unbiasedness says *nothing* about how close the estimator is likely to be to the item of interest when using ordinary sample sizes. Nevertheless I guess that, if you were fortunate enough to be dealing with very large samples, you would naturally regard it as beneficial for the unbiasedness criterion to be satisfied rather than for the estimator to get closer and closer to something else in the long term!
+
+Secondly, the fact that $s^2$ is an unbiased estimator of $\sigma^2$ does *not* imply that $s$ is an unbiased estimator of $\sigma$. Unfortunate as it may be, the property of unbiasedness does not carry over when operations such as taking the square root or squaring an estimator are involved. The fact that the sample variance has long been defined in such a way that the sample standard deviation is *not* in general an unbiased estimator for $\sigma$ is yet a further indication of the Mathematical Statistician's preference for the variance rather than the standard deviation, despite the fact that it is the standard deviation which is the version that directly reflects *variability*, i.e. the characteristic in which we are interested. However, when we now move on to looking at control-chart constants, the criterion used *is* that they are based on unbiased estimators for $\sigma$ rather than for $\sigma^2$—a contrast which I suggest is further evidence of how control charts have been developed according to what makes the better sense in practice rather than simply following mathematical tradition.
+
+## 4. Why are control-chart constants what they are? {.unnumbered}
+
+Let's run one-by-one through the various control-chart constants that we have seen.
+
+Our first control charts were those associated with data from the Experiment on Red Beads. The details of why the control limits were computed in the particular way used there will be explained in the final part of this Technical Section.
+
+Then on Day 3 we studied the type of control chart more generally used to analyse one-at-a-time data: the moving-range method using the familiar number 2.66. On page 65 we saw that there is a direct connection between the 2.66 and the value of $h$ for $n=2$ in the table on page 20. So let's move straight on to considering that quantity.
+
+$h$ was introduced on page 20 as the conversion factor by which a subgroup range $R$ needs to be divided in order to scale it down to a number which is comparable to the standard deviation (when the latter exists). The same is true with the average range $\bar{R}$. As with all of the control-chart constants to be covered in this section, the values of $h$ are derived under the assumption that the data are normally distributed (in which case, of course the standard deviation *does* exist). The reasons for this are the same as usual: (a) the mathematics cannot be carried out without some such assumption, and (b) the values of $h$ derived using that assumption have been found to be pretty useful in practice. Following what has recently been discussed, you can probably recall the criterion we use to derive the values of $h$. They are the values that result in $R/h$, and equivalently $\bar{R}/h$, being *unbiased* estimators of $\sigma$, i.e. such that $\mathrm{E}[R/h] = \sigma$, where $\sigma$ is the standard deviation of the assumed normal distribution.
+
+We then moved on to consider situations where we have subgrouped (a-few-at-a-time) data. This is where the $\bar{X}$-$R$ chart is commonly used, comprising both the $\bar{X}$-chart and the $R$-chart. These two charts, rather obviously, have their Central Lines at $\bar{\bar{X}}$ and $\bar{R}$ respectively, but how far away from them are the control limits? In both cases the answer is in the form of a multiple of $\bar{R}$. In the case of the $\bar{X}$-chart the multiplier is $H$, tabulated on page 21: the control limits are placed at a distance of $H\bar{R}$ either side of the Central Line.
+
+As a matter of fact, with what you know now, you could compute the values of $H$ yourself! Using Shewhart's 3σ-guidance along with the knowledge that the standard deviation of $\bar{X}$ is $\sigma/\sqrt{n}$ and that $\bar{R}/h$ is an unbiased estimator of $\sigma$, it turns out that
+
+$$H = \frac{3}{h\sqrt{n}}.$$
+
+But it would be tedious to have to work that out every time you wanted to construct an $\bar{X}$-chart! This is why the table of values of $H$ was included.
+
+As mentioned above, the Central Line of the $R$-chart is at $\bar{R}$ and the Upper Control Limit is another multiple of $\bar{R}$. The multiple this time is $h_2$ which is tabulated on page 22. The derivation of $h_2$ follows similar lines as previously. First, the standard deviation of $R$ is computed in terms of $\sigma$, then an unbiased estimator of $\sigma$ based on $\bar{R}$ is derived, and then that is multiplied by 3 following Shewhart's guidance. I trust you are glad that, long ago, other people did all that work for you!
+
+There is one final type of control chart that I would like to mention to you. This takes us back to one-at-a-time data and is an interesting variant on the familiar chart based on control limits that are placed a distance of $2.66\,\overline{MR}$ either side of $\bar{X}$. An annoying problem that can sometimes occur, especially if you are using a relatively short baseline, is that there might be just one item of data in the baseline which is substantially higher or lower than all the rest of the baseline data. For ease of description, let's suppose it's higher. Unless this is either the very first or the very last piece of data in the baseline, it will result in *two* of the moving ranges (one to its left and the other to its right) becoming considerably greater than all the rest. This will have two consequences: one is that the Central Line $\bar{X}$ will be quite a lot higher than it would have been otherwise, and the other is that the control limits will be considerably further apart. In particular, this "double whammy" will put the UCL *much* higher than otherwise. Of course, if that troublesome item is *very* much higher than everything else then it may still finish up above the UCL despite the amount by which the latter has been raised, in which case one would have no hesitation in regarding it as a special-cause signal. But, quite often, the troublesome item will have had such a strong influence on the UCL that it finishes up below it. And then it becomes difficult to interpret.
+
+In this sort of case, the sample mean cannot really do a very good job of genuinely reflecting the typical kind of values being recorded: it will still be a lot lower than the awkward value, but it will now be noticeably higher than all the rest of the data. In such a case (both with control-chart work and in other analyses) an alternative measure of "average" is sometimes used—one which isn't so prone to those effects. This is the *median* of the data. Imagine that your sample of data is rearranged from lowest value to highest value. Then, if the sample size $n$ is an odd number, the median is defined as the central number in that rearranged list; whereas if $n$ is even then the median is defined as halfway between the two middle numbers. One can rearrange the moving ranges in just the same way and thus produce the *median moving range*. It's easy to see that both the sample's median and its median moving range will be largely unaffected by the nuisance value: that high value will be at the top end of the ordered list of data, a long way away from affecting the median. Similarly, the *two* unusually high moving ranges will be at the top end of the ordered list of moving ranges, thus again leaving the median moving range essentially unaffected by those exceptionally high moving ranges. These facts are the motivation for sometimes using the alternative type of control chart which has the sample median as its Central Line, and with control limits computed using the median moving range.
+
+The underlying theory about medians is, as you would expect, different from that about means. The consequence is that we will need to use a different multiplier from the 2.66 when computing the control limits for this alternative type of control chart. Again the theory assumes a normal distribution and again the resulting method is consistent with (a) Shewhart's 3σ-guidance and (b) using an unbiased estimator of $\sigma$. With this estimator being based on the *median moving range* rather than the *mean moving range*, that different multiplier is 3.145. So the control limits are set at a distance of 3.145 times the median moving range either side of the Central Line (which, recall, is now placed at the sample median).
+
+As usual, there are "pros and cons" regarding this alternative method. I have already discussed the important "pro": its relative resistance to the effect of a "nuisance value" in the data. The main "con" that I have found when using this method is that (except when there are such nuisance values) the control limits tend to be further apart than in the usual method, thus reducing the chart's ability to signal *real* special causes. This effect is not huge, but I found it to be more than a little annoying. I therefore finished up using this alternative method only when I was analysing a process that had some tendency to produce nuisance values, particularly if I was using a relatively short baseline. So my suggestion is for you to at least keep this method at the back of your mind or, perhaps preferably, try it out on some of your own data in order to get a "feel" for whether it might be useful to you or not. It's just as mathematically "valid" as the standard method, so you are free to judge whether it is the pro or the con that appears to be the more important as regards analysing your own data.
+
+::: {.callout-note appearance="simple"}
+Just in case the similarity had occurred to you, there is no connection between that constant 3.145 and the one usually represented by the Greek letter π ("pi") which is used e.g. to compute the circumference of a circle. The fact that they are virtually equal is just a fluke. However, if you are familiar with π then you could, of course, use it as a handy reminder of the sort of constant to use when constructing a control chart for medians—the difference between them will hardly be noticed!
+:::
+
+## 5. More on the binomial and normal distributions {.unnumbered}
+
+Both the binomial and normal distributions were introduced in Part D. The normal distribution was covered quite fully, so there is not much to add here: I shall simply show you how to use commonly-available tables to find probabilities.
+
+However, only two very simple binomial distributions were introduced in Part D: those involving the count of Heads when two coins are tossed and then the number of sixes when three dice are thrown. Here we shall firstly tackle binomial distributions more generally.
+
+### The binomial distribution {.unnumbered}
+
+If it is a while since you read that material on the simple binomial distributions at the beginning of Part D then I suggest, in order to put yourself back in the picture, you skim through those first few pages (from page 37) now before continuing with this more general treatment.
+
+As in those introductory cases, binomial distributions are concerned with a number of repeated independent trials of some procedure or operation etc in each of which we will classify the outcome in just one of two ways (we had either Head or Tail in the first illustration and either a six or not a six in the second). I'll follow fairly common practice in the books by referring to these two possibilities as Success and Failure respectively (although, e.g. in some inspection procedure, "Success" might refer to "defective" and "Failure" to "non-defective"). "Successes" are simply what we decide to count.
+
+The big general question to tackle now is as follows. If we denote the probabilities of Success or Failure at each trial by $p$ and $q$ respectively (where obviously $q = 1 - p$), and we carry out $n$ independent trials of the operation, etc, what is the probability that the total number $X$ of Successes obtained is equal to 0 or 1 or 2 or any specified number up to the maximum of $n$?
+
+So, in shorthand, how can we compute $\mathrm{Prob}(X = x)$ for $x = 0, 1, 2, \ldots, n$? Referring back to those early pages of Part D, there are two steps in this computation: one is easy but the other one can be quite difficult. The easy step is to compute the probability of the number of Successes as being equal to $x$ when *those Successes occur in specific positions* in the sequence of Successes and Failures. So suppose the following sequence contains a total of $n$ letters comprising $x$ S's and $n - x$ F's:
+
+$$\text{SFFSSFSFFF} \ldots \text{FSFFFSSF}$$
+
+That is, the first trial produced a Success, the second and third trials produced Failures, and so on. Seeing that these are *independent* trials with fixed probabilities of Success and Failure, we can use the simple multiplication rule (page 77) many times over to obtain the probability:
+
+$$\mathrm{Prob}(\text{SFFSSFSFFF} \ldots \text{FSFFFSSF}) = p^x q^{n-x}.$$
+
+The same will, of course, be true for *any* particular sequence $x$ S's and $n - x$ F's. Therefore the next question is: how many such sequences are there? Ah: that's the tricky bit! It was easy enough with those simple introductory illustrations on the early pages of Part D, but it's not so easy in general. Now, *I* know the answer to that question, but how can I verify the answer for you?
+
+The best way to do this that I can think of is to employ a very useful technique called "mathematical induction". Mathematical induction works in a case such as this where we are trying to prove that a result is true for *all* values of $n$ when (a) it's easy to prove it for some small starting-value of $n$, usually 0 or 1, and then (b) if we assume it to be true for a particular value of $n$ then we can subsequently *prove* it to be true for $n+1$. I believe you'll soon see the logic!
+
+Let's say (a) it's easy to see that the result is true for $n=1$. Then we no longer have to *assume* it's true for $n=1$: we *know* it's true! But that means we can use (b) to *prove* it true for $n=2$. But then we no longer have to *assume* it's true for $n=2$: we *know* it's true! But that means we can use (b) to *prove* it true for $n=3$. And so on, and so on, and … .
+
+So what *is* this result I want to prove to you? For the time being I'll use the letter $r$ rather than the letter $x$ since otherwise there's a big danger of getting confused between the letter $x$ and a multiplication sign. The result to be proved is that the number of sequences containing $r$ S's and $n - r$ F's is
+
+$$\frac{n \times (n-1) \times \ldots \times (n-r+2) \times (n-r+1)}{r \times (r-1) \times \ldots \times 2 \times 1} \; = \; \binom{n}{r}.$$
+
+The "shorthand" for this big fraction that I've shown on the right-hand side is known as a *binomial coefficient*. Notice that there are exactly $r$ terms in both the top and bottom of that big fraction. Let me show that to you by spreading out the denominator like this:
+
+$$\frac{n \times (n-1) \times \ldots \times (n-r+2) \times (n-r+1)}{r \times (r-1) \times \ldots \times \;\; 2 \;\; \times \;\; 1}.$$
+
+Some particular values of this expression are easy to check. For example, if $r = 1$ then we get just the single term $n$ at the top and the single term 1 at the bottom, with the answer $n$. That's obviously correct since the one S can be anywhere in the available $n$ places, thus corresponding to $n$ sequences altogether. A further easy check is with $r = n$, in which case the top and the bottom of this fraction are identical, thus giving the answer 1. That's also obviously true, since there's only one sequence consisting entirely of S's. There is just one exceptional case where the big fraction evidently disappears! That's when $r = 0$. But that corresponds to when there are no S's at all in the sequence, i.e. we have all F's. There is obviously only one such sequence, and so the binomial coefficient is *defined* as being equal to 1 when $r = 0$.
+
+So now, moving on to the induction process, let's assume that the above binomial coefficient is the correct number of sequences of length $n$ which contain $r$ S's (for all possible values of $r$) and see what happens with sequences of length $n+1$. There are exactly the right number of such sequences with length $n+1$ to be filled with either an S or an F. Let's suppose first that it's an S. Then, in order for there to be $r$ S's in the sequence of length $n+1$, there must be $r-1$ S's in the first $n$ places. The number of such sequences is of course
+
+$$\binom{n}{r-1} \; = \; \frac{n \times (n-1) \times (n-2) \times \ldots \times (n-r+2)}{(r-1) \times (r-2) \times \ldots \times \;\; 2 \;\; \times \;\; 1}.$$
+
+Now suppose the extra place at the right-hand end is an F. Then, for there to be $r$ S's in the sequence of length $n+1$, there must be $r$ S's in the first $n$ places. The number of such sequences is, of course,
+
+$$\binom{n}{r} \; = \; \frac{n \times (n-1) \times \ldots \times (n-r+2) \times (n-r+1)}{r \times (r-1) \times \ldots \times \;\; 2 \;\; \times \;\; 1}.$$
+
+So now we hope that adding together these two binomial coefficients will give us a total which is equal to the binomial coefficient corresponding to the number of sequences of length $n+1$ with $r$ S's. Let's see. We have
+
+$$\frac{n \times (n-1) \times (n-2) \times \ldots \times (n-r+2)}{(r-1) \times (r-2) \times \ldots \times 2 \times 1} \;+\; \frac{n \times (n-1) \times \ldots \times (n-r+2) \times (n-r+1)}{r \times (r-1) \times \ldots \times \;\; 2 \;\; \times \;\; 1}$$
+
+$$= \; \frac{n \times (n-1) \times (n-2) \times \ldots \times (n-r+2)}{r \times (r-1) \times (r-2) \times \ldots \times 2 \times 1}\{r + (n-r+1)\}$$
+
+$$= \; \frac{n \times (n-1) \times (n-2) \times \ldots \times (n-r+2)}{r \times (r-1) \times (r-2) \times \ldots \times 2 \times 1}(n+1) \; = \; \binom{n+1}{r}.$$
+
+It works! All the induction proof needs now is a starting value for $n$. And $n = 1$ is a good choice! For then there are just two possible sequences: the one comprising a single S and the one comprising a single F. The latter is the exceptional case in the middle of the previous page, and the former is the case where both $r$ and $n$ are equal to 1, also covered on the previous page. So the proof that the number of sequences containing $r$ S's and $n - r$ F's is given by the binomial coefficient as defined opposite is now complete.
+
+Therefore, combining both the initial easy part of the above work and now the second rather more demanding part, we have the complete statement of the probability distribution for the number $X$ of Successes in $n$ independent trials as
+
+$$\mathrm{Prob}(X = x) \; = \; \binom{n}{x} p^x q^{n-x} \quad \text{for } x = 0, 1, 2, \ldots, n.$$
+
+Hooray! Now, that's all very well, but that will still involve a pretty unpleasant amount of arithmetic to actually get numerical values for all those probabilities! Also, the prospect of computing the mean and variance of the distribution using the formulae
+
+$$\mu = \sum x \cdot \mathrm{Prob}(X = x) \quad \text{and} \quad \sigma^2 = \sum (x - \mu)^2 \cdot \mathrm{Prob}(X = x)$$
+
+as shown at the top of page 76 is also not particularly appealing! Let's deal with this latter issue first.
+
+Fortunately, we can bypass those formulae by taking advantage of the additivity properties for both means and variances proved in Section 3 (pages 79 and 80). $X$, the number of successes, can of course be considered as
+
+$$X = X_1 + X_2 + \ldots + X_n$$
+
+where $X_1 = 1$ or 0 according as the first trial yields S or F respectively, $X_2 = 1$ or 0 according as the second trial yields S or F respectively, and so on through all the $n$ trials. So, in fact, $X_1, X_2, \ldots, X_n$ are all independent simple binomial random variables with $n=1$.
+
+There's no difficulty in calculating the mean and variance of each of those! We have $\mathrm{Prob}(X_1 = 0) = q$ and $\mathrm{Prob}(X_1 = 1) = p$, and so clearly we have $\mathrm{E}[X_1] = p$, as is also true of $\mathrm{E}[X_2], \mathrm{E}[X_3], \ldots, \mathrm{E}[X_n]$. Thus $\mu = \mathrm{E}[X] = np$. The variance is almost as easy. Recall the useful result (V1) on page 79: $\sigma^2 = \mathrm{E}[X^2] - \mu^2$, with both possible values of $X_1^2$ being fortunately *equal* to $X_1$! That being the case, $\mathrm{E}[X_1^2] = \mathrm{E}[X_1] = p$. So this gives us the variance of $X_1$ as $\mathrm{E}[X_1^2] - \{\mathrm{E}[X_1]\}^2 = p - p^2 = p(1-p) = pq$. The same will be true of $X_2, \ldots, X_n$. And so finally we can use the additivity property for variances (see (V3) on page 80) to obtain the variance of $X$, i.e. $\sigma^2$, as $npq$. Those important results are worth displaying:
+
+::: {style="text-align: center;"}
+For the binomial distribution as defined above, $\mu = np$ and $\sigma^2 = npq = np(1-p)$.
+:::
+
+Before returning to the matter of how to easily obtain numerical values for all those binomial probabilities (binomial coefficients and all!) there is one loose end to tidy up. So in the two Optional Extras we have revisited all of the various control-chart constants and types of control limits that we had encountered during the course—except for just one case. That exception is the control limits used on the control charts constructed to examine data from the Red Beads Experiment. On Day 2 page 20 we saw:
+
+::: {.technical_aid}
+**Technical Aid 1**
+
+One of the earliest applications of Shewhart's invention of the control chart was for batch inspection of mass production processes. In such inspection, samples (batches) of $n$ items from the process's output are regularly drawn and inspected, and the number $X$ of defective items recorded. After several samples have been inspected, the control limits are computed as follows.
+
+Using the statistician's traditional shorthand for averages, $\bar{X}$ represents the average number of defectives found in the samples so far, while $\bar{p} = \bar{X} \div n$ is the average *proportion* of defectives in the samples. Shewhart's guidance about control limits then leads to the upper and lower limits being placed at
+
+$$\text{UCL} = \bar{X} + 3\sqrt{\bar{X}(1-\bar{p})} \quad \text{and} \quad \text{LCL} = \bar{X} - 3\sqrt{\bar{X}(1-\bar{p})}.$$
+:::
+
+We have just shown that, for a binomial distribution, $\sigma^2 = np(1-p)$ and, of course, saying that the standard deviation $\sigma = \sqrt{np(1-p)}$. So the distance from the Central Line shown in that Technical Aid takes the form of Shewhart's "3σ" except that it uses an *estimate* of σ since $p$ is not known. Further, this is a similar kind of argument to that used for the other various types of control limits we have seen: indeed, an exact value of "σ" often doesn't even exist in practice as the conventional statistician understands it. But it does here. And when it does exist then what we use is a sensible unbiased estimator for it. As I have said before, this is not an exact science!
+
+In fact, in this case, a further approximation has been made. If you think about it you will realise that $X =$ the number of red beads in the paddle *cannot* be exactly binomially distributed, whatever assumptions you might care to make. One of the assumptions is that the sample (of size 50 in the case of the Red Beads Experiment) can be expressed as the sum of simple binomial random variables $X = X_1 + X_2 + \ldots + X_{50}$ where each one of these 50 variables has probability $p$ of being a red bead *irrespective* of what happens elsewhere in the sample. For this argument let's imagine that the 50 holes in the paddle are numbered 1, 2, …, 50. But if, say, there is a red bead in Hole Number 1 then there are now just 3,999 beads left—799 of them red and 3,200 of them white—compared with the 4,000 beads that we started with of which 800 were red. So, with a red bead in Hole Number 1, the proportion of red beads available for Hole Number 2 is very slightly *less than* the 0.2 that we started with. And so on. However, when relatively small samples are drawn from relatively large populations, it is usual to ignore such little matters! In any case, as already discussed in Part E, it is highly unlikely that the sample of 50 beads in the paddle can truthfully even be considered as a *random* sample, which is another good reason for not worrying too much about such a minor complication!
+
+However, Mathematical Statisticians might be interested in how to compute the probabilities of the number of red beads in the paddle *if* we make all the assumptions that they might like to make but now, in addition, take that complication into account. Actually, with what you have now learned, you could tell them! The probability of $x$ red beads in the paddle will surely be the number of possible selections of $x$ red beads from the container multiplied by the number of possible selections of $50 - x$ white beads and then divided by the number of different selections of 50 beads out of the 4,000 available. That probability can thus be expressed in terms of binomial coefficients as
+
+$$\frac{\binom{800}{x} \binom{3200}{50-x}}{\binom{4000}{50}}.$$
+
+If you'd like to impress the Mathematical Statistician even further, you can tell him that the probability distribution comprising these delightful probabilities is called the *hypergeometric* distribution! And if you'd like to go the whole distance then you can also provide him with details of how good the binomial distribution is as an approximation to that hypergeometric distribution by showing him the following table of probabilities:
+
+| $x =$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| Hypergeometric | 0.00% | 0.02% | 0.10% | 0.42% | 1.25% | 2.91% | 5.46% | 8.68% |
+| Binomial | 0.00% | 0.02% | 0.11% | 0.44% | 1.28% | 2.95% | 5.54% | 8.70% |
+
+| $x =$ | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
+|---|---|---|---|---|---|---|---|---|
+| Hypergeometric | 11.72% | 13.71% | 14.01% | 12.79% | 10.37% | 7.55% | 4.96% | 2.96% |
+| Binomial | 11.69% | 13.64% | 13.98% | 12.71% | 10.33% | 7.55% | 4.99% | 2.99% |
+
+| $x =$ | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 etc |
+|---|---|---|---|---|---|---|---|---|
+| Hypergeometric | 1.60% | 0.79% | 0.36% | 0.15% | 0.06% | 0.02% | 0.01% | 0.00% |
+| Binomial | 1.64% | 0.82% | 0.37% | 0.16% | 0.06% | 0.02% | 0.01% | 0.00% |
+
+Well—this part of these Optional Extras is titled the "Technical Section"!
+
+That brings us to the final issue to be discussed regarding the binomial distribution: how to obtain those binomial probabilities without getting involved with too much unwieldy arithmetic. The answer is to have a suitable set of Statistical Tables by your side. And there, as you might suspect, I must declare an interest!
+
+The better of my two little books of Statistics Tables for this purpose is *Elementary Statistics Tables* (*EST*). At the very beginning of *EST* there are four pages of tables of probabilities $\mathrm{Prob}(X = x)$ in binomial distributions. They cover all values of $n$ from 1 up to 20 and an extensive range of values of $p$: 0.01 to 0.10 and 0.90 to 0.99 in steps of 0.01, 0.15 to 0.85 in steps of 0.05, and the fractions $\tfrac{1}{6}, \tfrac{1}{3}, \tfrac{1}{2}$ and $\tfrac{2}{3}$.
+
+However, sometimes one wants the probability that $X$ takes some value *in an interval* of values rather than the probability of just a single value. That could, of course, involve adding up quite a number of individual probabilities. To avoid the need for that there are also four pages (covering the same range of values of $n$ and $p$) of the cumulative distribution function (cdf) of $X$. Tables of the cdf are even more important for the normal distribution, as we shall soon see. The cdf (let's denote it by $F(x)$) gives the probability that $X$ is less than *or equal to* $x$: $F(x) = \mathrm{Prob}(X \leq x)$. The advantage of the cdf is that you only need to look up just two probabilities to find the probability that $X$ lies in an interval, never mind how wide the interval is.
+
+For example, suppose you want the probability that $X$ takes some value between 4 and 8 inclusive. The only table entries that you need look up are $F(8)$ and $F(3)$ since, clearly,
+
+$$\mathrm{Prob}(4 \leq X \leq 8) \; = \; \mathrm{Prob}(X \leq 8) - \mathrm{Prob}(X \leq 3).$$
+
+Careful: don't subtract $\mathrm{Prob}(X \leq 4)$! On page 48 I also mentioned that sometimes we need the probability that $X$ lies in a "one-sided" interval, i.e. the probability that $X$ is *at most* some number or $X$ is *at least* some number. The first of those two options is simply the cdf value at that number, e.g.
+
+$$\mathrm{Prob}(X \leq 8) = F(8).$$
+
+Or if you wanted the probability that $X$ is *at least* 8 then that would be
+
+$$\mathrm{Prob}(X \geq 8) = 1 - F(7).$$
+
+Finally, since the tables only go up to $n = 20$, how can we find probabilities for larger values of $n$ without needing to do a lot of arithmetic? For this purpose, and recalling the Central Limit Theorem, it is often possible to use tables of the normal distribution to obtain good approximations to binomial probabilities. So I'll return to that matter in the bottom half of page 91 after now concluding the tale of widely-available tables of the normal distribution.
+
+### The normal distribution {.unnumbered}
+
+Part D includes a fairly extensive introduction and discussion on the normal distribution. So effectively all that is left is (as promised on page 50) to introduce you to the tables of the normal distribution which you will find in all introductory books on Statistics and plenty of other sources as well. In *EST* the main table is on pages 18–19 and in *ST* it is on pages 34–35.
+
+As you are now well aware from Part D, since the normal distribution is a *continuous* distribution we cannot now sensibly consider probabilities of individual values. So we have already pointed out that it is the probability of the normal random variable lying in an *interval* (including the "one-sided" type of interval just mentioned on the previous page) which makes sense. Indeed the pictures on page 49 have already shown you examples of this. So what are the details?
+
+The published tables invariably apply directly just to the *standard* normal distribution, i.e. N(0,1), the normal distribution having mean 0 and variance 1. Fortunately, following on from some of the development in Part D, that is sufficient for us to be able to find probabilities in *any* normal distribution.
+
+But one thing at a time. Let's first familiarise ourselves with just finding probabilities in N(0,1). The standard normal distribution is such an important distribution that it is often given a special notation which usually applies *only* to N(0,1) and to no other distribution. And that is, of course, the notation you will find in both *EST* and *ST*. A N(0,1) random variable is almost always denoted by $Z$ rather than $X$, and its cdf is usually denoted by Φ (capital "phi"). The tables mostly found in the books are tables of Φ(z). Here is an abbreviated version of such a table:
+
+|  $z$  |   0    |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |
+|:----:|:------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+| −3.  | 0.0013 | 0010  | 0007  | 0005  | 0003  | 0002  | 0002  | 0001  | 0001  | 0000  |
+| −2.  | 0.0228 | 0179  | 0139  | 0107  | 0082  | 0062  | 0047  | 0035  | 0026  | 0019  |
+| −1.  | 0.1587 | 1357  | 1151  | 0968  | 0808  | 0668  | 0548  | 0446  | 0359  | 0287  |
+| −0.  | 0.5000 | 4602  | 4207  | 3821  | 3446  | 3085  | 2743  | 2420  | 2119  | 1841  |
+|  0.  | 0.5000 | 5398  | 5793  | 6179  | 6554  | 6915  | 7257  | 7580  | 7881  | 8159  |
+|  1.  | 0.8413 | 8643  | 8849  | 9032  | 9192  | 9332  | 9452  | 9554  | 9641  | 9713  |
+|  2.  | 0.9772 | 9821  | 9861  | 9893  | 9918  | 9938  | 9953  | 9965  | 9974  | 9981  |
+|  3.  | 0.9987 | 9990  | 9993  | 9995  | 9997  | 9998  | 9998  | 9999  | 9999  | 1.00  |
+
+This short table provides values of Φ(z) for $z$ ranging from −3.9 to +3.9 in steps of 0.1. The usual full published tables provide values of $z$ in steps of 0.01 with some additional proportional parts allowing close approximations to Φ(z) for $z$ expressed to three decimal places. However, this brief table is sufficient to get you started on finding probabilities in normal distributions.
+
+Let's read off a few values. For a start, $\mathrm{Prob}(Z \leq 1) = 0.8413$ and $\mathrm{Prob}(Z \leq 1.5) = 0.9332$. Remembering that probabilities are represented by areas under the normal curve, you might like to check the value of $\mathrm{Prob}(Z \leq 1)$ approximately by adding up the relevant areas in the pictures on page 49. Let's also read off $\mathrm{Prob}(Z \leq -1) = 0.1587$. Notice that this is equal to $1 - \mathrm{Prob}(Z \leq 1)$. That is bound to be true because of the *symmetry* of the normal curve. But $1 - \mathrm{Prob}(Z \leq 1) = \mathrm{Prob}(Z \geq 1)$, so this is simply confirming that the area under the standard normal curve to the right of $z = +1$ is equal to the area to the left of $z = -1$.
+
+It is also worth noting that, when considering probabilities in a normal distribution, as is the case with any *continuous* distribution, we do not have to worry as to whether we should write, for example, $\mathrm{Prob}(Z > 1)$ or $\mathrm{Prob}(Z \geq 1)$—these probabilities will be the *same* as each other because of the feature that, in continuous distributions, the probability of any single value is zero! That is, of course, wholly different from what happens with discrete distributions. Recall the sentence from page 89 when we were discussing binomial distributions: "if you wanted the probability that $X$ is *at least* 8 then that would be $\mathrm{Prob}(X \geq 8) = 1 - F(7)$", i.e. the probability that $X \geq 8$ = $1 - \mathrm{Prob}(X \leq 7)$, not $1 - \mathrm{Prob}(X \leq 8)$!
+
+Let's give just one further illustration. Suppose that, for some reason, you wanted to find the probability that $Z$ lies in the interval between $-1.3$ and 1.8: $\mathrm{Prob}(-1.3 \leq Z \leq 1.8)$. All you have to do is look up both Φ(−1.3) and Φ(1.8) in the table, giving respectively 0.0968 and 0.9641, and subtract one from the other: $0.9641 - 0.0968 = 0.8673$. This is because Φ(1.8) gives the *total* area to the left of 1.8 under the standard normal curve and Φ(−1.3) gives the area to the left of −1.3 which is the part of Φ(1.8) that we don't want to be included in our interval.
+
+Now let's see how to obtain probabilities for *any* normal distribution N(μ,σ²), not just N(0,1). Perhaps it's worthwhile to take yet another look at page 49 to remind yourself of the extremely fortunate fact that those areas representing the probabilities under *any* normal curve stay the same, irrespective of *which* normal distribution we have. In particular, comparing the random variable, $X$ say, which has a N(μ,σ²) distribution, with our N(0,1) random variable $Z$ for which we can now use that table of values of Φ(z) to find probabilities, we have the exceedingly useful fact that
+
+$$\mathrm{Prob}(X \leq x) \; = \; \mathrm{Prob}\!\left(\frac{X - \mu}{\sigma} \leq \frac{x - \mu}{\sigma}\right) \; = \; \mathrm{Prob}\!\left(Z \leq \frac{x - \mu}{\sigma}\right) \; = \; \Phi\!\left(\frac{x - \mu}{\sigma}\right).$$
+
+That's to say the cdf of $X$, $F(x) = \mathrm{Prob}(X \leq x)$, can be found by "standardising" the value $x$ by forming
+
+$$z = \frac{x - \mu}{\sigma}$$
+
+and looking up the value of Φ(z) at *that* value of $z$ in the table.
+
+As an example, if $X$ has the N(5, 2²) distribution, i.e. is normally distributed with mean $\mu = 5$ and standard deviation $\sigma = 2$, then $F(8) = \mathrm{Prob}(X \leq 8) = \Phi(1.5) = 0.9332$ since 1.5 is the *standardised* version of 8, obtained by subtracting $\mu$ and dividing by $\sigma$, i.e. subtracting 5 and then dividing by 2.
+
+And then, following the various illustrations you've already seen, you can now find probabilities of anything you need, involving *any* normal distributions, just using a table of values of Φ(z).
+
+Finally, as promised on page 89, let's see how probabilities for binomial distributions with larger $n$ ($n > 20$ in the case of both *EST* and *ST*) than contained in your book of Statistics Tables can be found, again without involving a lot of arithmetic. As stated there, the Central Limit Theorem can often be used. In words rather than symbols, the Central Limit Theorem says that the distribution of a sample mean becomes more and more like normal as the sample size increases. Referring back to where we introduced the Central Limit Theorem, on page 51, we can make use of what we now know to be the mean and standard deviation of the sample mean to carry out the "standardising" operation (subtracting the mean and dividing by the standard deviation) in order to produce an approximate N(0,1) random variable whose probabilities can be found using tables. Here it's more convenient to consider the distribution of $X$ rather than $\bar{X}$ since it is, of course, $X$ which has the binomial distribution, not $\bar{X}$. That's not a problem: $X$ is just a multiple of $\bar{X}$ and so has the same-shaped distribution. We just have to be sure to use the mean and standard deviation of $X$ rather than of $\bar{X}$ in the standardising operation. So our variable that is now well-approximated by N(0,1) is
+
+$$Z = \frac{X - np}{\sqrt{npq}}.$$
+
+The really useful aspect of the Central Limit Theorem for practical purposes is what the computer simulations showed on pages 52–54: i.e. that for reasonably symmetric distributions the tendency toward normality becomes evident for quite small, sometimes *very* small, values of $n$. The binomial distribution is *exactly* symmetric if $p = q = \tfrac{1}{2}$ but becomes increasingly unsymmetric as one of $p$ or $q$ gets close to 0 and the other gets close to 1. The general guidance to be found in the books is that the normal distribution provides good approximations to binomial probabilities as long as $np \geq 5$ if $p \leq q$ (or $nq \geq 5$ if $q \leq p$).
+
+But the binomial distribution is *discrete* while the normal distribution is *continuous*. So how exactly do we find those good approximations to binomial probabilities from tables of the (standard) normal distribution? There's a good clue in the way that histograms were drawn e.g. on pages 38–39. Those histograms have boxes which are *centred* on the actual integer values of the random variable, e.g. the box representing $X = 2$ stretches from $1\tfrac{1}{2}$ to $2\tfrac{1}{2}$. So we now do the equivalent here. To find the probability (to within a good approximation) that $X = x$ we find the probability under the relevant normal distribution between $x - \tfrac{1}{2}$ and $x + \tfrac{1}{2}$. By "relevant normal distribution" I mean the normal distribution which has the same mean and variance as the binomial distribution.
+
+Let's look at a couple of examples. Consider the binomial distribution having $n = 100$ and $p = \tfrac{1}{5}$. What is the probability that $X = 22$? The mean and variance of $X$ are $\mu = np$ and $\sigma^2 = np(1-p)$ respectively which will give us $\mu = 100 \times \tfrac{1}{5} = 20$ and $\sigma^2 = 100 \times \tfrac{1}{5} \times \tfrac{4}{5} = 16$, i.e. $\sigma = 4$. In the corresponding normal distribution we want the area between $21\tfrac{1}{2}$ and $22\tfrac{1}{2}$. Standardising these two values (i.e. subtracting 20 and dividing by 4) gives us $\tfrac{3}{8}$ and $\tfrac{5}{8}$ respectively, i.e. 0.375 and 0.625. Since these numbers involve three decimal places, we need more detailed standard normal tables to tell you that the probabilities are 0.6462 and 0.7340 (although you could get these roughly from the table on page 90 by interpolating between the entries for 0.3 and 0.4 and between 0.6 and 0.7). Subtracting 0.6462 from 0.7340 then gives us the approximate probability of $X = 22$ as 0.0878.
+
+Finding the probability of $X$ lying in some interval is no more difficult. For example, suppose we want to find a good approximation to $\mathrm{Prob}(18 \leq X \leq 25)$. This corresponds to the area between $17\tfrac{1}{2}$ and $25\tfrac{1}{2}$, or, standardising, between $-\tfrac{5}{8} = -0.625$ and $\tfrac{11}{8} = 1.375$ whose entries in the standard normal table are 0.2660 and 0.9155. And so we finish up with $\mathrm{Prob}(18 \leq X \leq 25)$ being approximately $0.9155 - 0.2660 = 0.6495$.
+
+There's just one piece of the jigsaw left to fit in. You'll recall the guidance that it's reasonable to use the normal distribution as an approximation if $np \geq 5$ (with $p \leq q$). So how about when $n > 20$ but $np < 5$ (again with $p \leq q$)? Let's take $n = 100$ again but now with $p = 0.02$. There is a well-known discrete probability distribution that works well in these cases. It's the *Poisson* distribution which is tabulated on *EST* pages 14–16. Here you can simply enter the table of the Poisson distribution at the appropriate value of $\mu$ which is $np = 2$. First, let's consider the probability of a particular value, say $X = 3$. The table of the Poisson distribution gives $\mathrm{Prob}(X = 3)$ as 0.1804. Secondly, let's consider the probability of $X$ lying between 3 and 5 inclusive. Here you have two options. Firstly, you could just look up the probabilities of $X = 3$, 4 and 5 and add them up, giving $0.1804 + 0.0902 + 0.0361 = 0.3067$. But that could get quite tedious for wider ranges of values. So, alternatively, on *EST* page 17, there is a chart from which we can read off the values of $\mathrm{Prob}(X \geq x)$ for numerical accuracy for probabilities near 0 or 1 and reasonably confidently to two decimal places for probabilities in between. **NB:** That's not a misprint! The chart does indeed provide the probabilities $\mathrm{Prob}(X \geq x)$ which is the opposite way round from the cdf's $\mathrm{Prob}(X \leq x)$. But I won't bore you by trying to explain why this is the way that such Poisson charts have traditionally been constructed! To obtain an approximation to $\mathrm{Prob}(3 \leq X \leq 5)$, the chart gives $\mathrm{Prob}(X \geq 3)$ and $\mathrm{Prob}(X \geq 6)$ as about 0.32 and 0.015, so the difference between these is approximately $0.32 - 0.015 = 0.305$.
+
+To give you some idea of the accuracy of these various approximations, I have also computed these probabilities directly from the exact expression for binomial probabilities a third of the way down page 87. For the case of $n = 100$ and $p = 0.2$ I obtained $\mathrm{Prob}(X = 22) = 0.0849$ (compared with 0.0878) and for an interval I obtained $\mathrm{Prob}(18 \leq X \leq 25) = 0.6413$ (rather than 0.6495). Then for the case of $n = 100$ and $p = 0.02$, I obtained $\mathrm{Prob}(X = 3) = 0.1823$ (rather than 0.1804) and $\mathrm{Prob}(3 \leq X \leq 5) = 0.3078$ (rather than the 0.3067 or 0.305). I'd say that both methods using the Poisson approximation to the Binomial work pretty well!
