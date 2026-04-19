@@ -124,47 +124,9 @@ By the end of 2012 I had begun to feel confident that I could incorporate much m
 
 ---
 
-## LIST OF CONTENTS
-
-- **A.** PLEASE START HERE
-    - Front cover / title page
-    - Contents
-    - Preface
-    - Welcome to *12 Days to Deming*
-- **B1.** Workbook Days 1–3
-- **B2.** Workbook Days 4–6
-- **B3.** Workbook Days 7–9
-- **B4.** Workbook Days 10–12 and Optional Extras
-- **C.** Front covers for binders
-- **D.** Day 1: morning: The "Overture"
-  <br>afternoon: The Deming Story
-- **E.** Day 2: The Experiment on Red Beads
-- **F.** Day 3: Understanding Variation and the Funnel Experiment
-- **G.** Day 4: The Joiner Triangle and the 14 Points (part 1)
-- **H.** Day 5: The Joiner Triangle, the 14 Points (part 2), and the Deadly Diseases
-- **I.** Day 6: Gallery Furniture and other true stories
-- **J.** Day 7: Targets, Appraisals, Performance Indicators, Quotas, Specifications, Pay for Performance, Financial Incentives, League Tables and other obstacles
-- **K.** Day 8: A New Climate
-- **L.** Day 9: A System … of  Profound Knowledge
-- **M.** Day 10: A System of Profound Knowledge, Parts A and B
-- **N.** Day 11: A System of Profound Knowledge, Parts C and D
-- **O.** Day 12: Bringing it all together—and Making It Happen
-- **P.** Appendix
-- **Q.** Contributions from Balaji Reddie
-    - Prelude A: Understanding a System
-    - Prelude B: Understanding Statistical Thinking
-    - Prelude C: Understanding Learning
-    - Prelude D: Understanding People
-    - Coda
-    - Some Lessons from History
-- **R.** References and Sources
-- **S.** Optional Extras
-
----
-
 ## *12 Days to Deming* "HOSTS"
 
-All the *12 Days to Deming* PDF files as listed above may be viewed at, and downloaded from, any of the websites [www.spcpress.com](https://www.spcpress.com), [www.theuic.com/deming](https://www.theuic.com/deming), [www.sergentresults.com/12-days-to-deming](https://www.sergentresults.com/12-days-to-deming) and, most recently, [www.rqoq.org.nz](https://www.rqoq.org.nz) (the New Zealand Organisation for Quality).
+All the *12 Days to Deming* PDF files may be viewed at, and downloaded from, any of the websites [www.spcpress.com](https://www.spcpress.com), [www.theuic.com/deming](https://www.theuic.com/deming), [www.sergentresults.com/12-days-to-deming](https://www.sergentresults.com/12-days-to-deming) and, most recently, [www.rqoq.org.nz](https://www.rqoq.org.nz) (the New Zealand Organisation for Quality).
 
 ---
 
