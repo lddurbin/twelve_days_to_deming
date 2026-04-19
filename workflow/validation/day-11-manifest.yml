@@ -10,7 +10,6 @@ chapters:
     headings:
       - "DAY 11: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS C AND D"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "02-theory-of-knowledge-prediction.qmd"
     viewof_count: 4
@@ -18,7 +17,6 @@ chapters:
     headings:
       - "PART C: THEORY OF KNOWLEDGE"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "03-theory-of-knowledge-theory-and-learning.qmd"
     viewof_count: 4
@@ -26,14 +24,12 @@ chapters:
       - "/assets/images/day-11/theory-of-knowledge-circle.png"
     headings: []
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "04-theory-of-knowledge-operational-definitions.qmd"
     viewof_count: 5
     figures: []
     headings: []
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "05-activity-11a.qmd"
     viewof_count: 38
@@ -41,7 +37,6 @@ chapters:
     headings:
       - "Step 4: ACTIVITY 11–a"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "06-knowledge-of-psychology.qmd"
     viewof_count: 11
@@ -49,7 +44,6 @@ chapters:
     headings:
       - "PART D: KNOWLEDGE OF PSYCHOLOGY"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "07-activity-11b.qmd"
     viewof_count: 38
@@ -57,7 +51,6 @@ chapters:
     headings:
       - "Step 4: ACTIVITY 11–b"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "08-coda.qmd"
     viewof_count: 0
@@ -65,4 +58,3 @@ chapters:
     headings:
       - "CODA"
     has_download_button: false
-    has_workbook_callout: false

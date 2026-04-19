@@ -9,7 +9,6 @@ chapters:
     headings:
       - "DAY 9: A SYSTEM ... OF PROFOUND KNOWLEDGE"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "02-a-system.qmd"
     viewof_count: 2
@@ -22,7 +21,6 @@ chapters:
       - "PAUSE FOR THOUGHT 9–a"
       - "PAUSE FOR THOUGHT 9–b"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "03-activity-9c-and-organisation-charts.qmd"
     viewof_count: 2
@@ -32,14 +30,12 @@ chapters:
       - "ACTIVITY 9–c"
       - "PAUSE FOR THOUGHT 9–d"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "04-major-activity.qmd"
     viewof_count: 5
     figures: []
     headings: []
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "05-of-profound-knowledge.qmd"
     viewof_count: 0
@@ -47,7 +43,6 @@ chapters:
     headings:
       - "... OF PROFOUND KNOWLEDGE"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "06-introductions-to-the-system.qmd"
     viewof_count: 0
@@ -56,7 +51,6 @@ chapters:
     headings:
       - "Introductions to the System of Profound Knowledge"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "07-out-of-hours.qmd"
     viewof_count: 0
@@ -65,4 +59,3 @@ chapters:
     headings:
       - '"OUT-OF-HOURS" PREPARATION FOR THE SECOND PROJECT'
     has_download_button: false
-    has_workbook_callout: true

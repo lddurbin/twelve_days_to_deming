@@ -12,7 +12,6 @@ chapters:
       - "ACTIVITY 3–a"
       - "ACTIVITY 3–b"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "02-at-the-ford-motor-company.qmd"
     viewof_count: 1
@@ -22,7 +21,6 @@ chapters:
     headings:
       - "ACTIVITY 3–c"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "03-the-importance-of-time.qmd"
     viewof_count: 2
@@ -34,7 +32,6 @@ chapters:
       - "ACTIVITY 3–d"
       - "ACTIVITY 3–e"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "04-more-on-the-sales-data.qmd"
     viewof_count: 1
@@ -43,7 +40,6 @@ chapters:
     headings:
       - "PAUSE FOR THOUGHT 3–f"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "05-how-do-we-compute-control-limits.qmd"
     viewof_count: 1
@@ -57,7 +53,6 @@ chapters:
       - "Technical Aid 8"
       - "ACTIVITY 3–g"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "06-six-processes.qmd"
     viewof_count: 0
@@ -66,7 +61,6 @@ chapters:
       - "/assets/images/day-03/six-processes-extended-charts.png"
     headings: []
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "07-a-favourite-example.qmd"
     viewof_count: 0
@@ -75,7 +69,6 @@ chapters:
       - "/assets/images/day-03/favourite-example-control-chart.png"
     headings: []
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "08-control-chart-and-brain.qmd"
     viewof_count: 0
@@ -90,7 +83,6 @@ chapters:
       - "5. Control limits are indications, not boundaries"
       - "6. Other indications"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "09-the-six-processes-revisited.qmd"
     viewof_count: 0
@@ -105,7 +97,6 @@ chapters:
       - "Technical Aid 10"
       - "Technical Aid 11"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "10-introduction-to-the-funnel-experiment.qmd"
     viewof_count: 0
@@ -116,7 +107,6 @@ chapters:
       - "/assets/images/day-03/funnel-track-colourful.png"
     headings: []
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "11-the-first-two-rules-of-the-funnel.qmd"
     viewof_count: 0
@@ -127,7 +117,6 @@ chapters:
       - "Rule 1 of the Funnel (Ford's Second Strategy)"
       - "Discussion"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "12-rules-3-and-4-of-the-funnel.qmd"
     viewof_count: 0
@@ -136,7 +125,6 @@ chapters:
       - "Rules 3 and 4 of the Funnel"
       - "Rule 4 of the Funnel"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "13-summary.qmd"
     viewof_count: 2
@@ -149,4 +137,3 @@ chapters:
       - "ACTIVITY 3–j"
       - "Start Over with New Dice"
     has_download_button: true
-    has_workbook_callout: true

@@ -51,8 +51,6 @@ It is with those experiences in mind that I'll ask you to take on the role of Fo
 
 There will then remain just two further items on today's agenda. First comes the Major Activity of writing up your comprehensive summary of messages to be learned from the Experiment on Red Beads. So, in preparation for that, keep adding to your list of notes as you now work through the statisticians' and the Spaniards' experiments. Then finally, after the Major Activity, there will be a short Postscript to complete the day.
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 2–g (pages 32-27) is also on Workbook pages 20-25.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 2–e
@@ -78,7 +76,6 @@ viewof thought_2e_i = Inputs.textarea({label: "Your comments on the Week 1 resul
 
 :::
 ::::
-
 
 :::: {.columns}
 ::: {.column width="55%"}

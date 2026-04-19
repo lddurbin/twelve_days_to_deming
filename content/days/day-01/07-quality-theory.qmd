@@ -23,8 +23,6 @@ The second mention was in a phrase that I had heard from him time and time again
 
 <span class=deming_quote>“Quality is made at the top.”</span>
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 1-a which follows is also (somewhat unsurprisingly!) on Workbook page 1.</div>
-
 <div class="neave_note" role="note" aria-label="Author's note">The red box indicates there will now be a Pause for Thought or Activity which is immediately followed by
 some relevant commentary. My commentary will be in the subsequent shaded red box. So always try to
 avoid looking inside the shaded box—just a single sentence in this case—while you’re thinking about
@@ -67,8 +65,6 @@ create_clock(11, 10)
 And then, as a case in point, Dr Deming’s third and final mention of “quality” was:
 
 ><span class=deming_quote>“Sure we want good results. But if you manage by results, quality goes down, morale goes down.”</span>
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">The following two Pauses for Thought are also on Workbook page 2.</div>
 
 <div class="neave_note" role="note" aria-label="Author's note">Unlike a red box, a green box indicates an Activity or Pause for Thought with no associated box of commentary.</div>
 

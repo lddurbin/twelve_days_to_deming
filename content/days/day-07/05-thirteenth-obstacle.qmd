@@ -31,8 +31,6 @@ We shall spend the next few pages discussing and working with the Taguchi loss f
 
 Rather than my introducing the Taguchi loss function to you, I'd like you to introduce it to yourself by using a little exercise that I often got the delegates at my seminars to carry out. You will then soon see that ideas about the Taguchi loss function are neither just some abstruse piece of Mathematics nor only restricted to manufacturing situations.
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 7–e (pages 20–22) is also on Workbook pages 109–111.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 7–e

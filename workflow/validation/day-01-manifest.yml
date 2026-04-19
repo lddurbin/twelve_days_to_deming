@@ -9,7 +9,6 @@ chapters:
       - "/assets/images/day-01/day_1_fig_1.jpg"
     headings: []
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "02-rediscovered.qmd"
     viewof_count: 0
@@ -23,7 +22,6 @@ chapters:
       - "The four-day seminars"
       - "The British Deming Association and later"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "03-statistics.qmd"
     viewof_count: 0
@@ -33,7 +31,6 @@ chapters:
       - "The two paradoxes"
       - "Control charts in this course"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "04-resources.qmd"
     viewof_count: 0
@@ -44,21 +41,18 @@ chapters:
       - "Videos"
       - "And finally..."
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "05-activities.qmd"
     viewof_count: 0
     figures: []
     headings: []
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "06-outline.qmd"
     viewof_count: 0
     figures: []
     headings: []
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "07-quality-theory.qmd"
     viewof_count: 3
@@ -68,7 +62,6 @@ chapters:
       - "PAUSE FOR THOUGHT 1-b"
       - "PAUSE FOR THOUGHT 1–c"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "08-attraction.qmd"
     viewof_count: 3
@@ -77,7 +70,6 @@ chapters:
       - "ACTIVITY 1-d"
       - "PAUSE FOR THOUGHT 1–e"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "09-different.qmd"
     viewof_count: 0
@@ -86,14 +78,12 @@ chapters:
       - "How different?"
       - "So what kind of environment is this Deming \"optimum\" system?"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "10-relief.qmd"
     viewof_count: 0
     figures: []
     headings: []
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "11-deming-story.qmd"
     viewof_count: 0
@@ -113,18 +103,15 @@ chapters:
       - "1990–1993: A System of Profound Knowledge"
       - "1994 and onward: The future"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "12-intro-activity.qmd"
     viewof_count: 0
     figures: []
     headings: []
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "13-major-activity.qmd"
     viewof_count: 20
     figures: []
     headings: []
     has_download_button: true
-    has_workbook_callout: true

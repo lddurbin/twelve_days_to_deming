@@ -5,8 +5,6 @@ execute:
 ---
 So now please **read *DemDim* Chapter 13 (pages 197–202): "Joy in Work"**.
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 8–a (pages 4–5) is also on Workbook pages 124–125.</div>
-
 <div class="thought" role="note" aria-label="Activity">
 
 ## ACTIVITY 8–a

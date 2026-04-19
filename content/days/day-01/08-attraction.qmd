@@ -54,8 +54,6 @@ create_clock(11, 45)
 
 ::::
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 1-d is also on Workbook page 3.</div>
-
 <div class="neave_note" role="note" aria-label="Author's note">Here is an example of a “request for action” that is exceedingly open-ended. You could content yourself
 by writing some notes on the first few thoughts that come into your mind. Or it could be the subject of a
 number of PhD theses! Since I’m calling this an “Activity” (not even a “*Major* Activity”!) I am indicating
@@ -91,8 +89,6 @@ create_clock(12, 00)
 :::
 
 ::::
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 1-e is also on Workbook page 4.</div>
 
 :::: {.columns}
 

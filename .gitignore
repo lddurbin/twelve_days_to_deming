@@ -15,6 +15,9 @@ _book/
 
 _freeze/
 
+# Quarto per-page library bundles (created next to rendered .qmd files)
+content/**/*_files/
+
 node_modules/
 
 issues/

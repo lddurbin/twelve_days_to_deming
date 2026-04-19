@@ -4,10 +4,6 @@ execute:
   echo: false
 ---
   
-<div class="workbook_callout" role="note" aria-label="Workbook reference">
-Major Activity 1-f (pages 42-44) is also on Workbook pages 5-7.
-</div>
-
 To complete this opening day of the course, take a few minutes to imagine yourself in each of the following
 ten pairs of opposite environments. Then compare and write down some features describing how you
 would behave and perform in those contrasting situations.
@@ -21,7 +17,6 @@ viewof activity_1f_1a = Inputs.textarea({
   rows: 5
 })
 ```
-
 
 ```{ojs}
 viewof activity_1f_1b = Inputs.textarea({
@@ -41,7 +36,6 @@ viewof activity_1f_2a = Inputs.textarea({
 })
 ```
 
-
 ```{ojs}
 viewof activity_1f_2b = Inputs.textarea({
   label: "You distrust your colleagues at work",
@@ -59,7 +53,6 @@ viewof activity_1f_3a = Inputs.textarea({
   rows: 5
 })
 ```
-
 
 ```{ojs}
 viewof activity_1f_3b = Inputs.textarea({
@@ -79,7 +72,6 @@ viewof activity_1f_4a = Inputs.textarea({
 })
 ```
 
-
 ```{ojs}
 viewof activity_1f_4b = Inputs.textarea({
   label: "You suffered abuse throughout your childhood",
@@ -97,7 +89,6 @@ viewof activity_1f_5a = Inputs.textarea({
   rows: 5
 })
 ```
-
 
 ```{ojs}
 viewof activity_1f_5b = Inputs.textarea({
@@ -117,7 +108,6 @@ viewof activity_1f_6a = Inputs.textarea({
 })
 ```
 
-
 ```{ojs}
 viewof activity_1f_6b = Inputs.textarea({
   label: "You live in one of the rich nations",
@@ -135,7 +125,6 @@ viewof activity_1f_7a = Inputs.textarea({
   rows: 5
 })
 ```
-
 
 ```{ojs}
 viewof activity_1f_7b = Inputs.textarea({
@@ -155,7 +144,6 @@ viewof activity_1f_8a = Inputs.textarea({
 })
 ```
 
-
 ```{ojs}
 viewof activity_1f_8b = Inputs.textarea({
   label: "You are poverty-stricken",
@@ -173,7 +161,6 @@ viewof activity_1f_9a = Inputs.textarea({
   rows: 5
 })
 ```
-
 
 ```{ojs}
 viewof activity_1f_9b = Inputs.textarea({
@@ -193,7 +180,6 @@ viewof activity_1f_10a = Inputs.textarea({
 })
 ```
 
-
 ```{ojs}
 viewof activity_1f_10b = Inputs.textarea({
   label: "Revisit: your work is dull and demoralising",
@@ -201,7 +187,6 @@ viewof activity_1f_10b = Inputs.textarea({
   rows: 5
 })
 ```
-
 
 ```{ojs download_all}
 import { createDownloadButton } from "../../../assets/scripts/functions.js"

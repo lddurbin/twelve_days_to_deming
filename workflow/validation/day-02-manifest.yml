@@ -10,7 +10,6 @@ chapters:
     headings:
       - "PAUSE FOR THOUGHT 2–a"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "02-intro-to-the-red-beads-experiment.qmd"
     viewof_count: 6
@@ -19,7 +18,6 @@ chapters:
       - "PAUSE FOR THOUGHT 2–b"
       - "PAUSE FOR THOUGHT 2–c"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "03-a-brief-overview.qmd"
     viewof_count: 1
@@ -28,7 +26,6 @@ chapters:
     headings:
       - "PAUSE FOR THOUGHT 2–d"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "04-our-first-control-chart.qmd"
     viewof_count: 1
@@ -36,7 +33,6 @@ chapters:
     headings:
       - "PAUSE FOR THOUGHT 2–e"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "05-the-truth-the-whole-truth-and-nothing-but.qmd"
     viewof_count: 0
@@ -48,7 +44,6 @@ chapters:
       - "The \"real work\""
       - "The Technical Aids"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "06-your-turn.qmd"
     viewof_count: 20
@@ -56,7 +51,6 @@ chapters:
     headings:
       - "ACTIVITY 2–f"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "07-some-recollections.qmd"
     viewof_count: 12
@@ -74,14 +68,12 @@ chapters:
     headings:
       - "PAUSE FOR THOUGHT 2–e"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "08-major-activity.qmd"
     viewof_count: 2
     figures: []
     headings: []
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "09-postscript.qmd"
     viewof_count: 0
@@ -89,4 +81,3 @@ chapters:
       - "/assets/images/day-02/postscript-table.png"
     headings: []
     has_download_button: false
-    has_workbook_callout: false

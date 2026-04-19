@@ -3,8 +3,6 @@ title: "ORGANISATION CHARTS AND FLOW DIAGRAMS"
 execute:
   echo: false
 ---
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 9–c is also on Workbook page 142.</div>
-
 <div class="thought" role="note" aria-label="Activity">
 
 ## ACTIVITY 9–c
@@ -42,8 +40,6 @@ Does that sound familiar to you? The conventional organisation chart helps you t
 Peter's second section is headed: "Meanwhile, in Japan ... ", and before long, in contrast, we see Dr Deming's (horizontal) flow diagram.
 
 If you would like to study more on this, I strongly recommend Chapter 1 of *The Leader's Handbook*.
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 9–d (pages 8–9) is also on Workbook page 143.</div>
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 

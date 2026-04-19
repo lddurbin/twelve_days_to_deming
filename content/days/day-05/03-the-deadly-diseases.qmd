@@ -9,10 +9,6 @@ Now it's time to take a break to watch the video *Management's Five Deadly Disea
 
 ---
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">The "Five Deadly Diseases" (pages 18–27) are also on Workbook pages 86–95.</div>
-
----
-
 ## Disease 1. Lack of constancy
 
 <div class="info_callout">**The crippling disease is lack of constancy of purpose by planning to provide product and service in the future that will help man to live better materially, and which will have a market, and provide jobs.**</div>
@@ -26,8 +22,6 @@ It is relevant here to point out the error in a phrase glibly trotted out by man
 *(See Appendix page 28.)*
 
 ### Obsession With Quality
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 1 (pages 18–19) is also on Workbook pages 86–87.</div>
 
 ```{ojs}
 viewof d1_owq = Inputs.textarea({
@@ -91,8 +85,6 @@ This will be so familiar to many readers that I need say no more.
 
 ### Obsession With Quality
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 2 (pages 20–21) is also on Workbook pages 88–89.</div>
-
 ```{ojs}
 viewof d2_owq = Inputs.textarea({
   label: "Disease 2 (Short-termism) — Obsession With Quality",
@@ -155,8 +147,6 @@ It may be wise at this stage for me to remind you of my warning at the bottom of
 
 ### Obsession With Quality
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 3 (pages 22–23) is also on Workbook pages 90–91.</div>
-
 ```{ojs}
 viewof d3_owq = Inputs.textarea({
   label: "Disease 3 (Appraisal of performance) — Obsession With Quality",
@@ -214,8 +204,6 @@ Moving around the organisation in order to acquire that broader understanding is
 *(See Appendix page 29.)*
 
 ### Obsession With Quality
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 4 (pages 24–25) is also on Workbook pages 92–93.</div>
 
 ```{ojs}
 viewof d4_owq = Inputs.textarea({
@@ -278,8 +266,6 @@ In conclusion, and back to the main issue (from *Out of the Crisis* pages 104–
 *(See Appendix page 30.)*
 
 ### Obsession With Quality
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Disease 5 (pages 26–27) is also on Workbook pages 94–95.</div>
 
 ```{ojs}
 viewof d5_owq = Inputs.textarea({

@@ -9,8 +9,6 @@ Going right back to Dr Shewhart's formative work in the 1920s, we know that the 
 
 <div class="neave_note" role="note" aria-label="Author's note">My friend Malcolm Gall once pointed out to me that a "Scientific Approach"—which I suppose might be interpreted as something like a "Purely Logical Approach"—may be seen by some as an inhibitor of creativity and innovation (to be studied on Day 9). On Day 11, I shall suggest further topics that have a place in such an approach, some of which look ahead to Day 11 and in particular to the "Theory of Knowledge" aspects of Deming's teaching. In Malcolm's words, innovators "need to understand the role of theory and test"—for intelligent innovators must agree that otherwise some of their innovations might not work! In fact, a Scientific Approach supports and aids creativity in practice by helping to discern whether innovations will or will not work and, in the latter case, can provide help in modifying them so that they will work.</div>
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 4–a (pages 4–5) is also on Workbook pages 49–50.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 4–a
@@ -59,8 +57,6 @@ The words "All One Team" surely speak for themselves. They have strong connectio
 
 <div class="neave_note" role="note" aria-label="Author's note">Some senior managers worry that heading toward "All One Team" might pose a threat to their authority. However, a further astute observation from Malcolm Gall is that "Interdependence is not an indication of weakness, but an indication of maturity".</div>
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 4–b (pages 6–7) is also on Workbook pages 51–52.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 4–b
@@ -108,8 +104,6 @@ I recall two occasions in four-day seminars when the topic of "quality tools" wa
 
 However, as Brian did also include "statistical thinking" and "special and common causes" in his selection of topics, and so presumably "charting" definitely included the control chart! It seems wise for the current purposes to restrict our attention for most of the project which follows to the charting introduced by both Drs Shewhart and Deming via our opening day and about which we have now learned plenty during Days 2 and 3. This will also be ideal preparation for the Second Project on Days 10 and 11 which involves the System of Profound Knowledge (briefly introduced on Day 1 page 37) since "Understanding Variation" is one of the latter's four component parts.</div>
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 4–c is also on Workbook page 53.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 4–c
@@ -143,8 +137,6 @@ On *DemDim* page 32, quoting from that great paper by Peter Scholtes and Heero H
 To people who have always thought of "quality" in terms of specifications, targets, standards—i.e. simply as "it is" or "it isn't" view of quality—the notions of continual improvement, delighting the customer, etc can sound wildly unrealistic and impractical "pie in the sky". "We can't even satisfy the damned customer, let alone delight them!" (a not entirely uncommon reaction!).
 
 But is it really beyond rhyme and reason to think of improving quality to the extent of *delighting* the customer? In asking the question "Can we afford to delight the customer?", might it not be more important in many instances to change the emphasis to: "Can we afford *not* to delight the customer?"
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 4–d is also on Workbook page 54.</div>
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 

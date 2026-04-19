@@ -39,10 +39,6 @@ One consequence of this thinking is that, in general, an operational definition 
 
 **Now turn to *DemDim* page 109 and read Chapter 7.**
 
-<div class="workbook_callout">
-Pages 14--21 are also on Workbook pages 193--200.
-</div>
-
 #### Area 3, Step 2: Dr Deming's May 1990 version
 
 <div class="deming_quote">

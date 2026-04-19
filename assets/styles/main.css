@@ -125,17 +125,6 @@ aside,
 }
 
 /* ===== CALLOUT COMPONENTS ===== */
-.workbook_callout {
-  background-color: yellow;
-  border: 2px solid black;
-  text-align: center;
-  height: 40px;
-  line-height: 40px;
-  font-size: 15px;
-  margin-bottom: 15px;
-  font-style: italic;
-}
-
 .return_callout {
   background-color: #b6dde8;
   border: 2px solid black;
@@ -451,7 +440,6 @@ Usage:
   }
   
   /* Callout adjustments */
-  .workbook_callout,
   .return_callout,
   .info_callout {
     height: auto;
@@ -798,7 +786,6 @@ button:focus,
   html.dyslexic-font body {
     line-height: 1.7;
   }
-  html.dyslexic-font body .workbook_callout,
   html.dyslexic-font body .return_callout,
   html.dyslexic-font body .info_callout {
     height: auto;

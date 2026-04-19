@@ -4,10 +4,6 @@ execute:
   echo: false
 ---
 
-<div class="workbook_callout">
-Activity 12–d (pages 30–33) is also on Workbook pages 235–239.
-</div>
-
 <div class="thought_commentary">
 
 ## Section 5: ACTIVITY 12–d

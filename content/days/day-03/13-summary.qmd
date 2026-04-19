@@ -150,8 +150,6 @@ summaryR4 = runAllStages(4, diceSeqSummary)
 
 <div class="separator_blue"></div>
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 3–i is also on Workbook page 46.</div>
-
 <div class="thought" role="note" aria-label="Thought">
 
 ## ACTIVITY 3–i
@@ -189,8 +187,6 @@ Reveal suggested answer for Activity 3-i
 *(For discussion see Appendix pages 18–20.)*
 </div>
 </div>
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 3–j is also on Workbook page 47.</div>
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 

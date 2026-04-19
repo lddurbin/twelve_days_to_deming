@@ -4,8 +4,6 @@ execute:
   echo: false
 ---
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">The Mack story (pages 3–16) is also on Workbook pages 97–110.</div>
-
 ## Gallery Furniture
 
 :::: {.columns}

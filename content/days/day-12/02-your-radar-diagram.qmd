@@ -10,10 +10,6 @@ First (well, here's a treat), no hard thinking for the next few pages!
 
 Let's see why I asked you to enter those 0--5 "scores" of what you saw as the strengths of connections between the System of Profound Knowledge and the 14 Points and the Deadly Diseases during the Second Project. I'd like you to collect them together in a "radar diagram", and then we'll see what that tells you about your current understanding of the Deming philosophy. (And again, this is just for *you*---so you may as well be honest. Sorry to sound like an old-fashioned parent but … if you cheat then you'll only be cheating yourself!)
 
-<div class="workbook_callout">
-Activity 12–a, Part 1 is also on Workbook page 215.
-</div>
-
 <div class="thought_commentary">
 
 ## ACTIVITY 12–a, Part 1
@@ -25,10 +21,6 @@ Your first task is simply to collect together all of your 0--5 scores from Activ
 Your radar diagram will finish up containing 19 simple four-sided shapes ("quadrilaterals"). You'll have one such shape for each of the 14 Points and the five Deadly Diseases. Of course, to make the diagram easy to interpret, it will help greatly if the 19 shapes are all distinguishable from each other! That is why I asked you to gather together a number of different-coloured pens and/or pencils for today.
 
 How will you be able to distinguish the 19 shapes from each other? I *could* have asked you to find 19 different-coloured pens and pencils for this Activity---that would have been an obvious but rather extravagant option! However, if you just have around half-a-dozen different colours, you could use each colour three or four times, say with one shape being drawn using four ordinary continuous lines, another using four broken lines, another using four dotted lines, etc.
-
-<div class="workbook_callout">
-As with Part 1 of this Activity, Part 2 is also on Workbook page 215.
-</div>
 
 <div class="thought_commentary">
 
@@ -44,10 +36,6 @@ Let's suppose you've scored the strength of connection of Point 1 with both Unde
 
 ![Example radar diagram with Point 1 plotted](/assets/images/day-12/radar-diagram-small.png){fig-align="center" width="65%" .lightbox}
 
-<div class="workbook_callout">
-Activity 12–a, Part 3 is also on Workbook page 215.
-</div>
-
 <div class="thought_commentary">
 
 ## ACTIVITY 12–a, Part 3
@@ -58,17 +46,9 @@ Ready, go! Using your chosen KEYs in turn, carry out this procedure on the large
 
 ### The 14 Points + Deadly Diseases KEY table
 
-<div class="workbook_callout">
-This table is used in Activity 12–a, Parts 1–3 and is also on Workbook page 216.
-</div>
-
 ![14 Points and Deadly Diseases KEY table for Activity 12–a](/assets/images/day-12/radar-diagram-key-table.png){fig-align="center" width="90%" .lightbox}
 
 ### Your radar diagram
-
-<div class="workbook_callout">
-This diagram is used in Activity 12–a, Part 3 and is also on Workbook page 217.
-</div>
 
 ![Blank radar diagram for plotting your 19 shapes](/assets/images/day-12/radar-diagram-large.png){fig-align="center" width="85%" .lightbox}
 

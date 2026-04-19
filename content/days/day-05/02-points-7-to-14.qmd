@@ -3,9 +3,6 @@ title: "POINTS 7–14"
 execute:
   echo: false
 ---
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Points 7–12 (pages 2–13) are also on Workbook pages 70–81.</div>
-
----
 
 ## Point 7. Institute leadership of people
 
@@ -20,8 +17,6 @@ Particularly with reference to All One Team, my friend Dave Kerr wrote to me as 
 *(See Appendix page 24.)*
 
 ### Obsession With Quality
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Point 7 (pages 2–3) is also on Workbook pages 70–71.</div>
 
 ```{ojs}
 viewof p7_owq = Inputs.textarea({
@@ -80,8 +75,6 @@ In Point 12 we shall find Dr Deming talking of the value of "pride of workmanshi
 *(See Appendix page 24.)*
 
 ### Obsession With Quality
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Point 8 (pages 4–5) is also on Workbook pages 72–73.</div>
 
 ```{ojs}
 viewof p8_owq = Inputs.textarea({
@@ -157,8 +150,6 @@ Holmes was speaking to the Sales Director, Peter Marks.
 
 ### Obsession With Quality
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Point 9 (pages 6–7) is also on Workbook pages 74–75.</div>
-
 ```{ojs}
 viewof p9_owq = Inputs.textarea({
   label: "Point 9 (Break down barriers) — Obsession With Quality",
@@ -218,8 +209,6 @@ If something so shallow as alluded to in this Point could have any positive effe
 *(See Appendix page 25.)*
 
 ### Obsession With Quality
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Point 10 (pages 8–9) is also on Workbook pages 76–77.</div>
 
 ```{ojs}
 viewof p10_owq = Inputs.textarea({
@@ -281,8 +270,6 @@ Resources are channelled into reaching that number, irrespective of the harm cau
 
 ### Obsession With Quality
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Point 11 (pages 10–11) is also on Workbook pages 78–79.</div>
-
 ```{ojs}
 viewof p11_owq = Inputs.textarea({
   label: "Point 11 (Eliminate arbitrary numerical targets) — Obsession With Quality",
@@ -339,8 +326,6 @@ The matter of performance appraisal itself is the subject of the third of the De
 
 ### Obsession With Quality
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Point 12 (pages 12–13) is also on Workbook pages 80–81.</div>
-
 ```{ojs}
 viewof p12_owq = Inputs.textarea({
   label: "Point 12 (Permit pride of workmanship) — Obsession With Quality",
@@ -383,8 +368,6 @@ create_clock(12, 0)
 
 ::::
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Points 13–14 (pages 14–17) are also on Workbook pages 82–85.</div>
-
 ---
 
 ## Point 13. Encourage education
@@ -412,8 +395,6 @@ Point 13 implies far more than might be noticed at first glance.
 *(See Appendix pages 26–27.)*
 
 ### Obsession With Quality
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Point 13 (pages 14–15) is also on Workbook pages 82–83.</div>
 
 ```{ojs}
 viewof p13_owq = Inputs.textarea({
@@ -468,8 +449,6 @@ create_clock(12, 0)
 *(See Appendix page 27.)*
 
 ### Obsession With Quality
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Point 14 (pages 16–17) is also on Workbook pages 84–85.</div>
 
 ```{ojs}
 viewof p14_owq = Inputs.textarea({

@@ -10,7 +10,6 @@ chapters:
       - "DAY 8: A NEW CLIMATE"
       - "OUTLINE OF TODAY'S WORK"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "02-joy-in-work.qmd"
     viewof_count: 5
@@ -18,7 +17,6 @@ chapters:
     headings:
       - "ACTIVITY 8–a"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "03-innovation.qmd"
     viewof_count: 5
@@ -26,7 +24,6 @@ chapters:
     headings:
       - "ACTIVITY 8–b"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "04-cooperation.qmd"
     viewof_count: 5
@@ -34,7 +31,6 @@ chapters:
     headings:
       - "ACTIVITY 8–c"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "05-introduction-to-the-major-activity.qmd"
     viewof_count: 0
@@ -47,7 +43,6 @@ chapters:
     headings:
       - "INTRODUCTION TO THE MAJOR ACTIVITY (continued)"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "06-major-activity.qmd"
     viewof_count: 6
@@ -64,4 +59,3 @@ chapters:
       - "TABLE FOUR"
       - "TABLE FIVE"
     has_download_button: true
-    has_workbook_callout: false

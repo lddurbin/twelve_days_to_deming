@@ -4,10 +4,6 @@ execute:
   echo: false
 ---
 
-<div class="workbook_callout">
-Major Activity 12–e (pages 34–41) is also on Workbook pages 240–247.
-</div>
-
 <div class="thought_commentary">
 
 <div class="major_activity_title">

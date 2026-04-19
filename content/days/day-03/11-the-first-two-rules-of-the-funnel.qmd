@@ -39,8 +39,6 @@ We'll use my own dice-scores to start with so that you can follow my illustratio
 
 **Use the interactive below to step through Rule 2.** The first 5 stages use the author's worked example (dice-scores 10, 8, 6, 7, 4); from Stage 6 onward your own randomly-generated dice are used.
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">This table is also on Workbook pages 38–39.</div>
-
 ```{ojs}
 //| output: false
 
@@ -163,8 +161,6 @@ As suggested on page 42, I recommend that you don't bother to throw your dice an
 In this case where you don't move the funnel at all, you may be able to stop using the track almost straight-away. As I've just said, you simply put the funnel at 30 and *leave it there*. Referring back to my original five dice-scores which were 10, 8, 6, 7, and 4, these corresponded respectively to the marble finishing up 3 right, 1 right, 1 left, directly under and 3 left of the funnel. So, with the funnel stuck at 30, you can immediately see that the marble finishes up at 33, 31, 29, 30, and 27 respectively.
 
 As you can see, with Ford's Second Strategy (Rule 1) you also no longer need the two rows which were under each yellow-shaded row in the Ford's First Strategy (Rule 2) version of the book-keeping (see page 42 and then your table on page 44 *[WB 38–39]*): they were only there to work out where that strategy (Rule 2) would move the funnel. Now, of course, the funnel stays put at 30. So, with everything being so much simpler than before, I think you'll find it very easy to do the book-keeping this time!
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">This table is also on Workbook page 40.</div>
 
 ```{ojs}
 //| output: false

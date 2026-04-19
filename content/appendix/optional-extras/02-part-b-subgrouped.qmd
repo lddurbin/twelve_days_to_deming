@@ -154,8 +154,6 @@ Now, returning to the chart on page 22, you will see the note at the top pointin
 
 So, go ahead and write down the values of *X̄* and *R* for each subgroup—not very difficult with these data! And yes, you will soon see a few of those zero ranges that I mentioned on page 21. Next compute the values of *X̿* and *R̄*. Finally, compute the control limits for both parts of the chart as described earlier and check that they agree (approximately) with what the Japanese workers had drawn as reproduced here on page 22. My answers are on page 27 if you need them—but first try it yourself here:
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">The rest of this page and all of page 25 are also on Workbook pages 252–253.</div>
-
 As you have seen on page 22, all remained well until the out-of-control signals which began on 27 October. You have read at the top of this page what then happened. After the repair had been carried out during the weekend of 15–16 November and some subsequent data had been collected, new control limits were drawn on the chart from 17 November onward. Meanwhile, someone had checked through the data from 27 October to 14 November and had computed control limits for that period using that whole set of data. If you would like to try out the computations one more time, here are the data recorded over that period (I don't know the reasons for the apparent six-day break followed by a three-day week):
 
 | 27    | 28    | 29    | 30    | 31    | <sup>11</sup>/1 | 4     | 5     | 6     | 10    | 11    | 12    | 13    | 14    |

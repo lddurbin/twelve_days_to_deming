@@ -41,8 +41,6 @@ Next, as promised on Day 1, here is a rather longer extract from Dr Deming's acc
 
 Unexpected as it might be, it seems that Dr Deming first used the terms "common cause" and "special cause" around 1947 in discussions on *prison riots* (see *Out of the Crisis* page 270(pages 314–315)). Did something *special* occur to spark off a riot? Or was the riot due to the procedures, the environment, the morale of both the prisoners and the prison staff, the way the staff treated the prisoners, etc, etc? That is, was the *common* state of affairs (which Deming would refer to as the system) in the prison such that riots would be *bound* to occur from time to time? (Think back to Day 1's Major Activity.) Or would it take something special?
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 3–a is also on Workbook page 31.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 3–a
@@ -67,8 +65,6 @@ Reveal suggested answer for Activity 3-a
 Being guided by the thoughts about prison riots, factors which result in somewhat random fluctuations from day to day would be interpreted as *common* causes, while relatively rare events which markedly affect the arrival time in a "one-off" manner would be interpreted as special causes. So e.g. if the bus is held up by a serious road accident or by freak weather conditions such as a flood or unusually heavy snowfall then we would regard these as special causes. On the other hand, normal fluctuations such as the number of people queuing at the bus-stops, the proportion of red traffic lights encountered along the journey, usual day-to-day variations in traffic-density, etc would be regarded as common causes.
 </div>
 </div>
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 3–b is also on Workbook page 32.</div>
 
 <div class="thought" role="note" aria-label="Thought">
 

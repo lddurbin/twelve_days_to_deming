@@ -27,8 +27,6 @@ Of course, Dr Deming was not criticising Category 2; and facts of life are facts
 
 Incidentally, in view of another fact of life: variation, one might sometimes make a case for providing a "target range" rather than a single target number. But that still doesn't solve the problem of bad management style, since then that range would be treated as "specifications" (i.e. "OK" inside and "not OK" outside); and, as you already know, we shall be spending time on that particular problem a little later today.
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 7–a is also on Workbook page 105.</div>
-
 <div class="thought" role="note" aria-label="Activity">
 
 ## ACTIVITY 7–a
@@ -55,8 +53,6 @@ viewof activity_7a_3 = Inputs.textarea({label: "Category 3 — numbers for judgm
 
 <div class="activity_afterthought">(There is a little discussion on Appendix page 31.)</div>
 </div>
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 7–b is also on Workbook page 106.</div>
 
 <div class="thought" role="note" aria-label="Activity">
 

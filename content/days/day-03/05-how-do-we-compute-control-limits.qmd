@@ -125,8 +125,6 @@ So $\overline{MR} = (1 + 1 + 0 + 1 + 1 + 2 + 0 + 1 + 1 + 1 + 1) \div 11 = 10 \di
 
 This was clearly a case where, in practice, there was little to be gained by producing the control chart: the run chart had already told the story of the rising trend. That's fine: if the run chart tells you all you need to know then don't bother to upgrade it to a control chart. The control chart becomes really valuable when it is unclear as to whether or not the run chart is indicating there are some special causes—which is the more usual situation.
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 3–g is also on Workbook page 37.</div>
-
 <div class="thought" role="note" aria-label="Thought">
 
 ## ACTIVITY 3–g

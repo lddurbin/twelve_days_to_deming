@@ -92,10 +92,6 @@ $$
 See if you can use this method to obtain the control limits quoted on page 14 and drawn on page 15. Use all 24 numbers of red beads in your calculation. (If you need help, the computations are sketched out in Technical Aid 2 on the next page—but try it by yourself first in the space at the top of the page or in the Workbook.)
 </div>
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">
-Space has also been left for these computations at the top of Workbook page 14.
-</div>
-
 <div class="technical_aid" role="note" aria-label="Technical aid">
   <strong>Drawing Pad</strong><br>
   Use the drawing pad below to sketch your formula or diagram. You can download your drawing when finished.
@@ -130,6 +126,4 @@ If during Day 1 you read the discussion in the Appendix about the first paradox 
 
 As mentioned earlier, it is important to emphasise that this particular choice of σ does \emph{not} apply to many other kinds of process data. A method that can be employed much more generally will be used tomorrow and is also introduced, discussed and illustrated in the Springboard article (cited on Day 1 page 8).
 </div>
-
-
 
