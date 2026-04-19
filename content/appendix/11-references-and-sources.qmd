@@ -4,8 +4,6 @@ execute:
   echo: false
 ---
 
-# REFERENCES AND SOURCES {#sec-references-page1}
-
 - [Books](#books)
 - [Booklets](#booklets)
 - [Videos / DVDs](#videos-dvds)

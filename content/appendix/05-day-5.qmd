@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-# DAY 5 {#sec-page24}
+[]{#sec-page24}
 
 ## Point 7. Institute leadership of people *(Workbook pages 70–71 / Day 5 pages 2–3)*
 
