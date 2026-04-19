@@ -30,8 +30,6 @@ If you are short of time then you could, of course, take the really easy way out
 
 ## 2. Rules 1 and 2 of the Funnel
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pages 5–7 are also on Workbook pages 249–251.</div>
-
 So now go ahead with Rules 1 and 2 using the data you generated on Day 3. Again, your Rule 1 (Ford's Second Strategy) data are on Day 3 page 47 *[WB 40]* and the data from Rule 2 (Ford's First Strategy) are on Day 3 page 44 *[WB 38–39]*.
 
 Seeing that you have not drawn the run charts of these data previously, I suggest it would be a good idea for you to develop the charts for Rules 1 and 2 "live". That is to say, reflect the more usual and better practice of first (a) drawing the run chart over your chosen baseline *but no further*; then (b) computing the positions of the Central Line and the control limits from those data; (c) inserting these three lines on the graph-paper throughout the baseline and then somewhat further into the future if all seems to be well at that stage (i.e. if it currently appears feasible that the process is in control); and finally (again if all seems well) (d) continuing the chart *one point at a time*. Imagine that you were seeing these data for the first time, so that you don't know beforehand what you learned when generating them and constructing their histograms back on Day 3. There is room for your computations and whatever notes you care to make under the graph-paper on the next two pages. In both cases, describe what you feel the control chart is telling you *as and when you are developing it*: a kind of brief running commentary.

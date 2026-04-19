@@ -52,8 +52,6 @@ some of the time. The control chart is also a tool, albeit a statistical tool ra
 
 As a new user of the control chart, here is your obvious Pause for Thought:
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 2–e is also on Workbook page 13.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 2–e

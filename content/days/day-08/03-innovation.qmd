@@ -5,8 +5,6 @@ execute:
 ---
 Next please **read *DemDim* Chapter 14 (pages 203–212): "Innovation—not just Improvement"**.
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Activity 8–b (pages 6–7) is also on Workbook pages 126–127.</div>
-
 <div class="thought" role="note" aria-label="Activity">
 
 ## ACTIVITY 8–b

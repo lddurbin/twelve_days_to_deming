@@ -4,8 +4,6 @@ execute:
   echo: false
 ---
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–f is also on Workbook page 112.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 7–f
@@ -37,8 +35,6 @@ So, the Taguchi loss function is the "natural" kind of loss function—broadly s
 
 But, in comparison, let's return to the concept of conformance to specifications. Remember that then anything (such as a temperature) within the specifications is supposedly "OK", whereas everything else is "not OK". Everything inside the specifications is deemed satisfactory for the customer: everything outside is scrapped or reworked. There may well be specifications defined on the temperature of your office by your company or, indeed, by law, e.g. 15°C to 25°C. If the temperature goes outside that range then you are entitled to complain; if it stays within the range, you are not.
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–g is also on Workbook page 113.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 7–g
@@ -61,8 +57,6 @@ Obviously there is zero loss at the optimum value. But now, supposedly, *everyth
 </div>
 
 What does the difference between the shape of that loss function on *DemDim* page 182 and that of the Taguchi loss function imply? As *DemDim* Chapter 12 demonstrates, a very great deal! Two of the most important differences are demonstrated in the following Pause for Thought.
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 7–h is also on Workbook page 114.</div>
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 

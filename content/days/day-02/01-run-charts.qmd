@@ -73,7 +73,6 @@ run_chart_plot(c(13, 19, 18, 14, 16))
 :::
 ::::
 
-
 :::: {.columns}
 ::: {.column width="70%"}
 But the sighs of relief are soon silenced. Month 6's figure comes out at a dreadful 12 (–4, –25%)—the lowest figure in the whole six months. Drastic remedies are called for, otherwise this product is destined to be an expensive failure. And so the advertising and promotional efforts are reinstated along with additional price-cuts and other incentives.
@@ -136,8 +135,6 @@ run_chart_plot(c(13, 19, 18, 14, 16, 12, 21, 18, 22))
 ::::
 
 Now, I repeat that this was just a simple introductory example, purely for illustration to show how easy it is to draw a run chart, i.e. a picture of what otherwise would merely have been just a string of numbers.
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pause for Thought 2–a is also on Workbook page 9.</div>
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 

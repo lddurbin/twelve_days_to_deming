@@ -44,10 +44,6 @@ Finally, now that you have seen the Deming/Shewhart Cycle as well as being famil
 
 **Now turn to *DemDim* page 139 and read Chapter 9.** You'll be able to skip through some of these pages very quickly.
 
-<div class="workbook_callout">
-Pages 10--12 are also on Workbook pages 190--192.
-</div>
-
 *(Continue to Area 2, Step 2 overleaf.)*
 
 #### Area 2, Step 2: Dr Deming's May 1990 version

@@ -50,8 +50,6 @@ And who could doubt that that was true of his thoughts on "Production (or The Or
 
 Were there a prize for the best-ever combination of simple and profound, this would be strong competition for the Experiment on Red Beads! Again, Shewhart was primarily concerned here with manufacturing applications, which explains his choice of the particular three words used in the two parts of the diagram. But that's not what is most important.
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">The following two Pauses for Thought (pages 4–5) are also on Workbook pages 141–142.</div>
-
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 9–a

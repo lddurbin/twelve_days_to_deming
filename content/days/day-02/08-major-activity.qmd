@@ -3,10 +3,6 @@ title: "MAJOR ACTIVITY"
 execute:
   echo: false
 ---
-<div class="workbook_callout" role="note" aria-label="Workbook reference">
-Major Activity 2-h (pages 38-41) is also on Workbook pages 26-29.
-</div>
-
 Hopefully, you now have quite a long list of notes on learning-points from today’s Red Beads Experiments, including some from Chapter 6 of *DemDim*.
 
 > At this early stage of the course, you probably do not have access to other sources. But if you do, or will be doing so before long, you may find plenty more messages to write up. Chapter 4 of Mary Walton’s *The Deming Management Method* is excellent. Other sources are, of course, Dr Deming’s own two books. In *Out of the Crisis* the most relevant pages are 295–302[346–354], although there are several more learning-points from the Red Beads Experiment further on in the book. Chapter 7 of *The New Economics* also describes and studies the Red Beads Experiment and ends with a list of no less than 14 “Lessons from the Red Beads”. Deming ends that chapter by innocently remarking: <span class="deming_quote">“The reader may perceive Red Beads in his own company and in his own work.”</span> Finally, as previously mentioned, my recommended video material is Volumes 7 and 8 of *The Deming Library*.

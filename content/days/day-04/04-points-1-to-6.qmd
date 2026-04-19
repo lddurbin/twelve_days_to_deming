@@ -3,9 +3,6 @@ title: "POINTS 1–6"
 execute:
   echo: false
 ---
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Points 1–6 (pages 16–27) are also on Workbook pages 51–67.</div>
-
----
 
 ## Point 1. Constancy of purpose
 

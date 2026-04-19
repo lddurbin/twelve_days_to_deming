@@ -33,8 +33,6 @@ And so on. The fourth and fifth dice-scores were 7 and 4 corresponding respectiv
 
 Just for interest, take a moment's thought to guess what will happen in the long term as you take Rule 3 through its 40 stages. Then, later on, see if you've guessed correctly!
 
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pages 50–51 are also on Workbook pages 42–43.</div>
-
 ```{ojs}
 //| output: false
 
@@ -167,8 +165,6 @@ And so it continues. The fourth and fifth dice-scores were 7 and 4 corresponding
 So off you go for the final time. Again if you didn't do so when I first suggested it, you'll need to start by copying over all your "From ▼, ● then goes" rows one final time. Then, after you've generated all your Rule 4 outcomes, finish off by sketching your run chart. As usual, I've started the run chart for you on the graph-paper. Also, as with Rule 3, do have an early guess at what you think will happen in the long term!
 
 Rule 4 is one of the easier strategies to carry out, so you can stop using your track as soon as you realise you don't need it any more. That may be very soon!
-
-<div class="workbook_callout" role="note" aria-label="Workbook reference">Pages 54–55 are also on Workbook pages 44–45.</div>
 
 ```{ojs}
 //| output: false
