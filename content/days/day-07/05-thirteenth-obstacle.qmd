@@ -62,7 +62,7 @@ viewof activity_7e_3 = Inputs.textarea({label: "Step 3: Approximate percentages 
 Here are my own answers:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6°C &nbsp;&nbsp;&nbsp;&nbsp; 11°C &nbsp;&nbsp;&nbsp; 16°C &nbsp;&nbsp;&nbsp; 22°C &nbsp;&nbsp;&nbsp; 26°C &nbsp;&nbsp;&nbsp; 31°C &nbsp;&nbsp;&nbsp; 36°C
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [5 %]{.blue_text} &nbsp;&nbsp;&nbsp;&nbsp; [50 %]{.blue_text} &nbsp;&nbsp;&nbsp; [85 %]{.blue_text} &nbsp;&nbsp;&nbsp; [100%]{.blue_text} &nbsp;&nbsp;&nbsp;&nbsp; [90 %]{.blue_text} &nbsp;&nbsp;&nbsp; [55 %]{.blue_text} &nbsp;&nbsp;&nbsp; [15 %]{.blue_text}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [5 %]{.blue-text} &nbsp;&nbsp;&nbsp;&nbsp; [50 %]{.blue-text} &nbsp;&nbsp;&nbsp; [85 %]{.blue-text} &nbsp;&nbsp;&nbsp; [100%]{.blue-text} &nbsp;&nbsp;&nbsp;&nbsp; [90 %]{.blue-text} &nbsp;&nbsp;&nbsp; [55 %]{.blue-text} &nbsp;&nbsp;&nbsp; [15 %]{.blue-text}
 
 **4.** Now subtract your percentages from 100%, therefore obtaining the percentage loss in your work through having to suffer a temperature which is too high or too low:
 
@@ -72,7 +72,7 @@ viewof activity_7e_4 = Inputs.textarea({label: "Step 4: Percentage loss in your 
 
 Here are my answers:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [95 %]{.blue_text} &nbsp;&nbsp;&nbsp; [50 %]{.blue_text} &nbsp;&nbsp;&nbsp; [15 %]{.blue_text} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [0 %]{.blue_text} &nbsp;&nbsp;&nbsp;&nbsp; [10 %]{.blue_text} &nbsp;&nbsp;&nbsp; [45 %]{.blue_text} &nbsp;&nbsp;&nbsp; [85 %]{.blue_text}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [95 %]{.blue-text} &nbsp;&nbsp;&nbsp; [50 %]{.blue-text} &nbsp;&nbsp;&nbsp; [15 %]{.blue-text} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [0 %]{.blue-text} &nbsp;&nbsp;&nbsp;&nbsp; [10 %]{.blue-text} &nbsp;&nbsp;&nbsp; [45 %]{.blue-text} &nbsp;&nbsp;&nbsp; [85 %]{.blue-text}
 
 **5.** Write your seven temperatures along the horizontal axis at the bottom of the graph-paper below. You will see that I have included my own temperature scale printed faintly in blue: so simply overwrite my temperatures with your own. Then, referring to your temperatures along the horizontal and your percentage losses on the vertical axis, plot your relevant seven points on the graph-paper.
 
