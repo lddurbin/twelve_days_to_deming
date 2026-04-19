@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 <div class="workbook_callout" role="note" aria-label="Workbook reference">
-Major Activity 2-h (pages 38-41) is also on [Workbook pages 26-29](workbook.html#sec-page5).
+Major Activity 2-h (pages 38-41) is also on Workbook pages 26-29.
 </div>
 
 Hopefully, you now have quite a long list of notes on learning-points from today’s Red Beads Experiments, including some from Chapter 6 of *DemDim*.
