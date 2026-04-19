@@ -80,9 +80,6 @@ for d in content/days/day-*/; do echo "$d: $(grep -roh 'viewof [a-zA-Z_0-9]*' "$
 # Check for unlabelled inputs — every viewof should be inside a .thought, .thought_commentary, or similar div with a heading
 grep -rn "viewof " content/days/ | grep -v "createDownloadButton\|downloadNotes\|\[viewof" | head -20
 
-# Count workbook callouts
-grep -rn "workbook_callout" content/days/ | wc -l
-
 # Verify all chapters use createDownloadButton (not old downloadNotes pattern)
 echo "=== Old pattern (should be 0): ===" && grep -rn "downloadNotes" content/days/ | wc -l
 echo "=== Current pattern: ===" && grep -rn "createDownloadButton" content/days/ | wc -l
@@ -240,7 +237,7 @@ cat .github/workflows/deploy.yml | head -30
 - Lightbox attributes on all content figures
 - Colour contrast considerations in custom CSS
 - Form input labels (OJS accessibility — issue #26)
-- ARIA roles on interactive divs (`.thought`, `.workbook_callout`, etc.)
+- ARIA roles on interactive divs (`.thought`, `.return_callout`, etc.)
 - Collapse/toggle buttons have `aria-expanded` and `aria-controls` attributes
 
 **Evidence-gathering commands:**
@@ -502,7 +499,7 @@ For each area, provide:
 - Heading hierarchy within and across chapters (no skipped levels)
 - Cross-day references are accurate (e.g., "see Day 4 pages 14-15")
 - Conversion guide and briefs are maintained as living documents
-- ARIA attributes on interactive containers (`.thought`, `.workbook_callout`, collapse buttons)
+- ARIA attributes on interactive containers (`.thought`, `.return_callout`, collapse buttons)
 - Collapse/toggle buttons have `aria-expanded` and `aria-controls` attributes
 
 ## Final Reminders

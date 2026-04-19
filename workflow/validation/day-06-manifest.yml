@@ -10,7 +10,6 @@ chapters:
       - "DAY 6: GALLERY FURNITURE AND OTHER TRUE STORIES"
       - "ACTIVITY 6-a"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "02-gallery-furniture.qmd"
     viewof_count: 0
@@ -21,7 +20,6 @@ chapters:
     headings:
       - "Gallery Furniture"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "03-activity-6b.qmd"
     viewof_count: 3
@@ -32,7 +30,6 @@ chapters:
       - "ACTIVITY 6-b: \"Post-Deming\" Gallery Furniture"
       - "ACTIVITY 6-b: Comparison with your organisation"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "04-more-true-stories.qmd"
     viewof_count: 0
@@ -40,4 +37,3 @@ chapters:
     headings:
       - "MORE TRUE STORIES"
     has_download_button: false
-    has_workbook_callout: false

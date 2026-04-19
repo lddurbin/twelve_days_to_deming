@@ -82,7 +82,8 @@ chapters:
         - Part 2 is the KEY colour/shape decision — open text input
           or a note directing users to Workbook page 215.
         - Part 3 is the plotting step (physical / Workbook action) —
-          represent with a workbook_callout and instruction.
+          represent with an instruction only (Workbook callouts
+          removed for the web edition per #195).
         Simplest render: prose + cropped figures + a single combined
         Activity 12-a block noting the three parts and pointing to
         Workbook pages 215-217.

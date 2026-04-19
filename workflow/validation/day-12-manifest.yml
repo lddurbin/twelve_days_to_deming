@@ -9,7 +9,6 @@ chapters:
     headings:
       - "DAY 12: BRINGING IT ALL TOGETHER—AND MAKING IT HAPPEN"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "02-your-radar-diagram.qmd"
     viewof_count: 0
@@ -20,7 +19,6 @@ chapters:
     headings:
       - "Section 1: YOUR RADAR DIAGRAM"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "03-wisdom-from-peter-scholtes.qmd"
     viewof_count: 0
@@ -31,7 +29,6 @@ chapters:
     headings:
       - "Section 2: WISDOM FROM PETER SCHOLTES"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "04-but-what-can-i-do.qmd"
     viewof_count: 1
@@ -40,7 +37,6 @@ chapters:
       - 'Section 3: "BUT WHAT CAN *I* DO?"'
       - "PAUSE FOR THOUGHT 12–c"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "05-leadership-for-the-transformation.qmd"
     viewof_count: 0
@@ -48,7 +44,6 @@ chapters:
     headings:
       - "Section 4: LEADERSHIP FOR THE TRANSFORMATION"
     has_download_button: false
-    has_workbook_callout: true
 
   - file: "06-activity-12d.qmd"
     viewof_count: 1
@@ -56,7 +51,6 @@ chapters:
     headings:
       - "Section 5: ACTIVITY 12–d"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "07-major-activity-12e.qmd"
     viewof_count: 2
@@ -64,7 +58,6 @@ chapters:
     headings:
       - "MAJOR ACTIVITY 12–e"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "08-epilogue.qmd"
     viewof_count: 0
@@ -73,4 +66,3 @@ chapters:
     headings:
       - "Section 7: EPILOGUE"
     has_download_button: false
-    has_workbook_callout: false

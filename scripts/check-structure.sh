@@ -7,7 +7,7 @@
 #
 # Compares each QMD chapter against a per-day manifest and reports PASS/FAIL
 # per check per chapter. Checks: viewof count, figure existence, section
-# headings, download button, workbook callout.
+# headings, download button.
 #
 # Requires: ruby (for YAML parsing — ships with macOS)
 # Note: CI (Ubuntu) does not install Ruby by default. If wiring into CI,
@@ -65,7 +65,6 @@ expand_manifest() {
         f.puts "FILE=#{ch["file"]}"
         f.puts "VIEWOF=#{ch["viewof_count"]}"
         f.puts "DOWNLOAD=#{ch["has_download_button"]}"
-        f.puts "WORKBOOK=#{ch["has_workbook_callout"]}"
         (ch["figures"] || []).each { |fig| f.puts "FIGURE=#{fig}" }
         (ch["headings"] || []).each { |h| f.puts "HEADING=#{h}" }
       end
@@ -149,7 +148,7 @@ main() {
 
   for ch_file in "$tmpdir"/ch_*; do
     # Read chapter metadata
-    local file="" expected_viewof=0 expected_dl="false" expected_wc="false"
+    local file="" expected_viewof=0 expected_dl="false"
     local figures="" headings=""
 
     while IFS='=' read -r key value; do
@@ -157,7 +156,6 @@ main() {
         FILE)     file="$value" ;;
         VIEWOF)   expected_viewof="$value" ;;
         DOWNLOAD) expected_dl="$value" ;;
-        WORKBOOK) expected_wc="$value" ;;
         FIGURE)
           if [[ -n "$figures" ]]; then
             figures="$figures"$'\n'"$value"
@@ -300,27 +298,6 @@ main() {
         total_warn=$((total_warn + 1))
       else
         pass "download button: none expected"
-        total_pass=$((total_pass + 1))
-      fi
-    fi
-
-    # ── Check 5: workbook callout ──
-    total_checks=$((total_checks + 1))
-    if [[ "$expected_wc" == "true" ]]; then
-      if grep -q 'workbook_callout' "$qmd_path" 2>/dev/null; then
-        pass "workbook callout: present"
-        total_pass=$((total_pass + 1))
-      else
-        fail "workbook callout: missing (expected)"
-        total_fail=$((total_fail + 1))
-      fi
-    else
-      if grep -q 'workbook_callout' "$qmd_path" 2>/dev/null; then
-        warn "workbook callout: found but not in manifest"
-        total_pass=$((total_pass + 1))
-        total_warn=$((total_warn + 1))
-      else
-        pass "workbook callout: none expected"
         total_pass=$((total_pass + 1))
       fi
     fi

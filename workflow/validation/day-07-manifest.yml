@@ -9,7 +9,6 @@ chapters:
     headings:
       - "DAY 7: TARGETS, APPRAISALS, PERFORMANCE INDICATORS, QUOTAS, SPECIFICATIONS, PAY FOR PERFORMANCE, FINANCIAL INCENTIVES, LEAGUE TABLES AND OTHER OBSTACLES"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "02-numerical-targets.qmd"
     viewof_count: 4
@@ -18,7 +17,6 @@ chapters:
       - "ACTIVITY 7–a"
       - "ACTIVITY 7–b"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "03-performance-indicators.qmd"
     viewof_count: 1
@@ -27,7 +25,6 @@ chapters:
       - "PAUSE FOR THOUGHT 7–c"
       - "\"JUST DO IT\"?"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "04-many-more-true-stories.qmd"
     viewof_count: 1
@@ -36,7 +33,6 @@ chapters:
     headings:
       - "ACTIVITY 7–d"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "05-thirteenth-obstacle.qmd"
     viewof_count: 4
@@ -47,7 +43,6 @@ chapters:
     headings:
       - "ACTIVITY 7–e"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "06-taguchi-reflections.qmd"
     viewof_count: 3
@@ -57,7 +52,6 @@ chapters:
       - "PAUSE FOR THOUGHT 7–g"
       - "PAUSE FOR THOUGHT 7–h"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "07-major-activity.qmd"
     viewof_count: 16
@@ -65,4 +59,3 @@ chapters:
     headings:
       - "INTRODUCTION TO THE MAJOR ACTIVITY: THE OBSTACLES TO THE TRANSFORMATION"
     has_download_button: true
-    has_workbook_callout: true

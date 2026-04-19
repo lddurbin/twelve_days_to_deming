@@ -10,7 +10,6 @@ chapters:
     headings:
       - "DAY 5: THE JOINER TRIANGLE, THE 14 POINTS (part 2), AND THE DEADLY DISEASES"
     has_download_button: false
-    has_workbook_callout: false
 
   - file: "02-points-7-to-14.qmd"
     viewof_count: 24
@@ -26,7 +25,6 @@ chapters:
       - "Point 13. Encourage education"
       - "Point 14. Top management commitment and action"
     has_download_button: true
-    has_workbook_callout: true
 
   - file: "03-the-deadly-diseases.qmd"
     viewof_count: 15
@@ -39,4 +37,3 @@ chapters:
       - "Disease 5. Use of only visible figures"
       - "\"Out-of-hours\" note"
     has_download_button: true
-    has_workbook_callout: true

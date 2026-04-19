@@ -101,14 +101,14 @@ Claude works through the brief chapter-by-chapter:
 2. **Transcribe text** word-for-word from the source PNGs
 3. **Crop figures** from source PNGs using ImageMagick and save to `assets/images/day-XX/`
 4. **Add interactive elements** — Pauses for Thought, Activities, download buttons, clocks
-5. **Add callouts** — workbook references, return-to-reading callouts, info callouts
+5. **Add callouts** — return-to-reading callouts, info callouts
 
 Each chapter is verified by reading back the `.qmd` file before moving to the next.
 
 ### Phase 4: Verify
 
 1. Run transcription validation: `./scripts/validate-transcription.sh <day-number>` — compares PDF text against QMD content and reports potentially missing paragraphs. Review gaps to distinguish genuine omissions from false positives (garbled table content, page headers, intentionally omitted boilerplate).
-2. Create a structural manifest at `workflow/validation/day-XX-manifest.yml` (see existing manifests for format), then run: `./scripts/check-structure.sh <day-number>` — checks viewof counts, figure existence, headings, download buttons, and workbook callouts.
+2. Create a structural manifest at `workflow/validation/day-XX-manifest.yml` (see existing manifests for format), then run: `./scripts/check-structure.sh <day-number>` — checks viewof counts, figure existence, headings, and download buttons.
 3. User spot-checks transcription accuracy against source PNGs
 4. Run `quarto preview` to check rendering
 5. Fix any issues found
@@ -182,7 +182,7 @@ Each day is a `part:` with nested `chapters:`:
 
 ## CSS Classes
 
-**Naming convention:** Use kebab-case for all new CSS classes (e.g. `.float-box`, `.fe-button`). Legacy snake_case classes (e.g. `.workbook_callout`) are retained as-is to avoid churn.
+**Naming convention:** Use kebab-case for all new CSS classes (e.g. `.float-box`, `.fe-button`). Legacy snake_case classes (e.g. `.return_callout`) are retained as-is to avoid churn.
 
 | Class | Purpose | Visual |
 |-------|---------|--------|
@@ -193,7 +193,6 @@ Each day is a `part:` with nested `chapters:`:
 | `.neave_note` | Author's explanatory aside | Serif font, left-aligned |
 | `.deming_quote` | Inline Deming quotation highlight | Blue, bold |
 | `.foreman-remark` | Red Beads foreman's dialogue | Navy italic, centered |
-| `.workbook_callout` | Workbook page reference | Yellow background |
 | `.return_callout` | Return-to-reading instruction | Blue background |
 | `.info_callout` | General info callout | Green background |
 | `.activity_afterthought` | Post-activity italic note | Right-aligned italic |
@@ -327,14 +326,6 @@ create_clock(3, 40)
 ```
 
 Adjust `margin-top` to vertically align the clock with the relevant text.
-
-### Workbook Callout
-
-```markdown
-<div class="workbook_callout">
-Activity X–y (pages NN-MM) is also on Workbook pages PP-QQ.
-</div>
-```
 
 ### Technical Aid
 
