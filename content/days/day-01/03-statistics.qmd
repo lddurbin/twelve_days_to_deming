@@ -144,7 +144,7 @@ a little arithmetic. But there was nothing about where the simple formula came f
 the large majority of processes, that same formula wouldn’t even be appropriate!
 
 So let’s shed some light on this second paradox. This is a quote from my brief discussion on the sixth of
-Deming’s famous 14 Points for Management: “Institute training” that you will see on Day 4 page 26 *[[WB 66]](workbook.html#sec-page66)*:
+Deming’s famous 14 Points for Management: “Institute training” that you will see on Day 4 page 26 *[WB 66]*:
 
 >In Deming’s terminology, the purpose of ‘training’ is the acquisition of specific skills for specific
 tasks. Training is thus narrowly defined and finite in scale and scope. In contrast, as we shall see

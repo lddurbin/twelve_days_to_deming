@@ -5,7 +5,7 @@ execute:
 ---
   
 <div class="workbook_callout" role="note" aria-label="Workbook reference">
-Major Activity 1-f (pages 42-44) is also on [Workbook pages 5-7](workbook.html#sec-page5).
+Major Activity 1-f (pages 42-44) is also on Workbook pages 5-7.
 </div>
 
 To complete this opening day of the course, take a few minutes to imagine yourself in each of the following
