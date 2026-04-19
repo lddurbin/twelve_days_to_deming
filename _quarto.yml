@@ -152,13 +152,14 @@ book:
     - content/appendix/07-day-9.qmd
     - content/appendix/08-day-10.qmd
     - content/appendix/09-day-11.qmd
-    - content/appendix/optional-extras/00-introduction.qmd
-    - content/appendix/optional-extras/01-part-a-funnel-charts.qmd
-    - content/appendix/optional-extras/02-part-b-subgrouped.qmd
-    - content/appendix/optional-extras/03-part-c-ne-er-twain.qmd
-    - content/appendix/optional-extras/04-part-d-crash-course.qmd
-    - content/appendix/optional-extras/05-part-e-normality.qmd
-    - content/appendix/optional-extras/06-part-f-technical.qmd
+    - part: content/appendix/optional-extras/00-introduction.qmd
+      chapters:
+        - content/appendix/optional-extras/01-part-a-funnel-charts.qmd
+        - content/appendix/optional-extras/02-part-b-subgrouped.qmd
+        - content/appendix/optional-extras/03-part-c-ne-er-twain.qmd
+        - content/appendix/optional-extras/04-part-d-crash-course.qmd
+        - content/appendix/optional-extras/05-part-e-normality.qmd
+        - content/appendix/optional-extras/06-part-f-technical.qmd
     - content/appendix/10-optional-extras.qmd
     - content/appendix/contributions-balaji-reddie/00-introduction.qmd
     - content/appendix/contributions-balaji-reddie/01-prelude-a-system.qmd
