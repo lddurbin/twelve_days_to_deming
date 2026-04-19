@@ -1,4 +1,3 @@
-echo: false
 lang: en
 
 project:
@@ -6,10 +5,11 @@ project:
   resources:
     - "assets/fonts/**"
 
-execute: 
+execute:
   echo: false
   warning: false
   message: false
+  freeze: auto
 
 book:
   title: "12 Days to Deming"
