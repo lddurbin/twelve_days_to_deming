@@ -1,0 +1,450 @@
+# ============================================================
+# Appendix Brief — Optional Extras
+# ============================================================
+# Issue: #135
+# Expands the single-file stub at
+# `content/appendix/10-optional-extras.qmd` into a full reference
+# appendix covering Henry Neave's *Optional Extras* PDF — a
+# 92-printed-page reference document organised into six Parts
+# (A-F) plus an Introduction. It is a technical/statistical
+# supplement to the main 12-Day course, cross-referenced from
+# Days 1, 3, 7, and 10.
+# ============================================================
+
+# ------ Source Metadata ------
+source:
+  kind: "appendix"
+  title: "Optional Extras"
+  source_pdf: "12-Days-to-Deming/PDFs/S.Optional.Extras.09Jul21.pdf"
+  source_prefix: "S.Optional.Extras.09Jul21"
+  pdf_page_count: 98
+  content_page_count: 92    # printed pages 1-92 (Neave's own footer numbering)
+  page_offset: 6            # PDF page = printed page + 6
+                            # PDF 001-006 = front matter (cover, blank, inner
+                            #   title, blank, CONTENTS, NOTE about photocopying
+                            #   Day 3 pp.44 & 47 for Funnel data)
+                            # PDF 007 = printed page 1 (Introduction opens)
+                            # PDF 098 = printed page 92 (closes Part F)
+
+# ------ Section Anchors ------
+# Three inbound cross-references from other chapters need stable
+# anchors. Add Quarto `{#sec-...}` anchors at the relevant
+# headings so future link-checks don't drift when text edits
+# happen.
+section_anchors:
+  required:
+    - anchor: "sec-optional-extras-part-a"
+      location: "Part A heading in 01-part-a-funnel-charts.qmd"
+      referenced_by: "Day 3 Part A (Funnel Experiment control charts)"
+    - anchor: "sec-optional-extras-page-15"
+      location: "Printed page 15 heading (Part A §5 Discussion, autocorrelation / financial-data passage)"
+      referenced_by: "Day 7 — 'brief extract from page 15 of Optional Extras'"
+    - anchor: "sec-optional-extras-part-c"
+      location: "Part C heading in 03-part-c-ne-er-twain.qmd"
+      referenced_by: "Day 10 Part C"
+  future_proof:
+    # Not strictly required by current inbound links, but cheap to
+    # add now so future days/appendices can deep-link freely.
+    - "sec-optional-extras-introduction"
+    - "sec-optional-extras-part-b"
+    - "sec-optional-extras-part-d"
+    - "sec-optional-extras-part-e"
+    - "sec-optional-extras-part-f"
+
+# ------ Chapter Plan ------
+# 7 files, all living under `content/appendix/optional-extras/`.
+# Pages in `pages:` are printed page numbers (Neave's footer
+# numbering). `pdf_pages:` is the PDF/PNG page range.
+
+chapters:
+  - slug: "00-introduction"
+    title: "OPTIONAL EXTRAS — INTRODUCTION"
+    pages: "front matter + 1-2"
+    pdf_pages: "1-8"
+    notes: |
+      Combines the PDF's front matter (cover, inner title,
+      CONTENTS list, and the NOTE directing readers to photocopy
+      Day 3 pp.44 & 47 for the Funnel-Experiment data) with
+      Neave's own 2-page Introduction.
+
+      PDF 001: Cover page "S / OPTIONAL EXTRAS /
+        © Henry R Neave July 2021". Skip — Quarto sidebar
+        handles navigation.
+      PDF 002: Blank. Skip.
+      PDF 003: Inner title. Render as a centred title block.
+      PDF 004: Blank. Skip.
+      PDF 005: CONTENTS — full TOC with section page numbers.
+        Render as a markdown list (same convention as the
+        Reddie 00-introduction). Links should resolve to the
+        Part anchors listed in `section_anchors`.
+      PDF 006: NOTE about photocopying Day 3 pp.44 & 47 for
+        Funnel data. Render as a callout (note-style). Replace
+        "photocopy these two pages" with a cross-reference link
+        to the actual Day 3 pages in the web version.
+      PDF 007-008 (printed 1-2): Introduction proper.
+        Transcribe verbatim.
+
+      Add anchor `{#sec-optional-extras-introduction}` on the
+      Introduction heading.
+
+      No figures, no interactive elements.
+
+  - slug: "01-part-a-funnel-charts"
+    title: "PART A — USING CONTROL CHARTS ON FUNNEL EXPERIMENT DATA"
+    pages: "3-16"
+    pdf_pages: "9-22"
+    notes: |
+      Longest of the content chapters — 14 pages. This is the
+      Part most heavily referenced by the main course (Day 3
+      and Day 7 both link here).
+
+      Anchors required:
+        - `{#sec-optional-extras-part-a}` on the Part A heading
+          (printed page 3 / PDF 9). Day 3 Part A links here.
+        - `{#sec-optional-extras-page-15}` on the relevant
+          heading inside printed page 15 (PDF 21). Day 7 links
+          here. The heading is in the "Discussion" section of
+          Part A §5 — the paragraph about autocorrelation /
+          financial-data-style examples. Check the exact
+          heading text during transcription and place the
+          anchor on the closest H2/H3 above the referenced
+          paragraph.
+
+      Interactive elements: printed pages 6 and 7 contain blank
+      graph grids the PDF invites the reader to fill in with
+      their own control charts for the Funnel data. User has
+      confirmed these stay as static images — crop from the
+      source PNG and render with a short prefatory note
+      ("Print this page, or draw on paper alongside…") rather
+      than an interactive input.
+
+      FIGURES (verify during Phase 3 — these are the main ones):
+        - p.3 / PDF 9:   Control chart introducing Part A
+        - p.5 / PDF 11:  Rule 1 Funnel data summary
+        - p.6 / PDF 12:  BLANK GRAPH GRID (reader fills in)
+        - p.7 / PDF 13:  BLANK GRAPH GRID (reader fills in)
+        - p.8 / PDF 14:  Rules 1 & 2 comparison chart
+        - p.10 / PDF 16: Rules 3 & 4 chart
+        - p.11 / PDF 17: Combined Funnel rules chart
+        - p.13 / PDF 19: Discussion-section chart
+        - p.15 / PDF 21: Financial-data / autocorrelation
+                         illustration (near the Day 7 anchor)
+        - p.16 / PDF 22: Chapter-closing chart
+
+      Most are line/control charts — crop from source PNGs
+      rather than re-plotting in R (the Funnel data lives on
+      Day 3 pp.44 & 47; re-plotting here duplicates effort and
+      risks numeric drift). Re-plotting in R is reserved for
+      figures that need interactivity.
+
+  - slug: "02-part-b-subgrouped"
+    title: "PART B — A-FEW-AT-A-TIME DATA"
+    pages: "17-28"
+    pdf_pages: "23-34"
+    notes: |
+      12 pages on X-bar and R charts / subgrouped data. Includes
+      the well-known Japanese Tokai Rika photograph on printed
+      page 22 (PDF 28) — a factory floor shot showing a posted
+      quality chart, cited in multiple Deming works.
+
+      Anchor: `{#sec-optional-extras-part-b}` on the Part B
+      heading (no current inbound references, but cheap to
+      future-proof).
+
+      Interactive elements: printed page 25 (PDF 31) has a
+      blank graph grid — same treatment as Part A (static image,
+      prefatory note).
+
+      FIGURES (verify during Phase 3):
+        - p.17 / PDF 23: Subgrouping introduction chart
+        - p.19 / PDF 25: X-bar chart example
+        - p.20 / PDF 26: R-chart example
+        - p.22 / PDF 28: TOKAI RIKA photograph — historical
+                         photo, crop from source PNG at high
+                         resolution (cannot recreate)
+        - p.25 / PDF 31: BLANK GRAPH GRID (reader fills in)
+        - p.27 / PDF 33: Closing chart(s)
+        - p.28 / PDF 34: Summary figure
+
+  - slug: "03-part-c-ne-er-twain"
+    title: "PART C — NE'ER THE TWAIN SHALL MEET?"
+    pages: "29-36"
+    pdf_pages: "35-42"
+    notes: |
+      8 pages on the relationship (and common confusion) between
+      Shewhart control-chart thinking and conventional
+      statistical hypothesis-testing. Referenced by Day 10
+      Part C.
+
+      Anchor required: `{#sec-optional-extras-part-c}` on the
+      Part C heading (printed page 29 / PDF 35).
+
+      Title uses Kipling's "East is East…" quotation — keep the
+      apostrophe-curled "Ne'er" and the em-dash / question
+      mark exactly as printed.
+
+      FIGURES (verify during Phase 3):
+        - p.30 / PDF 36: Distribution / hypothesis-testing
+                         diagram
+        - p.32 / PDF 38: Comparison chart (Shewhart vs
+                         hypothesis-test framing)
+        - p.35 / PDF 41: Closing example figure
+
+      Low figure density vs other Parts; prose-heavy chapter.
+
+  - slug: "04-part-d-crash-course"
+    title: "PART D — A CRASH-COURSE IN CONVENTIONAL STATISTICS"
+    pages: "37-56"
+    pdf_pages: "43-62"
+    notes: |
+      Longest Part (20 pages). Walks through mean, standard
+      deviation, normal distribution, sampling distributions,
+      confidence intervals, and hypothesis tests — the classical
+      statistics toolkit, from Neave's perspective as a
+      statistician. Heavy on formulas and small figures.
+
+      Anchor: `{#sec-optional-extras-part-d}` on the Part D
+      heading (no current inbound references).
+
+      FIGURES (verify during Phase 3 — ~8-12 expected):
+        - Normal-curve diagrams (several — crop from PDF, or
+          recreate in R if the versions on page are
+          schematic / simple)
+        - Histogram examples
+        - Probability-distribution illustrations
+        - Sampling-distribution diagrams
+        - Possibly a small data table or two
+
+      Math rendering: Quarto supports LaTeX math — use `$...$`
+      inline and `$$...$$` display blocks for formulas rather
+      than cropping formula images. Preserve Neave's notation
+      exactly (σ, μ, x̄, s, etc.).
+
+  - slug: "05-part-e-normality"
+    title: "PART E — IS THERE ANYTHING NORMAL ABOUT CONTROL CHARTS?"
+    pages: "57-70"
+    pdf_pages: "63-76"
+    notes: |
+      14 pages addressing the common misconception that control
+      charts require Normally distributed data. Title is a
+      deliberate Neave pun — preserve the capitalisation and
+      the question mark exactly.
+
+      Anchor: `{#sec-optional-extras-part-e}` on the Part E
+      heading (no current inbound references).
+
+      FIGURES (verify during Phase 3 — ~6-10 expected):
+        - Normal vs non-Normal distribution comparisons
+        - Control charts built on non-Normal data
+        - Simulation / empirical-rule illustrations
+
+      Includes some inline data tables (likely — verify during
+      recon). Render as markdown tables, not images.
+
+  - slug: "06-part-f-technical"
+    title: "PART F — TECHNICAL SECTION"
+    pages: "71-92"
+    pdf_pages: "77-98"
+    notes: |
+      Final and longest-by-page Part (22 pages). Reference-style
+      technical content — formulas, tables of constants, proofs
+      or derivations, and one Technical Aid box.
+
+      Anchor: `{#sec-optional-extras-part-f}` on the Part F
+      heading.
+
+      INTERACTIVE ELEMENTS:
+        - Printed page 88 (PDF 94) contains "Technical Aid 1" —
+          a boxed/bordered sidebar giving detail on a specific
+          calculation. Render using the existing `.technical_aid`
+          CSS class (see CONVERSION_GUIDE.md for the pattern
+          used in Day 3 / Day 10). Do NOT crop as an image —
+          preserve as styled HTML so the math can be selected
+          and read aloud by screen readers.
+
+      FIGURES (verify during Phase 3 — ~8-12 expected):
+        - Historical Shewhart 1931 "Type Apparatus" figure
+          (printed ~p.75 / PDF ~81) — crop from source PNG;
+          this is a period photograph / line drawing that
+          cannot be recreated.
+        - Various technical diagrams and derivation figures.
+        - Constant tables (A2, D3, D4, d2, etc.) — render as
+          markdown tables, not images. Verify values against
+          standard SPC references during transcription.
+
+      Math rendering: same treatment as Part D — LaTeX where
+      possible, cropped images only for hand-drawn/schematic
+      diagrams.
+
+# ------ Figure Decisions ------
+# High-level defaults for this appendix. Chapter-specific
+# overrides live in each chapter's `notes:` block above.
+figures:
+  defaults:
+    action: "crop"
+    reasoning: |
+      This is a reference document built around its figures —
+      recreating them in R risks numeric drift from the source.
+      Default to cropping from 12-Days-to-Deming/PNGs/ (full
+      resolution, NOT PNGs-recon/ which is downsampled for
+      reconnaissance only).
+  overrides:
+    - kind: "formulas"
+      action: "render_latex"
+      notes: |
+        Inline formulas and short display math — render with
+        Quarto's LaTeX support ($...$ and $$...$$) rather than
+        cropping. Preserves selectability, screen-reader
+        accessibility, and visual sharpness at any zoom.
+    - kind: "constant tables"
+      action: "markdown_table"
+      notes: |
+        SPC constant tables (A2, D3, D4, d2, etc.) in Part F —
+        render as markdown tables. Cross-check values during
+        transcription against e.g. Wheeler's *Understanding
+        Statistical Process Control*.
+    - kind: "inline data tables"
+      action: "markdown_table"
+      notes: |
+        Small inline data tables (likely in Parts D and E) —
+        render as markdown tables, not images.
+    - kind: "blank graph grids"
+      action: "crop_with_note"
+      pages: [6, 7, 25]
+      notes: |
+        Blank grids on printed pp.6, 7, 25 where the reader is
+        invited to draw their own chart. User confirmed these
+        stay as static images. Crop from source PNG and add a
+        short prefatory note: "Print this page, or draw on
+        paper alongside the Funnel data from Day 3."
+    - kind: "Technical Aid 1"
+      action: "styled_html"
+      pages: [88]
+      notes: |
+        Use the `.technical_aid` CSS class, NOT a cropped
+        image. Preserves screen-reader access to the math.
+    - kind: "photographs"
+      action: "crop"
+      examples:
+        - "p.22 Tokai Rika factory photo"
+        - "p.~75 Shewhart 'Type Apparatus' historical figure"
+      notes: |
+        Historical photographs and period line drawings —
+        always crop from source PNG. These cannot be recreated
+        and rendering them at high resolution is part of the
+        historical record.
+
+# ------ Context Notes ------
+context_notes: |
+  STRUCTURE:
+    Files live at `content/appendix/optional-extras/NN-slug.qmd`
+    (new subdirectory). The existing single-file stub
+    `content/appendix/10-optional-extras.qmd` needs a decision
+    during Phase 5 — two options:
+
+      Option 1 (recommended): replace it. Delete
+        10-optional-extras.qmd and update _quarto.yml to point
+        to the 7 new files in its place. Any inbound links
+        previously targeting the stub will need to be
+        redirected to 00-introduction.qmd.
+
+      Option 2: keep it as a lead-in page that introduces
+        Optional Extras and links to the 7 chapters. Only
+        worth doing if the stub currently contains unique
+        framing text we want to preserve.
+
+      Phase 5 check: `Read` the current
+      10-optional-extras.qmd first. If it's a near-empty
+      placeholder, go with Option 1. If it already has meaningful
+      intro prose, fold that prose into 00-introduction.qmd and
+      delete the stub.
+
+    Wire into _quarto.yml under `appendices:`:
+
+      appendices:
+        - content/appendix/00-welcome.qmd
+        - content/appendix/01-day-1.qmd
+        # ... existing files ...
+        - content/appendix/09-day-11.qmd
+        - content/appendix/optional-extras/00-introduction.qmd
+        - content/appendix/optional-extras/01-part-a-funnel-charts.qmd
+        - content/appendix/optional-extras/02-part-b-subgrouped.qmd
+        - content/appendix/optional-extras/03-part-c-ne-er-twain.qmd
+        - content/appendix/optional-extras/04-part-d-crash-course.qmd
+        - content/appendix/optional-extras/05-part-e-normality.qmd
+        - content/appendix/optional-extras/06-part-f-technical.qmd
+        - content/appendix/contributions-balaji-reddie/00-introduction.qmd
+        # ... Reddie files continue ...
+        - content/appendix/11-references-and-sources.qmd
+
+  CONVENTIONS:
+    - No Pause-for-Thought blocks, no `viewof` interactive
+      inputs. This is a reference document, not a timed
+      lesson.
+    - One `.technical_aid` styled box on Part F p.88.
+    - Blank graph grids (pp.6, 7, 25) are static images with a
+      short "print this page" framing note — no drawing widget.
+    - Neave's highlighted-quote / blue-italic convention may
+      appear for Deming quotations within the prose — follow
+      the same CSS classes used in Days 1-2 and the Reddie
+      appendix.
+    - Formulas render in LaTeX where possible; cropped-image
+      fallback only for hand-drawn schematics.
+
+  FRONT MATTER:
+    - PDF 1 (cover), PDF 2 and PDF 4 (blank) are NOT converted.
+    - PDF 3 (inner title) renders as a centred title block.
+    - PDF 5 (CONTENTS) renders as a markdown list linked to the
+      Part anchors.
+    - PDF 6 (NOTE about photocopying Day 3 pp.44 & 47) becomes
+      a callout, with the "photocopy" instruction replaced by
+      a live cross-reference to Day 3 in the web version.
+
+  CROSS-REFERENCES:
+    Outbound (links FROM this appendix TO elsewhere):
+      - Part A and the Introduction both point readers at Day 3
+        pp.44 & 47 for the Funnel data. In the web version,
+        replace the photocopy instruction with a link to the
+        relevant Day 3 chapter.
+
+    Inbound (links FROM elsewhere TO this appendix):
+      - Day 1 Stats-level 2/3 general guidance → likely links
+        to Parts D/E (verify during Phase 5).
+      - Day 3 Part A (Funnel control charts) →
+        `#sec-optional-extras-part-a`.
+      - Day 7 ("brief extract from page 15") →
+        `#sec-optional-extras-page-15`.
+      - Day 10 Part C → `#sec-optional-extras-part-c`.
+
+    Phase 5 link-check: after wiring and rendering, search for
+    each of these anchors with grep and confirm each link
+    source resolves.
+
+  NAMING:
+    - New subdirectory: `content/appendix/optional-extras/`.
+    - Image-crop directory: `assets/images/optional-extras/`
+      (create during Phase 3). Use the subdirectory naming from
+      CONVERSION_GUIDE.md.
+
+  TESTING:
+    - `scripts/check-structure.sh` should still pass.
+    - `quarto render` should complete without warnings. Watch
+      for LaTeX math rendering failures in Parts D and F.
+    - Spot-check: navigate from the Contents list on the
+      Introduction page to each Part; confirm each required
+      anchor resolves. Confirm the NOTE callout's Day 3 link
+      works.
+    - pa11y-ci: add new appendix URLs to `.pa11yci.json` —
+      verify lang attrs and heading order on each new page.
+    - Figure alt-text: every cropped figure needs descriptive
+      alt-text AND `{.lightbox}` per the memory note about
+      Quarto dropping alt attrs without it.
+
+  RIGHTS:
+    - Non-commercial verbatim reproduction is authorised (see
+      project-level rights memory).
+    - Historical figures (Shewhart 1931 Type Apparatus, Tokai
+      Rika photograph) — the rights note at the bottom of the
+      References appendix covers "considerable efforts to trace
+      copyright holders"; no additional approvals required for
+      this conversion.
