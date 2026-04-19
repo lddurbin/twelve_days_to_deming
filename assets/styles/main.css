@@ -376,6 +376,7 @@ Usage:
 .spacer-3xl { margin-top: 600px; }
 .spacer-4xl { margin-top: 1300px; }
 .text-highlight-red { color: var(--color-outcome); font-weight: bold; }
+.blue-text { color: blue; }
 .data-sequence-mono { text-align: center; font-family: monospace; }
 .table-cell-highlight { background: var(--color-highlight-green); font-weight: bold; }
 .callout-emphasis {
