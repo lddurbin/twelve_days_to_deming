@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-# DAY 10 {#sec-page39}
+[]{#sec-page39}
 
 ![Second Project](/assets/images/appendix/second-project-banner.png){.lightbox}
 

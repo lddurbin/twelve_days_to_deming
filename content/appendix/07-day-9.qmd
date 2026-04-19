@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-# DAY 9 {#sec-page38}
+[]{#sec-page38}
 
 ## ACTIVITY 9–c
 
