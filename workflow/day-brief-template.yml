@@ -74,7 +74,6 @@ figures: []
 # Anything else Claude should know when building this day.
 # Examples:
 #   - Errata or corrections to the source text
-#   - Workbook page references that aren't clear from the source
 #   - Cross-references to other days that need linking
 #   - Special instructions (e.g. "this activity needs dice — add a note")
 

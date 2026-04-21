@@ -12,7 +12,7 @@ Just a few comments here that I hope may be helpful. Regarding Category 1—"fac
 
 On Day 7 pages 7–8, I include what I trust are some wise words on putting theory into practice. I advise doing things gradually rather than precipitously and I spend a little time there on performance appraisal in particular. But, regarding numerical targets, I suggest that the little I have just said provides some useful clues. As part of the move toward better management, those who set targets should consider well their "arbitrariness" and also shift the balance in how they are treated and used from Category 3 to Category 2.
 
-*(Return to Workbook page 105 / Day 7 page 4.)*
+*(Return to Day 7 page 4.)*
 
 ## TRANSCRIPT OF LETTER
 
@@ -46,7 +46,7 @@ An example of expectation of quick results without effort and without sufficient
 
 Appointment of someone to the same job that Dr Nelson has will not create another Dr Nelson. It would be difficult to convey in three lines so much misunderstanding. The President's supposition that he can resign from his obligation to lead improvement of quality is a glaring fallacy. And who would accept such a mandate from the head of an organisation? Only someone that is a complete novice on quality and improvement of quality.
 
-*(Return to Workbook page 115 / Day 7 page 28.)*
+*(Return to Day 7 page 28.)*
 
 ### 2. The supposition that solving problems, automation, gadgets, and new machinery will transform industry.
 
@@ -54,7 +54,7 @@ A group of workers took pride in changes that saved \$500 a year. Every net cont
 
 The big gain is not the \$500 per year that the men saved. What is important is that these men could now take pride in the improvement. They felt important to the job and to the company. The quality of their output improved along with outturn *[i.e. the quantity]*. Moreover, this improvement brought forth better quality, productivity, and morale all along the line. This improvement can not be quantified. It remains as one of the invisible figures, so important for management.
 
-*(Return to Workbook page 115 / Day 7 page 28.)*
+*(Return to Day 7 page 28.)*
 
 ### 3. Search for examples.
 
@@ -64,7 +64,7 @@ Too often this is the story. The management of a company, seized with a desire t
 
 It was related to me during a seminar that the management of a company that makes furniture, doing well, took it into their heads to expand their line into pianos. Why not make pianos? They bought a Steinway piano, took it apart, made or bought the parts, and put a piano together exactly like the Steinway, only to discover that they could only get thuds out of their product. So they put the Steinway piano back together with the intention to get their money back on it, only to discover that it too would now only make thuds.
 
-*(Return to Workbook page 116 / Day 7 page 29.)*
+*(Return to Day 7 page 29.)*
 
 ### 4. "Our problems are different."
 
@@ -72,7 +72,7 @@ A common disease that afflicts management and government administration the worl
 
 And that is all Dr Deming wrote on this one.
 
-*(Return to Workbook page 116 / Day 7 page 29.)*
+*(Return to Day 7 page 29.)*
 
 ### 5. Obsolescence in Schools *(of Business).*
 
@@ -84,13 +84,13 @@ Faults in education were stated well by Edward A Reynolds in *Standardization Ne
 >
 > Practically all of our major corporations were started by technical men—inventors, mechanics, engineers, and chemists, who had a sincere interest in quality of products. Now these companies are largely run by men interested in profit, not product. Their pride is in the Profit & Loss statement or stock report."
 
-*(Return to Workbook page 117 / Day 7 page 30.)*
+*(Return to Day 7 page 30.)*
 
 ### 6. Poor teaching of statistical methods in industry.
 
 Awakening to the need for quality, and with no idea what quality means nor how to achieve it, American management have resorted to mass assemblies for crash courses in statistical methods, employing hacks for teachers, being unable to discriminate between competence and ignorance. The result is that hundreds of people are learning what is wrong. []{#sec-page34} People with Master's degrees in statistical theory accept jobs in industry and government to work with computers. Most if not all computer packages for analysis of data, as they are called, provide flagrant examples of inefficiency. It is a vicious cycle. Statisticians do not know what statistical work is, and are satisfied to work with computers. People that hire statisticians likewise have no knowledge about statistical work, and somehow suppose that computers are the answer. Statisticians and management thus misguide each other and keep the vicious cycle rolling.
 
-*(Return to Workbook page 117 / Day 7 page 30.)*
+*(Return to Day 7 page 30.)*
 
 ### 7. Use of *[Military Standard 105D and other]* tables for acceptance.
 
@@ -98,7 +98,7 @@ Many thousands of dollars worth of product changes hands hourly, lots *[i.e. bat
 
 Incredibly, courses and books in statistical methods still devote time and pages to acceptance sampling.
 
-*(Return to Workbook page 118 / Day 7 page 31.)*
+*(Return to Day 7 page 31.)*
 
 ### 8. "Our Quality Control Department takes care of all our problems of quality."
 
@@ -106,7 +106,7 @@ Unfortunately, Quality Control Departments have taken the job of quality away fr
 
 The function of quality assurance in many companies is too often to provide hindsight, to keep the management informed about the amount of defective product produced week by week, or comparisons month by month on levels of quality, costs of warranty, etc. What management needs are charts to show whether the system has reached a stable state (in which case management must take on the chief role for improvement), or it is still infested with special causes.
 
-*(Return to Workbook page 118 / Day 7 page 31.)*
+*(Return to Day 7 page 31.)*
 
 ### 9. "Our troubles lie entirely in the workforce."
 
@@ -116,7 +116,7 @@ Only recently, the entire management of a large manufacturing concern supposed, 
 
 Presumably the "statistical methods" alluded to here were those relating to Obstacle 6.
 
-*(Return to Workbook page 119 / Day 7 page 32.)*
+*(Return to Day 7 page 32.)*
 
 ### 10. False starts.
 
@@ -126,7 +126,7 @@ One kind of false start arises from the supposition that wholesale teaching of s
 
 I refer you yet again to the final "bare bone" of the ten in Shewhart's Breakthrough (Day 1 page 33).
 
-*(Return to Workbook page 119 / Day 7 page 32.)*
+*(Return to Day 7 page 32.)*
 
 ### 11. "We installed quality control."
 
@@ -136,7 +136,7 @@ Improvement of quality and productivity, to be successful in any company, must b
 
 As with Obstacle 4, this is all that Deming wrote here: brief but very much to the point.
 
-*(Return to Workbook page 120 / Day 7 page 33.)*
+*(Return to Day 7 page 33.)*
 
 ### 12. The unmanned computer.
 
@@ -146,7 +146,7 @@ People are intimidated by the computer. They can not tell it what data or charts
 
 A computer can be a blessing. It can also be a curse.
 
-*(Return to Workbook page 120 / Day 7 page 33.)*
+*(Return to Day 7 page 33.)*
 
 ### 13. The supposition that it is only necessary to meet specifications. {#sec-page36}
 
@@ -156,7 +156,7 @@ A programmer has a similar problem. She learns, after she finishes the job, that
 
 My friend Robert Piketty of Paris put it this way: listen to the Royal Philharmonic Orchestra of London play Beethoven's Fifth Symphony. Now listen to some amateur orchestra play it. Of course, you like both performances: you enjoy home-grown talent. Both orchestras met the specifications: not a mistake. But listen to the difference. Just listen to the difference!
 
-*(Return to Workbook page 121 / Day 7 page 34.)*
+*(Return to Day 7 page 34.)*
 
 ### 14. The fallacy of zero defects.
 
@@ -166,7 +166,7 @@ Yes, Dr Deming did write this under Obstacle 14, not Obstacle 13.
 
 It will not suffice to have customers that are merely satisfied. As unhappy customer will switch. Unfortunately, a satisfied customer may also switch, on the theory that he could not lose much, and might gain. Profit in business comes from repeat customers, customers that boast about your product and service, and that bring friends with them. Fully allocated costs may well show that the profit in a transaction with a customer that comes back voluntarily may be 10 times the profit realised from a customer that responds to advertising and other persuasion.
 
-*(Return to Workbook page 121 / Day 7 page 34.)*
+*(Return to Day 7 page 34.)*
 
 ### 15. Inadequate testing of prototypes.
 
@@ -180,7 +180,7 @@ Anyone engaged in testing should ask himself the following questions:
 
 Failure to understand variation in tests delayed some years the science of genetics. Ratios of (e.g.) tall and dwarf peas varied wildly below and above nature's average value 1 : 4. This variation bothered everyone, including Gregor Mendel, discoverer of the simple dominant gene.
 
-*(Return to Workbook page 122 / Day 7 page 35.)*
+*(Return to Day 7 page 35.)*
 
 ### 16. "Anyone that comes to try to help us must understand all about our business."
 
@@ -190,4 +190,4 @@ All evidence points to the fallacy of this supposition. Competent men in every p
 >
 > This Obstacle struck a loud chord for me. In my very early days of trying to help a company learn about the Deming philosophy, I would spend much time before my visit trying to learn as much as I could about that company: I did not want to seem ignorant about what they did or how they did it. It was an utter waste of effort. However much time I spent on this fruitless task, I would still only know the merest fraction of what was known to everybody I spoke to—and that would be painfully obvious to them! When I changed tack, told the truth upfront that I knew nothing about what they did and knew about—but that perhaps I knew something that they knew nothing about and thought it might be helpful to them, the reception I received was much more positive. What is needed is the combination, indeed the coalescing, of the two volumes of knowledge. Clearly I did not have the time or ability for that: but they did, with my help.
 
-*(Return to Workbook page 122 / Day 7 page 35.)*
+*(Return to Day 7 page 35.)*

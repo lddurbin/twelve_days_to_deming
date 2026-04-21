@@ -5,8 +5,6 @@ execute:
 ---
 <div class="separator_white"></div>
 
-*Relevant sections of this Major Activity are also in the Workbook: I'll give you the page references where and when appropriate*
-
 <div class="major_activity_title">
 <h2>MAJOR ACTIVITY 3–h</h2>
 </div>

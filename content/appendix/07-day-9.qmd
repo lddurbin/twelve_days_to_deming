@@ -10,10 +10,10 @@ execute:
 
 A hint here is first to ask yourself what prevents you (and others) from doing your job as well as you would prefer to. If you cannot do your job as well as you would like then that will presumably cause difficulties to your customers, be they internal or external; and those difficulties will be very likely to result in additional cost or indeed lost customers (which is, of course, also very costly). Frequent candidates as answers to this question come from administration systems and computer systems, with poor or nonexistent training lurking not far behind.
 
-*(Return to Workbook page 142 / Day 9 page 7.)*
+*(Return to Day 9 page 7.)*
 
 ## MAJOR ACTIVITY 9–e
 
 ![Medical research organisation flow diagram](/assets/images/appendix/medical-research-organisation.png){.lightbox}
 
-*(Return to Workbook page 145 / Day 9 page 12.)*
+*(Return to Day 9 page 12.)*
