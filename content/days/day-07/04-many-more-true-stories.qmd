@@ -3,6 +3,8 @@ title: "MANY MORE TRUE STORIES"
 execute:
   echo: false
 ---
+[]{#sec-page9}
+
 Having assembled my collection of short true stories for Day 6, I copied it to a few friends and asked if they might have any further such contributions. These next nine pages show the results of that request! Some accounts may remind you of true stories of your own: if so, record them for use in Activity 7–d on page 18 [WB 108]. I suggest you immediately make relevant notes for that Activity as you read through these pages.
 
 ::: {.neave_note}
