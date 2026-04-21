@@ -331,7 +331,7 @@ createDownloadButton([
 
 ---
 
-## "Out-of-hours" note
+## "Out-of-hours" note {#sec-page28}
 
 You may recall my saying in the Overture that I would, from time to time, ask you to focus attention on "your organisation" in some of this course's activities. The purpose is, of course, to help make your learning "live" in your own situation.
 
