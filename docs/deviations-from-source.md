@@ -51,7 +51,7 @@ Entries are listed newest-first.
 - **Source reference** — Neave's original course materials treat the Workbook as the reader's writing surface and use Workbook page numbers as a parallel reference system alongside Day-chapter page numbers.
 - **Why** — The printed Workbook no longer exists as a separate artefact in this delivery; leaving the cross-references in place would send readers looking for something that isn't there. The Day-chapter page numbers carry the full navigation intent on their own.
 - **Decided in** — [#185 decision comment](https://github.com/lddurbin/twelve_days_to_deming/issues/185#issuecomment-4286006129) (D1/D2).
-- **Landed in** — *Pending — tracked in [#210](https://github.com/lddurbin/twelve_days_to_deming/issues/210) and [#209](https://github.com/lddurbin/twelve_days_to_deming/issues/209).*
+- **Landed in** — PR [#214](https://github.com/lddurbin/twelve_days_to_deming/pull/214) (closes #209, #210).
 - **Related** — [#213](https://github.com/lddurbin/twelve_days_to_deming/issues/213) tracks the still-pending decision on inline `[WB NNN]` cross-reference suffixes; [#212](https://github.com/lddurbin/twelve_days_to_deming/issues/212) covers the `index.qmd` front-matter Workbook prose still to be addressed.
 
 ## 2026-04-21 — Remove the appendix Welcome Workbook passage
