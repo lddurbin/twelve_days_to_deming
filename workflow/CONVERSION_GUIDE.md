@@ -464,11 +464,11 @@ Use ISO 639-1 codes: `ja` Japanese, `de` German, `fr` French, `la` Latin,
 
 ## Inter-Day Cross-References
 
-The course text contains ~182 concrete "Day N page M" references plus a tail of
-fuzzy mentions ("as we saw on Day 5", "on Day 9"). Print page numbers no longer
-map cleanly onto the digitised chapter structure, so every reference needs a
-judgement call on what to link to. The conventions below exist so that work is
-mechanical, not per-reference reinvention.
+The course text contains over 200 concrete "Day N page M" references plus a
+tail of fuzzy mentions ("as we saw on Day 5", "on Day 9"). Print page numbers
+no longer map cleanly onto the digitised chapter structure, so every reference
+needs a judgement call on what to link to. The conventions below exist so that
+work is mechanical, not per-reference reinvention.
 
 ### Anchor convention
 
@@ -502,12 +502,17 @@ Use plain Markdown links with a `.qmd` path — Quarto rewrites the extension to
 <!-- Same-day link: no path needed -->
 See [page 27](#sec-page27).
 
-<!-- Cross-day link: relative path from current file -->
+<!-- Cross-day link from a content/days/day-NN/ chapter -->
 See [Day 4 page 20](../day-04/04-points-1-to-6.qmd#sec-page20).
 
-<!-- From appendix back into days -->
+<!-- Cross-day link from a content/appendix/ file -->
 See [Day 2 page 16](../days/day-02/04-our-first-control-chart.qmd#sec-page16).
 ```
+
+The relative path differs by source location — `../day-NN/` when the linking
+file lives in another day directory, `../days/day-NN/` when it lives in
+`content/appendix/`. The audit table's `source_file` column tells you which
+form to use for each row.
 
 Do **not** use Quarto's `@sec-pageN` cross-reference syntax for inter-day links
 — it is ambiguous across days because `#sec-page7` exists in multiple files.

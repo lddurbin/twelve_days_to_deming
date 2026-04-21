@@ -33,14 +33,15 @@ out_csv <- fs::path(repo_root, "workflow", "inter-day-refs.csv")
 qmd_files <- fs::dir_ls(content_dir, recurse = TRUE, glob = "*.qmd")
 
 read_lines_tbl <- function(path) {
+  lines <- readLines(path, warn = FALSE)
   tibble(
     source_file = as.character(fs::path_rel(path, repo_root)),
-    source_line = seq_along(readLines(path, warn = FALSE)),
-    text = readLines(path, warn = FALSE)
+    source_line = seq_along(lines),
+    text = lines
   )
 }
 
-all_lines <- map_dfr(qmd_files, read_lines_tbl)
+all_lines <- map(qmd_files, read_lines_tbl) |> list_rbind()
 
 # ---------------------------------------------------------------------------
 # Helper: turn a vector of strings into a tidy tibble of regex matches with
@@ -147,7 +148,7 @@ concrete <- concrete |>
     notes = case_when(
       !is.na(n_candidates) & n_candidates > 1 ~
         sprintf("multiple candidate anchors: %s", target_file),
-      TRUE ~ NA_character_
+      .default = NA_character_
     )
   ) |>
   select(
