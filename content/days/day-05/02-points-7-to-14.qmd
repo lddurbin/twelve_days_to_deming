@@ -194,7 +194,7 @@ create_clock(12, 0)
 
 ---
 
-## Point 10. Eliminate exhortations
+## Point 10. Eliminate exhortations {#sec-page8}
 
 <div class="info_callout">**Eliminate the use of slogans, posters, and exhortations** for the workforce, demanding Zero Defects and new levels of productivity without providing methods. Such exhortations only create adversarial relationships: the bulk of the causes of low quality and low productivity belong to the system, and thus lie beyond the power of the workforce.</div>
 

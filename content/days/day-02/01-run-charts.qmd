@@ -138,7 +138,7 @@ Now, I repeat that this was just a simple introductory example, purely for illus
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## PAUSE FOR THOUGHT 2–a
+## PAUSE FOR THOUGHT 2–a {#sec-page4}
 
 Even though these were not real sales figures, and this was not a real management team, do you think that this was a reasonable account of how management might have reacted had these been real sales data?
 

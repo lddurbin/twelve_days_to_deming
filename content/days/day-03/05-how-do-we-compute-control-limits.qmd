@@ -3,11 +3,11 @@ title: "HOW DO WE COMPUTE THESE CONTROL LIMITS—AND WHY?"
 execute:
   echo: false
 ---
-Let me remind you of something I told you when first referring to the Red Beads Experiment (Day 1 page 7):
+Let me remind you of something I told you when first referring to the Red Beads Experiment ([Day 1 page 7](../day-01/03-statistics.qmd#sec-page7)):
 
 > "[Dr Deming] would usually draw up a control chart once the results were obtained in his famous Red Beads Experiment ... But how? He would just write down a simple formula, insert some numbers obtained from the experiment, and do the arithmetic. But there was nothing about where the simple formula came from nor the fact that, with the large majority of processes, that same formula wouldn't even be appropriate!"
 
-Further, during Technical Aid 1 on Day 2 page 20, my introduction to that method for computing control limits was as follows (slightly paraphrased):
+Further, during Technical Aid 1 on [Day 2 page 20](../day-02/05-the-truth-the-whole-truth-and-nothing-but.qmd#sec-page20), my introduction to that method for computing control limits was as follows (slightly paraphrased):
 
 > "One of the earliest applications of Shewhart's invention of the control chart was for batch inspection of mass production processes. In such inspection, samples (batches) of items from the process's output are regularly drawn and inspected, and the number of defective items recorded."
 

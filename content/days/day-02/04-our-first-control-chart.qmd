@@ -31,7 +31,7 @@ red_beads_control_chart(c(7, 10, 11, 11, 12, 11, 11, 8, 10, 9, 12, 15, 3, 10, 10
 If you have classified yourself at Stats-level 1 or above then there will soon be a couple of Technical Aids which will enable you to compute the control limits shown above. If you are at Stats-level 0 then please don't bother with those Technical Aids: just concentrate on what is <em>really</em> important, namely how to <em>interpret</em> the chart and what to deduce from it once it has been drawn. That is what follows here.
 </div>
 
-Let's recall a couple of short extracts from Day 1. Firstly from [Day 1 page 5](../day-01/03-statistics.qmd#sec-page5), when discussing what is meant by "understanding variation", we had:
+[]{#sec-page15}Let's recall a couple of short extracts from Day 1. Firstly from [Day 1 page 5](../day-01/03-statistics.qmd#sec-page5), when discussing what is meant by "understanding variation", we had:
 
 > "In a nutshell, understanding variation is to do with being able to justifiably describe the behaviour over time of processes or systems of any kind by words such as 'stable' and 'predictable' or, on the other hand, 'unstable' and 'unpredictable' ... the control chart is the invaluable tool which best enables us to discriminate between those two states. The 'official' terms for the two states that you will find both Drs Shewhart and Deming using are respectively 'in statistical control' and 'out of statistical control' although, in the former case, Deming also often refers to a 'stable system'."
 
