@@ -114,7 +114,7 @@ create_clock(9, 55)
 
 ::::
 
-## The two paradoxes
+## The two paradoxes {#sec-page7}
 
 So, as implied by that quote from *EST* and earlier, the truth is that the statistical tool which had pride of
 place in Dr Deming’s teaching is rarely to be seen in introductory courses on Statistics—nor, for that matter,

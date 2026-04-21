@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
   
-Let me tell you now what first really began to attract me seriously to Deming’s work. It wasn’t the statistical
+[]{#sec-page23}Let me tell you now what first really began to attract me seriously to Deming’s work. It wasn’t the statistical
 ideas (as you might have thought, because of my background as a statistician). It was the fact that his
 teaching was so *human*! I saw and heard so much genuine, warm respect and empathy for humanity, individually and collectively. It was from him that I first heard ideas like <span class=deming_quote>“a company’s most important asset is
 its people”</span>. But *he* really meant it (unlike some others from whom I’ve heard similar words). I heard scorn
@@ -94,7 +94,7 @@ create_clock(12, 00)
 
 ::: {.column width="85%"}
 <div class="thought" role="note" aria-label="Thought">
-## PAUSE FOR THOUGHT 1–e
+## PAUSE FOR THOUGHT 1–e {#sec-page25}
 
 <div class="neave_note" role="note" aria-label="Author's note">This is today’s final Pause for Thought and it goes to the opposite extreme compared with the previous Activity. Here I’m just asking you to consider briefly something very simple in preparation for discussion tomorrow. No calculations, no deep thought—just quickly jot down a couple of opinions for
 future reference.</div>
