@@ -18,7 +18,7 @@ I can give some personal answers to these questions which have considerable rele
 
 - Yes!
 
-*(Return to Workbook page 10 / Day 2 page 7 or continue on Day 2 page 8.)*
+*(Return to Day 2 page 7 or continue on Day 2 page 8.)*
 
 ## PAUSE FOR THOUGHT 2–c
 
@@ -26,7 +26,7 @@ I can give some personal answers to these questions which have considerable rele
 
 - Yes!
 
-*(Return to Workbook page 11 / Day 2 page 8 or continue on Day 2 page 9.)*
+*(Return to Day 2 page 8 or continue on Day 2 page 9.)*
 
 ## PAUSE FOR THOUGHT 2–e
 
@@ -34,7 +34,7 @@ What do we see? All the data are contained between the Lower and Upper Control L
 
 That is not what the Foreman thought—he thought it was *all* due to the Willing Workers!
 
-*(Return to Workbook page 13 / Day 2 page 16.)*
+*(Return to Day 2 page 16.)*
 
 []{#sec-page8}
 
@@ -91,11 +91,11 @@ That is not what the Foreman thought—he thought it was *all* due to the Willin
 
 The upper and lower control limits for the statisticians’ data are UCL = 16.4 and LCL = 0.5.
 
-*(Return to Workbook page 22 / Day 2 page 34.)*
+*(Return to Day 2 page 34.)*
 
 The upper and lower control limits for the Spaniards’ data are UCL = 20.1 and LCL = 2.4.
 
-*(Return to Workbook page 25 / Day 2 page 37.)*
+*(Return to Day 2 page 37.)*
 
 []{#sec-page9}
 
@@ -118,7 +118,7 @@ Finally, the distance from $\bar{X}$ out to the two control limits is $3\sqrt{\b
 $$\text{UCL} = \bar{X} + 3\sqrt{\bar{X}(1 - \bar{p})} = 8.458 + 7.952 = 16.41,\ \text{and}$$
 $$\text{LCL} = \bar{X} - 3\sqrt{\bar{X}(1 - \bar{p})} = 8.458 - 7.952 = 0.51.$$
 
-*(Return to Workbook page 22 / Day 2 page 34.)*
+*(Return to Day 2 page 34.)*
 
 ### Spaniards’ data
 
@@ -135,7 +135,7 @@ Then the distance from $\bar{X}$ out to the two control limits is $3\sqrt{\bar{X
 $$\text{UCL} = \bar{X} + 3\sqrt{\bar{X}(1 - \bar{p})} = 11.250 + 8.858 = 20.11,\ \text{and}$$
 $$\text{LCL} = \bar{X} - 3\sqrt{\bar{X}(1 - \bar{p})} = 11.250 - 8.858 = 2.39.$$
 
-*(Return to Workbook page 25 / Day 2 page 37.)*
+*(Return to Day 2 page 37.)*
 
 </div>
 
@@ -187,7 +187,7 @@ I hope so.
 
 *(If, at some time, you would like to study such matters in greater depth, you will find much to read in Parts C, D and E of the “Optional Extras”.)*
 
-*(Return to Workbook page 26 / Day 2 page 38.)*
+*(Return to Day 2 page 38.)*
 
 ## Dave Kerr’s “Wrap-Up Brief” following the Red Beads Experiment
 

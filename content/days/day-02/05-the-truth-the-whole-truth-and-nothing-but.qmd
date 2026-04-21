@@ -89,7 +89,7 @@ $$
 \text{LCL} = \bar{X} - 3_s \sqrt{\bar{X}(1-\bar{p})}
 $$
 
-See if you can use this method to obtain the control limits quoted on page 14 and drawn on page 15. Use all 24 numbers of red beads in your calculation. (If you need help, the computations are sketched out in Technical Aid 2 on the next page—but try it by yourself first in the space at the top of the page or in the Workbook.)
+See if you can use this method to obtain the control limits quoted on page 14 and drawn on page 15. Use all 24 numbers of red beads in your calculation. (If you need help, the computations are sketched out in Technical Aid 2 on the next page—but try it by yourself first in the space at the top of the page.)
 </div>
 
 <div class="technical_aid" role="note" aria-label="Technical aid">

@@ -67,6 +67,7 @@ Each day includes:
 **Enhanced Features in the Online Version:**
 - **Interactive Clock Indicators**: Built-in timing guidance to help you pace your study sessions
 - **Embedded Activities**: Interactive exercises and reflections integrated directly into the reading flow
+- **In-page Text Inputs**: Capture your reflections, answers, and notes directly in the browser — this edition's substitute for the printable Workbook from the NZOQ PDF version
 - **Progress Tracking**: Visual indicators to help you monitor your advancement through the material
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Search and Navigation**: Easy content discovery and cross-referencing
@@ -76,17 +77,17 @@ Each day includes:
 ### Complete PDF Version
 The full course material is available as free PDF downloads from several sources:
 
-- **[New Zealand Organisation for Quality (NZOQ)](https://www.nzoq.org.nz/12-days-to-deming)**: Complete course with individual PDF files for each day and workbooks
+- **[New Zealand Organisation for Quality (NZOQ)](https://www.nzoq.org.nz/12-days-to-deming)**: Complete course with individual PDF files for each day and the printable Workbook B1–B4 companion
 - **Other Quality Organizations**: Various quality management organizations worldwide offer the course materials
 
 The PDF version includes:
 - Welcome booklet and course introduction
 - Individual day materials (Days 1-12)
-- Workbooks for hands-on activities
+- Printable Workbook B1–B4 for hands-on activities (PDF edition only — this site captures the same activities through in-page text inputs)
 - Appendix and reference materials
 - Optional extras and additional resources
 
-**Note**: The PDF version contains the complete 12-day course and is the most comprehensive option currently available.
+**Note**: The NZOQ PDF edition remains the upstream source of record for this course. This site is a respectful interactive rendering of that material; the printed Workbook is exclusive to the PDF edition.
 
 ### Content Integrity
 **Important Note**: Both the interactive online version and PDF versions preserve Dr. Neave's original content exactly as he wrote it. No changes have been made to his teachings, examples, or explanations. The enhancements focus solely on presentation and user experience—maintaining the authentic learning journey and pedagogical flow that Dr. Neave carefully crafted. The interactive elements are designed to support and amplify his original vision, not replace or modify it.

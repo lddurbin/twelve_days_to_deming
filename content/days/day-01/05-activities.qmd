@@ -52,7 +52,7 @@ for Thought and Activities are sequentially labelled a, b, c, … and are colour
 heading is printed in that colour and the corresponding material is enclosed in a similarly-coloured box.
 Red indicates that I have included some relevant discussion *immediately following* the request, and so
 warns you not to look ahead until you are ready. My discussion material is easily identified by being
-enclosed in a shaded red box. So (whether you are using a printed copy of the Workbook or of the complete material), if that discussion is visible on the same or the next page, it would make sense to cover it up
+enclosed in a shaded red box. So, if that discussion is visible on the same or the next page, it would make sense to cover it up
 whilst working on the request. Otherwise the discussion will be on the following page, so don’t turn to that
 page just yet. If the request is colour-coded green then there is no such discussion within the text. There
 is no need for you to memorise all these conventions right now: I’ll remind you when the time comes. No

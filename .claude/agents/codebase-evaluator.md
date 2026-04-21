@@ -66,7 +66,6 @@ ls content/days/day-*/*.qmd | wc -l
 ### 3.2 Interactive Elements & OJS
 - Consistent use of OJS input elements (text areas, selects, checkboxes)
 - All OJS inputs have accessible labels (issue #26 compliance)
-- Workbook page callouts are properly formatted
 - Activity sections use consistent CSS classes
 - Note download functionality works across all interactive sections
 - All download buttons use the `createDownloadButton` helper (not the old `downloadNotes` pattern)
@@ -131,7 +130,7 @@ grep -rn "major_activity_title" content/days/ | grep "<h1>" && echo "WARN: major
 ### 3.4 Code Efficiency & DRY Principles
 - **R helper functions**: Is repeated logic across `.qmd` files abstracted into `R/functions/`? Or is the same R code copy-pasted into every chapter?
 - **Boilerplate reduction**: Setup chunks (knitr hooks, source() calls) repeated in every file — could these be handled by `_quarto.yml` includes or a shared setup chunk?
-- **OJS pattern reuse**: Are similar interactive elements (workbook text areas, download buttons, note panels) built from reusable OJS components or copy-pasted with minor edits?
+- **OJS pattern reuse**: Are similar interactive elements (text inputs, download buttons, note panels) built from reusable OJS components or copy-pasted with minor edits?
 - **HTML/Markdown patterns**: Are recurring structural patterns (callout boxes, activity sections, timing indicators) implemented via R helper functions, Quarto shortcodes, or Quarto includes — or raw HTML duplicated across files?
 - **CSS class efficiency**: Are there near-duplicate CSS rules that could be consolidated? Are utility patterns abstracted?
 - **Helper function coverage**: Do the R functions in `R/functions/main-functions.R` cover all the repeated patterns, or are there opportunities to create new helpers?
@@ -490,7 +489,6 @@ For each area, provide:
 - OJS import paths (`import { ... } from "..."`) resolve to actual files
 - Image references: all referenced images must exist in `assets/images/day-XX/`
 - Image references in structural manifests must match actual files on disk
-- Workbook callout formatting consistency
 - `_quarto.yml` chapter list matches actual files on disk (both directions — no missing, no unwired)
 - Structural manifests exist for all converted days and `check-structure.sh` passes
 - R code chunk patterns are consistent (source paths, hook setup, etc.)

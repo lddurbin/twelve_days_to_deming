@@ -18,7 +18,7 @@ execute:
 
     There is a close analogy in the branch of traditional Statistics known as the Design of Experiments or Analysis of Variance (so if you're Stats-level 0 then you can skip this!). This topic had its origins in Agriculture: experimenting with various factors which might result in increased yield of crops—and some of the terminology from those origins still remains although the method is used extensively in many other areas. The "levels" (e.g. amounts, concentrations, etc) of one or more factors that are thought to probably affect results are deliberately varied in order to study the consequences. The resulting data are then analysed by comparing the variation resulting from different levels of the factors with that is usually referred to as the Residual Error or Unexplained Variation or something similar. The latter effectively plays the role of common-cause variation (though it is still quite rare for control charts to be used in this context, despite the fact that the mathematical assumptions made concerning the Residual Error are in fact much more stringent than simply being in statistical control). Common-cause variation can be regarded as "fog": the denser the fog (i.e. the larger the common-cause variation), the harder it is to see anything; the thinner the fog, the easier it becomes to see things—including whether e.g. different levels of a fertilizer do indeed affect the yield. Thus the thicker the fog, the less possible it becomes to see the effects of experimentation, again harming the possibility of developing greater variety in what the company can offer to its customers.
 
-*(Return to Workbook page 32 / Day 3 page 4 or continue on Day 3 page 5.)*
+*(Return to Day 3 page 4 or continue on Day 3 page 5.)*
 
 ## ACTIVITY 3–g {#sec-page15}
 
@@ -35,7 +35,7 @@ As before, the moving ranges are printed in italics:
 
 So $\bar{MR} = (1 + 2 + 0 + 1 + 1 + 1 + 1 + 1 + 1 + 0 + 2) \div 11 = 11 \div 11 = 1.00$ and $2.66 \times \bar{MR} = 2.66 \times 1.00 = 2.66$. Thus the control limits at $16.00 - 2.66 = 13.34$ and $16.00 + 2.66 = 18.66$, confirming the obvious message from the run chart that the process is trending downward.
 
-*(Return to Workbook page 37 / Day 3 page 18.)*
+*(Return to Day 3 page 18.)*
 
 ## MAJOR ACTIVITY 3–h
 
@@ -101,7 +101,7 @@ Some control-charting computer packages include a picture of a histogram turned 
 
 As mentioned in the main text, if you'd like to examine the actual control charts discussed here, take some "time out" to read through Part A of the Optional Extras.
 
-*(Return to Workbook page 46 / Day 3 page 57 or continue on Day 3 page 58.)*
+*(Return to Day 3 page 57 or continue on Day 3 page 58.)*
 
 ## ACTIVITY 3–j
 
