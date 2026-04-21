@@ -25,6 +25,8 @@ viewof activity_4a_1 = Inputs.textarea({
 })
 ```
 
+[]{#sec-page5}
+
 (2) In *The Deming of America* video, one of the issues which arises is performance appraisal (of the judgmental kind, especially the *ranking* of individuals). In that video Dr Deming states:
 
 <span class="deming_quote">"Ranking doesn't do any good. Of two people, one would be worse and one would be better. I don't know what we'll do about it! The question is: Is one outside a control limit, or does the difference mean nothing?"</span>
