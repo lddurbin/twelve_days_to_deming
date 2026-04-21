@@ -8,7 +8,7 @@ execute:
 
 <div class="info_callout">**Create constancy of purpose for continual improvement of products and service,** allocating resources to provide for long-range needs rather than only short-term profitability, with a plan to become competitive, to stay in business, and to provide jobs.</div>
 
-Notice the connection with the Deming Chain Reaction, finishing up (as in both versions of the Chain Reaction—see the bottom of page 3) with "provide jobs". We have already commented (Day 1 page 23) upon Dr Deming's unhappiness because of its huge waste of human potential. Deming clearly saw the "plan to become competitive, to stay in business, and to provide jobs" as requiring an Obsession With Quality. It is already well worth reflecting ahead to two of the "Deadly Diseases" which you will study tomorrow afternoon: (i) Lack of constancy of purpose, and (ii) Emphasis on short-term profits.
+Notice the connection with the Deming Chain Reaction, finishing up (as in both versions of the Chain Reaction—see the bottom of page 3) with "provide jobs". We have already commented ([Day 1 page 23](../day-01/08-attraction.qmd#sec-page23)) upon Dr Deming's unhappiness because of its huge waste of human potential. Deming clearly saw the "plan to become competitive, to stay in business, and to provide jobs" as requiring an Obsession With Quality. It is already well worth reflecting ahead to two of the "Deadly Diseases" which you will study tomorrow afternoon: (i) Lack of constancy of purpose, and (ii) Emphasis on short-term profits.
 
 ### Obsession With Quality
 
@@ -56,7 +56,7 @@ This is a whole new philosophy. It's not just optional add-ons to what we are al
 
 This Point illuminates the danger of just "making do". The implication is that we may have become so used to lower levels of product and service that we have become resigned to them and skilled in compensating for them. But that might not be so true of your customer.
 
-<div class="neave_note" role="note" aria-label="Author's note">The reason for the description "created in Japan" which Deming included in the statement of this Point may be less obvious now than when he said it in the 1980s. At that time, Japan unarguably led the world in terms of quality and reliability. But even then I puzzled about the fact that the Japanese were seemingly unaware of what was happening in their own country! Deming taught in Japan during the 1950s, but there were certainly no four-day seminars there. I doubt whether many Japanese knew much about what was teaching elsewhere during the first ten years or so of his life. I sometimes muse on the thought that perhaps, if they had, some of the difficulties subsequently experienced by their country might have been avoided. Recall my note in the middle of Day 1 page 27.</div>
+<div class="neave_note" role="note" aria-label="Author's note">The reason for the description "created in Japan" which Deming included in the statement of this Point may be less obvious now than when he said it in the 1980s. At that time, Japan unarguably led the world in terms of quality and reliability. But even then I puzzled about the fact that the Japanese were seemingly unaware of what was happening in their own country! Deming taught in Japan during the 1950s, but there were certainly no four-day seminars there. I doubt whether many Japanese knew much about what was teaching elsewhere during the first ten years or so of his life. I sometimes muse on the thought that perhaps, if they had, some of the difficulties subsequently experienced by their country might have been avoided. Recall my note in the middle of [Day 1 page 27](../day-01/09-different.qmd#sec-page27).</div>
 
 ### Obsession With Quality
 
@@ -170,7 +170,7 @@ viewof p4_owq = Inputs.textarea({
 
 It is worth recalling that the famous 1950 flow diagram: "Organisation Viewed as a System" includes both the organisation's suppliers and its customers—they are all part of the System.
 
-We saw this diagram on Day 1 page 35 as the first of Dr Deming's <span class="deming_quote">"Summary of Teachings to Top Management and to Engineers in Japan"</span>. We shall revisit it at greater length on Day 9.
+We saw this diagram on [Day 1 page 35](../day-01/11-deming-story.qmd#sec-page35) as the first of Dr Deming's <span class="deming_quote">"Summary of Teachings to Top Management and to Engineers in Japan"</span>. We shall revisit it at greater length on Day 9.
 
 The arguments in favour of a single supplier become especially important regarding long-term relationships for mutual advantage, involving improvement, development, innovation—and the cooperation for mutual benefit thereby implied. This is all part of optimisation of the system.
 
