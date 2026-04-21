@@ -116,12 +116,14 @@ aside,
 /* Cosmo's `.btn-primary` ships #2780e3, giving 3.97:1 against white — below
    WCAG AA. Darkening to #1a6fd0 lifts contrast to ~4.96:1 while staying
    visually close to the theme's signature blue. Hover/focus/active tracks
-   the same proportional shift. */
+   the same proportional shift, and `--bs-btn-focus-shadow-rgb` is re-pointed
+   so the focus glow matches the new colour rather than Cosmo's default. */
 .btn-primary,
 .btn-primary:disabled,
 .btn-primary.disabled {
   background-color: #1a6fd0;
   border-color: #1a6fd0;
+  --bs-btn-focus-shadow-rgb: 26, 111, 208;
 }
 .btn-primary:hover,
 .btn-primary:focus,
