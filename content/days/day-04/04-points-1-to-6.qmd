@@ -96,7 +96,7 @@ viewof p2_sa = Inputs.textarea({
 
 ---
 
-## Point 3. Cease dependence on mass inspection
+## Point 3. Cease dependence on mass inspection {#sec-page20}
 
 <div class="info_callout">**Eliminate the need for mass inspection as a way to achieve quality** by building quality into the product in the first place. Require statistical evidence of built-in quality in both manufacturing and purchasing functions.</div>
 

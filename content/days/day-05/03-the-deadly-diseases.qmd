@@ -141,7 +141,7 @@ As a personal observation, I can honestly say that I have never heard anybody wh
 
 Many organisations protest that this does not reflect *their* appraisal system—that is there to help the individual, for coaching, for seeing how management can assist the person to do a better job. If that is really the case, fine. But, if so, why only once a year? And also, if so, why call it "performance appraisal"? Consult your dictionary for its definitions of "appraise" and "appraisal".
 
-It may be wise at this stage for me to remind you of my warning at the bottom of Appendix page 23 (see also my "Obsession With Quality" comment on Day 4 page 20 about the danger of merely stopping doing something undesirable and thus leaving a vacuum. In the context of performance appraisal, what is in my opinion the quite brilliant Chapter 9: "Performance Without Appraisal" in Peter Scholtes's *The Leader's Handbook* provides tremendously good guidance.
+It may be wise at this stage for me to remind you of my warning at the bottom of Appendix page 23 (see also my "Obsession With Quality" comment on [Day 4 page 20](../day-04/04-points-1-to-6.qmd#sec-page20) about the danger of merely stopping doing something undesirable and thus leaving a vacuum. In the context of performance appraisal, what is in my opinion the quite brilliant Chapter 9: "Performance Without Appraisal" in Peter Scholtes's *The Leader's Handbook* provides tremendously good guidance.
 
 *(See Appendix page 29.)*
 
@@ -255,7 +255,7 @@ create_clock(12, 0)
 
 A familiar joke is "In God we trust; all others, bring data". Apart from religious objections some may have to this humour, it is dangerous in its implication that "data" are all that is needed for any purpose. By "data" is meant numerical information. Yet we have already become very familiar with Lloyd Nelson's claim that the most important figures for management of any organisation are "unknown and unknowable"—and now we have Deming drawing attention to the limitations of "visible figures".
 
-This fifth Deadly Disease can come as a shock even to those who are warming to Deming's teachings—especially if they are statisticians or accountants! So what are these "most important" but invisible figures? You'll recall working on this in the third part of Activity 4-a (Day 4 page 5). Here is a summary of those mentioned by Dr Deming in his discussions on this Disease (*Out of the Crisis* pages 103–105[121–123] and elsewhere); they include…
+This fifth Deadly Disease can come as a shock even to those who are warming to Deming's teachings—especially if they are statisticians or accountants! So what are these "most important" but invisible figures? You'll recall working on this in the third part of Activity 4-a ([Day 4 page 5](../day-04/02-the-joiner-triangle.qmd#sec-page5)). Here is a summary of those mentioned by Dr Deming in his discussions on this Disease (*Out of the Crisis* pages 103–105[121–123] and elsewhere); they include…
 
 "… measures of improvement in quality and productivity from continual improvement of processes, from elimination of work standards *[see the important note at the top of the next page]*, from better training, better supervision; from a team composed of the chosen supplier, the buyer, engineering design, sales, customer, working on a new component or redesign of an existing component; measures of loss from the annual rating on performance, and from inhibitors to pride of workmanship; measurements of the multiplying effect on sales that comes from a happy customer, and the opposite effect from an unhappy customer. Where are the figures?"
 
@@ -313,7 +313,7 @@ create_clock(12, 0)
 
 ---
 
-That's it! Congratulations on completing this major project. You may now relax and look forward to a considerably shorter and less challenging Day 6! However, please see the note overleaf.
+That's it! Congratulations on completing this major project. You may now relax and look forward to a considerably shorter and less challenging [Day 6](../day-06/01-introduction.qmd)! However, please see the note overleaf.
 
 ---
 
@@ -335,11 +335,11 @@ createDownloadButton([
 
 You may recall my saying in the Overture that I would, from time to time, ask you to focus attention on "your organisation" in some of this course's activities. The purpose is, of course, to help make your learning "live" in your own situation.
 
-Day 6 is the first time that this happens—and it happens in quite a big way. However, it may of course be that you personally are not currently involved with any organisation, either as an employee or indeed as a manager—i.e. that there isn't a "your organisation" in this context. If you are studying this course as a member of a group then your discussions could perhaps centre around the organisation to which at least one of your fellow-students belongs. Failing that, and especially if you are studying alone, this will become the time to involve your friend—please refer back to the "Activities, Major Activities, and Pauses for Thought" section in the Overture: see Day 1 page 15.
+Day 6 is the first time that this happens—and it happens in quite a big way. However, it may of course be that you personally are not currently involved with any organisation, either as an employee or indeed as a manager—i.e. that there isn't a "your organisation" in this context. If you are studying this course as a member of a group then your discussions could perhaps centre around the organisation to which at least one of your fellow-students belongs. Failing that, and especially if you are studying alone, this will become the time to involve your friend—please refer back to the "Activities, Major Activities, and Pauses for Thought" section in the Overture: see [Day 1 page 15](../day-01/05-activities.qmd#sec-page15).
 
-The material for Day 6 includes a substantial case study on pages 7–16. Day 6's Major Activity then follows on pages 18–20. After you've read the first few paragraphs of the Major Activity, I'll suggest that you read through the case study again, but this time highlighting and making notes on items in the case study that will be helpful to you in the Major Activity—you'll probably be able to find quite a lot of such items. To help in that preparation I recommend that you print out in advance a single-sided "working copy" of Day 6 pages 7–16, and then staple or bind together those pages so that you can make notes on the blank sides opposite to the relevant items.
+The material for [Day 6](../day-06/01-introduction.qmd) includes a substantial case study on pages 7–16. Day 6's Major Activity then follows on pages 18–20. After you've read the first few paragraphs of the Major Activity, I'll suggest that you read through the case study again, but this time highlighting and making notes on items in the case study that will be helpful to you in the Major Activity—you'll probably be able to find quite a lot of such items. To help in that preparation I recommend that you print out in advance a single-sided "working copy" of Day 6 pages 7–16, and then staple or bind together those pages so that you can make notes on the blank sides opposite to the relevant items.
 
-One further considerable help with this Major Activity would be, if possible, for you to print out an enlargement of the table on Day 6 page 19 *[WB 101]*. This is a table in which you will need to summarise the information you've just recorded alongside the case study, and so you would definitely benefit from having the extra space available on such an enlargement. Further guidance will be found in the middle of Day 6 page 18 *[WB 100]*.
+One further considerable help with this Major Activity would be, if possible, for you to print out an enlargement of the table on [Day 6 page 19](../day-06/03-activity-6b.qmd#sec-page19) *[WB 101]*. This is a table in which you will need to summarise the information you've just recorded alongside the case study, and so you would definitely benefit from having the extra space available on such an enlargement. Further guidance will be found in the middle of [Day 6 page 18](../day-06/03-activity-6b.qmd#sec-page18) *[WB 100]*.
 
 **Approvals, Acknowledgments and Information**
 

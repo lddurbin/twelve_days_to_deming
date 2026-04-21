@@ -4,6 +4,8 @@ execute:
   echo: false
 ---
 
+[]{#sec-page18}
+
 <div class="major_activity_title">
 <h2>Major Activity 6-b</h2>
 </div>
@@ -19,6 +21,8 @@ You could then start at the top of the table with Point 1 and work through each 
 Then, after completing that, now comes the time when I would advise you to start at the top of the table and work through it, issue by issue. Where there is a blank, have a think to see if you can recollect anything from Mack's story to include there. Otherwise, even if you have inserted something into a particular cell of the table, you might take a minute or two to reflect on whether there is anything further that you might add.
 
 Finally, for the time being, work through the table one more time, now considering the comments you have made on both the "Pre-Deming" and "Post-Deming" sides of the table. In each case, summarise your comments with a relevant score on the same 0–5 scale as used in Activity 6-a.
+
+[]{#sec-page19}
 
 ![Activity 6-b scoring table](/assets/images/day-06/scoring-table.png){fig-align="center" width="90%" .lightbox}
 
