@@ -3,6 +3,8 @@ title: "INTRODUCTION TO THE FUNNEL EXPERIMENT"
 execute:
   echo: false
 ---
+[]{#sec-page35}
+
 One more time. Dr Deming warned us that
 
 > *"if we wade in at [problems] without understanding, we only make things worse. This is easy to prove."*
@@ -27,7 +29,7 @@ So, in our one-dimensional version, imagine we have two tracks both like the fol
 
 ![Track numbered 20–40](/assets/images/day-03/funnel-track-basic.png){fig-align="center" width="85%" .lightbox}
 
-with one track suspended some distance directly above the other. (You will notice that the central number 30 is coloured differently from the others: 30 is the "target-point" in our silly game.) The funnel's track is the higher one: it has a hole in the middle of each square so that the funnel can be suspended at any numbered position. The marble's track is the lower one: the sides of the numbered squares are rigid but the insides of the squares are made of some elastic material. So the general set-up is that (a) the funnel can be placed at any position on the higher track and (b) the marble can then be dropped through it onto the lower track where it will briefly bounce around and then finish up in one of its squares—possibly directly under the funnel or, more usually, displaced by one or more squares to the left or right. To complete the image we should join the two sides of the top and bottom tracks by vertical sheets of glass or transparent plastic to prevent the marble bouncing off its track but so that we can still observe what's happening!
+[]{#sec-page36}with one track suspended some distance directly above the other. (You will notice that the central number 30 is coloured differently from the others: 30 is the "target-point" in our silly game.) The funnel's track is the higher one: it has a hole in the middle of each square so that the funnel can be suspended at any numbered position. The marble's track is the lower one: the sides of the numbered squares are rigid but the insides of the squares are made of some elastic material. So the general set-up is that (a) the funnel can be placed at any position on the higher track and (b) the marble can then be dropped through it onto the lower track where it will briefly bounce around and then finish up in one of its squares—possibly directly under the funnel or, more usually, displaced by one or more squares to the left or right. To complete the image we should join the two sides of the top and bottom tracks by vertical sheets of glass or transparent plastic to prevent the marble bouncing off its track but so that we can still observe what's happening!
 
 However, you don't have to build that whole model! During the description I shall show the positions of the funnel and marble along their tracks by little icons on a single track. So, for example, if the funnel is at position 31 and, after being dropped through the funnel, the marble bounces around and finishes up at position 33 then I shall show this as:
 

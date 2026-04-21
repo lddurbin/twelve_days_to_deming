@@ -47,7 +47,7 @@ the Appendix during the Second Project but not as much as in the First Project s
 largely be more able to stand on your own two feet! I shall, of course, give you the necessary page references whenever I have included my thoughts in the Appendix. However, except when I suggest otherwise,
 always do some work first *before* consulting the Appendix!
 
-All four types of request for action just discussed are clearly signalled in the text. On each day, the Pauses
+[]{#sec-page15}All four types of request for action just discussed are clearly signalled in the text. On each day, the Pauses
 for Thought and Activities are sequentially labelled a, b, c, … and are colour-coded in green or red. The
 heading is printed in that colour and the corresponding material is enclosed in a similarly-coloured box.
 Red indicates that I have included some relevant discussion *immediately following* the request, and so
