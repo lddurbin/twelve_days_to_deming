@@ -113,10 +113,30 @@ aside,
   color: var(--bs-gray-700, #495057);
 }
 
+/* Cosmo's `.btn-primary` ships #2780e3, giving 3.97:1 against white — below
+   WCAG AA. Darkening to #1a6fd0 lifts contrast to ~4.96:1 while staying
+   visually close to the theme's signature blue. Hover/focus/active tracks
+   the same proportional shift, and `--bs-btn-focus-shadow-rgb` is re-pointed
+   so the focus glow matches the new colour rather than Cosmo's default. */
+.btn-primary,
+.btn-primary:disabled,
+.btn-primary.disabled {
+  background-color: #1a6fd0;
+  border-color: #1a6fd0;
+  --bs-btn-focus-shadow-rgb: 26, 111, 208;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #1560b8;
+  border-color: #1560b8;
+}
+
 /* ===== DESIGN TOKENS ===== */
 :root {
   --color-funnel: #3366cc;
-  --color-marble: #cc6633;
+  --color-marble: #a64c1f;
   --color-outcome: #cc0000;
   --color-bg-light: #f9f9f9;
   --color-border-gray: #999;
@@ -376,7 +396,7 @@ Usage:
 .spacer-3xl { margin-top: 600px; }
 .spacer-4xl { margin-top: 1300px; }
 .text-highlight-red { color: var(--color-outcome); font-weight: bold; }
-.blue-text { color: blue; }
+.blue-text { color: #0000a0; }
 .data-sequence-mono { text-align: center; font-family: monospace; }
 .table-cell-highlight { background: var(--color-highlight-green); font-weight: bold; }
 .callout-emphasis {
@@ -686,10 +706,10 @@ button:focus,
   cursor: default;
 }
 .fe-button-complete {
-  background-color: #28a745;
+  background-color: #1e7e34;
 }
 .fe-button-complete:hover {
-  background-color: #1e7e34;
+  background-color: #155d26;
 }
 .fe-button-reset {
   background-color: #dc3545;
