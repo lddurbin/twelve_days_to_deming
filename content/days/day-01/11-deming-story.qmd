@@ -192,7 +192,7 @@ create_clock(2, 20)
 
 ::::
 
-## 1930s–1940s: New statistics in non-manufacturing
+## 1930s–1940s: New statistics in non-manufacturing {#sec-page33}
 
 So it did all start with some new statistical thinking and methods in a manufacturing context. Regrettably, a
 few generations later, some people still seem to think that was all Dr Deming’s work was about, and all that
@@ -466,7 +466,7 @@ And a lot of them didn’t want it to end. Initial thoughts of the need to form 
 
 The content of the four-day seminars in the mid-1980s is well reflected in *Out of the Crisis*: with particularly long and deep discussion of the 14 Points and the “Deadly Diseases” of Western management (to be studied here on Days 4 and 5), along with the Experiment on Red Beads (Day 2) and later also the Funnel Experiment (Day 3), and a wide selection of other topics from later in his book.
 
-## The 1980s (second half): A new climate
+## The 1980s (second half): A new climate {#sec-page38}
 
 But, by the late 1980s, Dr Deming’s teaching had broadened and deepened. The phrase “A New Climate” repeatedly came into my mind. Just as in Japan more than 35 years earlier, he was now strongly emphasising <span class=deming_quote>“Cooperation: Win-Win”</span> (I suspect that it may have been he who coined this now-well-known phrase)—not cooperation for some altruistic, magnanimous purpose but simply so that all concerned could gain, could be better off in all respects than if they carried on in the familiar old mode of conflict and destructive competition.
 

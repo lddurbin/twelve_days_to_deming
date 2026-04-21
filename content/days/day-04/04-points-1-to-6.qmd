@@ -242,7 +242,7 @@ viewof p5_sa = Inputs.textarea({
 
 ---
 
-## Point 6. Institute training
+## Point 6. Institute training {#sec-page26}
 
 <div class="info_callout">**Institute modern methods of training** for everybody's job, including management, to make better use of every employee. New skills are required to keep up with changes in materials, methods, product design, machinery, techniques, and service.</div>
 

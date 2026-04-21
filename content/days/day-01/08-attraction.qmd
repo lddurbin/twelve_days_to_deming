@@ -160,7 +160,7 @@ been following the example of the Australian Minister of Labour who was quoted a
 that “We look forward to the day when everybody will receive more than the average wage”. Even Jim
 McIngvale, who will tell the story of his company Gallery Furniture here on Day 6, confesses when he fell
 into the same trap: “Of the 80 salespeople we had, 10 to 15 turned over [*fired or quit*] every month—and
-management wondered why half were still below average” (Day 6 page 10).
+management wondered why half were still below average” ([Day 6 page 10](../day-06/02-gallery-furniture.qmd#sec-page10)).
 
 Sadly, in recent years, I have heard British politicians making what seem to be similar judgments not just
 about individuals but about hospitals and schools and branches of the police. The typical argument is

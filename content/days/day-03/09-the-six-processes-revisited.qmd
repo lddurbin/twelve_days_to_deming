@@ -3,6 +3,8 @@ title: "THE SIX PROCESSES REVISITED"
 execute:
   echo: false
 ---
+[]{#sec-page30}
+
 On pages 19–23 I described and discussed how our study of the six processes can help us diagnose whether a process is or is not in statistical control. But it can do more than that. If it looks as if the process is being affected by special causes then the control chart can often give us useful guidance about when (and thus often where) to look for them.
 
 So let's conclude this extra-curricular discussion by examining more closely than previously the second halves of the process-data. I'll reproduce Charts A3–F3 but now with the points numbered along the horizontal axis in order to aid the discussion. I have already told you what was happening with these processes. But now imagine that I *hadn't* told you and that therefore you only had the control charts to guide you. What could they have told you? Also, imagine that you are developing the charts in real time after the halfway stage, i.e. after having computed the control limits from the first 24 data. Since at that stage the charts indicate the processes to be in statistical control, it is sensible to extend those control limits into the future and add the next 24 points to the chart one at a time as and when they are obtained.

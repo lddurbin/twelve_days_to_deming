@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
   
-## Statistics?
+## Statistics? {#sec-page5}
 
 Now, depending on your background, one feature of the previous section may have already started making
 you feel a little queasy. And that is the repeated references to things *statistical*. You know that Dr Deming
@@ -144,7 +144,7 @@ a little arithmetic. But there was nothing about where the simple formula came f
 the large majority of processes, that same formula wouldn’t even be appropriate!
 
 So let’s shed some light on this second paradox. This is a quote from my brief discussion on the sixth of
-Deming’s famous 14 Points for Management: “Institute training” that you will see on Day 4 page 26 *[WB 66]*:
+Deming’s famous 14 Points for Management: “Institute training” that you will see on [Day 4 page 26](../day-04/04-points-1-to-6.qmd#sec-page26) *[WB 66]*:
 
 >In Deming’s terminology, the purpose of ‘training’ is the acquisition of specific skills for specific
 tasks. Training is thus narrowly defined and finite in scale and scope. In contrast, as we shall see
@@ -189,7 +189,7 @@ create_clock(10, 00)
 
 ::::
 
-## Control charts in this course
+## Control charts in this course {#sec-page8}
 
 So what does all this imply about my approach to control charts in this course? As in Dr Deming’s seminars, you will not have to construct any control charts if you’d prefer not to. However, you will see some
 control charts on Days 2 and 3, and so I shall include some relevant description there. But there is already

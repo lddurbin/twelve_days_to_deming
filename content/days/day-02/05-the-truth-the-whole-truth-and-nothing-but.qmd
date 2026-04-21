@@ -124,6 +124,6 @@ Finally, the distance from $\overline{X}$ out to the two control limits is $3\sq
 
 If during Day 1 you read the discussion in the Appendix about the first paradox then you may recall Dr Deming's mention of Shewhart's "3σ-limits" (σ is a Greek letter, pronounced "sigma"). The control limits that you have just computed follow Shewhart's guidance by using $\sigma = \sqrt{\overline{X}(1-\overline{p})}$. The reason for this particular choice when the data come from batch inspection as in the Red Beads Experiment will, I'm afraid, have to be reserved for pages 85–88 in the Optional Extras section.
 
-As mentioned earlier, it is important to emphasise that this particular choice of σ does \emph{not} apply to many other kinds of process data. A method that can be employed much more generally will be used tomorrow and is also introduced, discussed and illustrated in the Springboard article (cited on Day 1 page 8).
+As mentioned earlier, it is important to emphasise that this particular choice of σ does \emph{not} apply to many other kinds of process data. A method that can be employed much more generally will be used tomorrow and is also introduced, discussed and illustrated in the Springboard article (cited on [Day 1 page 8](../day-01/03-statistics.qmd#sec-page8)).
 </div>
 

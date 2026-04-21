@@ -3,6 +3,8 @@ title: "INTRODUCTION TO THE FUNNEL EXPERIMENT"
 execute:
   echo: false
 ---
+[]{#sec-page35}
+
 One more time. Dr Deming warned us that
 
 > *"if we wade in at [problems] without understanding, we only make things worse. This is easy to prove."*
