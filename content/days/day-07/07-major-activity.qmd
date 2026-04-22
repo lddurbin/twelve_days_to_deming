@@ -52,6 +52,8 @@ viewof activity_7i_3 = Inputs.textarea({label: "Obstacle 3: Search for examples 
 viewof activity_7i_4 = Inputs.textarea({label: "Obstacle 4: 'Our problems are different' — your notes", placeholder: "Your notes on Obstacle 4.", rows: 5})
 ```
 
+[]{#sec-page30}
+
 **5. [Obsolescence in Schools [i.e. Schools of Business].]{.blue-text}** (*Out of the Crisis* pages 110–111[130–131]; Appendix page 33.) On *Out of the Crisis* page 110[130], Deming quotes Robert Reich in a private communication as follows: "As profits declined, generally, from 1970 onward, many American companies attempted to bolster their earnings by acquisition and paper profits. The people in finance and law became the important people in the company. Quality and competitive position were submerged. Schools of Business responded to populate demand for finance and creative accounting. The results are decline."
 
 Robert Reich, who was Secretary of Labour in Bill Clinton's administration, is featured in conversation with Dr Deming in the first two of the Deming Library videos: *The New Economic Age* and *The 14 Points*.
@@ -113,6 +115,8 @@ viewof activity_7i_13 = Inputs.textarea({label: "Obstacle 13: The supposition th
 ```{ojs}
 viewof activity_7i_14 = Inputs.textarea({label: "Obstacle 14: The fallacy of zero defects — your notes", placeholder: "Your notes on Obstacle 14.", rows: 5})
 ```
+
+[]{#sec-page35}
 
 **15. [Inadequate testing of prototypes.]{.blue-text}** (*Out of the Crisis* pages 120–121[142–143]; Appendix pages 36–37.) Prototypes are usually tested in "laboratory-controlled conditions"—which are likely to be substantially different from the very variable conditions to be experienced in use.
 

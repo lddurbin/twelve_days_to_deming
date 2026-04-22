@@ -50,7 +50,7 @@ So we can never *eliminate* variation in what our processes produce. We can and 
 viewof note_10_variation_12 = Inputs.textarea({label: "Your notes on items 1–2: understanding variation, special and common causes", placeholder: "Your notes on these items.", rows: 4})
 ```
 
-(So, again, it's now over to you for reactions, comments, etc throughout Part B. Keep an eye on Step 2 in the guidance which was summarised on Day 9 page 29.)
+(So, again, it's now over to you for reactions, comments, etc throughout Part B. Keep an eye on Step 2 in the guidance which was summarised on [Day 9 page 29](../day-09/07-out-of-hours.qmd#sec-page29).)
 
 <div class="deming_quote">
 3. Understanding of the capability of a process. When no data indicate that a process is stable? The distribution of the output of a stable system is predictable with a high degree of belief. A process that is stable, in the state of statistical control, has a definable capability.
@@ -119,7 +119,7 @@ viewof note_10_shewhart_interaction = Inputs.textarea({label: "Your notes on ite
 
 *It is worth pointing out that Deming's comment regarding "design of experiments" relates to traditional statistical methods. They can only have predictive power if similar circumstances prevail in the future to those in which the experiments were carried out. More enlightened approaches which include that vital matter can usefully contribute to analytic studies.*
 
-*The essential issues in this item were briefly alluded to in Obstacle 6 on Day 7 page 30. I'll expand a little on them here. A "frame" is some finite collection or "population". Examples are suggested above by Dr Deming. Given the time and money, a frame can be 100% inspected, enabling complete information about that frame to be obtained (within the limits of our observational powers, etc). Traditional statistical techniques are concerned with sampling some **fraction** of the frame, and trying to infer what **would** have happened in the case of 100% inspection. In either case, the only concern is **what** is in the frame, not **why** it is there. The **"what"** is an enumerative problem; the **"why"** is an analytic problem.*
+*The essential issues in this item were briefly alluded to in Obstacle 6 on [Day 7 page 30](../day-07/07-major-activity.qmd#sec-page30). I'll expand a little on them here. A "frame" is some finite collection or "population". Examples are suggested above by Dr Deming. Given the time and money, a frame can be 100% inspected, enabling complete information about that frame to be obtained (within the limits of our observational powers, etc). Traditional statistical techniques are concerned with sampling some **fraction** of the frame, and trying to infer what **would** have happened in the case of 100% inspection. In either case, the only concern is **what** is in the frame, not **why** it is there. The **"what"** is an enumerative problem; the **"why"** is an analytic problem.*
 
 *Enumerative studies involve no temporal spread, i.e. no relevance over time except for the time during which the data were collected; in particular they imply no* **predictive** *ability. Yet sensible practical interest is surely on what is to come, not merely on what is past or present. In other words, most "real" problems are analytic, yet most statistical techniques are enumerative---the control chart being a notable exception.*
 
@@ -131,7 +131,7 @@ viewof note_10_enumerative_analytic = Inputs.textarea({label: "Your notes on ite
 ```
 
 <div class="deming_quote">
-10. Knowledge about loss functions in relation to optimisation of performance of a system. Which quality-characteristic has the steepest loss function, and is hence most critical for management to work on? [*This is another neat link between the first two parts of the System of Profound Knowledge. As previously, refer back to the your work on the Taguchi loss function on and around Day 7 page 22 if you need to.*]
+10. Knowledge about loss functions in relation to optimisation of performance of a system. Which quality-characteristic has the steepest loss function, and is hence most critical for management to work on? [*This is another neat link between the first two parts of the System of Profound Knowledge. As previously, refer back to the your work on the Taguchi loss function on and around [Day 7 page 22](../day-07/05-thirteenth-obstacle.qmd#sec-page22) if you need to.*]
 </div>
 
 <div class="deming_quote">
@@ -159,7 +159,7 @@ Corollaries of this theorem are frightening.
 </div>
 
 <div class="deming_quote">
-13. As a good rule, Profound Knowledge must come from the outside, and by invitation. Profound Knowledge cannot be forced onto anybody. [*Note that this provides a strong link with the final member of the set of Obstacles (Day 7 page 35).*]
+13. As a good rule, Profound Knowledge must come from the outside, and by invitation. Profound Knowledge cannot be forced onto anybody. [*Note that this provides a strong link with the final member of the set of Obstacles ([Day 7 page 35](../day-07/07-major-activity.qmd#sec-page35)).*]
 </div>
 
 <div class="neave_note">

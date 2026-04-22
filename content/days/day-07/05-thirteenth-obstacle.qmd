@@ -82,6 +82,8 @@ If you are not very confident about plotting points and drawing graphs, please f
 
 **6.** Finally, draw a smoothish curve approximately through your seven points. Don't bother about trying to be too artistic!
 
+[]{#sec-page22}
+
 Just about everybody gets a graph which looks something like Figure 34 on *DemDim* page 173:
 
 ![Taguchi loss function parabola and Neave's plotted personal graph](/assets/images/day-07/taguchi-loss-function.png){.lightbox}

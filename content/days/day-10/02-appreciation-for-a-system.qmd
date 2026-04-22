@@ -29,7 +29,7 @@ A system is a network of functions or activities (sub-processes, stages---herein
 <div class="neave_note">
 No messing about! We're straight in here with what I think may be the most important idea in all of Dr Deming's teaching. And it's not difficult---it's just *different* from the way that most people in management, or in government, or in any kind of authority, seem to think. The reason why I believe it's so important is that, when you come to some other things in Deming's teaching that you might initially think are kind of crazy, referring back to this concept soon starts helping you to see what he's driving at, and why. And all of a sudden it starts making a lot more sense. At least, that's what's been happening with me.
 
-So this is about what Dr Deming (amongst others) refers to as a "system" and describes as a "network". To illustrate this, William W Scherkenbach (a Director of Ford of America) drew the diagram on Day 9 page 2 and simply said: "This is what my organisation is!". Let's look at that page now. What do we see? Two things. Firstly, lots of boxes---representing the "components" of the system. Secondly, lots of lines joining the boxes---indicating that the components are somehow linked up with each other. Considering Deming's car and vacuum-cleaner illustrations, if any component fails or, at least, doesn't work as well as it should, that obstructs or even wholly prevents other components from doing what they're supposed to do---never mind how good they are. Thus the whole system either underperforms or stops working altogether. So that's simple enough.
+So this is about what Dr Deming (amongst others) refers to as a "system" and describes as a "network". To illustrate this, William W Scherkenbach (a Director of Ford of America) drew the diagram on [Day 9 page 2](../day-09/02-a-system.qmd#sec-page2) and simply said: "This is what my organisation is!". Let's look at that page now. What do we see? Two things. Firstly, lots of boxes---representing the "components" of the system. Secondly, lots of lines joining the boxes---indicating that the components are somehow linked up with each other. Considering Deming's car and vacuum-cleaner illustrations, if any component fails or, at least, doesn't work as well as it should, that obstructs or even wholly prevents other components from doing what they're supposed to do---never mind how good they are. Thus the whole system either underperforms or stops working altogether. So that's simple enough.
 
 I'd sum it up like this. "Conventional" management focuses on the *boxes* in that picture "in their own right". By contrast, Deming-guided management focuses on how the boxes are helped or hindered by each other---and that's the *lines* in the picture. As I said, it's not difficult---just *different*. But what a difference it makes!
 </div>
@@ -103,15 +103,15 @@ The components of a system could in principle, under stable conditions, manage t
 </div>
 
 <div class="deming_quote">
-Any system needs guidance from outside. The string quartet mentioned above may well study under a master. The master need not be present at a performance. [*Cf. the final Obstacle to the Transformation on Day 7 page 35. Dr Deming would often express this in such terms as: "Those within a system may understand everything there is to know about the system---except how to improve it."*]
+Any system needs guidance from outside. The string quartet mentioned above may well study under a master. The master need not be present at a performance. [*Cf. the final Obstacle to the Transformation on [Day 7 page 35](../day-07/07-major-activity.qmd#sec-page35). Dr Deming would often express this in such terms as: "Those within a system may understand everything there is to know about the system---except how to improve it."*]
 </div>
 
 <div class="deming_quote">
-A large organisation will require someone in the position of aide to the president to teach and facilitate Profound Knowledge. [*This was Bill Scherkenbach's role in the Ford Motor Company (remember, his was the "boxes and lines" diagram we discussed on Day 9 page 2). Lloyd Nelson's role at Nashua was similar. In both cases, the "president" was the CEO: Don Petersen in Ford and Bill Conway in Nashua. Chapter 16 in* Out of the Crisis *is particularly helpful on this issue.*]
+A large organisation will require someone in the position of aide to the president to teach and facilitate Profound Knowledge. [*This was Bill Scherkenbach's role in the Ford Motor Company (remember, his was the "boxes and lines" diagram we discussed on [Day 9 page 2](../day-09/02-a-system.qmd#sec-page2)). Lloyd Nelson's role at Nashua was similar. In both cases, the "president" was the CEO: Don Petersen in Ford and Bill Conway in Nashua. Chapter 16 in* Out of the Crisis *is particularly helpful on this issue.*]
 </div>
 
 <div class="deming_quote">
-A flow diagram [*remember what he means by this term: the famous diagram on Day 9 page 2*] is helpful toward understanding a system. By understanding a system, one may be able to trace the consequences of a proposed change. [*---importantly including* negative *consequences that might otherwise be---and very often are---overlooked by enthusiasts for the proposed change.*]
+A flow diagram [*remember what he means by this term: the famous diagram on [Day 9 page 2](../day-09/02-a-system.qmd#sec-page2)*] is helpful toward understanding a system. By understanding a system, one may be able to trace the consequences of a proposed change. [*---importantly including* negative *consequences that might otherwise be---and very often are---overlooked by enthusiasts for the proposed change.*]
 </div>
 
 ```{ojs}
@@ -186,14 +186,14 @@ Some examples follow of suboptimisation in the management of people, causing los
 - MBO (management by objective), MBIR (management by imposition of results);
 - Incentive pay;
 - Business plans: each division with its own business plan, not coordinated toward an aim; [*Don't just read the first two words here!*]
-- Work standards for production; quotas for sales; quotas for accidents and breakdowns; [*If necessary, refer back to Day 5 page 27 to remind yourself of more about what Deming meant by "work standards".*]
+- Work standards for production; quotas for sales; quotas for accidents and breakdowns; [*If necessary, refer back to [Day 5 page 27](../day-05/03-the-deadly-diseases.qmd#sec-page27) to remind yourself of more about what Deming meant by "work standards".*]
 - Competition for share of market;
 - Barriers to trade;
 - Anybody, team, division, establishment (management, union), gouging the other in negotiation.
 </div>
 
 <div class="deming_quote">
-Fortunately, precise optimisation is not necessary. One need only come close to optimisation. As a matter of fact, the precise optimum would be difficult to define. The loss function will apply [*as emphasised by Taguchi*]. The loss function will be at the bottom (minimum loss) a parabola. Curve and horizontal tangent are for practical purposes coincident over a short range. [*You could look back at Day 7 page 22 to remind yourself about the shape of the Taguchi loss function. The important sentence in this paragraph is the final one which now follows:*] One may move away a short distance along the curve in either direction from the optimum, but rise only an imperceptible distance.
+Fortunately, precise optimisation is not necessary. One need only come close to optimisation. As a matter of fact, the precise optimum would be difficult to define. The loss function will apply [*as emphasised by Taguchi*]. The loss function will be at the bottom (minimum loss) a parabola. Curve and horizontal tangent are for practical purposes coincident over a short range. [*You could look back at [Day 7 page 22](../day-07/05-thirteenth-obstacle.qmd#sec-page22) to remind yourself about the shape of the Taguchi loss function. The important sentence in this paragraph is the final one which now follows:*] One may move away a short distance along the curve in either direction from the optimum, but rise only an imperceptible distance.
 </div>
 
 <div class="neave_note">
