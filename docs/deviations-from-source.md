@@ -40,6 +40,17 @@ Entries are listed newest-first.
 
 ---
 
+## 2026-04-23 — Dead external links to deming.org.uk and rqoq.org.nz
+
+- **What** — Six external hyperlinks retired because their domains no longer resolve. Two treatments were applied:
+  1. **Wayback substitution (4 sites)** — `deming.org.uk` references in `content/days/day-01/02-rediscovered.qmd`, `content/days/day-01/06-outline.qmd`, `content/appendix/11-references-and-sources.qmd`, and `index.qmd` now link to the 2012-01-05 archived snapshot (`web.archive.org/web/20120105232234/…`) with an inline annotation that the live site is no longer online. The Feb 2022 "being upgraded" note in `11-references-and-sources.qmd` was rewritten accordingly.
+  2. **De-linked with editorial note (2 sites)** — `welcome.qmd:109` (book-ordering footnote) de-linked and annotated "no longer trading"; `welcome.qmd:129` (PDF-hosting mirror list) de-linked and annotated "domain is no longer online and no archived snapshot is available", since `rqoq.org.nz` has zero Wayback captures.
+- **Where** — `welcome.qmd`, `index.qmd`, `content/days/day-01/02-rediscovered.qmd`, `content/days/day-01/06-outline.qmd`, `content/appendix/11-references-and-sources.qmd`.
+- **Source reference** — Neave's text treats both domains as live resources: the UK Deming Transformation Forum's Learning Store (bookshop/materials) and the NZOQ PDF-hosting mirror.
+- **Why** — `deming.org.uk` no longer resolves and has only one Wayback capture (2012); the Forum appears to have wound down. `rqoq.org.nz` no longer resolves and was never archived. The two book-ordering footnote contexts (`welcome.qmd:109`, `index.qmd:568`) were split: `welcome.qmd:109` was fully de-linked because pointing readers at a 2012 snapshot to "order the book" is actively misleading; `index.qmd:568` retained the Wayback link with a clear archival note because its surrounding prose is informational rather than transactional.
+- **Decided in** — Conversation on #239 (2026-04-23): user approved Wayback-where-available / editorial-note-where-not, with the welcome.qmd ordering footnote treated as "no longer trading".
+- **Landed in** — *Pending — tracked in [#239](https://github.com/lddurbin/twelve_days_to_deming/issues/239).*
+
 ## 2026-04-21 — Rewrite or remove Workbook references from prose and front matter
 
 - **What** — Drop or rewrite surviving references to "the Workbook" as a companion artefact, so readers are no longer pointed at a printed object that the site has replaced with in-page text inputs. Four distinct surfaces:
