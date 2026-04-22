@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-## CODA
+## CODA {#sec-page36}
 
 You're there! I hardly need to tell you that this has been a massive piece of work. And, if you have managed to make a really good attempt at it, I venture to suggest that you're now probably further down the road in your understanding of Dr Deming's unique System of Profound Knowledge than virtually anybody else has ever been after just two (or even eleven) days' work (except for others who have also worked up to, and then through, this project!).
 

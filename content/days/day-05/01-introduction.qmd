@@ -3,7 +3,7 @@ title: "INTRODUCTION"
 execute:
   echo: false
 ---
-## DAY 5: THE JOINER TRIANGLE, THE 14 POINTS (part 2), AND THE DEADLY DISEASES
+## DAY 5: THE JOINER TRIANGLE, THE 14 POINTS (part 2), AND THE DEADLY DISEASES {#sec-page1}
 
 ![First Project Continued](/assets/images/day-05/first-project-continued.png){fig-align="center" width="55%" .lightbox}
 
