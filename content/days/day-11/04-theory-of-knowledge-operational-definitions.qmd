@@ -29,7 +29,7 @@ There are two prime aspects of an operational definition:
 
 Easy enough? Well, maybe not. I'll illustrate with three examples: "punctual", "unemployed" and "clean":
 
-1. **punctual:** I guess none of us would have much difficulty in defining the word "punctual", say in relation to the arrival time of a train at a station. However, recalling what we saw on Day 7 page 11, our definition would probably differ from the "official" one! Re-read the top of *DemDim* page 113. You will notice that the brief extract from the newspaper article there also suggests a purpose for the change of (operational) definition!
+1. **punctual:** I guess none of us would have much difficulty in defining the word "punctual", say in relation to the arrival time of a train at a station. However, recalling what we saw on [Day 7 page 11](../day-07/04-many-more-true-stories.qmd#sec-page11), our definition would probably differ from the "official" one! Re-read the top of *DemDim* page 113. You will notice that the brief extract from the newspaper article there also suggests a purpose for the change of (operational) definition!
 
 2. **unemployed:** Similarly, presumably we all know what is meant by "unemployed"; some readers may be all too familiar with the concept. But look at the bottom paragraph of *DemDim* page 111. Apparently the British Government was having some difficulties with the "fitness for purpose" aspect of its operational definition!
 

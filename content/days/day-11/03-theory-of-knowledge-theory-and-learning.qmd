@@ -71,7 +71,7 @@ viewof note_11_theory_4 = Inputs.textarea({label: "Your notes on item 4: without
 </div>
 
 <div class="neave_note">
-[Recall my warnings about case studies on the opening page of Day 6. Also, isn't it possible to find examples of success of just about <strong>any</strong> idea or proposal? The trouble is that you can often find examples of its failure as well. So where does that get us?]
+[Recall my warnings about case studies on the [opening page of Day 6](../day-06/01-introduction.qmd). Also, isn't it possible to find examples of success of just about <strong>any</strong> idea or proposal? The trouble is that you can often find examples of its failure as well. So where does that get us?]
 </div>
 
 ```{ojs}

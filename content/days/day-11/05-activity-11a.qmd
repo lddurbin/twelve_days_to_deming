@@ -8,7 +8,7 @@ execute:
 
 <div class="thought_commentary">
 
-This Activity is as those on Day 10, but now in connection with Part C: "Theory of Knowledge" (check back to Day 10 page 16 if need be). However, here I would recommend a widening of emphasis. Most of the System of Profound Knowledge is concerned with why things should be done or not done. But parts of the Theory of Knowledge are more about *how* to do things rather than *why* they should be done. As an example, the PDSA Cycle is concerned with how to learn and to improve rather than to why we should try.
+This Activity is as those on Day 10, but now in connection with Part C: "Theory of Knowledge" (check back to [Day 10 page 16](../day-10/03-activity-10a.qmd#sec-page16) if need be). However, here I would recommend a widening of emphasis. Most of the System of Profound Knowledge is concerned with why things should be done or not done. But parts of the Theory of Knowledge are more about *how* to do things rather than *why* they should be done. As an example, the PDSA Cycle is concerned with how to learn and to improve rather than to why we should try.
 
 Therefore, in this Activity, you could consider alternative questions linking into the Points and Diseases, e.g. how important is it to apply the Theory of Knowledge if we are to adopt this Point or to cure this Disease effectively?---i.e. the opposite kind of link compared with those usually considered so far. But a link is a link, in whichever direction it goes! So, in each case, allocate your 0--5 scores according to whichever kind of link strikes you as the more important and relevant.
 
