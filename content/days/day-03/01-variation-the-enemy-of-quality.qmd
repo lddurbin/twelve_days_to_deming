@@ -3,7 +3,7 @@ title: "VARIATION—THE ENEMY OF QUALITY"
 execute:
   echo: false
 ---
-## Variation—the enemy of quality
+## Variation—the enemy of quality {#sec-page1}
 
 I'll start by telling you of something extremely basic that puzzled me in the 1980s when I was just beginning to learn about Dr Deming's work. It was a basic matter involved with Statistics. Now, I had already been a University Lecturer in Statistics for some 12 years before ever hearing of Dr Deming. Despite that background, for a considerable time I couldn't understand what was arguably the most important of all the messages in his four-day seminars. It was the need to concentrate on understanding variation—apparently more than on anything else. Why was I puzzled?
 
@@ -43,7 +43,7 @@ Unexpected as it might be, it seems that Dr Deming first used the terms "common 
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## ACTIVITY 3–a
+## ACTIVITY 3–a {#sec-page4}
 
 Suggest some of the possible causes of variation in the arrival-time of my school bus.
 
@@ -68,7 +68,7 @@ Being guided by the thoughts about prison riots, factors which result in somewha
 
 <div class="thought" role="note" aria-label="Thought">
 
-## ACTIVITY 3–b
+## ACTIVITY 3–b {#sec-page5}
 
 There is a saying that "Variety is the spice of life". This implies that *variety* is good. In these early pages of Day 3, we (and Dr Deming!) have been arguing that *variation* is bad.
 

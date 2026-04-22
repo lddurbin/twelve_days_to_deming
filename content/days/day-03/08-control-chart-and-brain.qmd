@@ -3,6 +3,9 @@ title: "CONTROL CHART + BRAIN"
 execute:
   echo: false
 ---
+
+[]{#sec-page24}
+
 It is now time to revisit the "simplest guidance" that Dr Deming gave on how to interpret control charts (near the bottom of [Day 2 page 15](../day-02/04-our-first-control-chart.qmd#sec-page15)):
 
 > *"... if all the points lie between the two control limits then he would judge the process to be in statistical control (stable). Otherwise the indication is that the process may well be out of statistical control, and so then it could be worthwhile to try to identify special causes ..."*
@@ -27,7 +30,7 @@ Further weight to the above argument comes from the fact that, even if a process
 
 <div class="technical_aid" role="note" aria-label="Technical aid">
 
-## Technical Aid 9
+## Technical Aid 9 {#sec-page27}
 
 An important practical point which arises here is that, especially when computing control limits using relatively few data-points (a short baseline), you may occasionally be unlucky with the particular data that you finish up with. Even if the process remains beautifully in statistical control, those data may be untypically close together or untypically far apart, with the obvious consequences on the moving ranges and hence on the distance between the control limits. In such circumstances you will hopefully soon become rather uneasy about those limits: before long you will begin to feel that subsequent points are either rather more volatile than you expected or alternatively above the "Hugging the Central Line" effect. Don't then be afraid to recompute the limits from a larger or different set of data—it's not "cheating": it's good sense! This kind of situation is not a frequent occurrence—but it does happen. This isn't an exact science.
 </div>

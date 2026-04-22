@@ -89,7 +89,7 @@ But don't misinterpret what I have said about conventional Statistics. It is a f
 
 > "When introducing control charts (for one-at-a-time data) to delegates at my seminars, reactions were usually very positive, even from those who started out by saying such things as 'I can't do Statistics' or, worse still, telling me in advance that they hated the subject! A little while later there were instead expressions of relief, even surprise, when they discovered how straightforward the technique is, how relatively simple are the calculations involved, and before long, how they were able to interpret what the charts were telling them."
 
-But there were exceptions. On Day 1 page 6 I said:
+But there were exceptions. On [Day 1 page 6](../../days/day-01/02-rediscovered.qmd#sec-page6) I said:
 
 > "Over the nearly 20 years of my seminars on Dr Deming's teaching I rarely suffered from any 'difficult' delegates. The few that I had could be divided into two types. One type were very senior managers, the other type were those with some qualification in Statistics."
 

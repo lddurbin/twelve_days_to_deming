@@ -330,6 +330,10 @@ Usage:
   text-align: center;
 }
 
+.technical_aid a {
+  color: #1f59db;
+}
+
 /* ===== LAYOUT COMPONENTS ===== */
 .cell {
   margin: 20px;

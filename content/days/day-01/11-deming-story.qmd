@@ -134,6 +134,8 @@ be reduced.
 2. Variation cannot be reduced if it is not understood. Shewhart’s “breakthrough in understanding
 variation” was that, fundamentally, processes suffer from just two types of variation. Correspondingly, there are two general types of *causes* of variation.
 
+[]{#sec-page32}
+
 3. One type of variation is inherent to the process and the circumstances in which it is being operated—the way it has been designed, built, set up, the way people have been trained to use it, and
 the environment in which it operates, including physical and cultural matters and management
 style. So these are all factors that are present for the relatively “long haul”—they are not just temporary (unless something is done about them). Shewhart called them “constant” causes—because

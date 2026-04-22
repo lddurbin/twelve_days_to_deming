@@ -3,7 +3,9 @@ title: "MAJOR ACTIVITY 1-f"
 execute:
   echo: false
 ---
-  
+
+[]{#sec-page41}
+
 To complete this opening day of the course, take a few minutes to imagine yourself in each of the following
 ten pairs of opposite environments. Then compare and write down some features describing how you
 would behave and perform in those contrasting situations.

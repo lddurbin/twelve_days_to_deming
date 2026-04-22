@@ -103,7 +103,7 @@ The first control chart they looked at was for the city of Coventry. The process
 
 *[That reminded me of an observation in Peter Scholtes's* The Leader's Handbook *(page 353): "The carrot and stick approach was developed for use with jackasses, and its legitimate use is limited to that species."]*
 
-### How to rise up the OFSTED league tables
+### How to rise up the OFSTED league tables {#sec-page13}
 
 OFSTED stands for England's Office for Standards in Education, Children's Services and Skills. The Office describes itself as follows: "We report directly to Parliament and we are independent and impartial. We inspect and regulate services which care for children and young people, and those providing education and skills for learners of all ages."
 
@@ -244,6 +244,8 @@ How on earth could Ministers not have known? How on earth could the House have b
 *And so it continued: this was just a brief sample. If I were to reproduce everything relevant from the debates then the story would take up very many pages—but, at least, you now have a flavour. If you wish to read much more, Hansard is fully open and available for examination on <https://hansard.parliament.uk>: simply e.g. put "targets" in the Search box, and off you go! You might also like to search on the internet for press reports on the matter; in particular, look for reports in the Guardian newspaper during late March 2013 where you can find several articles which include further extracts from the leaked e-mail and much more evidence from a number of jobcentre advisers. There were also many contributions to discussion websites. One of those provides a fitting conclusion here:*
 
 There are targets in place for many things for DWP staff. That's not an issue here. The point is that the necessity (or otherwise) for a sanction is not amenable to being dictated by target. And if ministers didn't understand this basic fact, why did they bother to deny the existence of said targets? Why not just say: 'Yes, there are targets for sanctions. So what?'
+
+[]{#sec-page18}
 
 UK readers may have recognised several parallels between the above account and something that happened some five years later and led to the resignation from the Government of Ms Amber Rudd in April 2018. The third item on Appendix page 31 provides a brief summary.
 

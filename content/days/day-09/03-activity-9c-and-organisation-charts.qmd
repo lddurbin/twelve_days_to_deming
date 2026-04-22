@@ -5,7 +5,7 @@ execute:
 ---
 <div class="thought" role="note" aria-label="Activity">
 
-## ACTIVITY 9–c
+## ACTIVITY 9–c {#sec-page7}
 
 With regard to your organisation, suggest some ways in which the improvement of quality would reduce cost.
 

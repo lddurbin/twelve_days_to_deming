@@ -42,6 +42,8 @@ viewof activity_7i_1 = Inputs.textarea({label: "Obstacle 1: Hope for instant pud
 viewof activity_7i_2 = Inputs.textarea({label: "Obstacle 2: The supposition that solving problems, automation, gadgets, and new machinery will transform industry — your notes", placeholder: "Your notes on Obstacle 2.", rows: 5})
 ```
 
+[]{#sec-page29}
+
 **3. [Search for examples.]{.blue-text}** (*Out of the Crisis* pages 109–110[128–128]; Appendix pages 32–33.) A large topic, the subject of *DemDim* Chapter 16. Also see Paragraph 7 (pages 275–276) in the Theory of Knowledge section of *DemDim* Chapter 18. One trouble is that you can usually find numerous examples to support just about any idea, whether that idea be good or bad. Mindless copying of examples is therefore—well—mindless! Dr Deming similarly warns against simply relying on experience. You have seen something of this on Day 6 pages 1–2; you will see more on Day 11.
 
 ```{ojs}
@@ -70,6 +72,8 @@ viewof activity_7i_5 = Inputs.textarea({label: "Obstacle 5: Obsolescence in Scho
 viewof activity_7i_6 = Inputs.textarea({label: "Obstacle 6: Poor teaching of statistical methods in industry — your notes", placeholder: "Your notes on Obstacle 6.", rows: 5})
 ```
 
+[]{#sec-page31}
+
 **7. [Use of [Military Standard 105D and other] tables for acceptance.]{.blue-text}** (*Out of the Crisis* page 113[133]; Appendix page 34.) This alludes to old-fashioned "acceptance sampling" schemes where batches are sampled and then accepted or rejected according to the number of defective items found in the sample. What's wrong with that? Well, for a start, an essential requirement for deciding on the details of such a plan is the specification of an acceptable proportion of defectives! And, having mentioned that word "specification", how is a "defective" defined?—which brings us back to some of the problems with "conformance to specifications" and also takes us forward to operational definitions on Day 11. There is much more in *Out of the Crisis* Chapter 15.
 
 ```{ojs}
@@ -81,6 +85,8 @@ viewof activity_7i_7 = Inputs.textarea({label: "Obstacle 7: Use of Military Stan
 ```{ojs}
 viewof activity_7i_8 = Inputs.textarea({label: "Obstacle 8: 'Our Quality Control Department takes care of all our problems of quality' — your notes", placeholder: "Your notes on Obstacle 8.", rows: 5})
 ```
+
+[]{#sec-page32}
 
 **9. ["Our troubles lie entirely in the workforce."]{.blue-text}** (*Out of the Crisis* pages 114–115[134–135]; Appendix pages 34–35.) Same comment as with Obstacle 4 (page 29). This nonsense is, of course, entirely contradictory to all we have learned about most of the problems (85%, 94%, 98%?) lying in the system (common causes).
 
@@ -94,6 +100,8 @@ viewof activity_7i_9 = Inputs.textarea({label: "Obstacle 9: 'Our troubles lie en
 viewof activity_7i_10 = Inputs.textarea({label: "Obstacle 10: False starts — your notes", placeholder: "Your notes on Obstacle 10.", rows: 5})
 ```
 
+[]{#sec-page33}
+
 **11. ["We installed quality control."]{.blue-text}** (*Out of the Crisis* page 117 [pages 138–139]; Appendix page 35.) As with Obstacle 2, quality cannot be "bought"; see my comments on that Obstacle (page 28). Any management that thinks it can "install quality control" will achieve neither quality nor control.
 
 ```{ojs}
@@ -105,6 +113,8 @@ viewof activity_7i_11 = Inputs.textarea({label: "Obstacle 11: 'We installed qual
 ```{ojs}
 viewof activity_7i_12 = Inputs.textarea({label: "Obstacle 12: The unmanned computer — your notes", placeholder: "Your notes on Obstacle 12.", rows: 5})
 ```
+
+[]{#sec-page34}
 
 **13. [The supposition that it is only necessary to meet specifications.]{.blue-text}** (*Out of the Crisis* pages 118–119[139–141]; Appendix page 36.) After your work with the Taguchi loss function, I think I need add nothing here! And you are now so familiar with this matter that I suggest you soon move on to the remaining three Obstacles.
 

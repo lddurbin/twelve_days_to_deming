@@ -27,7 +27,7 @@ In this digital version, the dice are rolled for you automatically. The <span cl
 
 In this example, since of course the preferred outcome is always that target of 30 (corresponding to the bus arriving at 8.30 or to a socket diameter of 2.30 cm), you may as well start by putting the funnel at what would appear to be the "obvious" position, i.e. 30.
 
-## Rule 2 of the Funnel (Ford's First Strategy)
+## Rule 2 of the Funnel (Ford's First Strategy) {#sec-page44}
 
 A particularly appealing way of considering this strategy (i.e. Rule 2 of the Funnel) is that it tells you to move the funnel to the position (27) where, if only it had been there when the marble was just dropped through it, you *would have* just obtained the preferred target outcome of 30. With the funnel placed there, the dice-score of 10 led you to move the marble 3 squares to the right of the funnel; so you would then have had the marble at the target, 30.
 
@@ -148,7 +148,7 @@ Finally, summarise the outcomes that you've just generated in a histogram. The "
 
 <div class="separator_blue"></div>
 
-## Rule 1 of the Funnel (Ford's Second Strategy)
+## Rule 1 of the Funnel (Ford's Second Strategy) {#sec-page47}
 
 I'll postpone discussion on the outcomes from this strategy (which you'll recall is what Drs Nelson and Deming called Rule 2 of the Funnel) until you've repeated the whole exercise using an easier strategy.
 
@@ -240,7 +240,7 @@ So now summarise your new data in a histogram as before.
 }
 ```
 
-## Discussion
+## Discussion {#sec-page48}
 
 Compare the two histograms you've drawn on pages 45 and above *[WB 39 and 41]*. As you'll probably have realised already, the histogram that you've just constructed is somewhat more tightly clustered around the desired value of 30 than the previous one was. The difference may not be dramatic, but it's certainly there. So this process performs better than the previous one: there is less variation. Yet this process was the "lazy" one. It is much less complicated, much quicker and easier to operate. With this strategy (Rule 1) we haven't "tweaked" the process at all. We've put in less effort—and got better performance! With Ford's original strategy (Rule 2), we worked harder but got worse performance. Some people seem to think
 

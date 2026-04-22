@@ -96,6 +96,8 @@ viewof note_10_measurement_mistakes = Inputs.textarea({label: "Your notes on ite
 7. Knowledge of procedures aimed at minimum economic loss from these two mistakes (Shewhart control charts). [*See Appendix page 4.*]
 </div>
 
+[]{#sec-page24}
+
 <div class="deming_quote">
 8. Knowledge about interaction of forces. Interaction may reinforce efforts, or it may nullify efforts. Effect of the system on the performance of people. Knowledge of dependence and interdependence between people, groups, divisions, companies, countries.
 </div>

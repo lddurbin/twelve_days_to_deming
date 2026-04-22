@@ -3,7 +3,7 @@ title: "SUMMARY"
 execute:
   echo: false
 ---
-## Summary
+## Summary {#sec-page56}
 
 As has been obvious for a while (if not from the very start!), you know that, assuming we are "stuck" with the amount of variation represented by throwing the two dice, the best thing to do is to put the funnel at the desired value of 30 and *leave it there*. Moving the funnel anywhere at any time following any "strategy" will "only make things worse". I trust that sounds familiar!
 
@@ -19,7 +19,7 @@ Finally in this Major Activity, please take a brief look at a couple of runs of 
 
 In Part A of the Optional Extras section we shall examine in detail what happens to control charts when presented with the data from the two simulations of the Funnel Experiment studied in the Appendix. However, particularly in case you decide that that optional material is not for you, Activities 3–i and 3–j consider some general effects of putting data from the four Rules of the Funnel onto control charts.
 
-## Four-Rule Comparison
+## Four-Rule Comparison {#sec-page57}
 
 The charts below compare the outcomes from all four Rules using the same dice sequence. This is the key advantage of the digital version: you can see all four behaviours side by side.
 
@@ -112,7 +112,7 @@ summaryR4 = runAllStages(4, diceSeqSummary)
 }
 ```
 
-## Summary Statistics
+## Summary Statistics {#sec-page58}
 
 ```{ojs}
 {

@@ -3,7 +3,7 @@ title: "THE JOINER TRIANGLE"
 execute:
   echo: false
 ---
-## The Joiner Triangle: "Scientific Approach"
+## The Joiner Triangle: "Scientific Approach" {#sec-page4}
 
 Going right back to Dr Shewhart's formative work in the 1920s, we know that the vital thing to always bear in mind is the division of variation into its two types, coupled with the observation by Dr Deming and others that by far the more important and more numerous problems (and therefore opportunities for improvement) primarily lie in the common causes of variation, i.e. in the system. What sort of things might these include? There is, for instance, a host of them which relate directly to the company or organisation as a whole: its "culture", its rules and principles, the reward and punishment mechanisms, the nourishment or discouragement of innovation, whether people are regarded as having real brains or just as "black boxes", etc, etc. The issue of variation is, of course, all highly related to work we have already done, e.g. in our learning from the Experiment on Red Beads and the issue of "tampering", so well illustrated in the Funnel Experiment.
 
@@ -142,7 +142,7 @@ But is it really beyond rhyme and reason to think of improving quality to the ex
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## ACTIVITY 4–d
+## ACTIVITY 4–d {#sec-page10}
 
 Imagine the following situation. You want to celebrate, say, an anniversary or a birthday. So you and your friend / spouse / partner arrange to go out to dinner, perhaps to a restaurant that you haven't previously visited. Let me suggest three scenarios to you. At the end of the evening…
 
@@ -182,6 +182,8 @@ viewof activity_4d_a3 = Inputs.text({
   placeholder: "Type your comment here."
 })
 ```
+
+[]{#sec-page11}
 
 (b) In a year's time (the anniversary or birthday again), are you back in the same restaurant, or are you somewhere else? Suppose you had been…
 

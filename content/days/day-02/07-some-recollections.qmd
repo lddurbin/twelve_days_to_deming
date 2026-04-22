@@ -22,6 +22,8 @@ If you were still in the Un-Knowing state, you would probably not be at all surp
 As with the experiment in Ireland described on pages 9–16, a "performance appraisal" takes place at the end of the third week; the three "worst" workers are then fired and the "best" workers have to work double time during the fourth week—they will need to produce **two** paddles of 50 beads, not just one!
 </div>
 
+[]{#sec-page34}
+
 Here are the professional statisticians' results:
 
 ![professional statisticians' results as a table of data.](/assets/images/day-02/image-5.jpg){fig-align="center" width="100%"}
@@ -195,6 +197,8 @@ countsArray1.length > 0 ? Plot.plot({
 ```
 
 *(You can check your computations in Technical Aid 4 on Appendix page 9. But try it yourself first!)*
+
+[]{#sec-page37}
 
 Now it’s time for you to resume the Foreman’s role. Here are the Spaniards’ very different data. So
 please work through them as you did with the statisticians’ data. (Remember that these are extracts
