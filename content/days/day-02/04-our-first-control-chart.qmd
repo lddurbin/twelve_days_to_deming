@@ -54,7 +54,7 @@ As a new user of the control chart, here is your obvious Pause for Thought:
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## PAUSE FOR THOUGHT 2–e
+## PAUSE FOR THOUGHT 2–e {#sec-page16}
 What does the above control chart tell you?
 
 ```{ojs}
