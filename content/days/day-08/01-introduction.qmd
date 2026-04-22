@@ -45,7 +45,7 @@ So first, to set the scene, please
 
 ::: {.column width="85%"}
 
-## OUTLINE OF TODAY'S WORK
+## OUTLINE OF TODAY'S WORK {#sec-page3}
 
 The structure of today's work is particularly straightforward. It divides into four parts. The first three parts consist respectively of you reading *DemDim* Chapters 13, 14 and 15 on The New Climate and then immediately embarking upon an Activity. The Activity asks you to consider five questions that relate the content of the chapter to "your organisation" (interpreted as on the previous two days). The five questions are of exactly the same form in all three parts.
 

@@ -60,7 +60,7 @@ Robert Reich, who was Secretary of Labour in Bill Clinton's administration, is f
 viewof activity_7i_5 = Inputs.textarea({label: "Obstacle 5: Obsolescence in Schools (of Business) — your notes", placeholder: "Your notes on Obstacle 5.", rows: 5})
 ```
 
-**6. [Poor teaching of statistical methods in industry.]{.blue-text}** (*Out of the Crisis* pages 111–113[131–133]; Appendix pages 33–34.) A basic problem here is that the large majority of "conventional" statistics teaching is to do with matters such as probabilities, distributions, sampling from "populations", and the like. The subject is essentially treated as a branch of Mathematics, dependent on mathematical models. But the real world is primarily concerned with ever-changing processes that therefore do not fit neat mathematical models. Quite unlike most statistical tools, the control chart, as understood, taught and used by Drs Shewhart and Deming, is not dependent on mathematical models: it is designed for the real world. Because of not understanding this fact and its importance, many teachers try to force the control chart into the conventional mathematical mould—thus destroying its unique virtue! This is all touched upon in the Overture, in my discussion on Pause for Thought 2–b on Appendix page 7, and in the Springboard article cited on Day 1 page 8. There is also much more in the Optional Extras section.
+**6. [Poor teaching of statistical methods in industry.]{.blue-text}** (*Out of the Crisis* pages 111–113[131–133]; Appendix pages 33–34.) A basic problem here is that the large majority of "conventional" statistics teaching is to do with matters such as probabilities, distributions, sampling from "populations", and the like. The subject is essentially treated as a branch of Mathematics, dependent on mathematical models. But the real world is primarily concerned with ever-changing processes that therefore do not fit neat mathematical models. Quite unlike most statistical tools, the control chart, as understood, taught and used by Drs Shewhart and Deming, is not dependent on mathematical models: it is designed for the real world. Because of not understanding this fact and its importance, many teachers try to force the control chart into the conventional mathematical mould—thus destroying its unique virtue! This is all touched upon in the Overture, in my discussion on Pause for Thought 2–b on Appendix page 7, and in the Springboard article cited on [Day 1 page 8](../day-01/03-statistics.qmd#sec-page8). There is also much more in the Optional Extras section.
 
 ```{ojs}
 viewof activity_7i_6 = Inputs.textarea({label: "Obstacle 6: Poor teaching of statistical methods in industry — your notes", placeholder: "Your notes on Obstacle 6.", rows: 5})
@@ -108,7 +108,7 @@ viewof activity_7i_12 = Inputs.textarea({label: "Obstacle 12: The unmanned compu
 viewof activity_7i_13 = Inputs.textarea({label: "Obstacle 13: The supposition that it is only necessary to meet specifications — your notes", placeholder: "Your notes on Obstacle 13.", rows: 5})
 ```
 
-**14. [The fallacy of zero defects.]{.blue-text}** (*Out of the Crisis* pages 119–120[141–142]; Appendix page 36.) With "defect" = "outside specifications", this is equivalent to Obstacle 13 above. In addition, Dr Deming saw zero-defects policies as often inviting tampering, suffering effects we have seen in the Funnel Experiment. Recall also Mack's mention of Zero Defects (Day 6 page 11).
+**14. [The fallacy of zero defects.]{.blue-text}** (*Out of the Crisis* pages 119–120[141–142]; Appendix page 36.) With "defect" = "outside specifications", this is equivalent to Obstacle 13 above. In addition, Dr Deming saw zero-defects policies as often inviting tampering, suffering effects we have seen in the Funnel Experiment. Recall also Mack's mention of Zero Defects ([Day 6 page 11](../day-06/02-gallery-furniture.qmd#sec-page11)).
 
 ```{ojs}
 viewof activity_7i_14 = Inputs.textarea({label: "Obstacle 14: The fallacy of zero defects — your notes", placeholder: "Your notes on Obstacle 14.", rows: 5})
@@ -120,7 +120,7 @@ viewof activity_7i_14 = Inputs.textarea({label: "Obstacle 14: The fallacy of zer
 viewof activity_7i_15 = Inputs.textarea({label: "Obstacle 15: Inadequate testing of prototypes — your notes", placeholder: "Your notes on Obstacle 15.", rows: 5})
 ```
 
-**16. ["Anyone that comes to try to help us must understand all about our business."]{.blue-text}** (*Out of the Crisis* page 121[143]; Appendix page 37.) Strongly linked with Obstacle 4 (page 29) and my comment there. We have already pointed out on Day 6 page 6 that Dr Deming referred to Profound Knowledge as ["outside knowledge"]{.deming_quote}; another pertinent quote (e.g. on *The New Economics* page 39[54]) is ["A system can not understand itself."]{.deming_quote} Real help comes from *new* knowledge.
+**16. ["Anyone that comes to try to help us must understand all about our business."]{.blue-text}** (*Out of the Crisis* page 121[143]; Appendix page 37.) Strongly linked with Obstacle 4 (page 29) and my comment there. We have already pointed out on [Day 6 page 6](../day-06/02-gallery-furniture.qmd#sec-page6) that Dr Deming referred to Profound Knowledge as ["outside knowledge"]{.deming_quote}; another pertinent quote (e.g. on *The New Economics* page 39[54]) is ["A system can not understand itself."]{.deming_quote} Real help comes from *new* knowledge.
 
 ```{ojs}
 viewof activity_7i_16 = Inputs.textarea({label: "Obstacle 16: 'Anyone that comes to try to help us must understand all about our business' — your notes", placeholder: "Your notes on Obstacle 16.", rows: 5})
@@ -142,7 +142,7 @@ viewof activity_7i_16 = Inputs.textarea({label: "Obstacle 16: 'Anyone that comes
 
 ### "Out-of-hours" note
 
-Depending on your circumstances, you may find yourself able to work through tomorrow's Major Activity fairly quickly. However, that exercise is naturally customisable to your own particular circumstances and there is likely to be more than one way of doing that. It might therefore be possible for you to carry out two or more versions of that Major Activity within the time available, and that could be very useful. For this reason, it would be a good idea to produce duplicates of the tables involved. Look at the bottom of Day 8 page 3 for advice on this.
+Depending on your circumstances, you may find yourself able to work through tomorrow's Major Activity fairly quickly. However, that exercise is naturally customisable to your own particular circumstances and there is likely to be more than one way of doing that. It might therefore be possible for you to carry out two or more versions of that Major Activity within the time available, and that could be very useful. For this reason, it would be a good idea to produce duplicates of the tables involved. Look at the bottom of [Day 8 page 3](../day-08/01-introduction.qmd#sec-page3) for advice on this.
 
 ```{ojs download_all}
 import { createDownloadButton } from "../../../assets/scripts/functions.js"

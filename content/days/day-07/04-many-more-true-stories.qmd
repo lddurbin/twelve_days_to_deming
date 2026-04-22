@@ -66,7 +66,7 @@ The case was proven!
 
 *"the control chart can serve very effectively as a **communication language** within and between departments in an organisation, between different levels of management, and even between organisations."*
 
-*I'll further remind you from Day 1 page 7 that Deming "was also clear that, the more senior someone is in the organisation, the more essential such [communication] ability becomes. As far as he was concerned, the most important control charts at any organisation should be right there on the Chief Executive's desk."]*
+*I'll further remind you from [Day 1 page 7](../day-01/03-statistics.qmd#sec-page7) that Deming "was also clear that, the more senior someone is in the organisation, the more essential such [communication] ability becomes. As far as he was concerned, the most important control charts at any organisation should be right there on the Chief Executive's desk."]*
 :::
 
 ### ... and no less than five from the railways
