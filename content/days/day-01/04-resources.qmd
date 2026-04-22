@@ -10,7 +10,7 @@ be helpful in your learning about the more general main themes and content of th
 
 ## The Deming Dimension {#sec-page11}
 
-There is some detailed information about *The Deming Dimension* on [pages 12–13](index.qmd#sec-page12) of the Welcome section
+There is some detailed information about *The Deming Dimension* on [pages 12–13](../../../index.qmd#sec-page12) of the Welcome section
 in the “A. PLEASE START HERE” file.
 
 For brevity I shall henceforth refer to *The Deming Dimension* simply as *DemDim* (as do many of the people

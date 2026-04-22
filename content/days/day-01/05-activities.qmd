@@ -26,7 +26,7 @@ my seminars. During the first day of my most usual three-day seminar I would ask
 On the second day there was still plenty for me to do, although now there were increasing amounts of time
 spent on delegates’ discussions and feedback. But on the third day I only contributed about an hour or so
 to the proceedings. The morning was mostly taken up by delegate-led sessions on topics such as the
-three in “The New Climate” (see [page 18](#sec-page18)), to be studied here on [Day 8](day_8.html). Often the delegates were preparing
+three in “The New Climate” (see [page 18](#sec-page18)), to be studied here on [Day 8](../day-08/01-introduction.qmd). Often the delegates were preparing
 these sessions in small groups until late the previous evening: and it was not unknown for me to find the
 early risers doing further work on them before the final day of the seminar commenced. And then, after my
 “hour or so”, the afternoon would be spent with us all involved in discussing topics on which the delegates

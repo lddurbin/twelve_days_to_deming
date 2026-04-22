@@ -113,7 +113,7 @@ Why do you think that the word “Quality” might have provoked such a negative
 viewof thought_1c = Inputs.textarea({label: "Why might the word quality provoke a negative reaction?", placeholder: "Type your comments here.", rows: 10})
 ```
 
-<div class=activity_afterthought>(For brief discussion see [Appendix page 6](appendix.html#sec-page6).)</div>
+<div class=activity_afterthought>(For brief discussion see [Appendix page 6](../../appendix/01-day-1.qmd#sec-page6).)</div>
 </div>
 :::
 
@@ -148,7 +148,7 @@ he saw it, here is just part of a sentence from his 1960 book, *Sample Design in
 
 And this use of the word does not just apply to statisticians! In Deming’s mind, the very *purpose* of theory
 is to help guide better *practice*. And if a theory does not do that then it’s not good theory and it needs
-modifying or even abandoning (c.f. the Deming Cycle on [Day 11](day_11.html)).
+modifying or even abandoning (c.f. the Deming Cycle on [Day 11](../day-11/01-introduction.qmd)).
 
 Dr Deming’s opening words in one of the many four-day seminars at which I was present summarised it
 pretty well. He rose slowly to his feet, smiled gently at the 600-strong audience, and said:
