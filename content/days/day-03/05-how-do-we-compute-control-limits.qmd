@@ -62,13 +62,13 @@ On the other hand, if you find it too difficult to deal with everything in the t
 So, if you are on Stats-level 0 (or 00), please omit the following Technical Aids and move on to page 19.
 
 <div class="technical_aid" role="note" aria-label="Technical aid">
-## Technical Aid 5
+## Technical Aid 5 {#sec-page13}
 
 With Red Beads and similar data, the σ in Shewhart's guidance for control limits (referred to on Appendix page 4) was computed by a formula merely involving the average: $\bar{X}$. That was possible because, with such data, there is a natural link between the average and the way the data vary. (If the average is particularly small or large then the variation is relatively small, whereas if the average is more central then the variation is relatively large.) This is not the case with most other types of data, and so then a more direct representation of the variation is needed. As has now been introduced, the recommended method uses moving ranges: the distances (positive or zero, not negative) between consecutive values in the data.
 </div>
 
 <div class="technical_aid" role="note" aria-label="Technical aid">
-## Technical Aid 6
+## Technical Aid 6 {#sec-page16}
 
 The artificial sales data on pages 10–12 were, in time order: 13&ensp;19&ensp;18&ensp;14&ensp;16&ensp;12&ensp;21&ensp;18&ensp;17&ensp;22.
 
@@ -88,7 +88,7 @@ So $\overline{MR} = (6 + 1 + 4 + 2 + 4 + 9 + 3 + 1 + 5) \div 9 = 35 \div 9 = 3.8
 </div>
 
 <div class="technical_aid" role="note" aria-label="Technical aid">
-## Technical Aid 7
+## Technical Aid 7 {#sec-page17}
 
 Why the 2.66? Sorry: as with the formula in the Red Beads case, this is more material for the Optional Extras. But trust me: it is derived using the guidance about control limits provided by Dr Shewhart.
 
@@ -96,7 +96,7 @@ However, although moving ranges are quick and easy to compute, they can become q
 </div>
 
 <div class="technical_aid" role="note" aria-label="Technical aid">
-## Technical Aid 8
+## Technical Aid 8 {#sec-page18}
 
 If we want to turn run charts containing a lot of data into control charts, do we have to use all those data to compute the control limits?
 
@@ -127,7 +127,7 @@ This was clearly a case where, in practice, there was little to be gained by pro
 
 <div class="thought" role="note" aria-label="Thought">
 
-## ACTIVITY 3–g
+## ACTIVITY 3–g {#sec-page15}
 
 Just for practice, compute the control limits by the method just demonstrated (again using just the first 12 values) on the data whose run chart you drew in Activity 3–e on page 8. Here are those data:
 

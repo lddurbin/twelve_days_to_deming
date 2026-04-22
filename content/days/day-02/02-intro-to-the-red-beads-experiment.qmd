@@ -35,7 +35,7 @@ Now, before we get into the details of the Red Beads Experiment, I'll ask you to
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## PAUSE FOR THOUGHT 2–b
+## PAUSE FOR THOUGHT 2–b {#sec-page7}
 
 As we grow older, and hopefully wiser, we may think about several things quite differently from the way
 that we used to. So identify something that you now regard very differently from the way that you did
@@ -74,7 +74,7 @@ Your answer to the first of the questions in Pause for Thought 2–b was surely 
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## PAUSE FOR THOUGHT 2–c
+## PAUSE FOR THOUGHT 2–c {#sec-page8}
 
 What are some ways we can acquire and suffer from “illusion of knowledge”?
 

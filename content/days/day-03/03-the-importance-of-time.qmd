@@ -42,7 +42,7 @@ Just to be sure, let's draw run charts of the data. Here is a run chart for the 
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## ACTIVITY 3–e
+## ACTIVITY 3–e {#sec-page9}
 
 Here again are the data from the second process (to save you from having to look back):
 

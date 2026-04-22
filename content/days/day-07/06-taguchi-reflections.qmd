@@ -103,7 +103,7 @@ Click this after writing your comments
 
 As implied earlier, these and related matters are studied in greater detail than is necessary for this course in *DemDim* Chapter 12. But that chapter's final illustration is worth a quick look now:
 
-### A cutting process
+### A cutting process {#sec-page26}
 
 A company was having trouble with a cutting operation for metal rods, etc—or, rather, its customers were having trouble! The cutting process had been designed to ensure 100% conformance to specifications—and was indeed achieving it. So why were the customers having trouble? An investigation of the output showed why—if you're interested, take a look at the weird distribution shown on *DemDim* page 191 in Figure 40. True, everything was within specifications. But—half of the output was piled up just to the right of the Lower Specification Limit, and the other half was piled up just below the Upper Specification Limit, with nothing in the middle! I think you'll immediately see how horrible this is from the viewpoint of the Taguchi loss function—yet it is 100% conforming to specifications!
 

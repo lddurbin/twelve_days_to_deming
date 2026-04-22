@@ -12,18 +12,18 @@ As mentioned near the end of the “Welcome” section, this is the reference li
 
 **Before Day 2.** Just a reminder here that an ordinary basic calculator is likely to be useful to you on both Days 2 and 3.
 
-**Before Day 3.** The more important task here is to prepare for the Funnel Experiment: see Day 2 pages 43–44 and Day 3 page 36. However, you may also find it useful to print a separate copy of Day 3 page 19 since the charts on that page are discussed in detail on the subsequent pages.
+**Before Day 3.** The more important task here is to prepare for the Funnel Experiment: see Day 2 pages 43–44 and [Day 3 page 36](../days/day-03/10-introduction-to-the-funnel-experiment.qmd#sec-page36). However, you may also find it useful to print a separate copy of [Day 3 page 19](../days/day-03/06-six-processes.qmd#sec-page19) since the charts on that page are discussed in detail on the subsequent pages.
 
-**Before Day 6.** For some extra pages of printing for your convenience during Day 6’s Major Activity, etc: see Day 5 page 28. On this page there is also a reminder to prepare for “your organisation” if you don’t belong to one (!).
+**Before [Day 6](../days/day-06/01-introduction.qmd).** For some extra pages of printing for your convenience during Day 6’s Major Activity, etc: see [Day 5 page 28](../days/day-05/03-the-deadly-diseases.qmd#sec-page28). On this page there is also a reminder to prepare for “your organisation” if you don’t belong to one (!).
 
-**Before Day 8.** For some extra copies to aid you in Day 8’s Major Activity: see Day 7 page 36 and Day 8 page 3.
+**Before [Day 8](../days/day-08/01-introduction.qmd).** For some extra copies to aid you in Day 8’s Major Activity: see [Day 7 page 36](../days/day-07/07-major-activity.qmd#sec-page36) and [Day 8 page 3](../days/day-08/01-introduction.qmd#sec-page3).
 
-**Before Day 9.** For just a little extra printing, mostly to aid you in Day 9’s Major Activity: see Day 8 page 28.
+**Before Day 9.** For just a little extra printing, mostly to aid you in Day 9’s Major Activity: see [Day 8 page 28](../days/day-08/06-major-activity.qmd#sec-page28).
 
 **Before Day 10.** For details of your preparation for the Second Project: see Day 9 pages 26–30.
 
-**Before Day 11.** For details of preparation for the second half of the Second Project: see Day 10 page 33.
+**Before Day 11.** For details of preparation for the second half of the Second Project: see [Day 10 page 33](../days/day-10/06-out-of-hours-note.qmd#sec-page33).
 
-**Before Day 12.** For a little equipment and one or more copies or enlargements: see Day 11 page 36.
+**Before Day 12.** For a little equipment and one or more copies or enlargements: see [Day 11 page 36](../days/day-11/08-coda.qmd#sec-page36).
 
 Finally, if and when you decide to venture into the **Optional Extras** but without printing that file or the Workbook, there are just two pages in both Parts A and B which you will need to print out before studying those first two parts. They are pages 6 and 7 in Part A and pages 24 and 25 in Part B.

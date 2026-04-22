@@ -8,7 +8,7 @@ execute:
 
 ## 1. Introduction
 
-Well, the twain *may* meet—but there's often a serious problem when they do: neither can understand what the other is talking about! The "twain" to whom I am referring are students from what we might call the Deming/Shewhart school of Statistics on the one hand and from the "conventional" or "traditional" or "mathematical" school of Statistics on the other. As I said as early as Day 1 page 6, and repeated here in the Introduction on page 2:
+Well, the twain *may* meet—but there's often a serious problem when they do: neither can understand what the other is talking about! The "twain" to whom I am referring are students from what we might call the Deming/Shewhart school of Statistics on the one hand and from the "conventional" or "traditional" or "mathematical" school of Statistics on the other. As I said as early as [Day 1 page 6](../../days/day-01/02-rediscovered.qmd#sec-page6), and repeated here in the Introduction on page 2:
 
 > "Over the nearly 20 years of my seminars on Dr Deming's teaching I rarely suffered from any 'difficult' delegates. The few that I had could be divided into two types. One type were very senior managers; the other type were those with some qualification in Statistics."
 

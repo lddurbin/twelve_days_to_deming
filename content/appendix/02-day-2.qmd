@@ -18,7 +18,7 @@ I can give some personal answers to these questions which have considerable rele
 
 - Yes!
 
-*(Return to Day 2 page 7 or continue on Day 2 page 8.)*
+*(Return to [Day 2 page 7](../days/day-02/02-intro-to-the-red-beads-experiment.qmd#sec-page7) or continue on [Day 2 page 8](../days/day-02/02-intro-to-the-red-beads-experiment.qmd#sec-page8).)*
 
 ## PAUSE FOR THOUGHT 2–c
 
@@ -26,7 +26,7 @@ I can give some personal answers to these questions which have considerable rele
 
 - Yes!
 
-*(Return to Day 2 page 8 or continue on Day 2 page 9.)*
+*(Return to [Day 2 page 8](../days/day-02/02-intro-to-the-red-beads-experiment.qmd#sec-page8) or continue on [Day 2 page 9](../days/day-02/03-a-brief-overview.qmd#sec-page9).)*
 
 ## PAUSE FOR THOUGHT 2–e
 
@@ -34,7 +34,7 @@ What do we see? All the data are contained between the Lower and Upper Control L
 
 That is not what the Foreman thought—he thought it was *all* due to the Willing Workers!
 
-*(Return to Day 2 page 16.)*
+*(Return to [Day 2 page 16](../days/day-02/04-our-first-control-chart.qmd#sec-page16).)*
 
 []{#sec-page8}
 
@@ -85,17 +85,17 @@ That is not what the Foreman thought—he thought it was *all* due to the Willin
 | Ben’s 13 | “I thought you’d learned your lesson.” |
 | Ed’s 7 | “You did that on Day 2. So why didn’t you do it yesterday?” |
 
-*(Continue on Day 2 page 27.)*
+*(Continue on [Day 2 page 27](../days/day-02/06-your-turn.qmd#sec-page27).)*
 
 ## ACTIVITY 2–g
 
 The upper and lower control limits for the statisticians’ data are UCL = 16.4 and LCL = 0.5.
 
-*(Return to Day 2 page 34.)*
+*(Return to [Day 2 page 34](../days/day-02/07-some-recollections.qmd#sec-page34).)*
 
 The upper and lower control limits for the Spaniards’ data are UCL = 20.1 and LCL = 2.4.
 
-*(Return to Day 2 page 37.)*
+*(Return to [Day 2 page 37](../days/day-02/07-some-recollections.qmd#sec-page37).)*
 
 []{#sec-page9}
 
@@ -118,7 +118,7 @@ Finally, the distance from $\bar{X}$ out to the two control limits is $3\sqrt{\b
 $$\text{UCL} = \bar{X} + 3\sqrt{\bar{X}(1 - \bar{p})} = 8.458 + 7.952 = 16.41,\ \text{and}$$
 $$\text{LCL} = \bar{X} - 3\sqrt{\bar{X}(1 - \bar{p})} = 8.458 - 7.952 = 0.51.$$
 
-*(Return to Day 2 page 34.)*
+*(Return to [Day 2 page 34](../days/day-02/07-some-recollections.qmd#sec-page34).)*
 
 ### Spaniards’ data
 
@@ -135,7 +135,7 @@ Then the distance from $\bar{X}$ out to the two control limits is $3\sqrt{\bar{X
 $$\text{UCL} = \bar{X} + 3\sqrt{\bar{X}(1 - \bar{p})} = 11.250 + 8.858 = 20.11,\ \text{and}$$
 $$\text{LCL} = \bar{X} - 3\sqrt{\bar{X}(1 - \bar{p})} = 11.250 - 8.858 = 2.39.$$
 
-*(Return to Day 2 page 37.)*
+*(Return to [Day 2 page 37](../days/day-02/07-some-recollections.qmd#sec-page37).)*
 
 </div>
 
@@ -149,9 +149,9 @@ There is, of course, so much to learn from the Experiment on Red Beads that I co
 
 One important fact to learn and appreciate is how *large* common-cause variation (variation produced by the system) can be. With 20% of the beads being red, it might seem reasonable to assume that the long-term average number of red beads per worker per week would be 10. Actually, even that is untrue, as is evidenced on the next page. But suppose for the moment that it is true. If the overall average was 10 out of 50, naturally we would not expect everyone to get exactly 10 every time. But what would be a reasonable departure from 10? Now that you have seen various sets of results and a typical control chart, you know that the answer is something like 7 or 8 either way. It is reasonable to occasionally be as bad as 17 or 18. And you do *not* have to be specially gifted to occasionally get down to 2 or 3!
 
-But take a look back at Activity 1–e (Day 1 page 25 *[WB 4]*) concerning the manager of the call-centre. What were your answers? The question there was in effect the same: how much variation away from 10 would you expect “by chance”? I presented that question to many of my seminar audiences before they knew the nature of the “work” in the Red Beads Experiment (during which they would, of course, then see—to their considerable surprise—the amount of variation to be expected by chance). The answer which I was given more often than all other answers put together was … 10 plus or minus 2! Anything between 8 and 12 is fair enough. But anything better than 8 or worse than 12 apparently invites comment!
+But take a look back at Activity 1–e ([Day 1 page 25](../days/day-01/08-attraction.qmd#sec-page25) *[WB 4]*) concerning the manager of the call-centre. What were your answers? The question there was in effect the same: how much variation away from 10 would you expect “by chance”? I presented that question to many of my seminar audiences before they knew the nature of the “work” in the Red Beads Experiment (during which they would, of course, then see—to their considerable surprise—the amount of variation to be expected by chance). The answer which I was given more often than all other answers put together was … 10 plus or minus 2! Anything between 8 and 12 is fair enough. But anything better than 8 or worse than 12 apparently invites comment!
 
-This is a very common phenomenon (no pun intended!). Even when people get to understand the concept of common-cause variation, they almost always hopelessly underestimate how large it is, often by a factor of two or three times or even more. This is yet another reason why use of the control chart is so crucial. For without it, even with some understanding of common-cause variation, you’d still be likely to “see” more special-cause variation than actually exists. The result is that your good intentions about trying to improve the system will be far more likely to result in *tampering* with the system rather than improving it. (“Tampering” was Dr Deming’s favourite word for describing this effect.) As we shall see tomorrow, the almost inevitable consequence is not *only* to fail to *improve* performance: it is actually to make performance *worse*. Hopefully, some of those words will sound familiar to you—refer back to the bottom of Day 1 page 17 and the top of Day 1 page 18. As you already know, in tomorrow’s Major Activity you will be carrying out a version of the Funnel Experiment, and the problem of tampering is the main focus of that experiment.
+This is a very common phenomenon (no pun intended!). Even when people get to understand the concept of common-cause variation, they almost always hopelessly underestimate how large it is, often by a factor of two or three times or even more. This is yet another reason why use of the control chart is so crucial. For without it, even with some understanding of common-cause variation, you’d still be likely to “see” more special-cause variation than actually exists. The result is that your good intentions about trying to improve the system will be far more likely to result in *tampering* with the system rather than improving it. (“Tampering” was Dr Deming’s favourite word for describing this effect.) As we shall see tomorrow, the almost inevitable consequence is not *only* to fail to *improve* performance: it is actually to make performance *worse*. Hopefully, some of those words will sound familiar to you—refer back to the bottom of [Day 1 page 17](../days/day-01/06-outline.qmd#sec-page17) and the top of [Day 1 page 18](../days/day-01/06-outline.qmd#sec-page18). As you already know, in tomorrow’s Major Activity you will be carrying out a version of the Funnel Experiment, and the problem of tampering is the main focus of that experiment.
 
 ### The Tribus experiment
 
@@ -187,7 +187,7 @@ I hope so.
 
 *(If, at some time, you would like to study such matters in greater depth, you will find much to read in Parts C, D and E of the “Optional Extras”.)*
 
-*(Return to Day 2 page 38.)*
+*(Return to [Day 2 page 38](../days/day-02/08-major-activity.qmd#sec-page38).)*
 
 ## Dave Kerr’s “Wrap-Up Brief” following the Red Beads Experiment
 
@@ -219,4 +219,4 @@ As an example, using this “system” to “view” the Red Beads company, we c
 
 Finally, but very significantly, we need to clearly understand that an absolutely vital function of leading is to give an organisational system *vision, meaning, direction and focus*—continually. Unclear and/or inconsistent purpose and direction and lack of focus create organisational ambiguity and individual confusion. In consequence, the organisation suffers from chaos and dysfunction.
 
-*(Return to Day 2 page 43.)*
+*(Return to [Day 2 page 43](../days/day-02/09-postscript.qmd#sec-page43).)*

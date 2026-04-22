@@ -90,6 +90,8 @@ of dice rather than a funnel and a marble!).
 Deming sometimes described the Red Beads Experiment as <span class=deming_quote>“stupidly simple”</span>. The same description could
 easily be applied to the Funnel Experiment. So what does the Funnel Experiment demonstrate?
 
+[]{#sec-page17}
+
 I expect you will be familiar with the old saying that “the road to Hell is paved with good intentions”. Deming’s version, often repeated in his seminars, was:
 
 ><span class=deming_quote>“The world is being ruined by best efforts.”</span>
@@ -104,6 +106,8 @@ where he met and worked with Dr Shewhart:
 to work on it to try to correct it. A noble aim. There was only one little trouble—their noble efforts
 did not work. Things got worse. … Sure we don’t like things which go wrong—but if we wade in
 at them without understanding then we make things worse.”</span>[^a]
+
+[]{#sec-page18}
 
 In the context of the Funnel Experiment, what’s missing is the understanding of what Deming meant by a
 “stable system”. The reason I want you to try out the Funnel Experiment for yourself on Day 3 is that, if

@@ -3,7 +3,9 @@ title: "QUALITY, THEORY, PHILOSOPHY, MANAGEMENT,..."
 execute:
   echo: false
 ---
-  
+
+[]{#sec-page20}
+
 How can we describe Dr Deming and his work? Dr Deming is sometimes referred to as a “quality guru”
 and, in an unpublished booklet that I once read, as “the father figure of the modern quality revolution; perhaps the number one guru”. When I read that booklet, those attributions made me feel a little uneasy.
 However, if a “guru” is indeed, as quoted there, “a good man, a wise man and a teacher” then I have no
@@ -99,7 +101,7 @@ create_clock(11, 20)
 
 ::: {.column width="85%"}
 <div class="thought" role="note" aria-label="Thought">
-## PAUSE FOR THOUGHT 1–c
+## PAUSE FOR THOUGHT 1–c {#sec-page21}
 
 I well remember a time that I met up with an old acquaintance. I hadn’t seen him for a while, so he
 didn’t know of my change in career and interests (and university)—he thought I still lectured in Mathematical Statistics somewhere else. “So what Department are you in, here at this university?”, he asked.
@@ -124,6 +126,8 @@ create_clock(11, 25)
 :::
 
 ::::
+
+[]{#sec-page22}
 
 So, with only three “hits” for “quality” in the video, I thought it worth counting how many times Dr Deming
 said “management”. Rather more: 14! (And, of course, there were yet more if one also counted “manage”,

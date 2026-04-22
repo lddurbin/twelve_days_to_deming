@@ -29,7 +29,7 @@ Incidentally, in view of another fact of life: variation, one might sometimes ma
 
 <div class="thought" role="note" aria-label="Activity">
 
-## ACTIVITY 7–a
+## ACTIVITY 7–a {#sec-page4}
 
 Think of a few further examples of the three kinds of numerical targets. With Categories 2 and 3, mention features of the corresponding management style as appropriate. There may be some examples in your own organisation that you could include: they may affect you personally, or your department, or elsewhere. You may also recall some from the "True Stories" on Day 6 and there may well be yet more for you to insert as you read through the further such stories beginning on page 9.
 

@@ -3,6 +3,8 @@ title: "MAJOR ACTIVITY 9-e"
 execute:
   echo: false
 ---
+[]{#sec-page12}
+
 <div class="major_activity_title"><h2>MAJOR ACTIVITY 9–e</h2></div>
 
 With what you have learned this morning fresh in mind, it is now time for you to try to develop a "macro" flow diagram of your organisation. To prepare the ground for that, I will quote in advance an extract in Dr Deming's own words from Day 10:

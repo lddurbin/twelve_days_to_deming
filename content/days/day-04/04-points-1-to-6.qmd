@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-## Point 1. Constancy of purpose
+## Point 1. Constancy of purpose {#sec-page16}
 
 <div class="info_callout">**Create constancy of purpose for continual improvement of products and service,** allocating resources to provide for long-range needs rather than only short-term profitability, with a plan to become competitive, to stay in business, and to provide jobs.</div>
 
@@ -196,7 +196,7 @@ viewof p4_sa = Inputs.textarea({
 
 ---
 
-## Point 5. Improve every process
+## Point 5. Improve every process {#sec-page25}
 
 <div class="info_callout">**Improve constantly and forever the system** of planning, production, and service, in order to improve every process and activity in the company, to improve quality and productivity, and thus to constantly decrease costs. It is management's job to work continually on the system (design, incoming supplies, maintenance, improvement of equipment, supervision, training, retraining, etc).</div>
 

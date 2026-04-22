@@ -370,7 +370,7 @@ create_clock(12, 0)
 
 ---
 
-## Point 13. Encourage education
+## Point 13. Encourage education {#sec-page14}
 
 <div class="info_callout">**Institute a vigorous programme of education, and encourage self-improvement for everyone.** What an organisation needs is not just good people; it needs people that are improving with education. Advances in competitive position will have their roots in knowledge.</div>
 

@@ -3,6 +3,9 @@ title: "A BRIEF OVERVIEW"
 execute:
   echo: false
 ---
+
+[]{#sec-page9}
+
 Let's now move on to a more comprehensive description of the Experiment on Red Beads. I will try to make it come alive for you as much as possible as the day progresses. First, I'll introduce the experiment as I used to carry it out, which differs in only minor detail from Dr Deming's original. (You will soon appreciate, I think, that some of my description here might be described as rather "tongue-in-cheek!") For illustration I shall use a set of results obtained by the Willing Workers in a company on the West coast of Ireland where I had been invited to present a seminar. Later today I will show you some other sets of results.
 
 <div class="float-box">

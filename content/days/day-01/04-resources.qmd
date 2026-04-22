@@ -8,7 +8,7 @@ In that optional excursion into the Appendix to discuss the first paradox, I inc
 this is an opportune time for me to also suggest some further reading along with video material which could
 be helpful in your learning about the more general main themes and content of this course.
 
-## The Deming Dimension
+## The Deming Dimension {#sec-page11}
 
 There is some detailed information about *The Deming Dimension* on [pages 12–13](index.qmd#sec-page12) of the Welcome section
 in the “A. PLEASE START HERE” file.

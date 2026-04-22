@@ -37,6 +37,8 @@ However, you don't have to build that whole model! During the description I shal
 
 So how exactly will you be able to carry this out with your less extravagant set-up (of which details follow)?
 
+[]{#sec-page37}
+
 In our timing schedule we are now coming up to the lunchtime break. If you have not already done so, you will now need to prepare your own track like the one illustrated in order to be able to carry out our version of the Funnel Experiment, ready to use when we resume this afternoon. On page 59 you will find a larger copy of the track in two parts, one part going from 20 to 30 and the other from 30 to 40. Preferably (but only if convenient) I suggest that you copy or paste these (either electronically or using glue) onto some card. Then join them together into a single strip as shown above by attaching the two 30s one on top of the other. I've also included on page 59 larger images of both the funnel and the marble: you could similarly put the image of each that you choose onto small pieces of card to use in the experiment. Alternatively, you could e.g. use a large silver coin to represent the funnel and a small copper/bronze coin to represent the marble.
 
 Finally, as previously warned (on [Day 2 page 44](../day-02/09-postscript.qmd#sec-page44)), you will also need two standard dice (and a shaker if you so wish).
