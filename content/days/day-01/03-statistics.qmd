@@ -214,7 +214,7 @@ Deming Alliance’s website via the following link:
 
 And lastly, if you are *really* keen to have a comprehensive introduction to control charts—going well beyond
 what is necessary for this course—there is the fairly substantial section of “Optional Extras” described at
-the top of [page 8](index.qmd#para-page8) in the “Welcome” section. This optional material contains a variety of topics, all more or
+the top of [page 8](../../../index.qmd#para-page8) in the “Welcome” section. This optional material contains a variety of topics, all more or
 less connected with control charting. But I must emphasise that both this extra material and the Springboard article really are “optional extras”—take them or leave them as you prefer. However, if you decide to
 take them, please don’t count them as being within the recommended 12-day timeframe!
 
