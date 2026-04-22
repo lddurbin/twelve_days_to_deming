@@ -3,7 +3,7 @@ title: "A SYSTEM ..."
 execute:
   echo: false
 ---
-## A SYSTEM ...
+## A SYSTEM ... {#sec-page2}
 
 Learning about what Dr Deming meant by a "system" can be described as "double-value-for-money" learning, since this is crucial in two senses in the study and understanding of what he taught:
 

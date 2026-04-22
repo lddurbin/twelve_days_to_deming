@@ -11,6 +11,8 @@ It is worth pointing out to start with that, in addition to your being familiar 
 
 So, on to our four introductions to the System of Profound Knowledge. First, having recently reminded yourself of Peter Scholtes's diagrammatic representation on Day 1, you will immediately recognise what follows---his expansion of that diagram to include a few important aspects of each of the four parts:
 
+[]{#sec-page22}
+
 ![Peter Scholtes's System of Profound Knowledge diagram](/assets/images/day-09/scholtes-sopk-diagram.png){.lightbox}
 
 Particularly in your early days of learning about the System of Profound Knowledge, Peter's diagram here is well worth repeated attention. Although there are only two or three entries in each part, they are enough to remind you of the type and flavour of the content of each of the four parts, rather beyond that which merely their titles might imply. Take a little time to look through them carefully, say, three or four times before continuing.
@@ -42,6 +44,8 @@ Dr Deming's short introduction here skilfully launches important material from a
   <div class="separator_blue"></div>
   </div>
 </div>
+
+[]{#sec-page24}
 
 [The System of Profound Knowledge appears here in four parts, all related to each other:]{.deming_quote}
 
