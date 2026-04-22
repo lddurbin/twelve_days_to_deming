@@ -140,6 +140,8 @@ A business is not merely an organisation chart [*of the conventional kind*], all
 viewof note_10_orchestra_business = Inputs.textarea({label: "Your notes on the orchestra example and a business as a network", placeholder: "Your notes on this item.", rows: 4})
 ```
 
+[]{#sec-page11}
+
 <div class="deming_quote">
 A system of schools (public schools, private schools, parochial schools, trade schools, for example) is not merely pupils, teachers, school boards, and parents. It should be, instead, a component in a system of education in which pupils from toddlers on up take joy in learning, free from fear of grades and gold stars, and in which teachers take joy in their work, free from fear of ranking. It would be a system that recognises [*and appreciates*] differences between pupils and differences between teachers. The reader, after study of the rest of this paper, might wish to try to construct a system of medical care. [*As you will surely remember, you used this suggestion in Day 9's Major Activity, and thus there is no need to comment on that here. So concentrate instead on the points Deming raises earlier in this item.*]
 </div>
