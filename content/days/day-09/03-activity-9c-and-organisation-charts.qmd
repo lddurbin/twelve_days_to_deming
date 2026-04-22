@@ -62,7 +62,7 @@ Surely the "New Way" diagram is an embryonic version of Deming's flow diagram---
 </div>
 </div>
 
-### Where's the fault?
+### Where's the fault? {#sec-page9}
 
 A message coming loud and clear is therefore the need to start constructing (horizontal) flow diagrams---and to use them. This is, as mentioned on today's opening page, what you'll soon be doing in today's Major Activity. An even more "macro" flow diagram (i.e. with larger components) is illustrated in Volume 21 of *The Deming Library* (also mentioned earlier today): a flow diagram for an education system; and that illustration is indeed very similar in structure to Deming's "Organisation Viewed as a System" diagram.
 

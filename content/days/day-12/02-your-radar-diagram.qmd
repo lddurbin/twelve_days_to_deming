@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-## Section 1: YOUR RADAR DIAGRAM
+## Section 1: YOUR RADAR DIAGRAM {#sec-page2}
 
 First (well, here's a treat), no hard thinking for the next few pages!
 
@@ -44,7 +44,7 @@ Ready, go! Using your chosen KEYs in turn, carry out this procedure on the large
 
 </div>
 
-### The 14 Points + Deadly Diseases KEY table
+### The 14 Points + Deadly Diseases KEY table {#sec-page4}
 
 ![14 Points and Deadly Diseases KEY table for Activity 12–a](/assets/images/day-12/radar-diagram-key-table.png){fig-align="center" width="90%" .lightbox}
 

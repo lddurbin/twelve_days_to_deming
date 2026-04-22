@@ -6,7 +6,7 @@ execute:
 
 ## PART D: KNOWLEDGE OF PSYCHOLOGY
 
-For Part D we return to the more usual procedure as described on Day 9 and as largely used for both Parts A and B yesterday.
+For Part D we return to the more usual procedure as described on [Day 9](../day-09/01-introduction.qmd) and as largely used for both Parts A and B yesterday.
 
 ### Step 1: Browsing session
 
@@ -29,7 +29,7 @@ Relevant reading:
 <div class="neave_note">
 Like Part C, Part D starts off without anything controversial. Don't think that the only job of a psychologist is to help people who have "psychological problems". This is for you, this is for me, this is likely to be for most people that we know or with whom we have any contact. For whom might Dr Deming's teaching on Psychology be inappropriate? I suppose it could be for some who <em>do</em> have serious psychological problems. Using a couple of familiar adjectives, the latter need special care and consideration whereas the relevance of Deming's teaching is otherwise common to everybody.
 
-Note also that, as you would expect, Deming concentrates in this opening statement on the interactions between people and all sorts of things---<em>interactions</em>: the big feature of systems. In terms of the "boxes and lines" diagram on Day 9 page 9, that diagram is too simple. The boxes representing people should have many more lines attached to them.
+Note also that, as you would expect, Deming concentrates in this opening statement on the interactions between people and all sorts of things---<em>interactions</em>: the big feature of systems. In terms of the "boxes and lines" diagram on [Day 9 page 9](../day-09/03-activity-9c-and-organisation-charts.qmd#sec-page9), that diagram is too simple. The boxes representing people should have many more lines attached to them.
 </div>
 
 ```{ojs}
@@ -176,7 +176,7 @@ viewof note_11_psych_5d = Inputs.textarea({label: "Your notes on item 5d: the na
 
 <div class="deming_quote">
 
-- Removal of a demotivator does not create motivation. [*Refer back to Day 7 page 8 on the danger of leaving a vacuum.*]
+- Removal of a demotivator does not create motivation. [*Refer back to [Day 7 page 8](../day-07/03-performance-indicators.qmd#sec-page8) on the danger of leaving a vacuum.*]
 
 </div>
 
