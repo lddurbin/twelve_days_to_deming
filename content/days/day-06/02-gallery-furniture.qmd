@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-## Gallery Furniture
+## Gallery Furniture {#sec-page6}
 
 :::: {.columns}
 
@@ -56,7 +56,7 @@ We had a customer buying furniture a couple of Saturdays ago. She lived about 60
 
 I think if we are going to be successful in business, we all have to ask ourselves this question: Would the customer miss this company if it was to go out of business tomorrow? I think: Yes, they would miss us at Gallery Furniture because of our unique selling feature which is immediate delivery.
 
-### Top-down management
+### Top-down management {#sec-page8}
 
 Now, I was taught management at the University of Texas. And so Gallery had a very conventional management structure—that's the way I was taught. We had somebody at the top (Me) issuing all the orders, coming down throughout the organisation. And we did fairly well the first four or five years. But then, as the business got bigger toward the end of the 1980s and 1990, we lurched from one crisis to the next. We made the same mistakes over and over and over again.
 
@@ -132,7 +132,7 @@ I only stayed for three out of those four days that time because his concepts of
 
 I began to get the clear message that Gallery Furniture had been lucky and successful in spite of my bad management practices which crush people and their intrinsic motivation.
 
-### Salary vs commission
+### Salary vs commission {#sec-page11}
 
 In December, I went with five other Gallery people to another four-day seminar in Flint, Michigan, sponsored by the Buick-Oldsmobile-Cadillac division of General Motors. I sat next to Carl Sewell, founder and owner of Sewell Village Cadillac, one of the most successful Cadillac dealerships in the country. Mr Sewell had built his Cadillac business in a similar manner to Gallery—with high commissions, incentive pay, and sales contests.
 
@@ -143,6 +143,8 @@ In January 1991, my wife Linda and I took two of our converts, Don Ledford and M
 ### The hop of faith
 
 The more I studied Deming, the more I realised that something must be done. But I wasn't ready for the 100% plunge. So in January 1991 we took not a leap but a *hop* of faith, and removed all quotas; but we still paid everyone commission. Amazingly enough, sales went up and attitude improved. Some fear was driven out, but not all.
+
+[]{#sec-page12}
 
 Store closings ranged from 40% to 46% before removing quotas. After the quotas were removed, store closings climbed to around 50%, and stayed there.
 

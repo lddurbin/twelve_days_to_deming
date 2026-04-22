@@ -129,7 +129,7 @@ create_clock(12, 0)
 
 ---
 
-## Disease 3. Appraisal of performance
+## Disease 3. Appraisal of performance {#sec-page22}
 
 <div class="info_callout">**The effects of performance appraisal (personal review system, merit rating, evaluation of performance, annual review, system of reward, pay for performance, etc) are devastating.**</div>
 
@@ -249,7 +249,7 @@ create_clock(12, 0)
 
 ---
 
-## Disease 5. Use of only visible figures
+## Disease 5. Use of only visible figures {#sec-page26}
 
 <div class="info_callout">**One can not be successful on visible figures alone. Of course, visible figures are important: the bank account must be watched, and employees and vendors must be paid. But he who would run his company on visible figures alone will in time have neither company nor figures.**</div>
 
@@ -274,6 +274,8 @@ viewof d5_owq = Inputs.textarea({
   rows: 5
 })
 ```
+
+[]{#sec-page27}
 
 <div class="neave_note" role="note" aria-label="Author's note">**NB** There may be a potential danger in using the summary on the previous page without clarification: it is a possible misunderstanding of the term "work standards". But we only have to refer back to Point 11 (page 10): "work standards that prescribe quotas for the workforce and numerical goals for people in management" to be clear about Deming's focus with those words. That focus is, of course, in no way related to e.g. *standardising* work, procedures, operations, etc once they have been found advantageous. Apart from anything else, this clearly reduces variation. Some refer to these more appropriate practices by alternative terms such as "standard work" which helps to avoid possible ambiguity.</div>
 

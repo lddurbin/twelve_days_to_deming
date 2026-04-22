@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-## MORE TRUE STORIES
+## MORE TRUE STORIES {#sec-page22}
 
 Finally, as promised, comes my collection of short stories. Tomorrow you will find some of them helpful with Activities 7-a and 7-b. Also, as you read these accounts, you may well think of further similar incidents from your own experience. If so, make a note of them since they could be even more useful tomorrow.
 
