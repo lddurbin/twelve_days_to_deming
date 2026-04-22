@@ -6,7 +6,7 @@ execute:
 
 ## Section 7: EPILOGUE
 
-This is an extract from the soundtrack near the end of *The Deming of America*. You first read part of the Narrator's introduction and saw the picture of the medal long ago: on Day 1 page 36.
+This is an extract from the soundtrack near the end of *The Deming of America*. You first read part of the Narrator's introduction and saw the picture of the medal long ago: on [Day 1 page 36](../day-01/11-deming-story.qmd#sec-page36).
 
 *Priscilla Petty (the interviewer):* I asked Dr Deming to show me the medal he received from the Emperor of Japan for his
 contribution to their economic recovery after World War 2.

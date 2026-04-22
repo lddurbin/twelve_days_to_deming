@@ -101,6 +101,8 @@ In terms of this exercise therefore, the third phase implies that e.g. Area A wi
 
 Now, you may have some concern that this criterion is too simple! Yes, I agree. For example, if an option involves considerable expense etc to Area A but is of only minor benefit to Areas B and C then clearly it would *not* be worth adopting. As I have already indicated, for your own use of this exercise in the Major Activity I shall suggest refinements that will enable you to take such considerations into account. But, before that, let's complete this current basic demonstration of the exercise. There is not much left to do.
 
+[]{#sec-page16}
+
 ![Table Four — blank (left) and filled in with the DemDim example (right)](/assets/images/day-08/table-four-example.png){fig-align="center" width="90%" .lightbox}
 
 #### TABLE FOUR

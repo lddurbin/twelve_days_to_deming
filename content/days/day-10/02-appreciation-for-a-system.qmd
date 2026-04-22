@@ -56,6 +56,8 @@ The components need not all be clearly defined and documented: people may merely
 viewof note_10_components = Inputs.textarea({label: "Your notes on the system's components and management's role", placeholder: "Your notes on this item.", rows: 4})
 ```
 
+[]{#sec-page5}
+
 <div class="deming_quote">
 The aim of the system must be clear to everyone in the system. [*What is the system for? What should it be attempting to do? For, without clarity on such matters, on what could decisions be sensibly based?*] Without an aim, there is no system. [*There couldn't be a system if neither management nor their staff really understand what they are supposed to be trying to do. On what could they "work together"?*] The aim is a value-judgment. [*i.e. the aim of the system is not a theorem: you don't derive it from axioms and corollaries.*] See *Deming Speaks to European Executives*, BDA Booklet A10 page 8 and *DemDim* page 265.
 </div>
@@ -105,6 +107,8 @@ The components of a system could in principle, under stable conditions, manage t
 <div class="deming_quote">
 Any system needs guidance from outside. The string quartet mentioned above may well study under a master. The master need not be present at a performance. [*Cf. the final Obstacle to the Transformation on [Day 7 page 35](../day-07/07-major-activity.qmd#sec-page35). Dr Deming would often express this in such terms as: "Those within a system may understand everything there is to know about the system---except how to improve it."*]
 </div>
+
+[]{#sec-page9}
 
 <div class="deming_quote">
 A large organisation will require someone in the position of aide to the president to teach and facilitate Profound Knowledge. [*This was Bill Scherkenbach's role in the Ford Motor Company (remember, his was the "boxes and lines" diagram we discussed on [Day 9 page 2](../day-09/02-a-system.qmd#sec-page2)). Lloyd Nelson's role at Nashua was similar. In both cases, the "president" was the CEO: Don Petersen in Ford and Bill Conway in Nashua. Chapter 16 in* Out of the Crisis *is particularly helpful on this issue.*]
