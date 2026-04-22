@@ -19,7 +19,7 @@ So let's take these three sections of your preparation in turn. Incidentally, it
 
 First, for your refresher on the 14 Points and Deadly Diseases, you could of course return to the main reading referenced on Day 4, namely *DemDim* pages 39–52. There is also the whole of Part 5 of *DemDim* and, if you have it, *Out of the Crisis* pages 17–107[18–126]. But, obviously, either of those would need some remarkably fast reading if you were working on my suggested timeframe!
 
-Instead, I think it would be very useful for you to simply revisit your work on the First Project (Days 4 and 5). Not only will this automatically remind you of what the 14 Points and Deadly Diseases actually are, but it will also remind you of how you linked them there to the three bases of the Joiner Triangle. Why this will be particularly useful is that similar kinds of thought processes to those that you used there will also be appropriate for the Second Project. The reason will be immediately clear if you refer back to my small-print paragraph on today's page 21: i.e. there are some clear relationships between the Joiner Triangle's three bases and the four parts of the System of Profound Knowledge.
+[]{#sec-page27}Instead, I think it would be very useful for you to simply revisit your work on the First Project (Days 4 and 5). Not only will this automatically remind you of what the 14 Points and Deadly Diseases actually are, but it will also remind you of how you linked them there to the three bases of the Joiner Triangle. Why this will be particularly useful is that similar kinds of thought processes to those that you used there will also be appropriate for the Second Project. The reason will be immediately clear if you refer back to my small-print paragraph on today's page 21: i.e. there are some clear relationships between the Joiner Triangle's three bases and the four parts of the System of Profound Knowledge.
 
 While reading through my descriptions and your work in the First Project, you will find it very helpful to use the table on page 28 [WB 150] on which to summarise the strengths of the links that you saw on Days 4 and 5 between the bases in the Joiner Triangle and adopting the Points and curing the Diseases. Then, when thinking of referring back to your work there while carrying out the Second Project, your entries in this table will give you some good clues as to when and where it will be worth your while to look back. I suggest you use the same kind of 0–5 scale as in this table as you used during Day 5 (ranging from 5 = very strong relationship to 0 = no apparent relationship).
 
@@ -37,7 +37,7 @@ First, carefully re-read my descriptions of the four steps, starting on page 19.
 
 To conclude Day 9, however, **please now move over to page 30** to think about which parts of the material you might like to duplicate to avoid having to keep frequently skipping around during the project!
 
-### Summary of the four-step procedure
+### Summary of the four-step procedure {#sec-page29}
 
 **Step 1: Browsing session**
 

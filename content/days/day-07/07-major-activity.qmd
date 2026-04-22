@@ -130,6 +130,8 @@ viewof activity_7i_16 = Inputs.textarea({label: "Obstacle 16: 'Anyone that comes
 
 *(Please move to the next page for concluding remarks.)*
 
+[]{#sec-page36}
+
 <div class="separator">
   <div class="separator_white">
   <div class="separator_blue"></div>

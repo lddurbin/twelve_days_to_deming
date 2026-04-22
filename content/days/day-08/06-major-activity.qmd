@@ -164,7 +164,7 @@ Having carried out this exercise, you may already be thinking of ways it can be 
 
 #### "Out-of-hours" note
 
-It would be very handy during Day 9's Major Activity for you to use separate copies of Day 9 pages 13–14 [WB 146–147] at Stages 3 and 4 of that Activity. The reason is that, during the final (fifth) stage of the Activity on Day 9 page 15 [WB 148], you will frequently find it necessary to refer back to what you'll have previously constructed at Stage 3 and discussed at Stage 4. You will also need a separate copy of Day 9 page 29 [WB 150] (you'll see the reason for this near the bottom of Day 9 page 27).
+It would be very handy during Day 9's Major Activity for you to use separate copies of Day 9 pages 13–14 [WB 146–147] at Stages 3 and 4 of that Activity. The reason is that, during the final (fifth) stage of the Activity on [Day 9 page 15](../day-09/04-major-activity.qmd#sec-page15) [WB 148], you will frequently find it necessary to refer back to what you'll have previously constructed at Stage 3 and discussed at Stage 4. You will also need a separate copy of [Day 9 page 29](../day-09/07-out-of-hours.qmd#sec-page29) [WB 150] (you'll see the reason for this near the bottom of [Day 9 page 27](../day-09/07-out-of-hours.qmd#sec-page27)).
 
 ```{ojs}
 //| echo: false
