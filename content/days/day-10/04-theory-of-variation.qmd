@@ -108,6 +108,8 @@ viewof note_10_measurement_mistakes = Inputs.textarea({label: "Your notes on ite
 viewof note_10_shewhart_interaction = Inputs.textarea({label: "Your notes on items 7–8: Shewhart control charts and interaction of forces", placeholder: "Your notes on these items.", rows: 4})
 ```
 
+[]{#sec-page25}
+
 <div class="deming_quote">
 9. [*You will see some unfamiliar terms here. I'll briefly explain them in my comments below.*] Understanding of the distinction between enumerative studies and analytic problems. An enumerative study produces information about a frame. The theory of sampling and design of experiments are for enumerative studies. Our Census is an enumerative study. Another example is a shipload of iron ore. Buyer and seller need to know how much iron is on board. The interpretation of results of a test or experiment is something else. It is prediction that a specific change in a process or procedure will be a wise choice, or that no change would be better. Either way, the choice is prediction. This is known as an analytic problem.
 </div>

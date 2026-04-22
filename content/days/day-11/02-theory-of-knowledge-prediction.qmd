@@ -24,7 +24,7 @@ There are some other differences specific to Part C. Firstly, Deming did not mak
 
 The final major difference in Part C compared with elsewhere will be for you to read through two chapters from *DemDim* that you haven't previously looked at. In both cases I shall provide an introduction to the subject-matter here. The chapters concerned (both around ten pages) are Chapter 9 for Area 2 and Chapter 7 for Area 3.
 
-### Part C, Area 1: Prediction
+### Part C, Area 1: Prediction {#sec-page4}
 
 #### Area 1, Step 1: Browsing session
 
