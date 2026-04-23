@@ -37,7 +37,7 @@ And, as you have now seen, cooperation is one of the three features that I inclu
 
 So first, to set the scene, please
 
-- **look back at Day 1 pages 38–39 to re-read the short section introducing "A New Climate" in "The Deming Story"; and then**
+- **look back at [Day 1 pages 38–39](../day-01/11-deming-story.qmd#sec-page38) to re-read the short section introducing "A New Climate" in "The Deming Story"; and then**
 
 - **read the introduction to Part 3 of *DemDim* (pages 195–196).**
 

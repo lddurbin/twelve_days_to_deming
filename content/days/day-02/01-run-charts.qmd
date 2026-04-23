@@ -3,6 +3,7 @@ title: "RUN CHARTS"
 execute:
   echo: false
 ---
+[]{#sec-page1}
 Before commencing our study of the Experiment on Red Beads, there is just one "technical" matter to introduce—even for those on Stats-level 0 (or 00)! It is the type of chart known by various names such as a *time series graph* or a *running record* or simply a *run chart*. We'll call it a *run chart*.
 
 A run chart provides a picture of how a value or a measurement etc changes over time. It's the kind of graph often seen in, for example, the Business or Money section of a newspaper or magazine or on the internet. Familiar examples are of a daily stock market index (like America's Dow Jones or Britain's FTSE 100) or of the exchange rate showing the value of, say, the British pound in terms of the American dollar or some other currency. Monthly data, e.g. of a country's unemployment figure or trade balance, can similarly be illustrated on a run chart. Why do we need such pictures? Because they make it a lot easier to see what's going on, often literally "at-a-glance", compared with our just staring at lots of numbers arranged in lists or tables.

@@ -58,7 +58,7 @@ viewof activity_7a_3 = Inputs.textarea({label: "Category 3 — numbers for judgm
 
 ## ACTIVITY 7–b
 
-Remind yourself (e.g. by looking back at what you've written about Point 11 and the 3rd and 5th Deadly Diseases (on Day 5 pages 10–11, 22–23 and 26–27 respectively)) of some of the reasons why Category 3 is incompatible with the Deming philosophy. Again include specific examples from the true stories on Day 6 and be ready to add more here as you read through today's further true stories on pages 9–18.
+Remind yourself (e.g. by looking back at what you've written about Point 11 and the 3rd and 5th Deadly Diseases (on [Day 5 pages 10–11](../day-05/02-points-7-to-14.qmd#sec-page10), [22–23](../day-05/03-the-deadly-diseases.qmd#sec-page22) and [26–27](../day-05/03-the-deadly-diseases.qmd#sec-page26) respectively)) of some of the reasons why Category 3 is incompatible with the Deming philosophy. Again include specific examples from the true stories on Day 6 and be ready to add more here as you read through today's further true stories on pages 9–18.
 
 ```{ojs}
 viewof activity_7b = Inputs.textarea({label: "Reasons why Category 3 is incompatible with the Deming philosophy, with specific examples", placeholder: "Type your comments here.", rows: 15})

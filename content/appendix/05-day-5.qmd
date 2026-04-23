@@ -6,7 +6,7 @@ execute:
 
 []{#sec-page24}
 
-## Point 7. Institute leadership of people *(Day 5 pages 2–3)*
+## Point 7. Institute leadership of people *([Day 5 pages 2–3](../days/day-05/02-points-7-to-14.qmd#sec-page2))*
 
 ### Obsession With Quality
 
@@ -20,7 +20,7 @@ It is difficult to pick out anything very specific to say here: every item in th
 
 A very strong emphasis on viewing an organisation as a system is obvious throughout the Attributes of a Leader. The relevance of the Scientific Approach to understanding people and how to manage them is particularly evident in Attribute 5. The use of understanding variation in this Attribute is a supreme example of how Shewhart's theory is applicable to far more than just shop-floor and manufacturing processes.
 
-## Point 8. Drive out fear *(Day 5 pages 4–5)*
+## Point 8. Drive out fear *([Day 5 pages 4–5](../days/day-05/02-points-7-to-14.qmd#sec-page4))*
 
 ### Obsession With Quality
 
@@ -34,7 +34,7 @@ All One Team implies working together for the benefit of all. But fear results i
 
 Fear increases variation in so many obvious ways. People or groups "doing their own thing" for personal survival clearly increases variation. Another frequent observation from Dr Deming was: "… [where there is fear, there will be wrong figures]{.deming_quote}" *[Out of the Crisis* page 228*[266]*): people report what they can get away with and / or what they think management would like to see. Do you doubt it? Again, can you blame them? Where lies the fault?
 
-## Point 9. Break down barriers *(Day 5 pages 6–7)* {#sec-page25}
+## Point 9. Break down barriers *([Day 5 pages 6–7](../days/day-05/02-points-7-to-14.qmd#sec-page6))* {#sec-page25}
 
 ### Obsession With Quality
 
@@ -50,7 +50,7 @@ The strong link here is wholly obvious. But note the implications concerning man
 
 In addition to the emphasis yet again on improvement of the system, think of the additional variation that is caused if this Point is *not* put into effect. The different parts of the organisation pull in different directions to protect and advance what they see as their own local interests (suboptimisation again): all adding extra variation to overall performance. If the barriers have been erected, why should they even try anything else?
 
-## Point 10. Eliminate exhortations *(Day 5 pages 8–9)*
+## Point 10. Eliminate exhortations *([Day 5 pages 8–9](../days/day-05/02-points-7-to-14.qmd#sec-page8))*
 
 ### Obsession With Quality
 
@@ -64,7 +64,7 @@ One of the slogans Dr Deming cites on *Out of the Crisis* page 57*[66]* is "Gett
 
 Yet again, the thrust of this Point is that the lack of quality, productivity, behaviour, performance—just about everything—comes from the system (common causes) not the individual (which might perhaps relate to some special causes). Yet at what or whom are the slogans, posters and exhortations that are referred to in this Point aimed? As my friend Mitch Beedie astutely pointed out to me: "Exhortations suggest that managers know what is wrong before they look".
 
-## Point 11. Eliminate arbitrary numerical targets *(Day 5 pages 10–11)* {#sec-page26}
+## Point 11. Eliminate arbitrary numerical targets *([Day 5 pages 10–11](../days/day-05/02-points-7-to-14.qmd#sec-page10))* {#sec-page26}
 
 ### Obsession With Quality
 
@@ -78,7 +78,7 @@ Such targets (especially if associated with reward and punishment) that are set 
 
 Except for cheating, our understanding of variation teaches us that a number will be largely what the system provides. So, to reach a numerical target, one has to either (a) improve the system, or (b) bend the system in favour of that number (causing harm elsewhere), or (c) cheat. Come to think of it, doesn't that imply that cheating is also a product of such a system? So I guess I could have omitted the first three words of this paragraph …
 
-## Point 12. Permit pride of workmanship *(Day 5 pages 12–13)*
+## Point 12. Permit pride of workmanship *([Day 5 pages 12–13](../days/day-05/02-points-7-to-14.qmd#sec-page12))*
 
 ### Obsession With Quality
 
@@ -92,7 +92,7 @@ Most (if not all) of us know people who have particular skills, abilities, imagi
 
 The Scientific Approach, and all the understanding and useful aids for improvement within it, is vital for improvement of the quality of what we do—which is precisely what enables us to have pride in our work.
 
-## Point 13. Encourage education *(Day 5 pages 14–15)*
+## Point 13. Encourage education *([Day 5 pages 14–15](../days/day-05/02-points-7-to-14.qmd#sec-page14))*
 
 ### Obsession With Quality
 
@@ -108,7 +108,7 @@ Another drawback of traditional "education" is its concentration on *individual*
 
 In Point 6 we observed that the Scientific Approach is certainly tied in with *training*, because of its tools content. But we know that this is the smaller part of the Approach. In the expanded Joiner Triangle are seen those two crucial, and by now very familiar, words: "Understand variation". Many people who have been taught the control chart just as a tool still do not understand variation: they merely obey rules. Understanding variation—and using control charts to *real* advantage—is much more a matter of *education* in Dr Deming's far-sighted sense of the word. Control charts do not simply give answers: far more importantly, they help us to *think* more intelligently and reliably.
 
-## Point 14. Top management commitment and action *(Day 5 pages 16–17)*
+## Point 14. Top management commitment and action *([Day 5 pages 16–17](../days/day-05/02-points-7-to-14.qmd#sec-page16))*
 
 ### Obsession With Quality
 
@@ -122,7 +122,7 @@ All One Team means what it says. Many approaches to quality improvement involve 
 
 Here we go again! With the Scientific Approach's emphasis on the system (common causes), and with the system being management's responsibility: one more time—what chance is there without Point 14?
 
-## Disease 1. Lack of constancy *(Day 5 pages 18–19)* {#sec-page28}
+## Disease 1. Lack of constancy *([Day 5 pages 18–19](../days/day-05/03-the-deadly-diseases.qmd#sec-page18))* {#sec-page28}
 
 ### Obsession With Quality
 
@@ -136,7 +136,7 @@ There can only be All One Team if the team knows what it is working on and is al
 
 Constancy of purpose automatically reduces variation. The opposite is also true: *lack* of constancy of purpose automatically *increases* variation. Also, as we know, the thinking and the methods of the Scientific Approach are there to aid the learning of how to do something better. All well and good. However, that's of but limited value if that "something" is regarded as important today but no longer so regarded tomorrow. Research and experimentation aimed at innovation is considerably enhanced by reduced variation: it thins the "fog" which otherwise obstructs the view and hence the understanding of what innovation may be able to produce.
 
-## Disease 2. Short-termism *(Day 5 pages 20–21)*
+## Disease 2. Short-termism *([Day 5 pages 20–21](../days/day-05/03-the-deadly-diseases.qmd#sec-page20))*
 
 ### Obsession With Quality
 
@@ -154,7 +154,7 @@ Short-termism implies knee-jerk reactions: "Act now, pay later". Remember "tampe
 
 The destructive nature of short-termism on the Scientific Approach is compactly expressed by Dr Deming in that sentence: ["Cut down on research, education, training"]{.deming_quote}. In other words: "Cut down on the Scientific Approach, both on what it needs and hence on what it can produce".
 
-## Disease 3. Appraisal of performance *(Day 5 pages 22–23)* {#sec-page29}
+## Disease 3. Appraisal of performance *([Day 5 pages 22–23](../days/day-05/03-the-deadly-diseases.qmd#sec-page22))* {#sec-page29}
 
 ### Obsession With Quality
 
@@ -170,7 +170,7 @@ Here are some words from the video *Management's Five Deadly Diseases*. If you w
 
 As covered in my discussion, the whole concept of judgmental performance appraisal flies in the face of the fundamental understanding of variation: where does most variation come from, and within what are the major opportunities for improvement? The system.
 
-## Disease 4. Management job-hopping *(Day 5 pages 24–25)*
+## Disease 4. Management job-hopping *([Day 5 pages 24–25](../days/day-05/03-the-deadly-diseases.qmd#sec-page24))*
 
 ### Obsession With Quality
 
@@ -186,7 +186,7 @@ This is where Dr Deming saw this Deadly Disease as being its most damaging (*Out
 
 It is evident that mobility of management increases variation; how could it do otherwise? In the case of a "job-hopping" culture as opposed to a learning culture, new managers must quickly justify their existence, make their mark. As we have seen, Dr Deming says it in typically few words: ["Mobility of management causes instability"]{.deming_quote}. "Instability" is one of the ways in which we describe "out of statistical control".
 
-## Disease 5. Use of only visible figures *(Day 5 pages 26–27)* {#sec-page30}
+## Disease 5. Use of only visible figures *([Day 5 pages 26–27](../days/day-05/03-the-deadly-diseases.qmd#sec-page26))* {#sec-page30}
 
 ### Obsession With Quality
 

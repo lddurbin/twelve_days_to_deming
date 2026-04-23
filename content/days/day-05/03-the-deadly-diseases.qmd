@@ -67,7 +67,7 @@ create_clock(12, 0)
 
 ---
 
-## Disease 2. Short-termism
+## Disease 2. Short-termism {#sec-page20}
 
 <div class="info_callout">**Short-term thinking defeats constancy of purpose to stay in business with long-term growth.**</div>
 
@@ -191,7 +191,7 @@ create_clock(12, 0)
 
 ---
 
-## Disease 4. Management job-hopping
+## Disease 4. Management job-hopping {#sec-page24}
 
 <div class="info_callout">**Mobility of management causes instability, results in decisions being made by people who do not know the business** *[i.e. this business]* **and thus blindly use experience gained elsewhere which may be totally irrelevant.**</div>
 
