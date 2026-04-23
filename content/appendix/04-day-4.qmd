@@ -16,7 +16,7 @@ execute:
 
     *(Return to [Day 4 page 5](../days/day-04/02-the-joiner-triangle.qmd#sec-page5).)*
 
-(3) Some that we shall consider later are pride of workmanship, indeed joy in work (see Day 1 pages 38–39), self-esteem, respect, reputation, willingness to cooperate, dignity, value of training, and (even more so) value of education.
+(3) Some that we shall consider later are pride of workmanship, indeed joy in work (see [Day 1 pages 38–39](../days/day-01/11-deming-story.qmd#sec-page38)), self-esteem, respect, reputation, willingness to cooperate, dignity, value of training, and (even more so) value of education.
 
     *(Return to [Day 4 page 5](../days/day-04/02-the-joiner-triangle.qmd#sec-page5).)*
 

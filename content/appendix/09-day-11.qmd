@@ -20,7 +20,7 @@ As we know, Points 1 and 5 and the first Deadly Disease are concerned with genui
 
 The three items under "Operational Definitions" also have some interesting contributions to make. Item 7 is particularly important with reference to Point 9: "Break down barriers". Barriers between groups, departments, or indeed between companies, which harm customer-supplier relationships, are toughened by the very differences which the use of operational definitions avoids—differences in ways of measuring, of testing, of classifying. Operational definitions help to create a *common language*—and what could be a greater aid to communication? And those initially mysterious Items 8 and 9 ("no true value" and "no such thing as a fact") have interesting reflections in the final Deadly Disease: that of dependence on only visible figures. The more that one thinks about these items from Part C, the more that dependence on only visible figures is seen to be dangerously insecure.
 
-*(Return to Day 11 pages 18–21.)*
+*(Return to [Day 11 pages 18–21](../days/day-11/05-activity-11a.qmd#sec-page18).)*
 
 ## ACTIVITY 11–b {#sec-page42}
 
@@ -32,4 +32,4 @@ Nevertheless, it could well be possible to see strong links between just this on
 
 I could go on, but there is probably no need!
 
-*(Return to Day 11 pages 32–35.)*
+*(Return to [Day 11 pages 32–35](../days/day-11/07-activity-11b.qmd#sec-page32).)*

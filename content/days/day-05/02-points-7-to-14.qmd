@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-## Point 7. Institute leadership of people
+## Point 7. Institute leadership of people {#sec-page2}
 
 <div class="info_callout">**Adopt and institute leadership aimed at helping people to do a better job.** The responsibility of managers and supervisors must be changed from sheer numbers to quality. Improvement of quality will automatically improve productivity. Management must ensure that immediate action is taken on reports of inherited defects, maintenance requirements, poor tools, fuzzy operational definitions *[operational definitions will be studied on Day 11]*, and other conditions detrimental to quality.</div>
 
@@ -62,7 +62,7 @@ create_clock(12, 0)
 
 ---
 
-## Point 8. Drive out fear
+## Point 8. Drive out fear {#sec-page4}
 
 <div class="info_callout">**Encourage effective two-way communication and other means to drive out fear throughout the organisation** so that everybody may work effectively and more productively for the company.</div>
 
@@ -120,7 +120,7 @@ create_clock(12, 0)
 
 ---
 
-## Point 9. Break down barriers
+## Point 9. Break down barriers {#sec-page6}
 
 <div class="info_callout">**Break down barriers between departments and staff areas.** People in different areas, such as Research, Design, Sales, Administration, and Production, must work in teams to tackle problems that may be encountered with products or service.</div>
 
@@ -264,7 +264,7 @@ Here we have the topic that used to be regarded as probably the most controversi
 
 An obvious trouble then is that it is the *number* which becomes the aim—as opposed to (a) *quality* being the aim and (b) the number (amongst many others) being an indicator of a possibly rather questionable aspect of "quality". What is the consequence? Using some of Dr Deming's own words: fudging figures, creative accounting, suboptimisation. Remember also from Point 8 (in my comments on the Scientific Approach): "Where there is fear, there will be wrong figures".
 
-Resources are channelled into reaching that number, irrespective of the harm caused elsewhere. Methods of measuring or counting are changed. Definitions are changed. "Punctual" is revised from being 5 minutes late to being 10 minutes late (*DemDim* page 113). The definition of an "unemployed person" (or whatever term is used for those who contribute to the monthly figures) changes perhaps three times a year (*Dem-Dim* page 111). With crime figures, certain types of offences are surreptitiously dropped from the count (I refer ahead to Day 6 pages 25–26).
+Resources are channelled into reaching that number, irrespective of the harm caused elsewhere. Methods of measuring or counting are changed. Definitions are changed. "Punctual" is revised from being 5 minutes late to being 10 minutes late (*DemDim* page 113). The definition of an "unemployed person" (or whatever term is used for those who contribute to the monthly figures) changes perhaps three times a year (*Dem-Dim* page 111). With crime figures, certain types of offences are surreptitiously dropped from the count (I refer ahead to [Day 6 pages 25–26](../day-06/04-more-true-stories.qmd#sec-page22)).
 
 *(See Appendix page 26.)*
 
@@ -314,7 +314,7 @@ create_clock(12, 0)
 
 ---
 
-## Point 12. Permit pride of workmanship
+## Point 12. Permit pride of workmanship {#sec-page12}
 
 <div class="info_callout">**Remove the barriers that rob hourly workers, and people in management, of their right to pride of workmanship.** This implies, *inter alia*, abolition of the annual merit rating (appraisal of performance) and of Management by Objective. Again, the responsibility of managers, supervisors, foremen must be changed from sheer numbers to quality.</div>
 
@@ -440,7 +440,7 @@ create_clock(12, 0)
 
 ---
 
-## Point 14. Top management commitment and action
+## Point 14. Top management commitment and action {#sec-page16}
 
 <div class="info_callout">**Clearly define top management's permanent commitment to ever-improving quality and productivity,** and their obligation to implement all of these principles. Indeed, it is not enough that top management commit themselves for life to quality and productivity. They must know what it is that they are committed to—i.e. what they must do. Create a structure in top management that will push every day on the preceding 13 Points, and take action in order to accomplish the transformation. Support is not enough: action is required.</div>
 

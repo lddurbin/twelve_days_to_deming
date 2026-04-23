@@ -44,7 +44,7 @@ viewof activity_7i_2 = Inputs.textarea({label: "Obstacle 2: The supposition that
 
 []{#sec-page29}
 
-**3. [Search for examples.]{.blue-text}** (*Out of the Crisis* pages 109–110[128–128]; Appendix pages 32–33.) A large topic, the subject of *DemDim* Chapter 16. Also see Paragraph 7 (pages 275–276) in the Theory of Knowledge section of *DemDim* Chapter 18. One trouble is that you can usually find numerous examples to support just about any idea, whether that idea be good or bad. Mindless copying of examples is therefore—well—mindless! Dr Deming similarly warns against simply relying on experience. You have seen something of this on Day 6 pages 1–2; you will see more on Day 11.
+**3. [Search for examples.]{.blue-text}** (*Out of the Crisis* pages 109–110[128–128]; Appendix pages 32–33.) A large topic, the subject of *DemDim* Chapter 16. Also see Paragraph 7 (pages 275–276) in the Theory of Knowledge section of *DemDim* Chapter 18. One trouble is that you can usually find numerous examples to support just about any idea, whether that idea be good or bad. Mindless copying of examples is therefore—well—mindless! Dr Deming similarly warns against simply relying on experience. You have seen something of this on [Day 6 pages 1–2](../day-06/01-introduction.qmd#sec-page1); you will see more on Day 11.
 
 ```{ojs}
 viewof activity_7i_3 = Inputs.textarea({label: "Obstacle 3: Search for examples — your notes", placeholder: "Your notes on Obstacle 3.", rows: 5})
@@ -80,7 +80,7 @@ viewof activity_7i_6 = Inputs.textarea({label: "Obstacle 6: Poor teaching of sta
 viewof activity_7i_7 = Inputs.textarea({label: "Obstacle 7: Use of Military Standard 105D and other tables for acceptance — your notes", placeholder: "Your notes on Obstacle 7.", rows: 5})
 ```
 
-**8. ["Our Quality Control Department takes care of all our problems of quality."]{.blue-text}** (*Out of the Crisis* pages 113–114[133–134]; Appendix page 34.) Substantially, this takes us back to the delusion that quality can be obtained by inspection (c.f. the third of the 14 Points on Day 4 pages 20–21) or by "quality assurance".
+**8. ["Our Quality Control Department takes care of all our problems of quality."]{.blue-text}** (*Out of the Crisis* pages 113–114[133–134]; Appendix page 34.) Substantially, this takes us back to the delusion that quality can be obtained by inspection (c.f. the third of the 14 Points on [Day 4 pages 20–21](../day-04/04-points-1-to-6.qmd#sec-page20)) or by "quality assurance".
 
 ```{ojs}
 viewof activity_7i_8 = Inputs.textarea({label: "Obstacle 8: 'Our Quality Control Department takes care of all our problems of quality' — your notes", placeholder: "Your notes on Obstacle 8.", rows: 5})

@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-## Step 4: ACTIVITY 11–b
+## Step 4: ACTIVITY 11–b {#sec-page32}
 
 <div class="thought_commentary">
 

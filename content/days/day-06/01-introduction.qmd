@@ -3,7 +3,7 @@ title: "INTRODUCTION"
 execute:
   echo: false
 ---
-## DAY 6: GALLERY FURNITURE AND OTHER TRUE STORIES
+## DAY 6: GALLERY FURNITURE AND OTHER TRUE STORIES {#sec-page1}
 
 ### Introduction
 
