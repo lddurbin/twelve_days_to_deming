@@ -20,6 +20,7 @@ book:
     collapse-level: 1
   
   chapters:
+    - about-this-edition.qmd
     - welcome.qmd
     - index.qmd
     - part: "Day 1: The Overture"
@@ -141,6 +142,9 @@ book:
         - content/days/day-12/06-activity-12d.qmd
         - content/days/day-12/07-major-activity-12e.qmd
         - content/days/day-12/08-epilogue.qmd
+
+    - accessibility.qmd
+    - changes-from-source.qmd
 
   appendices:
     - content/appendix/00-welcome.qmd
