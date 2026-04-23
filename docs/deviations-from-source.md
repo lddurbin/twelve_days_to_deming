@@ -40,6 +40,19 @@ Entries are listed newest-first.
 
 ---
 
+## 2026-04-23 — Rewrite index.qmd front-matter Workbook prose
+
+- **What** — Stripped or rewrote the three Workbook-scaffolded sections in the front-matter `index.qmd`:
+  1. **"To print or not to print…"** — compressed to three paragraphs and reframed around the site's digital-first active-learning model. Dropped the 2020 sponsor/"hosts" history, the "A. PLEASE START HERE" file pointer, the B1–B4 Workbook instalment definition, the Adobe Acrobat two-page-mode instructions, the gutter-margin explanation, and the back-to-back / non-duplex print procedures. Retained a single paragraph acknowledging that readers who prefer paper can use their browser's Print / Save-as-PDF.
+  2. **"Information boxes, etc"** → **renamed "Page references and call-outs"** and compressed to three paragraphs. Removed the yellow/blue `.workbook_callout` round-trip demonstration (including the embedded example divs), the "moving to and from the Workbook" framing, and the `[WB NNN]` notation paragraphs. Preserved the Appendix/Day page-reference disambiguation convention, the description of green `.info_callout` boxes (swapping Neave's Workbook-page example for a site-native one on Day 4 page 16), and the in-quote `[italics in square brackets]` clarification convention.
+  3. **"Guidance on printing and binding"** — deleted entirely, including the Neave author's note about Adobe Acrobat rendering, the ring-binder recommendation, the gutter explanation, the duplex-on-non-duplex print procedure, and Neave's own three-ring-binder setup with the "C. Front covers for binders" pointer.
+- **Where** — `index.qmd` front matter.
+- **Source reference** — Neave's "A. PLEASE START HERE" file, pp. 8–13.
+- **Why** — Same rationale as [#196](https://github.com/lddurbin/twelve_days_to_deming/pull/196), [#202](https://github.com/lddurbin/twelve_days_to_deming/pull/202), and [#214](https://github.com/lddurbin/twelve_days_to_deming/pull/214): the printed Workbook no longer exists as a separate artefact in this delivery, the "A. PLEASE START HERE" / B1–B4 file-structure vocabulary doesn't correspond to anything on the site, and Adobe Acrobat / duplex-printer guidance doesn't apply to the Quarto HTML rendering. The site captures reader responses through embedded text inputs and a per-activity notes-download button, so the printed writing-surface framing was actively misleading.
+- **Decided in** — Conversation on #212 (2026-04-23): user approved the three-decision set (compress ¶1, rename Section B, delete Section C entirely, combined deviations-log entry).
+- **Landed in** — *Pending — tracked in [#212](https://github.com/lddurbin/twelve_days_to_deming/issues/212).*
+- **Related** — [#213](https://github.com/lddurbin/twelve_days_to_deming/issues/213) still tracks the pending decision on inline `[WB NNN]` cross-reference suffixes; that question is deferred out of this PR.
+
 ## 2026-04-23 — Dead external links to deming.org.uk and rqoq.org.nz
 
 - **What** — Six external hyperlinks retired because their domains no longer resolve. Two treatments were applied:
