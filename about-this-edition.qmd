@@ -35,7 +35,7 @@ The most visible change is that the printable Workbook — Dr Neave's original r
 
 There are a number of individuals I'd like to thank for contributing directly or indirectly to the existence of this edition.
 
-First and foremost I must thank Henry Neave for creating the course in the first place. As you'll read in his [background to the course](welcome.html#days-to-deming-some-background), Dr Neave worked on these materials for some 20 years before releasing them to the world. There are few who have worked so tirelessly to promote and explain Dr Deming's teaching, and for that I'm indebted to him.
+First and foremost I must thank Henry Neave for creating the course in the first place. As you'll read in his [background to the course](welcome.qmd#days-to-deming-some-background), Dr Neave worked on these materials for some 20 years before releasing them to the world. There are few who have worked so tirelessly to promote and explain Dr Deming's teaching, and for that I'm indebted to him.
 
 I'd also like to thank Richard Hamilton, Jenny Perks, Dr Jackie Graham, and all those (past and present) who support the 12 Days to Deming Study Group. Richard in particular has been very supportive of my efforts here, and provided vital early-stage feedback.
 
