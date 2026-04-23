@@ -3,9 +3,9 @@ title: "THE THIRTEENTH OBSTACLE"
 execute:
   echo: false
 ---
-Specifications are really no more and no less than two-sided numerical targets. Thus some of what has already been covered earlier today and also while you were discussing Point 11 on [Day 5 pages 10–11](../day-05/02-points-7-to-14.qmd#sec-page10) [WB 78–79] is immediately relevant here with minor rewording.
+Specifications are really no more and no less than two-sided numerical targets. Thus some of what has already been covered earlier today and also while you were discussing Point 11 on [Day 5 pages 10–11](../day-05/02-points-7-to-14.qmd#sec-page10) is immediately relevant here with minor rewording.
 
-One major difference in application of the concepts is that whereas targets, appraisals, league-tabling, etc almost invariably apply to people, singly or in groups, specifications are more often applied to things. In that case, the use of a "performance indicator" can be less problematic. Recalling the two particular difficulties with performance indicators spelled out in Pause for Thought 7–c on page 6 [WB 107]:
+One major difference in application of the concepts is that whereas targets, appraisals, league-tabling, etc almost invariably apply to people, singly or in groups, specifications are more often applied to things. In that case, the use of a "performance indicator" can be less problematic. Recalling the two particular difficulties with performance indicators spelled out in Pause for Thought 7–c on page 6:
 
 (a) in some cases—but maybe not as many as might be thought—it may now be feasible for a single performance indicator to be an adequate measure of performance (e.g. the weight or length or volume of a product); and
 

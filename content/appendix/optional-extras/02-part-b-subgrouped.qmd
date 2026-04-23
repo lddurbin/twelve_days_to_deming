@@ -186,6 +186,6 @@ I have already mentioned the superb coverage of the *Japanese Control Chart* in 
 
 **Computed control limits**
 
-With the data on page 24 *[WB 250]* the control limits for the *X̄*-chart are at 15.895 mm and 15.908 mm, while the (upper) limit on the *R*-chart is at 0.0207 mm.
+With the data on page 24 the control limits for the *X̄*-chart are at 15.895 mm and 15.908 mm, while the (upper) limit on the *R*-chart is at 0.0207 mm.
 
-With the data on page 25 *[WB 251]* the control limits for the *X̄*-chart are at 15.871 mm and 15.899 mm, while the (upper) limit on the *R*-chart is at 0.0440 mm.
+With the data on page 25 the control limits for the *X̄*-chart are at 15.871 mm and 15.899 mm, while the (upper) limit on the *R*-chart is at 0.0440 mm.

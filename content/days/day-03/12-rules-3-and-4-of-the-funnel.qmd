@@ -148,7 +148,7 @@ Lacking basic understanding of variation, management may with best intentions ha
 
 So, what do we do with the funnel in Rule 4? Suppose the current outcome is 33. The thinking is now that, for low *short-term* variation, we would like the next outcome to be 33 again or pretty close to it. How do we achieve that? Easy! Place the funnel exactly where the marble has just finished up, i.e. at 33. You will have noticed that (again unless you've had a very unusual sequence of dice-scores) most of the time the marble was finishing up quite close to the funnel—say, no more than 2 squares away from it. So, in this case, the chances are that your next outcome will now be somewhere between 31 and 35—nicely consistent with the aim of achieving low short-term variation, and certainly generally more appealing than what Rule 3 eventually produced!
 
-Take a look at my fantastic outcomes (the yellow-shaded row) near the top of page 54 *[WB 41]*! Hardly any variation for a while; and then, when there is a larger move, we find ourselves right back on the target of 30! (As you might realise, that was a very happy accident.) I wonder what will happen in the longer term ...
+Take a look at my fantastic outcomes (the yellow-shaded row) near the top of page 54! Hardly any variation for a while; and then, when there is a larger move, we find ourselves right back on the target of 30! (As you might realise, that was a very happy accident.) I wonder what will happen in the longer term ...
 
 So, just to be sure, let's again walk through the first few stages. As always, with the funnel initially placed at 30 and the first dice-score being 10, the first outcome is again 33:
 
