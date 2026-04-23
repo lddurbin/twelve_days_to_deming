@@ -1,0 +1,39 @@
+---
+title: "Changes from the source"
+execute:
+  echo: false
+---
+
+This web edition transcribes Dr Neave's prose verbatim. Typography, whitespace, and punctuation have been normalised for the web, scanned figures have been re-extracted, and internal cross-references have been turned into hyperlinks — but his words, examples, and sequencing are intact.
+
+There are two areas where the adaptation to the web has made **material** changes to the source. They are listed below, in plain terms, so readers cross-referencing the original PDF know up-front what's different.
+
+## The printed Workbook
+
+Dr Neave's original course came as two documents: the day chapters (what you're reading now) and a **Workbook** — a printable second document with blank writing surfaces for the exercises and activities. The two cross-referenced each other throughout: every Day-chapter page cited a matching Workbook page, and the Workbook provided the space to capture the reader's responses.
+
+This web edition replaces the Workbook with **in-page interactive elements**: text boxes for activity responses, a per-page notes-download button that collects your answers into a single file, and interactive widgets for the experiments on Days 2, 3, and 6. As a result, the Workbook no longer exists as a separate artefact.
+
+That change cascaded into several small edits:
+
+- **Inline "see Workbook p. N" call-outs** throughout the days have been removed, because they pointed at a document that is no longer part of the delivery.
+- **Workbook page-number suffixes** (the `[WB 123]` markers paired with Day-chapter references) have been stripped. The Day-chapter page numbers carry the full navigation intent on their own.
+- **Appendix return-navigation parentheticals** ("Return to Workbook page X / Day Y page Z") have been shortened to just the Day-chapter half.
+- The **front-matter printing and binding guidance** — covering how to print the PDF double-sided, which ring-binders to use, and how to interleave the day chapters with the Workbook — has been removed. None of it applies to a Quarto HTML rendering.
+
+Where a reader response originally prompted "write your answer in the Workbook on page N", it now prompts "write your answer below" and the site captures the response on the page.
+
+## Dead external links
+
+The course text links out to several external sites. Two domains that Dr Neave's materials treat as live resources are no longer online:
+
+- **`deming.org.uk`** — the UK Deming Transformation Forum's Learning Store, which sold books and course materials. The domain no longer resolves; the Forum appears to have wound down. Links to this domain now point at the [2012 Wayback Machine snapshot](https://web.archive.org/web/20120105232234/http://deming.org.uk/) with an inline note that the live site is offline. One book-ordering footnote was de-linked entirely, because pointing readers at a 2012 snapshot to "order the book" would be actively misleading.
+- **`rqoq.org.nz`** — a PDF-hosting mirror site, the Royal Quality Organisation of Queensland. The domain no longer resolves and was never archived by the Wayback Machine. References have been de-linked with an editorial note that the site is no longer available.
+
+All other external links in the course — to Deming-related organisations, YouTube videos, books, and academic resources — were verified and remain live at the time of writing.
+
+## The full technical log
+
+Every material departure from the source is recorded, with PR and commit references, in the [deviations log on GitHub](https://github.com/lddurbin/twelve_days_to_deming/blob/main/docs/deviations-from-source.md). That log is intended for contributors and for readers cross-referencing the source PDFs who want to know exactly where and when each change landed.
+
+If you spot something that you think is a material departure and isn't documented here or in the technical log, please [open an issue](https://github.com/lddurbin/twelve_days_to_deming/issues). Invisible changes are the failure mode this page is here to prevent.

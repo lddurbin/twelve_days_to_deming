@@ -1,0 +1,33 @@
+---
+title: "Accessibility"
+execute:
+  echo: false
+---
+
+Accessibility is a first-class concern in this web edition. The features below are what's in place today; the list will grow as further improvements land.
+
+If you encounter an accessibility issue — something that doesn't work with your keyboard, screen reader, or preferred display settings — please email me at [hello@leedurbin.co.nz](mailto:hello@leedurbin.co.nz) or [open an issue on GitHub](https://github.com/lddurbin/twelve_days_to_deming/issues). I treat accessibility reports as priority bugs.
+
+## Current features
+
+**Skip-to-content link.** Keyboard and screen-reader users can bypass the sidebar on every page. The link appears as the first focusable element on page load.
+
+**OpenDyslexic font toggle.** A fixed button in the bottom-right of every page switches body and heading text to the [OpenDyslexic](https://opendyslexic.org/) typeface, which some readers with dyslexia find easier to parse. The preference persists across pages.
+
+**Visible focus indicators.** Keyboard focus is clearly outlined on all interactive controls (links, buttons, text inputs, toggles). Mouse users are unaffected.
+
+**ARIA labelling.** Interactive elements, data tables, and input widgets expose accessible names to assistive technology. This includes the site search, the activity text inputs, and the chart-embedded controls on Days 2, 3, and 6.
+
+**Non-colour status indicators.** Where the course uses colour to convey state — for example, the four phases of the funnel experiment on Day 3 — shape and text are used alongside colour, meeting [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html).
+
+**Reduced-motion support.** Animated transitions respect the [`prefers-reduced-motion: reduce`](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html) media query. If your operating system or browser requests reduced motion, the site complies.
+
+**Print-safe styling.** Decorative controls and colour overrides are suppressed in print media, so hard-copy notes and PDF exports render cleanly.
+
+## Automated checks
+
+Every pull request to the repository runs [pa11y](https://pa11y.org/) against the rendered site. The build fails if any WCAG 2.1 AA issue is detected, so the main branch is kept passing at all times.
+
+## What's still to come
+
+Planned improvements are tracked on GitHub under the [accessibility label](https://github.com/lddurbin/twelve_days_to_deming/issues?q=is%3Aissue+is%3Aopen+label%3Aaccessibility). Current priorities include long-descriptions for the statistical charts across Days 4–12, a per-chapter text-to-speech control, a light/dark mode toggle, and an estimated reading-time indicator.

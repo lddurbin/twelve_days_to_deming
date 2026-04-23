@@ -1,0 +1,50 @@
+---
+title: "About this Edition"
+execute:
+  echo: false
+---
+
+
+## A short introduction
+
+The 12 Days to Deming Active Learning Course was created by Dr Henry Neave and first launched in 2020. The course has been adapted for the web by me, Lee Durbin, and first launched in 2026.
+
+Dr Henry Neave created 12 Days to Deming to take you on a journey to deeply understand what Dr W. Edwards Deming (1900–1993) taught.
+
+Dr Deming is famous for his work in Japan in the 1950s and in the West from the early 1980s; I first heard about him during an Agile training course when he was mentioned alongside the Toyota Production System. It wasn't until five years later that I encountered him again, when I read [Cedric Chen's "Becoming Data Driven, From First Principles"](https://commoncog.com/becoming-data-driven-first-principles/) which completely changed my perspective on my work as a data analyst.
+
+Wishing to learn more about Dr Deming and his teaching, I participated in a study group hosted by the [Geelong Quality Council](https://www.gqc.org.au/12-days-to-deming) in early 2024. This was my introduction to 12 Days to Deming, and gave me an opportunity to review, discuss, and share my insights about the material. Dr Jackie Graham, who worked closely with Dr Deming, mentored the study group - and, as of the time of writing, continues to do so.
+
+## Why this edition exists
+
+After completing the 12 Days to Deming course via the study group, I reflected on my learning experiences and thought about how it might be improved for future students.
+
+The full course material is available as free PDF downloads from several sources, including the [New Zealand Organisation for Quality (NZOQ)](https://www.nzoq.org.nz/12-days-to-deming) and [SPC Press](https://www.spcpress.com/12-Days-To-Deming.php). These materials were designed to be printed, which may place accessibility limitations on learners with specific needs. My primary motivation for creating this website is to improve the accessibility of the learning material, and accessibility is a first-class concern in this interactive version.
+
+The [accessibility page](accessibility.qmd) catalogues the features currently in place — skip-to-content links, an OpenDyslexic font toggle, visible focus indicators, ARIA labelling, non-colour status cues, reduced-motion support, and print-safe styling — and lists the improvements still to come. If you encounter an accessibility issue, please email me directly at [hello@leedurbin.co.nz](mailto:hello@leedurbin.co.nz) and I'll be happy to explore how to improve the site.
+
+## What has changed, and what hasn't
+
+In adapting 12 Days to Deming for the web, several adaptations were made. 
+
+This interactive online version preserves Dr Neave's original content exactly as he wrote it, and no major changes have been made to his teachings, examples, or explanations. The changes are to how the course is delivered, not what it teaches — Dr Neave's words, examples, and sequencing are intact.
+
+The most visible change is that the printable Workbook — Dr Neave's original response-capture document — has been replaced with in-page text boxes and a per-page notes download. A full summary of deliberate departures from the source text is on the [changes from the source](changes-from-source.qmd) page.
+
+## Thanks
+
+There are a number of individuals I'd like to thank for contributing directly or indirectly to the existence of this edition.
+
+First and foremost I must thank Henry Neave for creating the course in the first place. As you'll read in his [background to the course](welcome.html#days-to-deming-some-background), Dr Neave worked on these materials for some 20 years before releasing them to the world. There are few who have worked so tirelessly to promote and explain Dr Deming's teaching, and for that I'm indebted to him.
+
+I'd also like to thank Richard Hamilton, Jenny Perks, Dr Jackie Graham, and all those (past and present) who support the 12 Days to Deming Study Group. Richard in particular has been very supportive of my efforts here, and provided vital early-stage feedback.
+
+Cedric Chen's essay, "Becoming Data Driven, From First Principles", was the catalyst that prompted me to immerse myself in Deming's philosophy. It also transformed the way I think about the work I do as a data analyst, and so I'm grateful to Cedric for his writing and his continued leadership in this space.
+
+## Contributing and reporting issues
+
+The site lives on GitHub at [github.com/lddurbin/twelve_days_to_deming](https://github.com/lddurbin/twelve_days_to_deming) and I welcome contributions of all sizes. If you spot a typo, a broken link, a cross-reference that doesn't resolve, or anything else that looks wrong, please [open an issue](https://github.com/lddurbin/twelve_days_to_deming/issues/new) or a pull request. Suggestions for new activities, improvements to existing ones, or additional accessibility features are just as valuable as bug reports — if you're not sure whether something is worth raising, raise it anyway. I'd rather hear about small issues than miss them.
+
+---
+
+*With that, over to Henry.*
