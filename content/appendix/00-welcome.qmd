@@ -26,4 +26,4 @@ As mentioned near the end of the “Welcome” section, this is the reference li
 
 **Before Day 12.** For a little equipment and one or more copies or enlargements: see [Day 11 page 36](../days/day-11/08-coda.qmd#sec-page36).
 
-Finally, if and when you decide to venture into the **Optional Extras** but without printing that file or the Workbook, there are just two pages in both Parts A and B which you will need to print out before studying those first two parts. They are pages 6 and 7 in Part A and pages 24 and 25 in Part B.
+Finally, if and when you decide to venture into the **Optional Extras** but without printing that file, there are just two pages in both Parts A and B which you will need to print out before studying those first two parts. They are pages 6 and 7 in Part A and pages 24 and 25 in Part B.

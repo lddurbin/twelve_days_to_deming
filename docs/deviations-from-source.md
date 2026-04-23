@@ -65,15 +65,6 @@ Entries are listed newest-first.
 - **Landed in** — PR [#214](https://github.com/lddurbin/twelve_days_to_deming/pull/214) (closes #209, #210).
 - **Related** — [#213](https://github.com/lddurbin/twelve_days_to_deming/issues/213) tracks the still-pending decision on inline `[WB NNN]` cross-reference suffixes; [#212](https://github.com/lddurbin/twelve_days_to_deming/issues/212) covers the `index.qmd` front-matter Workbook prose still to be addressed.
 
-## 2026-04-21 — Remove the appendix Welcome Workbook passage
-
-- **What** — Remove the standalone Welcome Workbook passage from the appendix, which introduced the printed Workbook as a companion artefact to the course.
-- **Where** — `content/appendix/` (the Welcome Workbook appendix entry).
-- **Source reference** — NZOQ appendix material introducing the printed Workbook and how to use it alongside the course.
-- **Why** — The Workbook is not part of this site's delivery model; the passage exists solely to frame a printed artefact that the site has replaced with in-page interaction. Leaving it in would mislead readers about what the site provides.
-- **Decided in** — [#185 decision comment](https://github.com/lddurbin/twelve_days_to_deming/issues/185#issuecomment-4286006129) (D2). Neave's framing is pedagogically significant, so the removal is logged here rather than folded silently into a cleanup PR.
-- **Landed in** — *Pending — tracked in [#208](https://github.com/lddurbin/twelve_days_to_deming/issues/208).*
-
 ## 2026-04-21 — Remove inline "see Workbook p. N" page-reference call-outs
 
 - **What** — Delete the `.workbook_callout` divs and their inline "see Workbook p. N" page-reference anchors throughout day chapters. Remove the associated CSS class and any manifest fields that validated their presence.
