@@ -46,7 +46,7 @@ Entries are listed newest-first.
 - **Where** — 29 files across `content/days/` and `content/appendix/`.
 - **Source reference** — Throughout Neave's original day chapters and appendix, which use a dual page-referencing system giving both the Day-chapter page and the corresponding printable-Workbook page.
 - **Why** — Completes the Workbook-removal arc (#185 / #195 / #196 / #202 / #210 / #212). The printed Workbook no longer exists as a separate artefact in this delivery, so the WB page numbers had nothing on the site they could resolve to. Leaving them in place would have kept the codebase half-Workbook, half-not, and would have left a pattern for future per-day PRs to accidentally copy forward. The cross-reference utility they offered to PDF-edition readers is marginal — Day-chapter page headings still preserve structure, so a PDF-edition reader can correlate by heading.
-- **Decided in** — Conversation on #213 (2026-04-23): user approved strip after audit confirmed all 44 occurrences were safely mechanical.
+- **Decided in** — Conversation on #213 (2026-04-23): user approved strip after audit confirmed all 44 regex-matched occurrences were safely mechanical; the remaining 3 prose-embedded shapes were identified during rendered-output verification and handled by hand.
 - **Landed in** — *Pending — tracked in [#213](https://github.com/lddurbin/twelve_days_to_deming/issues/213).*
 
 ## 2026-04-23 — Rewrite index.qmd front-matter Workbook prose
