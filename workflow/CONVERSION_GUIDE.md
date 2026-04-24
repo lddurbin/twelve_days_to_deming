@@ -504,6 +504,29 @@ The French phrase <span lang="fr">raison d'être</span> captures this well.
 Use ISO 639-1 codes: `ja` Japanese, `de` German, `fr` French, `la` Latin,
 `es` Spanish.
 
+### Reading-time indicator
+
+Every chapter is automatically annotated with an estimated reading time
+injected under the H1 by `filters/reading-time.lua`. The filter counts
+prose in paragraphs, list items, blockquotes, tables, and H2+ headings;
+it skips `CodeBlock`, `RawBlock`, image captions, and Quarto's injected
+hidden navigation/meta divs. Minutes are computed at 200 wpm and
+rounded up.
+
+The filter also detects activity content (`viewof`, `Inputs.textarea`,
+`createDownloadButton`, or a `.thought` div) and appends
+"+ activities" to the label so readers know that prompts, reflections,
+and downloads add to the prose estimate. Output looks like:
+
+- `~ 6 min reading` — prose-only chapter
+- `~ 6 min reading + activities` — chapter with embedded widgets
+
+Chapters with fewer than 50 prose words omit the indicator rather than
+misrepresent engagement.
+
+No per-chapter action is required — the filter is registered in
+`_quarto.yml` and runs for every rendered page.
+
 ---
 
 ## Inter-Day Cross-References

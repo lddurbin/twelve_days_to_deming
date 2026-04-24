@@ -885,3 +885,15 @@ button:focus,
   .dyslexia-toggle { display: none !important; }
 }
 
+.reading-time {
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--bs-secondary-color, #6c757d);
+  font-style: italic;
+}
+
+@media print {
+  .reading-time { display: none !important; }
+}
+

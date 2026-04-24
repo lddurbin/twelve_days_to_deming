@@ -176,6 +176,9 @@ book:
     - content/appendix/contributions-balaji-reddie/07-indias-missed-opportunity.qmd
     - content/appendix/11-references-and-sources.qmd
 
+filters:
+  - filters/reading-time.lua
+
 format:
   html:
     theme: cosmo
