@@ -68,10 +68,14 @@ local function count_blocks(blocks)
   for _, b in ipairs(blocks) do
     if b.t == "CodeBlock" or b.t == "RawBlock" or b.t == "HorizontalRule" then
       -- skip
-    elseif (b.t == "Div" or b.t == "Para" or b.t == "Plain") and has_class(b, "hidden") then
+    elseif b.t == "Div" and has_class(b, "hidden") then
       -- skip Quarto's injected navigation/meta blocks
     elseif b.t == "Para" or b.t == "Plain" then
       total = total + count_words(stringify_inlines(b.content))
+    elseif b.t == "LineBlock" then
+      for _, line in ipairs(b.content) do
+        total = total + count_words(stringify_inlines(line))
+      end
     elseif b.t == "Header" and b.level > 1 then
       total = total + count_words(stringify_inlines(b.content))
     elseif b.t == "BlockQuote" then
@@ -90,10 +94,31 @@ local function count_blocks(blocks)
     elseif b.t == "Div" then
       total = total + count_blocks(b.content)
     elseif b.t == "Table" then
-      total = total + count_words(pandoc.utils.stringify(b))
+      -- Stringify the whole table and subtract caption words so
+      -- captions are excluded, consistent with image captions.
+      local caption_words = 0
+      if b.caption and b.caption.long then
+        caption_words = count_words(pandoc.utils.stringify(b.caption.long))
+      end
+      if b.caption and b.caption.short then
+        caption_words = caption_words
+          + count_words(pandoc.utils.stringify(b.caption.short))
+      end
+      total = total + math.max(0,
+        count_words(pandoc.utils.stringify(b)) - caption_words)
     end
   end
   return total
+end
+
+local function html_escape(s)
+  return (s:gsub("[&<>\"']", {
+    ["&"] = "&amp;",
+    ["<"] = "&lt;",
+    [">"] = "&gt;",
+    ['"'] = "&quot;",
+    ["'"] = "&#39;",
+  }))
 end
 
 local function indicator_block(minutes, has_activity)
@@ -103,7 +128,7 @@ local function indicator_block(minutes, has_activity)
     or "Estimated reading time"
   local html = string.format(
     '<p class="reading-time" aria-label="%s">~ %d min reading%s</p>',
-    label, minutes, suffix
+    html_escape(label), minutes, html_escape(suffix)
   )
   return pandoc.RawBlock("html", html)
 end
