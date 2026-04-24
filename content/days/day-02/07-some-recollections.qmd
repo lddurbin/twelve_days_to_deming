@@ -205,13 +205,61 @@ please work through them as you did with the statisticians’ data. (Remember th
 from the *completed* version of Jose’s table; thus ignore the fact that the names Ignacio, Orlando and
 Tamasa are crossed out since, of course, that did not happen until the end of the third week.)
 
-![Week 1 of Spaniards’ results as a table of data.](/assets/images/day-02/image-11.png){fig-align="center" height=20% .lightbox}
+:::: {.columns}
+::: {.column width="55%"}
 
-![Week 2 of Spaniards’ results as a table of data.](/assets/images/day-02/image-12.png){fig-align="center" height=20% .lightbox}
+![Week 1 of Spaniards’ results as a table of data.](/assets/images/day-02/image-11.png){fig-align="center" width="100%" .lightbox}
 
-![Week 3 of Spaniards’ results as a table of data.](/assets/images/day-02/image-13.png){fig-align="center" height=20% .lightbox}
+:::
+::: {.column width="45%"}
+```{ojs}
+viewof thought_2e_v = Inputs.textarea({label: "Your comments on the Spaniards’ Week 1 results", placeholder: "Type your comment here.", rows: 10})
+```
 
-![Week 4 of Spaniards’ results as a table of data.](/assets/images/day-02/image-14.png){fig-align="center" height=20% .lightbox}
+:::
+::::
+
+:::: {.columns}
+::: {.column width="55%"}
+
+![Week 2 of Spaniards’ results as a table of data.](/assets/images/day-02/image-12.png){fig-align="center" width="100%" .lightbox}
+
+:::
+::: {.column width="45%"}
+```{ojs}
+viewof thought_2e_vi = Inputs.textarea({label: "Your comments on the Spaniards’ Week 2 results", placeholder: "Type your comment here.", rows: 10})
+```
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="55%"}
+
+![Week 3 of Spaniards’ results as a table of data.](/assets/images/day-02/image-13.png){fig-align="center" width="100%" .lightbox}
+
+:::
+::: {.column width="45%"}
+```{ojs}
+viewof thought_2e_vii = Inputs.textarea({label: "Your comments on the Spaniards’ Week 3 results", placeholder: "Type your comment here.", rows: 10})
+```
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="55%"}
+
+![Week 4 of Spaniards’ results as a table of data.](/assets/images/day-02/image-14.png){fig-align="center" width="100%" .lightbox}
+
+:::
+::: {.column width="45%"}
+```{ojs}
+viewof thought_2e_viii = Inputs.textarea({label: "Your comments on the Spaniards’ Week 4 results", placeholder: "Type your comment here.", rows: 10})
+```
+
+:::
+::::
 
 Finally, return to the Recorder’s task of drawing the run chart and then upgrade it to a control chart. Here are the Spaniards’ counts of red beads in time order:
 
@@ -291,7 +339,7 @@ Regarding conclusions from the control charts, they are surely similar to those 
 
 ### The Foreman’s Transcript
 
-Here are your Foreman reactions to the statisticians’ results — set against the fact that every count is nothing more than common-cause variation.
+Here are your Foreman reactions across both runs — the statisticians’ and the Spaniards’ — set against the fact that every count is nothing more than common-cause variation.
 
 ```{ojs transcript_2e}
 {
@@ -299,11 +347,15 @@ Here are your Foreman reactions to the statisticians’ results — set against 
     { label: "Statisticians — Week 1", value: thought_2e_i },
     { label: "Statisticians — Week 2", value: thought_2e_ii },
     { label: "Statisticians — Week 3", value: thought_2e_iii },
-    { label: "Statisticians — Week 4", value: thought_2e_iv }
+    { label: "Statisticians — Week 4", value: thought_2e_iv },
+    { label: "Spaniards — Week 1", value: thought_2e_v },
+    { label: "Spaniards — Week 2", value: thought_2e_vi },
+    { label: "Spaniards — Week 3", value: thought_2e_vii },
+    { label: "Spaniards — Week 4", value: thought_2e_viii }
   ];
   const filled = entries.filter(e => e.value && e.value.trim());
   if (!filled.length) {
-    return html`<p class="foreman-transcript-empty"><em>No Foreman reactions yet — scroll up and play the role through all four weeks. Your comments will appear here as a transcript.</em></p>`;
+    return html`<p class="foreman-transcript-empty"><em>No Foreman reactions yet — scroll up and play the role through all four weeks for both the statisticians and the Spaniards. Your comments will appear here as a transcript.</em></p>`;
   }
   return html`<div class="foreman-transcript" role="list" aria-label="Your Foreman reactions">
     ${filled.map(e => html`<div class="foreman-transcript-entry" role="listitem">
@@ -318,7 +370,8 @@ Here are your Foreman reactions to the statisticians’ results — set against 
 import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
 createDownloadButton([
-  viewof thought_2e_i, viewof thought_2e_ii, viewof thought_2e_iii, viewof thought_2e_iv
+  viewof thought_2e_i, viewof thought_2e_ii, viewof thought_2e_iii, viewof thought_2e_iv,
+  viewof thought_2e_v, viewof thought_2e_vi, viewof thought_2e_vii, viewof thought_2e_viii
 ], "thought_2e.txt")
 ```
 
