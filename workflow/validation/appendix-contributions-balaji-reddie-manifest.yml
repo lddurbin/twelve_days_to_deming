@@ -1,0 +1,77 @@
+# Appendix structural manifest: Contributions from Balaji Reddie
+# Source PDF: Q.Contributions.from.Balaji.Reddie.11Sep21.pdf
+#
+# Prose-only appendix — interactive_checks is false so the viewof and
+# download-button checks are skipped. Figure and heading checks still run.
+
+slug: contributions-balaji-reddie
+pdf_file: Q.Contributions.from.Balaji.Reddie.11Sep21.pdf
+content_dir: content/appendix/contributions-balaji-reddie
+interactive_checks: false
+
+chapters:
+  - file: "00-introduction.qmd"
+    figures: []
+    headings:
+      - "An introduction to a System of Profound Knowledge"
+
+  - file: "01-prelude-a-system.qmd"
+    figures: []
+    headings:
+      - "The aim of a system"
+      - "Interconnections"
+      - 'The "most important" part of the system'
+      - "Cause and effect may be far apart"
+      - "Comparing, competing, ranking, rating"
+      - "Optimise or maximise?"
+      - 'Performing "within limits"'
+
+  - file: "02-prelude-b-statistical-thinking.qmd"
+    figures: []
+    headings:
+      - "Normal and abnormal variation"
+      - "Getting to work on time"
+      - "Computing the process limits"
+      - "What we've covered so far"
+      - "Two true stories"
+      - "Knee-jerk reactions"
+      - "How *not* to manage a process"
+      - "More wisdom from Dr Shewhart"
+      - "Discussion"
+
+  - file: "03-prelude-c-learning.qmd"
+    figures: []
+    headings:
+      - "What makes the scooter start?"
+      - "Information and knowledge"
+      - "A further improvement to the theory"
+      - "Why is the Sun so bright?"
+      - "A theory may only be a hunch"
+      - "Theory: the starting-point for learning"
+      - "Summary"
+
+  - file: "04-prelude-d-people.qmd"
+    figures: []
+    headings:
+      - '"What is the job of a teacher?"'
+      - 'Does pay "motivate"?'
+      - "Competition"
+      - "Competing against or competing with?"
+      - 'Is it "natural" to compete *against*?'
+      - "Are we no better than rats?"
+
+  - file: "05-coda.qmd"
+    figures: []
+    headings: []
+
+  - file: "06-lessons-from-history.qmd"
+    figures: []
+    headings:
+      - "INTRODUCTION"
+      - '"… BUT THEY DON''T KNOW WHAT TO COPY!"'
+      - "BACK TO DEMING'S LEGACY"
+
+  - file: "07-indias-missed-opportunity.qmd"
+    figures: []
+    headings:
+      - "Approvals, Acknowledgments and Information"

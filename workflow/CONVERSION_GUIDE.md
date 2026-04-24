@@ -113,6 +113,50 @@ Each chapter is verified by reading back the `.qmd` file before moving to the ne
 4. Run `quarto preview` to check rendering
 5. Fix any issues found
 
+#### Phase 4 for appendix content
+
+Both scripts support an `--appendix <slug>` mode for content that lives in
+`content/appendix/<slug>/` rather than `content/days/day-XX/`. The mode reads
+manifest-declared paths instead of deriving them from the day number, so the
+same scripts cover prose-only appendices (e.g. the Balaji Reddie
+contributions, Optional Extras) and future appendix PDFs without further
+changes.
+
+```bash
+./scripts/validate-transcription.sh --appendix contributions-balaji-reddie
+./scripts/check-structure.sh --appendix contributions-balaji-reddie
+```
+
+**Manifest location:** `workflow/validation/appendix-<slug>-manifest.yml`.
+
+**Minimum manifest fields** (see the Balaji manifest for a worked example):
+
+```yaml
+slug: contributions-balaji-reddie
+pdf_file: Q.Contributions.from.Balaji.Reddie.11Sep21.pdf
+content_dir: content/appendix/contributions-balaji-reddie
+interactive_checks: false   # true (default) runs viewof + download-button checks
+
+chapters:
+  - file: "00-introduction.qmd"
+    figures: []
+    headings:
+      - "An introduction to a System of Profound Knowledge"
+```
+
+For prose-only appendices set `interactive_checks: false` — the viewof and
+download-button checks are then skipped and only figure existence and
+heading match run per chapter. Interactive appendices (those with OJS input
+widgets or download buttons) should either omit `interactive_checks` or set
+it to `true`, and populate `viewof_count` / `has_download_button` per chapter
+exactly as day manifests do.
+
+**PDF prefix beyond D–O:** The day scripts hard-code the `D–O` letter
+prefixes for source PDFs. Appendix manifests sidestep that by naming the
+PDF file directly (`pdf_file:`), so any prefix — `P` (Appendix proper), `Q`
+(Balaji contributions), `R` (References), `S` (Optional Extras), or future
+additions — works without script changes.
+
 ### Phase 5: Integrate
 
 1. Wire new chapters into `_quarto.yml` under the correct `part:`

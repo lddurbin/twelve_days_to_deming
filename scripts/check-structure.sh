@@ -3,11 +3,14 @@
 # check-structure.sh — Structural inventory checker for QMD chapter completeness
 #
 # Usage: ./scripts/check-structure.sh <day-number>
+#        ./scripts/check-structure.sh --appendix <slug>
 #   e.g. ./scripts/check-structure.sh 3
+#        ./scripts/check-structure.sh --appendix contributions-balaji-reddie
 #
-# Compares each QMD chapter against a per-day manifest and reports PASS/FAIL
-# per check per chapter. Checks: viewof count, figure existence, section
-# headings, download button.
+# Compares each QMD chapter against a manifest and reports PASS/FAIL per check
+# per chapter. Day manifests cover viewof count, figures, headings, and
+# download button. Appendix manifests can opt out of interactive checks for
+# prose-only content (set `interactive_checks: false`).
 #
 # Requires: ruby (for YAML parsing — ships with macOS)
 # Note: CI (Ubuntu) does not install Ruby by default. If wiring into CI,
@@ -16,7 +19,6 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CONTENT_DIR="$REPO_ROOT/content/days"
 MANIFEST_DIR="$REPO_ROOT/workflow/validation"
 TMPDIR_CLEANUP=""
 
@@ -35,7 +37,10 @@ fi
 
 usage() {
   echo "Usage: $0 <day-number>"
-  echo "  day-number: 1-12"
+  echo "       $0 --appendix <slug>"
+  echo ""
+  echo "  day-number:       1-12 (uses workflow/validation/day-NN-manifest.yml)"
+  echo "  --appendix <slug>: uses workflow/validation/appendix-<slug>-manifest.yml"
   echo ""
   echo "Checks QMD chapters against a structural manifest and reports"
   echo "PASS/FAIL per check per chapter."
@@ -46,9 +51,10 @@ pass() { printf "  ${GREEN}PASS${RESET} %s\n" "$1"; }
 fail() { printf "  ${RED}FAIL${RESET} %s\n" "$1"; }
 warn() { printf "  ${YELLOW}WARN${RESET} %s\n" "$1"; }
 
-# Expand manifest into a flat text format using Ruby, one file per chapter.
-# Each chapter file contains key=value lines, with multi-value fields
-# (figures, headings) on separate ITEM= lines.
+# Expand manifest into a flat text format using Ruby, one file per chapter,
+# plus a top-level `meta` file capturing manifest-wide settings
+# (content_dir, interactive_checks). Multi-value chapter fields
+# (figures, headings) appear as separate ITEM= lines.
 expand_manifest() {
   local manifest="$1"
   local outdir="$2"
@@ -60,11 +66,16 @@ expand_manifest() {
       exit 1
     end
     outdir = ARGV[1]
+    File.open("#{outdir}/meta", "w") do |f|
+      f.puts "CONTENT_DIR=#{data["content_dir"] || ""}"
+      interactive = data.key?("interactive_checks") ? data["interactive_checks"] : true
+      f.puts "INTERACTIVE=#{interactive ? "true" : "false"}"
+    end
     data["chapters"].each_with_index do |ch, i|
       File.open("#{outdir}/ch_#{format("%02d", i)}", "w") do |f|
         f.puts "FILE=#{ch["file"]}"
-        f.puts "VIEWOF=#{ch["viewof_count"]}"
-        f.puts "DOWNLOAD=#{ch["has_download_button"]}"
+        f.puts "VIEWOF=#{ch["viewof_count"] || 0}"
+        f.puts "DOWNLOAD=#{ch.key?("has_download_button") ? ch["has_download_button"] : false}"
         (ch["figures"] || []).each { |fig| f.puts "FIGURE=#{fig}" }
         (ch["headings"] || []).each { |h| f.puts "HEADING=#{h}" }
       end
@@ -94,31 +105,70 @@ extract_headings() {
 # ── Main ──────────────────────────────────────────────────────
 
 main() {
-  local day_num="${1:-}"
-
-  if [[ -z "$day_num" || ! "$day_num" =~ ^[0-9]+$ ]]; then
-    usage
-  fi
-
-  if (( day_num < 1 || day_num > 12 )); then
-    echo "Error: day-number must be between 1 and 12"
-    exit 1
-  fi
-
   if ! command -v ruby &>/dev/null; then
     echo "Error: ruby not found (needed for YAML parsing)"
     exit 1
   fi
 
-  local day_dir
-  day_dir=$(printf "day-%02d" "$day_num")
-  local manifest="$MANIFEST_DIR/${day_dir}-manifest.yml"
-  local qmd_dir="$CONTENT_DIR/$day_dir"
+  # ── Argument parsing ──
+  local mode="" target="" label="" manifest="" qmd_dir=""
+
+  if [[ "${1:-}" == "--appendix" ]]; then
+    mode="appendix"
+    target="${2:-}"
+    if [[ -z "$target" ]]; then
+      echo "Error: --appendix requires a slug (e.g. contributions-balaji-reddie)"
+      usage
+    fi
+    manifest="$MANIFEST_DIR/appendix-${target}-manifest.yml"
+    label="Appendix: $target"
+  elif [[ -n "${1:-}" && "$1" =~ ^[0-9]+$ ]]; then
+    mode="day"
+    target="$1"
+    if (( target < 1 || target > 12 )); then
+      echo "Error: day-number must be between 1 and 12"
+      exit 1
+    fi
+    local day_dir
+    day_dir=$(printf "day-%02d" "$target")
+    manifest="$MANIFEST_DIR/${day_dir}-manifest.yml"
+    qmd_dir="$REPO_ROOT/content/days/$day_dir"
+    label="Day $target"
+  else
+    usage
+  fi
 
   if [[ ! -f "$manifest" ]]; then
     echo "Error: No manifest found at $manifest"
     echo "Create one before running this check."
     exit 1
+  fi
+
+  # Expand manifest into per-chapter temp files
+  TMPDIR_CLEANUP=$(mktemp -d)
+  local tmpdir="$TMPDIR_CLEANUP"
+  trap 'rm -rf "$TMPDIR_CLEANUP"' EXIT
+  expand_manifest "$manifest" "$tmpdir"
+
+  # Read manifest meta (content_dir, interactive_checks)
+  local manifest_content_dir="" interactive_checks="true"
+  while IFS='=' read -r key value; do
+    case "$key" in
+      CONTENT_DIR) manifest_content_dir="$value" ;;
+      INTERACTIVE) interactive_checks="$value" ;;
+    esac
+  done < "$tmpdir/meta"
+
+  # Appendix manifests MUST declare content_dir; day manifests use the
+  # convention-derived path unless they override.
+  if [[ "$mode" == "appendix" ]]; then
+    if [[ -z "$manifest_content_dir" ]]; then
+      echo "Error: appendix manifest must declare content_dir"
+      exit 1
+    fi
+    qmd_dir="$REPO_ROOT/$manifest_content_dir"
+  elif [[ -n "$manifest_content_dir" ]]; then
+    qmd_dir="$REPO_ROOT/$manifest_content_dir"
   fi
 
   if [[ ! -d "$qmd_dir" ]]; then
@@ -128,18 +178,15 @@ main() {
 
   echo "=========================================="
   echo "  Structural Inventory Report"
-  echo "  Day $day_num"
+  echo "  $label"
   echo "=========================================="
   echo ""
   echo "Manifest: $(basename "$manifest")"
-  echo "QMD dir:  $day_dir/"
+  echo "QMD dir:  ${qmd_dir#"$REPO_ROOT/"}/"
+  if [[ "$interactive_checks" != "true" ]]; then
+    echo "Mode:     prose-only (viewof and download-button checks skipped)"
+  fi
   echo ""
-
-  # Expand manifest into per-chapter temp files
-  TMPDIR_CLEANUP=$(mktemp -d)
-  local tmpdir="$TMPDIR_CLEANUP"
-  trap 'rm -rf "$TMPDIR_CLEANUP"' EXIT
-  expand_manifest "$manifest" "$tmpdir"
 
   local total_checks=0
   local total_pass=0
@@ -147,6 +194,7 @@ main() {
   local total_warn=0
 
   for ch_file in "$tmpdir"/ch_*; do
+    [[ -f "$ch_file" ]] || continue
     # Read chapter metadata
     local file="" expected_viewof=0 expected_dl="false"
     local figures="" headings=""
@@ -186,15 +234,17 @@ main() {
     fi
 
     # ── Check 1: viewof count ──
-    local actual_viewof
-    actual_viewof=$(count_viewof "$qmd_path")
-    total_checks=$((total_checks + 1))
-    if [[ "$actual_viewof" -eq "$expected_viewof" ]]; then
-      pass "viewof declarations: $actual_viewof (expected $expected_viewof)"
-      total_pass=$((total_pass + 1))
-    else
-      fail "viewof declarations: $actual_viewof (expected $expected_viewof)"
-      total_fail=$((total_fail + 1))
+    if [[ "$interactive_checks" == "true" ]]; then
+      local actual_viewof
+      actual_viewof=$(count_viewof "$qmd_path")
+      total_checks=$((total_checks + 1))
+      if [[ "$actual_viewof" -eq "$expected_viewof" ]]; then
+        pass "viewof declarations: $actual_viewof (expected $expected_viewof)"
+        total_pass=$((total_pass + 1))
+      else
+        fail "viewof declarations: $actual_viewof (expected $expected_viewof)"
+        total_fail=$((total_fail + 1))
+      fi
     fi
 
     # ── Check 2: figure references ──
@@ -282,23 +332,25 @@ main() {
     fi
 
     # ── Check 4: download button ──
-    total_checks=$((total_checks + 1))
-    if [[ "$expected_dl" == "true" ]]; then
-      if grep -qE 'create(Coop)?DownloadButton' "$qmd_path" 2>/dev/null; then
-        pass "download button: present"
-        total_pass=$((total_pass + 1))
+    if [[ "$interactive_checks" == "true" ]]; then
+      total_checks=$((total_checks + 1))
+      if [[ "$expected_dl" == "true" ]]; then
+        if grep -qE 'create(Coop)?DownloadButton' "$qmd_path" 2>/dev/null; then
+          pass "download button: present"
+          total_pass=$((total_pass + 1))
+        else
+          fail "download button: missing (expected)"
+          total_fail=$((total_fail + 1))
+        fi
       else
-        fail "download button: missing (expected)"
-        total_fail=$((total_fail + 1))
-      fi
-    else
-      if grep -qE 'create(Coop)?DownloadButton' "$qmd_path" 2>/dev/null; then
-        warn "download button: found but not in manifest"
-        total_pass=$((total_pass + 1))
-        total_warn=$((total_warn + 1))
-      else
-        pass "download button: none expected"
-        total_pass=$((total_pass + 1))
+        if grep -qE 'create(Coop)?DownloadButton' "$qmd_path" 2>/dev/null; then
+          warn "download button: found but not in manifest"
+          total_pass=$((total_pass + 1))
+          total_warn=$((total_warn + 1))
+        else
+          pass "download button: none expected"
+          total_pass=$((total_pass + 1))
+        fi
       fi
     fi
 

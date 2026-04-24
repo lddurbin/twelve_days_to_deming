@@ -3,13 +3,19 @@
 # validate-transcription.sh — Compare source PDF text against QMD transcriptions
 #
 # Usage: ./scripts/validate-transcription.sh <day-number>
+#        ./scripts/validate-transcription.sh --appendix <slug>
 #   e.g. ./scripts/validate-transcription.sh 3
+#        ./scripts/validate-transcription.sh --appendix contributions-balaji-reddie
 #
 # Requires: pdftotext (brew install poppler)
+#           ruby (YAML parsing for appendix manifests)
 #
-# PDF letter-prefix mapping:
+# Day mode uses the PDF letter-prefix mapping:
 #   D=Day1, E=Day2, F=Day3, G=Day4, H=Day5, I=Day6,
 #   J=Day7, K=Day8, L=Day9, M=Day10, N=Day11, O=Day12
+#
+# Appendix mode reads workflow/validation/appendix-<slug>-manifest.yml
+# for `pdf_file` and `content_dir`.
 
 set -euo pipefail
 
@@ -20,7 +26,8 @@ export LC_ALL=C
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PDF_DIR="$REPO_ROOT/12-Days-to-Deming/PDFs"
-CONTENT_DIR="$REPO_ROOT/content/days"
+MANIFEST_DIR="$REPO_ROOT/workflow/validation"
+TMPDIR_CLEANUP=""
 
 # Map day numbers (1-12) to PDF letter prefixes (D-O)
 # ASCII: D=68, day 1 → offset 0 → D, day 2 → offset 1 → E, etc.
@@ -36,7 +43,10 @@ MIN_PARA_LEN=40
 
 usage() {
   echo "Usage: $0 <day-number>"
-  echo "  day-number: 1-12"
+  echo "       $0 --appendix <slug>"
+  echo ""
+  echo "  day-number:        1-12"
+  echo "  --appendix <slug>: uses workflow/validation/appendix-<slug>-manifest.yml"
   echo ""
   echo "Compares source PDF text against QMD transcriptions and reports"
   echo "potential gaps — paragraphs in the PDF with no close match in the QMD files."
@@ -48,6 +58,26 @@ check_deps() {
     echo "Error: pdftotext not found. Install with: brew install poppler"
     exit 1
   fi
+}
+
+# Read `pdf_file` and `content_dir` from an appendix manifest.
+# Prints two lines: PDF_FILE=... then CONTENT_DIR=...
+read_appendix_manifest() {
+  local manifest="$1"
+  if ! command -v ruby &>/dev/null; then
+    echo "Error: ruby not found (needed for YAML parsing)" >&2
+    exit 1
+  fi
+  ruby -ryaml -e '
+    begin
+      data = YAML.safe_load(File.read(ARGV[0]))
+    rescue => e
+      $stderr.puts "Error parsing manifest #{ARGV[0]}: #{e.message}"
+      exit 1
+    end
+    puts "PDF_FILE=#{data["pdf_file"] || ""}"
+    puts "CONTENT_DIR=#{data["content_dir"] || ""}"
+  ' "$manifest"
 }
 
 # Strip QMD markup to produce plain text
@@ -224,35 +254,69 @@ find_in_qmd() {
 # ── Main ───────────────────────────────────────────────────────
 
 main() {
-  local day_num="${1:-}"
+  check_deps
 
-  if [[ -z "$day_num" || ! "$day_num" =~ ^[0-9]+$ ]]; then
+  # ── Argument parsing ──
+  local pdf_file="" qmd_dir="" label=""
+
+  if [[ "${1:-}" == "--appendix" ]]; then
+    local slug="${2:-}"
+    if [[ -z "$slug" ]]; then
+      echo "Error: --appendix requires a slug (e.g. contributions-balaji-reddie)"
+      usage
+    fi
+    local manifest="$MANIFEST_DIR/appendix-${slug}-manifest.yml"
+    if [[ ! -f "$manifest" ]]; then
+      echo "Error: No manifest found at $manifest"
+      exit 1
+    fi
+
+    local manifest_pdf="" manifest_content=""
+    while IFS='=' read -r key value; do
+      case "$key" in
+        PDF_FILE)    manifest_pdf="$value" ;;
+        CONTENT_DIR) manifest_content="$value" ;;
+      esac
+    done < <(read_appendix_manifest "$manifest")
+
+    if [[ -z "$manifest_pdf" || -z "$manifest_content" ]]; then
+      echo "Error: appendix manifest must declare pdf_file and content_dir"
+      exit 1
+    fi
+
+    pdf_file="$PDF_DIR/$manifest_pdf"
+    qmd_dir="$REPO_ROOT/$manifest_content"
+    label="Appendix: $slug"
+  elif [[ -n "${1:-}" && "$1" =~ ^[0-9]+$ ]]; then
+    local day_num="$1"
+    if (( day_num < 1 || day_num > 12 )); then
+      echo "Error: day-number must be between 1 and 12"
+      exit 1
+    fi
+
+    local prefix
+    prefix=$(day_to_prefix "$day_num")
+    local day_dir
+    day_dir=$(printf "day-%02d" "$day_num")
+
+    local pdf_glob=( "$PDF_DIR/${prefix}".Day.*.pdf )
+    pdf_file="${pdf_glob[0]}"
+    if [[ ! -e "$pdf_file" ]]; then
+      echo "Error: No PDF found for Day $day_num (prefix $prefix) in $PDF_DIR"
+      exit 1
+    fi
+
+    qmd_dir="$REPO_ROOT/content/days/$day_dir"
+    label="Day $day_num"
+  else
     usage
   fi
 
-  if (( day_num < 1 || day_num > 12 )); then
-    echo "Error: day-number must be between 1 and 12"
-    exit 1
-  fi
-
-  check_deps
-
-  local prefix
-  prefix=$(day_to_prefix "$day_num")
-  local day_dir
-  day_dir=$(printf "day-%02d" "$day_num")
-
-  # Find the source PDF
-  local pdf_file
-  local pdf_glob=( "$PDF_DIR/${prefix}".Day.*.pdf )
-  pdf_file="${pdf_glob[0]}"
   if [[ ! -e "$pdf_file" ]]; then
-    echo "Error: No PDF found for Day $day_num (prefix $prefix) in $PDF_DIR"
+    echo "Error: PDF not found at $pdf_file"
     exit 1
   fi
 
-  # Check QMD directory exists
-  local qmd_dir="$CONTENT_DIR/$day_dir"
   if [[ ! -d "$qmd_dir" ]]; then
     echo "Error: No content directory found at $qmd_dir"
     exit 1
@@ -264,18 +328,19 @@ main() {
     exit 1
   fi
 
-  # local is fine here — trap runs in the same shell process and can see it
-  local tmpdir
-  tmpdir=$(mktemp -d)
-  trap 'rm -rf "$tmpdir" 2>/dev/null || true' EXIT
+  # TMPDIR_CLEANUP is a script-level global so the EXIT trap can still see
+  # it after main() returns (under set -u, a local would be unbound).
+  TMPDIR_CLEANUP=$(mktemp -d)
+  local tmpdir="$TMPDIR_CLEANUP"
+  trap 'rm -rf "$TMPDIR_CLEANUP" 2>/dev/null || true' EXIT
 
   echo "=========================================="
   echo "  Transcription Validation Report"
-  echo "  Day $day_num"
+  echo "  $label"
   echo "=========================================="
   echo ""
   echo "Source PDF: $(basename "$pdf_file")"
-  echo "QMD dir:   $day_dir/"
+  echo "QMD dir:   ${qmd_dir#"$REPO_ROOT/"}/"
   echo "QMD files: ${#qmd_files[@]}"
   echo ""
 
