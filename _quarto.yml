@@ -181,7 +181,9 @@ filters:
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmo
+      dark: darkly
     css: assets/styles/main.css
     header-includes: |
       <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://excalidraw.com; img-src 'self' data:; connect-src 'self' https://cdn.jsdelivr.net;">

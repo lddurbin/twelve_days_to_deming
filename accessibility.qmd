@@ -14,6 +14,8 @@ If you encounter an accessibility issue — something that doesn't work with you
 
 **OpenDyslexic font toggle.** A fixed button in the bottom-right of every page switches body and heading text to the [OpenDyslexic](https://opendyslexic.org/) typeface, which some readers with dyslexia find easier to parse. The preference persists across pages.
 
+**Light/dark mode toggle.** A toggle in the top navigation bar switches the site between light and dark colour schemes for low-light reading, photosensitivity, or simple preference. The toggle honours your operating system's `prefers-color-scheme` setting on first visit and remembers your explicit choice across pages thereafter.
+
 **Visible focus indicators.** Keyboard focus is clearly outlined on all interactive controls (links, buttons, text inputs, toggles). Mouse users are unaffected.
 
 **ARIA labelling.** Interactive elements, data tables, and input widgets expose accessible names to assistive technology. This includes the site search, the activity text inputs, and the chart-embedded controls on Days 2, 3, and 6.
@@ -30,4 +32,4 @@ Every pull request to the repository runs [pa11y](https://pa11y.org/) against th
 
 ## What's still to come
 
-Planned improvements are tracked on GitHub under the [accessibility label](https://github.com/lddurbin/twelve_days_to_deming/issues?q=is%3Aissue+is%3Aopen+label%3Aaccessibility). Current priorities include long-descriptions for the statistical charts across Days 4–12, a per-chapter text-to-speech control, a light/dark mode toggle, and an estimated reading-time indicator.
+Planned improvements are tracked on GitHub under the [accessibility label](https://github.com/lddurbin/twelve_days_to_deming/issues?q=is%3Aissue+is%3Aopen+label%3Aaccessibility). Current priorities include long-descriptions for the statistical charts across Days 4–12, a per-chapter text-to-speech control, and an estimated reading-time indicator.

@@ -897,3 +897,249 @@ button:focus,
   .reading-time { display: none !important; }
 }
 
+/* ===== DARK MODE OVERRIDES ===== */
+/* Quarto's dual-theme config (`theme: { light: cosmo, dark: darkly }`)
+   swaps the active Bootswatch stylesheet and adds `.quarto-dark` to
+   <body>. We target that class to re-skin hard-coded light-mode
+   colours for readable contrast on darkly's ~#222 body background.
+   PNG figures retain their original rendering — visible but not
+   re-themed.
+   Scoped to `@media not print` so hard-copy output from dark mode
+   still prints the original light palette (dark-mode text values like
+   #e4f0f5 would otherwise ghost on white paper). */
+@media not print {
+
+body.quarto-dark {
+  /* Retune design tokens for dark backgrounds. */
+  --color-bg-light: #2c2c2c;
+  --color-callout-emphasis: #4a1e1e;
+  --color-outcome: #ff6666;
+  --color-funnel: #6699ff;
+  --color-marble: #e08858;
+  --color-highlight-green: #2d5c2d;
+  --color-border-gray: #666;
+}
+
+/* Callout strips */
+body.quarto-dark .return_callout {
+  background-color: #1a3a4a;
+  color: #e4f0f5;
+  border-color: #6699ff;
+}
+body.quarto-dark .arrival_callout {
+  background-color: #1e3a22;
+  color: #e4f0e6;
+}
+body.quarto-dark .info_callout {
+  background-color: #3a4a2a;
+  color: #eef0e4;
+}
+body.quarto-dark .callout-emphasis {
+  color: #ffd7d7;
+}
+
+/* Content styles */
+body.quarto-dark .neave_note {
+  color: #e4e4e4;
+}
+body.quarto-dark .deming_quote {
+  color: #8fa8ff;
+  border-left-color: #8fa8ff;
+}
+body.quarto-dark .deming_blue {
+  color: #8fa8ff;
+}
+body.quarto-dark .blue-text {
+  color: #8fa8ff;
+}
+body.quarto-dark .analysis_box_title {
+  color: #f0f0f0;
+}
+body.quarto-dark .text-highlight-red {
+  color: var(--color-outcome);
+}
+
+/* Foreman transcript */
+body.quarto-dark .foreman-remark {
+  color: #b0b0e6;
+}
+body.quarto-dark .foreman-transcript {
+  background-color: #2a2a3a;
+  border-left-color: #b0b0e6;
+}
+body.quarto-dark .foreman-transcript-entry {
+  border-bottom-color: #555566;
+}
+body.quarto-dark .foreman-transcript-context {
+  color: #c0c0c8;
+}
+body.quarto-dark .foreman-transcript-empty {
+  background-color: #2a2a3a;
+  color: #c0c0c8;
+  border-left-color: #555566;
+}
+
+/* Thought and commentary boxes */
+body.quarto-dark .thought {
+  border-color: #66cc66;
+}
+body.quarto-dark .thought h2 {
+  color: #99e699;
+}
+body.quarto-dark .thought_commentary {
+  border-color: #ff6666;
+}
+body.quarto-dark .thought_commentary .collapse {
+  background-color: var(--color-callout-emphasis);
+  border-color: #ff6666;
+  color: #ffd7d7;
+}
+
+/* Technical aid callout */
+body.quarto-dark .technical_aid {
+  background-color: #2a283a;
+  border-color: #ccc;
+  color: #f0f0f0;
+}
+body.quarto-dark .technical_aid h1,
+body.quarto-dark .technical_aid h2,
+body.quarto-dark .technical_aid h3 {
+  color: #f0f0f0;
+}
+body.quarto-dark .technical_aid a {
+  color: #8fa8ff;
+}
+
+/* Separator strips */
+body.quarto-dark .separator_white {
+  background-color: #3a3a3a;
+}
+
+/* Major activity title: bright cyan with black text reads well on
+   either background, so only the outer border needs lifting. */
+body.quarto-dark .major_activity_title {
+  border-color: #ccc;
+}
+
+/* Highlighted table cell: dark-green wash keeps text legible without
+   fighting the dark body. */
+body.quarto-dark .table-cell-highlight {
+  background: var(--color-highlight-green);
+  color: #e4f5e4;
+}
+
+/* Funnel experiment */
+body.quarto-dark .fe-data-table th {
+  background: #3a3a3a;
+  color: #f0f0f0;
+}
+body.quarto-dark .fe-data-table td:first-child,
+body.quarto-dark .fe-data-table th:first-child {
+  background: var(--color-bg-light);
+  color: #f0f0f0;
+}
+body.quarto-dark .fe-data-table .fe-row-outcome td,
+body.quarto-dark .fe-data-table .fe-row-outcome th {
+  background-color: #4a4a1e;
+  color: #ffd080;
+}
+body.quarto-dark .fe-status {
+  background: #2a2a3a;
+  border-color: #555;
+  color: #f0f0f0;
+}
+body.quarto-dark .fe-status strong {
+  color: #f0f0f0;
+}
+body.quarto-dark .fe-comparison-grid > div {
+  background: #2a2a2a;
+  border-color: #444;
+}
+body.quarto-dark .fe-summary-table th {
+  background: #3a3a3a;
+  color: #f0f0f0;
+}
+body.quarto-dark .fe-outcome-value {
+  color: #ff8080;
+}
+body.quarto-dark .fe-funnel-value {
+  color: #8fa8ff;
+}
+
+/* Float-box content: border and bg need to separate from body. */
+body.quarto-dark .float-box-content {
+  border-color: #666;
+  background: var(--color-bg-light);
+}
+
+/* Dyslexia toggle: fixed in the bottom-right, must stay discoverable
+   without blasting white on a dark page. */
+body.quarto-dark .dyslexia-toggle {
+  color: #b0b0e6;
+  background-color: #1a1a26;
+  border-color: #8fa8ff;
+}
+body.quarto-dark .dyslexia-toggle:hover {
+  background-color: #2a2a3a;
+}
+body.quarto-dark .dyslexia-toggle[aria-pressed="true"] {
+  background-color: #3333a6;
+  color: #fff;
+}
+body.quarto-dark .dyslexia-toggle[aria-pressed="true"]:hover {
+  background-color: #4040c0;
+}
+
+/* Inline-styled colours. A small number of .qmd pages use inline
+   `style="color: blue"` or `style="color:#c0392b"` spans for emphasis
+   (see `content/appendix/optional-extras/06-part-f-technical.qmd` for
+   the reference-tag convention). Inline styles win over class rules,
+   so we target them explicitly — `!important` is required to defeat
+   the element-level declaration. */
+body.quarto-dark [style*="color: blue"],
+body.quarto-dark [style*="color:blue"] {
+  color: #8fa8ff !important;
+}
+body.quarto-dark [style*="color:#c0392b"],
+body.quarto-dark [style*="color: #c0392b"] {
+  color: #ff9b8f !important;
+}
+
+/* Focus indicators. The light-mode outline `#0066cc` gives ~2.7:1
+   against darkly's #222 body — below WCAG 2.2 SC 2.4.11's 3:1 floor.
+   Brighten to the dark palette's `#6699ff` (~6.6:1) to restore it. */
+body.quarto-dark textarea:focus,
+body.quarto-dark input:focus,
+body.quarto-dark button:focus,
+body.quarto-dark .major_activity_title:focus,
+body.quarto-dark .fe-button:focus-visible {
+  outline-color: #6699ff;
+}
+
+} /* end @media not print */
+
+/* High-contrast preference inside dark mode. Combined with
+   `not print` so the HC reinforcements also step out of the way on
+   paper. */
+@media not print and (prefers-contrast: high) {
+  body.quarto-dark .deming_quote {
+    color: #c8d4ff;
+    border-left-color: #c8d4ff;
+  }
+  body.quarto-dark .thought {
+    border-color: #99e699;
+  }
+  body.quarto-dark .thought_commentary {
+    border-color: #ff9999;
+  }
+  body.quarto-dark .thought_commentary .collapse {
+    border-color: #ff9999;
+  }
+  body.quarto-dark .foreman-transcript {
+    border-left-color: #c8d4ff;
+  }
+  body.quarto-dark .return_callout {
+    border-color: #c8d4ff;
+  }
+}
+
