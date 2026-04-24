@@ -265,6 +265,10 @@ main() {
       echo "Error: --appendix requires a slug (e.g. contributions-balaji-reddie)"
       usage
     fi
+    if [[ ! "$slug" =~ ^[a-zA-Z0-9_-]+$ ]]; then
+      echo "Error: slug must contain only letters, digits, hyphens, and underscores"
+      exit 1
+    fi
     local manifest="$MANIFEST_DIR/appendix-${slug}-manifest.yml"
     if [[ ! -f "$manifest" ]]; then
       echo "Error: No manifest found at $manifest"

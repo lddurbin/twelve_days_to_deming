@@ -120,6 +120,10 @@ main() {
       echo "Error: --appendix requires a slug (e.g. contributions-balaji-reddie)"
       usage
     fi
+    if [[ ! "$target" =~ ^[a-zA-Z0-9_-]+$ ]]; then
+      echo "Error: slug must contain only letters, digits, hyphens, and underscores"
+      exit 1
+    fi
     manifest="$MANIFEST_DIR/appendix-${target}-manifest.yml"
     label="Appendix: $target"
   elif [[ -n "${1:-}" && "$1" =~ ^[0-9]+$ ]]; then
@@ -147,7 +151,7 @@ main() {
   # Expand manifest into per-chapter temp files
   TMPDIR_CLEANUP=$(mktemp -d)
   local tmpdir="$TMPDIR_CLEANUP"
-  trap 'rm -rf "$TMPDIR_CLEANUP"' EXIT
+  trap 'rm -rf "$TMPDIR_CLEANUP" 2>/dev/null || true' EXIT
   expand_manifest "$manifest" "$tmpdir"
 
   # Read manifest meta (content_dir, interactive_checks)
