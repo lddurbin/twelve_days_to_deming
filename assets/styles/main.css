@@ -903,7 +903,11 @@ button:focus,
    <body>. We target that class to re-skin hard-coded light-mode
    colours for readable contrast on darkly's ~#222 body background.
    PNG figures retain their original rendering — visible but not
-   re-themed. */
+   re-themed.
+   Scoped to `@media not print` so hard-copy output from dark mode
+   still prints the original light palette (dark-mode text values like
+   #e4f0f5 would otherwise ghost on white paper). */
+@media not print {
 
 body.quarto-dark {
   /* Retune design tokens for dark backgrounds. */
@@ -1101,8 +1105,23 @@ body.quarto-dark [style*="color: #c0392b"] {
   color: #ff9b8f !important;
 }
 
-/* High-contrast preference inside dark mode */
-@media (prefers-contrast: high) {
+/* Focus indicators. The light-mode outline `#0066cc` gives ~2.7:1
+   against darkly's #222 body — below WCAG 2.2 SC 2.4.11's 3:1 floor.
+   Brighten to the dark palette's `#6699ff` (~6.6:1) to restore it. */
+body.quarto-dark textarea:focus,
+body.quarto-dark input:focus,
+body.quarto-dark button:focus,
+body.quarto-dark .major_activity_title:focus,
+body.quarto-dark .fe-button:focus-visible {
+  outline-color: #6699ff;
+}
+
+} /* end @media not print */
+
+/* High-contrast preference inside dark mode. Combined with
+   `not print` so the HC reinforcements also step out of the way on
+   paper. */
+@media not print and (prefers-contrast: high) {
   body.quarto-dark .deming_quote {
     color: #c8d4ff;
     border-left-color: #c8d4ff;
@@ -1115,6 +1134,12 @@ body.quarto-dark [style*="color: #c0392b"] {
   }
   body.quarto-dark .thought_commentary .collapse {
     border-color: #ff9999;
+  }
+  body.quarto-dark .foreman-transcript {
+    border-left-color: #c8d4ff;
+  }
+  body.quarto-dark .return_callout {
+    border-color: #c8d4ff;
   }
 }
 
