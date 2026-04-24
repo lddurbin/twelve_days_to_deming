@@ -6,7 +6,7 @@ execute:
 
 # PART D: A CRASH-COURSE IN CONVENTIONAL STATISTICS! {#sec-optional-extras-part-d}
 
-## Histograms and sample statistics
+## Histograms and sample statistics {#sec-optional-extras-page-37}
 
 We're starting off on quite familiar ground, particularly if you have read Part B of these Optional Extras, and so this first section is very short.
 
@@ -29,6 +29,8 @@ Many examples of probability calculations, both at the introductory stage and la
 Now comes a master-stroke in the introductory conventional Statistics course: to combine the ideas presented above into a unified theory so as to create a basis of probability for results obtained from sampling.
 
 Let's demonstrate by means of a very simple example: the number of Heads obtained when two coins are tossed. Assuming that the coins obey the mathematical ideal of an exactly 50–50 chance of Head or Tail every time they are tossed, it follows that, when both are tossed:
+
+[]{#sec-optional-extras-page-38}
 
 $$
 \begin{aligned}
@@ -137,6 +139,8 @@ $$
 
 Can you see what's happening? We are multiplying each possible value by the proportion of times that it occurs. But it is those very *proportions* that get closer and closer to the *probabilities* of those values occurring. So imagine we toss the coins 10,000 times, 100,000 times, 1,000,000 times and so on. Surely our calculation will get closer and closer to:
 
+[]{#sec-optional-extras-page-41}
+
 $$
 \bar{X} = 0 \times \tfrac{1}{4} + 1 \times \tfrac{1}{2} + 2 \times \tfrac{1}{4} = 1,
 $$
@@ -173,7 +177,7 @@ Since each of the three dice produces a six with probability $\tfrac{1}{6}$, the
 
 But what about the probability of there being exactly *one* six out of three? Here it's easier to think of one die being thrown three times. There are three different ways of getting exactly one six: *either* the first throw produces the six and the other two throws do not produce a six, *or* the single six occurs on the second throw, *or* it occurs on the third throw. Using the S and F notation, we could therefore have either SFF or FSF or FFS. So, with the probability of S being $\tfrac{1}{6}$ and of F being $\tfrac{5}{6}$ and using the same kind of multiplication technique as above, the probability of SFF is $\tfrac{1}{6} \times \tfrac{5}{6} \times \tfrac{5}{6} = \tfrac{25}{216}$. The same result will be true of both FSF and of FFS since you'll still be multiplying the same fractions together; they'll just be in a different order. Then the probability of there being exactly one six is therefore $3 \times \tfrac{25}{216} = \tfrac{75}{216}$.
 
-Finally, what is the probability of there being exactly two sixes? We *could* produce a similar argument as in the previous paragraph, but there is a neater way. Since all the four probabilities (of 0, 1, 2 and 3 sixes) must add up to 1, the probability of two sixes is equal to (1 minus the three probabilities we have just computed), i.e. $1 - \tfrac{1}{216} - \tfrac{125}{216} - \tfrac{75}{216} = \tfrac{15}{216}$. Job done!
+[]{#sec-optional-extras-page-42}Finally, what is the probability of there being exactly two sixes? We *could* produce a similar argument as in the previous paragraph, but there is a neater way. Since all the four probabilities (of 0, 1, 2 and 3 sixes) must add up to 1, the probability of two sixes is equal to (1 minus the three probabilities we have just computed), i.e. $1 - \tfrac{1}{216} - \tfrac{125}{216} - \tfrac{75}{216} = \tfrac{15}{216}$. Job done!
 
 So we have finished up with:
 
@@ -184,7 +188,7 @@ So we have finished up with:
 
 For practice, you might like to verify that the mean μ of this binomial distribution is equal to $\tfrac{1}{2}$ and its variance σ² is equal to $\tfrac{5}{12}$ (and so, taking the square root, σ = 0.6455).
 
-A more organised way of dealing with *all* binomial distributions is presented in the [Technical Section on pages 85–89](06-part-f-technical.qmd#sec-optional-extras-part-f).
+A more organised way of dealing with *all* binomial distributions is presented in the [Technical Section on pages 85–89](06-part-f-technical.qmd#sec-optional-extras-page-85).
 
 I appreciate that, at this stage, the standard deviation σ of a probability distribution may not mean a great deal to you! But its importance will become more apparent as we now move on to the next section where we introduce the famous "normal" distribution.
 
@@ -252,9 +256,11 @@ But *which* in the whole family of normal distributions is it? It so happens tha
 
 The normal distribution with mean μ and standard deviation σ is often denoted by N(μ, σ²)—again showing the conventional statistician's preference for referring to the variance σ² rather than the standard deviation σ. In particular, the normal distribution with mean 0 and standard deviation = variance = 1, i.e. N(0, 1), is known as the *standard* normal distribution.
 
+[]{#sec-optional-extras-page-47}
+
 ![Three normal distributions with the same mean μ but increasing standard deviation σ](/assets/images/optional-extras/part-d-p47-normal-family.png){.lightbox}
 
-Besides seeing the *shape* of the distribution developing from the histograms as the sample size increases and with the boxes becoming correspondingly narrower, you can also get reasonable approximations to μ and σ as the sample size increases. The computer program which produced the histograms also computed the values of $\bar{X}$ and *s* each time. The values obtained for all the sample sizes illustrated in this and the previous section were as follows:
+[]{#sec-optional-extras-page-48}Besides seeing the *shape* of the distribution developing from the histograms as the sample size increases and with the boxes becoming correspondingly narrower, you can also get reasonable approximations to μ and σ as the sample size increases. The computer program which produced the histograms also computed the values of $\bar{X}$ and *s* each time. The values obtained for all the sample sizes illustrated in this and the previous section were as follows:
 
 | Sample size | $\bar{X}$ | *s* |
 |---:|---:|---:|
@@ -281,13 +287,15 @@ On the next page there are the same three "graphs of the normal curve" as above 
 
 $$2 \times (34.1\% + 13.6\%) = 2 \times 47.7\% = 95.4\%.$$
 
+[]{#sec-optional-extras-page-49}
+
 ![The three normal curves with the standard "proportions of area thereunder" shown between successive multiples of σ](/assets/images/optional-extras/part-d-p49-area-percentages.png){.lightbox}
 
 As is clearly seen in those pictures, and as is in any case obvious from the preceding development, the curve which illustrates a *continuous* probability distribution is relatively high in regions of high probability and relatively low in regions of low probability. The curve is therefore usually referred to as the *probability density function*, or *pdf* for short. (A relatively ancient expression for the pdf was *frequency function*—and this is what Shewhart was referring to in his [quotation on page 30](03-part-c-ne-er-twain.qmd#sec-optional-extras-part-c).)
 
-On [pages 90–91 in the Technical Section](06-part-f-technical.qmd#sec-optional-extras-part-f) I shall describe how the probability of any normal random variable lying within any specific interval can be quickly found using widely-available tables of the normal distribution.
+On [pages 90–91 in the Technical Section](06-part-f-technical.qmd#sec-optional-extras-page-90) I shall describe how the probability of any normal random variable lying within any specific interval can be quickly found using widely-available tables of the normal distribution.
 
-However, there are a couple of particular probabilities that are frequently used in applications of the normal distribution to popular techniques of so-called "statistical inference". Those two probabilities are illustrated below as "proportions of area thereunder". The two diagrams show that, with a normal distribution,
+[]{#sec-optional-extras-page-50}However, there are a couple of particular probabilities that are frequently used in applications of the normal distribution to popular techniques of so-called "statistical inference". Those two probabilities are illustrated below as "proportions of area thereunder". The two diagrams show that, with a normal distribution,
 
 - a random variable has a 95% probability (coloured yellow) of lying within 1.96 standard deviations of its mean μ, 2.5% probability (left-hand tail coloured red) of being less than μ − 1.96σ, and 2.5% probability (right-hand tail coloured red) of being greater than μ + 1.96σ;  and
 - a random variable has a 99% probability (coloured yellow) of lying within 2.58 standard deviations of its mean μ, 0.5% probability (left-hand tail coloured red) of being less than μ − 2.58σ, and 0.5% probability (right-hand tail coloured red) of being greater than μ + 2.58σ.
@@ -300,7 +308,7 @@ On pages 54 and 55 I briefly describe the two most commonly-used methods of stat
 
 Incidentally, if I were to show you a similar diagram with 99.8% in the middle region and thus 0.1% in each of the two red tails then this would correspond to replacing the 1.96 or 2.58 with 3.09—which explains the remark made about "3.09σ" in the middle of [page 2 in these Optional Extras](00-introduction.qmd#sec-optional-extras-introduction).
 
-## The Central Limit Theorem
+## The Central Limit Theorem {#sec-optional-extras-page-51}
 
 The Central Limit Theorem is a truly remarkable result which, within the context of conventional Statistics, does indeed place the normal distribution in a position of truly unique importance. Descriptively, it can be summarised as follows:
 
@@ -316,13 +324,15 @@ There is one respect in which this statement can be confusing. Let's suppose the
 
 The fact that the random variable *Z* in this statement has a mean of 0 is fairly obvious: the mean value of $\bar{X}$ is, of course, equal to μ and so the mean value of $(\bar{X} - \mu)$ must surely be 0, as must any multiple of it.
 
-The expression in the denominator of *Z* is the *standard deviation* of $\bar{X}$: this will be proved in the [Technical Section on page 80](06-part-f-technical.qmd#sec-optional-extras-part-f). That expression is obviously consistent with a fact which we know to be true, i.e. that, as the sample size increases, the variability of $\bar{X}$ keeps getting smaller (so that it approximates the value of μ better and better).
+The expression in the denominator of *Z* is the *standard deviation* of $\bar{X}$: this will be proved in the [Technical Section on page 80](06-part-f-technical.qmd#sec-optional-extras-page-80). That expression is obviously consistent with a fact which we know to be true, i.e. that, as the sample size increases, the variability of $\bar{X}$ keeps getting smaller (so that it approximates the value of μ better and better).
 
 As you might expect from the fact that σ is a measure of variability, *dividing* a random variable by its standard deviation always changes its standard deviation to 1. So the facts that the mean and variance of *Z* are respectively 0 and 1 are *bound* to be true. The new and remarkable information from the Central Limit Theorem is that the distribution of *Z* almost always becomes closer and closer to the standard *normal* distribution as the sample size increases (irrespective of what kind of distribution the sample is being drawn from—either discrete or continuous), rather than to any other distribution which has mean zero and standard deviation 1. I implied above that there exist some rare and rather peculiar distributions for which this is not true, but I think that you're unlikely to ever meet one in the "real world"!
 
 Of course, usually our sample sizes *n* are rather small compared with "$n \to \infty$"!  But what makes the Central Limit Theorem even more attractive is that, almost always, the movement toward normality of $\bar{X}$'s distribution already becomes apparent with very reasonable sample sizes: the distribution is usually effectively indistinguishable from normal for *n* no larger than 30 or 20 or 30 at most, and is often close to normal for much smaller *n*. As evidence for this, it's time for some more computer simulations! As a remarkable fact, even Shewhart showed the results of some simulations to verify this attractive feature. You notice that I do not say "*computer* simulations" there: Shewhart published the results in his 1931 book—and that was rather a long while before computers were around. If you are interested in how Shewhart carried out his simulations without a computer, I refer you to pages 182–183 of his book.
 
 For the results of the computer simulations shown here, I generated samples of various sizes from three continuous probability distributions. The first was one of the two that Shewhart used: a uniform distribution whose pdf is illustrated alongside. The reason for the name is obvious: the probability is spread uniformly over an interval. As a good example, the values you get by pressing the "RAND" key on your calculator have a uniform distribution over the interval from 0 to 1.
+
+[]{#sec-optional-extras-page-52}
 
 ![Pdf of the uniform distribution](/assets/images/optional-extras/part-d-p52-uniform-pdf.png){.lightbox}
 
@@ -377,6 +387,8 @@ And with *n* = 10 we have:
 ![Histogram of standardised $\bar{X}$ from an exponential distribution, *n* = 10](/assets/images/optional-extras/part-d-p53-exp-n10.png){.lightbox}
 
 Well, it *is* getting there but, unsurprisingly, not very quickly. So, in this case, let's give the computer some real work to do and go right up to *n* = 100. Yes, the Central Limit Theorem even works with something as unfriendly as the exponential distribution!
+
+[]{#sec-optional-extras-page-54}
 
 ![Histogram of standardised $\bar{X}$ from an exponential distribution, *n* = 100](/assets/images/optional-extras/part-d-p54-exp-n100.png){.lightbox}
 
