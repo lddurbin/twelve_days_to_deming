@@ -12,9 +12,12 @@ If you encounter an accessibility issue — something that doesn't work with you
 
 **Skip-to-content link.** Keyboard and screen-reader users can bypass the sidebar on every page. The link appears as the first focusable element on page load.
 
-**OpenDyslexic font toggle.** A fixed button in the bottom-right of every page switches body and heading text to the [OpenDyslexic](https://opendyslexic.org/) typeface, which some readers with dyslexia find easier to parse. The preference persists across pages.
+**Reading preferences panel.** A single button in the bottom-right of every page opens a panel grouping all reading-preference toggles. The panel is keyboard-accessible (Esc closes, Tab cycles through controls), and its expanded state is announced to screen readers. Each toggle's value persists across pages.
 
-**Light/dark mode toggle.** A toggle in the top navigation bar switches the site between light and dark colour schemes for low-light reading, photosensitivity, or simple preference. The toggle honours your operating system's `prefers-color-scheme` setting on first visit and remembers your explicit choice across pages thereafter.
+The panel currently contains:
+
+- **Theme** — switches the site between light and dark colour schemes for low-light reading, photosensitivity, or simple preference. Honours your operating system's `prefers-color-scheme` setting on first visit and remembers your explicit choice thereafter.
+- **Dyslexia font** — switches body and heading text to the [OpenDyslexic](https://opendyslexic.org/) typeface, which some readers with dyslexia find easier to parse.
 
 **Visible focus indicators.** Keyboard focus is clearly outlined on all interactive controls (links, buttons, text inputs, toggles). Mouse users are unaffected.
 
