@@ -1,6 +1,6 @@
 # Archived Scripts
 
-These scripts were part of earlier conversion approaches during the project's evolution. They have been superseded by the current workflow documented in `workflow/CONVERSION_GUIDE.md`.
+These scripts were part of earlier conversion approaches during the project's evolution. They were superseded by the per-day workflow archived at `workflow/archive/CONVERSION_PROCESS.md`. For ongoing patterns and conventions, see `workflow/PATTERNS.md`.
 
 ## What's here
 

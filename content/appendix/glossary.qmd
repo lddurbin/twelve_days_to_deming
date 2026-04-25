@@ -1,0 +1,51 @@
+---
+title: "Glossary"
+execute:
+  echo: false
+---
+
+A short, alphabetical reference for the course's most-recurring specialised terms. Definitions are taken verbatim from Neave's prose (or from a Deming quote that Neave reproduces). Each entry links back to the chapter where the term is first defined in context.
+
+The set is intentionally small — seven terms, capped at around ten — because the value of a glossary lives in being predictable and uncluttered, not exhaustive.
+
+## common cause / common-cause variation {#common-cause}
+
+Variation inherent to the process and the circumstances in which it is being operated — the way it has been designed, built, set up, and operated. Common causes are always there until the process itself is changed.
+
+[First defined in context: Day 1, "The Deming story"](../days/day-01/11-deming-story.qmd#common-cause).
+
+## in statistical control {#in-statistical-control}
+
+A process exhibiting variation whose nature does not noticeably change — also called "stable" or "predictable". The opposite, "out of statistical control", means the process is being affected by special causes and is unstable and unpredictable.
+
+[First defined in context: Day 1, "The Deming story"](../days/day-01/11-deming-story.qmd#in-statistical-control).
+
+## operational definition {#operational-definition}
+
+Deming: "An operational definition puts communicable meaning into a concept." It specifies how something is to be observed, measured, counted, or decided — preventing ambiguity and ensuring fitness for purpose.
+
+[First defined in context: Day 11, "Theory of Knowledge — Operational Definitions"](../days/day-11/04-theory-of-knowledge-operational-definitions.qmd#operational-definition).
+
+## PDSA cycle (Plan-Do-Study-Act) {#pdsa-cycle}
+
+An iterative improvement cycle: Plan, Do, Study, Act. Deming preferred "Study" over the simpler "Check" because the third step is where the real learning takes place. He always referred to it as the Shewhart Cycle.
+
+[First defined in context: Day 1, "The Deming story"](../days/day-01/11-deming-story.qmd#pdsa-cycle).
+
+## special cause / special-cause variation {#special-cause}
+
+Additional causes of variation that are not there all the time — one-off happenings or temporary changes that noticeably affect how the process behaves. Shewhart called them "assignable" causes.
+
+[First defined in context: Day 1, "The Deming story"](../days/day-01/11-deming-story.qmd#special-cause).
+
+## System of Profound Knowledge {#system-of-profound-knowledge}
+
+Deming's attempt to summarise the essence of his whole life's work. It comprises four major parts — Appreciation for a System, Theory of Variation, Theory of Knowledge, and Psychology — whose strength lies in how they interlink and inter-depend.
+
+[First defined in context: Day 1, "The Deming story"](../days/day-01/11-deming-story.qmd#system-of-profound-knowledge).
+
+## transformation {#transformation}
+
+A discontinuous shift that comes from understanding the System of Profound Knowledge. The individual, transformed, perceives new meaning in events, numbers, and interactions, and applies these principles in every relationship with other people.
+
+[First defined in context: Day 12, "But what can I do?"](../days/day-12/04-but-what-can-i-do.qmd#transformation).

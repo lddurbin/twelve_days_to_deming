@@ -5,7 +5,7 @@
 # "Day N page M" reference in content/ and a 30-item fuzzy-mention sample.
 #
 # Policy for this audit and its columns is documented in
-# workflow/CONVERSION_GUIDE.md under "Inter-Day Cross-References".
+# workflow/PATTERNS.md under "Inter-Day Cross-References".
 #
 # Usage (from repo root):
 #   Rscript scripts/build-interday-audit.R

@@ -15,6 +15,7 @@
   },
   "urls": [
     "http://localhost:8765/",
+    "http://localhost:8765/content/appendix/glossary.html",
     "http://localhost:8765/content/appendix/00-welcome.html",
     "http://localhost:8765/content/appendix/01-day-1.html",
     "http://localhost:8765/content/appendix/02-day-2.html",
@@ -43,8 +44,6 @@
     "http://localhost:8765/content/days/day-02/07-some-recollections.html",
     "http://localhost:8765/content/days/day-02/09-postscript.html",
     "http://localhost:8765/content/days/day-03/11-the-first-two-rules-of-the-funnel.html",
-    "http://localhost:8765/content/days/day-03/12-rules-3-and-4-of-the-funnel.html",
-    "http://localhost:8765/content/days/day-11/04-theory-of-knowledge-operational-definitions.html",
-    "http://localhost:8765/content/days/day-12/04-but-what-can-i-do.html"
+    "http://localhost:8765/content/days/day-03/12-rules-3-and-4-of-the-funnel.html"
   ]
 }

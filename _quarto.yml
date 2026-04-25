@@ -147,6 +147,7 @@ book:
     - changes-from-source.qmd
 
   appendices:
+    - content/appendix/glossary.qmd
     - content/appendix/00-welcome.qmd
     - content/appendix/01-day-1.qmd
     - content/appendix/02-day-2.qmd
@@ -166,14 +167,15 @@ book:
         - content/appendix/optional-extras/05-part-e-normality.qmd
         - content/appendix/optional-extras/06-part-f-technical.qmd
     - content/appendix/10-optional-extras.qmd
-    - content/appendix/contributions-balaji-reddie/00-introduction.qmd
-    - content/appendix/contributions-balaji-reddie/01-prelude-a-system.qmd
-    - content/appendix/contributions-balaji-reddie/02-prelude-b-statistical-thinking.qmd
-    - content/appendix/contributions-balaji-reddie/03-prelude-c-learning.qmd
-    - content/appendix/contributions-balaji-reddie/04-prelude-d-people.qmd
-    - content/appendix/contributions-balaji-reddie/05-coda.qmd
-    - content/appendix/contributions-balaji-reddie/06-lessons-from-history.qmd
-    - content/appendix/contributions-balaji-reddie/07-indias-missed-opportunity.qmd
+    - part: content/appendix/contributions-balaji-reddie/00-introduction.qmd
+      chapters:
+        - content/appendix/contributions-balaji-reddie/01-prelude-a-system.qmd
+        - content/appendix/contributions-balaji-reddie/02-prelude-b-statistical-thinking.qmd
+        - content/appendix/contributions-balaji-reddie/03-prelude-c-learning.qmd
+        - content/appendix/contributions-balaji-reddie/04-prelude-d-people.qmd
+        - content/appendix/contributions-balaji-reddie/05-coda.qmd
+        - content/appendix/contributions-balaji-reddie/06-lessons-from-history.qmd
+        - content/appendix/contributions-balaji-reddie/07-indias-missed-opportunity.qmd
     - content/appendix/11-references-and-sources.qmd
 
 filters:
@@ -198,7 +200,6 @@ format:
       </script>
       <script src="/assets/scripts/functions.js"></script>
       <script src="/assets/scripts/reading-prefs.js"></script>
-      <script src="/assets/scripts/dfn-tooltip.js"></script>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
           var a = document.createElement("a");
