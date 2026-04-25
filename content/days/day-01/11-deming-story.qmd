@@ -44,7 +44,7 @@ was subsequently built.
 
 Shewhart, in so many ways, became Deming’s *mentor*. A mentor is a priceless asset: someone in whom
 we can trust, and from whom we can thus confidently learn. Deming had found his mentor, and he repeatedly attributed the source of much of his most important learning as being Walter Shewhart. Not just for
-the statistical aspects of the Deming philosophy but much else besides, including systems thinking, operational definitions, the well-known PDSA (Plan-Do-Study-Act) improvement cycle (which many call the *Deming* Cycle but to which he always referred as the " *Shewhart* Cycle), and much more. We shall learn about all
+the statistical aspects of the Deming philosophy but much else besides, including systems thinking, operational definitions, the well-known <dfn data-definition="An iterative improvement cycle: Plan, Do, Study, Act. Deming preferred &quot;Study&quot; over the simpler &quot;Check&quot; because the third step is where the real learning takes place. He always referred to it as the Shewhart Cycle.">PDSA (Plan-Do-Study-Act) improvement cycle</dfn> (which many call the *Deming* Cycle but to which he always referred as the " *Shewhart* Cycle), and much more. We shall learn about all
 of these topics during the course.
 
 But let me quote Deming directly from his dedication in the 1980 reprint of Shewhart’s famous 1931 book:
@@ -142,14 +142,14 @@ style. So these are all factors that are present for the relatively “long haul
 they are constantly present. A careless mathematician might possibly misinterpret that adjective: in
 Mathematics, something being “constant” means that it is “not varying”, so the careless misinterpretation might be that they do not cause *any* variation! That’s obviously wrong: the truth is that
 they are one of the two types of *causes* of variation. The valid inference is instead that the nature of
-the resulting variation is unchanging because the causes of that variation are effectively unchanging. Deming referred to Shewhart’s <span class=deming_quote>“constant”</span> causes as “common” causes of variation.
+the resulting variation is unchanging because the causes of that variation are effectively unchanging. Deming referred to Shewhart’s <span class=deming_quote>“constant”</span> causes as <dfn data-definition="Variation inherent to the process and the circumstances in which it is being operated — the way it has been designed, built, set up, and operated. Common causes are always there until the process itself is changed.">“common” causes of variation</dfn>.
 4. Whereas the common causes are always there (until the process gets changed in some way—
 hopefully improved!), the process’s variation may also sometimes be affected by additional causes
 that are not there all the time—perhaps some one-off happenings or a temporary change in something which has an important influence on how the process behaves. Of course, such additional
 causes may occur quite often, but if their effect is so small as not to materially affect the way the
 process behaves then obviously we can’t do much about them, and don’t need to. We can only
 notice them if there is something to be noticed, i.e. if we can recognise that the nature of the variation changes. Shewhart referred to such additional causes—ones which *do* noticeably affect the
-variation—as “assignable” causes of variation; Deming called them <span class=deming_quote>“special”</span> causes.
+variation—as “assignable” causes of variation; Deming called them <dfn data-definition="Additional causes of variation that are not there all the time — one-off happenings or temporary changes that noticeably affect how the process behaves. Shewhart called them &quot;assignable&quot; causes.">“special” causes</dfn>.
 5. Processes that are not suffering from such special causes, i.e. are exhibiting variation whose nature
 does not noticeably change, are said to be “in statistical control” or, more simply, “stable” or “predictable”. The “prediction” is that the nature of the variation will continue to be effectively the same
 into the future unless special causes arrive on the scene to change matters.

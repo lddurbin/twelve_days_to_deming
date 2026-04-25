@@ -198,6 +198,7 @@ format:
       </script>
       <script src="/assets/scripts/functions.js"></script>
       <script src="/assets/scripts/reading-prefs.js"></script>
+      <script src="/assets/scripts/dfn-tooltip.js"></script>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
           var a = document.createElement("a");
