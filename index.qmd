@@ -340,6 +340,8 @@ You will occasionally come across a green information box, such as the one near 
 
 There is one other piece of similar symbolism — italicised words inside square brackets, like *[this]* — which is used where I am quoting material written or spoken by other people, or occasionally by me, and inserting some further words or comments for clarity or information. The first such use occurs near the top of Day 1 page 5 where I have inserted a couple of words into a statement from the narrator, Lloyd Dobyns, in the historically important TV documentary *If Japan Can, Why Can't We?*.
 
+You will also notice that a small number of specialised terms — *common cause* and *special cause* of variation, *PDSA cycle*, *in statistical control*, *operational definition*, *System of Profound Knowledge*, and *transformation* in Deming's sense — are marked with an amber underline at the place where each is first defined in the prose. The same seven terms are collected, alphabetically and with the same wordings, in the [Glossary appendix](content/appendix/glossary.qmd), so you can look any of them up at any time without hunting back through earlier chapters.
+
 ### "Out-of-hours" work
 
 I should point out to you that, in addition to the current opening section, there will be a small amount of
