@@ -33,6 +33,8 @@ The panel currently contains:
 
 Every pull request to the repository runs [pa11y](https://pa11y.org/) against the rendered site. The build fails if any WCAG 2.1 AA issue is detected, so the main branch is kept passing at all times.
 
+A small set of pa11y rules are suppressed in `.pa11yci.json` — chiefly framework-level false positives or rules whose substantive remediation is scoped to other tracked issues. The rationale for each suppression is documented in [`docs/pa11y-ignores.md`](https://github.com/lddurbin/twelve_days_to_deming/blob/main/docs/pa11y-ignores.md), which should be updated whenever the ignore list changes.
+
 ## What's still to come
 
 Planned improvements are tracked on GitHub under the [accessibility label](https://github.com/lddurbin/twelve_days_to_deming/issues?q=is%3Aissue+is%3Aopen+label%3Aaccessibility). Current priorities include long-descriptions for the statistical charts across Days 4–12, a per-chapter text-to-speech control, and an estimated reading-time indicator.
