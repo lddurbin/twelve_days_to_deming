@@ -989,6 +989,66 @@ button:focus,
   .reading-prefs-panel { display: none !important; }
 }
 
+/* ===== GLOSSARY TOOLTIPS =====
+   Pattern: <dfn data-definition="…">term</dfn>
+   The dfn-tooltip.js script makes the dfn focusable, injects a sibling
+   <span class="dfn-tooltip" role="tooltip"> carrying the definition, and
+   wires aria-describedby. The reveal is pure CSS via the adjacent-sibling
+   selector on :hover and :focus, so screen readers, mouse users, and
+   keyboard users all get the same affordance. */
+dfn[data-definition] {
+  font-style: inherit;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.2em;
+  cursor: help;
+  position: relative;
+}
+dfn[data-definition]:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.dfn-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  /* Centre over the term so right-side terms don't overflow the viewport
+     as readily. Edge-case overflow on terms very near either margin
+     remains; a JS-based clamp would be the next escalation. */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1042;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 32px));
+  padding: 8px 12px;
+  background-color: #1a1a26;
+  color: #fff;
+  font-size: 0.85rem;
+  font-style: normal;
+  line-height: 1.45;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  visibility: hidden;
+  opacity: 0;
+  /* Delay the visibility flip so the opacity fade-out can run before the
+     element drops out of the a11y tree. Without the delay, exit snaps
+     while entry fades — visually asymmetric. */
+  transition: opacity 120ms ease, visibility 0s linear 120ms;
+  pointer-events: none;
+}
+dfn[data-definition]:hover > .dfn-tooltip,
+dfn[data-definition]:focus > .dfn-tooltip,
+dfn[data-definition]:focus-visible > .dfn-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 120ms ease, visibility 0s linear 0s;
+}
+
+@media print {
+  dfn[data-definition] { text-decoration: none; }
+  .dfn-tooltip { display: none !important; }
+}
+
 .reading-time {
   margin-top: -0.5rem;
   margin-bottom: 1.5rem;
@@ -1215,6 +1275,13 @@ body.quarto-dark .reading-prefs-control[aria-pressed="true"] {
 }
 body.quarto-dark .reading-prefs-control[aria-pressed="true"]:hover {
   background-color: #4040c0;
+}
+
+/* Glossary tooltip: the slate background works against either page colour,
+   but on darkly's #222 body the dropshadow disappears. A thin border keeps
+   the tooltip distinguishable from surrounding text. */
+body.quarto-dark .dfn-tooltip {
+  border: 1px solid #8fa8ff;
 }
 
 /* Inline-styled colours. A small number of .qmd pages use inline

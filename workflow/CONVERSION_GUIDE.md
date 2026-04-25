@@ -504,6 +504,58 @@ The French phrase <span lang="fr">raison d'être</span> captures this well.
 Use ISO 639-1 codes: `ja` Japanese, `de` German, `fr` French, `la` Latin,
 `es` Spanish.
 
+### Glossary tooltips for specialised terms
+
+Deming's vocabulary is heavy with terms readers may need to look up — *common
+cause*, *special cause*, *PDSA cycle*, *operational definition*,
+*appreciation for a system*, etc. The `<dfn>` pattern shows the definition
+inline on hover or keyboard focus, so readers don't have to leave the page.
+
+**Syntax:**
+
+```markdown
+Deming called them <dfn data-definition="A cause of variation arising from a
+specific, identifiable disturbance — not part of the system's normal
+operation.">"special" causes</dfn>.
+```
+
+The accompanying machinery (`assets/scripts/dfn-tooltip.js`, plus CSS rules
+in `assets/styles/main.css`) does the rest: it makes the dfn keyboard-
+focusable, injects a sibling `<span role="tooltip">`, wires
+`aria-describedby`, and dismisses on Escape.
+
+**When to mark up:**
+
+- The **first defining instance** of a specialised term within a chapter —
+  that is, the sentence where the term is introduced or named for the first
+  time. `<dfn>` is HTML's "this is the term being defined" element, so the
+  semantics match.
+- Pure-prose chapters preferred — avoid wrapping terms inside Deming's own
+  block quotes, where the dotted underline and tooltip would clash with the
+  quote's visual frame.
+
+**When NOT to mark up:**
+
+- Subsequent uses of an already-defined term in the same chapter — one
+  marker per chapter is plenty; readers can scroll back if they need a
+  refresher.
+- Inside R-emitted figures, control-chart legends, or Mermaid/DiagrammeR
+  diagrams. The tooltip script only scans the rendered HTML body.
+- Inside `<span class="deming_quote">…</span>` — leave Deming's own words
+  untouched; readers expect quotations to be diplomatic transcriptions.
+
+**Definition style:**
+
+- Two sentences max — the tooltip should fit comfortably on a phone.
+- Plain language. Don't define a term using two more undefined terms.
+- Avoid HTML inside `data-definition`: the JS injects it as `textContent`,
+  so any tags would be rendered literally.
+
+**Positioning caveat.** The tooltip always opens *above* the term. Avoid
+marking up terms that sit in the first line or two of a chapter — the
+tooltip would clip above the viewport. Pick a defining instance further
+into the prose instead.
+
 ### Reading-time indicator
 
 Every chapter is automatically annotated with an estimated reading time

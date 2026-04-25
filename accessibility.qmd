@@ -19,6 +19,8 @@ The panel currently contains:
 - **Theme** — switches the site between light and dark colour schemes for low-light reading, photosensitivity, or simple preference. Honours your operating system's `prefers-color-scheme` setting on first visit and remembers your explicit choice thereafter.
 - **Dyslexia font** — switches body and heading text to the [OpenDyslexic](https://opendyslexic.org/) typeface, which some readers with dyslexia find easier to parse.
 
+**Glossary tooltips on specialised terms.** Specialised vocabulary (such as *common cause*, *special cause*, and *PDSA cycle*) is marked up with the HTML `<dfn>` element and given a subtle dotted underline. Hovering or keyboard-focusing the term reveals a short definition. Screen readers announce the definition automatically via `aria-describedby`, and pressing `Esc` dismisses the tooltip.
+
 **Visible focus indicators.** Keyboard focus is clearly outlined on all interactive controls (links, buttons, text inputs, toggles). Mouse users are unaffected.
 
 **ARIA labelling.** Interactive elements, data tables, and input widgets expose accessible names to assistive technology. This includes the site search, the activity text inputs, and the chart-embedded controls on Days 2, 3, and 6.
