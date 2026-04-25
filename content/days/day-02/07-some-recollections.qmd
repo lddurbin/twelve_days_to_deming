@@ -66,7 +66,7 @@ don't take too long about it!
 :::: {.columns}
 ::: {.column width="55%"}
 
-![Week 1 of professional statisticians' results as a table of data.](/assets/images/day-02/image-7.png){fig-align="center" width="30%" .lightbox}
+![Week 1 of professional statisticians' results as a table of data.](/assets/images/day-02/image-7.png){fig-align="center" width="100%" .lightbox}
 
 :::
 ::: {.column width="45%"}
@@ -82,7 +82,7 @@ viewof thought_2e_i = Inputs.textarea({label: "Your comments on the Week 1 resul
 :::: {.columns}
 ::: {.column width="55%"}
 
-![Week 2 of professional statisticians' results as a table of data.](/assets/images/day-02/image-8.png){fig-align="center" width="40%" .lightbox}
+![Week 2 of professional statisticians' results as a table of data.](/assets/images/day-02/image-8.png){fig-align="center" width="100%" .lightbox}
 
 :::
 ::: {.column width="45%"}
@@ -96,7 +96,7 @@ viewof thought_2e_ii = Inputs.textarea({label: "Your comments on the Week 2 resu
 :::: {.columns}
 ::: {.column width="55%"}
 
-![Week 3 of professional statisticians' results as a table of data.](/assets/images/day-02/image-9.png){fig-align="center" width="50%" .lightbox}
+![Week 3 of professional statisticians' results as a table of data.](/assets/images/day-02/image-9.png){fig-align="center" width="100%" .lightbox}
 
 :::
 ::: {.column width="45%"}
@@ -115,7 +115,7 @@ fourth week, followed in turn by 10, 7 and 8 in their second shift.
 :::: {.columns}
 ::: {.column width="55%"}
 
-![Week 4 of professional statisticians' results as a table of data.](/assets/images/day-02/image-10.png){fig-align="center" width="60%" .lightbox}
+![Week 4 of professional statisticians' results as a table of data.](/assets/images/day-02/image-10.png){fig-align="center" width="100%" .lightbox}
 
 :::
 ::: {.column width="45%"}
