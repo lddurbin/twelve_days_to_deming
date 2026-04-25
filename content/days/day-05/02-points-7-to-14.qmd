@@ -6,7 +6,7 @@ execute:
 
 ## Point 7. Institute leadership of people {#sec-page2}
 
-<div class="info_callout">**Adopt and institute leadership aimed at helping people to do a better job.** The responsibility of managers and supervisors must be changed from sheer numbers to quality. Improvement of quality will automatically improve productivity. Management must ensure that immediate action is taken on reports of inherited defects, maintenance requirements, poor tools, fuzzy operational definitions *[operational definitions will be studied on Day 11]*, and other conditions detrimental to quality.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Adopt and institute leadership aimed at helping people to do a better job.** The responsibility of managers and supervisors must be changed from sheer numbers to quality. Improvement of quality will automatically improve productivity. Management must ensure that immediate action is taken on reports of inherited defects, maintenance requirements, poor tools, fuzzy operational definitions *[operational definitions will be studied on Day 11]*, and other conditions detrimental to quality.</div>
 
 Rather than my attempting to contrive introductory comments in this case, it will be far more useful for you to **turn to *DemDim* page 335 and read through the list of "Attributes of a Leader"** which Dr Deming used in his four-day seminars around 1990. (Don't focus your attention on the technology—simply Dr Deming's own handwriting on a typewriter!—but that list provides many clear links with the Joiner Triangle.)
 
@@ -64,7 +64,7 @@ create_clock(12, 0)
 
 ## Point 8. Drive out fear {#sec-page4}
 
-<div class="info_callout">**Encourage effective two-way communication and other means to drive out fear throughout the organisation** so that everybody may work effectively and more productively for the company.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Encourage effective two-way communication and other means to drive out fear throughout the organisation** so that everybody may work effectively and more productively for the company.</div>
 
 The three-word heading to this Point is one that everybody who has heard or read it seems to easily remember. Perhaps that is because it is one of the bluntest expressions imaginable of how the Deming philosophy is diametrically opposite to what is going on in many organisations. Do *you* produce your best work when you are in a state of fear? If so, I feel genuinely sorry for you. You might produce your *fastest* work—but your *best* work?
 
@@ -122,7 +122,7 @@ create_clock(12, 0)
 
 ## Point 9. Break down barriers {#sec-page6}
 
-<div class="info_callout">**Break down barriers between departments and staff areas.** People in different areas, such as Research, Design, Sales, Administration, and Production, must work in teams to tackle problems that may be encountered with products or service.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Break down barriers between departments and staff areas.** People in different areas, such as Research, Design, Sales, Administration, and Production, must work in teams to tackle problems that may be encountered with products or service.</div>
 
 As a considerable change of source, here is a short extract from the soundtrack of a video made in 1984 for the UK Government's Department of Trade and Industry in support of a National Quality Campaign. The video was called *The Case of the Short-Sighted Boss*. An electrical goods manufacturing company was not doing very well. In a dream, the Managing Director engaged Sherlock Holmes as a management consultant!
 
@@ -196,7 +196,7 @@ create_clock(12, 0)
 
 ## Point 10. Eliminate exhortations {#sec-page8}
 
-<div class="info_callout">**Eliminate the use of slogans, posters, and exhortations** for the workforce, demanding Zero Defects and new levels of productivity without providing methods. Such exhortations only create adversarial relationships: the bulk of the causes of low quality and low productivity belong to the system, and thus lie beyond the power of the workforce.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Eliminate the use of slogans, posters, and exhortations** for the workforce, demanding Zero Defects and new levels of productivity without providing methods. Such exhortations only create adversarial relationships: the bulk of the causes of low quality and low productivity belong to the system, and thus lie beyond the power of the workforce.</div>
 
 This Point in particular needs reading beyond the first few words—including to the very end of the first sentence! Dr Deming was pretty scornful of mere "slogans" and "exhortations" as ways to improve quality. But, of course, not all "posters" are bad. E.g., on *Out of the Crisis* page 59 [pages 68–69] he writes:
 
@@ -258,7 +258,7 @@ create_clock(12, 0)
 
 ## Point 11. Eliminate arbitrary numerical targets {#sec-page10}
 
-<div class="info_callout">**Eliminate work standards that prescribe quotas for the workforce and numerical goals for people in management.** Substitute aids and helpful leadership in order to achieve continual improvement of quality and productivity.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Eliminate work standards that prescribe quotas for the workforce and numerical goals for people in management.** Substitute aids and helpful leadership in order to achieve continual improvement of quality and productivity.</div>
 
 Here we have the topic that used to be regarded as probably the most controversial of all of the 14 Points (other than Point 12 if that is incorrectly regarded as being primarily about performance appraisal). Nowadays, repeated failures of the "target culture" have raised some awareness of the truth in what Deming was getting at so long ago. Yet managers and governments still *love* targets. They are easy to set, and then those who set them can sit back and wait for the results to arrive—as they will (or will appear to) if the threats and promises are sufficiently impressive. But at what cost?
 
@@ -316,7 +316,7 @@ create_clock(12, 0)
 
 ## Point 12. Permit pride of workmanship {#sec-page12}
 
-<div class="info_callout">**Remove the barriers that rob hourly workers, and people in management, of their right to pride of workmanship.** This implies, *inter alia*, abolition of the annual merit rating (appraisal of performance) and of Management by Objective. Again, the responsibility of managers, supervisors, foremen must be changed from sheer numbers to quality.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Remove the barriers that rob hourly workers, and people in management, of their right to pride of workmanship.** This implies, *inter alia*, abolition of the annual merit rating (appraisal of performance) and of Management by Objective. Again, the responsibility of managers, supervisors, foremen must be changed from sheer numbers to quality.</div>
 
 This Point is unusual in that people have largely ignored its main focus and argued instead about a subsidiary (but nonetheless very important) aspect. The main focus is the value and mutual benefit of "pride of workmanship". The subsidiary aspect (which Deming introduces as "*inter alia*"—"amongst other things", indeed amongst *many* other things)—is performance appraisal. I believe it was at least partly due to this, i.e. lack of attention paid to the Point's main issue, that in 1988 he began to talk of something very closely related but with those short and considerably more impactful words: "joy in work" (to be discussed on Day 8).
 
@@ -372,7 +372,7 @@ create_clock(12, 0)
 
 ## Point 13. Encourage education {#sec-page14}
 
-<div class="info_callout">**Institute a vigorous programme of education, and encourage self-improvement for everyone.** What an organisation needs is not just good people; it needs people that are improving with education. Advances in competitive position will have their roots in knowledge.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Institute a vigorous programme of education, and encourage self-improvement for everyone.** What an organisation needs is not just good people; it needs people that are improving with education. Advances in competitive position will have their roots in knowledge.</div>
 
 The well-known Japanese teacher, Kaoru Ishikawa, is often quoted (e.g. near the end of the Preface to his book: *Introduction to Quality Control*) in such words as "QC starts and ends with education". *(It should be noted that the Japanese interpretation of the term "Quality Control" (QC) is much broader than ours.)* I would expand Ishikawa's statement to something like: "QC is generated by education and generates yet more education".
 
@@ -442,7 +442,7 @@ create_clock(12, 0)
 
 ## Point 14. Top management commitment and action {#sec-page16}
 
-<div class="info_callout">**Clearly define top management's permanent commitment to ever-improving quality and productivity,** and their obligation to implement all of these principles. Indeed, it is not enough that top management commit themselves for life to quality and productivity. They must know what it is that they are committed to—i.e. what they must do. Create a structure in top management that will push every day on the preceding 13 Points, and take action in order to accomplish the transformation. Support is not enough: action is required.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Clearly define top management's permanent commitment to ever-improving quality and productivity,** and their obligation to implement all of these principles. Indeed, it is not enough that top management commit themselves for life to quality and productivity. They must know what it is that they are committed to—i.e. what they must do. Create a structure in top management that will push every day on the preceding 13 Points, and take action in order to accomplish the transformation. Support is not enough: action is required.</div>
 
 "Top management commitment" has unfortunately become something of a cliché—you can hear it, almost robot-like, from just about all teachers of just about all approaches to what they call "quality". But most other approaches do not really require people in management to change significantly, if at all: they just need to "support" whatever is going on. However, as you will have realised by now (and we saw it in Point 2), Dr Deming was talking about *transformation of management*—and he meant it! So what chance does his priceless teaching have of getting anywhere in an organisation without Point 14?
 

@@ -21,7 +21,7 @@ Here is another sequence of 24 numbers. Please sketch a histogram of these data.
 
 <p class="text-center">18&ensp;19&ensp;17&ensp;17&ensp;16&ensp;17&ensp;16&ensp;15&ensp;14&ensp;15&ensp;15&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13&ensp;13&ensp;13&ensp;11&ensp;12&ensp;11&ensp;11&ensp;10&ensp;11</p>
 
-<div class="info_callout">This is a drawing activity. Please sketch your histogram on paper, then note your conclusions below.</div>
+<div class="aside_callout" role="note" aria-label="Author's note">This is a drawing activity. Please sketch your histogram on paper, then note your conclusions below.</div>
 
 ```{ojs}
 viewof activity_3d = Inputs.textarea({label: "What do you conclude from your histogram?", placeholder: "What do you conclude from your histogram?", rows: 5})
@@ -50,7 +50,7 @@ Here again are the data from the second process (to save you from having to look
 
 Please draw a run chart for this second process.
 
-<div class="info_callout">This is a drawing activity. Please sketch your run chart on paper, then compare and contrast below.</div>
+<div class="aside_callout" role="note" aria-label="Author's note">This is a drawing activity. Please sketch your run chart on paper, then compare and contrast below.</div>
 
 Compare and contrast the learning obtained from the two ways of pictorially representing data illustrated in Activities 3–d and 3–e.
 
@@ -67,7 +67,7 @@ Clearly, the first process was trending upward over time; the second was trendin
 </div>
 </div>
 
-<div class="callout-emphasis">
+<div class="callout-emphasis" role="note" aria-label="Key insight">
 Histograms totally ignore the order in which the numbers come out of a process. Yet that order is very likely to hold the most important information of all about the process's behaviour.
 </div>
 
