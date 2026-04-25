@@ -151,7 +151,7 @@ process behaves then obviously we can’t do much about them, and don’t need t
 notice them if there is something to be noticed, i.e. if we can recognise that the nature of the variation changes. Shewhart referred to such additional causes—ones which *do* noticeably affect the
 variation—as “assignable” causes of variation; Deming called them <dfn data-definition="Additional causes of variation that are not there all the time — one-off happenings or temporary changes that noticeably affect how the process behaves. Shewhart called them &quot;assignable&quot; causes.">“special” causes</dfn>.
 5. Processes that are not suffering from such special causes, i.e. are exhibiting variation whose nature
-does not noticeably change, are said to be “in statistical control” or, more simply, “stable” or “predictable”. The “prediction” is that the nature of the variation will continue to be effectively the same
+does not noticeably change, are said to be <dfn data-definition="A process exhibiting variation whose nature does not noticeably change — also called &quot;stable&quot; or &quot;predictable&quot;. The opposite, &quot;out of statistical control&quot;, means the process is being affected by special causes and is unstable and unpredictable.">“in statistical control”</dfn> or, more simply, “stable” or “predictable”. The “prediction” is that the nature of the variation will continue to be effectively the same
 into the future unless special causes arrive on the scene to change matters.
 6. Processes which are being affected by special causes are said to be “out of statistical control” or
 “unstable” or “unpredictable”—we cannot now predict with any justification how the variation will behave in the future. That will remain the case until the special causes are identified and either
@@ -501,7 +501,7 @@ lies in the understanding of how all of those components fit together, how they 
 :::: {.columns}
 
 ::: {.column width="50%"}
-I like very much the representation of Dr Deming’s System of Profound Knowledge shown
+I like very much the representation of Dr Deming’s <dfn data-definition="Deming's attempt to summarise the essence of his whole life's work. It comprises four major parts — Appreciation for a System, Theory of Variation, Theory of Knowledge, and Psychology — whose strength lies in how they interlink and inter-depend.">System of Profound Knowledge</dfn> shown
 alongside, constructed by one of my many
 American friends, the late, great Peter Scholtes. The words differ slightly, but the System
 of Profound Knowledge comprises four major

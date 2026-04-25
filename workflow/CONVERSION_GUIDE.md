@@ -508,8 +508,16 @@ Use ISO 639-1 codes: `ja` Japanese, `de` German, `fr` French, `la` Latin,
 
 Deming's vocabulary is heavy with terms readers may need to look up — *common
 cause*, *special cause*, *PDSA cycle*, *operational definition*,
-*appreciation for a system*, etc. The `<dfn>` pattern shows the definition
-inline on hover or keyboard focus, so readers don't have to leave the page.
+*transformation*, etc. The `<dfn>` pattern shows the definition inline on
+hover or keyboard focus, so readers don't have to leave the page.
+
+**Cap and audit log.** The full set of marked terms is governed by an
+audit at `docs/glossary-audit.md` — capped at **~10 course-defining terms**
+to prevent visual noise, tab-stop pollution, and pedagogical
+short-circuiting. Don't add a new dfn without first updating that
+document with the rationale, source location, and chosen tooltip wording.
+The cap is the discipline; if a new candidate is genuinely stronger than
+one already in the list, displace rather than expand.
 
 **Syntax:**
 
