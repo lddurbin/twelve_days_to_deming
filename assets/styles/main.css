@@ -1033,6 +1033,21 @@ button:focus,
   .reading-time { display: none !important; }
 }
 
+/* Glossary terms: <dfn id="…"> marks the first defining instance of a
+   course-glossary term (definitions live in the appendix glossary).
+   The user-agent default is italic, but Neave's prose already uses
+   italic for emphasis — letting both render the same erases that
+   distinction. We override to upright and apply a 2px solid amber
+   underline: thicker than the 1px link underline and a non-link hue,
+   so the mark reads as "noted term" rather than "interactive thing". */
+dfn {
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: #d97706;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
+}
+
 /* ===== DARK MODE OVERRIDES ===== */
 /* Quarto's dual-theme config (`theme: { light: cosmo, dark: darkly }`)
    swaps the active Bootswatch stylesheet and adds `.quarto-dark` to
@@ -1250,11 +1265,10 @@ body.quarto-dark .reading-prefs-control[aria-pressed="true"]:hover {
   background-color: #4040c0;
 }
 
-/* Glossary tooltip: the slate background works against either page colour,
-   but on darkly's #222 body the dropshadow disappears. A thin border keeps
-   the tooltip distinguishable from surrounding text. */
-body.quarto-dark .dfn-tooltip {
-  border: 1px solid #8fa8ff;
+/* Glossary terms: brighten the amber underline for legibility against
+   the darkly #222 body. */
+body.quarto-dark dfn {
+  text-decoration-color: #fbbf24;
 }
 
 /* Inline-styled colours. A small number of .qmd pages use inline

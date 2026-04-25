@@ -19,7 +19,7 @@ The panel currently contains:
 - **Theme** — switches the site between light and dark colour schemes for low-light reading, photosensitivity, or simple preference. Honours your operating system's `prefers-color-scheme` setting on first visit and remembers your explicit choice thereafter.
 - **Dyslexia font** — switches body and heading text to the [OpenDyslexic](https://opendyslexic.org/) typeface, which some readers with dyslexia find easier to parse.
 
-**Glossary tooltips on specialised terms.** Specialised vocabulary (such as *common cause*, *special cause*, and *PDSA cycle*) is marked up with the HTML `<dfn>` element and given a subtle dotted underline. Hovering or keyboard-focusing the term reveals a short definition. Screen readers announce the definition automatically via `aria-describedby`, and pressing `Esc` dismisses the tooltip.
+**Glossary marker on specialised terms.** Specialised vocabulary (such as *common cause*, *special cause*, and *PDSA cycle*) is marked up with the HTML `<dfn>` element at the place where each term is first defined in the prose. The marker is rendered with an upright (non-italic) face and a 2px solid amber underline, distinct from blue hyperlinks and from Neave's own use of italics for emphasis, so the cue is conveyed by both shape and colour rather than colour alone (WCAG 1.4.1). The full set of terms is collected in the [Glossary appendix](content/appendix/glossary.qmd) for non-linear lookup.
 
 **Visible focus indicators.** Keyboard focus is clearly outlined on all interactive controls (links, buttons, text inputs, toggles). Mouse users are unaffected.
 
