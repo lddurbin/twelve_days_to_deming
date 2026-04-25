@@ -24,14 +24,18 @@
     tip.id = tipId;
     tip.setAttribute("role", "tooltip");
     // The tooltip is a child of the dfn so the dfn's `position: relative`
-    // establishes its containing block. aria-hidden keeps screen readers
-    // from reading the definition inline when traversing the dfn's text
-    // content — aria-describedby still consults this element by id.
-    tip.setAttribute("aria-hidden", "true");
+    // establishes its containing block. The default `visibility: hidden`
+    // keeps the tooltip out of the a11y tree until the reveal CSS flips
+    // it on :hover/:focus; aria-describedby still resolves the id.
     tip.textContent = def;
     dfn.appendChild(tip);
 
     dfn.setAttribute("aria-describedby", tipId);
+
+    // iOS Safari is inconsistent about tap-focusing non-button tabindex=0
+    // elements; an explicit focus() call ensures the :focus reveal path
+    // works on touch without inventing a separate tap-toggle state.
+    dfn.addEventListener("click", function () { dfn.focus(); });
   }
 
   function dismissOnEscape(e) {
