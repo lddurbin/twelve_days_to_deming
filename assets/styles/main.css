@@ -598,6 +598,18 @@ button:focus,
   .thought_commentary .collapse {
     border: 3px dashed var(--color-outcome);
   }
+
+  .reading-prefs-toggle,
+  .reading-prefs-panel {
+    border-width: 3px;
+  }
+  .reading-prefs-control {
+    border-width: 2px;
+  }
+  .reading-prefs-control[aria-pressed="true"] {
+    outline: 2px solid currentColor;
+    outline-offset: 1px;
+  }
 }
 
 /* Reduced motion */
@@ -1254,6 +1266,13 @@ body.quarto-dark .fe-button:focus-visible {
     border-left-color: #c8d4ff;
   }
   body.quarto-dark .return_callout {
+    border-color: #c8d4ff;
+  }
+  body.quarto-dark .reading-prefs-toggle,
+  body.quarto-dark .reading-prefs-panel {
+    border-color: #c8d4ff;
+  }
+  body.quarto-dark .reading-prefs-control {
     border-color: #c8d4ff;
   }
 }

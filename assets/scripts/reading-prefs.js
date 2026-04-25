@@ -46,11 +46,14 @@
     var panel = document.createElement("div");
     panel.id = "reading-prefs-panel";
     panel.className = "reading-prefs-panel";
-    panel.setAttribute("role", "dialog");
-    panel.setAttribute("aria-label", "Reading preferences");
+    // Disclosure pattern: trigger carries aria-expanded/aria-controls; the
+    // revealed region is labelled by its own heading. A dialog role would
+    // imply modal semantics (focus trap, aria-modal) that don't match the
+    // outside-click-to-dismiss behaviour.
+    panel.setAttribute("aria-labelledby", "reading-prefs-title");
     panel.hidden = true;
     panel.innerHTML =
-      '<h2 class="reading-prefs-title">Reading preferences</h2>' +
+      '<p class="reading-prefs-title" id="reading-prefs-title">Reading preferences</p>' +
       '<div class="reading-prefs-row">' +
       '  <span class="reading-prefs-row-label" id="reading-prefs-theme-label">Theme</span>' +
       '  <button type="button" class="reading-prefs-control" data-pref="theme"' +
