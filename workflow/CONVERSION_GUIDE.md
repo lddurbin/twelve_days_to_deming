@@ -551,6 +551,11 @@ focusable, injects a sibling `<span role="tooltip">`, wires
 - Avoid HTML inside `data-definition`: the JS injects it as `textContent`,
   so any tags would be rendered literally.
 
+**Positioning caveat.** The tooltip always opens *above* the term. Avoid
+marking up terms that sit in the first line or two of a chapter — the
+tooltip would clip above the viewport. Pick a defining instance further
+into the prose instead.
+
 ### Reading-time indicator
 
 Every chapter is automatically annotated with an estimated reading time
