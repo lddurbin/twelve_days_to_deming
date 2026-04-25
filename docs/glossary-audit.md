@@ -1,40 +1,41 @@
 # Glossary audit
 
-This document records the editorial audit conducted under [#261](https://github.com/lddurbin/twelve_days_to_deming/issues/261) to decide which course-defining terms should be wrapped in `<dfn data-definition="…">` markup. The mechanism itself was introduced in [#167](https://github.com/lddurbin/twelve_days_to_deming/issues/167); this audit applies that mechanism with discipline.
+This document records the editorial audit conducted under [#261](https://github.com/lddurbin/twelve_days_to_deming/issues/261) to decide which course-defining terms warrant `<dfn>` semantic markup and an entry in the appendix glossary. The original tooltip mechanism was introduced in [#167](https://github.com/lddurbin/twelve_days_to_deming/issues/167) and revised in [#265](https://github.com/lddurbin/twelve_days_to_deming/issues/265): the inline-tooltip layer is gone, but the audit's seven terms are unchanged. The `<dfn>` element is retained at each defining instance as a **screen-reader signal** and as a **link target** from the appendix glossary page at [`content/appendix/glossary.qmd`](../content/appendix/glossary.qmd).
 
 ## Why a cap, and why this audit
 
-Tooltips help **non-linear and returning readers** — someone on Day 7 who's forgotten what "special cause" means a week after Day 3. That's a real but small audience. Three costs apply once dotted underlines are sprinkled across many chapters:
+The audit's audience is **non-linear and returning readers** — someone on Day 7 who's forgotten what "special cause" means a week after Day 3. The appendix glossary is the primary affordance for that audience; the in-prose `<dfn>` markers point back to where the term is first taught. Two costs still apply once `<dfn>` markers are sprinkled across many chapters:
 
-1. **Tab-stop pollution.** Every `<dfn>` is a keyboard tab stop. Forty marked terms = forty extra hops for keyboard users — exactly the population we're trying to help.
-2. **Visual noise.** Dotted underlines on every key term turn pages into a Christmas tree.
-3. **Pedagogical short-circuiting.** Neave teaches the vocabulary deliberately. A tooltip can resolve "what does this mean?" before the surrounding prose has done its job.
+1. **Anchor-namespace pollution.** Every `<dfn id="…">` claims a stable URL slug. Forty marked terms = forty global anchors that have to stay valid forever.
+2. **Pedagogical short-circuiting.** A glossary entry that lists every term Neave introduces invites readers to look up rather than read; the smaller the glossary, the more its presence signals "this one is genuinely worth a separate entry".
 
 The cap of **at most ~10** course-defining terms is the discipline. The marginal benefit drops quickly past the most-recurring terms, so the audit's bias is to **reject candidates that don't have a clean defining sentence in Neave's prose** rather than to synthesise from general knowledge or stretch the cap.
 
 ## Sourcing rule
 
-Every `data-definition` value is sourced from Neave's own prose (or a Deming quote that Neave reproduces verbatim). No editorial paraphrase from general knowledge.
+Every glossary entry is sourced from Neave's own prose (or a Deming quote that Neave reproduces verbatim). No editorial paraphrase from general knowledge.
 
 If Neave does not give a clean defining sentence anywhere — only describes the term across many paragraphs — the term is **rejected**, not synthesised.
 
 ## First-defining-instance rule
 
-Markup is applied at the **first chapter where Neave's prose does the defining work**, not the first chronological mention. Subsequent uses stay plain. The dfn is not placed inside `<span class="deming_quote">` (per the convention in `workflow/CONVERSION_GUIDE.md` § Glossary tooltips).
+Markup is applied at the **first chapter where Neave's prose does the defining work**, not the first chronological mention. Subsequent uses stay plain. The dfn is not placed inside `<span class="deming_quote">` (per the convention in `workflow/PATTERNS.md` § Glossary terms).
+
+The `id` attribute on each `<dfn>` matches the slug used by the appendix glossary, so the appendix can deep-link back to the in-context defining instance.
 
 ## Result
 
 **7 terms marked up** (3 from #167, 4 added in this audit). 3 candidates rejected with rationale.
 
-| # | Term | Decision | First defining instance | Source location | Tooltip wording |
-|---|------|----------|-------------------------|-----------------|-----------------|
-| 1 | common cause / common-cause variation | **Marked** (#167) | `content/days/day-01/11-deming-story.qmd` | Day 1 page 32 (line 145) | Variation inherent to the process and the circumstances in which it is being operated — the way it has been designed, built, set up, and operated. Common causes are always there until the process itself is changed. |
-| 2 | special cause / special-cause variation | **Marked** (#167) | `content/days/day-01/11-deming-story.qmd` | Day 1 page 32 (line 152) | Additional causes of variation that are not there all the time — one-off happenings or temporary changes that noticeably affect how the process behaves. Shewhart called them "assignable" causes. |
-| 3 | PDSA cycle (Plan-Do-Study-Act) | **Marked** (#167) | `content/days/day-01/11-deming-story.qmd` | Day 1 page 21 (line 47) | An iterative improvement cycle: Plan, Do, Study, Act. Deming preferred "Study" over the simpler "Check" because the third step is where the real learning takes place. He always referred to it as the Shewhart Cycle. |
-| 4 | "in statistical control" | **Marked** (#261) | `content/days/day-01/11-deming-story.qmd` | Day 1 page 32 (line 154); Neave's items 5–6 of the Shewhart breakthrough summary | A process exhibiting variation whose nature does not noticeably change — also called "stable" or "predictable". The opposite, "out of statistical control", means the process is being affected by special causes and is unstable and unpredictable. |
-| 5 | System of Profound Knowledge | **Marked** (#261) | `content/days/day-01/11-deming-story.qmd` | Day 1 page 39 (line 504); Peter Scholtes representation paragraph | Deming's attempt to summarise the essence of his whole life's work. It comprises four major parts — Appreciation for a System, Theory of Variation, Theory of Knowledge, and Psychology — whose strength lies in how they interlink and inter-depend. |
-| 6 | operational definition | **Marked** (#261) | `content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd` | Day 11 page 14 (line 21); rhetorical contrast plus Deming quote from *Out of the Crisis* p. 231 | Deming: "An operational definition puts communicable meaning into a concept." It specifies how something is to be observed, measured, counted, or decided — preventing ambiguity and ensuring fitness for purpose. |
-| 7 | transformation (Deming-specific sense) | **Marked** (#261) | `content/days/day-12/04-but-what-can-i-do.qmd` | Day 12 page 14 (line 14); blockquote of Deming from *The New Economics* Chapter 4 | A discontinuous shift that comes from understanding the System of Profound Knowledge. The individual, transformed, perceives new meaning in events, numbers, and interactions, and applies these principles in every relationship with other people. |
+| # | Term | Anchor slug | First defining instance | Source location | Glossary wording |
+|---|------|-------------|-------------------------|-----------------|------------------|
+| 1 | common cause / common-cause variation | `common-cause` | `content/days/day-01/11-deming-story.qmd` | Day 1 page 32 (line 145) | Variation inherent to the process and the circumstances in which it is being operated — the way it has been designed, built, set up, and operated. Common causes are always there until the process itself is changed. |
+| 2 | special cause / special-cause variation | `special-cause` | `content/days/day-01/11-deming-story.qmd` | Day 1 page 32 (line 152) | Additional causes of variation that are not there all the time — one-off happenings or temporary changes that noticeably affect how the process behaves. Shewhart called them "assignable" causes. |
+| 3 | PDSA cycle (Plan-Do-Study-Act) | `pdsa-cycle` | `content/days/day-01/11-deming-story.qmd` | Day 1 page 21 (line 47) | An iterative improvement cycle: Plan, Do, Study, Act. Deming preferred "Study" over the simpler "Check" because the third step is where the real learning takes place. He always referred to it as the Shewhart Cycle. |
+| 4 | "in statistical control" | `in-statistical-control` | `content/days/day-01/11-deming-story.qmd` | Day 1 page 32 (line 154); Neave's items 5–6 of the Shewhart breakthrough summary | A process exhibiting variation whose nature does not noticeably change — also called "stable" or "predictable". The opposite, "out of statistical control", means the process is being affected by special causes and is unstable and unpredictable. |
+| 5 | System of Profound Knowledge | `system-of-profound-knowledge` | `content/days/day-01/11-deming-story.qmd` | Day 1 page 39 (line 504); Peter Scholtes representation paragraph | Deming's attempt to summarise the essence of his whole life's work. It comprises four major parts — Appreciation for a System, Theory of Variation, Theory of Knowledge, and Psychology — whose strength lies in how they interlink and inter-depend. |
+| 6 | operational definition | `operational-definition` | `content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd` | Day 11 page 14 (line 21); rhetorical contrast plus Deming quote from *Out of the Crisis* p. 231 | Deming: "An operational definition puts communicable meaning into a concept." It specifies how something is to be observed, measured, counted, or decided — preventing ambiguity and ensuring fitness for purpose. |
+| 7 | transformation (Deming-specific sense) | `transformation` | `content/days/day-12/04-but-what-can-i-do.qmd` | Day 12 page 14 (line 14); blockquote of Deming from *The New Economics* Chapter 4 | A discontinuous shift that comes from understanding the System of Profound Knowledge. The individual, transformed, perceives new meaning in events, numbers, and interactions, and applies these principles in every relationship with other people. |
 
 ## Rejected candidates
 
@@ -50,6 +51,6 @@ The cap of ~10 leaves three slots unused. This is deliberate: future audits may 
 
 ## Verification
 
-- pa11y CI continues to pass (the four newly-marked chapters are listed in `.pa11yci.json`).
+- pa11y CI continues to pass (the appendix glossary page is listed in `.pa11yci.json`; the chapters that host the seven defining instances are either already covered or rely on coverage of nearby chapters).
 - One entry summarising the audit is recorded in `docs/deviations-from-source.md`.
-- The pattern documentation in `workflow/CONVERSION_GUIDE.md` § Glossary tooltips is unchanged — the audit operates within that pattern, it doesn't extend it.
+- The pattern documentation in `workflow/PATTERNS.md` § Glossary terms is the canonical "how to add a new dfn" reference and now describes the post-#265 markup (`<dfn id="anchor-slug">term</dfn>` plus a glossary entry, no `data-definition`).

@@ -265,14 +265,15 @@ echo "=== Collapse buttons with aria-expanded: ===" && grep -rn "aria-expanded" 
 echo "=== Collapse buttons missing aria-controls: ===" && grep -rn "data-bs-toggle=\"collapse\"" content/days/ | grep -v "aria-controls" | wc -l
 ```
 
-### 3.8 Conversion Pipeline & Workflow
-- Conversion guide (`workflow/CONVERSION_GUIDE.md`) is up to date
+### 3.8 Patterns & Workflow
+- Patterns reference (`workflow/PATTERNS.md`) is up to date with the live codebase
+- Archived conversion process (`workflow/archive/CONVERSION_PROCESS.md`) — read-only, but should match the briefs and validation manifests it references
 - Day brief template and existing briefs are consistent
 - Validation scripts (`validate-transcription.sh`, `check-structure.sh`) run successfully
 - Scripts in `scripts/` are functional and documented
 - Image extraction workflow is reliable
 - Naming conventions are followed consistently (`NN-slug-name.qmd`)
-- Structural manifests exist for all converted days
+- Structural manifests exist for all 12 days
 
 **Evidence-gathering commands:**
 ```bash
@@ -321,8 +322,8 @@ Score each area on a 1–5 scale:
 - Custom CSS classes define the visual language (callouts, quotes, activities, etc.)
 - renv for reproducible R environment
 - GitHub Actions deployment to production server
-- Conversion follows the 5-phase workflow in `workflow/CONVERSION_GUIDE.md`
-- Day briefs in `workflow/briefs/` guide each day's conversion
+- All 12 days are converted; `workflow/PATTERNS.md` is the active house-style reference and `workflow/archive/CONVERSION_PROCESS.md` preserves the original 5-phase workflow for traceability
+- Day briefs in `workflow/briefs/` are the historical record of editorial decisions per day
 - Validation scripts (`check-structure.sh`, `validate-transcription.sh`) verify each day
 - Structural manifests in `workflow/validation/` define expected chapter structure
 - Download buttons must use the `createDownloadButton` helper (not the old `downloadNotes` pattern)

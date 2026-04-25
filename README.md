@@ -175,7 +175,7 @@ This course has benefited from contributions from many experts and practitioners
 
 ### For Developers
 
-The conversion of remaining days from PDF to interactive Quarto follows a structured 5-phase workflow. See [`workflow/CONVERSION_GUIDE.md`](workflow/CONVERSION_GUIDE.md) for the complete reference, including CSS classes, R functions, interactive element templates, and file naming conventions.
+All 12 days have been converted from Neave's source PDFs into interactive Quarto chapters. For ongoing edits, see [`workflow/PATTERNS.md`](workflow/PATTERNS.md) — the house-style reference covering CSS classes, R functions, interactive element templates, accessibility conventions, and inter-day cross-reference rules. The original 5-phase conversion workflow is archived at [`workflow/archive/CONVERSION_PROCESS.md`](workflow/archive/CONVERSION_PROCESS.md) for traceability.
 
 ## 📄 License
 

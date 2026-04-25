@@ -257,7 +257,7 @@ chapters:
         - Printed page 88 (PDF 94) contains "Technical Aid 1" —
           a boxed/bordered sidebar giving detail on a specific
           calculation. Render using the existing `.technical_aid`
-          CSS class (see CONVERSION_GUIDE.md for the pattern
+          CSS class (see workflow/PATTERNS.md for the pattern
           used in Day 3 / Day 10). Do NOT crop as an image —
           preserve as styled HTML so the math can be selected
           and read aloud by screen readers.
@@ -424,7 +424,7 @@ context_notes: |
     - New subdirectory: `content/appendix/optional-extras/`.
     - Image-crop directory: `assets/images/optional-extras/`
       (create during Phase 3). Use the subdirectory naming from
-      CONVERSION_GUIDE.md.
+      workflow/PATTERNS.md.
 
   TESTING:
     - `scripts/check-structure.sh` should still pass.

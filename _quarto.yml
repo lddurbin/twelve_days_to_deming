@@ -147,6 +147,7 @@ book:
     - changes-from-source.qmd
 
   appendices:
+    - content/appendix/glossary.qmd
     - content/appendix/00-welcome.qmd
     - content/appendix/01-day-1.qmd
     - content/appendix/02-day-2.qmd
@@ -198,7 +199,6 @@ format:
       </script>
       <script src="/assets/scripts/functions.js"></script>
       <script src="/assets/scripts/reading-prefs.js"></script>
-      <script src="/assets/scripts/dfn-tooltip.js"></script>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
           var a = document.createElement("a");
