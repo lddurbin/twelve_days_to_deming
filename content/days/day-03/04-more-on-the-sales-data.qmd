@@ -86,7 +86,7 @@ Try to argue with this if you will—but, if these data are all that you have, t
 
 Incidentally, you may have noticed that every control chart you have seen so far has indicated that the relevant process is stable. Maybe you have begun to think that *all* control charts show statistical control! This will be immediately remedied at the start of the "Six Processes" section on page 19.
 
-<div class="info_callout">
+<div class="aside_callout" role="note" aria-label="Author's note">
 **NB** We have now reached the stage where I strongly advise Stats-level 0 students and, even more so, Stats-level 00 students *not* to work hard at the following pages. Even higher Stats-level students will be hard-pressed to take in everything on these pages at a first reading. So, really, I definitely recommend everybody to spend no more time here than the clock icons advise. Just get a *flavour* of what's here for now, and then return to study it more carefully at some time in the future when you start collecting and analysing your own real-life data. The material on pages 13–34 is effectively extra-curricular—it is not used anywhere within the course after today. But I believe it will prove valuable to you when the time comes for you to start constructing and interpreting your own control charts.
 </div>
 

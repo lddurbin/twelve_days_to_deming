@@ -145,6 +145,12 @@ aside,
 }
 
 /* ===== CALLOUT COMPONENTS ===== */
+/* Each typed callout pairs a visible ::before icon (non-color cue for
+   colorblind readers, WCAG 1.4.1) with role="note" aria-label="…" on
+   the element itself (screen-reader announcement). The icon glyph is
+   marked aria-hidden via CSS pseudo-content conventions; screen-reader
+   support for ::before content is inconsistent, so the aria-label is
+   the authoritative announcement and the icon is purely visual. */
 .return_callout {
   background-color: #b6dde8;
   border: 2px solid black;
@@ -156,6 +162,11 @@ aside,
   margin-bottom: 15px;
   font-style: italic;
 }
+.return_callout::before {
+  content: "▶ ";
+  font-style: normal;
+  font-weight: bold;
+}
 
 .arrival_callout {
   background-color: #e8f5e9;
@@ -164,7 +175,8 @@ aside,
   margin: 1em 0;
 }
 
-.info_callout {
+.principle_callout,
+.aside_callout {
   background-color: #c2d69b;
   border: 2px solid black;
   text-align: center;
@@ -174,6 +186,16 @@ aside,
   font-size: 15px;
   margin-bottom: 15px;
   font-style: italic;
+}
+.principle_callout::before {
+  content: "◆ ";
+  font-style: normal;
+  font-weight: bold;
+}
+.aside_callout::before {
+  content: "✎ ";
+  font-style: normal;
+  font-weight: bold;
 }
 
 /* ===== FLOATING BOX COMPONENTS ===== */
@@ -326,6 +348,10 @@ Usage:
   padding: 10px;
   margin: 20px;
 }
+.technical_aid::before {
+  content: "⚙ ";
+  font-weight: bold;
+}
 
 .technical_aid h1, .technical_aid h2, .technical_aid h3 {
   color: #000000;
@@ -413,6 +439,10 @@ Usage:
   font-style: italic;
   font-weight: bold;
 }
+.callout-emphasis::before {
+  content: "★ ";
+  font-style: normal;
+}
 .centered-bold-callout {
   text-align: center;
   font-weight: bold;
@@ -468,7 +498,8 @@ Usage:
   
   /* Callout adjustments */
   .return_callout,
-  .info_callout {
+  .principle_callout,
+  .aside_callout {
     margin: 10px 5px;
     font-size: 14px;
   }
@@ -822,7 +853,8 @@ button:focus,
     line-height: 1.7;
   }
   html.dyslexic-font body .return_callout,
-  html.dyslexic-font body .info_callout {
+  html.dyslexic-font body .principle_callout,
+  html.dyslexic-font body .aside_callout {
     line-height: 1.5;
     padding: 8px 14px;
   }
@@ -1090,7 +1122,8 @@ body.quarto-dark .arrival_callout {
   background-color: #1e3a22;
   color: #e4f0e6;
 }
-body.quarto-dark .info_callout {
+body.quarto-dark .principle_callout,
+body.quarto-dark .aside_callout {
   background-color: #3a4a2a;
   color: #eef0e4;
 }

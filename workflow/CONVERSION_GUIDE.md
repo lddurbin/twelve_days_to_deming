@@ -101,7 +101,7 @@ Claude works through the brief chapter-by-chapter:
 2. **Transcribe text** word-for-word from the source PNGs
 3. **Crop figures** from source PNGs using ImageMagick and save to `assets/images/day-XX/`
 4. **Add interactive elements** — Pauses for Thought, Activities, download buttons, clocks
-5. **Add callouts** — return-to-reading callouts, info callouts
+5. **Add callouts** — return-to-reading callouts, principle/aside callouts. Always include `role="note" aria-label="…"` so screen readers announce the type (e.g. `<div class="principle_callout" role="note" aria-label="Principle">…</div>`). The visible icon comes from CSS `::before` automatically.
 
 Each chapter is verified by reading back the `.qmd` file before moving to the next.
 
@@ -233,12 +233,14 @@ Each day is a `part:` with nested `chapters:`:
 | `.thought` | Pause for Thought (no commentary) | Green border |
 | `.thought_commentary` | Pause for Thought with commentary | Red border |
 | `.thought_commentary .collapse` | Hidden commentary revealed by button | Red background |
-| `.technical_aid` | Technical Aid box | Purple background, black border |
+| `.technical_aid` | Technical Aid box | Purple background, black border, ⚙ icon |
 | `.neave_note` | Author's explanatory aside | Serif font, left-aligned |
 | `.deming_quote` | Inline Deming quotation highlight | Blue, bold |
 | `.foreman-remark` | Red Beads foreman's dialogue | Navy italic, centered |
-| `.return_callout` | Return-to-reading instruction | Blue background |
-| `.info_callout` | General info callout | Green background |
+| `.return_callout` | External resource (read DemDim, watch video) | Blue background, ▶ icon |
+| `.principle_callout` | Quoted Deming principle (14 Points, Deadly Diseases) | Green background, ◆ icon |
+| `.aside_callout` | Author's instructional aside (drawing activities, NB notes) | Green background, ✎ icon |
+| `.callout-emphasis` | Key insight pull-out | Pink background, ★ icon |
 | `.activity_afterthought` | Post-activity italic note | Right-aligned italic |
 | `.separator` | Red/black section divider | Red bar with black border |
 | `.separator_white` | Inner white space in divider | White bar |
@@ -374,7 +376,7 @@ Adjust `margin-top` to vertically align the clock with the relevant text.
 ### Technical Aid
 
 ```markdown
-<div class="technical_aid">
+<div class="technical_aid" role="note" aria-label="Technical aid">
 ## Technical Aid N
 
 Content with LaTeX math:

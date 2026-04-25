@@ -6,7 +6,7 @@ execute:
 
 ## Point 1. Constancy of purpose {#sec-page16}
 
-<div class="info_callout">**Create constancy of purpose for continual improvement of products and service,** allocating resources to provide for long-range needs rather than only short-term profitability, with a plan to become competitive, to stay in business, and to provide jobs.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Create constancy of purpose for continual improvement of products and service,** allocating resources to provide for long-range needs rather than only short-term profitability, with a plan to become competitive, to stay in business, and to provide jobs.</div>
 
 Notice the connection with the Deming Chain Reaction, finishing up (as in both versions of the Chain Reaction—see the bottom of page 3) with "provide jobs". We have already commented ([Day 1 page 23](../day-01/08-attraction.qmd#sec-page23)) upon Dr Deming's unhappiness because of its huge waste of human potential. Deming clearly saw the "plan to become competitive, to stay in business, and to provide jobs" as requiring an Obsession With Quality. It is already well worth reflecting ahead to two of the "Deadly Diseases" which you will study tomorrow afternoon: (i) Lack of constancy of purpose, and (ii) Emphasis on short-term profits.
 
@@ -50,7 +50,7 @@ viewof p1_sa = Inputs.textarea({
 
 ## Point 2. The new philosophy
 
-<div class="info_callout">**Adopt the new philosophy. We are in a new economic age,** created in Japan. We can no longer live with commonly accepted levels of delays, mistakes, defective materials, and defective workmanship. Transformation of Western management style is necessary to halt the continued decline of industry.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Adopt the new philosophy. We are in a new economic age,** created in Japan. We can no longer live with commonly accepted levels of delays, mistakes, defective materials, and defective workmanship. Transformation of Western management style is necessary to halt the continued decline of industry.</div>
 
 This is a whole new philosophy. It's not just optional add-ons to what we are already doing; it's not the use of a few new tools. At the beginning of the course I interpreted the word "philosophy" as a "way of thinking". So this is indeed a whole new way of thinking. And, as I also said at the beginning, what and how we think so greatly affects what we do and how we do it.
 
@@ -98,7 +98,7 @@ viewof p2_sa = Inputs.textarea({
 
 ## Point 3. Cease dependence on mass inspection {#sec-page20}
 
-<div class="info_callout">**Eliminate the need for mass inspection as a way to achieve quality** by building quality into the product in the first place. Require statistical evidence of built-in quality in both manufacturing and purchasing functions.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Eliminate the need for mass inspection as a way to achieve quality** by building quality into the product in the first place. Require statistical evidence of built-in quality in both manufacturing and purchasing functions.</div>
 
 In some areas at least, the world has fortunately moved on since Dr Deming came up with the third of his 14 Points. Dependence on mass inspection for quality has immediate implications about what the quality is like in the first place! It is now generally stated that dependence on mass inspection is a costly and unreliable means of delivering quality. It costs just as much to make the bad as it does to make the good, and the additional costs of inspection plus the scrap or rework that results from all which fails the inspection can add up to a very large bill indeed.
 
@@ -148,7 +148,7 @@ viewof p3_sa = Inputs.textarea({
 
 ## Point 4. End lowest-tender contracts
 
-<div class="info_callout">**End the practice of awarding business solely on the basis of price tag.** Instead, require meaningful measures of quality along with price. Reduce the number of suppliers for the same item by eliminating those that do not qualify with statistical evidence of quality. Move toward a single supplier for any one item, on a long-term relationship of loyalty and trust. The aim is to minimise total cost, not merely initial cost. Purchasing managers have a new job, and must learn it.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**End the practice of awarding business solely on the basis of price tag.** Instead, require meaningful measures of quality along with price. Reduce the number of suppliers for the same item by eliminating those that do not qualify with statistical evidence of quality. Move toward a single supplier for any one item, on a long-term relationship of loyalty and trust. The aim is to minimise total cost, not merely initial cost. Purchasing managers have a new job, and must learn it.</div>
 
 But doesn't everybody know that is not the case? Simply ask yourself how, when you wish to acquire something, you reach the decision on which of the competing products/services you will buy. Do you really decide on exact specifications of what you want and then simply select the cheapest from amongst those that satisfy the criteria? Do you? Surely the answer is only "yes" if either (a) you are poverty-stricken or (b) you are buying something very elementary—perhaps a basic foodstuff like granulated sugar which may seem to be the same wherever you get it. But, even then, does not e.g. convenience enter your thoughts? Will you travel ten miles to buy sugar one penny cheaper? With other purchases, how about the reputation of the maker, the reputation and civility and helpfulness of the supplier, and all the other non-specifiable aspects of quality: "looks", feel, trust, confidence, etc?
 
@@ -198,7 +198,7 @@ viewof p4_sa = Inputs.textarea({
 
 ## Point 5. Improve every process {#sec-page25}
 
-<div class="info_callout">**Improve constantly and forever the system** of planning, production, and service, in order to improve every process and activity in the company, to improve quality and productivity, and thus to constantly decrease costs. It is management's job to work continually on the system (design, incoming supplies, maintenance, improvement of equipment, supervision, training, retraining, etc).</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Improve constantly and forever the system** of planning, production, and service, in order to improve every process and activity in the company, to improve quality and productivity, and thus to constantly decrease costs. It is management's job to work continually on the system (design, incoming supplies, maintenance, improvement of equipment, supervision, training, retraining, etc).</div>
 
 Here we have a direct contradiction to a familiar saying—and maybe a familiar attitude: "If it ain't broke, don't fix it". This is instead: "If it's broke, fix it; if it ain't broke…*improve* it".
 
@@ -244,7 +244,7 @@ viewof p5_sa = Inputs.textarea({
 
 ## Point 6. Institute training {#sec-page26}
 
-<div class="info_callout">**Institute modern methods of training** for everybody's job, including management, to make better use of every employee. New skills are required to keep up with changes in materials, methods, product design, machinery, techniques, and service.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Institute modern methods of training** for everybody's job, including management, to make better use of every employee. New skills are required to keep up with changes in materials, methods, product design, machinery, techniques, and service.</div>
 
 "Training and education" are often lumped together as if they were pretty much the same thing. Perhaps surprisingly, Dr Deming did the same in very early versions of the 14 Points. But he soon clearly divided them into the two widely-separated Points 6 and 13 respectively.
 

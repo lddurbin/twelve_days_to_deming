@@ -5,13 +5,13 @@ execute:
 ---
 Now it's time to take a break to watch the video *Management's Five Deadly Diseases* (see the link on page 1). Delegates used to appreciate my description of this video as featuring a rather elderly "Angry Young Man"! I think you'll soon see why.
 
-<div class="return_callout">Watch *Management's Five Deadly Diseases* at [www.youtube.com/watch?v=ehMuuHGN0Y](https://www.youtube.com/watch?v=ehMuuHGN0Y) (note: the penultimate character is a zero; the sixth character from the end is a capital letter I).</div>
+<div class="return_callout" role="note" aria-label="External resource">Watch *Management's Five Deadly Diseases* at [www.youtube.com/watch?v=ehMuuHGN0Y](https://www.youtube.com/watch?v=ehMuuHGN0Y) (note: the penultimate character is a zero; the sixth character from the end is a capital letter I).</div>
 
 ---
 
 ## Disease 1. Lack of constancy {#sec-page18}
 
-<div class="info_callout">**The crippling disease is lack of constancy of purpose by planning to provide product and service in the future that will help man to live better materially, and which will have a market, and provide jobs.**</div>
+<div class="principle_callout" role="note" aria-label="Principle">**The crippling disease is lack of constancy of purpose by planning to provide product and service in the future that will help man to live better materially, and which will have a market, and provide jobs.**</div>
 
 In fact, Dr Deming began this statement with "The crippling disease in America…". I have omitted the two extra words for the obvious reason that this Disease is far more widespread.
 
@@ -69,7 +69,7 @@ create_clock(12, 0)
 
 ## Disease 2. Short-termism {#sec-page20}
 
-<div class="info_callout">**Short-term thinking defeats constancy of purpose to stay in business with long-term growth.**</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Short-term thinking defeats constancy of purpose to stay in business with long-term growth.**</div>
 
 My choice of Dr Deming's words here are few but surely "hit the nail on the head".
 
@@ -131,7 +131,7 @@ create_clock(12, 0)
 
 ## Disease 3. Appraisal of performance {#sec-page22}
 
-<div class="info_callout">**The effects of performance appraisal (personal review system, merit rating, evaluation of performance, annual review, system of reward, pay for performance, etc) are devastating.**</div>
+<div class="principle_callout" role="note" aria-label="Principle">**The effects of performance appraisal (personal review system, merit rating, evaluation of performance, annual review, system of reward, pay for performance, etc) are devastating.**</div>
 
 As you can see from *DemDim* pages 50–51, Dr Deming's opinion of performance appraisal was unambiguously damning. But the term "performance appraisal" means different things to different people. So what exactly was Deming so heavily against, and why?
 
@@ -193,7 +193,7 @@ create_clock(12, 0)
 
 ## Disease 4. Management job-hopping {#sec-page24}
 
-<div class="info_callout">**Mobility of management causes instability, results in decisions being made by people who do not know the business** *[i.e. this business]* **and thus blindly use experience gained elsewhere which may be totally irrelevant.**</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Mobility of management causes instability, results in decisions being made by people who do not know the business** *[i.e. this business]* **and thus blindly use experience gained elsewhere which may be totally irrelevant.**</div>
 
 This fourth Deadly Disease needs some clarification in order to avoid misinterpretation. Dr Deming is not suggesting that one should necessarily be stuck in the same place in the same organisation for life! But, as we are viewing an organisation as a system, broad knowledge across the organisation as a whole as well as substantial knowledge of part of it is *necessary*. How does the organisation work? How does what happens in one part of it affect what happens in other parts? And how is what happens in one part *affected by* what happens in other parts?
 
@@ -251,7 +251,7 @@ create_clock(12, 0)
 
 ## Disease 5. Use of only visible figures {#sec-page26}
 
-<div class="info_callout">**One can not be successful on visible figures alone. Of course, visible figures are important: the bank account must be watched, and employees and vendors must be paid. But he who would run his company on visible figures alone will in time have neither company nor figures.**</div>
+<div class="principle_callout" role="note" aria-label="Principle">**One can not be successful on visible figures alone. Of course, visible figures are important: the bank account must be watched, and employees and vendors must be paid. But he who would run his company on visible figures alone will in time have neither company nor figures.**</div>
 
 A familiar joke is "In God we trust; all others, bring data". Apart from religious objections some may have to this humour, it is dangerous in its implication that "data" are all that is needed for any purpose. By "data" is meant numerical information. Yet we have already become very familiar with Lloyd Nelson's claim that the most important figures for management of any organisation are "unknown and unknowable"—and now we have Deming drawing attention to the limitations of "visible figures".
 
