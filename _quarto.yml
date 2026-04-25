@@ -167,14 +167,15 @@ book:
         - content/appendix/optional-extras/05-part-e-normality.qmd
         - content/appendix/optional-extras/06-part-f-technical.qmd
     - content/appendix/10-optional-extras.qmd
-    - content/appendix/contributions-balaji-reddie/00-introduction.qmd
-    - content/appendix/contributions-balaji-reddie/01-prelude-a-system.qmd
-    - content/appendix/contributions-balaji-reddie/02-prelude-b-statistical-thinking.qmd
-    - content/appendix/contributions-balaji-reddie/03-prelude-c-learning.qmd
-    - content/appendix/contributions-balaji-reddie/04-prelude-d-people.qmd
-    - content/appendix/contributions-balaji-reddie/05-coda.qmd
-    - content/appendix/contributions-balaji-reddie/06-lessons-from-history.qmd
-    - content/appendix/contributions-balaji-reddie/07-indias-missed-opportunity.qmd
+    - part: content/appendix/contributions-balaji-reddie/00-introduction.qmd
+      chapters:
+        - content/appendix/contributions-balaji-reddie/01-prelude-a-system.qmd
+        - content/appendix/contributions-balaji-reddie/02-prelude-b-statistical-thinking.qmd
+        - content/appendix/contributions-balaji-reddie/03-prelude-c-learning.qmd
+        - content/appendix/contributions-balaji-reddie/04-prelude-d-people.qmd
+        - content/appendix/contributions-balaji-reddie/05-coda.qmd
+        - content/appendix/contributions-balaji-reddie/06-lessons-from-history.qmd
+        - content/appendix/contributions-balaji-reddie/07-indias-missed-opportunity.qmd
     - content/appendix/11-references-and-sources.qmd
 
 filters:

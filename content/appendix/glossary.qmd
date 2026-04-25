@@ -6,7 +6,7 @@ execute:
 
 A short, alphabetical reference for the course's most-recurring specialised terms. Definitions are taken verbatim from Neave's prose (or from a Deming quote that Neave reproduces). Each entry links back to the chapter where the term is first defined in context.
 
-The set is intentionally small — seven terms, capped at around ten — because the value of a glossary lives in being predictable and uncluttered, not exhaustive. The full editorial rationale is recorded in [`docs/glossary-audit.md`](https://github.com/lddurbin/twelve_days_to_deming/blob/main/docs/glossary-audit.md).
+The set is intentionally small — seven terms, capped at around ten — because the value of a glossary lives in being predictable and uncluttered, not exhaustive.
 
 ## common cause / common-cause variation {#common-cause}
 
