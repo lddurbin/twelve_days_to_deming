@@ -148,9 +148,12 @@ aside,
 /* Each typed callout pairs a visible ::before icon (non-color cue for
    colorblind readers, WCAG 1.4.1) with role="note" aria-label="…" on
    the element itself (screen-reader announcement). The icon glyph is
-   marked aria-hidden via CSS pseudo-content conventions; screen-reader
-   support for ::before content is inconsistent, so the aria-label is
-   the authoritative announcement and the icon is purely visual. */
+   suppressed from assistive tech via the CSS Generated Content Level 3
+   alt-text syntax — `content: "X " / ""` — so modern screen readers
+   announce only the aria-label, not the glyph name (e.g. "diamond").
+   Browser support: Chrome 101+, Firefox 108+, Safari 17+. Older
+   browsers fall back to announcing the glyph alongside the aria-label,
+   which is verbose but not incorrect. */
 .return_callout {
   background-color: #b6dde8;
   border: 2px solid black;
@@ -163,7 +166,7 @@ aside,
   font-style: italic;
 }
 .return_callout::before {
-  content: "▶ ";
+  content: "▶ " / "";
   font-style: normal;
   font-weight: bold;
 }
@@ -188,12 +191,12 @@ aside,
   font-style: italic;
 }
 .principle_callout::before {
-  content: "◆ ";
+  content: "◆ " / "";
   font-style: normal;
   font-weight: bold;
 }
 .aside_callout::before {
-  content: "✎ ";
+  content: "✎ " / "";
   font-style: normal;
   font-weight: bold;
 }
@@ -355,7 +358,7 @@ Usage:
 .technical_aid h1::before,
 .technical_aid h2::before,
 .technical_aid h3::before {
-  content: "⚙ ";
+  content: "⚙ " / "";
   margin-right: 0.25em;
 }
 
@@ -441,7 +444,7 @@ Usage:
   font-weight: bold;
 }
 .callout-emphasis::before {
-  content: "★ ";
+  content: "★ " / "";
   font-style: normal;
 }
 .centered-bold-callout {

@@ -237,7 +237,7 @@ Each day is a `part:` with nested `chapters:`:
 | `.neave_note` | Author's explanatory aside | Serif font, left-aligned |
 | `.deming_quote` | Inline Deming quotation highlight | Blue, bold |
 | `.foreman-remark` | Red Beads foreman's dialogue | Navy italic, centered |
-| `.return_callout` | External resource (read DemDim, watch video) | Blue background, ▶ icon |
+| `.return_callout` | Study resource (read DemDim, watch video) | Blue background, ▶ icon |
 | `.principle_callout` | Quoted Deming principle (14 Points, Deadly Diseases) | Green background, ◆ icon |
 | `.aside_callout` | Author's instructional aside (drawing activities, NB notes) | Green background, ✎ icon |
 | `.callout-emphasis` | Key insight pull-out | Pink background, ★ icon |
