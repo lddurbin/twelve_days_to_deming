@@ -149,8 +149,9 @@ aside,
   background-color: #b6dde8;
   border: 2px solid black;
   text-align: center;
-  height: 40px;
-  line-height: 40px;
+  min-height: 40px;
+  line-height: 1.4;
+  padding: 10px;
   font-size: 15px;
   margin-bottom: 15px;
   font-style: italic;
@@ -167,8 +168,9 @@ aside,
   background-color: #c2d69b;
   border: 2px solid black;
   text-align: center;
-  height: 40px;
-  line-height: 40px;
+  min-height: 40px;
+  line-height: 1.4;
+  padding: 10px;
   font-size: 15px;
   margin-bottom: 15px;
   font-style: italic;
@@ -467,10 +469,6 @@ Usage:
   /* Callout adjustments */
   .return_callout,
   .info_callout {
-    height: auto;
-    min-height: 40px;
-    line-height: 1.4;
-    padding: 10px;
     margin: 10px 5px;
     font-size: 14px;
   }
@@ -825,8 +823,6 @@ button:focus,
   }
   html.dyslexic-font body .return_callout,
   html.dyslexic-font body .info_callout {
-    height: auto;
-    min-height: 40px;
     line-height: 1.5;
     padding: 8px 14px;
   }
