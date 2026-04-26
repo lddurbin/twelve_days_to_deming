@@ -53,7 +53,7 @@ chapters:
     has_download_button: false
 
   - file: "07-some-recollections.qmd"
-    viewof_count: 12
+    viewof_count: 16
     figures:
       - "/assets/images/day-02/image-5.jpg"
       - "/assets/images/day-02/image-6.png"

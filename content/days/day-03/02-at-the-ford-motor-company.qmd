@@ -11,9 +11,23 @@ Here is a histogram of the diameters of 50 shafts consecutively manufactured by 
 
 ![Histogram of 50 shaft diameters with compensation device](/assets/images/day-03/ford-histogram-with-compensation.png){fig-align="center" width="80%" .lightbox}
 
+<details>
+<summary>Describe this chart</summary>
+
+A histogram of 50 shaft diameters made *with* the automatic compensation device switched on. The distribution is broad and reaches outside the specification limits at both ends. (Look carefully — the chart shows only 49 boxes; one shaft, presumably an out-of-spec one, appears to have quietly disappeared.)
+
+</details>
+
 A statistician recommended that the next 50 shafts should be made with the compensation device turned off. Here is the histogram of those 50 diameters.
 
 ![Histogram of 50 shaft diameters without compensation device](/assets/images/day-03/ford-histogram-without-compensation.png){fig-align="center" width="80%" .lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+A histogram of 50 shaft diameters made with the compensation device *switched off*. The distribution is visibly narrower than the one above — all 50 values sit comfortably inside the specification limits. The lesson: the "sensible" feedback device, which adjusted the machine setting after every shaft, was *adding* variation rather than reducing it. Reacting to common-cause variation as if it were a special cause makes the process worse.
+
+</details>
 
 Reduced variation! Better quality! Everything clearly within the specifications! *With that sensible and very expensive compensation device turned off!*
 

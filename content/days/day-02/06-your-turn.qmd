@@ -33,6 +33,13 @@ df1 <- make_redbeads_df(
 render_redbeads_table(df1)
 ```
 
+<details>
+<summary>Describe this table</summary>
+
+A six-column, four-row table of red-bead counts (workers across, weeks down). At this first step, only the very first cell — Worker 1, Week 1 — is filled in: a count of **16**. Every other cell is empty. Each successive table on this page adds one new count, building up the experiment value by value. The pedagogical point is that the Foreman reacts to *each new number as it lands*, attributing it to the worker, the day, the training, the appraisal — even though, taken as a whole series, these numbers are pure common-cause variation around a stable process.
+
+</details>
+
 <span class="foreman-remark">
 "What a terrible start!  But you’ve only just been trained—weren’t you watching?"
 </span>

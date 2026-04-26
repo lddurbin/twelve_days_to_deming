@@ -48,6 +48,13 @@ Take a careful look through these results. What main feature occurs to you when 
 
 ![Handwritten results table for six Willing Workers (Ernie, Iggy, Richard, Martin, Andrew, Pat) showing red bead counts across four weeks, with weekly totals declining from 62 to 60 and individual averages near 10](/assets/images/day-02/image-2.png){.lightbox}
 
+<details>
+<summary>Describe this table</summary>
+
+A handwritten transparency from the Recorder, Declan, showing six Willing Workers (Ernie, Iggy, Richard, Martin, Andrew, Pat) as columns and four weeks as rows. Most weekly counts sit between 9 and 14 red beads. Two figures stand out: Ernie's 3 in Week 3 (the lowest) and Pat's 19 in Week 2 (the highest). Weekly totals run 62, 64, 47, 60 — Week 3's drop coincides with the announced appraisal, but the difference between any *individual* worker's weeks is no larger than the difference between two random workers in the same week. The "pattern" the Foreman reads into the data is not really there.
+
+</details>
+
 ```{ojs}
 viewof thought_2d = Inputs.textarea({label: "What main feature occurs when comparing the six Willing Workers?", placeholder: "Type your comments here.", rows: 10})
 ```

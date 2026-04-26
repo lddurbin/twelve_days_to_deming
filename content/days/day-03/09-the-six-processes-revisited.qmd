@@ -11,11 +11,25 @@ So let's conclude this extra-curricular discussion by examining more closely tha
 
 ![Chart A3](/assets/images/day-03/chart-A3-individual.png){fig-align="center" width="85%" .lightbox}
 
+<details>
+<summary>Describe this chart</summary>
+
+A single 48-point control chart for Process A (totals when dice are thrown). The first 30 points fluctuate quietly inside the limits — stable. **Point 31 drops abruptly onto the Lower Control Limit**, with the next few points nearby; the process average has fallen. From around Point 37 the points jump high, with several **breaching the Upper Control Limit**. The chart correctly tells the story: four dice for Points 1–30, two dice for Points 31–36, six dice from Point 37 onward.
+
+</details>
+
 Chart A3 is clearly indicating stability up to and including Point 30, but then Point 31 suddenly drops onto the LCL (Lower Control Limit). As recently pointed out, such a point may well occur occasionally even if the process remains stable. However, after seeing the next one or two points again lying near the LCL and also clearly lower than any of the first 30 points, there is little doubt that a special cause has occurred which has lowered the process average. It would thus be sensible to try to identify the special cause which occurred between Points 30 and 31. Subsequently perhaps some remedial action was taken after point 36 which however soon appears to have rather overcompensated for the drop! From there until the end of the chart all but one of the points are above the Central Line, with several points above the UCL (Upper Control Limit). In fact, the first three of these points are all near or above the UCL, and this is already very strong evidence that the process average has suddenly moved higher than it was in the initial stable period.
 
 You will see that this interpretation of the chart accurately reflects what we recall was the truth: four dice were used for Points 1–30, two dice for Points 31–36, and six dice for Points 37–48.
 
 ![Chart B3](/assets/images/day-03/chart-B3-individual.png){fig-align="center" width="85%" .lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+48-point control chart for Process B (number of Heads when coins are tossed). The first ~38 points fluctuate quietly inside the limits. From around Point 39 the points start drifting *upward*: Point 40 is close to the UCL, Points 41 and 42 confirm it, and from there on the chart traces a steady rising trend rather than an abrupt jump. The truth: two extra coins were added at every toss from Point 39 onward — a gradual special cause, picked up by the chart soon after it began.
+
+</details>
 
 Nothing "interesting" seems to be happening in Chart B3 until around Point 40 which is close to the UCL. As in Chart A3, by itself this is only a tiny hint that something untoward may be happening, but that hint immediately gets supported by point 41 (also close to the UCL) and then confirmed by Point 42 (virtually on the UCL). By coincidence, the following two points are both the same as Point 42, but we hardly need them to convince us that the process has moved upward. The remaining points are even higher and so we appear to have a trend rather than just a sudden move (as occurred twice in Chart A3).
 
@@ -25,15 +39,36 @@ That again is an accurate interpretation of what actually happened: two extra co
 
 ![Chart C3](/assets/images/day-03/chart-C3-individual.png){fig-align="center" width="85%" .lightbox}
 
+<details>
+<summary>Describe this chart</summary>
+
+48-point control chart for Process C (numbers of red beads from the Red Beads Experiment). Points 1–42 fluctuate inside the limits in the familiar Red Beads pattern. **From around Point 44 the values jump sharply upward, with the final five points well above the UCL**. The contrived special cause was that the recorder added the two junior inspectors' counts together (rather than plotting their agreed value) for the last six points — so it is the *measurement process*, not the bead-pulling process, that has gone out of control. By coincidence the first doubled count was small enough (4 → 8) to still fit inside the limits, so Point 43 hides what's coming.
+
+</details>
+
 There is little to discuss with the Red Beads illustration: you will recall that I contrived to double the recorded values for the last six points. In fact, it looks as if I only doubled the values for the final five points; however, the first actual count of red beads when I started doing this happened to be only 4, so Point 43 is at 8—thus appearing to be just before the special cause occurred. You can't expect the chart to be absolutely right all of the time!
 
 ![Chart D3](/assets/images/day-03/chart-D3-individual.png){fig-align="center" width="85%" .lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+48-point control chart for Process D (Neave's morning pulse rate over 48 consecutive days). The first 44 points fluctuate inside the limits at an unhealthily high level. **At Point 45 the line drops sharply (87, then 77, then 66) and then settles to a new, stable, much lower level** for the remaining points. The special cause is benign: a beta-blocker prescribed on day 44. This is a *good* special cause — the question for the chart's user is not how to remove it, but how to recognise it as the new normal and recompute the limits around the improved system.
+
+</details>
 
 The control chart of my morning pulse rates shows stability up to Point 44. That was the day when my doctor prescribed the beta-blocker and I took the first tablet straightaway. My pulse rates on Days 44, 45 and 46 were respectively 87, 77 and 66 (you can't really see the 77 on the chart as it's in the middle of an almost straight line). As you might guess just from the final three points on the chart, the pulse rate then settled down to stability at a much more healthy level! Obviously there is no doubt here as to what the special cause was, but I confess I was both amazed and delighted by how fast and how effectively it worked!
 
 This raises a rather obvious question which fortunately also has a rather obvious answer. Regarding the control chart, what do we do now? This was a good special cause. It has not harmed the behaviour of the process as do most special causes: it has improved it. So, of course, we do not try to remove a good special cause: we retain it and, if possible, incorporate it into the system (of course, easy enough in this particular case). But since it has changed the system, clearly the current control limits are now redundant. Thus, after a few more data have been recorded, the obvious thing to do is recompute the control limits using data from the changed system and, presuming the changed system is seen to be in statistical control, to extend those new limits into the future.
 
 ![Chart E3](/assets/images/day-03/chart-E3-individual.png){fig-align="center" width="85%" .lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+48-point control chart for Process E (daily averages of cigarette-lighter-socket measurements at the Tokai Rika plant). Points 1–35 fluctuate inside the limits, centred near the 15.90 mm target. **Point 36 spikes upward — the highest point on the chart** (Friday 26 September 1980, when a worn positioning collar caused drift). The next day a worker turned the collar over; two days later it was replaced. **From Point 37 onward the line not only returns to target but the variation visibly tightens** — the new collar produces a noticeably narrower band of values for the rest of the chart. Tokai Rika acted not because the values had breached *specifications* (they hadn't), but because they wanted to operate on the target.
+
+</details>
 
 The data in Chart E3 are taken from an ancient but fascinating case study which Don Wheeler relates in a chapter on "Using Process Behaviour Charts for Continual Improvement" in his book with David Chambers: *Understanding Statistical Process Control*. This is how Don introduces the story:
 
@@ -50,6 +85,13 @@ The high point in Chart E3 (Point 36) was for Friday 26 September 1980, and Poin
 []{#sec-page33}It will probably not have escaped your notice that, as soon as action was taken to prevent further deterioration due to the worn collar, the variability of the data became considerably less than it was in the first half of the chart. The reason for this was not noted on the chart. Maybe the new collar was of an improved design or made of better material. Maybe the old collar had already been causing some deterioration earlier on but not enough to produce out-of-control signals on the control chart. Whatever was the case, the Tokai Rika personnel did the obvious thing. Yes, they recognised the existence of the changed system by recomputing the control limits and extending those limits into the future. Notice how wholly irrelevant any consideration of "conformance to specifications" was to how they behaved. This account about the Tokai Rika chart is considerably expanded upon in Part B of the Optional Extras.
 
 ![Chart F3](/assets/images/day-03/chart-F3-individual.png){fig-align="center" width="85%" .lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+48-point control chart for Process F (monthly US trade deficits, in billions of dollars, for 2006–2009). The first 31 points fluctuate inside the limits with a faint hint of a seasonal up-and-down rhythm — higher in summer, lower in winter. **From around Point 32 the line trends sharply downward; Point 35 (November 2008) drops below the LCL, and the points stay below the LCL for the rest of the chart.** That is the global financial crisis: domestic demand collapsed, imports fell faster than exports, and the deficit shrank well past anything the previous two stable years would have predicted.
+
+</details>
 
 Finally, recall that the data in Chart F3 show the monthly US trade deficits for the years 2006–2009. The striking feature is the considerable downward trend following the peak value at Point 31, particularly the drop to below the LCL at Point 35, and then the continuing sequence of points below the LCL until the end of the chart. But what was Point 35? It was November 2008, the first full month after the seriousness of the global financial crisis became clearly evident. Naturally, this caused internal demand to plummet, thus considerably reducing imports. Export figures also fell, but not to the same extent since several of America's overseas markets were less seriously affected by the crisis.
 

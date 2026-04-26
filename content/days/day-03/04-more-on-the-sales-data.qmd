@@ -17,6 +17,13 @@ Now, also as previously promised, let's return to the illustrative example with 
 ```{r run-chart-sales, echo=FALSE, message=FALSE, warning=FALSE, fig.width=5, fig.height=5, dpi=300}
 run_chart_plot(c(13, 19, 18, 14, 16, 12, 21, 18, 17, 22))
 ```
+
+<details>
+<summary>Describe this chart</summary>
+
+A run chart of the ten "monthly sales figures" carried over from Day 2 (13, 19, 18, 14, 16, 12, 21, 18, 17, 22). The line zig-zags up and down — reaching a low of 12 in Month 6 and a high of 22 in Month 10. The eye reads a story (decline, recovery, success); the All-Knowing knows there is no story to read here.
+
+</details>
 :::
 
 ::::
@@ -62,6 +69,13 @@ Returning to the question at the bottom of the previous page (concerning the All
 
 ::: {.column width="35%"}
 ![Sales data control chart](/assets/images/day-03/sales-control-chart.png){.lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+The same ten "sales" values from above, now upgraded to a control chart with control limits and a thin blue Central Line at the average (17). **All ten points lie comfortably inside the limits** — the process is in statistical control. The reveal that lands later: these were not sales figures at all. They were the totals from throwing five ordinary dice. The management's elaborate story-building was applied to pure random noise.
+
+</details>
 :::
 
 ::::
