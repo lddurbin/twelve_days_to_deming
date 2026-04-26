@@ -32,6 +32,13 @@ My "Eureka" came through getting to know Dr Brian Joiner and some of his colleag
 
 ![The Joiner Triangle](/assets/images/day-04/joiner-triangle-simple.png){fig-align="center" width="60%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+A simple equilateral triangle with one short phrase written at each of its three corners: **Obsession With Quality** at the top, **Scientific Approach** at the bottom-left, and **All One Team** at the bottom-right. There is no hierarchy implied — the three corners are co-equal foundations. The diagrammatic point is precisely that these three ideas are not separate items but a single connected whole; the lines of the triangle are doing the work of saying "these belong together".
+
+</details>
+
 In fact, the people at Joiner Associates used only *six* words, with the top of the Triangle being condensed to just "Quality". However, that struck me as being rather too nebulous. On page 11 you will see the more detailed version of the Triangle which shows some of the items to be included under each of the three headings. "Develop an obsession with quality" was the first item under that single word "Quality". With that and the fact that the final item was "Continual never-ending improvement", the thrust of that part of the Triangle was clearly far greater than conventional interpretations of "Quality" would imply; thus it seemed appropriate and helpful to take those two words "Obsession With" up into the title.
 
 We shall study the Joiner Triangle's three foundations in some depth on pages 4–13.

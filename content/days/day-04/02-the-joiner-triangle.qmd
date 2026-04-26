@@ -254,6 +254,13 @@ In preparation for the First Project and as promised on page 2, here is a fuller
 
 ![The Expanded Joiner Triangle (Joiner Associates version)](/assets/images/day-04/joiner-triangle-expanded.png){fig-align="center" width="80%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+The Joiner Triangle (Obsession With Quality at top, All One Team bottom-left, Scientific Approach bottom-right) with each corner now annotated by an adjacent box listing the topics that fall under that heading. **Obsession With Quality** lists: develop an obsession with quality (of products, processes, performance, work life); define minimum needs in operational terms (external and internal customers); quality is achieved by improved processes not by inspection; go beyond mere conformance to specifications; continual never-ending improvement. **All One Team** lists: cooperation vs competition; break down barriers; process improvement teams (cross-functional, cross-hierarchical); optimise the system as a whole; teams of teams. **Scientific Approach** lists: work on the system (flowcharting); understand variation; use process methodologies (charting, statistical thinking, special and common causes, seven tools, problem-solving and continual improvement); innovation of product and process. The diagram thus turns the three-word triangle into a working checklist for the First Project.
+
+</details>
+
 However, before we move on to the project, I need to consider further the Scientific Approach part of the Triangle. There are several reasons.
 
 First, you will have already read on *DemDim* page 35 that "Topics which can be included under this general heading *Scientific Approach*" take up a considerable proportion of that book. It includes notes of a few of the topics relevant to each of the Triangle's three foundations. Of course, everything there is useful but, in its context relevant here as representing foundations of Dr Deming's theory of management, some other choices could have been preferable. For example, I would have added two very important topics: Operational Definitions and the Deming Cycle. (However, I shall not include these in the box below since we won't be studying them here until Day 11.)
@@ -264,9 +271,23 @@ In the spirit of the expanded Joiner Triangle (but bearing in mind the above ref
 
 ![Neave's modified Scientific Approach box](/assets/images/day-04/scientific-approach-box.png){fig-align="center" width="55%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+A single bordered box listing Neave's revised topics for the Scientific Approach corner of the Joiner Triangle. The five entries: collect data when possible, but also pay due regard to "unknowable figures"; summarise data on charts (non-process data: histograms; process data: run/control charts); understand variation; avoid tampering; out of control: find special causes / in control: improve processes. Compared with Joiner Associates' original list, Neave's version drops the heavy emphasis on individual tools and instead highlights the *judgements* a manager has to make — what to measure, how to display it, when to act, and when to leave alone.
+
+</details>
+
 So here for your convenience is the expanded Joiner Triangle again but now with my modified version of the Scientific Approach content:
 
 ![The Expanded Joiner Triangle (Neave's version)](/assets/images/day-04/joiner-triangle-combined.png){fig-align="center" width="80%" .lightbox}
+
+<details>
+<summary>Describe this diagram</summary>
+
+The full Expanded Joiner Triangle as Neave uses it in the rest of the course: same three corners (Obsession With Quality, All One Team, Scientific Approach) and same boxes for the first two corners as in the Joiner Associates version, but with the **Scientific Approach** box now replaced by Neave's revised list (collect data but also respect unknowable figures; summarise data on charts; understand variation; avoid tampering; act differently when in vs out of control). This is the version learners should keep beside them while working through the First Project.
+
+</details>
 
 <div class="separator">
   <div class="separator_white">

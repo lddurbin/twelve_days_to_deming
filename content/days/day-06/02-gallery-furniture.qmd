@@ -218,6 +218,13 @@ In order for transformation to occur, the biggest change has to take place in ma
 
 ![Before and After comparison](/assets/images/day-06/before-after-table.png){fig-align="center" width="80%" .lightbox}
 
+<details>
+<summary>Describe this table</summary>
+
+A two-column **Before / After** table contrasting Gallery Furniture's old and new management mindset, row by row. *Before* (left, pink): individual events, firefighting, kicking butt, and taking names; goodbye to below-average staff; no education, high turnover — money spent on recruiting; frustrated because people didn't "get the message"; dwelled on problems and issued edicts; ignored the potential of competent, talented people. *After* (right, blue): view the company as a whole — not focus on individual events; view employees as assets; ROI: invest lots of money in the best asset, people; be less critical, appreciate diversity; job harder — fire prevention; found out lots of people can contribute, and want to. Every "After" entry is a system-level rewording of an individual-blame "Before" — it is the Deming transformation expressed as a vocabulary swap.
+
+</details>
+
 The benefits are many and great. People are happier on the job. There is better morale. Attitudes are high. Associates view the business holistically and are eager to contribute their ideas, opinions and talents. It is now OK to take a chance out on the edge where the rewards are to be found, rather than playing it safe in the middle of the road. No risk: no reward.
 
 ### Thank you, Dr Deming

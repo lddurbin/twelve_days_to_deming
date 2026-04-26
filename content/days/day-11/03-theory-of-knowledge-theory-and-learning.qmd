@@ -42,6 +42,13 @@ Finally, now that you have seen the Deming/Shewhart Cycle as well as being famil
 
 ![A Theory of Knowledge in seven words](/assets/images/day-11/theory-of-knowledge-circle.png){fig-align="center" width="60%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+A clockwise circle of seven labelled words, each connected to the next by a curved arrow: **Theory → Question → Data → Prediction → Knowledge → Action → Wisdom → (back to Theory)**. There is no start or end — the cycle keeps going. The point is that knowledge does not arise from data alone; it begins with theory, runs through prediction (which the data either supports or refutes), and only then becomes knowledge — and only after acting on that knowledge does wisdom emerge, feeding back into a sharper theory. Strip out any of the seven and the circle breaks.
+
+</details>
+
 **Now turn to *DemDim* page 139 and read Chapter 9.** You'll be able to skip through some of these pages very quickly.
 
 *(Continue to Area 2, Step 2 overleaf.)*

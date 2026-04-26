@@ -70,6 +70,13 @@ Having established a "macro" flow diagram for the organisation (or whatever syst
 
 ![Complex organisation chart](/assets/images/day-09/org-chart-complex.png){.lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+A deliberately overwhelming sketch on a black background: dozens of small empty boxes (representing groups, departments, individuals) scattered across the page, with a tangle of pale lines criss-crossing between them. There is no visible top, no clean hierarchy, no orderly chain of command — interconnections run in every direction. The point is *not* that this is a usable chart but that this is what any real organisation actually looks like once you stop pretending the conventional pyramid org-chart tells the whole story. It contrasts sharply with Deming's deliberately simple flow diagram on the previous page; the lesson is that comprehensible, *macro* flow diagrams are useful, but ultra-detailed wall-sized maps like this one are not.
+
+</details>
+
 While addressing the British Deming Association's 1991 Annual Conference, Bill showed this picture with a comment to the effect that "this is what any organisation is". There are lots and lots of boxes (representing groups, departments, individuals, etc)---and also lots and lots of lines joining the boxes to indicate the numerous interconnections between them.
 
 So what is to be gained by constructing Deming's flow diagram? The important answer is that it helps us to change the way we think; and, as we have so often remarked before, what we think greatly affects what we do. It can therefore help management to start doing things differently. Such as what?
