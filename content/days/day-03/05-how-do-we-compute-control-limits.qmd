@@ -47,6 +47,13 @@ The control limits (coloured blue) in those charts on page 19 were computed by t
 
 ![Charts A1 and A2 with control limits computed using standard deviations (purple)](/assets/images/day-03/charts-a1-a2-purple-limits.png){fig-align="center" width="90%" .lightbox}
 
+<details>
+<summary>Describe this chart</summary>
+
+Two charts side by side: Chart A1 (a stable process) and Chart A2 (an out-of-control process), each shown with control limits drawn in **purple** — computed using the conventional standard deviation. On Chart A1 the purple limits sit roughly where the moving-range (blue) limits did on page 19: no harm done. On Chart A2, however, the purple limits are roughly *twice as far apart* as the blue limits would have been. They have been pushed outward by the very special causes they were meant to detect — and as a result, the chart now wraps around all the data and signals nothing. The standard deviation, like the histogram, ignores the order of the values; the moving-range method does not.
+
+</details>
+
 Now, those purple limits on this Chart A1 (computed using standard deviations) are virtually the same as the blue ones (computed using moving ranges) on page 19. *But* look what happens to Chart A2 where the standard-deviation-type (purple) control limits have been computed from the data there *which we have already just recognised as coming from an out-of-control process*. They are approximately twice as far apart as the ones on page 19! These limits are *totally useless* as a criterion for judging whether the process is or is not in statistical control. Why does this happen? It's because, just like the histogram, the standard deviation totally ignores the order in which the numbers occur in the data—refer again to the remarks about "the most important information of all" near the top of page 9.
 
 Now, as I said, using moving ranges is not a *perfect* solution for obtaining control limits that purely reflect common-cause variation even if computed when the process is out of statistical control. A perfect solution doesn't exist. But using moving ranges works pretty well in mitigating the contamination effects of many kinds of special causes. There are a few exceptions but, now that you know the general idea about how the control limits are produced, i.e. using moving ranges, those exceptions soon become relatively easy to recognise. That is why I have included this present discussion here in the main text rather than just in the Technical Aids—this is important knowledge for all users of control charts, including those on Stats-level 0. Two important exceptions that one needs to be able to recognise are illustrated with data generated in the Funnel Experiment, and so we shall see those this afternoon. But the general success of the moving-range method will be amply illustrated this morning in the section which begins on page 19.
@@ -122,6 +129,13 @@ Then it's the turn of $\overline{MR}$, the average moving range in those 12 data
 So $\overline{MR} = (1 + 1 + 0 + 1 + 1 + 2 + 0 + 1 + 1 + 1 + 1) \div 11 = 10 \div 11 = 0.909$, and $2.66 \times \overline{MR} = 2.66 \times 0.909 = 2.418$. This puts the control limits at $12.167 - 2.418 = 9.749$ and $12.167 + 2.418 = 14.585$. Showing the control limits in blue as previously, the control chart is then:
 
 ![Control chart of 24 values with limits computed from first 12](/assets/images/day-03/technical-aid-8-control-chart.png){fig-align="center" width="70%" .lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+A control chart of all 24 values from the first process, but with the control limits computed using only the first 12 (LCL ≈ 9.75, UCL ≈ 14.59, Central Line at 12.17). The first 12 points fluctuate quietly inside the limits. The remaining 12 climb steadily upward — by point 24 (value 19) they are well above the UCL. The lesson: with a "live" chart, you do not need every data point to set the limits; computing them from a short baseline lets later special causes show up as soon as they appear.
+
+</details>
 
 This was clearly a case where, in practice, there was little to be gained by producing the control chart: the run chart had already told the story of the rising trend. That's fine: if the run chart tells you all you need to know then don't bother to upgrade it to a control chart. The control chart becomes really valuable when it is unclear as to whether or not the run chart is indicating there are some special causes—which is the more usual situation.
 

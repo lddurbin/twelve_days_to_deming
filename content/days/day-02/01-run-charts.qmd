@@ -22,6 +22,13 @@ Drawing a run chart is straightforward. Of course, with a very large number of d
 ::: {.column width="25%"}
 
 ![Run chart showing a line graph of values declining from around 1000 in August to approximately 400 by December, with sharp drops in October and November](/assets/images/day-02/Picture%201.jpg){.lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+A run chart with months along the x-axis (August through December) and a value on the y-axis. The line starts near 1000 in August, dips slightly through September, then drops sharply in October and again in November, ending close to 400 by December. The visual point is that *trends and step-changes leap out of a run chart* — a reader scanning the same numbers in a column would have to work much harder to see them.
+
+</details>
 :::
   
 ::::
@@ -43,8 +50,15 @@ In the same way, Month 3's figure is expressed as 18 (–1, –5%). (18 is 1 les
 ::: {.column width="30%"}
 
 ```{r run-chart-month-3, echo=FALSE, message=FALSE, warning=FALSE, fig.width=5, fig.height=5, dpi=300}
-run_chart_plot(c(13, 19, 18)) 
+run_chart_plot(c(13, 19, 18))
 ```
+
+<details>
+<summary>Describe this chart</summary>
+
+A run chart of monthly sales figures, with months 1 to 3 on the x-axis and sales values on the y-axis. The line goes up sharply from 13 in Month 1 to 19 in Month 2, then dips slightly to 18 in Month 3. Subsequent charts in this chapter add one new month at a time — only the latest month changes from one chart to the next, so the eye is drawn to whatever just happened.
+
+</details>
 :::
 ::::
 

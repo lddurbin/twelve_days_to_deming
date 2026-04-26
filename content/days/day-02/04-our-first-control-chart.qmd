@@ -21,11 +21,25 @@ run_chart_plot(c(7, 10, 11, 11, 12, 11, 11, 8, 10, 9, 12, 15, 3, 10, 10, 10, 9, 
                y_breaks = seq(0, 25, by = 5), y_minor_breaks = seq(0, 25, by = 1))
 ```
 
+<details>
+<summary>Describe this chart</summary>
+
+A run chart of all 24 red-bead counts in time order, with no control limits yet. Most points lie between 6 and 12. Two points stand out from the rest: the value of 15 at point 12, and the value of 3 at point 13 — both in the middle of the series. To the eye, the chart looks busy but unstructured; without control limits, it is hard to say whether anything in it is genuinely unusual.
+
+</details>
+
 The second of the two stages which then completes the control chart is to place a couple of horizontal lines on the run chart: the *control limits*. The Foreman gave Dec a card on which he had written the method for finding out where these control limits should be drawn. After pressing a few keys on his calculator, Dec came up with the values 1.4 for the Lower Control Limit (LCL) and 18.2 for the Upper Control Limit (UCL). So here is the resulting control chart:
 
 ```{r}
 red_beads_control_chart(c(7, 10, 11, 11, 12, 11, 11, 8, 10, 9, 12, 15, 3, 10, 10, 10, 9, 6, 6, 13, 10, 6, 14, 11), LCL = 1.4, UCL = 18.2)
 ```
+
+<details>
+<summary>Describe this chart</summary>
+
+The same run chart as above, now with two horizontal lines added: the Lower Control Limit at 1.4 and the Upper Control Limit at 18.2. **Every one of the 24 points lies between the two limits** — including the 15 and the 3 that looked striking on the bare run chart. By the simplest interpretation rule (all points inside the limits → process is in statistical control), the Foreman's whole performance-appraisal exercise is operating on common-cause variation. There is no Ernie effect, no Pat effect, no appraisal effect; the differences between workers and weeks are just noise around a stable system.
+
+</details>
 
 <div class="neave_note" role="note" aria-label="Author's note">
 If you have classified yourself at Stats-level 1 or above then there will soon be a couple of Technical Aids which will enable you to compute the control limits shown above. If you are at Stats-level 0 then please don't bother with those Technical Aids: just concentrate on what is <em>really</em> important, namely how to <em>interpret</em> the chart and what to deduce from it once it has been drawn. That is what follows here.

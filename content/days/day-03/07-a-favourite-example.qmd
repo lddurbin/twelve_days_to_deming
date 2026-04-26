@@ -14,9 +14,23 @@ The following run chart is based on some inspection data. Quoting from Dr Deming
 
 ![Run chart of proportion defective](/assets/images/day-03/favourite-example-run-chart.png){fig-align="center" width="85%" .lightbox}
 
+<details>
+<summary>Describe this chart</summary>
+
+A run chart of the daily proportion defective on final audit, over two months. The line wanders up and down in a tight band well below 10%. The chart looks unremarkable — but Neave has deliberately omitted the control limits, and the next chart will show why: the band is *too* tight to be the natural variation of a stable process.
+
+</details>
+
 Would you say that this process is in statistical control? You might be wise enough to answer that you cannot be sure without inserting the control limits to upgrade the run chart to a control chart. But there was a good reason why I haven't included the control limits here: you might be surprised to know that, starting with the run chart as shown above, the control limits wouldn't fit onto this page! Take a look at the way that Dr Deming drew the control chart of these data with a quite different vertical scale:
 
 ![Control chart of proportion defective](/assets/images/day-03/favourite-example-control-chart.png){fig-align="center" width="85%" .lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+The same daily proportions, redrawn on a much wider vertical scale so that the correctly-computed control limits actually fit on the page. The control limits are very far apart — and **every point sits clustered in a narrow horizontal band along the Central Line**, nowhere near either limit. This is the "Hugging the Central Line" pattern. It does not say "the process is exceptionally well-behaved"; it says the data are too good to be true. In this case the inspector was sandbagging — fiddling the figures to keep the daily proportion defective safely below the 10% threshold that rumour said would close the plant.
+
+</details>
 
 Yes, be sure that Dr Deming did compute those control limits correctly! So, in order to produce a reasonable picture, he did indeed need to use a drastically different vertical scale from that which would normally have been used when drawing the run chart. Not surprisingly, the effect shown in his control chart is often known as "hugging the Central Line". As soon as Dr Deming saw this *"curious condition"*, as he called it, he knew that there was something for him to find out. What he discovered was well described by his heading to the story: ***"Faulty inspection caused by fear"***. His explanation was as follows:
 

@@ -29,11 +29,25 @@ So, in our one-dimensional version, imagine we have two tracks both like the fol
 
 ![Track numbered 20–40](/assets/images/day-03/funnel-track-basic.png){fig-align="center" width="85%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+A horizontal track of 21 numbered squares, running from 20 on the left to 40 on the right. The middle square (30) is coloured differently from the others — that is the **target-point** for the silly game. In the imagined two-track set-up, the upper track holds the funnel (which can be suspended over any numbered square) and the lower track catches the marble (which finishes up displaced left or right of where it was dropped). On this single-track shorthand, both funnel and marble will be shown by little icons on the same row, as in the next diagram.
+
+</details>
+
 []{#sec-page36}with one track suspended some distance directly above the other. (You will notice that the central number 30 is coloured differently from the others: 30 is the "target-point" in our silly game.) The funnel's track is the higher one: it has a hole in the middle of each square so that the funnel can be suspended at any numbered position. The marble's track is the lower one: the sides of the numbered squares are rigid but the insides of the squares are made of some elastic material. So the general set-up is that (a) the funnel can be placed at any position on the higher track and (b) the marble can then be dropped through it onto the lower track where it will briefly bounce around and then finish up in one of its squares—possibly directly under the funnel or, more usually, displaced by one or more squares to the left or right. To complete the image we should join the two sides of the top and bottom tracks by vertical sheets of glass or transparent plastic to prevent the marble bouncing off its track but so that we can still observe what's happening!
 
 However, you don't have to build that whole model! During the description I shall show the positions of the funnel and marble along their tracks by little icons on a single track. So, for example, if the funnel is at position 31 and, after being dropped through the funnel, the marble bounces around and finishes up at position 33 then I shall show this as:
 
 ![Track with funnel and marble icons](/assets/images/day-03/funnel-track-with-icons.png){fig-align="center" width="85%" .lightbox}
+
+<details>
+<summary>Describe this diagram</summary>
+
+The same 20–40 track, now with two icons placed above it: the **funnel sits above square 31**, and the **marble sits above square 33**. This shorthand records a single drop — the funnel was placed at 31, the marble bounced and came to rest at 33 (two squares to the right of the funnel). Most diagrams in the experiment use this layout to record where the funnel was set and where the marble landed.
+
+</details>
 
 So how exactly will you be able to carry this out with your less extravagant set-up (of which details follow)?
 
@@ -57,4 +71,18 @@ Your version of the track going from 20 to 40 will be sufficient for much of the
 
 ![Dice sequences](/assets/images/day-03/funnel-dice-sequences.png){fig-align="center" width="95%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+Two pre-recorded sequences of dice-throw outcomes (Sequence I and Sequence II), provided as a fallback for any reader without physical dice. Each sequence lists the values from Stage 6 onward — the first five stages will be supplied separately for demonstration. Either sequence can be used in place of throwing dice live during the Funnel Experiment.
+
+</details>
+
 ![Colourful track for cutting out](/assets/images/day-03/funnel-track-colourful.png){fig-align="center" width="85%" .lightbox}
+
+<details>
+<summary>Describe this diagram</summary>
+
+A print-ready, colourful version of the same 20–40 track described above, sized larger so it can be copied or pasted onto card and cut out for use in the Funnel Experiment. The squares from 20 to 40 are laid out in two halves to fit the page, ready to be joined together at the central square (30).
+
+</details>

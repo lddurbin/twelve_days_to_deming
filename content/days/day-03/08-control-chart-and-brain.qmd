@@ -71,6 +71,13 @@ Having just raised the matter of "patterns", I would like to mention something t
 
 ![Peter Worthington's zig-zag sketch](/assets/images/day-03/worthington-zigzag-sketch.png){fig-align="center" width="30%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+A small hand-drawn sketch — the kind of run chart Peter Worthington's seminar delegates would draw when asked what "random variation" looks like. The line zig-zags up and down at a regular rhythm: high for a stretch, then low for a stretch, then high again, alternating predictably. That regularity is the giveaway: random variation is *not* patterned. A genuinely random run chart contains plenty of ups and downs, but they don't sustain a regular alternation like this. So whenever you see "wonderful zig-zagging" in real data, treat it as a *signal*, not as noise.
+
+</details>
+
 Peter was then able to point out to them that this is definitely *not* random variation! Random variation does not have patterns (except occasionally and briefly by a fluke). This sketch is a pattern—it's a zig-zag pattern: it is high for a while, then goes down for a while, then goes up again, then goes down again, and so on. Take another look at the in-control charts on the left hand side of page 19—or, for that matter, any of the charts on that page. Do any of them demonstrate such regular up-and-down behaviour? Of course, there are lots of individual ups and downs, but they do not occur in a regular and long-running pattern. I repeat that, by definition, random variation does *not* have patterns.
 
 Peter has permitted me to repeat what he told me about how this item in his seminars originated:

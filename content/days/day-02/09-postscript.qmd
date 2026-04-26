@@ -9,6 +9,13 @@ As indicated on page 28, I presented two seminars in Madrid. On his return to th
 
 ![Spanish Red Beads Experiment Results](/assets/images/day-02/postscript-table.png){fig-align="center" width="80%" .lightbox}
 
+<details>
+<summary>Describe this table</summary>
+
+The Recorder Jorge's table from the second Madrid run. Six Willing Workers (including Antonio, Marisa and Jose) across four weeks. Week 1 contains the standout count — Antonio's exceptionally low number, driven by his determination to defend Spanish workmanship. Marisa and Jose are visibly weaker in Week 1 (high counts). After Week 1 the spread tightens: weekly totals settle into a much more uniform band, with Antonio's effort no longer exceptional. The overall total of 227 red beads across the experiment is materially lower than Neave's long-run average — but the chart-watcher should note that *one strong week and three ordinary weeks* is exactly what common-cause variation looks like when one operator briefly tries harder, then reverts.
+
+</details>
+
 These results are certainly rather different from those on my first visit to Madrid. The overall total of red beads (though not stated here by Jorge) was 227—not only much better than in November 1989 but substantially better than the average over all my experiments using the same equipment. Further, no doubt as a result of the Foreman's motivational introduction, the first week's performance was pretty good, despite the relatively poor results from Marisa (clearly a slow learner) and Jose (who never quite understood what he was doing). The first week's commendable total was largely due to the brilliant effort of Antonio who had been particularly incensed by the possible slur about Spanish workmanship that he had perceived. Regrettably a production.
 
 So, already by the end of the first week, the pressure was off. No way was this team of Willing Workers going to go anywhere near as badly as the previous Spanish contingent. And so they settled down to producing the rather less exceptional but very consistent overall performance that you see represented in the remaining weeks' totals.

@@ -13,6 +13,13 @@ Here are two forms of histogram of those data. On the left, each item in the dat
 
 ![Two histograms of the same 24 values ranging from 10 to 19: on the left, individual boxes stacked to show frequency; on the right, a conventional bar histogram. Both show a roughly symmetric distribution peaking at 13 with four occurrences](/assets/images/day-03/two-histograms-24-values.png){fig-align="center" width="90%" .lightbox}
 
+<details>
+<summary>Describe this chart</summary>
+
+Two histograms of *the same* 24 values, drawn two ways. On the left, each value is a separate stacked box with small gaps between them; on the right, the gaps are filled in to make a conventional bar histogram. Both peak at value 13 (four occurrences) and tail off symmetrically toward 10 and 19. The two pictures look identical in shape — but neither shows the *order* in which the values were generated, which is exactly what the next chart will reveal as the missing crucial information.
+
+</details>
+
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 3–d
@@ -39,6 +46,13 @@ A "similar histogram"? It turned out to be the very *same* histogram as that obt
 Just to be sure, let's draw run charts of the data. Here is a run chart for the first process.
 
 ![Run chart of the first process](/assets/images/day-03/run-chart-first-process.png){fig-align="center" width="80%" .lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+A run chart of the same 24 values from the first process, plotted in time order. The line starts near 11 and climbs steadily to 19 by the final point — a clear *upward trend*. The histograms above show only that the values lie between 10 and 19; the run chart shows that they were *trending upward over time*. That trend is the lesson the histogram could not deliver.
+
+</details>
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
@@ -76,6 +90,13 @@ However, that's not to imply we should dispense with the histogram altogether. T
 Dr Deming included a few histograms in *Out of the Crisis*. I particularly like his commentary on the following histogram which I have redrawn from page 229[267] of his book:
 
 ![Deming's histogram from Out of the Crisis](/assets/images/day-03/deming-histogram-caliper.png){fig-align="center" width="70%" .lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+A histogram of measurements taken during production, with a Lower Specification Limit drawn at 6.2 mils and no upper limit. The distribution rises sharply on the left and *peaks at the very specification limit* of 6.2 mils — an abrupt cut-off that no naturally-varying process would produce. The implication, in Deming's words: any value that came in below 6.2 was quietly nudged up to 6.2 before being recorded. "No part recorded a failure" because no one wished to be the bearer of bad news.
+
+</details>
 
 Observing the rather abrupt cut-off on the left hand side at 6.2 mils (millimetres), he wrote that the histogram ...
 

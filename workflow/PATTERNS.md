@@ -276,6 +276,67 @@ With alignment options:
 ![Description](/assets/images/day-XX/filename.png){fig-align="center" width="80%" .lightbox}
 ```
 
+### Long-Descriptions for Charts and Diagrams
+
+Many control charts, run charts, histograms, and process diagrams in the
+course carry pedagogy — the learner is supposed to *see* a pattern, a
+special-cause point, a rule violation.
+
+Two layers of text support each such image:
+
+1. **Alt text** — always-present, the primary accessibility surface for
+   screen-reader users. Says *what the image is* in ≤ 120 characters.
+2. **A collapsed `<details>` block** — opt-in supplementary layer that
+   says *what to see*. It is hidden behind a disclosure widget that
+   readers (sighted, screen-reader, or otherwise) must actively expand,
+   so it complements rather than replaces alt text. Useful for
+   chart-novices, cognitively-fatigued readers, and screen-reader users
+   who want the pedagogical interpretation alongside the literal alt
+   text.
+
+Pair every chart or diagram with a `<details>` block that explains what
+the visual is showing, placed directly after the image:
+
+```markdown
+![Run chart of monthly sales declining from ~1000 to ~400](/assets/images/day-02/Picture%201.jpg){.lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+A run chart with months along the x-axis (August through December) and
+sales on the y-axis. The line starts near 1000 in August, dips slightly
+through September, then drops sharply in October and again in November,
+ending near 400 in December.
+
+</details>
+```
+
+**Conventions:**
+
+- Use one of three predictable summary labels, matched to the visual
+  type: **"Describe this chart"** for charts (run charts, control
+  charts, histograms), **"Describe this diagram"** for non-chart
+  visuals like apparatus or process flows, and **"Describe this
+  table"** for pedagogically-loaded image-tables (e.g. the Red Beads
+  results transparency). The fixed wording keeps the disclosure
+  predictable across the site.
+- Keep alt text concise (≤ 120 chars) — what the image *is*. Put the
+  pedagogical *what to see* in the `<details>` body.
+- Two to four sentences in the body, focused on the lesson the learner
+  should take away — patterns, outliers, rule violations, trends.
+- A blank line between `<summary>` and the body is required for Quarto to
+  parse the markdown inside.
+- For R-rendered charts (`run_chart_plot()`,
+  `red_beads_control_chart()`), place the `<details>` block in raw
+  markdown immediately after the closing ```` ``` ```` of the R chunk.
+- **When to skip:** decorative images (portraits, icons, apparatus
+  illustrations whose alt text already does the job), and pure data
+  tables presented as images (the data is the data — a description
+  repeating "this is a table of weekly results" adds nothing).
+- **Repetitive series:** if a chapter shows the same chart with one new
+  data point per step (e.g. progressive run charts), describe the first
+  and note that subsequent charts add one point each. Don't restate.
+
 ### Columns Layout
 
 ```markdown
