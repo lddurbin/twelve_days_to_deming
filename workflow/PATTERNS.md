@@ -280,9 +280,19 @@ With alignment options:
 
 Many control charts, run charts, histograms, and process diagrams in the
 course carry pedagogy — the learner is supposed to *see* a pattern, a
-special-cause point, a rule violation. Alt text is too short to do that
-work; readers who can't parse the visual (screen-reader users,
-chart-novices, cognitively-fatigued readers) lose the lesson.
+special-cause point, a rule violation.
+
+Two layers of text support each such image:
+
+1. **Alt text** — always-present, the primary accessibility surface for
+   screen-reader users. Says *what the image is* in ≤ 120 characters.
+2. **A collapsed `<details>` block** — opt-in supplementary layer that
+   says *what to see*. It is hidden behind a disclosure widget that
+   readers (sighted, screen-reader, or otherwise) must actively expand,
+   so it complements rather than replaces alt text. Useful for
+   chart-novices, cognitively-fatigued readers, and screen-reader users
+   who want the pedagogical interpretation alongside the literal alt
+   text.
 
 Pair every chart or diagram with a `<details>` block that explains what
 the visual is showing, placed directly after the image:
@@ -303,9 +313,13 @@ ending near 400 in December.
 
 **Conventions:**
 
-- Use the literal summary text **"Describe this chart"** (or "Describe
-  this diagram" for non-chart visuals like apparatus or process flows) so
-  the disclosure is predictable across the site.
+- Use one of three predictable summary labels, matched to the visual
+  type: **"Describe this chart"** for charts (run charts, control
+  charts, histograms), **"Describe this diagram"** for non-chart
+  visuals like apparatus or process flows, and **"Describe this
+  table"** for pedagogically-loaded image-tables (e.g. the Red Beads
+  results transparency). The fixed wording keeps the disclosure
+  predictable across the site.
 - Keep alt text concise (≤ 120 chars) — what the image *is*. Put the
   pedagogical *what to see* in the `<details>` body.
 - Two to four sentences in the body, focused on the lesson the learner

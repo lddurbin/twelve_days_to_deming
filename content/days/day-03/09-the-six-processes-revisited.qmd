@@ -53,7 +53,7 @@ There is little to discuss with the Red Beads illustration: you will recall that
 <details>
 <summary>Describe this chart</summary>
 
-48-point control chart for Process D (Neave's morning pulse rate over 48 consecutive days). The first 44 points fluctuate inside the limits at an unhealthily high level. **At Point 45 the line drops sharply (87, then 77, then 66) and then settles to a new, stable, much lower level** for the remaining points. The special cause is benign: a beta-blocker prescribed on day 44. This is a *good* special cause — the question for the chart's user is not how to remove it, but how to recognise it as the new normal and recompute the limits around the improved system.
+48-point control chart for Process D (Neave's morning pulse rate over 48 consecutive days). The first 44 points fluctuate inside the limits at an unhealthily high level. **At Point 45 the line drops sharply (87, then 77, then 66) and settles to a new, stable, much lower level** for the rest of the chart — the special cause was a beta-blocker prescribed on day 44. This is a *good* special cause: the question for the chart's user is not how to remove it but how to recognise it as the new normal and recompute the limits around the improved system.
 
 </details>
 
@@ -66,7 +66,7 @@ This raises a rather obvious question which fortunately also has a rather obviou
 <details>
 <summary>Describe this chart</summary>
 
-48-point control chart for Process E (daily averages of cigarette-lighter-socket measurements at the Tokai Rika plant). Points 1–35 fluctuate inside the limits, centred near the 15.90 mm target. **Point 36 spikes upward — the highest point on the chart** (Friday 26 September 1980, when a worn positioning collar caused drift). The next day a worker turned the collar over; two days later it was replaced. **From Point 37 onward the line not only returns to target but the variation visibly tightens** — the new collar produces a noticeably narrower band of values for the rest of the chart. Tokai Rika acted not because the values had breached *specifications* (they hadn't), but because they wanted to operate on the target.
+48-point control chart for Process E (daily averages of cigarette-lighter-socket measurements at the Tokai Rika plant). Points 1–35 fluctuate inside the limits, centred near the 15.90 mm target. **Point 36 spikes upward — the highest point on the chart** (Friday 26 September 1980, traced to a worn positioning collar that was turned over the next day and replaced two days later). **From Point 37 onward the line returns to target and the variation visibly tightens** — Tokai Rika acted not because the values had breached *specifications* (they hadn't) but because they wanted to operate on the target.
 
 </details>
 
