@@ -36,6 +36,13 @@ Let's suppose you've scored the strength of connection of Point 1 with both Unde
 
 ![Example radar diagram with Point 1 plotted](/assets/images/day-12/radar-diagram-small.png){fig-align="center" width="65%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+A four-armed radar (or "kite") chart used as the worked example for Activity 12–a. The four arms — PSYCHOLOGY (top), SYSTEM (right), KNOWLEDGE (bottom), VARIATION (left) — each carry a 0-to-5 scale, with 0 at the centre and 5 at the tip. For Point 1 ("Create Constancy of Purpose"), Neave's illustrative scores are plotted: 5 on PSYCHOLOGY, 4 on SYSTEM, 3 on KNOWLEDGE, 5 on VARIATION. The four points are joined by broken green dashes (the chosen KEY for Point 1), forming a four-sided shape. Each of the 14 Points and five Diseases is plotted the same way, so 19 such shapes will eventually be overlaid on a single radar; the relative size and position of each shape will reveal which parts of the System of Profound Knowledge most strongly underpin which Point or Disease.
+
+</details>
+
 <div class="thought_commentary">
 
 ## ACTIVITY 12–a, Part 3

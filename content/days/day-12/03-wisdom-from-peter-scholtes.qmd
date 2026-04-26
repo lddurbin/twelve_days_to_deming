@@ -32,6 +32,13 @@ To get you started, here is just a single thought for each of the six links:
 
 ![Peter Scholtes's diagram with sample interlink thoughts filled in](/assets/images/day-12/scholtes-profound-knowledge-filled.png){fig-align="center" width="90%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+The same Scholtes 2×2 System of Profound Knowledge frame from Day 9 (Understanding of systems top-left, Understanding a theory of knowledge top-right, Understanding variation bottom-left, Understanding psychology and human behaviour bottom-right) — but now the *connecting* shapes between the four boxes (and the central "PREDICTION" diamond) carry sample sentences, in handwritten-style blue, that link one part to another. Examples Neave provides: "Communication and negotiation … require for optimisation operational definitions" linking systems to theory of knowledge; "If psychologists understood variation … they would no longer participate in … rating people" linking variation to psychology; "People learn in different ways" linking theory of knowledge to psychology. The point of the diagram is the *interlinks*, not the four parts themselves — the parts are already familiar; the work of Activity 12–b is to fill in your own interlinks.
+
+</details>
+
 Recall that, at the end of Day 11, I suggested you make some copies or, preferably, enlargements of this page. Now you may soon see why!
 
 <div class="thought_commentary">
@@ -49,6 +56,13 @@ Following some of the guidance on page 8---and anything else that comes into you
 Finally in this section of Wisdom from Peter Scholtes is his delightful---and instructive---representation of "A System of Profound Trouble"! I need add nothing in explanation.
 
 ![Peter Scholtes's "A System of Profound Trouble" diagram](/assets/images/day-12/system-of-profound-trouble.png){fig-align="center" width="90%" .lightbox}
+
+<details>
+<summary>Describe this diagram</summary>
+
+Peter Scholtes's parody of his own System of Profound Knowledge diagram — same 2×2 layout meeting at the centre, but every label is now negated. **Top-left "Not understanding systems":** changes here create problems somewhere else; barriers and divisiveness from internal competition; scapegoating and blaming; losing sight of customers. **Top-right "Not understanding a theory of knowledge":** changes without improvement; not learning from the past; problems remain unsolved; thought without action and action without thought; not knowing how to learn. **Bottom-left "Not understanding variation":** seeing trends where there are none and missing the real ones; blaming people for what they cannot control; no sense of system capability; "superstitious" management interventions. **Bottom-right "Not understanding psychology and human behaviour":** cynicism, demoralisation; paternalism, indignities; sadness, anguish, resentment; burnout; "a 'crazy-making' place"; **no joy in work, no pride of work**. The diagram is funny only until you read it twice — every entry is a recognisable everyday symptom of management without Profound Knowledge.
+
+</details>
 
 <div class="separator">
   <div class="separator_white">

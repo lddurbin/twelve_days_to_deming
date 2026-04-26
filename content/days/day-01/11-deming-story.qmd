@@ -322,6 +322,13 @@ grViz("
 ")
 ```
 
+<details>
+<summary>Describe this diagram</summary>
+
+A left-to-right flow diagram of a whole production system. Four supplier nodes (A, B, C, D) feed materials into **Receipt and test of materials**, which passes them to **Production, assembly, inspection**, then to **Distribution**, and finally to **Consumers**. Crucially, the diagram is *not* a one-way assembly line: **Consumer research** loops back into **Design and redesign**, which in turn feeds Receipt, Production, and Distribution; **Tests of processes, machines, methods, costs** also feeds back into Receipt, Production, and Distribution. The lesson is that quality is built by treating the whole organisation — suppliers, production, distribution, consumers, design, and ongoing tests — as a single interconnected system, with information flowing back from the consumer end as much as forward.
+
+</details>
+
 <span class=deming_quote>
 2. Quality is determined by the management. Outgoing quality can not be better than the intentions of the management.</span> (Do you remember “Quality is made at the top” from the Overture?)
 
@@ -353,6 +360,13 @@ grViz("
   }
 ")
 ```
+
+<details>
+<summary>Describe this diagram</summary>
+
+A left-to-right chain of five linked boxes showing Deming's Chain Reaction. **Improve processes and product** leads to **Costs decrease**, which leads to **Capture the market with better quality and lower price**, which leads to **Stay in business**, which leads to **Provide jobs and more jobs**. The diagram makes a single causal claim: improving quality is what allows costs to fall, market share to grow, the business to survive, and employment to expand — in that order. It is the opposite of the conventional management belief that improving quality must *raise* costs.
+
+</details>
 
 <span class=neave_note>An updated version of the Chain Reaction appears on *Out of the Crisis* page 3 (both editions). There the final three steps stay the same. The first step becomes simply <span class=deming_quote>“Improve quality”</span>. But the second step is greatly expanded to show *why* costs decrease: <span class=deming_quote>“Costs decrease because of less rework, fewer mistakes, fewer delays, snags; better use of machine-time and materials”</span>. And a new step is inserted before “Capture the market …”: <span class=deming_quote>“Productivity improves”</span>.</span>
 

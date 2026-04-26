@@ -75,6 +75,13 @@ Here then is Table One, firstly as you will find it in the Major Activity (apart
 
 ![Table One — blank (left) and filled in with the DemDim example (right)](/assets/images/day-08/table-one-example.png){fig-align="center" width="90%" .lightbox}
 
+<details>
+<summary>Describe this table</summary>
+
+Two side-by-side worksheets sharing the same layout: a tall left column **Areas and their Options** (rows grouped by Area A in blue, Area B in orange, Area C in green) and three narrow columns on the right under **Effects of Options** (Effect on A, Effect on B, Effect on C). The grid has greyed-out cells that block off "off-diagonal" judgements — at this first phase each area is only allowed to record the effect of its own options on itself. The **left** worksheet is blank, ready to fill in. The **right** worksheet is the worked *DemDim* example: Area A has adopted three options (a1, a2, a3), Area B two (b1, b2), Area C three (c1, c2, c3) — eight options in total — each marked with a single **+** in its own area's column and nothing else. Subsequent tables in this chapter (Tables Two through Five) reprise the same blank-vs-filled side-by-side layout for later phases of the exercise; only their row content and which cells are open or greyed changes.
+
+</details>
+
 #### TABLE ONE
 
 So, as in *DemDim*, three options are adopted in both Areas A and C, and two options in Area B. Otherwise Table One simply shows that all eight options are advantageous (+) to the area that chose to adopt them—which, of course, is the sole interest in the first ("darkness") phase.

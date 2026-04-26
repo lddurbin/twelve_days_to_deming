@@ -21,6 +21,13 @@ Here is a scale on which I have marked the two specification limits and also fou
 
 ![Specification limits diagram showing LSL and USL with four results: b and a near LSL, c and d near USL](/assets/images/day-07/specification-limits.png){.lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+A horizontal number line marked with two vertical tick-marks: **LSL** (Lower Specification Limit) on the left and **USL** (Upper Specification Limit) on the right. Four results sit close to those limits: **b** lies just outside LSL, **a** just inside it; **c** lies just inside USL, **d** just outside. By the conformance-to-specification rule, *a* and *c* are accepted while *b* and *d* are rejected — yet *a*–*b* and *c*–*d* are essentially indistinguishable from each other. The diagram is the visual punchline for Neave's "second logical flaw": a knife-edge between "OK" and "scrap" with no real difference in fitness for purpose.
+
+</details>
+
 Results "a" and "c" are "OK": they are within specifications, they have met requirements, and so the "things" represented by those figures are presumed suitable to be passed on to the customer, be the customer external or internal. Results "b" and "d" are outside specifications, they have not met requirements, and so the "things" represented by those figures are presumed not suitable to be passed on to the customer: they must be scrapped or reworked. These are very different consequences: "b" and "d" result in costly wastage or remedial action; "a" and "c" do not. *Yet obviously there is essentially no practical difference between "a" and "b" nor between "c" and "d".* That's the second logical flaw.
 
 An effective way of representing a more realistic view was described and discussed by Genichi Taguchi at a famous meeting in Tokyo in 1960 at which Dr Deming was present. The "Taguchi loss function" was not really a new idea, especially amongst mathematicians; but Dr Taguchi did a good job of making it known and showing its relevance in "the real world". It is obvious why it appealed to Dr Deming: it wholly avoids the illogicalities just demonstrated with regard to conformance to specifications, and it is entirely consistent with his thesis of continual improvement.
@@ -87,6 +94,13 @@ If you are not very confident about plotting points and drawing graphs, please f
 Just about everybody gets a graph which looks something like Figure 34 on *DemDim* page 173:
 
 ![Taguchi loss function parabola and Neave's plotted personal graph](/assets/images/day-07/taguchi-loss-function.png){.lightbox}
+
+<details>
+<summary>Describe this chart</summary>
+
+Two graphs stacked. The top graph is the abstract Taguchi loss function: a smooth U-shaped parabola with **loss** on the vertical axis and **measurement** on the horizontal axis, the curve bottoming out exactly at the **nominal** value and rising symmetrically away from it on both sides. The bottom graph is Neave's own plotted version, with seven Xs at his temperature/loss readings (95% at 6°C, 50% at 11°C, 15% at 16°C, 0% at 21°C, 10% at 26°C, 45% at 31°C, 85% at 36°C) joined by a smooth curve. His curve is recognisably the same U-shape but is *not quite symmetric* — losses rise faster on the cold side than on the hot side. The lesson: the precise mathematical parabola is the model, but real-life loss functions have the same general shape even when individuals are asymmetric.
+
+</details>
 
 This picture shows the nicely symmetric model often illustrated and used by mathematicians as the Taguchi loss function. Mathematicians know it as a "parabola". Actual loss functions are not usually exactly symmetric about the nominal/optimum value. Mine isn't, for I tend to lose efficiency rather more if I'm cold than if I'm hot; for many people it may be the other way round. So the fine detail doesn't matter—but the general shape does. Here is my graph:
 

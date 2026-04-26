@@ -18,6 +18,9 @@ chapters:
       - "/assets/images/day-12/radar-diagram-large.png"
     headings:
       - "Section 1: YOUR RADAR DIAGRAM"
+      - "ACTIVITY 12–a, Part 1"
+      - "ACTIVITY 12–a, Part 2"
+      - "ACTIVITY 12–a, Part 3"
     has_download_button: false
 
   - file: "03-wisdom-from-peter-scholtes.qmd"
@@ -28,6 +31,7 @@ chapters:
       - "/assets/images/day-12/system-of-profound-trouble.png"
     headings:
       - "Section 2: WISDOM FROM PETER SCHOLTES"
+      - "ACTIVITY 12–b"
     has_download_button: false
 
   - file: "04-but-what-can-i-do.qmd"

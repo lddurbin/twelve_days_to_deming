@@ -132,6 +132,13 @@ An example of a system, well-optimised, is a good orchestra. The players are not
 
 ![Bowling team / Orchestra / Business interdependence spectrum](/assets/images/day-10/bowling-orchestra-business-spectrum.png){fig-align="center" width="70%" .lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+A horizontal scale labelled **LOW** at the left end and **HIGH** at the right end, with three labelled dots placed along it. **Bowling team** sits well over to the left (low interdependence — players succeed largely through individual effort). **Orchestra** sits well to the right (high interdependence — no soloist can save the piece if the section is not playing together). **Business** sits even slightly *further right* than Orchestra. The placement is the lesson: a business organisation needs *more* genuine teamwork than an orchestra, and very much more than a bowling team — yet many businesses are managed as if they were a bowling team.
+
+</details>
+
 <div class="neave_note">
 Low and high interdependence are respectively to the left and right. Paradoxically, a (ten-pin) bowling *team* can largely succeed through independent effort and brilliance of its players. An orchestra cannot: it needs a much higher degree of genuine teamwork. A business organisation needs even more.]
 </div>

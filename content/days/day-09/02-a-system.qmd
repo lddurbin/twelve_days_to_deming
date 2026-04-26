@@ -18,6 +18,13 @@ Why did it finish up there? Simply because at the time of writing *DemDim* (1989
 
 ![Deming's "Organisation Viewed as a System" flow diagram](/assets/images/day-09/deming-flow-diagram.png){.lightbox}
 
+<details>
+<summary>Describe this diagram</summary>
+
+The famous "Organisation Viewed as a System" flow sketch — the same diagram Deming put on the blackboard at every Japanese top-management conference from 1950 onward, here reproduced in his hand-drawn-style blue. Materials and equipment from four suppliers (A, B, C, D) flow into **Receipt and test of materials**, then into **Production, assembly, inspection**, then into **Distribution**, and out to many **Consumers** (a fan of arrows, deliberately depicting one organisation serving many). Two feedback loops sit on top: **Tests of processes, machines, methods, costs** feeds *back* into Receipt and Production, and **Consumer research** flows *backwards* through **Design and redesign** to inform Receipt, Production and Distribution. The lesson is that organisation, suppliers and consumers form a single system, with information flowing from the consumer end back through the rest — not a one-way assembly line.
+
+</details>
+
 Note that, with his usual precise choice of words, Deming does not write "Customers" at the right-hand side of this diagram, but "Consumers". "Customer-Supplier Relationships" is an often-used phrase. However, the "customer" strictly refers to who *pays* for what is being bought rather than necessarily who *uses* it. Clearly it is the experience of, and information from, the *consumer* that is needed to aid the improvement implicit in the use of the flow diagram.
 
 ### What ignited Japan?
@@ -47,6 +54,13 @@ As we know, Dr Deming attributed to Walter Shewhart the origin of much of his th
 And who could doubt that that was true of his thoughts on "Production (or The Organisation) Viewed as a System" after seeing the diagram alongside? This is reproduced from page 45 of Shewhart's 1939 book: *Statistical Method from the Viewpoint of Quality Control*.
 
 ![Shewhart 1939 circle diagram](/assets/images/day-09/shewhart-circle.png){.lightbox}
+
+<details>
+<summary>Describe this diagram</summary>
+
+Shewhart's 1939 "OLD" vs "NEW" sketch, two diagrams stacked. **OLD**: three boxes joined by straight arrows in a single line — Step I **Specification**, Step II **Production**, Step III **Inspection**. The line ends; nothing comes back. **NEW**: the same three labels (Specification, Production, Inspection) but now arranged around a **circle**, each arrow leading to the next and the third leading back to the first. The whole pedagogical point is the difference between a line and a circle: the line stops; the circle turns Inspection into a feedback step that reshapes the next round of Specification, making continual improvement possible.
+
+</details>
 
 Were there a prize for the best-ever combination of simple and profound, this would be strong competition for the Experiment on Red Beads! Again, Shewhart was primarily concerned here with manufacturing applications, which explains his choice of the particular three words used in the two parts of the diagram. But that's not what is most important.
 
@@ -127,6 +141,13 @@ A dynamic scientific process of acquiring knowledge! Rather different from *done
 After referencing Shewhart's work just described, on *Out of the Crisis* pages 154–155[180–181] Dr Deming then goes on in his Figure 9 to reproduce the same concepts with some different words: simpler ones for the "Old Way" and a crucial expansion of the "New Way":
 
 ![Fig. 9a, 9b and 10 — The old way, the new way, and the helix](/assets/images/day-09/figures-9a-9b-10.png){.lightbox}
+
+<details>
+<summary>Describe this diagram</summary>
+
+Three sketches stacked vertically, all from *Out of the Crisis*. **Fig. 9a (the old way)**: a straight line of three numbered arrows — *Design it → Make it → Try to sell it*. The line ends at "sell it"; there is no return path. **Fig. 9b (the new way)**: a circle with four numbered points equally spaced around it; Deming's key change from Shewhart is that he adds a fourth step, *test the product in service*, so consumer feedback feeds back into Step 1. **Fig. 10 (the helix)**: the same four-step circle, but now drawn as a spiral expanding outward — round and round, each cycle larger than the last — depicting "never-ending improvement of quality, at lower and lower cost". The trio shows the progression: line → circle → helix.
+
+</details>
 
 He follows this with:
 
