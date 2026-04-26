@@ -19,7 +19,6 @@ As mentioned, the tables for the *DemDim* case are reproduced on these left-hand
 
 ::: {.column-margin}
 ![Table One — DemDim example](/assets/images/day-08/table-one-inset.png){.lightbox}
-:::
 
 <details>
 <summary>Describe this table</summary>
@@ -27,6 +26,7 @@ As mentioned, the tables for the *DemDim* case are reproduced on these left-hand
 A small inset reprise of the worked Table One from the previous chapter: three areas (A blue, B orange, C green) each show their adopted options (a1–a3, b1–b2, c1–c3) marked with a single **+** in their own "Effect on" column, off-diagonal cells greyed out. It sits alongside the activity step as a reminder of what the *DemDim* example looks like at this phase. Tables Two through Five reappear as similar margin insets later in the chapter, each showing the corresponding worked stage of the exercise; the layout convention is identical to Table One.
 
 </details>
+:::
 
 ```{ojs}
 //| echo: false
