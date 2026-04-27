@@ -158,8 +158,6 @@ by Dr Deming.) A good way of expressing this is that Shewhart saw the need for s
 are suitable for our data rather than the need for data that are suitable for our statistical techniques. Think
 about it! Makes good sense to me. And that is precisely what Dr Shewhart produced.
 
-:::
-
 ## Control charts in this course {#sec-page8}
 
 So what does all this imply about my approach to control charts in this course? As in Dr Deming’s seminars, you will not have to construct any control charts if you’d prefer not to. However, you will see some
