@@ -10,7 +10,7 @@ First (well, here's a treat), no hard thinking for the next few pages!
 
 Let's see why I asked you to enter those 0--5 "scores" of what you saw as the strengths of connections between the System of Profound Knowledge and the 14 Points and the Deadly Diseases during the Second Project. I'd like you to collect them together in a "radar diagram", and then we'll see what that tells you about your current understanding of the Deming philosophy. (And again, this is just for *you*---so you may as well be honest. Sorry to sound like an old-fashioned parent but … if you cheat then you'll only be cheating yourself!)
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 12–a, Part 1
 
@@ -22,7 +22,7 @@ Your radar diagram will finish up containing 19 simple four-sided shapes ("quadr
 
 How will you be able to distinguish the 19 shapes from each other? I *could* have asked you to find 19 different-coloured pens and pencils for this Activity---that would have been an obvious but rather extravagant option! However, if you just have around half-a-dozen different colours, you could use each colour three or four times, say with one shape being drawn using four ordinary continuous lines, another using four broken lines, another using four dotted lines, etc.
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 12–a, Part 2
 
@@ -43,7 +43,7 @@ A four-armed radar (or "kite") chart used as the worked example for Activity 12�
 
 </details>
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 12–a, Part 3
 

@@ -101,9 +101,9 @@ Each day is a `part:` with nested `chapters:`:
 ### Pause for Thought (no commentary — green box)
 
 ```markdown
-<div class="thought">
+<div class="thought" role="note" aria-label="Activity">
 
-# PAUSE FOR THOUGHT X–y
+## PAUSE FOR THOUGHT X–y
 
 Question text here.
 
@@ -118,9 +118,9 @@ viewof thought_Xy = Inputs.textarea({placeholder: "Type your comments here.", ro
 ### Pause for Thought (with commentary — red box)
 
 ```markdown
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
-# PAUSE FOR THOUGHT X–y
+## PAUSE FOR THOUGHT X–y
 
 Question text here.
 
@@ -141,9 +141,9 @@ Commentary text here.
 ### Activity with Text Input
 
 ```markdown
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
-# ACTIVITY X–y
+## ACTIVITY X–y
 
 Instructions here.
 
@@ -164,21 +164,20 @@ viewof activity_Xy_i = Inputs.text({placeholder: "Type your comment here."})
 ### Download Button (end of chapter)
 
 ```markdown
-```{ojs download_all}
-// Download button element
-download_button = html`<button class="btn btn-primary" type="button">Download Your Notes</button>`
-```
+```{ojs download_Xy}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
-```{ojs download_trigger}
-//| output: false
-
-import { downloadNotes } from "../../../assets/scripts/functions.js"
-
-download_button.onclick = () => {
-  downloadNotes([viewof thought_Xy, viewof thought_Xz], "thoughts_Xy_Xz.txt");
-};
+createDownloadButton([
+  viewof thought_Xy,
+  viewof thought_Xz
+], "thoughts_Xy_Xz.txt")
 ```
 ```
+
+`createDownloadButton` renders the button and wires the click handler in one
+call, so the older two-block `download_all` + `download_trigger` form (with
+`downloadNotes`) is obsolete. The label `download_Xy` is the OJS chunk name —
+make it unique per chapter.
 
 ### Clock (timing indicator)
 

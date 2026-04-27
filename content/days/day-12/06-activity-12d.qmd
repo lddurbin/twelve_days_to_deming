@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## Section 5: ACTIVITY 12–d
 
