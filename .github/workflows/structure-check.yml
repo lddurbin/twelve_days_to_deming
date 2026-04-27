@@ -6,6 +6,16 @@ permissions:
 on:
   pull_request:
     types: [opened, synchronize]
+    # The structure check only validates QMDs against manifests, plus the
+    # images they reference and the script/workflow themselves. Narrow the
+    # trigger to those paths so unrelated PRs (CSS-only, JS-only, prose
+    # outside content/, etc.) don't burn CI minutes on it.
+    paths:
+      - 'content/**'
+      - 'workflow/validation/**'
+      - 'assets/images/**'
+      - 'scripts/check-structure.sh'
+      - '.github/workflows/structure-check.yml'
   push:
     branches:
       - main
