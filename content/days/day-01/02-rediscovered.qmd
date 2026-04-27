@@ -118,9 +118,6 @@ privilege of working with Dr Deming as his assistant at all of those seminars. I
 many other events, both in this country and elsewhere, for the rest of his life. The last time I was with him
 was at his final four-day seminar in Europe, held in Zurich in July 1993, just five months before he died.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 I’ll briefly describe the style of the four-day seminars for you. Basically, except for the breaks, Dr Deming
 spoke from 9.00 to 4.00 each day (except for finishing a little earlier on the final day so that the delegates
                                   could get back home). Then the delegates would split into Working Groups to deliberate, often long into
@@ -128,18 +125,6 @@ the evening, on a choice from a large selection of topics and questions that Dr 
 is where assistants like myself would be busy helping the Working Groups, and then later designing and
 organising a programme of feedback from the Groups to be presented the following morning for the hour
 before Dr Deming resumed his teaching. However, he was always there: watching, listening, learning.
-:::
-  
-::: {.column width="15%"}
-<div class="spacer-lg">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(9, 40)
-```
-</div>
-  
-:::
-  
-::::
   
 ## The British Deming Association and later {#sec-page6}
   

@@ -43,9 +43,6 @@ viewof d1_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof d1_sa = Inputs.textarea({
   label: "Disease 1 (Lack of constancy) — Scientific Approach",
@@ -53,17 +50,6 @@ viewof d1_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -105,9 +91,6 @@ viewof d2_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof d2_sa = Inputs.textarea({
   label: "Disease 2 (Short-termism) — Scientific Approach",
@@ -115,17 +98,6 @@ viewof d2_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -167,9 +139,6 @@ viewof d3_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof d3_sa = Inputs.textarea({
   label: "Disease 3 (Appraisal of performance) — Scientific Approach",
@@ -177,17 +146,6 @@ viewof d3_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -225,9 +183,6 @@ viewof d4_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof d4_sa = Inputs.textarea({
   label: "Disease 4 (Management job-hopping) — Scientific Approach",
@@ -235,17 +190,6 @@ viewof d4_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -291,9 +235,6 @@ viewof d5_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof d5_sa = Inputs.textarea({
   label: "Disease 5 (Use of only visible figures) — Scientific Approach",
@@ -301,17 +242,6 @@ viewof d5_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 

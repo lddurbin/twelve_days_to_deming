@@ -123,54 +123,12 @@ we work through the course (although there will be exceptions). In particular, I
 could take only about six hours whereas during the Second Project on Days 10 and 11 there is little doubt
 that the full eight hours per day will be needed to even begin to do it justice.
 
-:::: {.columns}
-
-::: {.column width="10%"}
-<div style="margin-top: 10px">
-```{r}
-
-create_clock(9, 00)
-```
-</div>
-
-<div style="margin-top: 100px">
-```{r}
-
-create_clock(4, 30)
-```
-</div>
-
-:::
-
-::: {.column width="80%"}
 To be specific, I have imagined that we shall usually start at 9.00 am, will take an hour off for lunch, and will
 close at some time between 4.30 pm and 6.00 pm. (No coffee or tea breaks—I shall assume that liquid
 refreshment is on tap all day long!) A lunch-break is indicated in both the text and in the list of contents for
-each day by a red, white and blue box that you will not be able to miss! Little clock icons such as those I’m
-showing you against this paragraph will appear both on the opening page for each day against a description of the day’s contents and also at various places within the text. Again, treat these indications as rough
-guides rather than instructions. I believe they will help you to pace yourself appropriately through the reading and particularly when carrying out the activities. As indicated above, Day 1 is a little different regarding
+each day by a red, white and blue box that you will not be able to miss! As indicated above, Day 1 is a little different regarding
 the overall length of the day, since there is much less in the way of activities on this opening day of the
 course than subsequently. So, in that initial case, I am permitting a later start!
-:::
-
-::: {.column width="10%"}
-<div style="margin-top: 10px">
-```{r}
-
-create_clock(6, 00)
-```
-</div>
-
-<div style="margin-top: 100px">
-```{r}
-
-create_clock(9, 30)
-```
-</div>
-
-:::
-
-::::
 
 It is, of course, likely that your preferred starting-time will generally, if not always, differ from mine. So, if
 you want to keep an eye on my guidance about timing but also prefer to avoid having to keep carrying out

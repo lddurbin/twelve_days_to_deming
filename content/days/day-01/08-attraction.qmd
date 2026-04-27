@@ -38,30 +38,13 @@ I hope that this course will provide for you a good start to breaking through fa
 catching more than a glimpse of what seems to me to be a very refreshing breakthrough from the depressing, demoralising, bureaucratic, judgmental, blame-ridden, dog-eat-dog, *inhuman* nature of what manifests
 itself as “quality” in the view of much of modern management, and indeed modern government.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 So it is no accident that “government” features in the full title of Dr Deming’s final book: *The New Economics for Industry, Government, Education*. How, for example, can industry survive and succeed if it is hampered by poor government and education systems which do not understand the needs of the future?
-:::
-
-::: {.column width="15%"}
-<div class="mt-sm">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(11, 45)
-```
-</div>
-:::
-
-::::
 
 <div class="neave_note" role="note" aria-label="Author's note">Here is an example of a “request for action” that is exceedingly open-ended. You could content yourself
 by writing some notes on the first few thoughts that come into your mind. Or it could be the subject of a
 number of PhD theses! Since I’m calling this an “Activity” (not even a “*Major* Activity”!) I am indicating
 that my preference lies toward the former of those two extremes!</div>
 
-:::: {.columns}
-
-::: {.column width="85%"}
 <div class="thought" role="note" aria-label="Thought">
 ## ACTIVITY 1-d
 
@@ -78,21 +61,7 @@ viewof activity_1d = Inputs.textarea({label: "How do Government and Education sy
 <div class=activity_afterthought>In such an Activity you are not expected to be able to set the world to rights! Its purpose is to trigger
 some thoughts that might help you to make some useful connections as the course progresses.</div>
 </div>
-:::
 
-::: {.column width="15%"}
-<div class="spacer-3xl">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 00)
-```
-</div>
-:::
-
-::::
-
-:::: {.columns}
-
-::: {.column width="85%"}
 <div class="thought" role="note" aria-label="Thought">
 ## PAUSE FOR THOUGHT 1–e {#sec-page25}
 
@@ -136,17 +105,6 @@ viewof activity_1e_2 = Inputs.number([10, 0], {step: 1, label: "Dissatisfied cal
 ```
 
 </div>
-:::
-
-::: {.column width="15%"}
-<div class="spacer-4xl">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 10)
-```
-</div>
-:::
-
-::::
 
 <div class="neave_note" role="note" aria-label="Author's note">
 Let me briefly comment on the matter of averages. For in the case of people who cannot understand

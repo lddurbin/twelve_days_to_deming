@@ -5,23 +5,8 @@ execute:
 ---
 ![Dr Deming and Dr Neave](/assets/images/day-01/day_1_fig_1.jpg){.lightbox}
 
-:::: {.columns}
-
-::: {.column width="85%"}
 Why an "Overture" rather than an "Introduction"? Simply because this half-day contains much more than
 you would expect in a mere introduction to this structured active-learning course on the approach to management developed by Dr W Edwards Deming—pictured above left (aged 88) with me in 1989[^a] (*Such superscript letters as a refer to the "Approvals, Acknowledgements and Information" at the end of the file.*)
-:::
-
-::: {.column width="15%"}
-<div class="mt-sm">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(9, 30)
-```
-</div>
-
-:::
-
-::::
 
 Continuing the musical analogy, let's suppose you've arranged an evening out at a theatre to enjoy some
 kind of musical production. Perhaps it's a light modern musical or musical comedy; at the other extreme,

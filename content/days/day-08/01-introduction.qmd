@@ -41,25 +41,9 @@ So first, to set the scene, please
 
 - **read the introduction to Part 3 of *DemDim* (pages 195–196).**
 
-:::: {.columns}
-
-::: {.column width="85%"}
-
 ## OUTLINE OF TODAY'S WORK {#sec-page3}
 
 The structure of today's work is particularly straightforward. It divides into four parts. The first three parts consist respectively of you reading *DemDim* Chapters 13, 14 and 15 on The New Climate and then immediately embarking upon an Activity. The Activity asks you to consider five questions that relate the content of the chapter to "your organisation" (interpreted as on the previous two days). The five questions are of exactly the same form in all three parts.
-
-:::
-
-::: {.column width="15%"}
-<div style="margin-top: 80px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(9, 0)
-```
-</div>
-:::
-
-::::
 
 The fourth part is today's Major Activity, and this very much follows the lines of the "Example: Huge financial advantages of cooperation" which occupies the final pages of *DemDim* Chapter 15, beginning at page 232. As with the earlier Activities, this Major Activity is entirely concerned with applications to your own organisation. However, in this case you have some considerable choice on the details of how you relate it to your organisation. Those details involve you choosing which parts, departments, sections, etc of the organisation you wish to include. Because of this breadth of choice, it could be very useful (and is entirely feasible within the normal timeframe) to carry out the Major Activity more than once with different selections of the areas to involve. You should therefore print out extra copies of the tables to be used during the Major Activity for this purpose (see Note 2 below).
 

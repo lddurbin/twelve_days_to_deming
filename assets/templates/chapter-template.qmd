@@ -11,21 +11,6 @@ Content goes here.
 ![Image description](/assets/images/day-XX/example.jpg){.lightbox}  # Example image (update path as needed)
 
 :::: {.columns}
-::: {.column width="85%"}
-Content goes here when we're including a clock icon next to it.
-:::
-::: {.column width="15%"}
-<div style="margin-top: 10px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(09, 00)  # Replace HH, MM with hour and minute
-```
-</div>
-:::
-::::
-
-Content goes here when there's no clock.
-
-:::: {.columns}
 
 ::: {.column width="85%"}
 <div class="thought_commentary" role="note" aria-label="Commentary">

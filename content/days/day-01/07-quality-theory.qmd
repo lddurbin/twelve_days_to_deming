@@ -30,9 +30,6 @@ some relevant commentary. My commentary will be in the subsequent shaded red box
 avoid looking inside the shaded box—just a single sentence in this case—while you’re thinking about
 what the “request for action” is asking you to do. Preferably cover it up with something!</div>
 
-:::: {.columns}
-
-::: {.column width="85%"}
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 1-a
@@ -52,27 +49,12 @@ The quality of what a company provides for its customers, product and/or service
 top management runs the company—and how the company is run depends on top management’s values, principles, priorities and knowledge.
 </div>
 </div>
-:::
-
-::: {.column width="15%"}
-<div class="spacer-2xl">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(11, 10)
-```
-</div>
-:::
-
-::::
 
 And then, as a case in point, Dr Deming’s third and final mention of “quality” was:
 
 ><span class=deming_quote>“Sure we want good results. But if you manage by results, quality goes down, morale goes down.”</span>
 
 <div class="neave_note" role="note" aria-label="Author's note">Unlike a red box, a green box indicates an Activity or Pause for Thought with no associated box of commentary.</div>
-
-:::: {.columns}
-
-::: {.column width="85%"}
 
 <div class="thought" role="note" aria-label="Thought">
 ## PAUSE FOR THOUGHT 1-b
@@ -85,21 +67,7 @@ viewof thought_1b = Inputs.textarea({label: "Why does managing by results reduce
 
 <div class=activity_afterthought>(If you cannot think of reasons now, be sure that you will find plenty as the course progresses.)</div>
 </div>
-:::
 
-::: {.column width="15%"}
-<div class="spacer-2xl">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(11, 20)
-```
-</div>
-:::
-
-::::
-
-:::: {.columns}
-
-::: {.column width="85%"}
 <div class="thought" role="note" aria-label="Thought">
 ## PAUSE FOR THOUGHT 1–c {#sec-page21}
 
@@ -115,17 +83,6 @@ viewof thought_1c = Inputs.textarea({label: "Why might the word quality provoke 
 
 <div class=activity_afterthought>(For brief discussion see [Appendix page 6](../../appendix/01-day-1.qmd#sec-page6).)</div>
 </div>
-:::
-
-::: {.column width="15%"}
-<div class="spacer-3xl">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(11, 25)
-```
-</div>
-:::
-
-::::
 
 []{#sec-page22}
 
@@ -169,25 +126,11 @@ Another word that is often used to describe Deming’s work is “philosophy”:
 surely what we *do* is largely governed by the way we *think*. So “philosophy” might be rather practical as
 well ...
 
-:::: {.columns}
-
-::: {.column width="85%"}
 Finally, just as a passing comment for now but of great relevance to what follows later in the course, here
 are two other word-counts from Dr Deming’s contributions to *The Deming of America*. He used the word
 “system” no less than 24 times, and the word “optimisation” 11 times (just as often as “theory”), invariably
 in the context of <span class=deming_quote>“optimisation of the system”</span>. As one of my main themes which are heard in this Overture,
 these words are of fundamental importance.
-:::
-
-::: {.column width="15%"}
-<div class="spacer-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(11, 35)
-```
-</div>
-:::
-
-::::
 
 ```{ojs download_all}
 import { createDownloadButton } from "../../../assets/scripts/functions.js"

@@ -38,9 +38,6 @@ viewof p7_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof p7_sa = Inputs.textarea({
   label: "Point 7 (Institute leadership of people) — Scientific Approach",
@@ -48,17 +45,6 @@ viewof p7_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -96,9 +82,6 @@ viewof p8_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof p8_sa = Inputs.textarea({
   label: "Point 8 (Drive out fear) — Scientific Approach",
@@ -106,17 +89,6 @@ viewof p8_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -170,9 +142,6 @@ viewof p9_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof p9_sa = Inputs.textarea({
   label: "Point 9 (Break down barriers) — Scientific Approach",
@@ -180,17 +149,6 @@ viewof p9_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -230,9 +188,6 @@ viewof p10_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof p10_sa = Inputs.textarea({
   label: "Point 10 (Eliminate exhortations) — Scientific Approach",
@@ -240,17 +195,6 @@ viewof p10_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ![The Joiner Triangle](/assets/images/day-05/joiner-triangle-bar.png){fig-align="left" width="90%" .lightbox}
 
@@ -290,9 +234,6 @@ viewof p11_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof p11_sa = Inputs.textarea({
   label: "Point 11 (Eliminate arbitrary numerical targets) — Scientific Approach",
@@ -300,17 +241,6 @@ viewof p11_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -346,9 +276,6 @@ viewof p12_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof p12_sa = Inputs.textarea({
   label: "Point 12 (Permit pride of workmanship) — Scientific Approach",
@@ -356,17 +283,6 @@ viewof p12_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -416,9 +332,6 @@ viewof p13_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof p13_sa = Inputs.textarea({
   label: "Point 13 (Encourage education) — Scientific Approach",
@@ -426,17 +339,6 @@ viewof p13_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 
@@ -470,9 +372,6 @@ viewof p14_aot = Inputs.textarea({
 
 ### Scientific Approach
 
-:::: {.columns}
-
-::: {.column width="85%"}
 ```{ojs}
 viewof p14_sa = Inputs.textarea({
   label: "Point 14 (Top management commitment and action) — Scientific Approach",
@@ -480,17 +379,6 @@ viewof p14_sa = Inputs.textarea({
   rows: 5
 })
 ```
-:::
-
-::: {.column width="15%"}
-<div class="mt-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 0)
-```
-</div>
-:::
-
-::::
 
 ---
 

@@ -90,9 +90,6 @@ chart, and they could use it, and they could *communicate* with it.
 So here it is in this new edition of *Elementary Statistics Tables*—though you don’t even need
 any tables in order to use it! Don’t scorn its simplicity—try it out on some real process data, including some that you have not previously attempted to interpret.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 <span class=neave_note>A couple of points of clarification will be useful here. Firstly, the original editions of these little books of
 Statistics Tables were published as long ago as 1978 and 1981 respectively—long before I met Dr Deming or learned anything significant about his work. Not surprisingly therefore, those original editions contained little on control charts because, back then, I honestly had no idea of how important control charts
 are in practice. Second, I’ll remind you of something I mentioned on page 7 of the Welcome section:
@@ -101,18 +98,6 @@ people who use the chart for the purposes relevant to Dr Deming’s teaching. In
 that I shall be including many direct quotations from both Drs Deming and Shewhart. Naturally, they used
 the traditional language, and so, similarly to something that I said on page 5, it didn’t seem sensible here to
 keep flitting between alternative terms for the same thing.</span>
-:::
-
-::: {.column width="15%"}
-<div class="spacer-xl">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(9, 55)
-```
-</div>
-
-:::
-
-::::
 
 ## The two paradoxes {#sec-page7}
 
@@ -158,9 +143,6 @@ firm the point:
 ><span class=deming_quote>Professor Masuyama and assistants will teach the statistical control of quality in the afternoon.
 I shall teach during the forenoon the theory of a system, and cooperation.</span>
 
-:::: {.columns}
-
-::: {.column width="85%"}
 So he regarded getting into some training, even on something as vital as the construction of control charts,
 would be inappropriate during his teaching—it would interrupt the flow of what was really important: education. But in one respect his approach was dangerous. <span class=deming_quote>“Professor Masuyama and assistants”</span> might
 have known what they were talking about but, sadly, many trainers who try to teach people about control
@@ -177,17 +159,6 @@ are suitable for our data rather than the need for data that are suitable for ou
 about it! Makes good sense to me. And that is precisely what Dr Shewhart produced.
 
 :::
-
-::: {.column width="15%"}
-<div class="spacer-2xl">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(10, 00)
-```
-</div>
-
-:::
-
-::::
 
 ## Control charts in this course {#sec-page8}
 
@@ -305,19 +276,5 @@ extra reading—just carry straight on. Also, the discussion on the first parado
 interest to those who are familiar with the basics of “traditional” Statistics—for it includes one of Deming’s
 most powerful expressions of the *irrelevance* of several of those basics when studying process data.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 So if you would now like to read about the first paradox on Appendix pages 2–6 and are also following my
 guidance on timings at all closely then please “stop the clock” whilst you are reading those pages.
-:::
-
-::: {.column width="15%"}
-<div class="spacer-sm">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(10, 10)
-```
-</div>
-:::
-
-::::

@@ -73,9 +73,6 @@ way of doing things. If we head out in this direction, wisely and with understan
 gain along the way. And the further we go, the necessity to tackle those features I’ve just mentioned which
 haven’t yet been addressed will become ever more clear. For otherwise they will increasingly form wasteful, costly obstacles to continued progress.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 <div class="neave_note" role="note" aria-label="Author's note">
 During these last few years it is notable that, at long last, some attitudes about targets seem to be changing. It was in 2012 that, in a BBC radio interview, I heard a manager talking about getting rid of numerical
 targets. The immediate challenge from the interviewer was “But, without targets, how can you know
@@ -87,14 +84,3 @@ shall see on Days 6 and 7 and other similar accounts have helped to change attit
 But, in his four-day seminars 35 and more years ago, Dr Deming was *already* warning about the problems that numerical targets are bound to create (particularly in discussion on the 11th of his 14 Points). If
 only more people—especially those in management and government—had listened and learned.
 </div>
-:::
-
-::: {.column width="15%"}
-<div class="spacer-xl">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 25)
-```
-</div>
-:::
-
-::::
