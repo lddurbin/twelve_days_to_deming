@@ -40,7 +40,7 @@ chapters:
     headings:
       - 'Section 3: "BUT WHAT CAN *I* DO?"'
       - "PAUSE FOR THOUGHT 12–c"
-    has_download_button: false
+    has_download_button: true
 
   - file: "05-leadership-for-the-transformation.qmd"
     viewof_count: 0

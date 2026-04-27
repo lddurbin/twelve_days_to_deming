@@ -50,7 +50,7 @@ chapters:
     figures: []
     headings:
       - "ACTIVITY 2–f"
-    has_download_button: false
+    has_download_button: true
 
   - file: "07-some-recollections.qmd"
     viewof_count: 16
@@ -67,13 +67,13 @@ chapters:
       - "/assets/images/day-02/image-14.png"
     headings:
       - "PAUSE FOR THOUGHT 2–e"
-    has_download_button: false
+    has_download_button: true
 
   - file: "08-major-activity.qmd"
     viewof_count: 2
     figures: []
     headings: []
-    has_download_button: false
+    has_download_button: true
 
   - file: "09-postscript.qmd"
     viewof_count: 0
