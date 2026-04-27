@@ -41,7 +41,7 @@ The same Scholtes 2×2 System of Profound Knowledge frame from Day 9 (Understand
 
 Recall that, at the end of Day 11, I suggested you make some copies or, preferably, enlargements of this page. Now you may soon see why!
 
-<div class="thought_commentary">
+<div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 12–b {#sec-page9}
 
