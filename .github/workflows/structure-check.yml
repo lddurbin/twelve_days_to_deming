@@ -1,0 +1,47 @@
+name: Structure Check
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f  # v1.306.0
+      with:
+        ruby-version: '3.2'
+
+    - name: Run structure checks
+      run: |
+        overall_fail=0
+        for d in $(seq 1 12); do
+          echo "::group::Day $d"
+          ./scripts/check-structure.sh "$d" || overall_fail=1
+          echo "::endgroup::"
+        done
+
+        shopt -s nullglob
+        for manifest in workflow/validation/appendix-*-manifest.yml; do
+          slug=$(basename "$manifest" | sed -E 's/^appendix-(.+)-manifest\.yml$/\1/')
+          echo "::group::Appendix $slug"
+          ./scripts/check-structure.sh --appendix "$slug" || overall_fail=1
+          echo "::endgroup::"
+        done
+
+        exit "$overall_fail"

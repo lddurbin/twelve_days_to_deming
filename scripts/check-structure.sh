@@ -12,9 +12,8 @@
 # download button. Appendix manifests can opt out of interactive checks for
 # prose-only content (set `interactive_checks: false`).
 #
-# Requires: ruby (for YAML parsing — ships with macOS)
-# Note: CI (Ubuntu) does not install Ruby by default. If wiring into CI,
-# add ruby to the workflow's setup steps.
+# Requires: ruby (for YAML parsing — ships with macOS).
+# CI installs it via ruby/setup-ruby in .github/workflows/structure-check.yml.
 
 set -euo pipefail
 
@@ -26,11 +25,10 @@ TMPDIR_CLEANUP=""
 if [[ -t 1 ]]; then
   GREEN='\033[0;32m'
   RED='\033[0;31m'
-  YELLOW='\033[0;33m'
   BOLD='\033[1m'
   RESET='\033[0m'
 else
-  GREEN='' RED='' YELLOW='' BOLD='' RESET=''
+  GREEN='' RED='' BOLD='' RESET=''
 fi
 
 # ── Helpers ───────────────────────────────────────────────────
@@ -49,7 +47,6 @@ usage() {
 
 pass() { printf "  ${GREEN}PASS${RESET} %s\n" "$1"; }
 fail() { printf "  ${RED}FAIL${RESET} %s\n" "$1"; }
-warn() { printf "  ${YELLOW}WARN${RESET} %s\n" "$1"; }
 
 # Expand manifest into a flat text format using Ruby, one file per chapter,
 # plus a top-level `meta` file capturing manifest-wide settings
@@ -195,7 +192,6 @@ main() {
   local total_checks=0
   local total_pass=0
   local total_fail=0
-  local total_warn=0
 
   for ch_file in "$tmpdir"/ch_*; do
     [[ -f "$ch_file" ]] || continue
@@ -329,9 +325,8 @@ main() {
         pass "headings: none expected, none found"
         total_pass=$((total_pass + 1))
       else
-        warn "headings: $actual_hdg_count found but none in manifest"
-        total_pass=$((total_pass + 1))
-        total_warn=$((total_warn + 1))
+        fail "headings: $actual_hdg_count found but none in manifest"
+        total_fail=$((total_fail + 1))
       fi
     fi
 
@@ -348,9 +343,8 @@ main() {
         fi
       else
         if grep -qE 'create(Coop)?DownloadButton' "$qmd_path" 2>/dev/null; then
-          warn "download button: found but not in manifest"
-          total_pass=$((total_pass + 1))
-          total_warn=$((total_warn + 1))
+          fail "download button: found but not in manifest"
+          total_fail=$((total_fail + 1))
         else
           pass "download button: none expected"
           total_pass=$((total_pass + 1))
@@ -372,9 +366,6 @@ main() {
     printf "  Failed:         ${RED}%d${RESET}\n" "$total_fail"
   else
     echo "  Failed:         0"
-  fi
-  if (( total_warn > 0 )); then
-    printf "  Warnings:       ${YELLOW}%d${RESET}  (elements found but not in manifest)\n" "$total_warn"
   fi
   echo ""
 
