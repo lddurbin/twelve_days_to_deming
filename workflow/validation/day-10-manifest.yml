@@ -16,7 +16,7 @@ chapters:
       - "/assets/images/day-10/bowling-orchestra-business-spectrum.png"
     headings:
       - "PART A: APPRECIATION FOR A SYSTEM"
-    has_download_button: false
+    has_download_button: true
 
   - file: "03-activity-10a.qmd"
     viewof_count: 38
@@ -30,7 +30,7 @@ chapters:
     figures: []
     headings:
       - "PART B: SOME KNOWLEDGE OF THEORY OF VARIATION (STATISTICAL THEORY)"
-    has_download_button: false
+    has_download_button: true
 
   - file: "05-activity-10b.qmd"
     viewof_count: 38

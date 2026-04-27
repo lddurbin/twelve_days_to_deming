@@ -16,20 +16,20 @@ chapters:
     figures: []
     headings:
       - "PART C: THEORY OF KNOWLEDGE"
-    has_download_button: false
+    has_download_button: true
 
   - file: "03-theory-of-knowledge-theory-and-learning.qmd"
     viewof_count: 4
     figures:
       - "/assets/images/day-11/theory-of-knowledge-circle.png"
     headings: []
-    has_download_button: false
+    has_download_button: true
 
   - file: "04-theory-of-knowledge-operational-definitions.qmd"
     viewof_count: 5
     figures: []
     headings: []
-    has_download_button: false
+    has_download_button: true
 
   - file: "05-activity-11a.qmd"
     viewof_count: 38
@@ -43,7 +43,7 @@ chapters:
     figures: []
     headings:
       - "PART D: KNOWLEDGE OF PSYCHOLOGY"
-    has_download_button: false
+    has_download_button: true
 
   - file: "07-activity-11b.qmd"
     viewof_count: 38
