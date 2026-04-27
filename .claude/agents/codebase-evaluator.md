@@ -334,8 +334,11 @@ Score each area on a 1–5 scale:
 # All 12 day directories should be present
 ls -d content/days/day-*/ 2>/dev/null
 
-# All 12 days plus appendix parts should be wired into _quarto.yml
-grep "part:.*Day\|part:.*Appendix" _quarto.yml
+# All 12 days are wired as `part:` entries under `book.chapters`
+grep "part:.*Day" _quarto.yml
+
+# Appendix material is wired under the separate `appendices:` key (not `part:`)
+grep -E "^  appendices:|content/appendix/" _quarto.yml
 
 # All 12 days plus appendix slugs should have structural manifests
 ls workflow/validation/day-*-manifest.yml workflow/validation/appendix-*-manifest.yml 2>/dev/null
