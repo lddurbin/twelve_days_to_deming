@@ -122,22 +122,8 @@ but *The Deming of America* is not overly expensive for this excellent hour-long
 
 ## And finally...
 
-:::: {.columns}
-
-::: {.column width="85%"}
 If and when the time comes that you might like to learn more about the man as well as his message (for this
 final recommendation does both), treat yourself to *The World of W Edwards Deming*, the superb biography
 compiled and written by his faithful long-term secretary, the late Cecelia (Ceil) Kilian. This is where I discovered the various entries from his diary that I quote during this opening day of the course and also his
 extremely illuminating <span class=deming_quote>“Summary of Teachings to Top Management and to Engineers in Japan”</span>, based on
 his work in that country in the summer of 1950—see today’s [page 35](#sec-page35).
-:::
-
-::: {.column width="15%"}
-<div class="spacer-lg">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(10, 25)
-```
-</div>
-:::
-
-::::

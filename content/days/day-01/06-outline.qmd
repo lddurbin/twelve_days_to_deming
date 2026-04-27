@@ -161,24 +161,10 @@ that things link together, including the four parts of the System of Profound Kn
 of “bits and pieces” but instead a strongly coordinated whole. I believe we should regard the System of
 Profound Knowledge as Dr Deming’s attempt to bring together and consolidate his whole long life’s learning as a rich legacy for us from which to continue learning after he was no longer with us.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 And lastly, the process of beginning to bring it all together—and making it happen—is the subject of our
 12th and final day. And I must surely emphasise “beginning” to do that. You have already seen me using
 the phrase “lifelong learning” near the top of page 13. Believe me: if this is not lifelong learning then I cannot imagine what is. I hope you were not deluded by the title of this course to think that it will all be over by
 the end of the 12th day! Perhaps I should have simply titled Day 12 as “The End of the Beginning”.
-:::
-
-::: {.column width="15%"}
-<div class="spacer-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(10, 55)
-```
-</div>
-:::
-
-::::
 
 
 <!--

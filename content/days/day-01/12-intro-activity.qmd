@@ -39,20 +39,6 @@ part why Deming was so critical of managing and judging—especially with reward
 —related to the achievement or otherwise of numerical targets, quotas, numerical objectives, numerical
 goals. And performance-related pay, ranking, rating, league-tabling, ... . It’s a long list.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 But *could* it be true that the majority of behaviour and performance comes from the system, not the individual? For a long while, I could not get my head around that. And then eventually I started to ponder on
 such matters as those which follow. I invite you to try this too in the Major Activity which now completes
 this opening day of our *12 Days to Deming*.
-:::
-  
-::: {.column width="15%"}
-<div class="spacer-md">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(3, 40)
-```
-</div>
-:::
-  
-::::

@@ -5,77 +5,8 @@ library(DiagrammeR)
 
 # --- Named constants ---
 
-CLOCK <- list(
-  hour_hand   = 0.015,
-  minute_hand = 0.023,
-  tick_outer  = 0.028,
-  tick_inner  = 0.02,
-  face_size   = 150,
-  center_size = 15,
-  tick_width  = 0.4,
-  hand_width  = 1.5,
-  coord_limit = 0.1,
-  margin_cm   = -0.01
-)
-
 CHART_LINE_COLOUR <- "#ed0000"
 CONTROL_LIMIT_COLOUR <- "blue"
-
-# --- Clock ---
-
-#' Create a clock face plot showing a specific time
-#'
-#' Renders a ggplot2 clock face with hour and minute hands positioned
-#' at the given time. Used to display session timing indicators.
-#'
-#' @param hour Numeric. The hour to display (0-12).
-#' @param minute Numeric. The minute to display (0-59).
-#' @return A ggplot2 object containing the clock face.
-#' @examples
-#' create_clock(1, 30)  # Shows 1:30
-#' create_clock(9, 0)   # Shows 9:00
-create_clock <- function(hour, minute) {
-  stopifnot(is.numeric(hour), is.numeric(minute))
-
-  hour_angle <- (hour %% 12 + minute / 60) * 30
-  minute_angle <- minute * 6
-
-  hour_angle <- (90 - hour_angle) * pi / 180
-  minute_angle <- (90 - minute_angle) * pi / 180
-
-  clock_data <- data.frame(
-    x = c(0, 0),
-    y = c(0, 0),
-    xend = c(CLOCK$hour_hand * cos(hour_angle), CLOCK$minute_hand * cos(minute_angle)),
-    yend = c(CLOCK$hour_hand * sin(hour_angle), CLOCK$minute_hand * sin(minute_angle)),
-    hand = c("hour", "minute")
-  )
-
-  tick_angles <- seq(0, 2 * pi, length.out = 13)[-13]
-
-  tick_data <- data.frame(
-    x = CLOCK$tick_outer * cos(tick_angles),
-    y = CLOCK$tick_outer * sin(tick_angles),
-    xend = CLOCK$tick_inner * cos(tick_angles),
-    yend = CLOCK$tick_inner * sin(tick_angles)
-  )
-
-  ggplot() +
-    geom_point(aes(x = 0, y = 0), size = CLOCK$face_size, shape = 1) +
-    geom_point(aes(x = 0, y = 0), size = CLOCK$center_size, shape = 1) +
-    geom_segment(data = tick_data, aes(x = x, y = y, xend = xend, yend = yend), linewidth = CLOCK$tick_width) +
-    geom_segment(data = clock_data, aes(x = x, y = y, xend = xend, yend = yend, colour = hand), linewidth = CLOCK$hand_width) +
-    scale_colour_manual(values = c("black", "black")) +
-    theme_void() +
-    theme(
-      legend.position = "none",
-      plot.margin = unit(rep(CLOCK$margin_cm, 4), "cm"),
-      panel.spacing = unit(0, "cm"),
-      plot.background = element_rect(fill = "transparent", colour = NA)
-    ) +
-    coord_fixed(xlim = c(-CLOCK$coord_limit, CLOCK$coord_limit),
-                ylim = c(-CLOCK$coord_limit, CLOCK$coord_limit), expand = FALSE)
-}
 
 # --- Run charts ---
 

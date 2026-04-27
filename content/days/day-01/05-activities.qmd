@@ -58,9 +58,6 @@ page just yet. If the request is colour-coded green then there is no such discus
 is no need for you to memorise all these conventions right now: I’ll remind you when the time comes. No
 colour-coding is needed for *Major* Activities or the Projects as they are headed appropriately.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 Finally, particularly on Days 6, 8, 9 and 12, specific reference will be made to “your organisation”. Presumably, many people who work on this course are already (or have been) employed by some company or
 other type of organisation. If that is your case then, with respect to much of the learning which will develop
 on those occasions, I’d like you to actively think about what is going on (or went on) in that organisation.
@@ -72,14 +69,3 @@ spend some time with you now and again as you work through the course. The relev
 will specifically ask you to consider what is happening in “your organisation” and relate it to what you will
 be learning here. So, if you are not involved with an organisation in this way, your recruit can then provide
 you with a “surrogate” organisation to use in your study!
-:::
-
-::: {.column width="15%"}
-<div class="spacer-xl">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(10, 35)
-```
-</div>
-:::
-
-::::

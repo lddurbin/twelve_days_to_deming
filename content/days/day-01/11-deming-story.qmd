@@ -6,22 +6,8 @@ execute:
   
 ## Early 1900s: The story begins
 
-:::: {.columns}
-
-::: {.column width="85%"}
 William Edwards Deming was born on 14 October 1900. (Why “Edwards” rather than “Edward”? Edwards was his mother’s maiden name.) Times were hard, and the family moved home twice before the youngster
 was seven years old, in search of land and work.
-:::
-  
-::: {.column width="15%"}
-<div class="mt-sm">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(1, 30)
-```
-</div>
-:::
-  
-::::
   
 After graduating from high school, the young man entered the University of Wyoming. He majored in Electrical Engineering and received his Bachelor’s degree in 1921. He stayed there for a further year, studying
 Mathematics and teaching Engineering. He was then invited to teach at the Colorado School of Mines, and
@@ -93,23 +79,9 @@ provide guidance for the type of actions that will lead to *improvement*, to mak
 keeping things as they are, which is all that the monitoring use of the control chart provides and, indeed, all
 that it is *intended* to provide.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 This difference in understanding of purpose is fundamental. Deming’s life’s work was all about providing
 guidance for decisions and actions which will lead to improvement, and to stop doing things which cause
 harm and make things worse. Shewhart’s breakthrough was the first massive stride on that great journey.
-:::
-
-::: {.column width="15%"}
-<div class="mt-sm">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(1, 40)
-```
-</div>
-:::
-
-::::
 
 ## Shewhart’s breakthrough
 
@@ -178,21 +150,7 @@ systems such as personnel, training, purchasing, legal and financial matters etc
 
 ><span class=deming_quote>“Here are the big gains, 97%, waiting.”[^a]</span>
 
-:::: {.columns}
-
-::: {.column width="85%"}
 If the 3% is big (and it is), the 97% is *massive*.
-:::
-
-::: {.column width="15%"}
-<div class="mt-sm">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(2, 20)
-```
-</div>
-:::
-
-::::
 
 ## 1930s–1940s: New statistics in non-manufacturing {#sec-page33}
 
@@ -247,27 +205,7 @@ But *what* did the Japanese learn from him? *How* did he do his best for them? W
 
 What did he mean by <span class=deming_quote>“the theory of a system, and cooperation”</span>? There follows an abbreviated form of his own seven-point summary of his teaching in Japan during that summer; for the full version see *The World of W Edwards Deming* pages 24–27.
 
-:::: {.columns}
-
-::: {.column width="85%"}
-
 <span class=neave_note>The two diagrams shown on the next page, or close variants of them, will be seen again, particularly on Days 9 and 4 respectively. Their importance is indicated by the fact that they appear (one of them in slightly expanded form) as early as page 3[pages 3–4] in *Out of the Crisis*—right up front! I shall generally refer to the “flow diagram” which heads Deming’s list here as the “Organisation Viewed as a System”. More than once I heard Dr Deming describe this as the most important diagram that he had ever drawn throughout the whole of his life.</span>
-
-:::
-
-::: {.column width="15%"}
-
-<div class="spacer-md">
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(2, 30)
-```
-
-</div>
-
-:::
-
-::::
 
 ## <span class=deming_quote>A Summary of Teachings to Top Management and to Engineers in Japan</span> {#sec-page35}
 
@@ -408,22 +346,8 @@ has many entries for the 1950s, fewer for the 1960s, and then only two for the 1
 Argentina in 1971 and, interestingly, that he was a consultant to the China Productivity Centre in Taiwan in
 1970 and 1971. And then: nothing. A vacuum.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 Wasted years. But wasted years which, as we saw on page 2, thankfully ended when Bill Conway sought
 him out in 1979.
-:::
-
-::: {.column width="15%"}
-<div class="mt-sm">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(2, 50)
-```
-</div>
-:::
-
-::::
 
 ## The 1980s (first half): The West awakens {#sec-page37}
 
@@ -627,25 +551,11 @@ But what of...
 Here I can do no better than largely repeat the closing words of my Preface to the Third Printing of *DemDim*
 in 1998:
 
-:::: {.columns}
-
-::: {.column width="85%"}
 As the world grows ever more complex, and often more cruel, and as new technology provides opportunities to do greater good but, if misused, can also do greater harm, do we not increasingly need the help
 of the Deming philosophy—its values, its principles, its logic, its *practical guidance*? Dr Deming’s work is,
 I believe, hugely important, literally priceless, literally timeless. It is a real source of help and hope for
 making a better future, materially, socially, and mentally. That was the purpose of Dr Deming’s life’s work.
 What better purpose could there be?
-:::
-
-::: {.column width="15%"}
-<div class="mt-sm">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(3, 30)
-```
-</div>
-:::
-
-::::
 
 <!--
 FOOTNOTES

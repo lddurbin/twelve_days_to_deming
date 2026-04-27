@@ -43,9 +43,6 @@ at least, serious delay of a massive opportunity for profit! Why were the opport
 because the proposals were too *different* from what people were used to and expected, too different from
 what was commonplace understanding and “knowledge” at the time.
 
-:::: {.columns}
-
-::: {.column width="85%"}
 And Dr Deming came up with a whole philosophy of management which is very different from what people
 are used to today, from that which is commonplace understanding and “knowledge” at this time. Are we
 going to laugh and reject that too?
@@ -55,14 +52,3 @@ going to laugh and reject that too?
   <div class="separator_blue"></div>
   </div>
 </div>
-:::
-
-::: {.column width="15%"}
-<div class="mt-sm">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(12, 30)
-```
-</div>
-:::
-
-::::
