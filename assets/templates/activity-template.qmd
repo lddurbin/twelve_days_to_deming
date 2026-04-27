@@ -24,6 +24,8 @@ Activity feedback or commentary goes here.
 
 <div class="activity_afterthought">Optional afterthought or tip.</div>
 
+</div>
+
 ```{ojs download_Xy}
 import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
@@ -31,5 +33,3 @@ createDownloadButton([
   viewof activity_id
 ], "activity_notes.txt")
 ```
-
-</div>
