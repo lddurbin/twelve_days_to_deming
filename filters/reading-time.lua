@@ -131,20 +131,30 @@ local function read_session_minutes(meta)
 end
 
 local function indicator_block(minutes, has_activity, session_minutes)
-  -- Suppress the dual indicator when the editorial budget would be
-  -- shorter than the prose reading estimate at 200 wpm. A learner
-  -- planning their time sees "full session shorter than reading"
-  -- as broken, not as an editorial signal — fall back to the
-  -- single-number output (with the existing "+ activities" suffix
-  -- where applicable) so they get a coherent estimate instead.
-  local use_session = session_minutes and session_minutes >= minutes
+  -- The two numbers measure different things — our reading metric is
+  -- a literal text-throughput floor at 200 wpm, while session_minutes
+  -- is the author's editorial allocation including reflection and
+  -- activities. Render them side-by-side as independent measures, not
+  -- as a bracket or an additive pair.
+  --
+  -- Collapse to the single-number form when the two values are within
+  -- 1 min of each other: ceil rounding on our side and Neave's 5-min
+  -- clock granularity together create that much noise inherently, so
+  -- separating "11 vs 10" implies a precision neither number has.
   local body, label
-  if use_session then
+  if session_minutes and math.abs(session_minutes - minutes) > 1 then
     body = string.format(
-      "~ %d min reading &middot; ~ %d min full session",
+      "~ %d min reading &middot; ~ %d min recommended",
       minutes, session_minutes
     )
-    label = "Estimated reading time and total session time"
+    label = "Estimated reading time and the author's recommended time including reflection and activities"
+  elseif session_minutes then
+    -- Within rounding noise — show the reading metric only.
+    -- Omit the "+ activities" suffix even when has_activity is true:
+    -- session_minutes already encodes activity time, so appending
+    -- the suffix would double-count.
+    body = string.format("~ %d min reading", minutes)
+    label = "Estimated reading time"
   else
     local suffix = has_activity and " + activities" or ""
     body = string.format("~ %d min reading%s", minutes, suffix)

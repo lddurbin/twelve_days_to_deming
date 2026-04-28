@@ -502,13 +502,19 @@ misrepresent engagement.
 No per-chapter action is required — the filter is registered in
 `_quarto.yml` and runs for every rendered page.
 
-#### `session_minutes` — full-session estimate
+#### `session_minutes` — author's recommended time
 
-For activity-heavy chapters, the gap between Neave's clock anchors in the
-source PDFs runs **3–5×** the pure reading-time estimate. The vague
-"+ activities" suffix understates that. When Neave's source provides a
-trustworthy clock budget, set `session_minutes` in the chapter front-matter
-so the indicator can render both numbers:
+The chapter-top reading metric is a literal text-throughput floor at
+200 wpm. Neave's source PDFs also carry a clock-anchor budget per
+section that records *the author's recommended time* for that section
+— including reflection on the prose, time spent on figures, and any
+embedded activity. The two numbers measure different things and bear
+no consistent relationship; surfacing both lets a learner see both
+"how long will this take me to read" and "how long did the author
+intend me to spend here."
+
+When Neave's source provides a trustworthy clock budget, set
+`session_minutes` in the chapter front-matter:
 
 ```yaml
 ---
@@ -517,14 +523,29 @@ session_minutes: 35
 ---
 ```
 
-When `session_minutes` is present and not less than the prose reading
-estimate, the indicator becomes
-`~ 7 min reading · ~ 35 min full session` and the `aria-label` is
-`"Estimated reading time and total session time"`. When it is absent —
-or when it would render shorter than the prose estimate (which would
-look like a contradictory display rather than a useful pacing signal) —
-the filter falls back to the existing behaviour (with the `+ activities`
-suffix where applicable).
+**Rendering rules:**
+
+- If `session_minutes` differs from the reading estimate by more than
+  1 min, render both side-by-side:
+  `~ 7 min reading · ~ 35 min recommended`. The aria-label becomes
+  *"Estimated reading time and the author's recommended time including
+  reflection and activities."*
+- If the difference is within ±1 min, the values are within the
+  combined rounding noise (our `ceil` on one side, Neave's 5-min
+  clock granularity on the other) — collapse to the single-number
+  reading form so the indicator doesn't imply minute-precision that
+  neither number has.
+- If `session_minutes` is unset, fall back to today's behaviour
+  (`~ N min reading [+ activities]`).
+
+The two numbers are framed as **independent measures**, not as a
+bracket or an additive pair. `session_minutes` may be lower than the
+reading metric for chapters where the author intended a brisker pace
+(e.g. `09-different`, a brief transition where Neave's gap is shorter
+than 200 wpm reading would take) — that's an editorial signal, not a
+display bug. Expect a wide spread: the implied wpm rate across Day 1
+ranges from ~35 wpm to ~240 wpm depending on the chapter's pedagogical
+weight.
 
 **When to set it:**
 
