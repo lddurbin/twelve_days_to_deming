@@ -1,5 +1,6 @@
 ---
 title: "DAY 1 (afternoon): THE DEMING STORY"
+session_minutes: 130
 execute:
   echo: false
 ---

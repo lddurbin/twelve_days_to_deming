@@ -121,14 +121,43 @@ local function html_escape(s)
   }))
 end
 
-local function indicator_block(minutes, has_activity)
-  local suffix = has_activity and " + activities" or ""
-  local label = has_activity
-    and "Estimated reading time; this chapter also contains activities that add time"
-    or "Estimated reading time"
+local function read_session_minutes(meta)
+  local v = meta and meta.session_minutes
+  if v == nil then return nil end
+  local s = pandoc.utils.stringify(v)
+  local n = tonumber(s)
+  if n and n > 0 then return math.floor(n) end
+  return nil
+end
+
+local function indicator_block(minutes, has_activity, session_minutes)
+  -- Suppress the dual indicator when the editorial budget would be
+  -- shorter than the prose reading estimate at 200 wpm. A learner
+  -- planning their time sees "full session shorter than reading"
+  -- as broken, not as an editorial signal — fall back to the
+  -- single-number output (with the existing "+ activities" suffix
+  -- where applicable) so they get a coherent estimate instead.
+  local use_session = session_minutes and session_minutes >= minutes
+  local body, label
+  if use_session then
+    body = string.format(
+      "~ %d min reading &middot; ~ %d min full session",
+      minutes, session_minutes
+    )
+    label = "Estimated reading time and total session time"
+  else
+    local suffix = has_activity and " + activities" or ""
+    body = string.format("~ %d min reading%s", minutes, suffix)
+    label = has_activity
+      and "Estimated reading time; this chapter also contains activities that add time"
+      or "Estimated reading time"
+  end
+  -- `body` is composed entirely of integer-formatted values plus the
+  -- static `&middot;` HTML entity, so it is intentionally not run
+  -- through html_escape. Only `label` carries free-form text.
   local html = string.format(
-    '<p class="reading-time" aria-label="%s">~ %d min reading%s</p>',
-    html_escape(label), minutes, html_escape(suffix)
+    '<p class="reading-time" aria-label="%s">%s</p>',
+    html_escape(label), body
   )
   return pandoc.RawBlock("html", html)
 end
@@ -139,13 +168,14 @@ function Pandoc(doc)
 
   local minutes = math.max(1, math.ceil(words / WPM))
   local has_activity = detect_activity(doc.blocks)
+  local session_minutes = read_session_minutes(doc.meta)
   local out = pandoc.List()
   local inserted = false
 
   for _, b in ipairs(doc.blocks) do
     out:insert(b)
     if not inserted and b.t == "Header" and b.level == 1 then
-      out:insert(indicator_block(minutes, has_activity))
+      out:insert(indicator_block(minutes, has_activity, session_minutes))
       inserted = true
     end
   end
@@ -153,7 +183,7 @@ function Pandoc(doc)
   -- If no H1 is present in the body (Quarto renders title from YAML),
   -- inject at the very top so it still appears under the page title.
   if not inserted then
-    out:insert(1, indicator_block(minutes, has_activity))
+    out:insert(1, indicator_block(minutes, has_activity, session_minutes))
   end
 
   doc.blocks = out

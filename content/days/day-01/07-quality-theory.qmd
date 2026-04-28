@@ -1,5 +1,6 @@
 ---
 title: "QUALITY, THEORY, PHILOSOPHY, MANAGEMENT,..."
+session_minutes: 35
 execute:
   echo: false
 ---
