@@ -1,5 +1,6 @@
 ---
 title: "THE ATTRACTION OF DEMING’S WORK"
+session_minutes: 40
 execute:
   echo: false
 ---

@@ -1,5 +1,6 @@
 ---
 title: "DEMING (RE)DISCOVERED"
+session_minutes: 15
 execute:
   echo: false
 ---

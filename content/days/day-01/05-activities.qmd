@@ -1,5 +1,6 @@
 ---
 title: "ACTIVITIES, MAJOR ACTIVITIES, PAUSES FOR THOUGHT, PROJECTS AND 'YOUR ORGANISATION'"
+session_minutes: 20
 execute:
   echo: false
 ---

@@ -1,5 +1,6 @@
 ---
 title: "'STATISTICS? OH NO!'"
+session_minutes: 30
 execute:
   echo: false
 ---

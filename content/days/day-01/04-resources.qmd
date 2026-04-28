@@ -1,5 +1,6 @@
 ---
 title: "HELPFUL BOOKS AND VIDEOS"
+session_minutes: 10
 execute:
   echo: false
 ---

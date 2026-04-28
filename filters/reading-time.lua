@@ -121,14 +121,33 @@ local function html_escape(s)
   }))
 end
 
-local function indicator_block(minutes, has_activity)
-  local suffix = has_activity and " + activities" or ""
-  local label = has_activity
-    and "Estimated reading time; this chapter also contains activities that add time"
-    or "Estimated reading time"
+local function read_session_minutes(meta)
+  local v = meta and meta.session_minutes
+  if v == nil then return nil end
+  local s = pandoc.utils.stringify(v)
+  local n = tonumber(s)
+  if n and n > 0 then return math.floor(n) end
+  return nil
+end
+
+local function indicator_block(minutes, has_activity, session_minutes)
+  local body, label
+  if session_minutes then
+    body = string.format(
+      "~ %d min reading &middot; ~ %d min full session",
+      minutes, session_minutes
+    )
+    label = "Estimated reading time and total session time including activities"
+  else
+    local suffix = has_activity and " + activities" or ""
+    body = string.format("~ %d min reading%s", minutes, suffix)
+    label = has_activity
+      and "Estimated reading time; this chapter also contains activities that add time"
+      or "Estimated reading time"
+  end
   local html = string.format(
-    '<p class="reading-time" aria-label="%s">~ %d min reading%s</p>',
-    html_escape(label), minutes, html_escape(suffix)
+    '<p class="reading-time" aria-label="%s">%s</p>',
+    html_escape(label), body
   )
   return pandoc.RawBlock("html", html)
 end
@@ -139,13 +158,14 @@ function Pandoc(doc)
 
   local minutes = math.max(1, math.ceil(words / WPM))
   local has_activity = detect_activity(doc.blocks)
+  local session_minutes = read_session_minutes(doc.meta)
   local out = pandoc.List()
   local inserted = false
 
   for _, b in ipairs(doc.blocks) do
     out:insert(b)
     if not inserted and b.t == "Header" and b.level == 1 then
-      out:insert(indicator_block(minutes, has_activity))
+      out:insert(indicator_block(minutes, has_activity, session_minutes))
       inserted = true
     end
   end
@@ -153,7 +173,7 @@ function Pandoc(doc)
   -- If no H1 is present in the body (Quarto renders title from YAML),
   -- inject at the very top so it still appears under the page title.
   if not inserted then
-    out:insert(1, indicator_block(minutes, has_activity))
+    out:insert(1, indicator_block(minutes, has_activity, session_minutes))
   end
 
   doc.blocks = out

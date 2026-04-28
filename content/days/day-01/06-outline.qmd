@@ -1,5 +1,6 @@
 ---
 title: "OUTLINE OF THE COURSE"
+session_minutes: 15
 execute:
   echo: false
 ---

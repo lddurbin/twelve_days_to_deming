@@ -42,6 +42,10 @@ execute:
 
 R setup (knitr hooks and function sourcing) is handled automatically via `.Rprofile` → `R/setup.R`. No per-chapter setup chunk is needed.
 
+Optional editorial field `session_minutes:` (an integer) can also be set —
+see [Reading-time indicator](#reading-time-indicator) below for when to
+use it.
+
 ## _quarto.yml Structure
 
 Each day is a `part:` with nested `chapters:`:
@@ -497,6 +501,48 @@ misrepresent engagement.
 
 No per-chapter action is required — the filter is registered in
 `_quarto.yml` and runs for every rendered page.
+
+#### `session_minutes` — full-session estimate
+
+For activity-heavy chapters, the gap between Neave's clock anchors in the
+source PDFs runs **3–5×** the pure reading-time estimate. The vague
+"+ activities" suffix understates that. When Neave's source provides a
+trustworthy clock budget, set `session_minutes` in the chapter front-matter
+so the indicator can render both numbers:
+
+```yaml
+---
+title: "..."
+session_minutes: 35
+---
+```
+
+When `session_minutes` is present the indicator becomes
+`~ 7 min reading · ~ 35 min full session` and the `aria-label` is updated
+accordingly. When it is absent the filter falls back to the existing
+behaviour (with the `+ activities` suffix where applicable).
+
+**When to set it:**
+
+- The chapter has a clock anchor *and* the next anchor (or the next
+  chapter's first anchor) is in the same continuous sitting — then
+  `session_minutes` = next anchor − this anchor, in minutes.
+- The clock data is editorially trustworthy (not a transcription artefact;
+  not spanning a meal break).
+
+**When to leave it unset:**
+
+- No clock anchors in the source for that chapter.
+- The clock data is broken (e.g. all `12:00` placeholders).
+- The gap spans a lunch or end-of-day break — the gap-time wouldn't
+  reflect time-on-task.
+- The chapter has the last clock of the day (no next anchor to measure
+  against).
+
+`session_minutes` is editorial, not estimated — only encode it when
+Neave's source supports it. Day 1 is the only fully-clocked day in the
+book, so most other days will leave the field unset and render with the
+existing one-number indicator.
 
 ---
 

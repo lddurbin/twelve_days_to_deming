@@ -1,5 +1,6 @@
 ---
 title: "DEMING IS DIFFERENT"
+session_minutes: 5
 execute:
   echo: false
 ---

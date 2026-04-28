@@ -1,5 +1,7 @@
 ---
 title: "CHAPTER TITLE HERE"
+# Optional: set when Neave's source has a clock-budget for this chapter.
+# session_minutes: 35
 execute:
   echo: false
 ---

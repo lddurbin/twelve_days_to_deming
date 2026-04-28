@@ -1,5 +1,6 @@
 ---
 title: "DAY 1 (morning): THE OVERTURE"
+session_minutes: 10
 execute:
   echo: false
 ---
