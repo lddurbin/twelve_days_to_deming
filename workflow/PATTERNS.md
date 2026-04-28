@@ -517,10 +517,14 @@ session_minutes: 35
 ---
 ```
 
-When `session_minutes` is present the indicator becomes
-`~ 7 min reading · ~ 35 min full session` and the `aria-label` is updated
-accordingly. When it is absent the filter falls back to the existing
-behaviour (with the `+ activities` suffix where applicable).
+When `session_minutes` is present and not less than the prose reading
+estimate, the indicator becomes
+`~ 7 min reading · ~ 35 min full session` and the `aria-label` is
+`"Estimated reading time and total session time"`. When it is absent —
+or when it would render shorter than the prose estimate (which would
+look like a contradictory display rather than a useful pacing signal) —
+the filter falls back to the existing behaviour (with the `+ activities`
+suffix where applicable).
 
 **When to set it:**
 

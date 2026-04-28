@@ -131,13 +131,20 @@ local function read_session_minutes(meta)
 end
 
 local function indicator_block(minutes, has_activity, session_minutes)
+  -- Suppress the dual indicator when the editorial budget would be
+  -- shorter than the prose reading estimate at 200 wpm. A learner
+  -- planning their time sees "full session shorter than reading"
+  -- as broken, not as an editorial signal — fall back to the
+  -- single-number output (with the existing "+ activities" suffix
+  -- where applicable) so they get a coherent estimate instead.
+  local use_session = session_minutes and session_minutes >= minutes
   local body, label
-  if session_minutes then
+  if use_session then
     body = string.format(
       "~ %d min reading &middot; ~ %d min full session",
       minutes, session_minutes
     )
-    label = "Estimated reading time and total session time including activities"
+    label = "Estimated reading time and total session time"
   else
     local suffix = has_activity and " + activities" or ""
     body = string.format("~ %d min reading%s", minutes, suffix)
@@ -145,6 +152,9 @@ local function indicator_block(minutes, has_activity, session_minutes)
       and "Estimated reading time; this chapter also contains activities that add time"
       or "Estimated reading time"
   end
+  -- `body` is composed entirely of integer-formatted values plus the
+  -- static `&middot;` HTML entity, so it is intentionally not run
+  -- through html_escape. Only `label` carries free-form text.
   local html = string.format(
     '<p class="reading-time" aria-label="%s">%s</p>',
     html_escape(label), body
