@@ -150,6 +150,9 @@ local function indicator_block(minutes, has_activity, session_minutes)
     label = "Estimated reading time and the author's recommended time including reflection and activities"
   elseif session_minutes then
     -- Within rounding noise — show the reading metric only.
+    -- Omit the "+ activities" suffix even when has_activity is true:
+    -- session_minutes already encodes activity time, so appending
+    -- the suffix would double-count.
     body = string.format("~ %d min reading", minutes)
     label = "Estimated reading time"
   else
