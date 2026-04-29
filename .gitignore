@@ -7,6 +7,9 @@ upload.sh
 
 /.quarto/
 
+# Editor / one-off backups of Quarto config files
+*.yml.backup
+
 12-Days-to-Deming/
 
 .DS_Store
