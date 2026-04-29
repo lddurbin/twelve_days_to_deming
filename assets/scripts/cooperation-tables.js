@@ -34,9 +34,12 @@ const TABLE_CSS = `
   }
   .coop-table th { background: #f0f0f0; font-weight: 600; }
   .coop-table .area-header { font-weight: 700; text-align: left; }
-  .coop-table .area-header-a { background: #5b9bd5; color: white; }
-  .coop-table .area-header-b { background: #ed7d31; color: white; }
-  .coop-table .area-header-c { background: #a5a510; color: white; }
+  /* Backgrounds darkened from Office accent shades (5b9bd5 / ed7d31 / a5a510)
+     so white text clears WCAG AA's 4.5:1 floor. Hue preserved; only luminance
+     dropped. Area D was already compliant. */
+  .coop-table .area-header-a { background: #2c6fa8; color: white; }
+  .coop-table .area-header-b { background: #b85510; color: white; }
+  .coop-table .area-header-c { background: #6e6e0c; color: white; }
   .coop-table .area-header-d { background: #7030a0; color: white; }
   .coop-table .option-name { text-align: left; min-width: 150px; }
   .coop-table .option-name input {
@@ -56,9 +59,13 @@ const TABLE_CSS = `
   .coop-table .net-cell { font-weight: 700; font-size: 1.1em; background: #f8f8f0; }
   .coop-table .net-cell.positive { color: #1a7a1a; }
   .coop-table .net-cell.negative { color: #c00; }
-  .coop-table .net-cell.zero { color: #888; }
+  /* #888 only managed 3.32:1 against the cream net-cell bg; #5a5a5a clears 4.5:1
+     while staying visibly subdued versus the green/red signed totals. */
+  .coop-table .net-cell.zero { color: #5a5a5a; }
   .coop-table .net-row { background: #eee; font-weight: 700; }
-  .coop-table .net-row td { border-top: 2px solid #666; }
+  .coop-table .net-row > td,
+  .coop-table .net-row > th { border-top: 2px solid #666; }
+  .coop-table .net-row > th { text-align: left; font-weight: 700; }
   .coop-area-setup { margin: 1em 0; }
   .coop-area-setup label { font-weight: 600; margin-right: 0.5em; }
   .coop-area-setup input {
@@ -84,54 +91,77 @@ function areaClass(idx) {
   return ["area-header-a", "area-header-b", "area-header-c", "area-header-d"][idx] || "area-header-a";
 }
 
-function buildTableHTML(areas, optionsPerArea, showNetColumn, showNetRow, ownAreaGreyed, allowOwnArea) {
+// Per-call slug must be unique across tables on the same page so the `id` /
+// `headers` pairs we mint don't collide. Five tables coexist (One..Five), so
+// each createTableX passes its own slug ("t1".."t5"). When a table re-renders
+// via OJS reactivity the previous container is removed before the new one
+// mounts, so reusing the same slug is safe.
+function buildTableHTML(slug, areas, optionsPerArea, showNetColumn, showNetRow, ownAreaGreyed, allowOwnArea) {
   const cols = areas.length;
   const totalCols = 1 + cols + (showNetColumn ? 1 : 0);
+  const id = (suffix) => `${slug}-${suffix}`;
+  const areaName = (i) => areas[i] || `Area ${String.fromCharCode(65 + i)}`;
+
+  const idOptions = id("h-options");
+  const idEffects = id("h-effects");
+  const idNet = id("h-net");
+  const colHeaderId = (i) => id(`h-col-${i}`);
+  const rowGroupId = (i) => id(`h-row-${i}`);
+  const idNetRow = id("h-net-row");
 
   let html = `<table class="coop-table">`;
-  // Header
-  html += `<thead><tr><th rowspan="2">Areas and their Options</th>`;
-  html += `<th colspan="${cols}">Effects of Options</th>`;
-  if (showNetColumn) html += `<th rowspan="2">Net Effect on<br>the Company</th>`;
+  // Header — `scope` attrs plus `id`s consumed by the data cells' `headers`
+  // attributes below. Required because pa11y H43 treats this table as
+  // "complex" (rowspan/colspan in thead) and demands explicit header wiring.
+  html += `<thead><tr>`;
+  html += `<th id="${idOptions}" rowspan="2" scope="col">Areas and their Options</th>`;
+  html += `<th id="${idEffects}" colspan="${cols}" scope="colgroup">Effects of Options</th>`;
+  if (showNetColumn) html += `<th id="${idNet}" rowspan="2" scope="col">Net Effect on<br>the Company</th>`;
   html += `</tr><tr>`;
   areas.forEach((a, i) => {
-    html += `<th class="${areaClass(i)}">Effect on<br>${a || `Area ${String.fromCharCode(65 + i)}`}</th>`;
+    html += `<th id="${colHeaderId(i)}" class="${areaClass(i)}" scope="col">Effect on<br>${areaName(i)}</th>`;
   });
-  html += `</tr></thead><tbody>`;
+  html += `</tr></thead>`;
 
   areas.forEach((area, areaIdx) => {
-    // Area header row
-    html += `<tr><td class="area-header ${areaClass(areaIdx)}" colspan="${totalCols}">${area || `Area ${String.fromCharCode(65 + areaIdx)}`}:</td></tr>`;
-    // Option rows
+    // One <tbody> per area so the area banner can act as a `scope="rowgroup"`
+    // header for its own option rows.
+    html += `<tbody>`;
+    html += `<tr><th id="${rowGroupId(areaIdx)}" class="area-header ${areaClass(areaIdx)}" colspan="${totalCols}" scope="rowgroup">${areaName(areaIdx)}:</th></tr>`;
     const numOpts = optionsPerArea[areaIdx] || 0;
     for (let o = 0; o < numOpts; o++) {
+      const optLabel = `${String.fromCharCode(97 + areaIdx)}${o + 1}`;
+      const rowHeaders = rowGroupId(areaIdx);
       html += `<tr data-area="${areaIdx}" data-option="${o}">`;
-      html += `<td class="option-name"><input type="text" data-area="${areaIdx}" data-option="${o}" placeholder="Option ${String.fromCharCode(97 + areaIdx)}${o + 1}"></td>`;
+      html += `<td class="option-name" headers="${rowHeaders} ${idOptions}"><input type="text" data-area="${areaIdx}" data-option="${o}" placeholder="Option ${optLabel}" aria-label="Option ${optLabel} name"></td>`;
       areas.forEach((_, colIdx) => {
+        const cellHeaders = `${rowHeaders} ${idEffects} ${colHeaderId(colIdx)}`;
         const isOwn = colIdx === areaIdx;
         if (isOwn && ownAreaGreyed && !allowOwnArea) {
-          html += `<td class="rating-cell own-area" data-area="${areaIdx}" data-option="${o}" data-col="${colIdx}"></td>`;
+          html += `<td class="rating-cell own-area" headers="${cellHeaders}" data-area="${areaIdx}" data-option="${o}" data-col="${colIdx}"></td>`;
         } else {
-          html += `<td class="rating-cell" data-area="${areaIdx}" data-option="${o}" data-col="${colIdx}" data-rating=""></td>`;
+          html += `<td class="rating-cell" headers="${cellHeaders}" data-area="${areaIdx}" data-option="${o}" data-col="${colIdx}" data-rating=""></td>`;
         }
       });
       if (showNetColumn) {
-        html += `<td class="net-cell" data-area="${areaIdx}" data-option="${o}"></td>`;
+        html += `<td class="net-cell" headers="${rowHeaders} ${idNet}" data-area="${areaIdx}" data-option="${o}"></td>`;
       }
       html += `</tr>`;
     }
+    html += `</tbody>`;
   });
 
   if (showNetRow) {
-    html += `<tr class="net-row"><td>Net Effect of Adopted Options</td>`;
+    html += `<tbody><tr class="net-row">`;
+    html += `<th id="${idNetRow}" scope="row">Net Effect of Adopted Options</th>`;
     areas.forEach((_, colIdx) => {
-      html += `<td class="net-cell" data-col-total="${colIdx}"></td>`;
+      html += `<td class="net-cell" headers="${idNetRow} ${idEffects} ${colHeaderId(colIdx)}" data-col-total="${colIdx}"></td>`;
     });
-    if (showNetColumn) html += `<td class="net-cell" data-grand-total></td>`;
-    html += `</tr>`;
+    if (showNetColumn) html += `<td class="net-cell" headers="${idNetRow} ${idNet}" data-grand-total></td>`;
+    html += `</tr></tbody>`;
   }
 
-  html += `</tbody></table>`;
+  html += `</table>`;
   return html;
 }
 
@@ -237,10 +267,13 @@ export function createAreaSetup(numAreas) {
   container.className = "coop-area-setup";
   const inputs = [];
   for (let i = 0; i < numAreas; i++) {
+    const inputId = `coop-area-name-${i}`;
     const label = document.createElement("label");
+    label.htmlFor = inputId;
     label.textContent = `Area ${String.fromCharCode(65 + i)}:`;
     const input = document.createElement("input");
     input.type = "text";
+    input.id = inputId;
     input.placeholder = `e.g. ${["Sales", "Manufacturing", "Admin", "Delivery"][i] || "Department"}`;
     input.dataset.areaIndex = i;
     input.addEventListener("input", () => {
@@ -268,7 +301,7 @@ export function createTableOne(areas, initialOptions) {
   container.className = "coop-table-container";
 
   const optsPerArea = initialOptions || areas.map(() => 3);
-  container.innerHTML = buildTableHTML(areas, optsPerArea, false, false, true, false);
+  container.innerHTML = buildTableHTML("t1", areas, optsPerArea, false, false, true, false);
 
   // Make own-area cells show "+" automatically (all options benefit own area)
   container.querySelectorAll(".rating-cell.own-area").forEach(cell => {
@@ -292,7 +325,7 @@ export function createTableTwo(areas, tableOneContainer) {
     return tableOneContainer.querySelectorAll(`tr[data-area="${i}"]`).length;
   });
 
-  container.innerHTML = buildTableHTML(areas, optsPerArea, true, true, false, false);
+  container.innerHTML = buildTableHTML("t2", areas, optsPerArea, true, true, false, false);
 
   // Copy option names from Table One
   tableOneContainer.querySelectorAll(".option-name input").forEach(inp => {
@@ -345,7 +378,7 @@ export function createTableThree(areas, tableTwoContainer) {
     positiveRows.filter(r => r.area === String(i)).length
   );
 
-  container.innerHTML = buildTableHTML(areas, optsPerArea, true, true, false, false);
+  container.innerHTML = buildTableHTML("t3", areas, optsPerArea, true, true, false, false);
 
   // Copy data from Table Two for positive rows only
   let optCounter = {};
@@ -392,7 +425,7 @@ export function createTableFour(areas, initialOptions) {
   container.className = "coop-table-container";
 
   const optsPerArea = initialOptions || areas.map(() => 2);
-  container.innerHTML = buildTableHTML(areas, optsPerArea, true, true, false, true);
+  container.innerHTML = buildTableHTML("t4", areas, optsPerArea, true, true, false, true);
 
   attachRatingClicks(container, areas, () => {
     computeNetEffects(container, areas);
@@ -431,7 +464,7 @@ export function createTableFive(areas, tableThreeContainer, tableFourContainer) 
   );
 
   const totalOpts = areas.map((_, i) => threeOpts[i] + fourOpts[i]);
-  container.innerHTML = buildTableHTML(areas, totalOpts, true, true, false, true);
+  container.innerHTML = buildTableHTML("t5", areas, totalOpts, true, true, false, true);
 
   // Copy from Table Three
   areas.forEach((_, areaIdx) => {

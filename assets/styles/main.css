@@ -100,12 +100,16 @@
    Bumping to the theme's own gray-700 token lifts contrast to ~7.9:1 while
    keeping these elements distinguishably lighter than body text at #343a40.
    Quarto emits `<blockquote class="blockquote">` — the class selector matches
-   Cosmo's `.blockquote` rule specificity, then wins by source order. */
+   Cosmo's `.blockquote` rule specificity, then wins by source order.
+   `.column-margin figcaption` is listed explicitly because Quarto's bundled
+   CSS targets it at higher specificity (0,2,0) than the bare `figcaption`
+   selector (0,0,1). */
 blockquote,
 .blockquote,
 caption,
 .figure-caption,
 figcaption,
+.column-margin figcaption,
 .margin-caption,
 div.aside,
 aside,
