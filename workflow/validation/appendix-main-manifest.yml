@@ -1,0 +1,132 @@
+# Appendix structural manifest: main Appendix (Discussions and Information)
+# Source PDF: P.Appendix.09Feb22.pdf
+#
+# Covers the Glossary plus the 12 main appendix files (00-welcome through
+# 11-references-and-sources). All chapters are prose-only — no `viewof`
+# inputs, no download buttons — so interactive_checks is false and only
+# heading and figure-reference checks run.
+#
+# Per-chapter figures lists are intentionally empty: the script also walks
+# every ![](path) ref in each QMD and verifies it on disk, so the manifest
+# stays focused on headings (the structural anchor we control directly).
+#
+# The two sub-appendices that branch off from this one have their own
+# manifests:
+#   - workflow/validation/appendix-optional-extras-manifest.yml
+#   - workflow/validation/appendix-contributions-balaji-reddie-manifest.yml
+
+slug: main
+pdf_file: P.Appendix.09Feb22.pdf
+content_dir: content/appendix
+interactive_checks: false
+
+chapters:
+  - file: "glossary.qmd"
+    figures: []
+    headings:
+      - "common cause / common-cause variation"
+      - "in statistical control"
+      - "operational definition"
+      - "PDSA cycle (Plan-Do-Study-Act)"
+      - "special cause / special-cause variation"
+      - "System of Profound Knowledge"
+      - "transformation"
+
+  - file: "00-welcome.qmd"
+    figures: []
+    headings:
+      - 'RECOMMENDED "OUT-OF-HOURS" PREPARATION'
+
+  - file: "01-day-1.qmd"
+    figures: []
+    headings:
+      - "PAUSE FOR THOUGHT 1–c"
+      - "MAJOR ACTIVITY 1–f"
+
+  - file: "02-day-2.qmd"
+    figures: []
+    headings:
+      - "PAUSE FOR THOUGHT 2–b"
+      - "PAUSE FOR THOUGHT 2–c"
+      - "PAUSE FOR THOUGHT 2–e"
+      - "ACTIVITY 2–f"
+      - "ACTIVITY 2–g"
+      - "Technical Aid 4"
+      - "MAJOR ACTIVITY 2–h"
+      - 'Dave Kerr''s "Wrap-Up Brief" following the Red Beads Experiment'
+
+  - file: "03-day-3.qmd"
+    figures: []
+    headings:
+      - "ACTIVITY 3–b"
+      - "ACTIVITY 3–g"
+      - "MAJOR ACTIVITY 3–h"
+      - "ACTIVITY 3–i"
+      - "ACTIVITY 3–j"
+
+  - file: "04-day-4.qmd"
+    figures: []
+    headings:
+      - "ACTIVITY 4–a"
+      - "ACTIVITY 4–d"
+      - "ADDENDA TO POINTS 1 AND 3"
+
+  - file: "05-day-5.qmd"
+    figures: []
+    headings:
+      - "Point 7. Institute leadership of people *([Day 5 pages 2–3](../days/day-05/02-points-7-to-14.qmd#sec-page2))*"
+      - "Point 8. Drive out fear *([Day 5 pages 4–5](../days/day-05/02-points-7-to-14.qmd#sec-page4))*"
+      - "Point 9. Break down barriers *([Day 5 pages 6–7](../days/day-05/02-points-7-to-14.qmd#sec-page6))*"
+      - "Point 10. Eliminate exhortations *([Day 5 pages 8–9](../days/day-05/02-points-7-to-14.qmd#sec-page8))*"
+      - "Point 11. Eliminate arbitrary numerical targets *([Day 5 pages 10–11](../days/day-05/02-points-7-to-14.qmd#sec-page10))*"
+      - "Point 12. Permit pride of workmanship *([Day 5 pages 12–13](../days/day-05/02-points-7-to-14.qmd#sec-page12))*"
+      - "Point 13. Encourage education *([Day 5 pages 14–15](../days/day-05/02-points-7-to-14.qmd#sec-page14))*"
+      - "Point 14. Top management commitment and action *([Day 5 pages 16–17](../days/day-05/02-points-7-to-14.qmd#sec-page16))*"
+      - "Disease 1. Lack of constancy *([Day 5 pages 18–19](../days/day-05/03-the-deadly-diseases.qmd#sec-page18))*"
+      - "Disease 2. Short-termism *([Day 5 pages 20–21](../days/day-05/03-the-deadly-diseases.qmd#sec-page20))*"
+      - "Disease 3. Appraisal of performance *([Day 5 pages 22–23](../days/day-05/03-the-deadly-diseases.qmd#sec-page22))*"
+      - "Disease 4. Management job-hopping *([Day 5 pages 24–25](../days/day-05/03-the-deadly-diseases.qmd#sec-page24))*"
+      - "Disease 5. Use of only visible figures *([Day 5 pages 26–27](../days/day-05/03-the-deadly-diseases.qmd#sec-page26))*"
+
+  - file: "06-day-7.qmd"
+    figures: []
+    headings:
+      - "ACTIVITY 7–a"
+      - "TRANSCRIPT OF LETTER"
+      - "MORE ON TARGETS IN GOVERNMENT"
+      - "MAJOR ACTIVITY 7–i"
+
+  - file: "07-day-9.qmd"
+    figures: []
+    headings:
+      - "ACTIVITY 9–c"
+      - "MAJOR ACTIVITY 9–e"
+
+  - file: "08-day-10.qmd"
+    figures: []
+    headings:
+      - "ACTIVITY 10–a"
+      - "ACTIVITY 10–b"
+
+  - file: "09-day-11.qmd"
+    figures: []
+    headings:
+      - "ACTIVITY 11–a"
+      - "ACTIVITY 11–b"
+
+  - file: "10-optional-extras.qmd"
+    figures: []
+    headings:
+      - "Introduction"
+      - '"SIX-SIGMA" SUPERSTITIONS'
+      - 'An Alternative "Truth"'
+      - "Superstitions"
+      - "Approvals, Acknowledgments and Information"
+
+  - file: "11-references-and-sources.qmd"
+    figures: []
+    headings:
+      - "BOOKS"
+      - "BOOKLETS"
+      - "VIDEOS / DVDs"
+      - "INTERNET CONTACTS AND ADDRESSES"
