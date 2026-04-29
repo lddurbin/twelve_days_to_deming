@@ -1,0 +1,83 @@
+# Appendix structural manifest: Optional Extras
+# Source PDF: S.Optional.Extras.09Jul21.pdf
+#
+# Seven-chapter reference appendix (Introduction + Parts A-F) on
+# statistical foundations and control-chart theory. All chapters are
+# prose-only — no `viewof` inputs, no download buttons — so
+# interactive_checks is false and only heading and figure-reference
+# checks run.
+#
+# Parts A and B render OJS-driven plots, but no `viewof` inputs.
+# Parts D, E, F carry stable per-page anchors (see brief) which the
+# heading check enforces by way of the trailing {#sec-...} attribute
+# strip in scripts/check-structure.sh.
+#
+# Per-chapter figures lists are intentionally empty: the script also
+# walks every ![](path) ref in each QMD and verifies it on disk, so
+# the manifest stays focused on headings.
+
+slug: optional-extras
+pdf_file: S.Optional.Extras.09Jul21.pdf
+content_dir: content/appendix/optional-extras
+interactive_checks: false
+
+chapters:
+  - file: "00-introduction.qmd"
+    figures: []
+    headings:
+      - "Contents"
+      - "NOTE"
+      - "INTRODUCTION"
+
+  - file: "01-part-a-funnel-charts.qmd"
+    figures: []
+    headings:
+      - "1. Introduction"
+      - "2. Rules 1 and 2 of the Funnel"
+      - "Draw your own Rule 1 and Rule 2 charts"
+      - "3. Rules 3 and 4 of the Funnel"
+      - "4. Control charts for the computer-generated data"
+      - "5. Discussion"
+
+  - file: "02-part-b-subgrouped.qmd"
+    figures: []
+    headings:
+      - "1. Introduction"
+      - "2. Calculations on a subgroup"
+      - "3. Control charts for subgrouped data"
+      - "4. Discussion"
+
+  - file: "03-part-c-ne-er-twain.qmd"
+    figures: []
+    headings:
+      - "1. Introduction"
+      - "2. The essence of the argument"
+
+  - file: "04-part-d-crash-course.qmd"
+    figures: []
+    headings:
+      - "Histograms and sample statistics"
+      - "Probability"
+      - "Linking it all together"
+      - "Probability distributions, particularly the binomial distribution"
+      - "Continuous probability distributions, particularly the normal distribution"
+      - "The Central Limit Theorem"
+      - "Confidence intervals"
+      - "Hypothesis tests (also known as significance tests or tests of significance)"
+
+  - file: "05-part-e-normality.qmd"
+    figures: []
+    headings:
+      - "1. Back to basics"
+      - "2. Two simulation studies"
+      - '3. "Control-chart constants depend on normally-distributed data, so unless your data are normally distributed your control chart isn''t valid."'
+      - '4. "If your data are normally distributed then the probability of a false signal is 0.0027"'
+
+  - file: "06-part-f-technical.qmd"
+    figures: []
+    headings:
+      - "1. Length of the baseline"
+      - '2. "Expected" values — the great misnomer!'
+      - "3. Proofs and uses of expected values"
+      - "4. Why are control-chart constants what they are?"
+      - "5. More on the binomial and normal distributions"

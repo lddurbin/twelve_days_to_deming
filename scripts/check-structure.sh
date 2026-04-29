@@ -268,12 +268,14 @@ main() {
       total_pass=$((total_pass + 1))
     fi
 
-    # Check all ![...](path) refs in QMD point to existing files
-    # Use Ruby for reliable parsing — regex alone can't handle parentheses in alt text
+    # Check all ![...](path) refs in QMD point to existing files.
+    # The alt-text group allows one level of balanced [...] nesting so that
+    # Pandoc image alts containing inline markdown links (e.g. ![text with
+    # [link](anchor)](real-url)) parse correctly.
     local qmd_figs
     qmd_figs=$(ruby -e '
       ARGF.each_line do |line|
-        line.scan(/!\[[^\]]*\]\(([^)]+)\)/) { |m| puts m[0] }
+        line.scan(/!\[(?:[^\[\]]|\[[^\]]*\])*\]\(([^)]+)\)/) { |m| puts m[0] }
       end
     ' "$qmd_path" 2>/dev/null | sed 's/%20/ /g' || true)
     if [[ -n "$qmd_figs" ]]; then
