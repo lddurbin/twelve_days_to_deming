@@ -1,0 +1,30 @@
+// Source for assets/images/day-01/chain-reaction.svg
+//
+// "Deming Chain Reaction" — improving quality leads to falling costs,
+// market capture, business survival, and more jobs. Used on day-01
+// (11-deming-story.qmd) as item 5 of Deming's Summary of Teachings.
+//
+// To regenerate the SVG after editing this file:
+//   dot -Tsvg scripts/dot/chain-reaction.dot \
+//     -o assets/images/day-01/chain-reaction.svg
+//
+// Then strip the external DTD reference from the second line of the
+// rendered SVG (graphviz emits a DOCTYPE that browsers ignore but
+// strict XML pipelines may try to fetch).
+
+digraph "Deming Chain Reaction" {
+  graph [layout = dot, rankdir = LR, bgcolor = "white", pad = 0.4, nodesep = 0.4, ranksep = 0.6]
+
+  node [shape = box, style = filled, fillcolor = lightblue, fontname = "Helvetica", fontsize = 18, margin = "0.18,0.10"]
+
+  Improve [label = "Improve processes\nand product"]
+  Costs [label = "Costs decrease"]
+  Capture [label = "Capture the market\nwith better quality\nand lower price"]
+  Stay [label = "Stay in business"]
+  Jobs [label = "Provide jobs\nand more jobs"]
+
+  Improve -> Costs
+  Costs -> Capture
+  Capture -> Stay
+  Stay -> Jobs
+}

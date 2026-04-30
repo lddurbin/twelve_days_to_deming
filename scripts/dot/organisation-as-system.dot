@@ -1,0 +1,57 @@
+// Source for assets/images/day-01/organisation-as-system.svg
+//
+// "Organisation Viewed as a System" — the flow diagram which heads
+// Deming's Summary of Teachings on day-01 (11-deming-story.qmd).
+//
+// To regenerate the SVG after editing this file:
+//   dot -Tsvg scripts/dot/organisation-as-system.dot \
+//     -o assets/images/day-01/organisation-as-system.svg
+//
+// Then strip the external DTD reference from the second line of the
+// rendered SVG (graphviz emits a DOCTYPE that browsers ignore but
+// strict XML pipelines may try to fetch).
+
+digraph "Organisation as a System" {
+  graph [layout = dot, rankdir = LR, bgcolor = "white", pad = 0.4, nodesep = 0.45, ranksep = 0.7]
+
+  node [shape = box, style = filled, fillcolor = lightblue, fontname = "Helvetica", fontsize = 18, margin = "0.18,0.10"]
+  edge [fontname = "Helvetica", fontsize = 14]
+
+  subgraph cluster_suppliers {
+    label = "Suppliers of materials and equipment"
+    fontname = "Helvetica"
+    fontsize = 18
+    style = "rounded"
+    color = "gray60"
+    A [label = "A"]
+    B [label = "B"]
+    C [label = "C"]
+    D [label = "D"]
+  }
+
+  Receipt [label = "Receipt and test\nof materials"]
+  Production [label = "Production, assembly,\ninspection"]
+  Distribution [label = "Distribution"]
+  Consumers [label = "Consumers"]
+  Design [label = "Design and\nredesign"]
+  ConsumerResearch [label = "Consumer research"]
+  Tests [label = "Tests of processes,\nmachines, methods, costs"]
+
+  A -> Receipt
+  B -> Receipt
+  C -> Receipt
+  D -> Receipt
+  Receipt -> Production
+  Production -> Distribution
+  Distribution -> Consumers
+
+  Tests -> Production
+  Design -> Receipt
+  Design -> Production
+  ConsumerResearch -> Design
+
+  Tests -> Receipt
+  Tests -> Distribution
+  Design -> Distribution
+  ConsumerResearch -> Production
+}

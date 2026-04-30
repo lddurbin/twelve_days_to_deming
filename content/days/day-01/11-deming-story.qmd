@@ -214,52 +214,7 @@ What did he mean by <span class=deming_quote>“the theory of a system, and coop
 1. The flow diagram shown here was on the blackboard at every conference with top management:
 </span>
 
-```{r day1_flowchart1}
-
-grViz("
-  digraph flowchart {
-    graph [layout = dot, rankdir = LR]
-    
-    node [shape = box, style = filled, fillcolor = lightblue, fontname = Helvetica, fontsize = 12]
-    
-    subgraph cluster_suppliers {
-      label = 'Suppliers of materials and equipment'
-      A [label = 'A']
-      B [label = 'B']
-      C [label = 'C']
-      D [label = 'D']
-    }
-    
-    Receipt [label = 'Receipt and test of materials']
-    Production [label = 'Production, assembly, inspection']
-    Distribution [label = 'Distribution']
-    Consumers [label = 'Consumers']
-    Design [label = 'Design and redesign']
-    ConsumerResearch [label = 'Consumer research']
-    Tests [label = 'Tests of processes, machines, methods, costs']
-    
-    # Nodes and edges
-    A -> Receipt
-    B -> Receipt
-    C -> Receipt
-    D -> Receipt
-    Receipt -> Production
-    Production -> Distribution
-    Distribution -> Consumers
-    
-    Tests -> Production
-    Design -> Receipt
-    Design -> Production
-    ConsumerResearch -> Design
-    
-    # Additional arrows to reflect the original diagram
-    Tests -> Receipt
-    Tests -> Distribution
-    Design -> Distribution
-    ConsumerResearch -> Production
-  }
-")
-```
+![](/assets/images/day-01/organisation-as-system.svg){.lightbox fig-alt="A left-to-right flow diagram of an organisation viewed as a system. Four supplier nodes A, B, C, D feed Receipt and test of materials, which feeds Production, assembly, inspection, then Distribution, then Consumers. Consumer research feeds back into Design and redesign and into Production; Design and redesign feeds Receipt, Production and Distribution; Tests of processes, machines, methods, costs feeds Receipt, Production and Distribution."}
 
 <details>
 <summary>Describe this diagram</summary>
@@ -277,28 +232,7 @@ A left-to-right flow diagram of a whole production system. Four supplier nodes (
 
 <span class=deming_quote>5. Chain reaction from improvement of processes:</span>
 
-```{r day1_flowchart2}
-
-grViz("
-  digraph flowchart {
-    graph [layout = dot, rankdir = LR]
-    
-    node [shape = box, style = filled, fillcolor = lightblue, fontname = Helvetica, fontsize = 12]
-    
-    Improve [label = 'Improve processes and product']
-    Costs [label = 'Costs decrease']
-    Capture [label = 'Capture the market with better quality and lower price']
-    Stay [label = 'Stay in business']
-    Design [label = 'Provide jobs and more jobs']
-    
-    # Nodes and edges
-    Improve -> Costs
-    Costs -> Capture
-    Capture -> Stay
-    Stay -> Design
-  }
-")
-```
+![](/assets/images/day-01/chain-reaction.svg){.lightbox fig-alt="Left-to-right chain of five linked boxes showing Deming's Chain Reaction. Improve processes and product leads to Costs decrease, then Capture the market with better quality and lower price, then Stay in business, then Provide jobs and more jobs."}
 
 <details>
 <summary>Describe this diagram</summary>
