@@ -214,7 +214,7 @@ What did he mean by <span class=deming_quote>“the theory of a system, and coop
 1. The flow diagram shown here was on the blackboard at every conference with top management:
 </span>
 
-![](/assets/images/day-01/organisation-as-system.svg){.lightbox fig-alt="Flow diagram titled 'Organisation Viewed as a System'. Four supplier nodes A, B, C, D feed Receipt and test of materials, which feeds Production, assembly, inspection, then Distribution, then Consumers. Consumer research feeds back into Design and redesign and into Production; Design and redesign feeds Receipt, Production and Distribution; Tests of processes, machines, methods, costs feeds Receipt, Production and Distribution."}
+![](/assets/images/day-01/organisation-as-system.svg){.lightbox fig-alt="A left-to-right flow diagram of an organisation viewed as a system. Four supplier nodes A, B, C, D feed Receipt and test of materials, which feeds Production, assembly, inspection, then Distribution, then Consumers. Consumer research feeds back into Design and redesign and into Production; Design and redesign feeds Receipt, Production and Distribution; Tests of processes, machines, methods, costs feeds Receipt, Production and Distribution."}
 
 <details>
 <summary>Describe this diagram</summary>
