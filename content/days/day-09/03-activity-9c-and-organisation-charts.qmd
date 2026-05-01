@@ -13,7 +13,7 @@ With regard to your organisation, suggest some ways in which the improvement of 
 viewof activity_9c = Inputs.textarea({label: "Suggest some ways in which the improvement of quality would reduce cost in your organisation", placeholder: "Type your suggestions here.", rows: 10})
 ```
 
-[If you need a hint, you will find one on Appendix page 38.]
+[If you need a hint, you will find one on [Appendix page 38](../../appendix/07-day-9.qmd#sec-page38).]
 
 </div>
 

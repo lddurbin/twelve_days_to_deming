@@ -75,7 +75,7 @@ What does the above control chart tell you?
 viewof thought_2e = Inputs.textarea({label: "What does the control chart tell you?", placeholder: "Type your comments here.", rows: 10})
 ```
 
-*(For brief but very important discussion, see Appendix page 7 one more time.)*
+*(For brief but very important discussion, see [Appendix page 7](../../appendix/02-day-2.qmd#sec-page7) one more time.)*
 </div>
 
 Are you startled by what the control chart has just told you? Fear not: all will be revealed!

@@ -84,7 +84,7 @@ And how might *reducing* variation lead to *increasing* variety?
 viewof activity_3b_2 = Inputs.textarea({label: "How might reducing variation lead to increasing variety?", placeholder: "Type your comments here.", rows: 8})
 ```
 
-<div class="activity_afterthought">(For discussion see Appendix page 14.)</div>
+<div class="activity_afterthought">(For discussion see [Appendix page 14](../../appendix/03-day-3.qmd#sec-page14).)</div>
 </div>
 
 ```{ojs download_all}

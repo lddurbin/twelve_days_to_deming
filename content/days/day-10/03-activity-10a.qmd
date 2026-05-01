@@ -12,7 +12,7 @@ Now it's time to revisit the 14 Points and Deadly Diseases. **In light of your u
 
 As mentioned on [Day 9 page 27](../day-09/07-out-of-hours.qmd#sec-page27), in each case please put a number on a 0--5 scale in the box provided. Enter "5" if, from your understanding of "Appreciation for a System" (or whichever of the four parts you are working on), you feel it is *essential* to adopt the Point or cure the Disease. At the opposite extreme, you should enter "0" if you can see *no connection* between them. You may as well be honest---*I'm not there to check up on you!* Use "1", "2", "3" or "4" if your judgment lies between those two extremes. You might find it helpful to write a few words describing roughly what those intermediate numbers mean to you. These "ratings" of the connections as you see them will be used on our final day.
 
-<div class="activity_afterthought">(You may find the brief discussion on Appendix page 39 to be helpful for this Activity.)</div>
+<div class="activity_afterthought">(You may find the brief discussion on [Appendix page 39](../../appendix/08-day-10.qmd#sec-page39) to be helpful for this Activity.)</div>
 
 **POINT 1.** [Create constancy of purpose.]{.deming_quote} *(Day 4 pages 16--17.)*
 

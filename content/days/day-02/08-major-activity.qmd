@@ -16,7 +16,7 @@ So first review your notes on all that has happened today. If there were any gap
 
 You may be quite used to trying to convert a collection of notes into a more organised form in preparation for writing up a report or some other kind of document. That is really what you should begin aiming to do here in order that you will finish up with an account which, when you refer back to it in the future, you will find easier to read and learn from.
 
-But first, on Appendix pages 10–12 I have discussed some further messages from the Red Beads Experiment. You might possibly have touched upon one or two of these already, but I think you will also find some new issues in my write-up there. Usually I suggest that you do not turn to my discussions in the Appendix until you have already attempted the relevant Activity. However, in this case it may be better for you to read through that section at this stage. It could give you yet further thoughts to include in your account.
+But first, on [Appendix pages 10–12](../../appendix/02-day-2.qmd#sec-page10) I have discussed some further messages from the Red Beads Experiment. You might possibly have touched upon one or two of these already, but I think you will also find some new issues in my write-up there. Usually I suggest that you do not turn to my discussions in the Appendix until you have already attempted the relevant Activity. However, in this case it may be better for you to read through that section at this stage. It could give you yet further thoughts to include in your account.
 
 ---
 

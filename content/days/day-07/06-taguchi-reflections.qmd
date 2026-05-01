@@ -96,7 +96,7 @@ Click this after writing your comments
 
 &nbsp;&nbsp;&nbsp;&nbsp; *whereas*
 
-*Conformance to specifications:* It doesn't matter if a process is off-centre—as long as it is not off-centre enough to reach out-of-specification values. In fact, an apparent benefit of reducing variation is that one can allow the process to drift more off-centre! (In case you have come across the concept, this is often heralded as an advantage by "six-sigma" enthusiasts. There is much more about "six-sigma" on Appendix pages 43–50—but I'll classify it as very optional reading!)
+*Conformance to specifications:* It doesn't matter if a process is off-centre—as long as it is not off-centre enough to reach out-of-specification values. In fact, an apparent benefit of reducing variation is that one can allow the process to drift more off-centre! (In case you have come across the concept, this is often heralded as an advantage by "six-sigma" enthusiasts. There is much more about "six-sigma" on [Appendix pages 43–50](../../appendix/10-optional-extras.qmd#sec-page43)—but I'll classify it as very optional reading!)
 
 </div>
 </div>

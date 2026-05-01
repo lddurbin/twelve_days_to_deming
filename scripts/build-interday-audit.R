@@ -30,7 +30,10 @@ out_csv <- fs::path(repo_root, "workflow", "inter-day-refs.csv")
 # 1. Gather every .qmd file and its lines
 # ---------------------------------------------------------------------------
 
-qmd_files <- fs::dir_ls(content_dir, recurse = TRUE, glob = "*.qmd")
+qmd_files <- c(
+  fs::dir_ls(content_dir, recurse = TRUE, glob = "*.qmd"),
+  fs::dir_ls(repo_root, recurse = FALSE, glob = "*.qmd")
+)
 
 read_lines_tbl <- function(path) {
   lines <- readLines(path, warn = FALSE)
@@ -166,6 +169,92 @@ concrete <- concrete |>
   )
 
 # ---------------------------------------------------------------------------
+# 3b. Extract concrete "Appendix page N" references (#295)
+# ---------------------------------------------------------------------------
+#
+# Parallel surface form to "Day N page M". Page numbers are *global* across
+# the appendix (continuous numbering, not per-file): pages 2–6 live in
+# 01-day-1.qmd, 7–13 in 02-day-2.qmd, 14–21 in 03-day-3.qmd, 22–23 in
+# 04-day-4.qmd, 24–30 in 05-day-5.qmd, 31–37 in 06-day-7.qmd, 38 in
+# 07-day-9.qmd, 39–40 in 08-day-10.qmd, 41–42 in 09-day-11.qmd, and
+# 43+ in 10-optional-extras.qmd. Resolution is therefore page-number-based:
+# look up which file contains {#sec-pageN}.
+
+# Build the appendix-file × page anchor index from the existing anchors df.
+appendix_anchor_lookup <- anchors |>
+  dplyr::filter(stringr::str_detect(source_file, "^content/appendix/")) |>
+  distinct(source_file, target_page) |>
+  rename(target_file = source_file)
+
+appendix_page <- extract_matches(
+  all_lines,
+  pattern = "Appendix pages?\\s+([0-9]+)",
+  group_names = "target_page_chr"
+) |>
+  transmute(
+    source_file,
+    source_line,
+    match_text,
+    target_page = as.integer(target_page_chr),
+    context = str_trim(text)
+  ) |>
+  mutate(
+    # Already-linked sites: a markdown link wraps the match. Detected by
+    # (a) literal "[<match_text>" appearing in the line — i.e. the match is
+    # preceded by "[" — *and* (b) the line carrying a "](" link signature.
+    # The two-clause form handles range-form linked sites like
+    # "[Appendix pages 15–18](...)" without a position-aware regex.
+    already_linked =
+      stringr::str_detect(context, stringr::fixed(paste0("[", match_text))) &
+        stringr::str_detect(context, stringr::fixed("](")),
+    # Notation-example sites: the match is exact-bounded by scare quotes
+    # (e.g. `"Appendix page 3"`) — these are demonstrations of the page-
+    # reference convention itself rather than navigation pointers. Linking
+    # them takes a reader to a page unrelated to the prose they were
+    # reading. Today this only matches the puzzle paragraph in
+    # `index.qmd`'s "Page references and call-outs" section.
+    notation_example = stringr::str_detect(
+      context,
+      stringr::fixed(paste0('"', match_text, '"'))
+    )
+  ) |>
+  left_join(appendix_anchor_lookup, by = "target_page") |>
+  mutate(
+    anchor_present = if_else(!is.na(target_file), "Y", "N"),
+    kind = "appendix-page",
+    target_day = NA_integer_,
+    decision = case_when(
+      already_linked ~ "already-linked",
+      notation_example ~ "notation-example",
+      anchor_present == "N" ~ "anchor-needed",
+      .default = NA_character_
+    ),
+    notes = case_when(
+      already_linked ~ "site already wraps match in markdown link",
+      notation_example ~ "match is scare-quoted as a notation example",
+      .default = NA_character_
+    ),
+    context = if_else(
+      str_length(context) > 200,
+      paste0(str_sub(context, 1, 197), "..."),
+      context
+    )
+  ) |>
+  select(
+    kind,
+    source_file,
+    source_line,
+    match_text,
+    target_day,
+    target_page,
+    target_file,
+    anchor_present,
+    decision,
+    notes,
+    context
+  )
+
+# ---------------------------------------------------------------------------
 # 4. 30-item fuzzy-mention sample
 # ---------------------------------------------------------------------------
 #
@@ -235,6 +324,7 @@ fuzzy_sample <- fuzzy_all |>
 
 out <- bind_rows(
   concrete |> arrange(source_file, source_line),
+  appendix_page |> arrange(source_file, source_line),
   fuzzy_sample
 )
 
@@ -242,17 +332,20 @@ fs::dir_create(fs::path_dir(out_csv))
 write_csv(out, out_csv, na = "")
 
 message(sprintf(
-  "Wrote %s — %d concrete refs, %d fuzzy sampled (of %d fuzzy matches in total).",
+  "Wrote %s — %d concrete refs, %d appendix-page refs, %d fuzzy sampled (of %d fuzzy matches in total).",
   fs::path_rel(out_csv, repo_root),
   sum(out$kind == "concrete"),
+  sum(out$kind == "appendix-page"),
   sum(out$kind == "fuzzy"),
   nrow(fuzzy_all)
 ))
 
 # Autofill summary — useful for judging how much anchor infrastructure needs
-# adding during #200/#201.
-autofill_summary <- out |>
-  dplyr::filter(kind == "concrete") |>
-  count(anchor_present, name = "n")
+# adding during #200/#201/#295.
 message("Anchor-present distribution for concrete refs:")
-print(autofill_summary)
+print(out |> dplyr::filter(kind == "concrete") |> count(anchor_present, name = "n"))
+
+message("Decision distribution for appendix-page refs:")
+print(out |>
+  dplyr::filter(kind == "appendix-page") |>
+  count(anchor_present, decision, name = "n"))

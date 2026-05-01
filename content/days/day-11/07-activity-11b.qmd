@@ -10,7 +10,7 @@ execute:
 
 Last lap! As previously, but now in connection with Part D: "Knowledge of Psychology". In this case, there are definitely links of both the kinds (i.e. the "what and why" and the "how") considered in Activity 11--a. That is, some parts of this Psychology section of the System of Profound Knowledge demonstrate the need to adopt the 14 Points and cure the Deadly Diseases; other parts give very helpful guidance on how to do those things successfully.
 
-<div class="activity_afterthought">(See Appendix page 42.)</div>
+<div class="activity_afterthought">(See [Appendix page 42](../../appendix/09-day-11.qmd#sec-page42).)</div>
 
 **POINT 1.** [Create constancy of purpose.]{.deming_quote} *(Day 4 pages 16--17.)*
 
