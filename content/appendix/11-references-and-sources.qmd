@@ -161,7 +161,7 @@ WEDI (The W Edwards Deming Institute) (USA): <https://www.deming.org>
 
 ---
 
-*Some colleagues (see my Preface in the "A. PLEASE START HERE" file) and I have made considerable efforts to trace copyright holders of content quoted in the course material.  I would welcome correspondence from any that we have missed or been unable to trace.*
+*Some colleagues (see my Preface in the ["A. PLEASE START HERE"](../../index.qmd) file) and I have made considerable efforts to trace copyright holders of content quoted in the course material.  I would welcome correspondence from any that we have missed or been unable to trace.*
 
 *I would similarly welcome correspondence if you discover any errors in the above contact addresses or indeed anywhere in these References and Sources or elsewhere in the course material.*
 
