@@ -136,7 +136,7 @@ Institute presents various seminars and offers videos including the *Deming Libr
     successful in introducing Dr Deming to the American public in 1980.
     
 Also in America, SPC Press Inc (<https://www.spcpress.com>), who published my book *The Deming Dimension* in
-    1990 (see pages 12–13 in the Welcome section of file A. PLEASE START HERE), is another excellent
+    1990 (see [pages 12–13](../../../index.qmd#sec-page12) in the Welcome section of file A. PLEASE START HERE), is another excellent
     source for Deming-related publications, materials and seminars. It is also one of the websites that are
     hosting the complete *12 Days to Deming* material.
     
