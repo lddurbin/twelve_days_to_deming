@@ -188,7 +188,7 @@ format:
       dark: darkly
     css: assets/styles/main.css
     header-includes: |
-      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://excalidraw.com; img-src 'self' data:; connect-src 'self' https://cdn.jsdelivr.net;">
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' data:; frame-src https://excalidraw.com; img-src 'self' data:; connect-src 'self' https://cdn.jsdelivr.net;">
       <script>
         (function () {
           try {
@@ -198,7 +198,6 @@ format:
           } catch (e) {}
         })();
       </script>
-      <script src="/assets/scripts/functions.js"></script>
       <script src="/assets/scripts/reading-prefs.js"></script>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
