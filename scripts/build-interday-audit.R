@@ -206,7 +206,17 @@ appendix_page <- extract_matches(
     # "[Appendix pages 15–18](...)" without a position-aware regex.
     already_linked =
       stringr::str_detect(context, stringr::fixed(paste0("[", match_text))) &
-        stringr::str_detect(context, stringr::fixed("]("))
+        stringr::str_detect(context, stringr::fixed("](")),
+    # Notation-example sites: the match is exact-bounded by scare quotes
+    # (e.g. `"Appendix page 3"`) — these are demonstrations of the page-
+    # reference convention itself rather than navigation pointers. Linking
+    # them takes a reader to a page unrelated to the prose they were
+    # reading. Today this only matches the puzzle paragraph in
+    # `index.qmd`'s "Page references and call-outs" section.
+    notation_example = stringr::str_detect(
+      context,
+      stringr::fixed(paste0('"', match_text, '"'))
+    )
   ) |>
   left_join(appendix_anchor_lookup, by = "target_page") |>
   mutate(
@@ -215,11 +225,13 @@ appendix_page <- extract_matches(
     target_day = NA_integer_,
     decision = case_when(
       already_linked ~ "already-linked",
+      notation_example ~ "notation-example",
       anchor_present == "N" ~ "anchor-needed",
       .default = NA_character_
     ),
     notes = case_when(
       already_linked ~ "site already wraps match in markdown link",
+      notation_example ~ "match is scare-quoted as a notation example",
       .default = NA_character_
     ),
     context = if_else(

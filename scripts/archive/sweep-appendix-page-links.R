@@ -30,7 +30,10 @@ todo <- csv |>
                 anchor_present == "Y",
                 is.na(decision))
 
-stopifnot(nrow(todo) > 0L)
+if (nrow(todo) == 0L) {
+  message("No unlinked appendix-page sites in audit — nothing to sweep.")
+  quit(status = 0)
+}
 
 resolve_relpath <- function(source_file, target_file) {
   src_dir <- fs::path_dir(source_file)
