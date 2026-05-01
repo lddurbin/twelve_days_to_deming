@@ -12,7 +12,7 @@ As in Activity 10–a, but now in connection with Part B: "Some Knowledge of The
 
 Incidentally, do not be surprised if, both here and in similar Activities on Day 11, you find yourself coming up with some of the same thoughts and arguments as in previous Activities within this project. This is, of course, a further indication of how the four parts of the System of Profound Knowledge are strongly interrelated.
 
-<div class="activity_afterthought">(You may find the short discussion on Appendix pages 39–40 to be helpful.)</div>
+<div class="activity_afterthought">(You may find the short discussion on [Appendix pages 39–40](../../appendix/08-day-10.qmd#sec-page39) to be helpful.)</div>
 
 **POINT 1.** [Create constancy of purpose.]{.deming_quote} *(Day 4 pages 16--17.)*
 

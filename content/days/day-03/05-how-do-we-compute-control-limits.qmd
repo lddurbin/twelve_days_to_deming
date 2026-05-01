@@ -41,7 +41,7 @@ The major point is that, in most cases, using moving ranges substantially reduce
 
 How does the moving-range method achieve this? Let's consider the case where a fault occurs which raises the process average from what it was before. That fault thus also similarly raises all of the subsequent data—but not their variation. That special cause will in fact only affect a single moving range: the one starting with the data-point immediately before the special cause occurs. All the other moving ranges are unaffected by the change in process average since they all compare two data-values which were both recorded while the process had the original average or were both recorded when the process had the raised average. Thus, other than one exception, all the moving ranges still continue to reflect the size of the process's common-cause variation. So the computed control limits will be slightly contaminated by the special-cause effect (because of the one exceptional moving range) but usually not to the extent of seriously harming the control limits' ability to do their job of indicating the presence of special causes.
 
-This kind of feature is so important that we'd better study some charts. Firstly, take a look at the two control charts, labelled A1 and A2, at the top of page 19. (Recall that on Appendix page 1 I indicated you would find it convenient to print a separate copy of that page. I think you will quickly realise that Chart A1 shows a process which is in control. But Chart A2 looks very different. Amongst other features, four of its 24 points are very close to, or outside, the control limits. Thus there is little doubt that the data shown there come from a process which is out of statistical control.
+This kind of feature is so important that we'd better study some charts. Firstly, take a look at the two control charts, labelled A1 and A2, at the top of page 19. (Recall that on [Appendix page 1](../../appendix/00-welcome.qmd#sec-page1) I indicated you would find it convenient to print a separate copy of that page. I think you will quickly realise that Chart A1 shows a process which is in control. But Chart A2 looks very different. Amongst other features, four of its 24 points are very close to, or outside, the control limits. Thus there is little doubt that the data shown there come from a process which is out of statistical control.
 
 The control limits (coloured blue) in those charts on page 19 were computed by the moving-range method (in both cases using all of the 24 data-points included on the chart in the calculations). However, what would happen if we were instead to try computing the control limits with the conventional statistician's standard deviation (again using all the 24 data-points on each chart)? The control limits (coloured purple) on the charts that follow are computed using standard deviations.
 
@@ -71,7 +71,7 @@ So, if you are on Stats-level 0 (or 00), please omit the following Technical Aid
 <div class="technical_aid" role="note" aria-label="Technical aid">
 ## Technical Aid 5 {#sec-page13}
 
-With Red Beads and similar data, the σ in Shewhart's guidance for control limits (referred to on Appendix page 4) was computed by a formula merely involving the average: $\bar{X}$. That was possible because, with such data, there is a natural link between the average and the way the data vary. (If the average is particularly small or large then the variation is relatively small, whereas if the average is more central then the variation is relatively large.) This is not the case with most other types of data, and so then a more direct representation of the variation is needed. As has now been introduced, the recommended method uses moving ranges: the distances (positive or zero, not negative) between consecutive values in the data.
+With Red Beads and similar data, the σ in Shewhart's guidance for control limits (referred to on [Appendix page 4](../../appendix/01-day-1.qmd#sec-page4)) was computed by a formula merely involving the average: $\bar{X}$. That was possible because, with such data, there is a natural link between the average and the way the data vary. (If the average is particularly small or large then the variation is relatively small, whereas if the average is more central then the variation is relatively large.) This is not the case with most other types of data, and so then a more direct representation of the variation is needed. As has now been introduced, the recommended method uses moving ranges: the distances (positive or zero, not negative) between consecutive values in the data.
 </div>
 
 <div class="technical_aid" role="note" aria-label="Technical aid">
@@ -149,7 +149,7 @@ Just for practice, compute the control limits by the method just demonstrated (a
 
 <span class="neave_note">*(Hint: I deliberately chose these numbers to provide easy arithmetic for you—in particular, you should find that both $\bar{X}$ and $\overline{MR}$ computed from the first 12 values turn out to be whole numbers.)*</span>
 
-<span class="neave_note">*(If you need to check your arithmetic then see Appendix page 15.)*</span>
+<span class="neave_note">*(If you need to check your arithmetic then see [Appendix page 15](../../appendix/03-day-3.qmd#sec-page15).)*</span>
 
 Then insert the control limits on your run chart on page 8.
 

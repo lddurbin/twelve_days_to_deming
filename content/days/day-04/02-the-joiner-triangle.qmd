@@ -13,7 +13,7 @@ Going right back to Dr Shewhart's formative work in the 1920s, we know that the 
 
 ## ACTIVITY 4–a
 
-This Activity is in three parts. All three parts are likely to involve some deep thought—but I'm giving you *plenty* of time! In the case of three cases, if you have not made much progress after, say, five minutes or so then I'll be giving a few brief suggestions. See also Appendix page 21 to get started.
+This Activity is in three parts. All three parts are likely to involve some deep thought—but I'm giving you *plenty* of time! In the case of three cases, if you have not made much progress after, say, five minutes or so then I'll be giving a few brief suggestions. See also [Appendix page 21](../../appendix/03-day-3.qmd#sec-page21) to get started.
 
 (1) Identify some situations with which you are familiar where people are being prevented by the system in which they live and work from doing as good a job as they would much prefer to do. In this respect, what particular features of that system do you believe are doing the most harm? How could / should they be remedied?
 
@@ -100,7 +100,7 @@ Two particular problems with this attitude to quality are as follows (wherever t
 
 But since the customer or the Government etc may be, or may become, aware of such attempts to "cheat", would it not be more advisable to improve quality in order to prevent the negative consequences of not so doing? Even then, this could merely be referred to as an obsession with quality. "Obsession" is much more indicative of *continual* improvement, making quality a "way of life", etc—whether or not there appears to be any vital and immediate *need* to do so. And there's the difference. Everyone appreciates the highly *negative* effects of *poor* quality—and, the poorer the quality, the more negative the effects. But Dr Deming was trying to get us to equally appreciate the highly *positive* effects of *good* quality—and, the better the quality, the more positive the effects.
 
-This is another situation where some teaching about quality from other sources is directly obstructive to Deming's teaching. A previous example was seen in my discussion on Pause for Thought 1–c (Appendix page 6), where I argued that this confusion over measurement of quality causes the impression that there is some optimum place at which to stop improving quality. (Do you think this was being adopted, whether or not it has any connection with what Deming was teaching?)
+This is another situation where some teaching about quality from other sources is directly obstructive to Deming's teaching. A previous example was seen in my discussion on Pause for Thought 1–c ([Appendix page 6](../../appendix/01-day-1.qmd#sec-page6)), where I argued that this confusion over measurement of quality causes the impression that there is some optimum place at which to stop improving quality. (Do you think this was being adopted, whether or not it has any connection with what Deming was teaching?)
 
 I recall two occasions in four-day seminars when the topic of "quality tools" was raised. On one occasion Deming suggested that, regarding tools (other than the control chart) <span class="deming_quote">"you can learn all you can"</span>. On the other occasion, a delegate was unwise enough to enquire what part the then-current "flavours of the month"—QFD (Quality Function Deployment)—had to play in the Deming philosophy. That prompted probably the sharpest retort I ever heard from Dr Deming at any of his seminars: <span class="deming_quote">"For Hell's sakes, let's get down to business"</span>.
 
@@ -245,7 +245,7 @@ viewof activity_4d_c3 = Inputs.text({
 
 done for that restaurant's business?
 
-<div class="activity_afterthought">(For some brief discussion, again see Appendix page 22.)</div>
+<div class="activity_afterthought">(For some brief discussion, again see [Appendix page 22](../../appendix/04-day-4.qmd#sec-page22).)</div>
 </div>
 
 ## THE EXPANDED JOINER TRIANGLE

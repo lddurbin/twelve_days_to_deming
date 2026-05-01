@@ -51,7 +51,7 @@ Category 3—numbers for judgment, punishment, reward:
 viewof activity_7a_3 = Inputs.textarea({label: "Category 3 — numbers for judgment, punishment, reward: examples", placeholder: "Type your examples here.", rows: 5})
 ```
 
-<div class="activity_afterthought">(There is a little discussion on Appendix page 31.)</div>
+<div class="activity_afterthought">(There is a little discussion on [Appendix page 31](../../appendix/06-day-7.qmd#sec-page31).)</div>
 </div>
 
 <div class="thought" role="note" aria-label="Activity">

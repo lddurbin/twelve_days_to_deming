@@ -23,7 +23,7 @@ The procedure in this Major Activity is divided into five stages. The first stag
 viewof stage1 = Inputs.textarea({label: "Stage 1: Sketch a 'macro' flow diagram of a system of medical care", placeholder: "Sketch out your system of medical care here. Think about the major components and how they connect.", rows: 15})
 ```
 
-**Stage 2.** Now study my attempt on Appendix page 38. That may give you some further ideas as to what you might include in your attempt at Stage 1. So then spend a little more time revising your Stage 1 diagram.
+**Stage 2.** Now study my attempt on [Appendix page 38](../../appendix/07-day-9.qmd#sec-page38). That may give you some further ideas as to what you might include in your attempt at Stage 1. So then spend a little more time revising your Stage 1 diagram.
 
 ```{ojs}
 viewof stage2 = Inputs.textarea({label: "Stage 2: Revise your Stage 1 diagram after studying the Appendix", placeholder: "Revise your Stage 1 diagram here after studying the Appendix.", rows: 15})

@@ -93,7 +93,7 @@ viewof note_10_measurement_mistakes = Inputs.textarea({label: "Your notes on ite
 ```
 
 <div class="deming_quote">
-7. Knowledge of procedures aimed at minimum economic loss from these two mistakes (Shewhart control charts). [*See Appendix page 4.*]
+7. Knowledge of procedures aimed at minimum economic loss from these two mistakes (Shewhart control charts). [*See [Appendix page 4](../../appendix/01-day-1.qmd#sec-page4).*]
 </div>
 
 []{#sec-page24}

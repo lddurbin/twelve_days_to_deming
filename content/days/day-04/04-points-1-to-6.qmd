@@ -110,7 +110,7 @@ Despite Dr Deming's particular wording here, the lessons from this Point relate 
 
 An Obsession With Quality will surely result in quality being improved way beyond that which needs mass inspection to verify it. Notice again the words "the need for". Deming isn't simply saying "Stop doing it". He is telling us to improve things so that mass inspection becomes redundant.
 
-<div class="neave_note" role="note" aria-label="Author's note">There are more general practical lessons to learn from this observation. If you're interested, take a quick look at the final paragraph on Appendix page 23.</div>
+<div class="neave_note" role="note" aria-label="Author's note">There are more general practical lessons to learn from this observation. If you're interested, take a quick look at the final paragraph on [Appendix page 23](../../appendix/04-day-4.qmd#sec-page23).</div>
 
 ```{ojs}
 viewof p3_owq = Inputs.textarea({

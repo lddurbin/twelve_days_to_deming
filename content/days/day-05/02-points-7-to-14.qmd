@@ -14,7 +14,7 @@ There is considerably more on Day 12 concerning Deming's specific guidance on le
 
 Particularly with reference to All One Team, my friend Dave Kerr wrote to me as follows: "A point which always comes out very clearly to me is that, in order for a group of people to behave as a system, there has to be active leadership that focuses the group to align their behaviours around a commonly-understood purpose. In my experience within corporate land, this kind of leadership is largely missing—with just a few notable exceptions."
 
-*(See Appendix page 24.)*
+*(See [Appendix page 24](../../appendix/05-day-5.qmd#sec-page24).)*
 
 ### Obsession With Quality
 
@@ -58,7 +58,7 @@ Much of both management and government strategy seems based on driving fear *in*
 
 In Point 12 we shall find Dr Deming talking of the value of "pride of workmanship" and indeed "joy in work" (recently seen in Attribute 3 on *DemDim* page 335). Presumably the only way that they could be compatible with fear is in the case of a confirmed masochist.
 
-*(See Appendix page 24.)*
+*(See [Appendix page 24](../../appendix/05-day-5.qmd#sec-page24).)*
 
 ### Obsession With Quality
 
@@ -118,7 +118,7 @@ Holmes was speaking to the Sales Director, Peter Marks.
 
 </div>
 
-*(See Appendix page 25.)*
+*(See [Appendix page 25](../../appendix/05-day-5.qmd#sec-page25).)*
 
 ### Obsession With Quality
 
@@ -164,7 +164,7 @@ A little later he says, with obvious regret: <span class="deming_quote">"I have 
 
 If something so shallow as alluded to in this Point could have any positive effect, I can only conclude that the management environment must be pretty feeble. If something so feeble really could motivate, the organisation's employees' motivation must be at rock-bottom—and whose fault is that?
 
-*(See Appendix page 25.)*
+*(See [Appendix page 25](../../appendix/05-day-5.qmd#sec-page25).)*
 
 ### Obsession With Quality
 
@@ -210,7 +210,7 @@ An obvious trouble then is that it is the *number* which becomes the aim—as op
 
 Resources are channelled into reaching that number, irrespective of the harm caused elsewhere. Methods of measuring or counting are changed. Definitions are changed. "Punctual" is revised from being 5 minutes late to being 10 minutes late (*DemDim* page 113). The definition of an "unemployed person" (or whatever term is used for those who contribute to the monthly figures) changes perhaps three times a year (*Dem-Dim* page 111). With crime figures, certain types of offences are surreptitiously dropped from the count (I refer ahead to [Day 6 pages 25–26](../day-06/04-more-true-stories.qmd#sec-page22)).
 
-*(See Appendix page 26.)*
+*(See [Appendix page 26](../../appendix/05-day-5.qmd#sec-page26).)*
 
 ### Obsession With Quality
 
@@ -252,7 +252,7 @@ This Point is unusual in that people have largely ignored its main focus and arg
 
 The matter of performance appraisal itself is the subject of the third of the Deadly Diseases, so I strongly suggest we leave that topic until then and instead concentrate here on the essential and main Point: pride of workmanship.
 
-*(See Appendix page 26.)*
+*(See [Appendix page 26](../../appendix/05-day-5.qmd#sec-page26).)*
 
 ### Obsession With Quality
 
@@ -308,7 +308,7 @@ Whereas training (Point 6) is specific, finite in scope, education's domain is (
 
 Point 13 implies far more than might be noticed at first glance.
 
-*(See Appendix pages 26–27.)*
+*(See [Appendix pages 26–27](../../appendix/05-day-5.qmd#sec-page26).)*
 
 ### Obsession With Quality
 
@@ -348,7 +348,7 @@ viewof p13_sa = Inputs.textarea({
 
 "Top management commitment" has unfortunately become something of a cliché—you can hear it, almost robot-like, from just about all teachers of just about all approaches to what they call "quality". But most other approaches do not really require people in management to change significantly, if at all: they just need to "support" whatever is going on. However, as you will have realised by now (and we saw it in Point 2), Dr Deming was talking about *transformation of management*—and he meant it! So what chance does his priceless teaching have of getting anywhere in an organisation without Point 14?
 
-*(See Appendix page 27.)*
+*(See [Appendix page 27](../../appendix/05-day-5.qmd#sec-page27).)*
 
 ### Obsession With Quality
 

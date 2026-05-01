@@ -19,7 +19,7 @@ We already know that "constancy of purpose" heads both the list of 14 Points and
 
 It is relevant here to point out the error in a phrase glibly trotted out by many speakers: "If you always do what you've always done, you'll always get what you've always got". *Wrong!* The world is ever-changing. Even the same products and services need to be produced more efficiently and cost-effectively: in other words, the *processes* involved still need to be improved—for, if you don't do it, others will. Secondly, of course, those same products and services may sooner or later have no market, because better products and services will have become available—and if not from you then from elsewhere. The market for even the best horse-drawn carriages soon plummeted once people were able to switch to cars. So it should be no surprise that Dr Deming's wording here is focused on *innovation*.
 
-*(See Appendix page 28.)*
+*(See [Appendix page 28](../../appendix/05-day-5.qmd#sec-page28).)*
 
 ### Obsession With Quality
 
@@ -67,7 +67,7 @@ With even greater focus than the words I have quoted above, on *Out of the Crisi
 
 This will be so familiar to many readers that I need say no more.
 
-*(See Appendix page 28.)*
+*(See [Appendix page 28](../../appendix/05-day-5.qmd#sec-page28).)*
 
 ### Obsession With Quality
 
@@ -113,9 +113,9 @@ As a personal observation, I can honestly say that I have never heard anybody wh
 
 Many organisations protest that this does not reflect *their* appraisal system—that is there to help the individual, for coaching, for seeing how management can assist the person to do a better job. If that is really the case, fine. But, if so, why only once a year? And also, if so, why call it "performance appraisal"? Consult your dictionary for its definitions of "appraise" and "appraisal".
 
-It may be wise at this stage for me to remind you of my warning at the bottom of Appendix page 23 (see also my "Obsession With Quality" comment on [Day 4 page 20](../day-04/04-points-1-to-6.qmd#sec-page20) about the danger of merely stopping doing something undesirable and thus leaving a vacuum. In the context of performance appraisal, what is in my opinion the quite brilliant Chapter 9: "Performance Without Appraisal" in Peter Scholtes's *The Leader's Handbook* provides tremendously good guidance.
+It may be wise at this stage for me to remind you of my warning at the bottom of [Appendix page 23](../../appendix/04-day-4.qmd#sec-page23) (see also my "Obsession With Quality" comment on [Day 4 page 20](../day-04/04-points-1-to-6.qmd#sec-page20) about the danger of merely stopping doing something undesirable and thus leaving a vacuum. In the context of performance appraisal, what is in my opinion the quite brilliant Chapter 9: "Performance Without Appraisal" in Peter Scholtes's *The Leader's Handbook* provides tremendously good guidance.
 
-*(See Appendix page 29.)*
+*(See [Appendix page 29](../../appendix/05-day-5.qmd#sec-page29).)*
 
 ### Obsession With Quality
 
@@ -159,7 +159,7 @@ Moving around the organisation in order to acquire that broader understanding is
 
 "Mobility from one company to another creates prima donnas for quick results."
 
-*(See Appendix page 29.)*
+*(See [Appendix page 29](../../appendix/05-day-5.qmd#sec-page29).)*
 
 ### Obsession With Quality
 
@@ -207,7 +207,7 @@ In conclusion, and back to the main issue (from *Out of the Crisis* pages 104–
 
 "He that expects to quantify in dollars the gains that will accrue to a company year by year for a programme for improvement of quality by principles expounded in this book will suffer delusion. He should know before he starts that he will be able to quantify only a trivial part of the gain."
 
-*(See Appendix page 30.)*
+*(See [Appendix page 30](../../appendix/05-day-5.qmd#sec-page30).)*
 
 ### Obsession With Quality
 

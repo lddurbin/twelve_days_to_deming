@@ -15,7 +15,7 @@ What do Rules 2, 3 and 4 *do*? They show how, in Dr Deming's terms, people (espe
 
 Some may find that phrase "it would have been better if we had just done nothing" to be somewhat startling! So, to be sure of its context, let's recall a sentence from page 48: "But, as Dr Deming often pointed out, *it's better to do nothing than to do the wrong thing!*". That's the point. Obviously it's not better to do nothing rather than doing the *right* thing! But the vital message to strike home is that, when you have a stable process, the only "right thing" to do is to investigate that process carefully in order to discover what is causing some of its current variation and then to make some changes to the process which will reduce that variation (and not only in the short term, for that's Rule 4). There is *no other way*.
 
-Finally in this Major Activity, please take a brief look at a couple of runs of the experiment that I have carried out using my computer simulation program. There is also some more discussion there on the Funnel Experiment in general and on this Major Activity in particular. See Appendix pages 15–18.
+Finally in this Major Activity, please take a brief look at a couple of runs of the experiment that I have carried out using my computer simulation program. There is also some more discussion there on the Funnel Experiment in general and on this Major Activity in particular. See [Appendix pages 15–18](../../appendix/03-day-3.qmd#sec-page15).
 
 In Part A of the Optional Extras section we shall examine in detail what happens to control charts when presented with the data from the two simulations of the Funnel Experiment studied in the Appendix. However, particularly in case you decide that that optional material is not for you, Activities 3–i and 3–j consider some general effects of putting data from the four Rules of the Funnel onto control charts.
 
@@ -184,7 +184,7 @@ Reveal suggested answer for Activity 3-i
 
 **Rule 4**: In the short term, moving ranges will be small (low short-term variation), so control limits will be narrow. But the process drifts over time, so you'll see points going outside those narrow limits—a clear signal that the process is not in control.
 
-*(For discussion see Appendix pages 18–20.)*
+*(For discussion see [Appendix pages 18–20](../../appendix/03-day-3.qmd#sec-page18).)*
 </div>
 </div>
 
@@ -204,7 +204,7 @@ viewof activity_3j = Inputs.textarea({
 })
 ```
 
-*(For some final examples see Appendix pages 20–21.)*
+*(For some final examples see [Appendix pages 20–21](../../appendix/03-day-3.qmd#sec-page20).)*
 
 </div>
 

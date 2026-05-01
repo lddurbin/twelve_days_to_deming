@@ -134,7 +134,7 @@ that you don't have to keep looking back, here are the statisticians' counts of 
 > 9 6 7 8 9 11 8 8 5 4 3 13 10 12 10 9 8 10 13 7 8 10 7 8
 
 Finally, insert the two control limits to turn the run chart into a control chart, and then state your conclu-
-sions. If you’re on Stats-level 0 then simply look up the control limits on Appendix page 8. If you are
+sions. If you’re on Stats-level 0 then simply look up the control limits on [Appendix page 8](../../appendix/02-day-2.qmd#sec-page8). If you are
 on Stats-level 1 or higher then compute them in the space below. (If you need reminding about the
 details, Technical Aid 1 is on page 20.)
 
@@ -196,7 +196,7 @@ countsArray1.length > 0 ? Plot.plot({
 }) : null
 ```
 
-*(You can check your computations in Technical Aid 4 on Appendix page 9. But try it yourself first!)*
+*(You can check your computations in Technical Aid 4 on [Appendix page 9](../../appendix/02-day-2.qmd#sec-page9). But try it yourself first!)*
 
 []{#sec-page37}
 
@@ -323,17 +323,17 @@ countsArray2.length > 0 ? Plot.plot({
 }) : null
 ```
 
-As before, insert the two control limits to turn the run chart into a control chart and state your conclusions. Also as before, if you’re on Stats-level 0 then simply look up the control limits on Appendix page 8; otherwise compute them in the space below.
+As before, insert the two control limits to turn the run chart into a control chart and state your conclusions. Also as before, if you’re on Stats-level 0 then simply look up the control limits on [Appendix page 8](../../appendix/02-day-2.qmd#sec-page8); otherwise compute them in the space below.
 
 <div class="activity_afterthought">
 
-*(Again the computations are sketched in Technical Aid 4 on Appendix page 9.)*
+*(Again the computations are sketched in Technical Aid 4 on [Appendix page 9](../../appendix/02-day-2.qmd#sec-page9).)*
 
 </div>
 
 <div class="activity_afterthought">
 
-Regarding conclusions from the control charts, they are surely similar to those for Pause for Thought 2–e (on Appendix page 7) except that this time we would presumably comment on statistician John's 3 or Ignacio's 16 and Paco's 17 in similar ways to Ernie's 3—they're *all* within the control limits.
+Regarding conclusions from the control charts, they are surely similar to those for Pause for Thought 2–e (on [Appendix page 7](../../appendix/02-day-2.qmd#sec-page7)) except that this time we would presumably comment on statistician John's 3 or Ignacio's 16 and Paco's 17 in similar ways to Ernie's 3—they're *all* within the control limits.
 
 </div>
 

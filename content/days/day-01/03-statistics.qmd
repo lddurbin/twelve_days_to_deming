@@ -275,5 +275,5 @@ extra reading—just carry straight on. Also, the discussion on the first parado
 interest to those who are familiar with the basics of “traditional” Statistics—for it includes one of Deming’s
 most powerful expressions of the *irrelevance* of several of those basics when studying process data.
 
-So if you would now like to read about the first paradox on Appendix pages 2–6 and are also following my
+So if you would now like to read about the first paradox on [Appendix pages 2–6](../../appendix/01-day-1.qmd#sec-page2) and are also following my
 guidance on timings at all closely then please “stop the clock” whilst you are reading those pages.
