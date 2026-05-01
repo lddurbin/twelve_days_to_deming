@@ -246,6 +246,22 @@ Usage:
   }
 }
 
+/* Quarto's `.columns` is a flex grid with no built-in mobile breakpoint — a
+   `width="30%"` column stays at 30% on a 390px phone, crushing the text
+   column and stretching whitespace below short images/charts. Stack to
+   single-column at the same 700px breakpoint as `.float-box` for a
+   consistent responsive boundary across the site. `!important` is required
+   to override Quarto's inline `style="width: ..."` on each child column,
+   and to win against Quarto's bundled `display: flex` on `.columns`. */
+@media (max-width: 700px) {
+  .columns {
+    display: block !important;
+  }
+  .columns > .column {
+    width: 100% !important;
+  }
+}
+
 /* ===== CONTENT STYLES ===== */
 .neave_note {
   text-align: left;
@@ -622,8 +638,13 @@ button:focus,
   outline-offset: 2px;
 }
 
-/* High contrast mode */
-@media (prefers-contrast: high) {
+/* High contrast mode. The standardised values for `prefers-contrast` are
+   `no-preference | more | less | custom` — the legacy draft values
+   `high`/`low` were dropped during standardisation and Firefox treats them
+   as invalid, silently skipping the whole rule. Use `more` so the
+   high-contrast overrides actually fire when a user has requested
+   "increase contrast" at the OS level. */
+@media (prefers-contrast: more) {
   .deming_quote {
     color: #000080;
     font-weight: bold;

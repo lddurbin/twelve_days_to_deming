@@ -6,19 +6,13 @@ execute:
 
 ## Gallery Furniture {#sec-page6}
 
-:::: {.columns}
+<div class="float-box-right">
 
-::: {.column width="70%"}
-The first time I learned anything of Gallery Furniture was at a four-day seminar held at Newport Beach, California (just south of Los Angeles) in August 1991. You could hardly miss the Gallery Furniture personnel: they had arrived there early enough to bag all the central seats in the front row of the auditorium—between 15 and 20 places as I recall. Then they sat, all dressed alike, wearing maroon-coloured tee-shirts displaying the single word "GALLERY" in large letters.
-:::
-
-::: {.column width="30%"}
-<div class="float-box-content">
 ![Mack McIngvale](/assets/images/day-06/mack-mcingvale.png){.lightbox}
-</div>
-:::
 
-::::
+</div>
+
+The first time I learned anything of Gallery Furniture was at a four-day seminar held at Newport Beach, California (just south of Los Angeles) in August 1991. You could hardly miss the Gallery Furniture personnel: they had arrived there early enough to bag all the central seats in the front row of the auditorium—between 15 and 20 places as I recall. Then they sat, all dressed alike, wearing maroon-coloured tee-shirts displaying the single word "GALLERY" in large letters.
 
 Early during the second morning of the seminar, Dr Deming invited the founder and owner of Gallery Furniture, Jim McIngvale ("Mack"), up onto the stage to tell his story. I listened, amazed and excited by what I heard. Remember, this was back in 1991 when any kind of "Deming movement" in Britain was still pretty young: by then there had still been very few substantive "success stories" to relate—and certainly nothing like this! At the coffee-break which followed, I was one of the dozens who made their way over to Mack to talk to him, congratulate him, and to ask him questions. I had two particular questions for him. First, did he have any write-up of his story that I could bring back home to share with my friends and colleagues? And second, would he come over to Britain and speak to the British Deming Association's Annual Conference? The answer to the first question was No; but instead Mack gave me a video of the first time Dr Deming had invited him to tell his story to a seminar audience, just one month earlier. From then on I repeatedly used that video in my seminars. And Mack came over on two occasions to speak at BDA conferences, first in 1993 and then in 1999.
 

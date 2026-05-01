@@ -13,14 +13,13 @@ To help discover the messages, members of the audience are invited to adopt a du
 
 So the All-Knowing, looking down at the system from on high, has full comprehension of it. But to the Un-Knowing, looking up at it from floor level, it is far too large and complex for him to have any chance of understanding what is happening. Nevertheless, our Un-Knowing does have a brain—a rather special brain for an insect! Let us suppose that the Un-Knowing can recognise numbers, and can interpret them just as well as the average manager, politician, media reporter—or maybe even economist or accountant!
 
-:::: {.columns}
-::: {.column width="55%"}
+<div class="float-box-right">
+
+![Red Beads Experiment apparatus: a red box with white and red beads, and a paddle with circular depressions.](/assets/images/day-02/image-4.jpg){.lightbox}
+
+</div>
+
 Going by what they see, the delegates will more naturally identify with the "All-Knowing" role. The apparatus for the experiment is most surely <span class="deming_quote">"stupidly simple"</span>. There is a container half-filled with a large number of beads, differing only (as far as one can tell) in colour. 3,000 of the beads are white and the remaining 750 are red. Then there is a piece of wood or plastic: the so-called "paddle". The paddle has 50 circular depressions sunk into it in a 5 × 10 pattern. There is also a bucket to help in a mixing operation. The only other apparatus provided is pens and paper and a couple of clipboards for the convenience of the junior inspectors.
-:::
-::: {.column width="45%"}
-![Red Beads Experiment apparatus: a red box with white and red beads, and a paddle with circular depressions.](/assets/images/day-02/image-4.jpg){fig-align="left" width="100%" style="float: left; margin-right: 1em; margin-bottom: 1em;"}
-:::
-::::
 
 ## The training, part 1
 
