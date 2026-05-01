@@ -169,9 +169,12 @@ the end of the Second World War, was primarily to work with the Japanese Census.
 
 Does that heading seem familiar? I’ll remind you a little later of where you first saw it.
 
-:::: {.columns}
+<div class="float-box-right">
 
-::: {.column width=55%}
+![Ken-ichi Koyanagi with Dr Deming](/assets/images/day-01/day_1_fig_6.png){.lightbox}
+
+</div>
+
 A further visit to Japan, again to work with the Census, was planned for the early summer of 1950. By this
 time, Dr Deming’s name and reputation had become known to Ken-ichi Koyanagi, Managing Director of the
 Union of Japanese Scientists and Engineers. Accordingly, Koyanagi issued the all-important invitation for Dr Deming to also teach
@@ -179,22 +182,9 @@ concepts and methods for the achievement of quality in *industry*.
 During that visit, his teaching not only reached hundreds of engineers, plant managers, research workers, and so on, but it also
 reached *top management*. A particularly famous meeting was
 held in July 1950 with the 21 top industrialists of the country present, a meeting later described as the occasion at which Dr Deming
-had in that one room " *80% of the industrial capital in Japan right there in front of him*. Deming regarded that as his breakthrough: that the *top* people came to listen and learn from him.                                                                           
+had in that one room " *80% of the industrial capital in Japan right there in front of him*. Deming regarded that as his breakthrough: that the *top* people came to listen and learn from him.
 
-:::
-
-::: {.column width=5%}
-
-:::
-
-::: {.column width=40%}
-
-![Ken-ichi Koyanagi with Dr Deming](/assets/images/day-01/day_1_fig_6.png){.lightbox}
-
-:::
-
-::::
-                                                                                           But there was another important reason why the Japanese listened to, and learned from, Deming. Koyanagi expressed it well on page 8 of *The Deming Prize* (1960):
+But there was another important reason why the Japanese listened to, and learned from, Deming. Koyanagi expressed it well on page 8 of *The Deming Prize* (1960):
 
 >“Most of the Japanese were in a servile spirit as the vanquished, and among Allied personnel there were not a few with an air of importance <span class=neave_note>[which I imagine was something of an understatement]</span>. In striking contrast, Dr Deming showed his warm cordiality to every Japanese whom he met. ... His high personality deeply impressed all those who learned from him and became acquainted with him. ... The sincerity and enthusiasm with which he did his best for us still lives and will live forever in the memory of all concerned.”
 

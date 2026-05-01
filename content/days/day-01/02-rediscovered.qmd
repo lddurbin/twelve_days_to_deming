@@ -7,27 +7,18 @@ execute:
   
 ## The Deming Prize and the Nashua Corporation {#sec-page2}
 
-:::: {.columns}
+<div class="float-box-right">
 
-::: {.column width="70%"}
+![William E Conway](/assets/images/day-01/day_1_fig_2.png){.lightbox}
+
+</div>
+
 In the 1970s, a medium-sized American company, the Nashua Corporation, was
 an agent for copying machines made by Ricoh, the well-known Japanese manufacturer. In 1974, Ricoh was awarded Japan’s Deming Prize. The people at
 Nashua, including Chief Executive William E Conway, did not know who or what
 “Deming” was. All they knew was that the illustrious and eagerly-sought Deming
 Prize was Japan’s best-known award for quality, and had been set up as long ago
 as 1950 by JUSE, the Japanese Union of Scientists and Engineers.
-:::
-  
-::: {.column width="5%"}
-
-:::
-  
-::: {.column width="25%"}
-![William E Conway](/assets/images/day-01/day_1_fig_2.png){.lightbox}
-
-:::
-  
-::::
   
   ![The Deming Medal, showing a profile of W. Edwards Deming with the inscription 'The right quality and uniformity are foundations of commerce, prosperity and peace.'](/assets/images/day-01/day_1_fig_3.jpg){width=50% .lightbox}
 
@@ -37,9 +28,11 @@ The inscription near the bottom of the medal[^a] is a quotation from Dr Deming:
   
 <span class=neave_note>NB Throughout this course, exact quotations from Dr Deming are printed in blue in order to set them apart from my own writing. His own quotations are especially valuable in that he had the rare ability of being able to say a very great deal in remarkably few words. I wouldn’t want to mislead you into thinking that I am capable of the same degree of either brevity or wisdom!</span>
   
-:::: {.columns}
+<div class="float-box-right">
 
-::: {.column width="70%"}
+![Dr Lloyd S Nelson](/assets/images/day-01/day_1_fig_4.png){.lightbox}
+
+</div>
 
 Almost five more years passed before Bill Conway discovered that this “Deming” was in fact an American,
 Dr W Edwards Deming who, although already in his late 70s, was still actively
@@ -50,18 +43,6 @@ concerning events ranging over the previous 30 and more years, the content of
 which Bill found extraordinary and initially almost unbelievable. Eventually, Bill
 persuaded Dr Deming to become a consultant for Nashua—although I suggest
 a “teacher” would have been a better description.
-
-:::
-  
-::: {.column width="5%"}
-
-:::
-  
-::: {.column width="25%"}
-![Dr Lloyd S Nelson](/assets/images/day-01/day_1_fig_4.png){.lightbox}
-:::
-  
-::::
   
 One of Dr Deming’s first recommendations was that Nashua acquire the services of an experienced statistician. On Deming’s advice, Bill “head-hunted”
 Dr Lloyd S Nelson, who at that time had been working in the General Electric
@@ -70,9 +51,12 @@ because, although we had never met, I had been in correspondence with Lloyd for 
 1970. A short while after moving to Nashua, Lloyd contacted me to ask if I would be interested in getting
 involved with Nashua’s British subsidiaries. I accepted the invitation.
 
-:::: {.columns}
+<div class="float-box-right">
 
-::: {.column width="70%"}
+![Dr Walter A Shewhart](/assets/images/day-01/day_1_fig_5.png){.lightbox}
+
+</div>
+
 My main initial task was to help set up and supervise a company-wide
 training scheme, mostly on some of what are often referred to as the “old
 tools” or “seven tools” of quality. Lloyd’s syllabus included the Ishikawa
@@ -85,17 +69,6 @@ basics will just be “optional extras” for those who are really interested in
 them. Later today we shall also see an extremely important illustration
 which Deming referred to as a “flow diagram”, but that’s not quite the
 same as what most people mean by “flowcharting”.
-:::
-  
-::: {.column width="5%"}
-
-:::
-  
-::: {.column width="25%"}
-![Dr Walter A Shewhart](/assets/images/day-01/day_1_fig_5.png){.lightbox}
-:::
-  
-::::
   
 ## The four-day seminars
   

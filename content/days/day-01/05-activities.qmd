@@ -10,7 +10,7 @@ the same way, in this course I shall ask you to do much more than just read what
 *only* to read then please content yourself with one or more of the books I have just mentioned. But this
 course is for *active* learning, and that is quite different from merely reading.
 
-**If you have so far not read the “Welcome to *12 Days to Deming*” in the “A. PLEASE START HERE” file then please “stop the clock” and do so before continuing here. It contains lots of necessary information and good advice!**
+**If you have so far not read the [“Welcome to *12 Days to Deming*”](../../../index.qmd) in the “A. PLEASE START HERE” file then please “stop the clock” and do so before continuing here. It contains lots of necessary information and good advice!**
 
 So on every Day of this course I shall from time to time ask you to stop and do something—let’s call it a
 “request for action”. At one extreme the request may simply be for you to spend just a few minutes thinking about something and jotting down a few relevant notes: I’m calling this a “Pause for Thought”. When
