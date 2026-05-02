@@ -1,0 +1,66 @@
+name: Inter-Day Audit
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    # Only re-run when something that could change the CSV is touched: the qmd
+    # corpus (concrete + appendix-page + fuzzy refs all live there), the script
+    # itself, or the committed CSV.
+    paths:
+      - 'content/**/*.qmd'
+      - '*.qmd'
+      - 'scripts/build-interday-audit.R'
+      - 'workflow/inter-day-refs.csv'
+      - '.github/workflows/interday-audit.yml'
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Opt r-lib/actions into Node 24 ahead of the Sept 2026 Node 20 removal.
+# Remove once r-lib publishes a v3 tag that runs on Node 24 natively.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+    - name: Setup R
+      uses: r-lib/actions/setup-r@a51a8012b0aab7c32ef9d19bf54da93f3254335e  # v2
+      with:
+        r-version: '4.5.1'
+        use-public-rspm: true
+
+    # The audit script only needs a small slice of the renv lockfile (no
+    # rendering, no plotting). Install those packages directly from the public
+    # RSPM binaries instead of restoring the full renv — this keeps cold-start
+    # under a minute and avoids the system-dep matrix that build/deploy needs.
+    - name: Install audit script dependencies
+      shell: Rscript {0}
+      run: |
+        install.packages(c(
+          "fs", "purrr", "readr", "stringr", "tibble", "tidyr", "dplyr"
+        ))
+
+    - name: Regenerate inter-day audit CSV
+      run: Rscript scripts/build-interday-audit.R
+
+    - name: Verify CSV is in sync with content
+      run: |
+        if ! git diff --exit-code workflow/inter-day-refs.csv; then
+          echo ""
+          echo "::error::workflow/inter-day-refs.csv is out of sync with content."
+          echo "::error::Run 'Rscript scripts/build-interday-audit.R' locally and commit the updated CSV."
+          exit 1
+        fi
