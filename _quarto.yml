@@ -184,8 +184,8 @@ filters:
 format:
   html:
     theme:
-      light: cosmo
-      dark: darkly
+      light: [cosmo, assets/styles/disable-google-fonts.scss]
+      dark: [darkly, assets/styles/disable-google-fonts.scss]
     css: assets/styles/main.css
     header-includes: |
       <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' data:; frame-src https://excalidraw.com; img-src 'self' data:; connect-src 'self' https://cdn.jsdelivr.net;">

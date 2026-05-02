@@ -1,0 +1,8 @@
+/*-- scss:defaults --*/
+
+// Bootswatch themes (Cosmo, Darkly) gate their Google Fonts @import behind
+// $web-font-path. Setting it falsy makes the bundler skip the @import entirely
+// — woff2 files are loaded from /assets/fonts/ via @font-face in main.css
+// instead, keeping the page's CSP at style-src 'self' 'unsafe-inline' and
+// font-src 'self' data:.
+$web-font-path: false;
