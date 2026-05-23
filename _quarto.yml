@@ -23,7 +23,7 @@ book:
     left: |
       Course content © Dr Henry R. Neave. Reproduced with permission (May 2026).
     right: |
-      Web edition by [Lee Durbin](https://leedurbin.co.nz) · [Source on GitHub](https://github.com/lddurbin/twelve_days_to_deming)
+      Web edition by [Lee Durbin](https://leedurbin.co.nz) <span aria-hidden="true">·</span> [Source on GitHub](https://github.com/lddurbin/twelve_days_to_deming)
   
   chapters:
     - about-this-edition.qmd
