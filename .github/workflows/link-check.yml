@@ -54,7 +54,6 @@ jobs:
           --cache
           --max-cache-age 7d
           --no-progress
-          --include-fragments false
           --scheme http
           --scheme https
           --accept 200..=299,403,429
