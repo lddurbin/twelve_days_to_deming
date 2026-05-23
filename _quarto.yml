@@ -15,9 +15,15 @@ book:
   title: "12 Days to Deming"
   subtitle: "An active-learning course"
   author: "Henry R. Neave"
+  site-url: https://deming.leedurbin.co.nz
   reader-mode: true
   sidebar:
     collapse-level: 1
+  page-footer:
+    left: |
+      Course content © Dr Henry R. Neave. Reproduced with permission (May 2026).
+    right: |
+      Web edition by [Lee Durbin](https://leedurbin.co.nz) <span aria-hidden="true">·</span> [Source on GitHub](https://github.com/lddurbin/twelve_days_to_deming)
   
   chapters:
     - about-this-edition.qmd
