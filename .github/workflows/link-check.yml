@@ -1,4 +1,4 @@
-name: Link Check (Nightly)
+name: Link Check (Weekly)
 
 permissions:
   contents: read
@@ -6,8 +6,11 @@ permissions:
 
 on:
   schedule:
-    # 06:00 UTC daily = 18:00 NZT, off-peak for both UTC and NZ audiences.
-    - cron: '0 6 * * *'
+    # Monday 06:00 UTC = Monday 18:00 NZT, start of NZ work week so findings
+    # land just as the week begins. Weekly cadence (rather than nightly) is
+    # tuned to the corpus: ~53 external URLs targeting slow-moving educational
+    # / academic sites, where rot happens on a timescale of weeks not hours.
+    - cron: '0 6 * * 1'
   workflow_dispatch:
 
 concurrency:
@@ -22,7 +25,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
-    # Persist lychee's per-URL cache across runs so each nightly tick only
+    # Persist lychee's per-URL cache across runs so each weekly tick only
     # re-probes URLs whose entries are older than --max-cache-age, plus any
     # URL that wasn't in the cache. The write key uses run_id so every run
     # produces a fresh cache entry; the restore-keys prefix picks up the
@@ -49,7 +52,7 @@ jobs:
         #     and 429 (rate-limited; advisory only, not real rot)
         args: >-
           --cache
-          --max-cache-age 1d
+          --max-cache-age 7d
           --no-progress
           --include-fragments false
           --scheme http
@@ -75,8 +78,8 @@ jobs:
         path: lychee-report.md
         retention-days: 30
 
-    # Roll all nightly reports into a single tracking issue rather than
-    # opening a new one per night. Match by title sentinel "[link-rot]"
+    # Roll all weekly reports into a single tracking issue rather than
+    # opening a new one per week. Match by title sentinel "[link-rot]"
     # so the lookup is deterministic and human-readable.
     - name: Update tracking issue
       if: steps.lychee.outputs.exit_code != '0'
@@ -87,7 +90,7 @@ jobs:
       run: |
         set -euo pipefail
 
-        TITLE="[link-rot] Nightly external link check report"
+        TITLE="[link-rot] Weekly external link check report"
 
         # Prepend run metadata so each comment / issue body is self-dating.
         # Guard the cat: if lychee bailed before writing the report (e.g. CLI
