@@ -59,10 +59,10 @@ Each day includes:
 
 ## 📥 Accessing the Course Material
 
-### Interactive Online Version (Work in Progress)
+### Interactive Online Version
 - **Live Course**: [deming.leedurbin.co.nz](https://deming.leedurbin.co.nz) - The interactive version with embedded activities and exercises
 
-**Current Status**: All 12 days are now fully converted from the original PDF format into the interactive experience. Content refinements, accessibility improvements, and activity polish are ongoing.
+**Current Status**: All 12 days are fully converted from the original PDF format into the interactive experience. Dr Henry Neave reviewed this edition and, in May 2026, gave his blessing for it to be made publicly available. Accessibility improvements and activity refinements are ongoing.
 
 **Enhanced Features in the Online Version:**
 - **Interactive Clock Indicators**: Built-in timing guidance to help you pace your study sessions
@@ -168,9 +168,9 @@ This course has benefited from contributions from many experts and practitioners
 
 All 12 days have been converted from Neave's source PDFs into interactive Quarto chapters. For ongoing edits, see [`workflow/PATTERNS.md`](workflow/PATTERNS.md) — the house-style reference covering CSS classes, R functions, interactive element templates, accessibility conventions, and inter-day cross-reference rules. The original 5-phase conversion workflow is archived at [`workflow/archive/CONVERSION_PROCESS.md`](workflow/archive/CONVERSION_PROCESS.md) for traceability.
 
-## 📄 License
+## 📄 License and Permissions
 
-This course is based on Dr. W. Edwards Deming's teachings and is made available for educational purposes. Please respect the intellectual property and use appropriately.
+The course content is reproduced with the explicit permission of its author, Dr Henry R. Neave, who reviewed this digital edition and authorised its public release in May 2026. The original "12 Days to Deming" materials remain freely available as PDFs from the [New Zealand Organisation for Quality (NZOQ)](https://www.nzoq.org.nz/12-days-to-deming) and other quality organisations. This interactive edition is non-commercial and is offered for educational use; please credit Dr Neave when sharing or quoting the material.
 
 ## 🌐 Live Version
 

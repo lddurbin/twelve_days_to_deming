@@ -23,6 +23,12 @@ The full course material is available as free PDF downloads from several sources
 
 The [accessibility page](accessibility.qmd) catalogues the features currently in place — skip-to-content links, an OpenDyslexic font toggle, visible focus indicators, ARIA labelling, non-colour status cues, reduced-motion support, and print-safe styling — and lists the improvements still to come. If you encounter an accessibility issue, please email me directly at [hello@leedurbin.co.nz](mailto:hello@leedurbin.co.nz) and I'll be happy to explore how to improve the site.
 
+## Dr Neave's blessing
+
+When I began this project I shared early drafts privately, and I did not want to publish the site widely without Dr Neave's approval. Through Richard Hamilton, Dr Neave reviewed the live site in May 2026 and gave his blessing for it to be made publicly available. His words: *"do make it as publicly available as possible and hopefully many thousands of people will also soon be clicking that link!"*
+
+That endorsement matters to me for two reasons. First, it confirms that the adaptation is faithful to what he wrote — Dr Neave told Richard the experience was "thrilling" and that re-reading the material felt "almost like reading something I'd never seen before", which I take as a quiet vote of confidence in the transcription. Second, it means the accessibility-focused framing — a digital edition shaped around the needs of neuro-divergent and dyslexic learners — has the explicit support of the author of the original course.
+
 ## What has changed, and what hasn't
 
 In adapting 12 Days to Deming for the web, several adaptations were made. 
