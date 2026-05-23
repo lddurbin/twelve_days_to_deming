@@ -91,18 +91,17 @@ $$
 See if you can use this method to obtain the control limits quoted on page 14 and drawn on page 15. Use all 24 numbers of red beads in your calculation. (If you need help, the computations are sketched out in Technical Aid 2 on the next page—but try it by yourself first in the space at the top of the page.)
 </div>
 
-<div class="technical_aid" role="note" aria-label="Technical aid">
-  <strong>Drawing Pad</strong><br>
-  Use the drawing pad below to sketch your formula or diagram. You can download your drawing when finished.
-</div>
+<div class="technical_aid" role="note" aria-label="Working space for Technical Aid 1">
 
-<iframe src="https://excalidraw.com" title="Drawing pad for sketching formulas and diagrams"
-  width="100%" height="500"
-  sandbox="allow-scripts allow-same-origin"
-  referrerpolicy="no-referrer"
-  style="border:1px solid #ccc;">
-  Your browser does not support iframes.
-</iframe>
+```{ojs}
+viewof working_ta1 = Inputs.textarea({
+  label: "Your working",
+  placeholder: "Try the calculation yourself in this space before checking Technical Aid 2 on the next page. Use the Download button at the bottom of the page to save your working into your notes.",
+  rows: 8
+})
+```
+
+</div>
 
 <div class="technical_aid" role="note" aria-label="Technical aid">
 ### Technical Aid 2
@@ -125,4 +124,10 @@ If during Day 1 you read the discussion in the Appendix about the first paradox 
 
 As mentioned earlier, it is important to emphasise that this particular choice of σ does \emph{not} apply to many other kinds of process data. A method that can be employed much more generally will be used tomorrow and is also introduced, discussed and illustrated in the Springboard article (cited on [Day 1 page 8](../day-01/03-statistics.qmd#sec-page8)).
 </div>
+
+```{ojs download_ta1}
+import { createDownloadButton } from "../../../assets/scripts/functions.js"
+
+createDownloadButton([viewof working_ta1], "working_technical_aid_1.txt")
+```
 

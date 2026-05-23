@@ -35,7 +35,7 @@ chapters:
     has_download_button: true
 
   - file: "05-the-truth-the-whole-truth-and-nothing-but.qmd"
-    viewof_count: 0
+    viewof_count: 1
     figures:
       - "/assets/images/day-02/image-4.jpg"
     headings:
@@ -43,7 +43,7 @@ chapters:
       - "The training, part 2"
       - "The \"real work\""
       - "The Technical Aids"
-    has_download_button: false
+    has_download_button: true
 
   - file: "06-your-turn.qmd"
     viewof_count: 20
