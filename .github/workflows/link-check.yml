@@ -1,0 +1,126 @@
+name: Link Check (Nightly)
+
+permissions:
+  contents: read
+  issues: write
+
+on:
+  schedule:
+    # 06:00 UTC daily = 18:00 NZT, off-peak for both UTC and NZ audiences.
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+    # Persist lychee's per-URL cache across runs so each nightly tick only
+    # re-probes URLs whose entries are older than --max-cache-age, plus any
+    # URL that wasn't in the cache. The write key uses run_id so every run
+    # produces a fresh cache entry; the restore-keys prefix picks up the
+    # latest available cache from previous runs.
+    - name: Restore lychee cache
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae  # v5.0.5
+      with:
+        path: .lycheecache
+        key: lychee-${{ github.run_id }}
+        restore-keys: lychee-
+
+    - name: Run lychee
+      id: lychee
+      uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411  # v2.8.0
+      with:
+        # External-link-rot scope (per issue #284):
+        #   - scan .qmd source directly (faster than rendering _book/, and
+        #     external URLs are written verbatim in source)
+        #   - --scheme http,https skips relative file:// refs so .qmd
+        #     cross-references don't get probed (those are covered by
+        #     structure-check + interday-audit)
+        #   - accept 200..=299 (success), 403 (sites that 403 a bare GET
+        #     but render fine in a browser — common for CDN-fronted hosts),
+        #     and 429 (rate-limited; advisory only, not real rot)
+        args: >-
+          --cache
+          --max-cache-age 1d
+          --no-progress
+          --include-fragments false
+          --scheme http
+          --scheme https
+          --accept 200..=299,403,429
+          --max-concurrency 4
+          --exclude-loopback
+          --exclude-private
+          './**/*.qmd'
+          '*.qmd'
+        fail: false
+        failIfEmpty: false
+        format: markdown
+        output: lychee-report.md
+
+    # Surface the full report as a workflow artifact regardless of outcome.
+    # Useful for diffing run-over-run when triaging a flagged URL.
+    - name: Upload lychee report
+      if: always() && hashFiles('lychee-report.md') != ''
+      uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4  # v5.0.0
+      with:
+        name: lychee-report
+        path: lychee-report.md
+        retention-days: 30
+
+    # Roll all nightly reports into a single tracking issue rather than
+    # opening a new one per night. Match by title sentinel "[link-rot]"
+    # so the lookup is deterministic and human-readable.
+    - name: Update tracking issue
+      if: steps.lychee.outputs.exit_code != '0'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_REPO: ${{ github.repository }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      run: |
+        set -euo pipefail
+
+        TITLE="[link-rot] Nightly external link check report"
+
+        # Prepend run metadata so each comment / issue body is self-dating.
+        # Guard the cat: if lychee bailed before writing the report (e.g. CLI
+        # parse error, network failure), surface that fact rather than failing
+        # the issue-update step.
+        REPORT=$(mktemp)
+        {
+          echo "## Run $(date -u +'%Y-%m-%d %H:%M UTC')"
+          echo ""
+          echo "Workflow run: ${RUN_URL}"
+          echo ""
+          if [ -s lychee-report.md ]; then
+            cat lychee-report.md
+          else
+            echo "_No lychee report file was produced. Inspect the workflow run for details — lychee likely failed before generating output._"
+          fi
+        } > "$REPORT"
+
+        EXISTING=$(gh issue list \
+          --state open \
+          --search "in:title \"${TITLE}\"" \
+          --json number,title \
+          --jq '[.[] | select(.title == "'"${TITLE}"'")][0].number // empty')
+
+        if [ -n "${EXISTING}" ]; then
+          echo "Updating existing tracking issue #${EXISTING}"
+          gh issue comment "${EXISTING}" --body-file "$REPORT"
+        else
+          echo "Opening new tracking issue"
+          gh issue create \
+            --title "${TITLE}" \
+            --body-file "$REPORT" \
+            --label "maintainability" \
+            --label "github_actions" \
+            --label "severity: low"
+        fi

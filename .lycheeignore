@@ -1,0 +1,17 @@
+# .lycheeignore
+#
+# Regex patterns of URLs the nightly link-rot watch (.github/workflows/link-check.yml)
+# should not flag. Keep entries narrow, dated, and explained — exclusions exist to
+# silence known false positives, not to paper over genuine rot.
+#
+# Format: one regex per line. Lines starting with `#` and blank lines are ignored.
+# Add an entry only when:
+#   1. lychee has flagged it as broken on a nightly run, AND
+#   2. a human has manually confirmed the URL still resolves in a browser, AND
+#   3. the failure mode is one lychee cannot reasonably distinguish from real rot
+#      (anti-bot interstitials, geo-gated CDNs, academic mirror flakiness, etc.).
+#
+# Note the workflow already accepts 403 and 429 status codes globally via --accept,
+# so simple bot-protection 403s do not need entries here.
+
+# (No exclusions yet — populate as nightly runs surface false positives.)
