@@ -9,7 +9,11 @@ Input shafts for a transmission were turned in a machine equipped with an expens
 
 Here is a histogram of the diameters of 50 shafts consecutively manufactured by this process. (A "histogram" is a widely-used type of diagram for illustrating data. But in case you're not sure about what a histogram is, I'll guide you on how to draw one on page 7.)
 
-![Histogram of 50 shaft diameters with compensation device](/assets/images/day-03/ford-histogram-with-compensation.png){fig-align="center" width="80%" .lightbox}
+```{r ford-with-compensation, fig.width=10, fig.height=4, fig.align="center", fig.cap="Histogram of 50 shaft diameters made *with* the automatic compensation device switched on. The distribution is broad and the bars reach all the way out to the Lower and Upper Specification Limits at both ends. The chart shows 49 boxes, not 50."}
+ford_with <- read.csv("../../../R/data/day-03-ford-with-compensation.csv", comment.char = "#")
+ford_histogram_plot(rep(ford_with$position, ford_with$count),
+                    lsl_at = 0, usl_at = 30)
+```
 
 <details>
 <summary>Describe this chart</summary>
@@ -20,7 +24,11 @@ A histogram of 50 shaft diameters made *with* the automatic compensation device 
 
 A statistician recommended that the next 50 shafts should be made with the compensation device turned off. Here is the histogram of those 50 diameters.
 
-![Histogram of 50 shaft diameters without compensation device](/assets/images/day-03/ford-histogram-without-compensation.png){fig-align="center" width="80%" .lightbox}
+```{r ford-without-compensation, fig.width=10, fig.height=4, fig.align="center", fig.cap="Histogram of 50 shaft diameters made *without* the automatic compensation device. The distribution is visibly narrower than the one above — all 50 values sit comfortably between the Lower and Upper Specification Limits, with only two outliers slightly to the right of the main cluster."}
+ford_without <- read.csv("../../../R/data/day-03-ford-without-compensation.csv", comment.char = "#")
+ford_histogram_plot(rep(ford_without$position, ford_without$count),
+                    lsl_at = 0, usl_at = 30)
+```
 
 <details>
 <summary>Describe this chart</summary>

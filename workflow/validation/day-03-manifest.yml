@@ -15,9 +15,7 @@ chapters:
 
   - file: "02-at-the-ford-motor-company.qmd"
     viewof_count: 1
-    figures:
-      - "/assets/images/day-03/ford-histogram-with-compensation.png"
-      - "/assets/images/day-03/ford-histogram-without-compensation.png"
+    figures: []
     headings:
       - "ACTIVITY 3–c"
     has_download_button: true
@@ -25,7 +23,6 @@ chapters:
   - file: "03-the-importance-of-time.qmd"
     viewof_count: 2
     figures:
-      - "/assets/images/day-03/two-histograms-24-values.png"
       - "/assets/images/day-03/deming-histogram-caliper.png"
     headings:
       - "ACTIVITY 3–d"
