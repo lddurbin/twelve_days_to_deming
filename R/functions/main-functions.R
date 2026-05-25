@@ -28,7 +28,7 @@ library(gt)
 #     attribute. No extra work needed.
 #   - For PNGs referenced via Markdown `![cap](url)`, Quarto drops the alt
 #     attribute unless you add `{.lightbox}` to the image. This is a known
-#     quirk — see [[feedback_image_alt_lightbox]] in memory.
+#     Quarto quirk with no workaround short of switching to a figure div.
 #
 # Theme colour tokens:
 #   - CHART_FG ("black"): axis text, ticks, axis line. Black on white is
