@@ -1,0 +1,37 @@
+# Day 3 page 5 — Ford histogram of 50 shaft diameters with the automatic
+# compensation device switched OFF.
+#
+# IMPORTANT: this is a DIGITISATION, not a transcription. Same caveat as
+# the with-compensation file: Neave's printed chart has no numeric axes.
+# The (position, count) pairs below were read off the printed bars on Day 3
+# page 5: 15 contiguous bars in the main cluster, then a gap of three bin
+# positions, then 2 small outlier bars (positions 24 and 25).
+#
+# Bin positions are deliberately shifted so the cluster sits between
+# positions 6 and 20 (rather than 1 and 15), with outliers at 24 and 25,
+# so the chart shares the same LSL=0 / USL=30 framing as the
+# with-compensation chart and the pedagogical contrast (narrow distribution
+# comfortably inside the limits vs. broad distribution touching both
+# limits) is visible at a glance when the two figures sit next to each
+# other in the prose.
+#
+# Total = 50 (matching Neave's text "the next 50 shafts ... here is the
+# histogram of those 50 diameters").
+position,count
+6,1
+7,1
+8,2
+9,3
+10,4
+11,5
+12,5
+13,3
+14,7
+15,3
+16,3
+17,4
+18,2
+19,3
+20,2
+24,1
+25,1

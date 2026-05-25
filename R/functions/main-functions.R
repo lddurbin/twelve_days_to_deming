@@ -348,6 +348,140 @@ histogram_plot <- function(values,
   p + run_chart_theme()
 }
 
+#' Plot a stacked-unit-boxes "histogram" (Day 3 page 7 left panel)
+#'
+#' For each integer value in \code{values}, draws a column of unit squares —
+#' one square per observation, stacked from the baseline upward. This is
+#' Neave's left-hand pictorial form on Day 3 page 7, where each item in the
+#' data is represented by a box stacked on the appropriate pile and small
+#' visible gaps separate adjacent boxes (so the reader can see where the
+#' individual observations are before the gaps are filled in to make a
+#' conventional bar histogram in the right-hand panel).
+#'
+#' Uses \code{geom_point(shape = 22)} so the squares stay square regardless
+#' of the panel's aspect ratio (true square shapes are sized in millimetres,
+#' not data units — \code{geom_tile} would only look square when the data
+#' aspect matches the panel aspect).
+#'
+#' @param values Numeric vector. Integer-like observations to stack.
+#' @param x_breaks Numeric vector or NULL. Major x-axis tick positions.
+#'   If NULL, ggplot picks the breaks via its default heuristic.
+#' @param box_size Numeric. Square edge length in mm (passed as the
+#'   \code{size} argument to \code{geom_point}). Default 12; reduce if the
+#'   tallest stack starts touching the chart top.
+#' @return A ggplot2 object.
+#' @examples
+#' stacked_boxes_plot(c(10, 11, 11, 11, 12, 12), x_breaks = 10:12)
+stacked_boxes_plot <- function(values, x_breaks = NULL, box_size = 12) {
+  stopifnot(is.numeric(values), length(values) >= 1)
+
+  df <- data.frame(value = values) |>
+    dplyr::group_by(.data$value) |>
+    dplyr::mutate(stack = dplyr::row_number()) |>
+    dplyr::ungroup()
+
+  max_stack <- max(df$stack)
+
+  p <- ggplot(df, aes(x = .data$value, y = .data$stack)) +
+    geom_point(shape = 22, size = box_size,
+               fill = CHART_LINE_COLOUR, colour = CHART_FG, stroke = 0.4)
+
+  if (!is.null(x_breaks)) {
+    p <- p + scale_x_continuous(breaks = x_breaks)
+  }
+
+  p +
+    scale_y_continuous(limits = c(0.5, max_stack + 0.5), expand = c(0, 0)) +
+    theme_minimal(base_size = 14) +
+    theme(
+      panel.background = element_rect(fill = "transparent", colour = NA),
+      plot.background  = element_rect(fill = "transparent", colour = NA),
+      axis.text.x      = element_text(color = CHART_FG, size = 14),
+      axis.text.y      = element_blank(),
+      axis.ticks       = element_blank(),
+      axis.title       = element_blank(),
+      axis.line.x      = element_line(color = CHART_FG, linewidth = 0.6),
+      axis.line.y      = element_blank(),
+      panel.grid       = element_blank()
+    )
+}
+
+#' Plot a Ford-style histogram with LSL/USL knife-edge framing
+#'
+#' Draws a bar histogram of \code{values} (one bar per occupied integer bin)
+#' inside a "Lower Specification Limit ... Upper Specification Limit" frame:
+#' a horizontal baseline under the bars with vertical lines at \code{lsl_at}
+#' and \code{usl_at}, each labelled above. No y-axis, no x-axis tick labels,
+#' and a single x-axis title ("Shaft diameter" by default). This is the
+#' qualitative shape illustration Neave uses on Day 3 page 5 for the
+#' Ford-with-compensation and Ford-without-compensation pair — the two
+#' charts are visually comparable only if they share the same \code{lsl_at}
+#' and \code{usl_at}, so callers should pass identical framing values when
+#' rendering the pair.
+#'
+#' Bin positions in the source PDF carry no numeric meaning (the histogram
+#' has no x-axis numbers); the digitised position values in
+#' \code{R/data/day-03-ford-*.csv} are arbitrary left-to-right indices.
+#'
+#' @param values Numeric vector. Expanded raw observations (one entry per
+#'   shaft); use \code{rep(df$position, df$count)} to expand the digitised
+#'   (position, count) CSV into the form this function expects.
+#' @param lsl_at Numeric. X-position of the Lower Specification Limit line.
+#' @param usl_at Numeric. X-position of the Upper Specification Limit line.
+#' @param lsl_label Character. Multi-line label drawn above the LSL line.
+#'   Default \code{"Lower\nSpecification\nLimit"}.
+#' @param usl_label Character. Multi-line label drawn above the USL line.
+#' @param x_title Character. X-axis title under the baseline. Default
+#'   \code{"Shaft diameter"}.
+#' @param fill_colour Character. Bar fill colour. Default
+#'   \code{CHART_LINE_COLOUR}.
+#' @param ymax_factor Numeric. How tall the LSL/USL vertical lines are
+#'   relative to the tallest bar. Default 1.6 (matches Neave's printed
+#'   proportions).
+#' @return A ggplot2 object.
+#' @examples
+#' ford_histogram_plot(rep(c(5, 8, 10, 12), c(2, 4, 3, 1)),
+#'                     lsl_at = 0, usl_at = 15)
+ford_histogram_plot <- function(values,
+                                lsl_at,
+                                usl_at,
+                                lsl_label = "Lower\nSpecification\nLimit",
+                                usl_label = "Upper\nSpecification\nLimit",
+                                x_title   = "Shaft diameter",
+                                fill_colour = CHART_LINE_COLOUR,
+                                ymax_factor = 1.6) {
+  stopifnot(is.numeric(values), length(values) >= 1,
+            is.numeric(lsl_at), is.numeric(usl_at), lsl_at < usl_at)
+
+  ymax <- max(table(values)) * ymax_factor
+
+  ggplot(data.frame(value = values), aes(x = .data$value)) +
+    geom_histogram(binwidth = 1, boundary = 0.5, closed = "left",
+                   fill = fill_colour, colour = CHART_FG, linewidth = 0.3) +
+    annotate("segment", x = lsl_at, xend = usl_at, y = 0, yend = 0,
+             colour = CHART_FG, linewidth = 0.5) +
+    annotate("segment", x = lsl_at, xend = lsl_at, y = 0, yend = ymax,
+             colour = CHART_FG, linewidth = 0.5) +
+    annotate("segment", x = usl_at, xend = usl_at, y = 0, yend = ymax,
+             colour = CHART_FG, linewidth = 0.5) +
+    annotate("text", x = lsl_at, y = ymax + 0.4, label = lsl_label,
+             hjust = 0.5, vjust = 0, colour = CHART_FG, size = 4.5,
+             lineheight = 0.95) +
+    annotate("text", x = usl_at, y = ymax + 0.4, label = usl_label,
+             hjust = 0.5, vjust = 0, colour = CHART_FG, size = 4.5,
+             lineheight = 0.95) +
+    coord_cartesian(xlim = c(lsl_at - 0.5, usl_at + 0.5),
+                    ylim = c(-0.5, ymax + 3.5), clip = "off") +
+    labs(x = x_title) +
+    theme_void() +
+    theme(
+      plot.background  = element_rect(fill = "transparent", colour = NA),
+      panel.background = element_rect(fill = "transparent", colour = NA),
+      axis.title.x     = element_text(color = CHART_FG, size = 14,
+                                      margin = margin(t = 10))
+    )
+}
+
 # --- Taguchi loss function (Day 7 page 22) ---
 
 #' Plot the abstract Taguchi loss function

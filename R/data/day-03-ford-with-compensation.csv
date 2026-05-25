@@ -1,0 +1,43 @@
+# Day 3 page 5 — Ford histogram of 50 shaft diameters with the automatic
+# compensation device switched ON.
+#
+# IMPORTANT: this is a DIGITISATION, not a transcription. Neave's printed
+# chart has no numeric x- or y-axis labels — it is a qualitative shape
+# illustration (the original raw values are in Scherkenbach's "The Deming
+# Route to Quality and Productivity", but Neave does not reproduce them).
+# The (position, count) pairs below were read off the printed bars on Day 3
+# page 5: 26 visible bars across 28 bin positions (two internal gaps at
+# positions 23 and 27 reflect empty bins between the main cluster and the
+# right-hand outliers). Bin positions carry no physical meaning beyond their
+# left-to-right order; the LSL and USL anchor the visual extremes.
+#
+# Total = 49 (matching Neave's wry observation on Day 3 page 9 that the
+# printed chart contains only 49 boxes, not 50 — "one shaft, presumably an
+# out-of-spec one, appears to have quietly disappeared").
+position,count
+1,2
+2,2
+3,1
+4,2
+5,3
+6,2
+7,3
+8,1
+9,2
+10,3
+11,1
+12,3
+13,2
+14,1
+15,5
+16,2
+17,1
+18,3
+19,2
+20,1
+21,1
+22,1
+24,1
+25,2
+26,1
+28,1
