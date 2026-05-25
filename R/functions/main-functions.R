@@ -204,7 +204,9 @@ red_beads_control_chart <- function(red_beads_vec, LCL = 1.4, UCL = 18.2) {
 #' @param boundary Numeric. Bin boundary alignment (e.g. \code{0} to align
 #'   integer counts on whole numbers). Default 0.
 #' @param show_counts Logical. If TRUE, render the bin count above each
-#'   bar. Default FALSE.
+#'   bar. Labels always show raw n even when \code{y_relative = TRUE}
+#'   (raw counts read more naturally above a proportion-scaled bar than
+#'   the proportion itself would). Default FALSE.
 #' @param y_relative Logical. If TRUE, scale the Y axis to relative
 #'   frequency (proportion) instead of raw counts. Default FALSE.
 #' @param fill_colour Character. Bar fill colour. Default
