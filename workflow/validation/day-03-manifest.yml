@@ -38,8 +38,7 @@ chapters:
 
   - file: "05-how-do-we-compute-control-limits.qmd"
     viewof_count: 1
-    figures:
-      - "/assets/images/day-03/charts-a1-a2-purple-limits.png"
+    figures: []
     headings:
       - "Technical Aid 5"
       - "Technical Aid 6"

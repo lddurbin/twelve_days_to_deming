@@ -173,6 +173,12 @@ run_chart_theme <- function(right_margin = 5, gridlines = c("full", "none")) {
 #'   under each point (the Day 2 Red Beads convention). If FALSE, suppress
 #'   x-axis labels — Neave omits them on Day 3 page 7 and page 21, where
 #'   the values' sequence position carries no independent meaning.
+#' @param hline_colour Character or NULL. Colour for the \code{hlines} and
+#'   their labels. Defaults to \code{CONTROL_LIMIT_COLOUR} (blue). Override
+#'   for Neave's Day 3 page 15 contrast where the standard-deviation limits
+#'   are drawn in magenta to distinguish them from the moving-range limits
+#'   on the same data. Pure magenta (\code{"magenta"} / \code{"#ff00ff"})
+#'   round-trips through the dark-mode invert+hue-rotate filter cleanly.
 #' @return A ggplot2 object containing the run chart.
 #' @examples
 #' run_chart_plot(c(13, 19, 18, 14, 16))
@@ -187,7 +193,8 @@ run_chart_plot <- function(values, line_width = 6,
                            central_line = NULL,
                            y_label_fn = NULL,
                            gridlines = c("full", "none"),
-                           show_x_labels = TRUE) {
+                           show_x_labels = TRUE,
+                           hline_colour = CONTROL_LIMIT_COLOUR) {
   stopifnot(is.numeric(values), length(values) >= 2)
   hline_label_side <- match.arg(hline_label_side)
   gridlines <- match.arg(gridlines)
@@ -224,14 +231,14 @@ run_chart_plot <- function(values, line_width = 6,
     label_x <- if (hline_label_side == "right") length(values) else 1
     label_hjust <- if (hline_label_side == "right") 1 else 0
     for (i in seq_along(hlines)) {
-      p <- p + geom_hline(yintercept = hlines[i], color = CONTROL_LIMIT_COLOUR, linewidth = 1)
+      p <- p + geom_hline(yintercept = hlines[i], color = hline_colour, linewidth = 1)
       if (!is.null(hline_labels) && !is.na(hline_labels[i])) {
         p <- p + annotate("text", x = label_x,
                           y = hlines[i] + offsets[i],
                           label = hline_labels[i],
                           hjust = label_hjust,
                           vjust = if (offsets[i] >= 0) 0 else 1,
-                          color = CONTROL_LIMIT_COLOUR, size = 7, fontface = "bold")
+                          color = hline_colour, size = 7, fontface = "bold")
       }
     }
   }
