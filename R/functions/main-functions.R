@@ -200,11 +200,8 @@ run_chart_plot <- function(values, line_width = 6,
   )
   if (!is.null(y_label_fn)) y_scale_args$labels <- y_label_fn
 
-  x_scale_args <- list(breaks = seq_along(values), expand = c(0, 0))
-  if (!show_x_labels) x_scale_args$labels <- NULL
-
   p <- ggplot(df, aes(x, y)) +
-    do.call(scale_x_continuous, x_scale_args) +
+    scale_x_continuous(breaks = seq_along(values), expand = c(0, 0)) +
     do.call(scale_y_continuous, y_scale_args) +
     run_chart_theme(right_margin = right_margin, gridlines = gridlines)
 
@@ -375,7 +372,7 @@ taguchi_loss_abstract <- function() {
   curve_df <- data.frame(x = seq(-1, 1, length.out = 200))
   curve_df$y <- curve_df$x^2
 
-  ggplot(curve_df, aes(.data$x, .data$y)) +
+  ggplot(curve_df, aes(x = .data$x, y = .data$y)) +
     geom_line(colour = CHART_FG, linewidth = 0.8) +
     annotate("segment", x = -0.95, xend = -0.95, y = 0.05, yend = 0.6,
              colour = CHART_FG, linewidth = 0.6,
@@ -390,7 +387,9 @@ taguchi_loss_abstract <- function() {
     annotate("text", x = 0, y = -0.05, label = "nominal",
              hjust = 0.5, vjust = 1, colour = CHART_FG, size = 4.5) +
     coord_cartesian(xlim = c(-1.1, 1.1), ylim = c(-0.15, 1.1), clip = "off") +
-    theme_void()
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA))
 }
 
 #' Plot a personal Taguchi loss-function graph
@@ -494,7 +493,9 @@ specification_limits_diagram <- function() {
              colour = CHART_FG, size = 5) +
     coord_cartesian(xlim = c(lsl_x - 1.1, usl_x + 1.1),
                     ylim = c(-0.55, 0.55), clip = "off") +
-    theme_void()
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA))
 }
 
 #' Create a Red Beads results data frame

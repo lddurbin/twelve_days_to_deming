@@ -37,9 +37,7 @@ chapters:
   - file: "05-thirteenth-obstacle.qmd"
     viewof_count: 4
     figures:
-      - "/assets/images/day-07/specification-limits.png"
       - "/assets/images/day-07/taguchi-graph-paper.png"
-      - "/assets/images/day-07/taguchi-loss-function.png"
     headings:
       - "ACTIVITY 7–e"
     has_download_button: true
