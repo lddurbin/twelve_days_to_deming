@@ -6,9 +6,10 @@ library(gt)
 # R-figure conventions (project-wide)
 # =============================================================================
 #
-# Output device: chart chunks render as inline SVG via `dev = "svglite"`
-# (set in R/setup.R). This is what makes dark-mode re-skin possible — see
-# the "Dark-mode mechanism" note below.
+# Output device: chart chunks render as external SVG files via
+# `dev = "svglite"` (set in R/setup.R), which Quarto then wraps in
+# `<img src="…svg">`. This is what makes dark-mode re-skin possible —
+# see the "Dark-mode mechanism" note below.
 #
 # Default dimensions: chart chunks use `fig.width=5, fig.height=5` (square)
 # in side-by-side columns; full-width R figures use `fig.width=7`. `dpi`

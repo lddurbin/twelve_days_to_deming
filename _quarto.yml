@@ -4,9 +4,6 @@ project:
   type: book
   resources:
     - "assets/fonts/**"
-    - "!.git/**"
-    - "!node_modules/**"
-    - "!renv/**"
 
 execute:
   echo: false
