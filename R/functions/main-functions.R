@@ -421,7 +421,7 @@ taguchi_loss_personal <- function(temps, losses,
   df <- data.frame(temp = temps, loss = losses)
   x_pad <- (max(temps) - min(temps)) * 0.05
 
-  ggplot(df, aes(.data$temp, .data$loss)) +
+  ggplot(df, aes(x = .data$temp, y = .data$loss)) +
     geom_smooth(method = "loess", formula = y ~ x, se = FALSE,
                 colour = CONTROL_LIMIT_COLOUR, linewidth = 0.7,
                 span = 0.9) +
