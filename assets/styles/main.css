@@ -1382,7 +1382,21 @@ body.quarto-dark .fe-button:focus-visible {
   outline-color: #6699ff;
 }
 
-} /* end @media not print */
+/* R-generated chart figures (svglite-emitted SVGs, embedded as
+   `<img src="…svg">` inside Quarto's `.cell-output-display` wrapper).
+   We can't reach into img-wrapped SVG with CSS selectors, so we use
+   the `invert + hue-rotate` filter idiom instead: invert flips
+   brightness (black axis ink ↔ light grey, white bg ↔ dark bg) while
+   the 180° hue-rotate cancels the hue shift caused by invert, so
+   chromatic ink (red data line, blue control limits) stays roughly
+   on-hue through the round-trip. See the conventions block at the top
+   of R/functions/main-functions.R for the colour-token contract.
+   Scoped to `.cell-output-display img[src$=".svg"]` so it only touches
+   R chart outputs (which always live inside that Quarto wrapper) and
+   not e.g. an SVG icon dropped elsewhere on the page. */
+body.quarto-dark .cell-output-display img[src$=".svg"] {
+  filter: invert(1) hue-rotate(180deg);
+}
 
 /* High-contrast preference inside dark mode. Combined with
    `not print` so the HC reinforcements also step out of the way on

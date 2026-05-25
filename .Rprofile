@@ -7,7 +7,7 @@ source("renv/activate.R")
 local({
   setup_file <- file.path("R", "setup.R")
   deps_available <- all(vapply(
-    c("knitr", "ggplot2", "dplyr", "gt"),
+    c("knitr", "ggplot2", "dplyr", "gt", "svglite"),
     requireNamespace, logical(1), quietly = TRUE
   ))
   if (file.exists(setup_file) && deps_available) {
