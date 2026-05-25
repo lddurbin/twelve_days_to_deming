@@ -2,6 +2,7 @@ library(ggplot2)
 library(dplyr)
 library(gt)
 library(scales)
+library(patchwork)
 
 # =============================================================================
 # R-figure conventions (project-wide)
