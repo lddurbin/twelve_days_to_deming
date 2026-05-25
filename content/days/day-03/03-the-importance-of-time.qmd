@@ -45,7 +45,16 @@ A "similar histogram"? It turned out to be the very *same* histogram as that obt
 
 Just to be sure, let's draw run charts of the data. Here is a run chart for the first process.
 
-![Run chart of the first process](/assets/images/day-03/run-chart-first-process.png){fig-align="center" width="80%" .lightbox}
+```{r run-chart-first-process, fig.width=8, fig.height=3, fig.align="center", fig.cap="Run chart of the first process: 24 values plotted in time order, climbing steadily from 11 to 19."}
+first_process <- read.csv("../../../R/data/day-03-first-process.csv", comment.char = "#")$value
+run_chart_plot(
+  first_process,
+  y_limits = c(8, 20),
+  y_breaks = seq(10, 20, by = 5),
+  y_minor_breaks = seq(8, 20, by = 1),
+  show_x_labels = FALSE
+)
+```
 
 <details>
 <summary>Describe this chart</summary>
