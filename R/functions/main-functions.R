@@ -1,6 +1,7 @@
 library(ggplot2)
 library(dplyr)
 library(gt)
+library(scales)
 
 # =============================================================================
 # R-figure conventions (project-wide)
@@ -85,9 +86,9 @@ CONTROL_LIMIT_COLOUR <- "blue"
 
 #' Create a minimal ggplot2 theme for run charts
 #'
-#' Returns a theme with mid-grey gridlines, no axis titles, transparent
-#' plot/panel backgrounds (so the surrounding page colour shows through
-#' in either light or dark mode), and a configurable right margin
+#' Returns a theme with mid-grey gridlines (suppressible), no axis titles,
+#' transparent plot/panel backgrounds (so the surrounding page colour shows
+#' through in either light or dark mode), and a configurable right margin
 #' (increased when horizontal reference lines have labels).
 #'
 #' Axis ink uses CHART_FG ("black"), which svglite emits without an
@@ -96,14 +97,15 @@ CONTROL_LIMIT_COLOUR <- "blue"
 #'
 #' @param right_margin Numeric. Right margin in points. Default 5; use ~30
 #'   when horizontal line labels are present.
+#' @param gridlines Character. \code{"full"} (default) draws the Day 2 / Day 3
+#'   technical-aid grid: major y, major x, faint minor y. \code{"none"}
+#'   suppresses every gridline (used for charts where Neave drew clean axes
+#'   without grid paper, e.g. the "favourite example" charts on Day 3 page 21).
 #' @return A ggplot2 theme object.
-run_chart_theme <- function(right_margin = 5) {
-  theme_minimal(base_size = 14) +
+run_chart_theme <- function(right_margin = 5, gridlines = c("full", "none")) {
+  gridlines <- match.arg(gridlines)
+  base <- theme_minimal(base_size = 14) +
     theme(
-      panel.grid.major.y = element_line(color = CHART_GRID, linewidth = .8),
-      panel.grid.major.x = element_line(color = CHART_GRID, linewidth = 1.2),
-      panel.grid.minor.y = element_line(color = CHART_GRID_FAINT, linewidth = .3),
-      panel.grid.minor.x = element_blank(),
       panel.background   = element_rect(fill = "transparent", colour = NA),
       plot.background    = element_rect(fill = "transparent", colour = NA),
       plot.margin        = margin(5, right_margin, 5, 5),
@@ -115,12 +117,27 @@ run_chart_theme <- function(right_margin = 5) {
       axis.line.y  = element_line(color = CHART_FG, linewidth = 1),
       axis.line.x  = element_blank()
     )
+
+  if (gridlines == "full") {
+    base + theme(
+      panel.grid.major.y = element_line(color = CHART_GRID, linewidth = .8),
+      panel.grid.major.x = element_line(color = CHART_GRID, linewidth = 1.2),
+      panel.grid.minor.y = element_line(color = CHART_GRID_FAINT, linewidth = .3),
+      panel.grid.minor.x = element_blank()
+    )
+  } else {
+    base + theme(
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank()
+    )
+  }
 }
 
 #' Plot a run chart (time series line graph)
 #'
 #' Draws a run chart connecting sequential values with a coloured line.
-#' Optionally adds horizontal reference lines (e.g. control limits).
+#' Optionally adds horizontal reference lines (control limits) and a thin
+#' Central Line at the process average.
 #'
 #' @param values Numeric vector. The data values to plot in order.
 #' @param line_width Numeric. Width of the plotted line. Default 6.
@@ -130,7 +147,31 @@ run_chart_theme <- function(right_margin = 5) {
 #' @param hlines Numeric vector or NULL. Y-intercepts for horizontal reference
 #'   lines (e.g. control limits).
 #' @param hline_labels Character vector or NULL. Labels for the horizontal
-#'   lines, positioned at the right edge of the chart.
+#'   lines, anchored according to \code{hline_label_side} and offset
+#'   vertically by \code{hline_label_offset}.
+#' @param hline_label_side Character. \code{"right"} (default) anchors hline
+#'   labels at the right edge of the chart (existing Red Beads convention);
+#'   \code{"left"} anchors them at the left edge (Neave's convention for the
+#'   "favourite example" control chart on Day 3 page 21, where the limit
+#'   value sits inside the chart near the start of each blue line).
+#' @param hline_label_offset Numeric (scalar or vector). Vertical offset
+#'   applied to each hline label, in y-axis units. Positive places the label
+#'   above its line, negative below. Default 1.2 (above, current Red Beads
+#'   behaviour). Pass a vector to position different labels above/below
+#'   independently.
+#' @param central_line Numeric or NULL. If given, draws a thin blue line at
+#'   this y-intercept — Shewhart's Central Line at the process average.
+#'   Neave introduces the Central Line on Day 3 page 11 and adopts it as
+#'   standard practice from that point onward.
+#' @param y_label_fn Function or NULL. If given, applied to the y-axis tick
+#'   labels (e.g. \code{scales::label_percent(accuracy = 1)} for the
+#'   "favourite example" proportion-defective charts).
+#' @param gridlines Character. Passed through to \code{run_chart_theme}.
+#'   \code{"full"} (default) or \code{"none"}.
+#' @param show_x_labels Logical. If TRUE (default), draw the sequence position
+#'   under each point (the Day 2 Red Beads convention). If FALSE, suppress
+#'   x-axis labels — Neave omits them on Day 3 page 7 and page 21, where
+#'   the values' sequence position carries no independent meaning.
 #' @return A ggplot2 object containing the run chart.
 #' @examples
 #' run_chart_plot(c(13, 19, 18, 14, 16))
@@ -139,25 +180,56 @@ run_chart_plot <- function(values, line_width = 6,
                            y_limits = c(10, 25),
                            y_breaks = seq(10, 25, by = 5),
                            y_minor_breaks = seq(10, 25, by = 1),
-                           hlines = NULL, hline_labels = NULL) {
+                           hlines = NULL, hline_labels = NULL,
+                           hline_label_side = c("right", "left"),
+                           hline_label_offset = 1.2,
+                           central_line = NULL,
+                           y_label_fn = NULL,
+                           gridlines = c("full", "none"),
+                           show_x_labels = TRUE) {
   stopifnot(is.numeric(values), length(values) >= 2)
+  hline_label_side <- match.arg(hline_label_side)
+  gridlines <- match.arg(gridlines)
 
   df <- data.frame(x = seq_along(values), y = values)
-  right_margin <- if (!is.null(hlines)) 30 else 5
+  right_margin <- if (!is.null(hlines) && hline_label_side == "right") 30 else 5
+
+  y_scale_args <- list(
+    limits = y_limits, breaks = y_breaks,
+    minor_breaks = y_minor_breaks, expand = c(0, 0)
+  )
+  if (!is.null(y_label_fn)) y_scale_args$labels <- y_label_fn
 
   p <- ggplot(df, aes(x, y)) +
-    geom_line(colour = CHART_LINE_COLOUR, linewidth = line_width, linejoin = "round") +
     scale_x_continuous(breaks = seq_along(values), expand = c(0, 0)) +
-    scale_y_continuous(limits = y_limits, breaks = y_breaks,
-                       minor_breaks = y_minor_breaks, expand = c(0, 0)) +
-    run_chart_theme(right_margin = right_margin)
+    do.call(scale_y_continuous, y_scale_args) +
+    run_chart_theme(right_margin = right_margin, gridlines = gridlines)
+
+  if (!show_x_labels) {
+    p <- p + theme(axis.text.x = element_blank())
+  }
+
+  # Central Line first so it sits visually below the data line.
+  if (!is.null(central_line)) {
+    p <- p + geom_hline(yintercept = central_line,
+                        color = CONTROL_LIMIT_COLOUR, linewidth = 0.4)
+  }
+
+  # Data line on top of CL but below the (thicker) control limits.
+  p <- p + geom_line(colour = CHART_LINE_COLOUR, linewidth = line_width, linejoin = "round")
 
   if (!is.null(hlines)) {
+    offsets <- rep_len(hline_label_offset, length(hlines))
+    label_x <- if (hline_label_side == "right") length(values) else 1
+    label_hjust <- if (hline_label_side == "right") 1 else 0
     for (i in seq_along(hlines)) {
       p <- p + geom_hline(yintercept = hlines[i], color = CONTROL_LIMIT_COLOUR, linewidth = 1)
       if (!is.null(hline_labels) && !is.na(hline_labels[i])) {
-        p <- p + annotate("text", x = length(values), y = hlines[i] + 1.2,
-                          label = hline_labels[i], hjust = 1, vjust = 0,
+        p <- p + annotate("text", x = label_x,
+                          y = hlines[i] + offsets[i],
+                          label = hline_labels[i],
+                          hjust = label_hjust,
+                          vjust = if (offsets[i] >= 0) 0 else 1,
                           color = CONTROL_LIMIT_COLOUR, size = 7, fontface = "bold")
       }
     }
@@ -274,6 +346,156 @@ histogram_plot <- function(values,
   }
 
   p + run_chart_theme()
+}
+
+# --- Taguchi loss function (Day 7 page 22) ---
+
+#' Plot the abstract Taguchi loss function
+#'
+#' Draws the symmetric parabola \eqn{y = k(x - \text{nominal})^2} used by
+#' mathematicians as "the" Taguchi loss function. There are no numeric
+#' scales — Neave deliberately presents this as a shape, not a scaled
+#' function. A small floating axis-cross labels "loss" (vertical) and
+#' "measurement" (horizontal); the word "nominal" sits below the minimum
+#' of the curve.
+#'
+#' This pairs with \code{taguchi_loss_personal()}, which draws Neave's own
+#' temperature-vs-loss data on a scaled graph; the two together are
+#' Figure 34 of \emph{DemDim} as reproduced on Day 7 page 22.
+#'
+#' @return A ggplot2 object.
+#' @examples
+#' taguchi_loss_abstract()
+taguchi_loss_abstract <- function() {
+  # x and k chosen so the parabola visually matches the proportions of
+  # Neave's drawing — see deviations log entry for issue #311.
+  curve_df <- data.frame(x = seq(-1, 1, length.out = 200))
+  curve_df$y <- curve_df$x^2
+
+  ggplot(curve_df, aes(x = .data$x, y = .data$y)) +
+    geom_line(colour = CHART_FG, linewidth = 0.8) +
+    annotate("segment", x = -0.95, xend = -0.95, y = 0.05, yend = 0.6,
+             colour = CHART_FG, linewidth = 0.6,
+             arrow = arrow(length = unit(0.18, "cm"))) +
+    annotate("segment", x = -0.95, xend = -0.55, y = 0.05, yend = 0.05,
+             colour = CHART_FG, linewidth = 0.6,
+             arrow = arrow(length = unit(0.18, "cm"))) +
+    annotate("text", x = -0.97, y = 0.65, label = "loss",
+             hjust = 1, vjust = 0.5, colour = CHART_FG, size = 4.5) +
+    annotate("text", x = -0.55, y = 0.02, label = "measurement",
+             hjust = 0, vjust = 1, colour = CHART_FG, size = 4.5) +
+    annotate("text", x = 0, y = -0.05, label = "nominal",
+             hjust = 0.5, vjust = 1, colour = CHART_FG, size = 4.5) +
+    coord_cartesian(xlim = c(-1.1, 1.1), ylim = c(-0.15, 1.1), clip = "off") +
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA))
+}
+
+#' Plot a personal Taguchi loss-function graph
+#'
+#' Draws an X marker at each (temperature, loss) reading and a smooth
+#' curve through them. This is the bottom panel of Figure 34 on Day 7
+#' page 22 — Neave's plotted answers to his own Activity 7-e.
+#'
+#' Real-life loss functions are not exactly symmetric about the nominal
+#' value; the smooth curve is fitted with \code{stats::loess} so individual
+#' asymmetries (e.g. Neave losing efficiency faster when cold than hot)
+#' come through faithfully.
+#'
+#' @param temps Numeric vector. Temperatures along the horizontal axis.
+#' @param losses Numeric vector (same length). Percentage losses (0-100).
+#' @param y_breaks Numeric vector. Major y-axis breaks. Default
+#'   \code{seq(0, 100, by = 10)}.
+#' @return A ggplot2 object.
+#' @examples
+#' taguchi_loss_personal(
+#'   temps  = c(6, 11, 16, 21, 26, 31, 36),
+#'   losses = c(95, 50, 15, 0, 10, 45, 85)
+#' )
+taguchi_loss_personal <- function(temps, losses,
+                                  y_breaks = seq(0, 100, by = 10)) {
+  stopifnot(is.numeric(temps), is.numeric(losses),
+            length(temps) == length(losses), length(temps) >= 3)
+
+  df <- data.frame(temp = temps, loss = losses)
+  x_pad <- (max(temps) - min(temps)) * 0.05
+
+  ggplot(df, aes(x = .data$temp, y = .data$loss)) +
+    geom_smooth(method = "loess", formula = y ~ x, se = FALSE,
+                colour = CONTROL_LIMIT_COLOUR, linewidth = 0.7,
+                span = 0.9) +
+    geom_point(shape = 4, size = 4, stroke = 1.2,
+               colour = CONTROL_LIMIT_COLOUR) +
+    scale_x_continuous(breaks = temps,
+                       labels = paste0(temps, "°C"),
+                       limits = c(min(temps) - x_pad, max(temps) + x_pad),
+                       expand = c(0, 0)) +
+    scale_y_continuous(breaks = y_breaks,
+                       labels = paste0(y_breaks, "%"),
+                       limits = c(min(y_breaks), max(y_breaks)),
+                       expand = c(0, 0)) +
+    labs(y = "Loss") +
+    run_chart_theme() +
+    theme(axis.title.y = element_text(color = CHART_FG, size = 14,
+                                      angle = 0, vjust = 1,
+                                      margin = margin(r = 6)),
+          axis.text.x  = element_text(color = CHART_FG, size = 12))
+}
+
+# --- Specification limits diagram (Day 7 page 19) ---
+
+#' Plot Neave's specification-limits "knife edge" diagram
+#'
+#' A horizontal number line with two vertical ticks at the Lower (LSL) and
+#' Upper (USL) Specification Limits, and four labelled results sitting
+#' just inside/outside each limit. By the conformance-to-specification
+#' rule, the two outside points (\emph{b} and \emph{d}) are rejected
+#' while the two inside points (\emph{a} and \emph{c}) are accepted —
+#' even though each pair is practically indistinguishable. Neave's
+#' "second logical flaw".
+#'
+#' @return A ggplot2 object.
+#' @examples
+#' specification_limits_diagram()
+specification_limits_diagram <- function() {
+  # Coordinates are in arbitrary units; only relative positions matter.
+  lsl_x <- 1
+  usl_x <- 6
+  tick_half <- 0.18
+  inside_offset  <- 0.08
+  outside_offset <- 0.08
+
+  ggplot() +
+    annotate("segment", x = lsl_x - 1, xend = usl_x + 1, y = 0, yend = 0,
+             colour = CHART_FG, linewidth = 0.6) +
+    annotate("segment", x = lsl_x, xend = lsl_x,
+             y = -tick_half, yend = tick_half,
+             colour = CHART_FG, linewidth = 0.6) +
+    annotate("segment", x = usl_x, xend = usl_x,
+             y = -tick_half, yend = tick_half,
+             colour = CHART_FG, linewidth = 0.6) +
+    annotate("text", x = lsl_x, y = -tick_half - 0.05, label = "LSL",
+             hjust = 0.5, vjust = 1, colour = CHART_FG, size = 5) +
+    annotate("text", x = usl_x, y = -tick_half - 0.05, label = "USL",
+             hjust = 0.5, vjust = 1, colour = CHART_FG, size = 5) +
+    annotate("text", x = lsl_x - outside_offset, y = tick_half + 0.05,
+             label = "b", hjust = 1, vjust = 0,
+             colour = CHART_FG, size = 5) +
+    annotate("text", x = lsl_x + inside_offset, y = tick_half + 0.05,
+             label = "a", hjust = 0, vjust = 0,
+             colour = CHART_FG, size = 5) +
+    annotate("text", x = usl_x - inside_offset, y = tick_half + 0.05,
+             label = "c", hjust = 1, vjust = 0,
+             colour = CHART_FG, size = 5) +
+    annotate("text", x = usl_x + outside_offset, y = tick_half + 0.05,
+             label = "d", hjust = 0, vjust = 0,
+             colour = CHART_FG, size = 5) +
+    coord_cartesian(xlim = c(lsl_x - 1.1, usl_x + 1.1),
+                    ylim = c(-0.55, 0.55), clip = "off") +
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA))
 }
 
 #' Create a Red Beads results data frame

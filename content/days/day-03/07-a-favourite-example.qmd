@@ -12,7 +12,18 @@ The example described below is one which Dr Deming frequently showed in his four
 
 The following run chart is based on some inspection data. Quoting from Dr Deming's account, it *"shows the daily record for two months of the proportion defective found on final audit of a product ready to ship out."* It is quite usual, as here, to chart the *proportion* or *percentage* of defectives rather than the actual *number* of defectives—the run chart is exactly the same in each of the three cases except for what is written on the vertical axis. Of course, if upgrading the run chart to a control chart then the control limits will need to be expressed in the same terms as are used on the vertical scale.
 
-![Run chart of proportion defective](/assets/images/day-03/favourite-example-run-chart.png){fig-align="center" width="85%" .lightbox}
+```{r favourite-example-run-chart, fig.width=8, fig.height=2.4, fig.align="center", fig.cap="Run chart of the daily proportion defective on final audit, over two months. The line wanders between roughly 8% and 9.6% — a tight band, with no control limits drawn yet."}
+favourite_example <- read.csv("../../../R/data/day-03-favourite-example.csv", comment.char = "#")$proportion_defective
+run_chart_plot(
+  favourite_example, line_width = 3,
+  y_limits = c(0.075, 0.10),
+  y_breaks = c(0.08, 0.09, 0.10),
+  y_minor_breaks = seq(0.08, 0.10, by = 0.001),
+  gridlines = "none",
+  y_label_fn = scales::label_percent(accuracy = 1),
+  show_x_labels = FALSE
+)
+```
 
 <details>
 <summary>Describe this chart</summary>
@@ -23,7 +34,22 @@ A run chart of the daily proportion defective on final audit, over two months. T
 
 Would you say that this process is in statistical control? You might be wise enough to answer that you cannot be sure without inserting the control limits to upgrade the run chart to a control chart. But there was a good reason why I haven't included the control limits here: you might be surprised to know that, starting with the run chart as shown above, the control limits wouldn't fit onto this page! Take a look at the way that Dr Deming drew the control chart of these data with a quite different vertical scale:
 
-![Control chart of proportion defective](/assets/images/day-03/favourite-example-control-chart.png){fig-align="center" width="85%" .lightbox}
+```{r favourite-example-control-chart, fig.width=8, fig.height=4, fig.align="center", fig.cap="The same daily proportions, redrawn on a much wider vertical scale. The correctly-computed control limits (LCL = 3.1%, UCL = 14.4%) are far apart, and every point clusters in a narrow band along the Central Line at 8.75% — the 'hugging the Central Line' pattern."}
+run_chart_plot(
+  favourite_example, line_width = 3,
+  y_limits = c(0, 0.16),
+  y_breaks = c(0, 0.05, 0.10, 0.15),
+  y_minor_breaks = NULL,
+  gridlines = "none",
+  central_line = 0.0875,
+  hlines = c(0.031, 0.144),
+  hline_labels = c("LCL=3.1%", "UCL=14.4%"),
+  hline_label_side = "left",
+  hline_label_offset = c(-0.005, 0.005),
+  y_label_fn = scales::label_percent(accuracy = 1),
+  show_x_labels = FALSE
+)
+```
 
 <details>
 <summary>Describe this chart</summary>

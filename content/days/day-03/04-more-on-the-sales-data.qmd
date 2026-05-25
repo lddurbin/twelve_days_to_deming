@@ -68,7 +68,17 @@ Returning to the question at the bottom of the previous page (concerning the All
 :::
 
 ::: {.column width="35%"}
-![Sales data control chart](/assets/images/day-03/sales-control-chart.png){.lightbox}
+```{r sales-control-chart, fig.width=5, fig.height=6, fig.cap="Sales data control chart: the same ten values upgraded with control limits (LCL = 6.7, UCL = 27.3) and a thin Central Line at 17. All ten points lie comfortably inside the limits — the process is in statistical control."}
+run_chart_plot(
+  c(13, 19, 18, 14, 16, 12, 21, 18, 17, 22),
+  line_width = 4,
+  y_limits = c(5, 30),
+  y_breaks = seq(5, 30, by = 5),
+  y_minor_breaks = seq(5, 30, by = 1),
+  central_line = 17,
+  hlines = c(6.7, 27.3)
+)
+```
 
 <details>
 <summary>Describe this chart</summary>

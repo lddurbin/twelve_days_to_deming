@@ -19,7 +19,9 @@ The concept of specifications rather than a target normally arises where there i
 
 Here is a scale on which I have marked the two specification limits and also four possible results:
 
-![Specification limits diagram showing LSL and USL with four results: b and a near LSL, c and d near USL](/assets/images/day-07/specification-limits.png){.lightbox}
+```{r specification-limits, fig.width=8, fig.height=1.6, fig.align="center", fig.cap="Specification limits: LSL and USL with four results — *b* and *a* near the lower limit, *c* and *d* near the upper. By conformance-to-specification, *a* and *c* pass while *b* and *d* fail — yet there is essentially no practical difference between *a* and *b*, nor between *c* and *d*."}
+specification_limits_diagram()
+```
 
 <details>
 <summary>Describe this diagram</summary>
@@ -93,7 +95,18 @@ If you are not very confident about plotting points and drawing graphs, please f
 
 Just about everybody gets a graph which looks something like Figure 34 on *DemDim* page 173:
 
-![Taguchi loss function parabola and Neave's plotted personal graph](/assets/images/day-07/taguchi-loss-function.png){.lightbox}
+```{r taguchi-loss-abstract, fig.width=6, fig.height=3.2, fig.align="center", fig.cap="The abstract Taguchi loss function: a symmetric parabola, bottoming out at the *nominal* value and rising symmetrically away from it."}
+taguchi_loss_abstract()
+```
+
+This picture shows the nicely symmetric model often illustrated and used by mathematicians as the Taguchi loss function. Mathematicians know it as a "parabola". Actual loss functions are not usually exactly symmetric about the nominal/optimum value. Mine isn't, for I tend to lose efficiency rather more if I'm cold than if I'm hot; for many people it may be the other way round. So the fine detail doesn't matter—but the general shape does. Here is my graph:
+
+```{r taguchi-loss-personal, fig.width=7, fig.height=5, fig.align="center", fig.cap="Neave's plotted personal graph: seven X markers at his temperature/loss readings (95% at 6°C, 50% at 11°C, 15% at 16°C, 0% at 21°C, 10% at 26°C, 45% at 31°C, 85% at 36°C) joined by a smooth curve — recognisably the same U-shape, but slightly asymmetric (losses rise faster on the cold side than on the hot)."}
+taguchi_loss_personal(
+  temps  = c(6, 11, 16, 21, 26, 31, 36),
+  losses = c(95, 50, 15, 0, 10, 45, 85)
+)
+```
 
 <details>
 <summary>Describe this chart</summary>
@@ -101,8 +114,6 @@ Just about everybody gets a graph which looks something like Figure 34 on *DemDi
 Two graphs stacked. The top graph is the abstract Taguchi loss function: a smooth U-shaped parabola with **loss** on the vertical axis and **measurement** on the horizontal axis, the curve bottoming out exactly at the **nominal** value and rising symmetrically away from it on both sides. The bottom graph is Neave's own plotted version, with seven Xs at his temperature/loss readings (95% at 6°C, 50% at 11°C, 15% at 16°C, 0% at 21°C, 10% at 26°C, 45% at 31°C, 85% at 36°C) joined by a smooth curve. His curve is recognisably the same U-shape but is *not quite symmetric* — losses rise faster on the cold side than on the hot side. The lesson: the precise mathematical parabola is the model, but real-life loss functions have the same general shape even when individuals are asymmetric.
 
 </details>
-
-This picture shows the nicely symmetric model often illustrated and used by mathematicians as the Taguchi loss function. Mathematicians know it as a "parabola". Actual loss functions are not usually exactly symmetric about the nominal/optimum value. Mine isn't, for I tend to lose efficiency rather more if I'm cold than if I'm hot; for many people it may be the other way round. So the fine detail doesn't matter—but the general shape does. Here is my graph:
 
 NB Of course, if you went even further out in either direction, i.e. to even higher or lower temperatures, your loss function has to flatten out at 100%—it has no further to go! But that only happens at really ridiculous temperatures (or whatever else we're considering): the typical Taguchi shape applies primarily to the kinds of variation normally met in practice.
 

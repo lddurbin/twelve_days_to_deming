@@ -1,0 +1,51 @@
+# Day 3 "A Favourite Example" — proportion-defective inspection data from the
+# Deming "Faulty inspection caused by fear" / sandbagging story (Out of the
+# Crisis pp. 227–228 [264–266]).
+#
+# IMPORTANT: These values are a visual digitisation of Neave's redrawn run
+# chart on Day 3 page 24. The exact daily figures are not in Neave's text;
+# he himself redrew the chart from Deming's account. The digitisation
+# preserves the storytelling signal — every point clustered in a tight band
+# around the Central Line, well inside the very wide computed control
+# limits (LCL=3.1%, UCL=14.4%) — without claiming to be the original numbers.
+# This deviation from "verbatim transcription" is logged in
+# docs/deviations-from-source.md.
+#
+# The control limits and Central Line in the published control chart are
+# carried through verbatim from Neave (LCL=3.1%, UCL=14.4%, CL=8.75%).
+# Neave used the binomial p-chart formula with an implied daily sample size
+# of ~225 items inspected, not the moving-range method introduced earlier
+# on the same day; this is why the limits are so wide despite the tight
+# observed spread.
+proportion_defective
+0.081
+0.094
+0.086
+0.085
+0.095
+0.081
+0.086
+0.088
+0.083
+0.096
+0.086
+0.084
+0.093
+0.084
+0.095
+0.083
+0.089
+0.081
+0.093
+0.080
+0.093
+0.080
+0.084
+0.080
+0.086
+0.095
+0.080
+0.088
+0.096
+0.080
+0.096

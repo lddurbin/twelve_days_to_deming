@@ -128,7 +128,18 @@ Then it's the turn of $\overline{MR}$, the average moving range in those 12 data
 
 So $\overline{MR} = (1 + 1 + 0 + 1 + 1 + 2 + 0 + 1 + 1 + 1 + 1) \div 11 = 10 \div 11 = 0.909$, and $2.66 \times \overline{MR} = 2.66 \times 0.909 = 2.418$. This puts the control limits at $12.167 - 2.418 = 9.749$ and $12.167 + 2.418 = 14.585$. Showing the control limits in blue as previously, the control chart is then:
 
-![Control chart of 24 values with limits computed from first 12](/assets/images/day-03/technical-aid-8-control-chart.png){fig-align="center" width="70%" .lightbox}
+```{r technical-aid-8-control-chart, fig.width=8, fig.height=4, fig.align="center", fig.cap="Control chart of all 24 values from the first process, with the limits (LCL ≈ 9.75, UCL ≈ 14.59) computed from only the first 12. The first 12 fluctuate inside the limits; the remaining 12 climb steadily and are well above the UCL by the end."}
+first_process <- read.csv("../../../R/data/day-03-first-process.csv", comment.char = "#")$value
+run_chart_plot(
+  first_process,
+  y_limits = c(5, 20),
+  y_breaks = seq(5, 20, by = 5),
+  y_minor_breaks = seq(5, 20, by = 1),
+  central_line = 12.167,
+  hlines = c(9.749, 14.585),
+  show_x_labels = FALSE
+)
+```
 
 <details>
 <summary>Describe this chart</summary>
