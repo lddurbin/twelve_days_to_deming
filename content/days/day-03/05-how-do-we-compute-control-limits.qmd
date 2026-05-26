@@ -43,18 +43,52 @@ How does the moving-range method achieve this? Let's consider the case where a f
 
 This kind of feature is so important that we'd better study some charts. Firstly, take a look at the two control charts, labelled A1 and A2, at the top of page 19. (Recall that on [Appendix page 1](../../appendix/00-welcome.qmd#sec-page1) I indicated you would find it convenient to print a separate copy of that page. I think you will quickly realise that Chart A1 shows a process which is in control. But Chart A2 looks very different. Amongst other features, four of its 24 points are very close to, or outside, the control limits. Thus there is little doubt that the data shown there come from a process which is out of statistical control.
 
-The control limits (coloured blue) in those charts on page 19 were computed by the moving-range method (in both cases using all of the 24 data-points included on the chart in the calculations). However, what would happen if we were instead to try computing the control limits with the conventional statistician's standard deviation (again using all the 24 data-points on each chart)? The control limits (coloured purple) on the charts that follow are computed using standard deviations.
+The control limits (coloured blue) in those charts on page 19 were computed by the moving-range method (in both cases using all of the 24 data-points included on the chart in the calculations). However, what would happen if we were instead to try computing the control limits with the conventional statistician's standard deviation (again using all the 24 data-points on each chart)? The control limits (coloured magenta) on the charts that follow are computed using standard deviations.
 
-![Charts A1 and A2 with control limits computed using standard deviations (purple)](/assets/images/day-03/charts-a1-a2-purple-limits.png){fig-align="center" width="90%" .lightbox}
+```{r charts-a1-a2-magenta-limits, fig.width=10, fig.height=3.5, fig.align="center", fig.cap="Charts A1 and A2 with control limits computed using **standard deviations** (magenta), shown alongside the thin blue Central Line. Chart A1 (left) is a stable process and its magenta limits sit almost exactly where the moving-range limits would be. Chart A2 (right) is the *same process* after special causes — its magenta limits are pushed outward to roughly twice the moving-range spread, so the chart now signals nothing."}
+source(here::here("R/data/day-03-six-processes.R"))
+
+a1_cl  <- mean(process_A1)
+a1_sd  <- sd(process_A1) * 3
+chart_a1 <- run_chart_plot(
+  process_A1,
+  line_width   = 2,
+  y_limits     = c(0, 30),
+  y_breaks     = seq(0, 30, by = 10),
+  y_minor_breaks = seq(0, 30, by = 2),
+  central_line = a1_cl,
+  hlines       = c(a1_cl - a1_sd, a1_cl + a1_sd),
+  hline_colour = "magenta",
+  show_x_labels = FALSE
+) + ggtitle("A1") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 18))
+
+a2_cl  <- mean(process_A2)
+a2_sd  <- sd(process_A2) * 3
+chart_a2 <- run_chart_plot(
+  process_A2,
+  line_width   = 2,
+  y_limits     = c(-10, 40),
+  y_breaks     = seq(-10, 40, by = 10),
+  y_minor_breaks = seq(-10, 40, by = 2),
+  central_line = a2_cl,
+  hlines       = c(a2_cl - a2_sd, a2_cl + a2_sd),
+  hline_colour = "magenta",
+  show_x_labels = FALSE
+) + ggtitle("A2") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 18))
+
+wrap_plots(chart_a1, chart_a2, ncol = 2)
+```
 
 <details>
 <summary>Describe this chart</summary>
 
-Two charts side by side: Chart A1 (a stable process) and Chart A2 (an out-of-control process), each shown with control limits drawn in **purple** — computed using the conventional standard deviation. On Chart A1 the purple limits sit roughly where the moving-range (blue) limits did on page 19: no harm done. On Chart A2, however, the purple limits are roughly *twice as far apart* as the blue limits would have been. They have been pushed outward by the very special causes they were meant to detect — and as a result, the chart now wraps around all the data and signals nothing. The standard deviation, like the histogram, ignores the order of the values; the moving-range method does not.
+Two charts side by side: Chart A1 (a stable process) and Chart A2 (an out-of-control process), each shown with control limits drawn in **magenta** — computed using the conventional standard deviation. On Chart A1 the magenta limits sit roughly where the moving-range (blue) limits did on page 19: no harm done. On Chart A2, however, the magenta limits are roughly *twice as far apart* as the blue limits would have been. They have been pushed outward by the very special causes they were meant to detect — and as a result, the chart now wraps around all the data and signals nothing. The standard deviation, like the histogram, ignores the order of the values; the moving-range method does not.
 
 </details>
 
-Now, those purple limits on this Chart A1 (computed using standard deviations) are virtually the same as the blue ones (computed using moving ranges) on page 19. *But* look what happens to Chart A2 where the standard-deviation-type (purple) control limits have been computed from the data there *which we have already just recognised as coming from an out-of-control process*. They are approximately twice as far apart as the ones on page 19! These limits are *totally useless* as a criterion for judging whether the process is or is not in statistical control. Why does this happen? It's because, just like the histogram, the standard deviation totally ignores the order in which the numbers occur in the data—refer again to the remarks about "the most important information of all" near the top of page 9.
+Now, those magenta limits on this Chart A1 (computed using standard deviations) are virtually the same as the blue ones (computed using moving ranges) on page 19. *But* look what happens to Chart A2 where the standard-deviation-type (magenta) control limits have been computed from the data there *which we have already just recognised as coming from an out-of-control process*. They are approximately twice as far apart as the ones on page 19! These limits are *totally useless* as a criterion for judging whether the process is or is not in statistical control. Why does this happen? It's because, just like the histogram, the standard deviation totally ignores the order in which the numbers occur in the data—refer again to the remarks about "the most important information of all" near the top of page 9.
 
 Now, as I said, using moving ranges is not a *perfect* solution for obtaining control limits that purely reflect common-cause variation even if computed when the process is out of statistical control. A perfect solution doesn't exist. But using moving ranges works pretty well in mitigating the contamination effects of many kinds of special causes. There are a few exceptions but, now that you know the general idea about how the control limits are produced, i.e. using moving ranges, those exceptions soon become relatively easy to recognise. That is why I have included this present discussion here in the main text rather than just in the Technical Aids—this is important knowledge for all users of control charts, including those on Stats-level 0. Two important exceptions that one needs to be able to recognise are illustrated with data generated in the Funnel Experiment, and so we shall see those this afternoon. But the general success of the moving-range method will be amply illustrated this morning in the section which begins on page 19.
 
