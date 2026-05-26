@@ -13,7 +13,7 @@ Here are two forms of histogram of those data. On the left, each item in the dat
 
 ```{r two-histograms-24-values, fig.width=10, fig.height=4, fig.align="center", fig.cap="Two histograms of the same 24 values ranging from 10 to 19: on the left, individual boxes stacked to show frequency, with small visible gaps between adjacent boxes; on the right, a conventional bar histogram with the gaps filled in. Both peak at 13 with five occurrences and tail off toward 10 and 19."}
 first_process <- read.csv("../../../R/data/day-03-first-process.csv", comment.char = "#")$value
-left  <- stacked_boxes_plot(first_process, x_breaks = 10:19, box_size = 14)
+left  <- stacked_boxes_plot(first_process, x_breaks = 10:19)
 right <- histogram_plot(first_process, binwidth = 1, boundary = 9.5,
                        x_breaks = 10:19) +
   theme(axis.text.y        = element_blank(),

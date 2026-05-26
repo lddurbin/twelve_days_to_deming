@@ -560,22 +560,27 @@ histogram_plot <- function(values,
 #' individual observations are before the gaps are filled in to make a
 #' conventional bar histogram in the right-hand panel).
 #'
-#' Uses \code{geom_point(shape = 22)} so the squares stay square regardless
-#' of the panel's aspect ratio (true square shapes are sized in millimetres,
-#' not data units — \code{geom_tile} would only look square when the data
-#' aspect matches the panel aspect).
+#' Uses \code{geom_tile} with \code{coord_fixed(ratio = 1)} so the tile size
+#' AND the gap between adjacent tiles are both expressed in data units —
+#' this keeps the gap-to-box ratio constant horizontally and vertically
+#' regardless of the panel's aspect ratio. An earlier version used
+#' \code{geom_point(shape = 22)} sized in millimetres, but that left
+#' visible asymmetric gaps (large vertical, small horizontal) whenever the
+#' panel was wider than tall.
 #'
 #' @param values Numeric vector. Integer-like observations to stack.
 #' @param x_breaks Numeric vector or NULL. Major x-axis tick positions.
 #'   If NULL, ggplot picks the breaks via its default heuristic.
-#' @param box_size Numeric. Square edge length in mm (passed as the
-#'   \code{size} argument to \code{geom_point}). Default 12; reduce if the
-#'   tallest stack starts touching the chart top.
+#' @param box_fill Numeric in (0, 1]. Fraction of the unit cell each box
+#'   occupies; the remainder shows as the gap between adjacent boxes.
+#'   Default 0.85 — a small but visible gap on every side, matching
+#'   Neave's printed page-7 figure.
 #' @return A ggplot2 object.
 #' @examples
 #' stacked_boxes_plot(c(10, 11, 11, 11, 12, 12), x_breaks = 10:12)
-stacked_boxes_plot <- function(values, x_breaks = NULL, box_size = 12) {
-  stopifnot(is.numeric(values), length(values) >= 1)
+stacked_boxes_plot <- function(values, x_breaks = NULL, box_fill = 0.85) {
+  stopifnot(is.numeric(values), length(values) >= 1,
+            box_fill > 0, box_fill <= 1)
 
   df <- data.frame(value = values) |>
     dplyr::group_by(.data$value) |>
@@ -585,8 +590,9 @@ stacked_boxes_plot <- function(values, x_breaks = NULL, box_size = 12) {
   max_stack <- max(df$stack)
 
   p <- ggplot(df, aes(x = .data$value, y = .data$stack)) +
-    geom_point(shape = 22, size = box_size,
-               fill = CHART_LINE_COLOUR, colour = CHART_FG, stroke = 0.4)
+    geom_tile(width = box_fill, height = box_fill,
+              fill = CHART_LINE_COLOUR, colour = CHART_FG, linewidth = 0.4) +
+    coord_fixed(ratio = 1, clip = "off")
 
   if (!is.null(x_breaks)) {
     p <- p + scale_x_continuous(breaks = x_breaks)
