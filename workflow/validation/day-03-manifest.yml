@@ -50,7 +50,6 @@ chapters:
   - file: "06-six-processes.qmd"
     viewof_count: 0
     figures:
-      - "/assets/images/day-03/six-processes-12-charts.png"
       - "/assets/images/day-03/six-processes-extended-charts.png"
     headings: []
     has_download_button: false
