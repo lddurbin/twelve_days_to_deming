@@ -75,13 +75,7 @@ chapters:
 
   - file: "09-the-six-processes-revisited.qmd"
     viewof_count: 0
-    figures:
-      - "/assets/images/day-03/chart-A3-individual.png"
-      - "/assets/images/day-03/chart-B3-individual.png"
-      - "/assets/images/day-03/chart-C3-individual.png"
-      - "/assets/images/day-03/chart-D3-individual.png"
-      - "/assets/images/day-03/chart-E3-individual.png"
-      - "/assets/images/day-03/chart-F3-individual.png"
+    figures: []
     headings:
       - "Technical Aid 10"
       - "Technical Aid 11"

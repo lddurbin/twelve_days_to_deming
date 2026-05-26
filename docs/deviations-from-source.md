@@ -40,6 +40,18 @@ Entries are listed newest-first.
 
 ---
 
+## 2026-05-26 — Replace Day 3 individual A3–F3 chart PNGs with R-generated figures
+
+- **What** — Replaced the six cropped-PNG figures `assets/images/day-03/chart-{A,B,C,D,E,F}3-individual.png` on Day 3 page 30 (Neave reproduces each of A3–F3 larger and individually, with the points numbered along the horizontal axis to support the prose discussion) with six R/ggplot2 chunks. The shared layout is encapsulated in a new `individual_process_chart(processes, letter)` helper that consumes the same `six_processes` named list laid down under [#344](https://github.com/lddurbin/twelve_days_to_deming/issues/344) and reuses the limits-extension logic from [#345](https://github.com/lddurbin/twelve_days_to_deming/issues/345).
+- **Where** — `R/functions/main-functions.R` (added `individual_process_chart()` immediately after `six_processes_extended_panel()`; added a small additive `x_breaks` parameter to `run_chart_plot()` so the page 30 charts can label every third point instead of all 48); `content/days/day-03/09-the-six-processes-revisited.qmd`; six PNGs deleted from `assets/images/day-03/`.
+- **Source reference** — Neave Day 3 page 30. The page-30 prose explicitly motivates the larger format: "I'll reproduce Charts A3–F3 but now with the points numbered along the horizontal axis in order to aid the discussion." The point-specific references in the prose (e.g. "Point 31 drops onto the LCL", "Point 35 (November 2008)") drive the choice to show x-axis labels here whereas they were suppressed in the stacked panel on page 23.
+- **Why** — Inherits the rationale of epic [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) and parent [#313](https://github.com/lddurbin/twelve_days_to_deming/issues/313): SVG output is crisp at any zoom, adapts to dark mode via the CSS-filter mechanism from [#310](https://github.com/lddurbin/twelve_days_to_deming/issues/310), and the limits-extension geometry remains in lockstep across page 19 (recomputed limits, [#344](https://github.com/lddurbin/twelve_days_to_deming/issues/344)), page 23 (extended-stack panel, [#345](https://github.com/lddurbin/twelve_days_to_deming/issues/345)), and page 30 (these individual variants) by sharing one helper stack and one dataset.
+- **Implementation note — same pedagogy, larger frame** — Each individual chart concatenates `process_X1` (24 in-control points) with `process_X2` (24 contaminated points), computes MR-based limits from `process_X1` alone, and draws those limits across all 48 points — identical to the page-23 stacked panel. The two differences are visible: the figure is rendered larger (≈9×3.5 inches versus ≈7×2 per row in the stack), and x-axis labels are turned on with ticks spaced every third point (3, 6, 9, ..., 48) so the prose can refer to specific point numbers without the labels becoming unreadable. No data changes — the same `six_processes` list feeds all three pages.
+- **Decided in** — Issue [#346](https://github.com/lddurbin/twelve_days_to_deming/issues/346) under the [#313](https://github.com/lddurbin/twelve_days_to_deming/issues/313) parent / [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) epic.
+- **Landed in** — *Pending — tracked in [#346](https://github.com/lddurbin/twelve_days_to_deming/issues/346).*
+
+---
+
 ## 2026-05-26 — Replace Day 3 Six-Processes 6×2 panel PNG with an R-generated figure
 
 - **What** — Replaced the cropped-PNG figure `assets/images/day-03/six-processes-12-charts.png` on Day 3 page 19 (Neave's twelve small control charts arranged as six pairs A1/A2 ... F1/F2) with an R/ggplot2 chunk that composes the panel via a new `six_processes_panel()` helper. The same call extends `R/data/day-03-six-processes.R` from process-A-only (laid down under [#343](https://github.com/lddurbin/twelve_days_to_deming/issues/343)) to the full A–F dataset.
@@ -61,7 +73,7 @@ Entries are listed newest-first.
 - **Why** — Inherits the rationale of epic [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) and parent [#313](https://github.com/lddurbin/twelve_days_to_deming/issues/313): SVG output is crisp at any zoom, adapts to dark mode via the CSS-filter mechanism from [#310](https://github.com/lddurbin/twelve_days_to_deming/issues/310), and the live-computed limits stay in lockstep with the page-19 limits (since both derive from the same `process_X1` data through `mr_limits()`). The page-19 ↔ page-23 internal consistency Neave's prose relies on holds by construction rather than by manual coordination of two cropped PNGs.
 - **Implementation note — limits from first half only** — The helper concatenates `process_X1` (the in-control 24 points) with `process_X2` (the contaminated 24 points), then computes MR-based limits from `process_X1` alone and draws those limits across all 48 points. This is the geometric expression of Neave's "no recomputation" rule: the limits sit where the stable-period data put them and let the second-half points breach them where the special cause appears.
 - **Decided in** — Issue [#345](https://github.com/lddurbin/twelve_days_to_deming/issues/345) under the [#313](https://github.com/lddurbin/twelve_days_to_deming/issues/313) parent / [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) epic.
-- **Landed in** — *Pending — tracked in [#345](https://github.com/lddurbin/twelve_days_to_deming/issues/345).*
+- **Landed in** — [#364](https://github.com/lddurbin/twelve_days_to_deming/pull/364) (commit `3f46262`).
 
 ---
 
