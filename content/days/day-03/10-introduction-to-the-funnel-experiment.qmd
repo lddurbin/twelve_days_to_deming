@@ -42,7 +42,7 @@ A horizontal track of 21 numbered squares, running from 20 on the left to 40 on 
 
 However, you don't have to build that whole model! During the description I shall show the positions of the funnel and marble along their tracks by little icons on a single track. So, for example, if the funnel is at position 31 and, after being dropped through the funnel, the marble bounces around and finishes up at position 33 then I shall show this as:
 
-```{r funnel-track-with-icons, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="The same 20–40 track, now with two markers above it: a blue downward arrow above square 31 (the funnel's position) and a small yellow circle above square 33 (where the marble came to rest)."}
+```{r funnel-track-with-icons, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="The same 20–40 track, now with two markers above it: a blue downward triangle above square 31 (the funnel's position) and a small yellow circle above square 33 (where the marble came to rest)."}
 funnel_track_plot(funnel_pos = 31, marble_pos = 33)
 ```
 

@@ -474,6 +474,12 @@ funnel_track_plot <- function(funnel_pos = NULL,
                               x_max = 40,
                               target = 30) {
   stopifnot(x_min < x_max, target >= x_min, target <= x_max)
+  if (!is.null(funnel_pos)) {
+    stopifnot(funnel_pos >= x_min, funnel_pos <= x_max)
+  }
+  if (!is.null(marble_pos)) {
+    stopifnot(marble_pos >= x_min, marble_pos <= x_max)
+  }
 
   positions <- seq(x_min, x_max)
   track_df  <- data.frame(
