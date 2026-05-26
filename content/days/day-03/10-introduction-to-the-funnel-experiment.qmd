@@ -73,12 +73,14 @@ Your version of the track going from 20 to 40 will be sufficient for much of the
 
 **NB** Just in case you really cannot find any dice to use then I have provided below a couple of sample sequences of dice-throws for you to choose between and use instead. Note that both of these sequences begin at Stage 6: I'll be providing the first five stages for you this afternoon when I shall use them for demonstration purposes.
 
-![Dice sequences](/assets/images/day-03/funnel-dice-sequences.png){fig-align="center" width="95%" .lightbox}
+```{r funnel-dice-sequences, fig.width=14, fig.height=4, fig.align="center", fig.cap="Two pre-recorded sequences of dice-throw outcomes — Seq. A and Seq. B — provided as a fallback for any reader without physical dice. Each cell shows a pair of dice values (one for each of two dice). Both sequences begin at Stage 6: the first five stages are supplied separately for demonstration."}
+funnel_dice_sequences_plot()
+```
 
 <details>
 <summary>Describe this diagram</summary>
 
-Two pre-recorded sequences of dice-throw outcomes (Sequence I and Sequence II), provided as a fallback for any reader without physical dice. Each sequence lists the values from Stage 6 onward — the first five stages will be supplied separately for demonstration. Either sequence can be used in place of throwing dice live during the Funnel Experiment.
+Two pre-recorded sequences of dice-throw outcomes (Seq. A and Seq. B), provided as a fallback for any reader without physical dice. Each sequence lists the values from Stage 6 onward — the first five stages will be supplied separately for demonstration. Each cell holds a pair of dice values (e.g. "6,4" means die-1 showed 6 and die-2 showed 4). The 35 stages are split across two horizontal blocks for legibility: Stages 6–23 in the upper block and Stages 24–40 in the lower block. Either sequence can be used in place of throwing dice live during the Funnel Experiment.
 
 </details>
 
