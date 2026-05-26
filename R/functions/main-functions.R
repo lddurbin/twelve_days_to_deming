@@ -313,6 +313,68 @@ six_processes_panel <- function(processes, ncol = 2,
   patchwork::wrap_plots(charts, ncol = ncol)
 }
 
+#' Compose a six-row stack of extended A3–F3 control charts (Day 3 page 23)
+#'
+#' For each process letter L in \code{pairs} (default A–F), concatenates the
+#' L1 and L2 data from \code{processes} into a single 48-point series,
+#' computes MR-based control limits from the *first 24 points only* (the L1
+#' half — when the process was in statistical control), and renders all 48
+#' points with those earlier limits *extended unchanged into the future*.
+#'
+#' This is the pedagogical companion to \code{six_processes_panel}: there the
+#' control limits are recomputed from each half's own data, so the
+#' out-of-control half's limits drift outward to accommodate the contamination.
+#' Here the limits stay fixed at the stable-period values, so the signals of
+#' instability in the second half show through more strongly — Neave's main
+#' point on page 22: "leave the control limits alone if you have no good
+#' reason for changing them".
+#'
+#' Labels are auto-generated as "<letter>3" (A3, B3, ...) since the extended
+#' chart is always the third in the series for each process.
+#'
+#' @param processes Named list (as accepted by \code{six_processes_panel})
+#'   containing both halves for each process — entries keyed
+#'   \code{<letter>1} and \code{<letter>2} (e.g. \code{A1}, \code{A2}). The
+#'   \code{y_limits}, \code{y_breaks}, and (optional) \code{y_minor_breaks}
+#'   are read from the L1 entry.
+#' @param pairs Character vector. Letters identifying which pairs to combine.
+#'   Default \code{c("A", "B", "C", "D", "E", "F")}.
+#' @param chart_line_width Numeric. Thinner line for stacked panels. Default
+#'   1.0 — slightly thinner than \code{six_processes_panel} since each panel
+#'   now carries twice as many points.
+#' @return A patchwork object: a single column of six panels.
+six_processes_extended_panel <- function(processes,
+                                         pairs = c("A","B","C","D","E","F"),
+                                         chart_line_width = 1.0) {
+  charts <- lapply(pairs, function(letter) {
+    p1 <- processes[[paste0(letter, "1")]]
+    p2 <- processes[[paste0(letter, "2")]]
+    stopifnot(!is.null(p1), !is.null(p2))
+
+    combined <- c(p1$data, p2$data)
+    lims     <- mr_limits(p1$data)
+    minor    <- if (!is.null(p1$y_minor_breaks)) p1$y_minor_breaks else p1$y_breaks
+
+    run_chart_plot(
+      values         = combined,
+      line_width     = chart_line_width,
+      y_limits       = p1$y_limits,
+      y_breaks       = p1$y_breaks,
+      y_minor_breaks = minor,
+      hlines         = c(lims$lcl, lims$ucl),
+      central_line   = lims$central,
+      gridlines      = "none",
+      show_x_labels  = FALSE
+    ) +
+      ggtitle(paste0(letter, "3")) +
+      theme(plot.title  = element_text(hjust = 0.5, face = "bold",
+                                       size = 14, colour = CHART_FG),
+            plot.margin = margin(4, 8, 4, 4),
+            axis.text.y = element_text(size = 10, colour = CHART_FG))
+  })
+  patchwork::wrap_plots(charts, ncol = 1)
+}
+
 #' Plot a Red Beads Experiment control chart
 #'
 #' Convenience wrapper around \code{run_chart_plot} pre-configured for Red
