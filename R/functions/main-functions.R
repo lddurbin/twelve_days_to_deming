@@ -439,6 +439,100 @@ individual_process_chart <- function(processes, letter,
           axis.text.y = element_text(size = 11, colour = CHART_FG))
 }
 
+#' Plot the Funnel Experiment "track"
+#'
+#' Draws the one-dimensional Funnel Experiment track from
+#' \code{x_min} to \code{x_max} (default 20-40) as a horizontal row of
+#' square cells with alternating green/yellow fills and red borders.
+#' Each cell carries its position number in bold serif. The
+#' \code{target} square (default 30) is overlaid with a dark
+#' bullseye-style marker — the "target-point" of the silly game on
+#' [Day 3.10](../../../content/days/day-03/10-introduction-to-the-funnel-experiment.qmd).
+#'
+#' Two optional markers float just above the track:
+#' \itemize{
+#'   \item \code{funnel_pos} — blue downward triangle on a short stick,
+#'     marking where the funnel was placed.
+#'   \item \code{marble_pos} — yellow filled circle, marking where the
+#'     marble came to rest.
+#' }
+#' Either or both may be \code{NULL} (the default) to produce the
+#' "basic" empty track.
+#'
+#' @param funnel_pos Numeric or NULL. Track position of the funnel
+#'   marker. Default \code{NULL}.
+#' @param marble_pos Numeric or NULL. Track position of the marble
+#'   marker. Default \code{NULL}.
+#' @param x_min,x_max Numeric. Inclusive range of track positions.
+#'   Default 20 to 40.
+#' @param target Numeric. Position of the highlighted target square.
+#'   Default 30.
+#' @return A ggplot2 object.
+funnel_track_plot <- function(funnel_pos = NULL,
+                              marble_pos = NULL,
+                              x_min = 20,
+                              x_max = 40,
+                              target = 30) {
+  stopifnot(x_min < x_max, target >= x_min, target <= x_max)
+
+  positions <- seq(x_min, x_max)
+  track_df  <- data.frame(
+    x         = positions,
+    fill      = ifelse(positions %% 2 == 0, "#4caf50", "#fff176"),
+    is_target = positions == target
+  )
+
+  border_colour <- "#d32f2f"
+  number_size   <- 7
+
+  p <- ggplot() +
+    geom_tile(
+      data     = track_df,
+      mapping  = aes(x = .data$x, y = 0, fill = .data$fill),
+      width    = 1, height = 1,
+      colour   = border_colour, linewidth = 0.9
+    ) +
+    scale_fill_identity() +
+    geom_text(
+      data     = subset(track_df, !track_df$is_target),
+      mapping  = aes(x = .data$x, y = 0, label = .data$x),
+      family   = "serif", fontface = "bold",
+      size     = number_size, colour = CHART_FG
+    ) +
+    annotate("point", x = target, y = 0,
+             shape = 21, size = 12,
+             fill = "#1a237e", colour = border_colour, stroke = 1.2) +
+    annotate("text", x = target, y = 0, label = as.character(target),
+             family = "serif", fontface = "bold",
+             size = number_size - 1, colour = border_colour) +
+    coord_fixed(ratio = 1, clip = "off") +
+    scale_x_continuous(limits = c(x_min - 0.6, x_max + 0.6), expand = c(0, 0)) +
+    scale_y_continuous(limits = c(-0.7, 1.6), expand = c(0, 0)) +
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA),
+          plot.margin      = margin(2, 2, 2, 2))
+
+  if (!is.null(funnel_pos)) {
+    p <- p +
+      annotate("segment", x = funnel_pos, xend = funnel_pos,
+               y = 0.55, yend = 1.25,
+               colour = "#1565c0", linewidth = 1) +
+      annotate("point", x = funnel_pos, y = 0.7,
+               shape = 25, size = 7,
+               fill = "#1565c0", colour = "#1565c0")
+  }
+
+  if (!is.null(marble_pos)) {
+    p <- p +
+      annotate("point", x = marble_pos, y = 0.85,
+               shape = 21, size = 6,
+               fill = "#fbc02d", colour = CHART_FG, stroke = 0.6)
+  }
+
+  p
+}
+
 #' Plot a Red Beads Experiment control chart
 #'
 #' Convenience wrapper around \code{run_chart_plot} pre-configured for Red
