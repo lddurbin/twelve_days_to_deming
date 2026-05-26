@@ -84,7 +84,6 @@ chapters:
   - file: "10-introduction-to-the-funnel-experiment.qmd"
     viewof_count: 0
     figures:
-      - "/assets/images/day-03/funnel-dice-sequences.png"
       - "/assets/images/day-03/funnel-track-colourful.png"
     headings: []
     has_download_button: false

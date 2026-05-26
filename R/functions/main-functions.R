@@ -539,6 +539,130 @@ funnel_track_plot <- function(funnel_pos = NULL,
   p
 }
 
+#' Plot the Funnel Experiment "dice sequences" fallback table
+#'
+#' Draws Neave's two pre-recorded dice-throw sequences (Seq. A and Seq. B)
+#' provided on Day 3 page 37 as a fallback for any reader without
+#' physical dice. Each sequence runs from Stage 6 through Stage 40 — both
+#' begin at Stage 6 because Neave supplies the first five stages
+#' separately for demonstration purposes. Each entry is a *pair* of
+#' dice values (one for each of two dice), shown as a comma-separated
+#' numeric pair (e.g. "6,4") so the output matches Neave's printed table
+#' verbatim.
+#'
+#' The table is split across two horizontal blocks to stay legible at
+#' page width — Stages 6–23 in the upper block, Stages 24–40 in the
+#' lower block — matching Neave's printed layout.
+#'
+#' Implementation note — pair representation: an initial pass tried the
+#' Unicode dice glyphs (U+2680..U+2685, ⚀⚁⚂⚃⚄⚅) so the table would read
+#' as a glyph grid. Those glyphs only live in specialty symbol fonts
+#' (e.g. Apple Symbols on macOS, DejaVu Sans on Linux distributions that
+#' include it) and rendered as tofu boxes through svglite on a CI Ubuntu
+#' image without the right font installed. Adding a font-loading
+#' dependency (showtext / ggimage) for what is fundamentally a fallback
+#' figure that the reader can ignore if they have physical dice did not
+#' carry its own weight. Numeric pairs are also Neave's own choice in
+#' the printed PDF, so this is both portable and source-faithful.
+#'
+#' @param stages_per_block Integer. How many stages occupy each
+#'   horizontal block. Default 18 (matching Neave's printed layout
+#'   of 18 + 17 stages across the two blocks; the last block holds
+#'   whatever remains).
+#' @return A ggplot2 object — a single figure containing both blocks
+#'   stacked vertically.
+#' @examples
+#' funnel_dice_sequences_plot()
+funnel_dice_sequences_plot <- function(stages_per_block = 18) {
+  # Neave's two recorded sequences, Stages 6 through 40 inclusive.
+  # Each entry is a (die-1, die-2) pair.
+  seq_a <- list(
+    c(6,4), c(2,4), c(4,5), c(4,5), c(1,3), c(5,6), c(6,3), c(3,5),
+    c(6,4), c(3,5), c(2,2), c(5,2), c(4,2), c(2,4), c(6,6), c(4,6),
+    c(5,3), c(4,3),
+    c(2,5), c(6,3), c(5,6), c(6,3), c(5,1), c(6,1), c(2,1), c(2,2),
+    c(3,6), c(5,3), c(6,6), c(5,3), c(4,6), c(6,5), c(3,4), c(3,6),
+    c(5,6)
+  )
+  seq_b <- list(
+    c(3,5), c(3,6), c(4,4), c(1,3), c(1,1), c(4,1), c(5,3), c(1,6),
+    c(4,5), c(1,2), c(5,4), c(1,4), c(6,1), c(1,2), c(1,3), c(5,4),
+    c(6,5), c(6,1),
+    c(4,3), c(6,6), c(1,5), c(6,3), c(4,4), c(5,2), c(4,4), c(1,4),
+    c(6,1), c(3,2), c(5,5), c(5,6), c(6,2), c(1,3), c(4,6), c(6,3),
+    c(3,1)
+  )
+
+  stages <- 6:40
+  stopifnot(length(seq_a) == length(stages),
+            length(seq_b) == length(stages))
+
+  pair_text <- function(pair) paste0(pair[1], ",", pair[2])
+
+  # Split into two horizontal blocks. First block = stages_per_block stages;
+  # second block = whatever remains.
+  block1_idx <- seq_len(min(stages_per_block, length(stages)))
+  block2_idx <- setdiff(seq_along(stages), block1_idx)
+
+  # Cell-width tuning: each row's first cell is the row label ("Stage",
+  # "Seq. A", "Seq. B"), which is wider than a dice-pair cell. Widening
+  # the label tile and shifting all data tiles right by the same amount
+  # keeps the columns aligned cleanly with no overlap.
+  label_width <- 2.2
+  data_width  <- 1.3
+  label_x     <- 0
+  first_x     <- label_x + (label_width + data_width) / 2
+
+  build_block <- function(idx, block_y) {
+    # block_y is the vertical centre of this block group; we use 3 rows:
+    # block_y + 1 = "Stage" header, block_y = Seq. A, block_y - 1 = Seq. B.
+    n <- length(idx)
+    x <- first_x + (seq_len(n) - 1) * data_width
+    data.frame(
+      x      = c(label_x, x, label_x, x, label_x, x),
+      y      = c(rep(block_y + 1, n + 1),
+                 rep(block_y,     n + 1),
+                 rep(block_y - 1, n + 1)),
+      label  = c("Stage", as.character(stages[idx]),
+                 "Seq. A", vapply(seq_a[idx], pair_text, character(1)),
+                 "Seq. B", vapply(seq_b[idx], pair_text, character(1))),
+      role   = c("header", rep("stage", n),
+                 "header", rep("dice",  n),
+                 "header", rep("dice",  n)),
+      width  = c(label_width, rep(data_width, n),
+                 label_width, rep(data_width, n),
+                 label_width, rep(data_width, n)),
+      stringsAsFactors = FALSE
+    )
+  }
+
+  block1 <- build_block(block1_idx, block_y = 4)   # upper block
+  block2 <- build_block(block2_idx, block_y = 0)   # lower block
+  df <- rbind(block1, block2)
+  df$height <- 1.0
+
+  dice_df   <- df[df$role == "dice", ]
+  stage_df  <- df[df$role == "stage", ]
+  header_df <- df[df$role == "header", ]
+
+  ggplot(df, aes(x = .data$x, y = .data$y)) +
+    geom_tile(aes(width = .data$width, height = .data$height),
+              fill = "white", colour = CHART_FG, linewidth = 0.8) +
+    geom_text(data = header_df, aes(label = .data$label),
+              fontface = "bold", family = "sans",
+              size = 5, colour = CHART_FG) +
+    geom_text(data = stage_df, aes(label = .data$label),
+              family = "sans", size = 5, colour = CHART_FG) +
+    geom_text(data = dice_df, aes(label = .data$label),
+              family = "sans", size = 4.6, colour = CHART_FG) +
+    coord_fixed(ratio = 1, clip = "off") +
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA),
+          plot.margin      = margin(4, 4, 4, 4),
+          legend.position  = "none")
+}
+
 #' Plot a Red Beads Experiment control chart
 #'
 #' Convenience wrapper around \code{run_chart_plot} pre-configured for Red
