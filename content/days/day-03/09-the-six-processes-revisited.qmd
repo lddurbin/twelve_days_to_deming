@@ -9,7 +9,10 @@ On pages 19–23 I described and discussed how our study of the six processes ca
 
 So let's conclude this extra-curricular discussion by examining more closely than previously the second halves of the process-data. I'll reproduce Charts A3–F3 but now with the points numbered along the horizontal axis in order to aid the discussion. I have already told you what was happening with these processes. But now imagine that I *hadn't* told you and that therefore you only had the control charts to guide you. What could they have told you? Also, imagine that you are developing the charts in real time after the halfway stage, i.e. after having computed the control limits from the first 24 data. Since at that stage the charts indicate the processes to be in statistical control, it is sensible to extend those control limits into the future and add the next 24 points to the chart one at a time as and when they are obtained.
 
-![Chart A3](/assets/images/day-03/chart-A3-individual.png){fig-align="center" width="85%" .lightbox}
+```{r chart-a3-individual, fig.width=9, fig.height=3.5, fig.align="center", fig.cap="Chart A3: dice totals across all 48 points (A1 followed by A2), with the control limits taken from the first 24 points and extended unchanged. The four-dice baseline holds through Point 30; Point 31 drops onto the LCL as the dice change to two; from Point 37 the points jump above the UCL as the count rises to six."}
+source(here::here("R/data/day-03-six-processes.R"))
+individual_process_chart(six_processes, "A")
+```
 
 <details>
 <summary>Describe this chart</summary>
@@ -22,7 +25,10 @@ Chart A3 is clearly indicating stability up to and including Point 30, but then 
 
 You will see that this interpretation of the chart accurately reflects what we recall was the truth: four dice were used for Points 1–30, two dice for Points 31–36, and six dice for Points 37–48.
 
-![Chart B3](/assets/images/day-03/chart-B3-individual.png){fig-align="center" width="85%" .lightbox}
+```{r chart-b3-individual, fig.width=9, fig.height=3.5, fig.align="center", fig.cap="Chart B3: numbers of Heads from 25-coin tosses across all 48 points, with the control limits taken from the first 24 and extended. Quiet inside the limits until around Point 40, then a steady upward trend as two extra coins are added at each toss from Point 39 onward."}
+source(here::here("R/data/day-03-six-processes.R"))
+individual_process_chart(six_processes, "B")
+```
 
 <details>
 <summary>Describe this chart</summary>
@@ -37,7 +43,10 @@ That again is an accurate interpretation of what actually happened: two extra co
 
 *With regard to these illustrations using dice, it may be worth my reproducing a suggestion from EST page 50: "Such 'games' [as in these illustrations] are a fast and effective way to gain experience of constructing and interpreting [control] charts. Work with a colleague. One of you generates the data, now and again unobtrusively changing the process. The other records the data and draws and interprets the charts. You could also try not bothering with the [control] limits, and see how you get on!"*
 
-![Chart C3](/assets/images/day-03/chart-C3-individual.png){fig-align="center" width="85%" .lightbox}
+```{r chart-c3-individual, fig.width=9, fig.height=3.5, fig.align="center", fig.cap="Chart C3: Red Beads counts across all 48 paddles, with the control limits taken from the first 24 and extended. The familiar Red Beads pattern through Point 42, then the final five points jump well above the UCL — the contrived special cause was a measurement-recording change (summing the two junior inspectors' counts) for the last six paddles."}
+source(here::here("R/data/day-03-six-processes.R"))
+individual_process_chart(six_processes, "C")
+```
 
 <details>
 <summary>Describe this chart</summary>
@@ -48,7 +57,10 @@ That again is an accurate interpretation of what actually happened: two extra co
 
 There is little to discuss with the Red Beads illustration: you will recall that I contrived to double the recorded values for the last six points. In fact, it looks as if I only doubled the values for the final five points; however, the first actual count of red beads when I started doing this happened to be only 4, so Point 43 is at 8—thus appearing to be just before the special cause occurred. You can't expect the chart to be absolutely right all of the time!
 
-![Chart D3](/assets/images/day-03/chart-D3-individual.png){fig-align="center" width="85%" .lightbox}
+```{r chart-d3-individual, fig.width=9, fig.height=3.5, fig.align="center", fig.cap="Chart D3: Neave's morning pulse rate over 48 consecutive days, with the control limits taken from the first 24 and extended. Stable but unhealthily high through Point 44, then a sharp drop to a new, stable, much lower level — the beta-blocker prescribed on day 44 acting as a 'good' special cause."}
+source(here::here("R/data/day-03-six-processes.R"))
+individual_process_chart(six_processes, "D")
+```
 
 <details>
 <summary>Describe this chart</summary>
@@ -61,7 +73,10 @@ The control chart of my morning pulse rates shows stability up to Point 44. That
 
 This raises a rather obvious question which fortunately also has a rather obvious answer. Regarding the control chart, what do we do now? This was a good special cause. It has not harmed the behaviour of the process as do most special causes: it has improved it. So, of course, we do not try to remove a good special cause: we retain it and, if possible, incorporate it into the system (of course, easy enough in this particular case). But since it has changed the system, clearly the current control limits are now redundant. Thus, after a few more data have been recorded, the obvious thing to do is recompute the control limits using data from the changed system and, presuming the changed system is seen to be in statistical control, to extend those new limits into the future.
 
-![Chart E3](/assets/images/day-03/chart-E3-individual.png){fig-align="center" width="85%" .lightbox}
+```{r chart-e3-individual, fig.width=9, fig.height=3.5, fig.align="center", fig.cap="Chart E3: daily averages of cigarette-lighter-socket measurements across 48 days (Tokai Rika case study), with the control limits taken from the first 24 and extended. Point 36 (Friday 26 September 1980) spikes upward; from Point 37 the line returns to target and the variability visibly tightens — Tokai Rika replaced the worn positioning collar the next working day."}
+source(here::here("R/data/day-03-six-processes.R"))
+individual_process_chart(six_processes, "E")
+```
 
 <details>
 <summary>Describe this chart</summary>
@@ -84,7 +99,10 @@ The high point in Chart E3 (Point 36) was for Friday 26 September 1980, and Poin
 
 []{#sec-page33}It will probably not have escaped your notice that, as soon as action was taken to prevent further deterioration due to the worn collar, the variability of the data became considerably less than it was in the first half of the chart. The reason for this was not noted on the chart. Maybe the new collar was of an improved design or made of better material. Maybe the old collar had already been causing some deterioration earlier on but not enough to produce out-of-control signals on the control chart. Whatever was the case, the Tokai Rika personnel did the obvious thing. Yes, they recognised the existence of the changed system by recomputing the control limits and extending those limits into the future. Notice how wholly irrelevant any consideration of "conformance to specifications" was to how they behaved. This account about the Tokai Rika chart is considerably expanded upon in Part B of the Optional Extras.
 
-![Chart F3](/assets/images/day-03/chart-F3-individual.png){fig-align="center" width="85%" .lightbox}
+```{r chart-f3-individual, fig.width=9, fig.height=3.5, fig.align="center", fig.cap="Chart F3: monthly US trade deficits in billions of dollars across 2006–2009, with the control limits taken from the first 24 (2006–07) and extended. The deficit trends downward sharply after Point 31, drops below the LCL at Point 35 (November 2008, the first full month after the financial crisis), and stays below the LCL through the end of the chart."}
+source(here::here("R/data/day-03-six-processes.R"))
+individual_process_chart(six_processes, "F")
+```
 
 <details>
 <summary>Describe this chart</summary>

@@ -173,6 +173,12 @@ run_chart_theme <- function(right_margin = 5, gridlines = c("full", "none")) {
 #'   under each point (the Day 2 Red Beads convention). If FALSE, suppress
 #'   x-axis labels — Neave omits them on Day 3 page 7 and page 21, where
 #'   the values' sequence position carries no independent meaning.
+#' @param x_breaks Integer vector or NULL. Major tick positions along the
+#'   x-axis. If NULL (default), uses \code{seq_along(values)} — one tick at
+#'   every data-point, matching the Day 2 Red Beads convention. Override
+#'   with a sparser sequence (e.g. \code{seq(3, 48, by = 3)}) on long charts
+#'   where labelling every point would be unreadable — Neave does this on
+#'   the Day 3 page 30 individual A3–F3 charts (48 points each).
 #' @param hline_colour Character. Colour for the \code{hlines} and their
 #'   labels. Defaults to \code{CONTROL_LIMIT_COLOUR} (blue). Override
 #'   for Neave's Day 3 page 15 contrast where the standard-deviation limits
@@ -194,6 +200,7 @@ run_chart_plot <- function(values, line_width = 6,
                            y_label_fn = NULL,
                            gridlines = c("full", "none"),
                            show_x_labels = TRUE,
+                           x_breaks = NULL,
                            hline_colour = CONTROL_LIMIT_COLOUR) {
   stopifnot(is.numeric(values), length(values) >= 2)
   hline_label_side <- match.arg(hline_label_side)
@@ -208,8 +215,10 @@ run_chart_plot <- function(values, line_width = 6,
   )
   if (!is.null(y_label_fn)) y_scale_args$labels <- y_label_fn
 
+  x_breaks_resolved <- if (is.null(x_breaks)) seq_along(values) else x_breaks
+
   p <- ggplot(df, aes(x, y)) +
-    scale_x_continuous(breaks = seq_along(values), expand = c(0, 0)) +
+    scale_x_continuous(breaks = x_breaks_resolved, expand = c(0, 0)) +
     do.call(scale_y_continuous, y_scale_args) +
     run_chart_theme(right_margin = right_margin, gridlines = gridlines)
 
@@ -373,6 +382,61 @@ six_processes_extended_panel <- function(processes,
             axis.text.y = element_text(size = 10, colour = CHART_FG))
   })
   patchwork::wrap_plots(charts, ncol = 1)
+}
+
+#' Render a single A3–F3 control chart with numbered x-axis (Day 3 page 30)
+#'
+#' Builds one of the six "individual" extended charts that Neave reproduces
+#' larger on page 30 of Day 3, where the prose discusses specific point
+#' numbers ("Point 31 drops onto the LCL ...", "Point 45 onward ...").
+#' Structurally identical to a single row of \code{six_processes_extended_panel}:
+#' concatenates L1 + L2 into 48 points, computes MR limits from the L1 half
+#' only, and extends those limits across all 48. The two differences are:
+#' x-axis labels are visible (so prose can reference specific point numbers),
+#' and the figure is rendered at a larger size with a sparser tick spacing
+#' (every third point — labelling all 48 would be unreadable).
+#'
+#' @param processes Named list (as accepted by \code{six_processes_panel})
+#'   containing both halves for each process — entries keyed
+#'   \code{<letter>1} and \code{<letter>2}. The \code{y_limits},
+#'   \code{y_breaks}, and (optional) \code{y_minor_breaks} are read from the
+#'   L1 entry.
+#' @param letter Single character identifying the process (e.g. \code{"A"}).
+#' @param line_width Numeric. Default 1.4 — between the stacked-panel default
+#'   (1.0) and the Day 2 Red Beads default (6); reads cleanly at the larger
+#'   per-chart size used on page 30.
+#' @param x_breaks_by Integer. Spacing between x-axis ticks. Default 3, which
+#'   matches Neave's printed page 30 layout: ticks at 3, 6, 9, ..., 48.
+#' @return A ggplot2 object — a single 48-point chart with extended limits.
+individual_process_chart <- function(processes, letter,
+                                     line_width = 1.4,
+                                     x_breaks_by = 3) {
+  p1 <- processes[[paste0(letter, "1")]]
+  p2 <- processes[[paste0(letter, "2")]]
+  stopifnot(!is.null(p1), !is.null(p2))
+
+  combined <- c(p1$data, p2$data)
+  lims     <- mr_limits(p1$data)
+  minor    <- if (!is.null(p1$y_minor_breaks)) p1$y_minor_breaks else p1$y_breaks
+
+  run_chart_plot(
+    values         = combined,
+    line_width     = line_width,
+    x_breaks       = seq(x_breaks_by, length(combined), by = x_breaks_by),
+    y_limits       = p1$y_limits,
+    y_breaks       = p1$y_breaks,
+    y_minor_breaks = minor,
+    hlines         = c(lims$lcl, lims$ucl),
+    central_line   = lims$central,
+    gridlines      = "none",
+    show_x_labels  = TRUE
+  ) +
+    ggtitle(paste0(letter, "3")) +
+    theme(plot.title  = element_text(hjust = 0.5, face = "bold",
+                                     size = 16, colour = CHART_FG),
+          plot.margin = margin(4, 12, 4, 4),
+          axis.text.x = element_text(size = 11, colour = CHART_FG),
+          axis.text.y = element_text(size = 11, colour = CHART_FG))
 }
 
 #' Plot a Red Beads Experiment control chart
