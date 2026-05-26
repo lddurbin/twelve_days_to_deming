@@ -173,8 +173,8 @@ run_chart_theme <- function(right_margin = 5, gridlines = c("full", "none")) {
 #'   under each point (the Day 2 Red Beads convention). If FALSE, suppress
 #'   x-axis labels — Neave omits them on Day 3 page 7 and page 21, where
 #'   the values' sequence position carries no independent meaning.
-#' @param hline_colour Character or NULL. Colour for the \code{hlines} and
-#'   their labels. Defaults to \code{CONTROL_LIMIT_COLOUR} (blue). Override
+#' @param hline_colour Character. Colour for the \code{hlines} and their
+#'   labels. Defaults to \code{CONTROL_LIMIT_COLOUR} (blue). Override
 #'   for Neave's Day 3 page 15 contrast where the standard-deviation limits
 #'   are drawn in magenta to distinguish them from the moving-range limits
 #'   on the same data. Pure magenta (\code{"magenta"} / \code{"#ff00ff"})

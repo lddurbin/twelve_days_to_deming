@@ -45,10 +45,8 @@ This kind of feature is so important that we'd better study some charts. Firstly
 
 The control limits (coloured blue) in those charts on page 19 were computed by the moving-range method (in both cases using all of the 24 data-points included on the chart in the calculations). However, what would happen if we were instead to try computing the control limits with the conventional statistician's standard deviation (again using all the 24 data-points on each chart)? The control limits (coloured magenta) on the charts that follow are computed using standard deviations.
 
-```{r charts-a1-a2-purple-limits, fig.width=10, fig.height=3.5, fig.align="center", fig.cap="Charts A1 and A2 with control limits computed using **standard deviations** (magenta), shown alongside the thin blue Central Line. Chart A1 (left) is a stable process and its magenta limits sit almost exactly where the moving-range limits would be. Chart A2 (right) is the *same process* after special causes — its magenta limits are pushed outward to roughly twice the moving-range spread, so the chart now signals nothing."}
+```{r charts-a1-a2-magenta-limits, fig.width=10, fig.height=3.5, fig.align="center", fig.cap="Charts A1 and A2 with control limits computed using **standard deviations** (magenta), shown alongside the thin blue Central Line. Chart A1 (left) is a stable process and its magenta limits sit almost exactly where the moving-range limits would be. Chart A2 (right) is the *same process* after special causes — its magenta limits are pushed outward to roughly twice the moving-range spread, so the chart now signals nothing."}
 source(here::here("R/data/day-03-six-processes.R"))
-
-PURPLE <- "magenta"
 
 a1_cl  <- mean(process_A1)
 a1_sd  <- sd(process_A1) * 3
@@ -60,7 +58,7 @@ chart_a1 <- run_chart_plot(
   y_minor_breaks = seq(0, 30, by = 2),
   central_line = a1_cl,
   hlines       = c(a1_cl - a1_sd, a1_cl + a1_sd),
-  hline_colour = PURPLE,
+  hline_colour = "magenta",
   show_x_labels = FALSE
 ) + ggtitle("A1") +
   theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 18))
@@ -75,7 +73,7 @@ chart_a2 <- run_chart_plot(
   y_minor_breaks = seq(-10, 40, by = 2),
   central_line = a2_cl,
   hlines       = c(a2_cl - a2_sd, a2_cl + a2_sd),
-  hline_colour = PURPLE,
+  hline_colour = "magenta",
   show_x_labels = FALSE
 ) + ggtitle("A2") +
   theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 18))
