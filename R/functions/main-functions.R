@@ -245,6 +245,74 @@ run_chart_plot <- function(values, line_width = 6,
   p
 }
 
+#' Compute MR-based Shewhart limits for a sequence of individual values
+#'
+#' Returns a list with \code{central} (mean), \code{lcl}, and \code{ucl}
+#' computed from the average moving range: limits = mean ± 2.66 * MR̄.
+#' This is Shewhart's individuals-chart formula as Neave presents it
+#' on Day 3 page 13 (Technical Aid 8).
+#'
+#' Note: \code{lcl} may be negative for non-negative or count-bounded
+#' processes with a low mean (e.g. Process C red beads on Day 3 page 19).
+#' This matches Neave's presentation — he draws the LCL where the formula
+#' puts it and lets ggplot clip it against the panel's \code{y_limits}.
+#' Callers needing a domain-specific floor (\code{max(0, lcl)} for counts,
+#' etc.) should apply it themselves.
+#'
+#' @param values Numeric vector of individual observations.
+#' @return Named list with components \code{central}, \code{lcl}, \code{ucl}.
+mr_limits <- function(values) {
+  mr_bar <- mean(abs(diff(values)))
+  mu     <- mean(values)
+  list(central = mu,
+       lcl     = mu - 2.66 * mr_bar,
+       ucl     = mu + 2.66 * mr_bar)
+}
+
+#' Compose a 6×2 panel of small control charts (Day 3 page 19)
+#'
+#' Renders Neave's "Six Processes" composite — twelve small individuals
+#' charts arranged as six pairs (A1/A2 ... F1/F2). Each panel computes
+#' its own MR-based control limits and central line from its own data,
+#' then renders a thin-line run chart with title above and no x-axis
+#' labels (the sequence position carries no independent meaning at this
+#' scale — only the *shape* matters).
+#'
+#' Reused by Day 3.06 (this 6×2 grid) and by Day 3.09 (the extended A3–F3
+#' panel of 48-point charts with limits from the first 24).
+#'
+#' @param processes Named list. Each entry must contain \code{data}
+#'   (numeric vector), \code{label} (chart title), \code{y_limits} and
+#'   \code{y_breaks}. \code{y_minor_breaks} is optional. Layout follows
+#'   list order, filling rows first.
+#' @param ncol Integer. Columns in the composed panel. Default 2.
+#' @param chart_line_width Numeric. Thinner line for small panels.
+#'   Default 1.2.
+#' @return A patchwork object combining all panels.
+six_processes_panel <- function(processes, ncol = 2,
+                                chart_line_width = 1.2) {
+  charts <- lapply(processes, function(p) {
+    lims <- mr_limits(p$data)
+    minor <- if (!is.null(p$y_minor_breaks)) p$y_minor_breaks else p$y_breaks
+    run_chart_plot(
+      values         = p$data,
+      line_width     = chart_line_width,
+      y_limits       = p$y_limits,
+      y_breaks       = p$y_breaks,
+      y_minor_breaks = minor,
+      hlines         = c(lims$lcl, lims$ucl),
+      central_line   = lims$central,
+      show_x_labels  = FALSE
+    ) +
+      ggtitle(p$label) +
+      theme(plot.title    = element_text(hjust = 0.5, face = "bold",
+                                         size = 14, colour = CHART_FG),
+            plot.margin   = margin(4, 8, 4, 4),
+            axis.text.y   = element_text(size = 10, colour = CHART_FG))
+  })
+  patchwork::wrap_plots(charts, ncol = ncol)
+}
+
 #' Plot a Red Beads Experiment control chart
 #'
 #' Convenience wrapper around \code{run_chart_plot} pre-configured for Red
