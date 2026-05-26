@@ -40,7 +40,7 @@ Entries are listed newest-first.
 
 ---
 
-## 2026-05-27 — Add Rule 1 & Rule 2 illustrative funnel-track figures on Day 3 page 44 / page 46
+## 2026-05-27 — Add Rule 1 & Rule 2 illustrative funnel-track figures on Day 3 page 40 / page 46
 
 - **What** — Added two R/ggplot2 illustrations to `content/days/day-03/11-the-first-two-rules-of-the-funnel.qmd` that had been omitted when the chapter was first converted: a Rule 2 thought-experiment diagram (funnel at 27, marble at 30) underneath the paragraph that introduces Ford's First Strategy, and a Rule 1 Stage-1 diagram (funnel pinned at 30, marble at 33) underneath the paragraph that introduces Ford's Second Strategy.
 - **Where** — `content/days/day-03/11-the-first-two-rules-of-the-funnel.qmd` (two new R chunks `funnel-rule2-illustration` and `funnel-rule1-illustration`, each with a `<details>` long-description block); `workflow/inter-day-refs.csv` regenerated because the Day 5 page 8 reference on Day 3 page 48 shifted from line 247 to line 269.
