@@ -61,7 +61,10 @@ There are two advantages of doing this. First, it saves you time and effort by n
 
 To illustrate these matters, on page 23 I have constructed Charts A3–F3. They contain respectively all 48 data from Charts A1–F1 and Charts A2–F2 but show the control limits from Charts A1–F1 throughout, i.e. extended into the future from when the first set of charts ended. If you compare Charts A3–F3 with Charts A2–F2 on page 19 then you will see that the signals of instability are generally stronger, i.e. the relevant points are mostly further outside the control limits than they were when the control limits were computed using the new data.
 
-![Extended control charts: A3–F3](/assets/images/day-03/six-processes-extended-charts.png){fig-align="center" width="70%" .lightbox}
+```{r six-processes-extended-charts, fig.width=7, fig.height=12, fig.align="center", fig.cap="Charts A3–F3: each of the six processes plotted as a single 48-point series (A1–F1 followed by A2–F2), with the control limits taken from the first 24 points and extended unchanged across the second 24. Signals of instability in the second half show through more strongly than in A2–F2 because the limits have not drifted outward to absorb the contaminated data."}
+source(here::here("R/data/day-03-six-processes.R"))
+six_processes_extended_panel(six_processes)
+```
 
 <details>
 <summary>Describe this chart</summary>
