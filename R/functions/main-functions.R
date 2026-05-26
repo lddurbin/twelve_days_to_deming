@@ -252,6 +252,13 @@ run_chart_plot <- function(values, line_width = 6,
 #' This is Shewhart's individuals-chart formula as Neave presents it
 #' on Day 3 page 13 (Technical Aid 8).
 #'
+#' Note: \code{lcl} may be negative for non-negative or count-bounded
+#' processes with a low mean (e.g. Process C red beads on Day 3 page 19).
+#' This matches Neave's presentation — he draws the LCL where the formula
+#' puts it and lets ggplot clip it against the panel's \code{y_limits}.
+#' Callers needing a domain-specific floor (\code{max(0, lcl)} for counts,
+#' etc.) should apply it themselves.
+#'
 #' @param values Numeric vector of individual observations.
 #' @return Named list with components \code{central}, \code{lcl}, \code{ucl}.
 mr_limits <- function(values) {

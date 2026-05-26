@@ -71,7 +71,7 @@ process_B1 <- toss_coins_heads(n_coins = 25, n_tosses = 24)
 process_B2 <- c(
   toss_coins_heads(n_coins = 25, n_tosses = 14),
   vapply(seq(27, 45, by = 2),
-         function(n) sum(sample(0:1, n, replace = TRUE)),
+         function(n) toss_coins_heads(n_coins = n, n_tosses = 1),
          numeric(1))
 )
 
