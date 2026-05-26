@@ -40,6 +40,18 @@ Entries are listed newest-first.
 
 ---
 
+## 2026-05-27 — Add Rule 1 & Rule 2 illustrative funnel-track figures on Day 3 page 44 / page 46
+
+- **What** — Added two R/ggplot2 illustrations to `content/days/day-03/11-the-first-two-rules-of-the-funnel.qmd` that had been omitted when the chapter was first converted: a Rule 2 thought-experiment diagram (funnel at 27, marble at 30) underneath the paragraph that introduces Ford's First Strategy, and a Rule 1 Stage-1 diagram (funnel pinned at 30, marble at 33) underneath the paragraph that introduces Ford's Second Strategy.
+- **Where** — `content/days/day-03/11-the-first-two-rules-of-the-funnel.qmd` (two new R chunks `funnel-rule2-illustration` and `funnel-rule1-illustration`, each with a `<details>` long-description block); `workflow/inter-day-refs.csv` regenerated because the Day 5 page 8 reference on Day 3 page 48 shifted from line 247 to line 269.
+- **Source reference** — Neave Day 3 page 40 (the Rule 2 "if only the funnel had been at 27" illustration showing funnel above 27 and marble on 30) and Day 3 page 46 (the Rule 1 Stage 1 illustration showing funnel pinned at 30 and marble at 33 after the dice-score-10 throw). Both diagrams sit directly underneath the prose paragraphs they illustrate in Neave's PDF.
+- **Why** — These two static illustrations are part of the explanatory prose itself: they show *why* Rule 2 moves the funnel to where it "would have needed to be" and *what* Rule 1 looks like at the very first stage before the interactive 40-stage walkthrough takes over. Reinstating them brings the chapter back into alignment with Neave's pedagogical flow without disturbing the OJS interactive that follows.
+- **Implementation note — reuse of `funnel_track_plot()` helper** — Both figures call the existing scalar `funnel_track_plot(funnel_pos, marble_pos)` helper added under [#347](https://github.com/lddurbin/twelve_days_to_deming/issues/347) (PR [#367](https://github.com/lddurbin/twelve_days_to_deming/pull/367), commit `4b82705`). Neave's source shows several adjacent step-by-step diagrams across pages 40–42 (Stages 1–5 with intermediate "funnel-only-after-move" snapshots), but the OJS interactive on this chapter already drives the reader through all 40 stages with the same dice-scores. Adding all of Neave's static intermediate snapshots would duplicate the interactive; we therefore keep only the two diagrams that the prose explicitly describes (Rule 2 thought-experiment, Rule 1 Stage 1). Marker glyphs (blue triangle / yellow circle) inherit the [#347](https://github.com/lddurbin/twelve_days_to_deming/issues/347) simplification.
+- **Decided in** — Issue [#350](https://github.com/lddurbin/twelve_days_to_deming/issues/350) under the [#314](https://github.com/lddurbin/twelve_days_to_deming/issues/314) parent / [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) epic.
+- **Landed in** — *Pending — tracked in [#350](https://github.com/lddurbin/twelve_days_to_deming/issues/350).*
+
+---
+
 ## 2026-05-27 — Add Day 3 Funnel Rules 3 & 4 illustrations (R-generated) and restore Rule 3 walkthrough prose
 
 - **What** — Added ten R/ggplot2 figures (five for Rule 3, five for Rule 4) to the Day 3 chapter on Rules 3 & 4 of the Funnel. Each figure is a single `funnel_track_plot(funnel_pos, marble_pos)` call placed at the worked-example anchors in Neave's prose. Also restored the missing Rule 3 Stage 2 walkthrough sentences ("Now (checking if necessary…) … you move the funnel to … 27 (3 *left* of ◎)"; "The second dice-score was 8 … the next position of the marble is 28"; "Since the marble is now at 28 … Rule 3 moves the funnel to 32") that were silently elided in the existing transcription, so each figure has its introducing prose.
@@ -49,7 +61,7 @@ Entries are listed newest-first.
 - **Implementation note — simplified marker glyphs** — The R helper (already in use on Day 3 chapter 10 since [#347](https://github.com/lddurbin/twelve_days_to_deming/issues/347)) substitutes a blue downward triangle on a short stick (funnel) and a small yellow filled circle (marble) for Neave's stylised funnel and striped marble glyphs. Pedagogical content — *where* the funnel was placed and *where* the marble came to rest — is preserved; the visual quotation of Neave's particular illustration style is not.
 - **Implementation note — manifest** — `workflow/validation/day-03-manifest.yml` chapter 12 `figures` stays `[]` because the figures-check only inventories static-PNG references; R-generated chunks are intentionally excluded (see [#347](https://github.com/lddurbin/twelve_days_to_deming/issues/347)). `./scripts/check-structure.sh 3` continues to PASS on chapter 12 (viewof: 0, figures: none expected, headings: 2 match, download button: none expected).
 - **Decided in** — Issue [#351](https://github.com/lddurbin/twelve_days_to_deming/issues/351) under the [#314](https://github.com/lddurbin/twelve_days_to_deming/issues/314) parent / [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) epic.
-- **Landed in** — *Pending — tracked in [#351](https://github.com/lddurbin/twelve_days_to_deming/issues/351).*
+- **Landed in** — [#371](https://github.com/lddurbin/twelve_days_to_deming/pull/371) (commit `d74fff4`).
 
 ---
 
