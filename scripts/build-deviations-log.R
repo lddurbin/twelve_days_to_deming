@@ -39,15 +39,17 @@ banner <- c(
   ""
 )
 
-preamble <- readLines(preamble_path)
+preamble <- readLines(preamble_path, encoding = "UTF-8")
 
 entry_blocks <- lapply(seq_along(entry_files), function(i) {
-  body <- readLines(entry_files[[i]])
+  body <- readLines(entry_files[[i]], encoding = "UTF-8")
   if (i == 1L) c("---", "", body) else c("", "---", "", body)
 })
 
 output <- c(banner, preamble, "", unlist(entry_blocks), "")
-writeLines(output, "docs/deviations-from-source.md")
+out_con <- file("docs/deviations-from-source.md", "w", encoding = "UTF-8")
+on.exit(close(out_con), add = TRUE)
+writeLines(output, out_con)
 
 cat(sprintf(
   "Wrote docs/deviations-from-source.md (%d entries).\n",

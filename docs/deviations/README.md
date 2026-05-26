@@ -15,10 +15,11 @@ edit into an *additive* one, which git merges cleanly.
 
 ## Adding a new entry
 
-1. Create `YYYY-MM-DD-short-slug.md` here. Use today's date in NZ-local time
-   (UTC+12/13) — see `feedback_deviations_log` in user memory for the
-   convention. The file starts with a `## YYYY-MM-DD — title` heading and
-   contains the standard fields documented in `_preamble.md`:
+1. Create `YYYY-MM-DD-short-slug.md` here. Use today's date in New Zealand
+   local time (UTC+12 NZST in winter, UTC+13 NZDT in daylight-saving months);
+   the project records dates in that timezone for consistency with the
+   maintainer's location. The file starts with a `## YYYY-MM-DD — title`
+   heading and contains the standard fields documented in `_preamble.md`:
    **What**, **Where**, **Source reference**, **Why**, **Decided in**,
    **Landed in**.
 2. Run `Rscript scripts/build-deviations-log.R` from the repo root.
