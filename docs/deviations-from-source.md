@@ -40,6 +40,18 @@ Entries are listed newest-first.
 
 ---
 
+## 2026-05-27 — Keep Day 3 Funnel cutting-out track as a printable PNG (no R regeneration)
+
+- **What** — Retain `assets/images/day-03/funnel-track-colourful.png` as a high-DPI printable PNG rather than regenerate it via R/ggplot2 alongside the basic and with-icons funnel-track figures handled under [#347](https://github.com/lddurbin/twelve_days_to_deming/issues/347).
+- **Where** — `content/days/day-03/10-introduction-to-the-funnel-experiment.qmd` (~line 85) and the asset at `assets/images/day-03/funnel-track-colourful.png`.
+- **Source reference** — Neave Day 3 page 59 — the larger printable copy of the 20–40 track laid out in two halves so the reader can copy/paste it onto card, cut it out, and join the halves at square 30 for the Funnel Experiment.
+- **Why** — This asset is a learner *activity*, not a chart. Readers print it, cut it out, and physically assemble the funnel track for the experiment, so it needs print resolution and Neave's exact colour scheme and layout — the visual quotation matters because it *is* the artefact the reader handles, not an illustration of one. Regenerating via R would either lose fidelity (svglite + the dark-mode CSS-filter pipeline from [#310](https://github.com/lddurbin/twelve_days_to_deming/issues/310) optimises for on-screen rendering, not paper output at a fixed paste-onto-card size) or duplicate Neave's existing print-ready layout with no upside. The R-generated funnel-track figures under [#347](https://github.com/lddurbin/twelve_days_to_deming/issues/347) serve a different purpose — they illustrate the apparatus in the prose, not the cut-out kit.
+- **Implementation note** — PNG retained at current high DPI; alt text ("Colourful track for cutting out") and the `.lightbox` markup on the figure call site are unchanged. No `.qmd` or R changes; the only artefact of this decision is this log entry.
+- **Decided in** — Issue [#349](https://github.com/lddurbin/twelve_days_to_deming/issues/349) under the [#314](https://github.com/lddurbin/twelve_days_to_deming/issues/314) parent / [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) epic.
+- **Landed in** — *Pending — tracked in [#349](https://github.com/lddurbin/twelve_days_to_deming/issues/349).*
+
+---
+
 ## 2026-05-27 — Replace Day 3 Funnel dice-sequences PNG with an R-generated figure
 
 - **What** — Replaced the cropped-PNG figure `assets/images/day-03/funnel-dice-sequences.png` on Day 3 page 37 (Neave's two pre-recorded dice-throw sequences provided as a fallback for any reader without physical dice) with an R/ggplot2 chunk driven by a new `funnel_dice_sequences_plot()` helper. The 35 stages (6–40) are rendered in two horizontal blocks (Stages 6–23 above, Stages 24–40 below), matching Neave's printed two-block layout.
@@ -49,7 +61,7 @@ Entries are listed newest-first.
 - **Implementation note — pair representation chose numeric pairs over Unicode dice glyphs** — Issue [#348](https://github.com/lddurbin/twelve_days_to_deming/issues/348) asked for an initial pass at Unicode dice glyphs (U+2680..U+2685, ⚀⚁⚂⚃⚄⚅) so the table would read as a glyph grid. Those glyphs only ship in specialty symbol fonts (Apple Symbols on macOS, DejaVu Sans on some Linux distros) and rendered as tofu boxes through svglite on the CI Ubuntu image without the right font installed. Adding a font-loading dependency (`showtext` / `ggimage`) for what is fundamentally a fallback figure that the reader can ignore if they have physical dice did not carry its own weight. The helper therefore renders the pairs as comma-separated numeric strings (e.g. "6,4"), which is also Neave's own choice in the printed PDF — so the alternative is both portable across CI and source-faithful.
 - **Implementation note — chunk uses `fig.width=14` (double the project default)** — The figure is intentionally wider than the codebase's `fig.width=7` full-width convention (documented in `R/functions/main-functions.R`, lines 16–17) because each block lays out 18 stage-columns of comma-separated dice pairs side-by-side; at `fig.width=7` the cells become too narrow for the pair text to render legibly without overlap. The wide layout matches Neave's printed two-block presentation. Recorded here so a future editor doesn't treat the deviation from the default as an oversight.
 - **Decided in** — Issue [#348](https://github.com/lddurbin/twelve_days_to_deming/issues/348) under the [#314](https://github.com/lddurbin/twelve_days_to_deming/issues/314) parent / [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) epic.
-- **Landed in** — *Pending — tracked in [#348](https://github.com/lddurbin/twelve_days_to_deming/issues/348).*
+- **Landed in** — [#369](https://github.com/lddurbin/twelve_days_to_deming/pull/369) (commit `5deb899`).
 
 ---
 
