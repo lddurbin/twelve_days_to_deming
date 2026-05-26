@@ -27,7 +27,9 @@ There will be four strategies to examine during the Funnel Experiment. To save t
 
 So, in our one-dimensional version, imagine we have two tracks both like the following:
 
-![Track numbered 20–40](/assets/images/day-03/funnel-track-basic.png){fig-align="center" width="85%" .lightbox}
+```{r funnel-track-basic, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="A horizontal track of 21 numbered squares, running from 20 on the left to 40 on the right. The middle square (30) is overlaid with a bullseye marker — the target-point for the silly game."}
+funnel_track_plot()
+```
 
 <details>
 <summary>Describe this diagram</summary>
@@ -40,7 +42,9 @@ A horizontal track of 21 numbered squares, running from 20 on the left to 40 on 
 
 However, you don't have to build that whole model! During the description I shall show the positions of the funnel and marble along their tracks by little icons on a single track. So, for example, if the funnel is at position 31 and, after being dropped through the funnel, the marble bounces around and finishes up at position 33 then I shall show this as:
 
-![Track with funnel and marble icons](/assets/images/day-03/funnel-track-with-icons.png){fig-align="center" width="85%" .lightbox}
+```{r funnel-track-with-icons, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="The same 20–40 track, now with two markers above it: a blue downward triangle above square 31 (the funnel's position) and a small yellow circle above square 33 (where the marble came to rest)."}
+funnel_track_plot(funnel_pos = 31, marble_pos = 33)
+```
 
 <details>
 <summary>Describe this diagram</summary>
