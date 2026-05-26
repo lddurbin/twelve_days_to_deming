@@ -21,13 +21,72 @@ Recall that in Rule 2 the distance and direction between the target and where th
 </table>
 </div>
 
-So, using your own track, let's walk through the first few stages with Rule 3. As usual, we'll start with the funnel at 30. With the first dice-score being 10, the marble finishes up at 3 *right* of the funnel, the marble's first finishing position is again 33.
+So, using your own track, let's walk through the first few stages with Rule 3. As usual, we'll start with the funnel at 30. With the first dice-score being 10, the marble finishes up at 3 *right* of the funnel, the marble's first finishing position is again 33:
 
-You'll realise that this is actually the same as the initial move with Rule 2; but that is simply because the funnel was initially at the target, i.e. in both cases the funnel moved from a starting position of 30.
+```{r rule3-stage1-result, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel placed above square 30 and the marble at square 33 — Rule 3, end of Stage 1."}
+funnel_track_plot(funnel_pos = 30, marble_pos = 33)
+```
 
-Since the marble is now at 33 (3 right of ◎), Rule 3 moves the funnel to 30 (2 *right* of ◎), i.e. to the opposite side of the target and at that same distance from it. Remember, at this and every stage, you simply move the funnel so that it and the marble are symmetrically placed either side of the target ◎.
+<details>
+<summary>Describe this diagram</summary>
 
-The marble dropping at 1 *left* of the funnel. So the marble now finishes up at 31. The marble is 1 right of ◎, and thus you move the funnel to 29 (1 left of ◎), giving:
+End of Stage 1 with Rule 3. The funnel is still at its starting position of **30** (the target) and the marble has come to rest at **33**, three squares to the right of the funnel — matching the first dice-score of 10.
+
+</details>
+
+Now (checking if necessary in that little table), with the marble being at 33 (3 *right* of ◎), you move the funnel to the other side of the *target* and at that same distance from it, i.e. to 27 (3 *left* of ◎):
+
+```{r rule3-funnel-to-27, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel moved to square 27 while the marble remains at square 33 — Rule 3 places funnel and marble symmetrically either side of the target."}
+funnel_track_plot(funnel_pos = 27, marble_pos = 33)
+```
+
+<details>
+<summary>Describe this diagram</summary>
+
+Rule 3 has just moved the funnel from 30 to **27**, the mirror image of the marble's position 33 about the target 30. The marble still sits at **33** — the symmetric "either side of the target" arrangement that defines Rule 3.
+
+</details>
+
+You'll realise that this is actually the same as the initial move with Rule 2; but that is simply because the funnel was initially at the target, i.e. in *both* cases the funnel moved from a starting position of 30.
+
+The second dice-score was 8 corresponding to the marble dropping at 1 *right* of the funnel, and so the next position of the marble is 28:
+
+```{r rule3-stage2-result, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel at square 27 and the marble at square 28 — Rule 3, end of Stage 2."}
+funnel_track_plot(funnel_pos = 27, marble_pos = 28)
+```
+
+<details>
+<summary>Describe this diagram</summary>
+
+End of Stage 2 with Rule 3. The funnel is still at **27** and the marble has come to rest at **28**, one square to the right of the funnel — matching the second dice-score of 8.
+
+</details>
+
+Since the marble is now at 28 (2 *left* of ◎), Rule 3 moves the funnel to 32 (2 *right* of ◎), i.e. to the opposite side of the target and at that same distance from it. Remember, at this and every stage, you simply move the funnel so that it and the marble are symmetrically placed either side of the target ◎:
+
+```{r rule3-funnel-to-32, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel moved to square 32 while the marble remains at square 28 — Rule 3 again places funnel and marble symmetrically either side of the target."}
+funnel_track_plot(funnel_pos = 32, marble_pos = 28)
+```
+
+<details>
+<summary>Describe this diagram</summary>
+
+Rule 3 has just moved the funnel from 27 to **32**, the mirror image of the marble's position 28 about the target 30. The marble still sits at **28** — funnel and marble are again symmetrically placed two squares either side of the target.
+
+</details>
+
+The third dice-score was 6 corresponding to the marble dropping at 1 *left* of the funnel. So the marble now finishes up at 31. 31 is 1 *right* of ◎, and thus you move the funnel to 29 (1 *left* of ◎), giving:
+
+```{r rule3-funnel-to-29, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel moved to square 29 with the marble at square 31 — Rule 3, end of Stage 3."}
+funnel_track_plot(funnel_pos = 29, marble_pos = 31)
+```
+
+<details>
+<summary>Describe this diagram</summary>
+
+End of Stage 3 with Rule 3. The marble dropped one square to the *left* of the funnel (which was at 32), so it has come to rest at **31**. Rule 3 then moved the funnel to **29**, the mirror of 31 about the target 30 — one square either side of ◎.
+
+</details>
 
 And so on. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and 3 to the *left* of the funnel. Carefully confirm with your track that the next finishing positions are: marble at 29, funnel moves to 31; marble at 25, and funnel moves to 35. So the picture stays unchanged at the fourth stage and, at the fifth stage, both the marble and then the funnel end up at the target of 30—the "happy accident" to which I referred on page 52.
 
@@ -152,13 +211,68 @@ Take a look at my fantastic outcomes (the yellow-shaded row) near the top of pag
 
 So, just to be sure, let's again walk through the first few stages. As always, with the funnel initially placed at 30 and the first dice-score being 10, the first outcome is again 33:
 
-So, as argued near the bottom of page 50, Rule 4 then places the funnel directly above the marble at 33.
+```{r rule4-stage1-result, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel placed above square 30 and the marble at square 33 — Rule 4, end of Stage 1."}
+funnel_track_plot(funnel_pos = 30, marble_pos = 33)
+```
 
-The second dice-score was 8 corresponding to the marble dropping at 1 *right* of the funnel, and so the next position of the marble is 34.
+<details>
+<summary>Describe this diagram</summary>
 
-And then the funnel immediately follows it there.
+End of Stage 1 with Rule 4. The funnel started at its target position of **30** and the marble has come to rest at **33**, three squares to the right of the funnel — matching the first dice-score of 10. This first stage is identical to Rules 2 and 3, because the funnel was initially at the target.
 
-The third dice-score was 6 which corresponds to the marble dropping at 1 *left* of the funnel, i.e. back to 33, and so Rule 4 moves the funnel back to 33 as well.
+</details>
+
+So, as argued near the bottom of page 50, Rule 4 then places the funnel directly above the marble at 33:
+
+```{r rule4-funnel-follows-to-33, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel and marble both at square 33 — Rule 4 places the funnel directly above the marble."}
+funnel_track_plot(funnel_pos = 33, marble_pos = 33)
+```
+
+<details>
+<summary>Describe this diagram</summary>
+
+Rule 4 has just moved the funnel from 30 to **33** — directly above the marble. Funnel and marble now sit on the same square. This is the defining move of Rule 4: place the funnel exactly where the marble has just finished up.
+
+</details>
+
+The second dice-score was 8 corresponding to the marble dropping at 1 *right* of the funnel, and so the next position of the marble is 34:
+
+```{r rule4-stage2-result, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel at square 33 and the marble at square 34 — Rule 4, end of Stage 2."}
+funnel_track_plot(funnel_pos = 33, marble_pos = 34)
+```
+
+<details>
+<summary>Describe this diagram</summary>
+
+End of Stage 2 with Rule 4. The funnel is still at **33** and the marble has come to rest at **34**, one square to the right of the funnel — matching the second dice-score of 8.
+
+</details>
+
+And then the funnel immediately follows it there:
+
+```{r rule4-funnel-follows-to-34, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel and marble both at square 34 — Rule 4 places the funnel directly above the marble after Stage 2."}
+funnel_track_plot(funnel_pos = 34, marble_pos = 34)
+```
+
+<details>
+<summary>Describe this diagram</summary>
+
+Rule 4 has just moved the funnel from 33 to **34**, directly above the marble. Funnel and marble are again on the same square — the funnel "immediately follows" wherever the marble lands.
+
+</details>
+
+The third dice-score was 6 which corresponds to the marble dropping at 1 *left* of the funnel, i.e. back to 33, and so Rule 4 moves the funnel back to 33 as well:
+
+```{r rule4-stage3-back-to-33, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel and marble both back at square 33 — Rule 4, end of Stage 3."}
+funnel_track_plot(funnel_pos = 33, marble_pos = 33)
+```
+
+<details>
+<summary>Describe this diagram</summary>
+
+End of Stage 3 with Rule 4. The marble dropped one square to the *left* of the funnel (which was at 34), so it has come to rest back at **33**. Rule 4 then moves the funnel back to **33** to sit above the marble — funnel and marble are once again on the same square.
+
+</details>
 
 And so it continues. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and then 3 to the *left* of the funnel. Confirm that the next positions are Stage 4: both marble and funnel sit at 33, and Stage 5: both marble and funnel end up at 30. So the picture stays unchanged at the fourth stage and, at the fifth stage, both the marble and then the funnel end up at the target of 30—the "happy accident" to which I referred on page 52.
 
