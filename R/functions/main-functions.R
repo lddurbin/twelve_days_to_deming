@@ -1523,9 +1523,12 @@ xbar_false_signal_probs <- function(n,
   stopifnot(is.numeric(n), length(n) == 1, is.finite(n),
             n >= 2, n == as.integer(n),
             is.numeric(m_subgroups), length(m_subgroups) == 1,
-            m_subgroups >= 2,
+            is.finite(m_subgroups),
+            m_subgroups >= 2, m_subgroups == as.integer(m_subgroups),
             is.numeric(n_replications), length(n_replications) == 1,
-            n_replications >= 1)
+            is.finite(n_replications),
+            n_replications >= 1,
+            n_replications == as.integer(n_replications))
 
   d2_table <- c("2" = 1.128, "3" = 1.693, "4" = 2.059,
                 "5" = 2.326, "6" = 2.534)
