@@ -134,7 +134,95 @@ I therefore wrote a program to generate a large number of series of data from a 
 
 There's an obvious way to examine this (without raising the tricky matter of exact stability not being feasible!). And that is to modify the program so as to generate data from distributions other than the normal distribution and take a look at those resulting histograms. I used the same three distributions as in the [simulation study on the Central Limit Theorem (pages 51–54)](04-part-d-crash-course.qmd#sec-optional-extras-page-51): the uniform distribution, the unsymmetric triangular distribution and the exponential distribution, each being in a version with σ = 1 for ease of comparison with the initial normal version. You've seen [pictures of these distributions on pages 52–53 in Part D](04-part-d-crash-course.qmd#sec-optional-extras-page-52) but, for your convenience, they are illustrated again on the next page along with the normal distribution for comparison.
 
-![The four probability distributions used in the simulation: normal, uniform, triangular (unsymmetric) and exponential — each with σ = 1.](/assets/images/optional-extras/part-e-p66-pdfs.png){.lightbox fig-alt="Four small plots arranged on a single page showing the probability density curves of the normal, uniform, triangular and exponential distributions used in the simulation study."}
+```{r}
+#| label: fig-part-e-pdfs
+#| fig-cap: "The four probability distributions used in the simulation: normal, uniform, triangular (unsymmetric) and exponential — each with σ = 1."
+#| fig-alt: "Four small probability-density plots arranged in a two-by-two grid, each rendered with a black ink curve over a thin baseline. Top-left: the bell-shaped normal density centred on zero. Top-right: the flat rectangular uniform density. Bottom-left: a right-triangle triangular density that peaks on the left and falls to zero on the right. Bottom-right: the exponential density, with a tall left edge that decays sharply to the right. Each panel auto-scales to its own peak so the four shapes are directly recognisable — heights are not comparable across panels."
+#| fig-width: 8
+#| fig-height: 6
+#| lightbox: true
+# patchwork is on the search path via R/setup.R → main-functions.R. The chunk
+# is fully deterministic — all four panels use closed-form densities and a
+# fixed grid, so no seed is needed.
+
+# All four PDFs are σ = 1 versions of their family. Each panel auto-scales to
+# its own peak — Neave's printed page 66 layout — so the comparison emphasises
+# *shape* rather than density-value.
+#
+# Triangular (unsymmetric, right-triangle decreasing from left peak): for a
+# triangular density on [a, b] with mode at a, the variance is (b - a)^2 / 18.
+# Setting variance = 1 gives b - a = 3*sqrt(2). With a = 0 and b = 3*sqrt(2)
+# the PDF reads f(x) = 2*(b - x) / (b - a)^2 on [a, b].
+tri_b <- 3 * sqrt(2)
+tri_pdf <- function(x) {
+  ifelse(x >= 0 & x <= tri_b, 2 * (tri_b - x) / tri_b^2, 0)
+}
+
+# Uniform with σ = 1: half-width sqrt(3) so variance = (2*sqrt(3))^2 / 12 = 1.
+unif_a <- -sqrt(3); unif_b <- sqrt(3)
+
+# Each panel is a tiny stand-alone plot: thin black curve, thin black baseline,
+# corner label, no axis ink. Neave's printed figure has no axes at all — only
+# the curve, a baseline, and a corner caption — so we mirror that here.
+mini_pdf_panel <- function(fun, xlim, label,
+                           label_corner = c("tl", "tr", "bl", "br"),
+                           n = 401) {
+  label_corner <- match.arg(label_corner)
+  xs <- seq(xlim[1], xlim[2], length.out = n)
+  ys <- fun(xs)
+  df <- data.frame(x = xs, y = ys)
+  ymax <- max(ys, na.rm = TRUE)
+
+  # Label position: hugged to the chosen corner with a small inset.
+  x_at <- switch(label_corner,
+                 tl = xlim[1], bl = xlim[1],
+                 tr = xlim[2], br = xlim[2])
+  y_at <- switch(label_corner,
+                 tl = ymax * 1.08, tr = ymax * 1.08,
+                 bl = -ymax * 0.05, br = -ymax * 0.05)
+  hjust <- if (label_corner %in% c("tl", "bl")) 0 else 1
+  vjust <- if (label_corner %in% c("tl", "tr")) 0 else 1
+
+  ggplot(df, aes(x = .data$x, y = .data$y)) +
+    annotate("segment", x = xlim[1], xend = xlim[2], y = 0, yend = 0,
+             colour = CHART_FG, linewidth = 0.5) +
+    geom_line(colour = CHART_FG, linewidth = 0.9) +
+    annotate("text", x = x_at, y = y_at, label = label,
+             hjust = hjust, vjust = vjust,
+             colour = CHART_FG, size = 4.5) +
+    scale_x_continuous(limits = xlim, expand = c(0, 0)) +
+    scale_y_continuous(
+      limits = c(-ymax * 0.18, ymax * 1.20),
+      expand = c(0, 0)
+    ) +
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA),
+          plot.margin      = margin(8, 12, 8, 12))
+}
+
+p_normal <- mini_pdf_panel(
+  function(x) dnorm(x, mean = 0, sd = 1),
+  xlim = c(-4, 4), label = "NORMAL", label_corner = "tl"
+)
+p_uniform <- mini_pdf_panel(
+  function(x) dunif(x, min = unif_a, max = unif_b),
+  xlim = c(unif_a - 0.3, unif_b + 0.3), label = "UNIFORM",
+  label_corner = "tr"
+)
+p_triangular <- mini_pdf_panel(
+  tri_pdf,
+  xlim = c(-0.3, tri_b + 0.3), label = "TRIANGULAR",
+  label_corner = "bl"
+)
+p_exponential <- mini_pdf_panel(
+  function(x) dexp(x, rate = 1),
+  xlim = c(-0.2, 6), label = "EXPONENTIAL",
+  label_corner = "br"
+)
+
+(p_normal | p_uniform) / (p_triangular | p_exponential)
+```
 
 The shapes of these three distributions are so different from each other (as well as from the normal distribution itself) that examining the behaviour of *MR̄* ÷ 1.128 as an estimator of σ in such a variety of cases would appear to be a suitably severe test of its usefulness.
 
@@ -142,7 +230,93 @@ The resulting histograms are shown on page 67. Now, presumably if there *were* a
 
 []{#sec-optional-extras-page-67}
 
-![Histograms of the estimator *MR̄* ÷ 1.128 obtained from 10 million simulated baselines of length 12 under each of the four distributions. Axes run from 0.0 to 2.5 in every panel, so the panels are directly comparable.](/assets/images/optional-extras/part-e-p67-xbar-histograms.png){.lightbox fig-alt="Four histograms of the estimator MR-bar divided by 1.128 from 10 million simulated baselines of length 12, one for each of the normal, uniform, triangular and exponential distributions. All four histograms are strikingly similar in shape and spread."}
+```{r}
+#| label: fig-part-e-xbar-histograms
+#| fig-cap: "Histograms of the estimator *MR̄* ÷ 1.128 obtained from 200,000 simulated baselines of length 12 under each of the four distributions. Axes run from 0.0 to 2.5 in every panel, so the panels are directly comparable."
+#| fig-alt: "Four histograms of the estimator MR-bar divided by 1.128 from simulated baselines of length 12, one for each of the normal, uniform, triangular and exponential distributions. Each histogram shares an x axis running from 0.0 to 2.5 with a tick at every 0.5. The normal, uniform and triangular histograms are visually almost indistinguishable — each is a broadly symmetric bell-shaped pile centred near 1.0 spanning roughly 0.5 to 1.5. The exponential histogram is a little wider and pulled slightly to the right, with its peak near 0.8 and a longer right tail running out toward 2.0 — but it is still strikingly similar in overall shape and spread to the other three."
+#| fig-width: 8
+#| fig-height: 6
+#| lightbox: true
+# patchwork is on the search path via R/setup.R → main-functions.R.
+#
+# For each distribution we draw N = 200,000 baselines of length 12, compute
+# the mean moving range MR-bar = mean(|diff(x)|) for each baseline, then
+# divide by Shewhart's d2 = 1.128 to obtain the estimator. 200,000 is
+# comfortably enough to make the "strikingly similar" visual claim of
+# Neave's page 67 obvious; Neave used 10,000,000, which is overkill at the
+# resolution of a printed page and would render perceptibly slowly here.
+set.seed(358)
+
+n_per_baseline <- 12L
+n_baselines    <- 200000L
+d2             <- 1.128
+
+# Triangular (unsymmetric, σ = 1) — same parametrisation as page 66 above.
+# Inverse-CDF sampling: with F(x) = 1 - ((b - x) / b)^2 on [0, b], the
+# inverse is x = b * (1 - sqrt(1 - u)). For σ = 1 we use b = 3*sqrt(2).
+tri_b <- 3 * sqrt(2)
+rtri  <- function(n) tri_b * (1 - sqrt(1 - runif(n)))
+
+# Uniform with σ = 1: half-width sqrt(3). Exponential with σ = 1: rate = 1.
+unif_a <- -sqrt(3); unif_b <- sqrt(3)
+
+mr_bar_estimator <- function(rgen, n_baselines, n_per_baseline) {
+  total <- n_baselines * n_per_baseline
+  draws <- matrix(rgen(total), nrow = n_baselines, ncol = n_per_baseline)
+  rowMeans(abs(draws[, -1] - draws[, -n_per_baseline])) / d2
+}
+
+normal_est      <- mr_bar_estimator(
+  function(n) rnorm(n, mean = 0, sd = 1),
+  n_baselines, n_per_baseline
+)
+uniform_est     <- mr_bar_estimator(
+  function(n) runif(n, min = unif_a, max = unif_b),
+  n_baselines, n_per_baseline
+)
+triangular_est  <- mr_bar_estimator(rtri, n_baselines, n_per_baseline)
+exponential_est <- mr_bar_estimator(
+  function(n) rexp(n, rate = 1),
+  n_baselines, n_per_baseline
+)
+
+est_panel <- function(values, label) {
+  ggplot(data.frame(v = values), aes(x = .data$v)) +
+    geom_histogram(
+      binwidth  = 0.025,
+      boundary  = 0,
+      closed    = "left",
+      fill      = "white",
+      colour    = CHART_FG,
+      linewidth = 0.2
+    ) +
+    scale_x_continuous(
+      limits = c(0, 2.5),
+      breaks = seq(0, 2.5, by = 0.5),
+      expand = c(0, 0)
+    ) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+    labs(subtitle = label) +
+    run_chart_theme(gridlines = "none") +
+    theme(
+      axis.text.y  = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.y = element_blank(),
+      axis.line.y  = element_blank(),
+      axis.text.x  = element_text(colour = CHART_FG, size = 10),
+      plot.subtitle = element_text(colour = CHART_FG, size = 12,
+                                   hjust = 0, face = "plain")
+    )
+}
+
+p_normal_hist      <- est_panel(normal_est,      "NORMAL")
+p_uniform_hist     <- est_panel(uniform_est,     "UNIFORM")
+p_triangular_hist  <- est_panel(triangular_est,  "TRIANGULAR")
+p_exponential_hist <- est_panel(exponential_est, "EXPONENTIAL")
+
+(p_normal_hist | p_uniform_hist) /
+  (p_triangular_hist | p_exponential_hist)
+```
 
 ## 4. "If your data are normally distributed then the probability of a false signal is 0.0027"
 
