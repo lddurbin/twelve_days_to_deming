@@ -218,37 +218,109 @@ Let's start as suggested above by measuring the temperature to the nearest degre
 
 So, following on from the previous illustrations, let's first consider a sample of size 1,000. (We'll have to forget the situation previously suggested of daily readings since 1,000 is already close to three years of data, and we're going to need a lot more than that!). The computer simulation that I wrote produced the following histogram (I've used much wider boxes than previously because of what will soon develop):
 
-![Body-temperature histogram: 1,000 readings to the nearest integer](/assets/images/optional-extras/part-d-p44-temps-1k-int.png){.lightbox}
+```{r}
+#| label: fig-temps-1k-int
+#| fig-cap: "Body-temperature histogram: 1,000 readings to the nearest integer"
+#| fig-alt: "Bar histogram of 1,000 body-temperature readings rounded to the nearest integer degree Celsius. Almost every reading falls at 37°C, with a much smaller bar at 36°C and a barely-visible bar at 38°C. A smooth blue normal curve is overlaid to suggest the underlying distribution that the coarse integer rounding obscures."
+#| fig-width: 7
+#| fig-height: 5
+set.seed(353)
+v <- round(rnorm(1000, mean = 36.8, sd = 0.35), 0)
+histogram_with_pdf(v, binwidth = 1, boundary = 0.5)
+```
 
 Now, of course, this picture is somewhat reminiscent of the example of tossing two coins, except we must remember that the 36, 37 and 38 are no longer *counts* but *measurements* rounded to the nearest integer. Nevertheless, it would be quite reasonable to deduce from previous work that, to this rather crude level of precision of "the nearest integer", this picture gives a quite reasonable approximation to the probabilities of observing those integer values. But, just to be sure, I then got the program to generate a sample of size 10,000 readings and draw the resulting histogram. Here it is:
 
-![Body-temperature histogram: 10,000 readings to the nearest integer](/assets/images/optional-extras/part-d-p44-temps-10k-int.png){.lightbox}
+```{r}
+#| label: fig-temps-10k-int
+#| fig-cap: "Body-temperature histogram: 10,000 readings to the nearest integer"
+#| fig-alt: "Bar histogram of 10,000 body-temperature readings rounded to the nearest integer degree Celsius. The three visible bars (36, 37, 38) have similar relative heights to the 1,000-reading version, with the normal curve overlaid to hint at the underlying smooth distribution."
+#| fig-width: 7
+#| fig-height: 5
+set.seed(353)
+v <- round(rnorm(10000, mean = 36.8, sd = 0.35), 0)
+histogram_with_pdf(v, binwidth = 1, boundary = 0.5)
+```
 
 If you look very closely, you will see that this isn't *quite* the same as before, although it is pretty similar. If you're interested, the exact proportions of 36, 37 and 38 with sample size 1,000 were respectively 0.176, 0.801 and 0.023, and with sample size 10,000 were 0.1928, 0.7855 and 0.0217.
 
 But, obviously, this does not give us much of a clue about what would happen if we recorded the temperatures to a more sensible level of precision. So let's move on to recording them to one place of decimals. Here's the histogram for those first 1,000 observations when measured to one decimal place:
 
-![Body-temperature histogram: 1,000 readings to one decimal place](/assets/images/optional-extras/part-d-p44-temps-1k-1dp.png){.lightbox}
+```{r}
+#| label: fig-temps-1k-1dp
+#| fig-cap: "Body-temperature histogram: 1,000 readings to one decimal place"
+#| fig-alt: "Bar histogram of 1,000 body-temperature readings rounded to one decimal place. About 20 bars span roughly 35.9°C to 37.8°C — a clearly bell-shaped but jagged outline that approximates a normal density. A smooth blue normal curve is overlaid for comparison."
+#| fig-width: 7
+#| fig-height: 5
+set.seed(353)
+v <- round(rnorm(1000, mean = 36.8, sd = 0.35), 1)
+histogram_with_pdf(v, binwidth = 0.1)
+```
 
 OK, that gives us more of an idea, but this picture is rather ragged. So let's try 10,000 observations; this is what I got:
 
-![Body-temperature histogram: 10,000 readings to one decimal place](/assets/images/optional-extras/part-d-p45-temps-10k-1dp.png){.lightbox}
+```{r}
+#| label: fig-temps-10k-1dp
+#| fig-cap: "Body-temperature histogram: 10,000 readings to one decimal place"
+#| fig-alt: "Bar histogram of 10,000 body-temperature readings rounded to one decimal place. The bell shape is now much smoother and the bars track the overlaid normal density closely from about 35.5°C to 38°C."
+#| fig-width: 7
+#| fig-height: 5
+set.seed(353)
+v <- round(rnorm(10000, mean = 36.8, sd = 0.35), 1)
+histogram_with_pdf(v, binwidth = 0.1)
+```
 
 Good: that's a better picture—now we have some reasonable idea of what's going on. Thus encouraged, let's try recording those same 10,000 temperatures to *two* decimal places:
 
-![Body-temperature histogram: 10,000 readings to two decimal places](/assets/images/optional-extras/part-d-p45-temps-10k-2dp.png){.lightbox}
+```{r}
+#| label: fig-temps-10k-2dp
+#| fig-cap: "Body-temperature histogram: 10,000 readings to two decimal places"
+#| fig-alt: "Bar histogram of 10,000 body-temperature readings rounded to two decimal places. Hundreds of very narrow bars trace a noisier but unmistakable bell shape; the overlaid normal density runs through the middle of the noise."
+#| fig-width: 7
+#| fig-height: 5
+set.seed(353)
+v <- round(rnorm(10000, mean = 36.8, sd = 0.35), 2)
+histogram_with_pdf(v, binwidth = 0.01)
+```
 
 Although this somewhat matches what we were seeing before, we're again back to a rather ragged picture. So let's give the computer a little more work to do and try a sample size 100,000:
 
-![Body-temperature histogram: 100,000 readings to two decimal places](/assets/images/optional-extras/part-d-p45-temps-100k-2dp.png){.lightbox}
+```{r}
+#| label: fig-temps-100k-2dp
+#| fig-cap: "Body-temperature histogram: 100,000 readings to two decimal places"
+#| fig-alt: "Bar histogram of 100,000 body-temperature readings rounded to two decimal places. The bell shape is markedly smoother than at 10,000 readings, with only a little jitter at the peak; the overlaid normal density is almost indistinguishable from the top of the bars."
+#| fig-width: 7
+#| fig-height: 5
+set.seed(353)
+v <- round(rnorm(100000, mean = 36.8, sd = 0.35), 2)
+histogram_with_pdf(v, binwidth = 0.01)
+```
 
 Less ragged, but computer time is cheap these days, so let's go up to 1,000,000 observations:
 
-![Body-temperature histogram: 1,000,000 readings to two decimal places](/assets/images/optional-extras/part-d-p45-temps-1m-2dp.png){.lightbox}
+```{r}
+#| label: fig-temps-1m-2dp
+#| fig-cap: "Body-temperature histogram: 1,000,000 readings to two decimal places"
+#| fig-alt: "Bar histogram of 1,000,000 body-temperature readings rounded to two decimal places. The bell is now nearly perfectly smooth and the overlaid normal density sits squarely on top of the bar tops; only a faint wobble remains near the peak."
+#| fig-width: 7
+#| fig-height: 5
+set.seed(353)
+v <- round(rnorm(1000000, mean = 36.8, sd = 0.35), 2)
+histogram_with_pdf(v, binwidth = 0.01)
+```
 
 Still just *a little* wobbly, especially at the top, so we'll go for one more picture. With 10,000,000 as our sample size we get:
 
-![Body-temperature histogram: 10,000,000 readings to two decimal places](/assets/images/optional-extras/part-d-p46-temps-10m-2dp.png){.lightbox}
+```{r}
+#| label: fig-temps-10m-2dp
+#| fig-cap: "Body-temperature histogram: 10,000,000 readings to two decimal places"
+#| fig-alt: "Bar histogram of 10,000,000 body-temperature readings rounded to two decimal places. The histogram is now visually indistinguishable from a smooth normal density; the overlaid blue curve runs exactly along the top of the bars across the whole range."
+#| fig-width: 7
+#| fig-height: 5
+set.seed(353)
+v <- round(rnorm(10000000, mean = 36.8, sd = 0.35), 2)
+histogram_with_pdf(v, binwidth = 0.01)
+```
 
 I think that's good enough—if you've ever seen a picture of a normal distribution then I think you'll recognise it!
 
