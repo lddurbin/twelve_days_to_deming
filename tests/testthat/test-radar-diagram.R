@@ -25,8 +25,6 @@ test_that("radar_diagram_plot labels all four arms", {
 
 test_that("radar_diagram_plot uses a fixed-aspect coordinate system", {
   p <- radar_diagram_plot()
-  # coord_fixed() returns a CoordCartesian with `ratio = 1`. Assert both
-  # the class and the ratio so we know aspect is locked.
-  expect_s3_class(p$coordinates, "CoordCartesian")
+  expect_s3_class(p$coordinates, "CoordFixed")
   expect_equal(p$coordinates$ratio, 1)
 })

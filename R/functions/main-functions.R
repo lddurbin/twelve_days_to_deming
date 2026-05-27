@@ -1726,8 +1726,7 @@ radar_diagram_plot <- function() {
              angle = 90) +
     coord_fixed(
       xlim = c(-(arm_length + pad), arm_length + pad),
-      ylim = c(-(arm_length + pad), arm_length + pad),
-      clip = "off"
+      ylim = c(-(arm_length + pad), arm_length + pad)
     ) +
     theme_void() +
     theme(plot.background  = element_rect(fill = "transparent", colour = NA),
