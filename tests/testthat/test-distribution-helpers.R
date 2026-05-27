@@ -125,6 +125,15 @@ test_that("xbar_false_signal_probs honours d2_override for non-table n", {
   )
 })
 
+test_that("xbar_false_signal_probs rejects non-integer or infinite parameters", {
+  expect_error(xbar_false_signal_probs(n = 4.5, m_subgroups = 12, n_replications = 100))
+  expect_error(xbar_false_signal_probs(n = Inf, m_subgroups = 12, n_replications = 100))
+  expect_error(xbar_false_signal_probs(n = 4,   m_subgroups = 4.5, n_replications = 100))
+  expect_error(xbar_false_signal_probs(n = 4,   m_subgroups = Inf, n_replications = 100))
+  expect_error(xbar_false_signal_probs(n = 4,   m_subgroups = 12,  n_replications = 1.5))
+  expect_error(xbar_false_signal_probs(n = 4,   m_subgroups = 12,  n_replications = Inf))
+})
+
 # --- xbar_false_signal_panel ---
 
 test_that("xbar_false_signal_panel returns a ggplot object", {
