@@ -103,3 +103,15 @@ Reference cropped images in `.qmd` files:
 - **Production**: Deploys to `deming.leedurbin.co.nz`
 - **Build Environment**: Ubuntu with R, Quarto, and system dependencies
 - **Deploy Method**: rsync over SSH to production server
+
+## Merge workflow
+
+The `main` branch is protected by GitHub's merge queue. When merging an approved PR, use `--auto` so the queue handles serialisation:
+
+```
+gh pr merge <pr-number> --auto --squash --delete-branch
+```
+
+`--auto` enqueues the PR; GitHub then rebases each entry against the projected main (current main + everything queued ahead), runs CI on an ephemeral `gh-readonly-queue/main/<sha>` branch, and merges in order. No force-push, no rebase loop on PR branches, no full CI re-run for `BEHIND` updates. See issue [#385](https://github.com/lddurbin/twelve_days_to_deming/issues/385) for the rationale.
+
+CI workflows that gate the queue (`accessibility`, `claude-code-review`, `interday-audit`, `structure-check`) all fire on the `merge_group` event so they report status on queue branches.

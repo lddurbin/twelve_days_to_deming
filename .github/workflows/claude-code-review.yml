@@ -3,10 +3,20 @@ name: Claude Code Review
 on:
   pull_request:
     types: [opened, synchronize]
+  # Merge queue: the queue may include this workflow's job in its required
+  # checks list, so the workflow must report a status on queue branches.
+  # The job below is gated to pull_request events because the review prompt
+  # interpolates github.event.pull_request.number — undefined on merge_group
+  # events — and reviewing the projected merge state adds no value over the
+  # review that already ran on the originating PR. On merge_group events the
+  # job is skipped, which GitHub reports as a neutral/passing required check.
+  merge_group:
+    branches:
+      - main
 
 jobs:
   claude-review:
-    if: github.event.pull_request.user.login != 'dependabot[bot]'
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]'
 
     runs-on: ubuntu-latest
     permissions:
