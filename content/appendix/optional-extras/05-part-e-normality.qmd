@@ -141,8 +141,9 @@ There's an obvious way to examine this (without raising the tricky matter of exa
 #| fig-width: 8
 #| fig-height: 6
 #| lightbox: true
-# patchwork is on the search path via R/setup.R → main-functions.R.
-set.seed(358)
+# patchwork is on the search path via R/setup.R → main-functions.R. The chunk
+# is fully deterministic — all four panels use closed-form densities and a
+# fixed grid, so no seed is needed.
 
 # All four PDFs are σ = 1 versions of their family. Each panel auto-scales to
 # its own peak — Neave's printed page 66 layout — so the comparison emphasises
@@ -254,29 +255,28 @@ d2             <- 1.128
 # Inverse-CDF sampling: with F(x) = 1 - ((b - x) / b)^2 on [0, b], the
 # inverse is x = b * (1 - sqrt(1 - u)). For σ = 1 we use b = 3*sqrt(2).
 tri_b <- 3 * sqrt(2)
-rtri  <- function(n) tri_b * (1 - sqrt(1 - stats::runif(n)))
+rtri  <- function(n) tri_b * (1 - sqrt(1 - runif(n)))
 
 # Uniform with σ = 1: half-width sqrt(3). Exponential with σ = 1: rate = 1.
 unif_a <- -sqrt(3); unif_b <- sqrt(3)
 
 mr_bar_estimator <- function(rgen, n_baselines, n_per_baseline) {
-  total      <- n_baselines * n_per_baseline
-  draws      <- matrix(rgen(total), nrow = n_baselines, ncol = n_per_baseline)
-  mr_bar_vec <- rowMeans(abs(t(apply(draws, 1, diff))))
-  mr_bar_vec / d2
+  total <- n_baselines * n_per_baseline
+  draws <- matrix(rgen(total), nrow = n_baselines, ncol = n_per_baseline)
+  rowMeans(abs(draws[, -1] - draws[, -n_per_baseline])) / d2
 }
 
 normal_est      <- mr_bar_estimator(
-  function(n) stats::rnorm(n, mean = 0, sd = 1),
+  function(n) rnorm(n, mean = 0, sd = 1),
   n_baselines, n_per_baseline
 )
 uniform_est     <- mr_bar_estimator(
-  function(n) stats::runif(n, min = unif_a, max = unif_b),
+  function(n) runif(n, min = unif_a, max = unif_b),
   n_baselines, n_per_baseline
 )
 triangular_est  <- mr_bar_estimator(rtri, n_baselines, n_per_baseline)
 exponential_est <- mr_bar_estimator(
-  function(n) stats::rexp(n, rate = 1),
+  function(n) rexp(n, rate = 1),
   n_baselines, n_per_baseline
 )
 
