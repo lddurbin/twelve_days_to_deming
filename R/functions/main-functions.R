@@ -908,6 +908,130 @@ histogram_with_pdf <- function(values,
   p + run_chart_theme()
 }
 
+#' Overlay one or more smooth probability density functions on a single panel
+#'
+#' Draws each function in \code{pdfs} via \code{ggplot2::geom_function} on a
+#' shared x range, mapping each curve's name to a legend entry. Two common
+#' callers:
+#'
+#' \itemize{
+#'   \item Multiple members of the *same* family at different parameters —
+#'         e.g. three normal PDFs with the same μ but increasing σ
+#'         (Optional Extras Part D, printed page 47).
+#'   \item Different distribution *families* compared at the same scale —
+#'         e.g. normal / uniform / triangular / exponential PDFs side by
+#'         side (downstream issue #358 in Part E).
+#' }
+#'
+#' The data layer is a single-row dummy frame — \code{geom_function} computes
+#' its own y values from \code{fun}, so the data layer just satisfies
+#' \code{ggplot()}'s data argument and never reaches the panel. Each curve
+#' becomes its own \code{geom_function} layer mapped to a colour scale so
+#' the legend appears automatically.
+#'
+#' Default palette: \code{CHART_LINE_COLOUR} (the red data ink) for the first
+#' curve, \code{CONTROL_LIMIT_COLOUR} (blue) for the second, \code{CHART_FG}
+#' (black) for the third. The palette extends with \code{CHART_GRID} (mid-grey)
+#' for a fourth curve so the #358 four-family case has a non-repeating
+#' colour assignment. No new colour tokens are introduced — every entry is
+#' one of the existing dark-mode-safe constants documented at the top of
+#' this file.
+#'
+#' @param pdfs Named list of functions \code{function(x) numeric}. The list
+#'   names are used as legend labels and as the colour scale's breaks (so
+#'   legend order matches list order).
+#' @param xlim Numeric vector of length 2. The x range over which every
+#'   curve is evaluated; passed to \code{geom_function}'s \code{xlim} and
+#'   used to set the panel's x scale.
+#' @param colours Character vector or NULL. Colours aligned to \code{pdfs}
+#'   (positionally or by name). NULL (default) uses the project palette
+#'   described above, recycled if there are more PDFs than palette entries.
+#' @param linewidth Numeric. Line width for every curve. Default 0.7 —
+#'   thinner than \code{histogram_with_pdf()}'s 0.9 because multiple
+#'   curves on one panel read more cleanly when each is a finer line.
+#' @param legend_title Character or NULL. Title above the colour legend.
+#'   NULL (default) suppresses the legend title — fine when the legend
+#'   labels are self-describing (e.g. "Smallish σ").
+#' @param y_label Character. Y-axis label. Default \code{"Density"}.
+#' @param show_y_axis Logical. If FALSE (default), suppress y-axis ink and
+#'   labels — appropriate for PDF illustrations where only the *shape* and
+#'   *relative* heights carry meaning, as in Neave's printed page 47. Set
+#'   TRUE if the caller wants a numeric density axis.
+#' @param n Integer. Number of points \code{geom_function} samples along
+#'   the curve. Default 401 — finer than ggplot's 101 default so the bell
+#'   shoulders read smoothly even on tall narrow panels.
+#' @return A ggplot2 object containing one curve per entry in \code{pdfs}.
+#' @examples
+#' pdf_family_plot(
+#'   pdfs = list(
+#'     "σ = 1" = function(x) dnorm(x, 0, 1),
+#'     "σ = 2" = function(x) dnorm(x, 0, 2),
+#'     "σ = 3" = function(x) dnorm(x, 0, 3)
+#'   ),
+#'   xlim = c(-10, 10)
+#' )
+pdf_family_plot <- function(pdfs,
+                            xlim,
+                            colours      = NULL,
+                            linewidth    = 0.7,
+                            legend_title = NULL,
+                            y_label      = "Density",
+                            show_y_axis  = FALSE,
+                            n            = 401) {
+  stopifnot(is.list(pdfs), length(pdfs) >= 1,
+            !is.null(names(pdfs)), all(nzchar(names(pdfs))),
+            all(vapply(pdfs, is.function, logical(1))),
+            is.numeric(xlim), length(xlim) == 2L, xlim[1] < xlim[2])
+
+  palette <- c(CHART_LINE_COLOUR, CONTROL_LIMIT_COLOUR, CHART_FG, CHART_GRID)
+  if (is.null(colours)) {
+    colours <- rep_len(palette, length(pdfs))
+  } else {
+    stopifnot(length(colours) == length(pdfs))
+  }
+  names(colours) <- names(pdfs)
+
+  # Dummy single-row data layer: geom_function ignores it and computes y
+  # from `fun`. Same trick is used elsewhere in this file (histogram_with_pdf
+  # at least supplies a real data layer for the bars, but pure-curve plots
+  # have no observations to bind to).
+  dummy <- data.frame(x = mean(xlim))
+
+  p <- ggplot(dummy, aes(x = .data$x))
+  for (label in names(pdfs)) {
+    p <- p + geom_function(
+      fun       = pdfs[[label]],
+      aes(colour = !!label),
+      xlim      = xlim,
+      linewidth = linewidth,
+      n         = n
+    )
+  }
+
+  p <- p +
+    scale_colour_manual(
+      name   = legend_title,
+      values = colours,
+      breaks = names(pdfs)
+    ) +
+    scale_x_continuous(limits = xlim, expand = c(0, 0)) +
+    labs(y = y_label) +
+    run_chart_theme()
+
+  if (!show_y_axis) {
+    p <- p + theme(axis.text.y        = element_blank(),
+                   axis.ticks.y       = element_blank(),
+                   axis.title.y       = element_blank(),
+                   axis.line.y        = element_blank(),
+                   panel.grid.major.x = element_blank(),
+                   panel.grid.major.y = element_blank(),
+                   panel.grid.minor.x = element_blank(),
+                   panel.grid.minor.y = element_blank())
+  }
+
+  p
+}
+
 #' Plot a stacked-unit-boxes "histogram" (Day 3 page 7 left panel)
 #'
 #' For each integer value in \code{values}, draws a column of unit squares —
