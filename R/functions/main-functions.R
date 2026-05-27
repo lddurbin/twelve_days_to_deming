@@ -774,6 +774,134 @@ histogram_plot <- function(values,
   p + run_chart_theme()
 }
 
+#' Plot a histogram with a smooth probability-density overlay
+#'
+#' Draws a bar histogram of \code{values} and overlays a smooth probability
+#' density function (PDF) drawn from \code{pdf_fun}. The default \code{pdf_fun}
+#' fits a normal distribution to \code{values} using \code{mean(values)} and
+#' \code{sd(values)} — appropriate for the Part D body-temperature illustration
+#' where Neave shows a sequence of histograms (rising sample size and rising
+#' precision) converging visually to the underlying normal density.
+#'
+#' When \code{y_relative = FALSE} (raw counts) the PDF is rescaled by
+#' \code{length(values) * binwidth} so that the curve and the histogram share
+#' the same vertical scale: the area under the (unscaled) PDF integrates to 1,
+#' and the total area in the histogram bars is \code{length(values) * binwidth}.
+#' When \code{y_relative = TRUE} (proportion / relative frequency) the PDF is
+#' rescaled by \code{binwidth} alone, matching the proportion-per-bin scale.
+#'
+#' Reused by issue #354 (normal-family + area-percentages diagrams) and #358
+#' (Part E PDFs + x-bar histograms).
+#'
+#' @param values Numeric vector. Raw observations to bin.
+#' @param pdf_fun Function \code{function(x) numeric} or NULL. The smooth
+#'   density to overlay. If NULL (default), fits a normal using
+#'   \code{mean(values)} and \code{sd(values)}.
+#' @param binwidth Numeric or NULL. Bin width. If NULL (default), ggplot2
+#'   picks a sensible default via \code{stat_bin}'s heuristic. A value is
+#'   strongly recommended whenever the PDF is overlaid on raw-count bars,
+#'   because the count-scale rescaling depends on a known bin width.
+#' @param boundary Numeric. Bin boundary alignment. Default 0.
+#' @param y_relative Logical. If TRUE, scale the Y axis to relative frequency
+#'   (proportion) instead of raw counts. Default FALSE.
+#' @param fill_colour Character. Bar fill colour. Default
+#'   \code{CHART_LINE_COLOUR}.
+#' @param pdf_colour Character. Colour of the smooth PDF curve. Default
+#'   \code{CONTROL_LIMIT_COLOUR} (blue) — the same dark-mode-safe accent
+#'   used for Shewhart Central Lines and control limits elsewhere in the
+#'   project; provides a contrasting overlay against the red histogram bars
+#'   that round-trips cleanly through the dark-mode invert+hue-rotate filter.
+#' @param pdf_linewidth Numeric. Line width for the PDF overlay. Default 0.9.
+#' @param x_breaks Numeric vector or NULL. Major x-axis tick positions.
+#' @param xlim Numeric vector of length 2 or NULL. X-axis limits passed to
+#'   \code{geom_function} so the smooth curve can extend beyond the observed
+#'   data range. If NULL (default), the curve is drawn over the panel's
+#'   automatic x range.
+#' @return A ggplot2 object containing the histogram and PDF overlay.
+#' @examples
+#' set.seed(1)
+#' histogram_with_pdf(rnorm(1000, mean = 0, sd = 1), binwidth = 0.25)
+histogram_with_pdf <- function(values,
+                               pdf_fun = NULL,
+                               binwidth = NULL,
+                               boundary = 0,
+                               y_relative = FALSE,
+                               fill_colour = CHART_LINE_COLOUR,
+                               pdf_colour = CONTROL_LIMIT_COLOUR,
+                               pdf_linewidth = 0.9,
+                               x_breaks = NULL,
+                               xlim = NULL) {
+  stopifnot(is.numeric(values), length(values) >= 1)
+
+  # Default PDF: a normal fitted to the sample.
+  if (is.null(pdf_fun)) {
+    mu_hat    <- mean(values)
+    sigma_hat <- stats::sd(values)
+    if (!is.finite(sigma_hat) || sigma_hat <= 0) {
+      stop("Default normal PDF requires sd(values) to be finite and positive; ",
+           "supply pdf_fun explicitly for degenerate samples.")
+    }
+    pdf_fun <- function(x) stats::dnorm(x, mean = mu_hat, sd = sigma_hat)
+  }
+  stopifnot(is.function(pdf_fun))
+
+  df <- data.frame(value = values)
+
+  y_aes <- if (y_relative) {
+    aes(y = after_stat(count / sum(count)))
+  } else {
+    aes(y = after_stat(count))
+  }
+
+  # Rescale the unit-area PDF so the curve matches the histogram's vertical
+  # scale. Raw counts: bar area = n * binwidth, so multiply by n * binwidth.
+  # Relative frequency: bar area = binwidth, so multiply by binwidth alone.
+  # When binwidth is NULL we cannot rescale; fall back to the unscaled PDF
+  # and let the caller cope (or supply binwidth — strongly recommended).
+  scale_factor <- if (is.null(binwidth)) {
+    1
+  } else if (y_relative) {
+    binwidth
+  } else {
+    length(values) * binwidth
+  }
+
+  scaled_pdf <- function(x) pdf_fun(x) * scale_factor
+
+  geom_function_args <- list(
+    fun       = scaled_pdf,
+    colour    = pdf_colour,
+    linewidth = pdf_linewidth
+  )
+  if (!is.null(xlim)) {
+    geom_function_args$xlim <- xlim
+  }
+
+  p <- ggplot(df, aes(x = .data$value)) +
+    geom_histogram(
+      mapping = y_aes,
+      binwidth = binwidth,
+      boundary = boundary,
+      closed = "left",
+      fill = fill_colour,
+      colour = CHART_FG,
+      linewidth = 0.3
+    ) +
+    do.call(geom_function, geom_function_args)
+
+  if (!is.null(x_breaks)) {
+    p <- p + scale_x_continuous(breaks = x_breaks)
+  }
+
+  if (y_relative) {
+    p <- p + scale_y_continuous(
+      labels = scales::percent_format(accuracy = 1)
+    )
+  }
+
+  p + run_chart_theme()
+}
+
 #' Plot a stacked-unit-boxes "histogram" (Day 3 page 7 left panel)
 #'
 #' For each integer value in \code{values}, draws a column of unit squares —
