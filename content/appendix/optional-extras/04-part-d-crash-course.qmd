@@ -675,6 +675,8 @@ So let's try *n* = 4:
 #| fig-width: 7
 #| fig-height: 4.5
 #| lightbox: true
+# Triangular constants redefined per-chunk — Quarto chunks run in independent
+# scopes, so each chunk that uses tri_b / tri_mu / rtri redefines them here.
 tri_b   <- 3 * sqrt(2)
 tri_mu  <- tri_b / 3
 rtri    <- function(n) tri_b * (1 - sqrt(1 - runif(n)))
@@ -699,6 +701,8 @@ And so we move on to *n* = 10. Still not perfect, but it's almost there.
 #| fig-width: 7
 #| fig-height: 4.5
 #| lightbox: true
+# Triangular constants redefined per-chunk — Quarto chunks run in independent
+# scopes, so each chunk that uses tri_b / tri_mu / rtri redefines them here.
 tri_b   <- 3 * sqrt(2)
 tri_mu  <- tri_b / 3
 rtri    <- function(n) tri_b * (1 - sqrt(1 - runif(n)))
