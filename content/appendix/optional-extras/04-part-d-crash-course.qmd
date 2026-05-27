@@ -336,6 +336,7 @@ The normal distribution with mean μ and standard deviation σ is often denoted 
 #| fig-alt: "Three smooth bell curves arranged in three stacked panels on a shared x axis spanning roughly −10 to +10 about a common mean μ at 0. The top panel is a tall narrow curve labelled 'Smallish σ' (σ = 1), the middle a medium curve labelled 'Larger σ' (σ = 2), and the bottom a short wide curve labelled 'Still larger σ' (σ = 3). All three panels share the same x and y scales so the height-and-width progression is directly visible: as σ grows the bell becomes shorter and wider."
 #| fig-width: 8
 #| fig-height: 7
+#| lightbox: true
 pdf_family_plot(
   pdfs = list(
     "Smallish σ (σ = 1)"     = function(x) dnorm(x, mean = 0, sd = 1),
@@ -382,6 +383,7 @@ $$2 \times (34.1\% + 13.6\%) = 2 \times 47.7\% = 95.4\%.$$
 #| fig-alt: "Three stacked panels — one each for σ = 1, σ = 2 and σ = 3 — each showing a normal curve centred on μ at 0 with the area under it divided into shaded bands and labelled with the standard percentages. In every panel the central inner ±σ band is shaded blue and labelled 34.1% on each side of μ; the next outward band from ±σ to ±2σ is shaded red and labelled 13.6% on each side; the band from ±2σ to ±3σ is shaded mid-grey and labelled 2.15% on each side; and the two extreme tails beyond ±3σ are shaded a darker red and labelled 0.135% via leader arrows. The panels share x and y scales, so the σ = 1 curve is tall and narrow, the σ = 2 curve is medium, and the σ = 3 curve is short and wide — yet the percentages in each panel are identical, illustrating that they apply irrespective of σ."
 #| fig-width: 7
 #| fig-height: 10
+#| lightbox: true
 library(patchwork)
 
 # One panel per σ. Bands and labels are expressed in σ-units so each panel
@@ -402,6 +404,13 @@ area_percentages_panel <- function(sigma, strip_label) {
   # Label y-positions are expressed as a fraction of this panel's peak, so
   # they sit at the same *relative* height on every curve.
   y_at <- function(frac) frac * peak
+
+  # Tail annotation x-positions, capped so they stay inside the shared
+  # (-10, 10) xlim on the σ = 3 panel (where 3.7σ = 11.1 would otherwise
+  # be clipped). For σ ≤ 2 the σ-relative positions fall well inside the
+  # cap and the original geometry is preserved unchanged.
+  tail_anchor_x <- min(3.15 * sigma, 9.0)
+  tail_label_x  <- min(3.7  * sigma, 9.5)
 
   ggplot(dens, aes(x = .data$x, y = .data$y)) +
     ribbon_band(-1,  1, CONTROL_LIMIT_COLOUR, 0.25) +
@@ -427,18 +436,18 @@ area_percentages_panel <- function(sigma, strip_label) {
              colour = CHART_FG, size = 3.2) +
     annotate("text", x =  2.45 * sigma, y = y_at(0.045), label = "2.15%",
              colour = CHART_FG, size = 3.2) +
-    # Tail leader arrows + 0.135% labels.
-    annotate("segment", x = -3.7 * sigma, xend = -3.15 * sigma,
+    # Tail leader arrows + 0.135% labels (x-positions computed above).
+    annotate("segment", x = -tail_label_x, xend = -tail_anchor_x,
              y = y_at(0.075), yend = y_at(0.012),
              colour = CHART_FG, linewidth = 0.3,
              arrow = arrow(length = unit(0.12, "cm"))) +
-    annotate("text", x = -3.7 * sigma, y = y_at(0.085), label = "0.135%",
+    annotate("text", x = -tail_label_x, y = y_at(0.085), label = "0.135%",
              colour = CHART_FG, size = 3.2, hjust = 0.5, vjust = 0) +
-    annotate("segment", x = 3.7 * sigma, xend = 3.15 * sigma,
+    annotate("segment", x = tail_label_x, xend = tail_anchor_x,
              y = y_at(0.075), yend = y_at(0.012),
              colour = CHART_FG, linewidth = 0.3,
              arrow = arrow(length = unit(0.12, "cm"))) +
-    annotate("text", x = 3.7 * sigma, y = y_at(0.085), label = "0.135%",
+    annotate("text", x = tail_label_x, y = y_at(0.085), label = "0.135%",
              colour = CHART_FG, size = 3.2, hjust = 0.5, vjust = 0) +
     scale_x_continuous(limits = c(-10, 10), expand = c(0, 0)) +
     # Shared y limits across panels (set to the σ = 1 peak, which is the
