@@ -1617,6 +1617,123 @@ specification_limits_diagram <- function() {
           panel.background = element_rect(fill = "transparent", colour = NA))
 }
 
+# --- Radar diagram (Day 12 page 3) ---
+
+#' Plot Neave's blank four-arm radar (kite) diagram
+#'
+#' Renders the blank reference radar diagram used for Activity 12-a Part 3.
+#' Four labelled arms project outward from a common origin:
+#'
+#' \itemize{
+#'   \item PSYCHOLOGY — top
+#'   \item SYSTEM — right
+#'   \item KNOWLEDGE — bottom
+#'   \item VARIATION — left
+#' }
+#'
+#' Each arm carries a 0-to-5 scale with 0 at the origin and 5 at the tip,
+#' matching Neave's printed source on Day 12 page 3. The diagram is
+#' rendered as a Cartesian crosshair rather than a closed-ring polygon
+#' (i.e. no \code{coord_polar()}, no concentric circles) — faithful to
+#' Neave's "kite" presentation, where each arm is read independently and
+#' learners draw straight-edged quadrilaterals connecting four scored
+#' points.
+#'
+#' @return A ggplot2 object.
+#' @examples
+#' radar_diagram_plot()
+radar_diagram_plot <- function() {
+  arm_length <- 5
+  tick_half  <- 0.08    # tick mark half-length, perpendicular to arm
+  pad        <- 1.2     # canvas padding past the arm tips for axis labels
+
+  # Each arm carries six labels reading "0" at the outermost tip down to
+  # "5" closest to the origin — Neave's printed convention on Day 12
+  # page 3. Labels are evenly spaced along the arm, with the innermost
+  # ("5") sitting half a tick-interval outward from the origin to leave
+  # a visual gap at the crossing where all four arms meet.
+  n_labels <- arm_length + 1                 # six labels: 0..5
+  inner_offset <- 0.5                        # gap between origin and "5"
+  label_offsets <- seq(arm_length, inner_offset, length.out = n_labels)
+  label_values  <- as.character(0:arm_length)
+
+  # PSYCHOLOGY (top): labels at +y.
+  psychology_ticks <- data.frame(
+    x = 0, y = label_offsets,
+    label = label_values
+  )
+
+  # SYSTEM (right): labels at +x.
+  system_ticks <- data.frame(
+    x = label_offsets, y = 0,
+    label = label_values
+  )
+
+  # KNOWLEDGE (bottom): labels at -y.
+  knowledge_ticks <- data.frame(
+    x = 0, y = -label_offsets,
+    label = label_values
+  )
+
+  # VARIATION (left): labels at -x.
+  variation_ticks <- data.frame(
+    x = -label_offsets, y = 0,
+    label = label_values
+  )
+
+  ggplot() +
+    annotate("segment",
+             x = -arm_length, xend = arm_length, y = 0, yend = 0,
+             colour = CHART_FG, linewidth = 0.9) +
+    annotate("segment",
+             x = 0, xend = 0, y = -arm_length, yend = arm_length,
+             colour = CHART_FG, linewidth = 0.9) +
+    annotate("segment",
+             x = -tick_half, xend = tick_half,
+             y = c(label_offsets, -label_offsets),
+             yend = c(label_offsets, -label_offsets),
+             colour = CHART_FG, linewidth = 0.7) +
+    annotate("segment",
+             x = c(label_offsets, -label_offsets),
+             xend = c(label_offsets, -label_offsets),
+             y = -tick_half, yend = tick_half,
+             colour = CHART_FG, linewidth = 0.7) +
+    geom_text(data = psychology_ticks,
+              aes(x = x, y = y, label = label),
+              hjust = -0.6, vjust = 0.5,
+              colour = CHART_FG, size = 4.2) +
+    geom_text(data = system_ticks,
+              aes(x = x, y = y, label = label),
+              hjust = 0.5, vjust = -0.9,
+              colour = CHART_FG, size = 4.2) +
+    geom_text(data = knowledge_ticks,
+              aes(x = x, y = y, label = label),
+              hjust = -0.6, vjust = 0.5,
+              colour = CHART_FG, size = 4.2) +
+    geom_text(data = variation_ticks,
+              aes(x = x, y = y, label = label),
+              hjust = 0.5, vjust = -0.9,
+              colour = CHART_FG, size = 4.2) +
+    annotate("text", x = 0, y = arm_length + 0.7, label = "PSYCHOLOGY",
+             colour = CHART_FG, size = 5.5, fontface = "bold") +
+    annotate("text", x = 0, y = -(arm_length + 0.7), label = "KNOWLEDGE",
+             colour = CHART_FG, size = 5.5, fontface = "bold") +
+    annotate("text", x = arm_length + 0.7, y = 0, label = "SYSTEM",
+             colour = CHART_FG, size = 5.5, fontface = "bold",
+             angle = 270) +
+    annotate("text", x = -(arm_length + 0.7), y = 0, label = "VARIATION",
+             colour = CHART_FG, size = 5.5, fontface = "bold",
+             angle = 90) +
+    coord_fixed(
+      xlim = c(-(arm_length + pad), arm_length + pad),
+      ylim = c(-(arm_length + pad), arm_length + pad),
+      clip = "off"
+    ) +
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA))
+}
+
 #' Create a Red Beads results data frame
 #'
 #' Builds a tibble of worker-by-day red bead counts with row/column totals,
