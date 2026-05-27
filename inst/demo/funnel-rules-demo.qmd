@@ -1,0 +1,99 @@
+---
+title: "Funnel-Rule Simulation Helpers — Developer Demo"
+format:
+  html:
+    embed-resources: true
+    toc: false
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-note}
+This is a **developer-facing fidelity check**, not a learner-facing page.
+It is not linked from `_quarto.yml` and is intentionally scratch — the
+consumer PR that swaps `assets/images/optional-extras/rule-1-short.png`
+and `rule-1-long.png` for R-generated charts will delete this file.
+
+Tracked under [issue #374](https://github.com/lddurbin/twelve_days_to_deming/issues/374).
+:::
+
+```{r setup, include=FALSE}
+# The project-level .Rprofile sources R/setup.R at R session startup
+# (from the repo-root working directory), so the four funnel_rule_*_sim()
+# helpers and the chart wrapper are already on the search path here.
+# This chunk is a no-op other than asserting that fact.
+stopifnot(exists("funnel_rule_1_sim"),
+          exists("funnel_simulation_chart_plot"))
+```
+
+## 2×2 panel: Rules 1–4 at default seeds
+
+Each panel shows 50 drops of Neave's Funnel Experiment under one rule, with
+MR-based control limits computed from the first 15 drops and extended across
+the remaining 35. Target = 30, drop noise sd = 5 — the Optional Extras Part A
+scale.
+
+```{r demo-panel, fig.width=10, fig.height=8}
+library(patchwork)
+
+n_total    <- 50
+n_baseline <- 15
+sd_drop    <- 5
+target     <- 30
+
+mk <- function(values, title, y_limits, y_breaks) {
+  funnel_simulation_chart_plot(
+    values,
+    n_baseline     = n_baseline,
+    y_limits       = y_limits,
+    y_breaks       = y_breaks,
+    y_minor_breaks = seq(min(y_limits), max(y_limits), by = 1),
+    line_width     = 1.5
+  ) +
+    ggplot2::ggtitle(title) +
+    ggplot2::theme(
+      plot.title    = ggplot2::element_text(hjust = 0.5, face = "bold",
+                                            size = 13, colour = CHART_FG),
+      axis.text.y   = ggplot2::element_text(size = 9, colour = CHART_FG),
+      axis.text.x   = ggplot2::element_text(size = 9, colour = CHART_FG)
+    )
+}
+
+r1 <- mk(funnel_rule_1_sim(n_total, sd = sd_drop, target = target),
+        "Rule 1 — funnel fixed at target",
+        y_limits = c(10, 50), y_breaks = seq(10, 50, by = 10))
+r2 <- mk(funnel_rule_2_sim(n_total, sd = sd_drop, target = target),
+        "Rule 2 — compensate by last deviation",
+        y_limits = c(10, 50), y_breaks = seq(10, 50, by = 10))
+r3 <- mk(funnel_rule_3_sim(n_total, sd = sd_drop, target = target),
+        "Rule 3 — mirror across target (explodes)",
+        y_limits = c(-30, 90), y_breaks = seq(-30, 90, by = 30))
+r4 <- mk(funnel_rule_4_sim(n_total, sd = sd_drop, target = target),
+        "Rule 4 — funnel follows the marble (drift)",
+        y_limits = c(-10, 70), y_breaks = seq(-10, 70, by = 20))
+
+(r1 | r2) / (r3 | r4)
+```
+
+## What to look for
+
+- **Rule 1** — points cluster around the central line (target = 30), staying
+  comfortably inside the MR-based control limits across all 50 drops. Should
+  look like one of Neave's six stable processes on Day 3 page 19.
+- **Rule 2** — pronounced central zig-zag; the MR-inflated control limits sit
+  *wider* than they should and the run-chart stays well inside them, the
+  "hugging the Central Line" effect Neave describes on Optional Extras
+  Part A page 10.
+- **Rule 3** — amplitude grows visibly across the 50 drops; the run-chart
+  eventually pierces the early-baseline limits.
+- **Rule 4** — the marble drifts away from target. Short-term moving ranges
+  are small (so the limits hug the early-baseline values), but later
+  drops wander well outside them — the "wandering" effect Neave describes
+  on Optional Extras Part A page 13.
+
+## Reproducibility
+
+Each call uses each helper's documented default seed (Rule 1 = 7, Rule 2 = 2,
+Rule 3 = 1, Rule 4 = 42). Re-render this qmd and the figure is bit-for-bit
+identical.

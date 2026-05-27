@@ -21,6 +21,10 @@ _freeze/
 # Quarto per-page library bundles (created next to rendered .qmd files)
 content/**/*_files/
 /*_files/
+inst/**/*_files/
+
+# Developer-facing scratch demos (rendered output, not the .qmd sources)
+inst/demo/*.html
 
 node_modules/
 
