@@ -324,13 +324,103 @@ There was a fairly full introduction to this simulation study on pages 63–64 a
 
 The main question for me to consider was what size of subgroups should I try and how many subgroups should I use in calculating the control limits? Since you have now seen something of the *Japanese Control Chart* in Part B, I decided to be initially guided by what the Japanese workers did. Investigating their chart which, as you will recall, used subgroups of size *n* = 4 throughout, it appeared that they generally used between 10 and 15 subgroups to compute the limits. Therefore I chose to use 12 subgroups of size 4 in the simulation. Next, although *n* = 4 is quite a common choice of subgroup size, I decided to repeat the simulation twice: once with *n* = 2 and then with *n* = 6. (It is rare to find people using subgroups any larger than 6.) After a little trial and error I found that to use one million replications each time was sufficient to produce very clear pictures. The resulting histograms are shown on the next page, and I have clearly marked the 0.0027 probability on the horizontal axes.
 
-![Histograms of the simulated probability of a false signal on an *X̄*-chart constructed from 12 subgroups of size 2, 4 and 6 respectively, from one million replications each. The target "textbook" value 0.0027 is marked in red on each axis, which runs from 0 to 0.025.](/assets/images/optional-extras/part-e-p69-12-subgroups.png){.lightbox fig-alt="Three histograms stacked vertically showing the simulated distribution of the probability of a false signal on an X-bar chart when control limits are computed from 12 subgroups, for subgroup sizes 2, 4 and 6. In each case the 0.0027 reference value is marked near the left of the axis, far inside a long and heavily spread histogram that extends well beyond 0.02."}
+```{r}
+#| label: fig-part-e-12-subgroups
+#| fig-cap: "Histograms of the simulated probability of a false signal on an *X̄*-chart constructed from 12 subgroups of size 2, 4 and 6 respectively. The target \"textbook\" value 0.0027 is marked in red on each axis, which runs from 0 to 0.020."
+#| fig-alt: "Three histograms stacked vertically showing the simulated distribution of the probability of a false signal on an X-bar chart when control limits are computed from 12 subgroups, for subgroup sizes 2, 4 and 6. In each case the 0.0027 reference value is marked near the left of the axis, far inside a long and heavily spread histogram that extends well beyond 0.02."
+#| fig-width: 8
+#| fig-height: 9
+#| lightbox: true
+# patchwork is on the search path via R/setup.R → main-functions.R.
+#
+# For each subgroup size n ∈ {2, 4, 6} we draw N = 200,000 replications of
+# 12 subgroups from N(0, 1), build the standard X-bar control limits
+# (grand mean ± A2 · R-bar), and then compute the probability that a future
+# subgroup mean N(0, 1/√n) falls outside those limits. Neave used one
+# million; 200,000 is enough to make the page-69 visual claim — that the
+# histograms are very spread out and that 0.0027 sits well to the *left*
+# of the bulk of the distribution — read obviously, while keeping per-render
+# render time tractable.
+set.seed(359)
+
+n_replications_p69 <- 200000L
+m_subgroups_p69    <- 12L
+x_max_p69          <- 0.020
+
+probs_n2_p69 <- xbar_false_signal_probs(
+  n = 2L, m_subgroups = m_subgroups_p69,
+  n_replications = n_replications_p69
+)
+probs_n4_p69 <- xbar_false_signal_probs(
+  n = 4L, m_subgroups = m_subgroups_p69,
+  n_replications = n_replications_p69
+)
+probs_n6_p69 <- xbar_false_signal_probs(
+  n = 6L, m_subgroups = m_subgroups_p69,
+  n_replications = n_replications_p69
+)
+
+p_n2_p69 <- xbar_false_signal_panel(
+  probs_n2_p69, "12 subgroups of size 2", x_max = x_max_p69
+)
+p_n4_p69 <- xbar_false_signal_panel(
+  probs_n4_p69, "12 subgroups of size 4", x_max = x_max_p69
+)
+p_n6_p69 <- xbar_false_signal_panel(
+  probs_n6_p69, "12 subgroups of size 6", x_max = x_max_p69
+)
+
+p_n2_p69 / p_n4_p69 / p_n6_p69
+```
 
 So what was all this about normality of the data implying that the probability of a false signal *is* 0.0027?! The histograms are *very* spread out. As you can see, I chose a horizontal axis which stretches from zero probability right up to 0.025 (nearly ten times 0.0027) and even that was insufficient to cover all the results!
 
 After seeing these histograms, I could imagine some statisticians complaining that to use only 12 subgroups for computing the limits was insufficient. I therefore repeated the whole simulation using 40 subgroups instead. 40 subgroups is a far larger number than most people use in practice. Those histograms are shown on page 70.
 
-![Histograms of the simulated probability of a false signal on an *X̄*-chart constructed from 40 subgroups of size 2, 4 and 6 respectively. The 0.0027 reference value is again marked in red on each axis.](/assets/images/optional-extras/part-e-p70-40-subgroups.png){.lightbox fig-alt="Three histograms stacked vertically showing the simulated distribution of the probability of a false signal on an X-bar chart when control limits are computed from 40 subgroups, for subgroup sizes 2, 4 and 6. Compared with the 12-subgroup page the histograms are noticeably tighter, but they still spread well either side of the 0.0027 reference line."}
+```{r}
+#| label: fig-part-e-40-subgroups
+#| fig-cap: "Histograms of the simulated probability of a false signal on an *X̄*-chart constructed from 40 subgroups of size 2, 4 and 6 respectively. The 0.0027 reference value is again marked in red on each axis, which runs from 0 to 0.025."
+#| fig-alt: "Three histograms stacked vertically showing the simulated distribution of the probability of a false signal on an X-bar chart when control limits are computed from 40 subgroups, for subgroup sizes 2, 4 and 6. Compared with the 12-subgroup page the histograms are noticeably tighter, but they still spread well either side of the 0.0027 reference line."
+#| fig-width: 8
+#| fig-height: 9
+#| lightbox: true
+# patchwork is on the search path via R/setup.R → main-functions.R.
+#
+# Same simulation engine as fig-part-e-12-subgroups, just with 40 subgroups
+# instead of 12. Neave's page 70 uses x ∈ [0, 0.025] (a slightly wider axis
+# than page 69) so that the long-but-thinner tails for n = 4 and n = 6
+# still fit on the page; we mirror that here.
+set.seed(360)
+
+n_replications_p70 <- 200000L
+m_subgroups_p70    <- 40L
+x_max_p70          <- 0.025
+
+probs_n2_p70 <- xbar_false_signal_probs(
+  n = 2L, m_subgroups = m_subgroups_p70,
+  n_replications = n_replications_p70
+)
+probs_n4_p70 <- xbar_false_signal_probs(
+  n = 4L, m_subgroups = m_subgroups_p70,
+  n_replications = n_replications_p70
+)
+probs_n6_p70 <- xbar_false_signal_probs(
+  n = 6L, m_subgroups = m_subgroups_p70,
+  n_replications = n_replications_p70
+)
+
+p_n2_p70 <- xbar_false_signal_panel(
+  probs_n2_p70, "40 subgroups of size 2", x_max = x_max_p70
+)
+p_n4_p70 <- xbar_false_signal_panel(
+  probs_n4_p70, "40 subgroups of size 4", x_max = x_max_p70
+)
+p_n6_p70 <- xbar_false_signal_panel(
+  probs_n6_p70, "40 subgroups of size 6", x_max = x_max_p70
+)
+
+p_n2_p70 / p_n4_p70 / p_n6_p70
+```
 
 At least, with these latter histograms, one can see some evidence of the one thing we know about the values of the probability of a false signal. We can actually see that it is indeed feasible for the probability of a false signal to have a (very) long-term average of around 0.0027—admittedly not so with subgroups of size 2 but looking not unlikely with subgroups of size 4 or 6. However, this is already using far more data than is at all usual in practice. The disadvantages of using long baselines with subgrouped data are very much the same as with one-at-a-time data: recall that the latter are the subject of the [first part of the Technical Section which follows on page 71](06-part-f-technical.qmd#sec-optional-extras-page-71).
 

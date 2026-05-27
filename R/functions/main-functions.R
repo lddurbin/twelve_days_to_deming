@@ -1467,6 +1467,225 @@ ford_histogram_plot <- function(values,
     )
 }
 
+# --- Optional Extras Part E §4: X-bar false-signal probabilities ---
+
+#' Simulate the false-signal probability for an X-bar chart
+#'
+#' For each of \code{n_replications} replications, draws \code{m_subgroups}
+#' subgroups of size \code{n} from a standard normal distribution, builds an
+#' X-bar control chart in the textbook way (grand mean ± A2 · R-bar), then
+#' computes the probability that a *future* subgroup mean (which under the
+#' true model is N(0, 1/√n)) falls outside those limits. Returns a vector of
+#' \code{n_replications} probabilities — one per replication.
+#'
+#' This is the simulation behind the histograms on Neave's Optional Extras
+#' Part E pages 69 and 70. The pages 69/70 histograms are built by calling
+#' this function once per subgroup size n ∈ \{2, 4, 6\} with
+#' \code{m_subgroups = 12} (page 69) or \code{m_subgroups = 40} (page 70).
+#' The textbook claim that the false-signal probability "is" 0.0027 assumes
+#' that the *true* μ and σ are known; in practice they have to be estimated
+#' from finite data, and the spread of these histograms quantifies how
+#' badly that estimation noise affects the claim.
+#'
+#' The X-bar chart constants follow Shewhart's standard form
+#' \eqn{UCL/LCL = \bar{\bar{X}} \pm A_2 \bar{R}}, where
+#' \eqn{A_2 = 3 / (d_2 \sqrt{n})} and \eqn{d_2} depends only on the
+#' subgroup size \eqn{n}. The values of \eqn{d_2} used are the standard
+#' ones tabulated in Part B (page 20): 1.128 (n=2), 1.693 (n=3),
+#' 2.059 (n=4), 2.326 (n=5), 2.534 (n=6). Callers can override \eqn{d_2}
+#' via the optional \code{d2_override} argument; the default lookup covers
+#' \eqn{n \in \{2, 3, 4, 5, 6\}}.
+#'
+#' Vectorised throughout. Subgroups are stored as an
+#' \code{n_replications × (m_subgroups · n)} matrix; row-wise subgroup
+#' ranges are computed by reshaping the matrix to an
+#' \code{n × m_subgroups × n_replications} array and folding the n-axis
+#' with \code{pmax} / \code{pmin}, so no \code{apply()} calls appear.
+#'
+#' @param n Integer-ish. Subgroup size. Must be in \{2, 3, 4, 5, 6\} unless
+#'   \code{d2_override} is supplied.
+#' @param m_subgroups Integer-ish. Number of subgroups used to compute the
+#'   control limits in each replication.
+#' @param n_replications Integer-ish. Number of replications.
+#' @param d2_override Numeric or NULL. If non-NULL, used as \eqn{d_2}
+#'   instead of the built-in lookup — useful for non-standard \eqn{n}.
+#' @return Numeric vector of length \code{n_replications}: the simulated
+#'   false-signal probability for each replication.
+#' @examples
+#' set.seed(359)
+#' probs <- xbar_false_signal_probs(n = 4, m_subgroups = 12,
+#'                                  n_replications = 1000)
+#' summary(probs)
+xbar_false_signal_probs <- function(n,
+                                    m_subgroups,
+                                    n_replications,
+                                    d2_override = NULL) {
+  stopifnot(is.numeric(n), length(n) == 1, is.finite(n),
+            n >= 2, n == as.integer(n),
+            is.numeric(m_subgroups), length(m_subgroups) == 1,
+            is.finite(m_subgroups),
+            m_subgroups >= 2, m_subgroups == as.integer(m_subgroups),
+            is.numeric(n_replications), length(n_replications) == 1,
+            is.finite(n_replications),
+            n_replications >= 1,
+            n_replications == as.integer(n_replications))
+
+  d2_table <- c("2" = 1.128, "3" = 1.693, "4" = 2.059,
+                "5" = 2.326, "6" = 2.534)
+  d2 <- if (!is.null(d2_override)) {
+    d2_override
+  } else {
+    val <- d2_table[as.character(n)]
+    if (is.na(val)) {
+      stop("No built-in d2 for n = ", n,
+           "; supply d2_override.", call. = FALSE)
+    }
+    unname(val)
+  }
+  A2 <- 3 / (d2 * sqrt(n))
+
+  total <- n_replications * m_subgroups * n
+  draws <- matrix(rnorm(total),
+                  nrow = n_replications,
+                  ncol = m_subgroups * n)
+
+  # Row-wise grand mean = simple mean across all m_subgroups * n columns.
+  grand_mean <- rowMeans(draws)
+
+  # Row-wise subgroup ranges: reshape each replication's row to an
+  # n × m_subgroups slice (one subgroup per column) and fold over the n
+  # axis with pmax / pmin to get colMax / colMin per slice — vectorised
+  # across replications. `array(t(draws), c(n, m_subgroups, R))` lays out
+  # storage column-major so consecutive within-subgroup observations
+  # land in one column of each m_subgroups × R slice as the n-axis varies
+  # fastest.
+  arr <- array(t(draws), dim = c(n, m_subgroups, n_replications))
+  col_max <- arr[1, , , drop = FALSE]
+  col_min <- arr[1, , , drop = FALSE]
+  for (i in seq.int(2L, n)) {
+    col_max <- pmax(col_max, arr[i, , , drop = FALSE])
+    col_min <- pmin(col_min, arr[i, , , drop = FALSE])
+  }
+  # Drop the leading singleton n-axis so we end up with an
+  # m_subgroups × n_replications matrix.
+  dim(col_max) <- c(m_subgroups, n_replications)
+  dim(col_min) <- c(m_subgroups, n_replications)
+  ranges <- col_max - col_min
+  r_bar  <- colMeans(ranges)
+
+  half_width <- A2 * r_bar
+  UCL <- grand_mean + half_width
+  LCL <- grand_mean - half_width
+
+  # Future subgroup mean has distribution N(0, 1/√n) under the true model.
+  sd_xbar <- 1 / sqrt(n)
+  pnorm(LCL, mean = 0, sd = sd_xbar) +
+    pnorm(UCL, mean = 0, sd = sd_xbar, lower.tail = FALSE)
+}
+
+#' Plot a single Optional Extras Part E §4 false-signal histogram panel
+#'
+#' Builds one of the three stacked histograms on Neave's pages 69 and 70:
+#' a histogram of simulated X-bar-chart false-signal probabilities with a
+#' red tick and "0.0027" label marking the textbook target value on the
+#' x axis, and a subgroup-size caption (for example "12 subgroups of
+#' size 2") centred under the panel.
+#'
+#' Layout faithfulness to Neave's printed page is the brief here. The
+#' histogram uses unfilled bars with thin black outlines; the x axis is
+#' a single black baseline with major ticks at every 0.005; there is no
+#' y-axis ink at all (the printed page has none); the 0.0027 marker is
+#' drawn as a short red tick *below* the baseline with the label "0.0027"
+#' in red just under it; the panel caption sits well below the axis.
+#'
+#' @param values Numeric vector. False-signal probabilities for the
+#'   replications behind this panel. Values beyond \code{x_max} are clipped
+#'   onto the rightmost bin so the histogram does not visually under-count
+#'   the long tail (matching the printed page, which truncates rather than
+#'   trims).
+#' @param caption Character. Caption text placed below the panel
+#'   (for example "12 subgroups of size 2").
+#' @param x_max Numeric. Upper limit of the x axis. Neave uses 0.020 on
+#'   page 69 and 0.025 on page 70.
+#' @param binwidth Numeric. Histogram bin width. Default 0.0003 matches
+#'   the visual bin density of Neave's printed page (about 65 bins across
+#'   \code{[0, x_max]}).
+#' @return A ggplot2 object.
+#' @examples
+#' set.seed(359)
+#' xbar_false_signal_panel(
+#'   xbar_false_signal_probs(n = 4, m_subgroups = 12, n_replications = 1000),
+#'   caption = "12 subgroups of size 4", x_max = 0.020
+#' )
+xbar_false_signal_panel <- function(values,
+                                    caption,
+                                    x_max,
+                                    binwidth = 0.0003) {
+  stopifnot(is.numeric(values), length(values) >= 1,
+            is.character(caption), length(caption) == 1,
+            is.numeric(x_max), length(x_max) == 1, x_max > 0)
+
+  df <- data.frame(v = pmin(values, x_max))
+  x_breaks <- seq(0, x_max, by = 0.005)
+
+  # Compute the histogram's tallest bar so the red 0.0027 tick can be drawn
+  # at a height proportional to the panel — long enough to be visible, short
+  # enough not to look like a fourth axis tick.
+  edges <- seq(0, x_max + binwidth, by = binwidth)
+  counts <- tabulate(findInterval(df$v, edges, rightmost.closed = TRUE),
+                     nbins = length(edges) - 1L)
+  bar_max <- max(counts, na.rm = TRUE)
+  tick_top    <- 0
+  tick_bottom <- -bar_max * 0.08
+
+  ggplot(df, aes(x = .data$v)) +
+    geom_histogram(
+      binwidth  = binwidth,
+      boundary  = 0,
+      closed    = "left",
+      fill      = "white",
+      colour    = CHART_FG,
+      linewidth = 0.2
+    ) +
+    # Red 0.0027 tick + label. Tick is drawn below the baseline as a short
+    # vertical segment (length proportional to the tallest bar); the label
+    # sits a touch further below. clip = "off" lets the tick / label stand
+    # in the margin under the plotting area.
+    annotate("segment", x = 0.0027, xend = 0.0027,
+             y = tick_top, yend = tick_bottom,
+             colour = CHART_LINE_COLOUR, linewidth = 1.2) +
+    annotate("text", x = 0.0027, y = tick_bottom,
+             label = "0.0027",
+             colour = CHART_LINE_COLOUR,
+             hjust = 0.5, vjust = 1.4, size = 4) +
+    labs(caption = caption) +
+    scale_x_continuous(
+      limits = c(0, x_max),
+      breaks = x_breaks,
+      labels = format(x_breaks, nsmall = 3, trim = TRUE),
+      expand = c(0, 0)
+    ) +
+    scale_y_continuous(
+      limits = c(tick_bottom * 1.4, bar_max * 1.05),
+      expand = c(0, 0)
+    ) +
+    coord_cartesian(clip = "off") +
+    theme_void() +
+    theme(
+      plot.background     = element_rect(fill = "transparent", colour = NA),
+      panel.background    = element_rect(fill = "transparent", colour = NA),
+      axis.line.x         = element_line(colour = CHART_FG, linewidth = 0.5),
+      axis.ticks.x        = element_line(colour = CHART_FG, linewidth = 0.4),
+      axis.ticks.length.x = unit(3, "pt"),
+      axis.text.x         = element_text(colour = CHART_FG, size = 10,
+                                         margin = margin(t = 4)),
+      plot.caption        = element_text(colour = CHART_FG, size = 12,
+                                         hjust = 0.5,
+                                         margin = margin(t = 18, b = 4)),
+      plot.margin         = margin(8, 12, 24, 12)
+    )
+}
+
 # --- Taguchi loss function (Day 7 page 22) ---
 
 #' Plot the abstract Taguchi loss function
