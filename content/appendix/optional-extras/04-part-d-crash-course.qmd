@@ -384,7 +384,8 @@ $$2 \times (34.1\% + 13.6\%) = 2 \times 47.7\% = 95.4\%.$$
 #| fig-width: 7
 #| fig-height: 10
 #| lightbox: true
-library(patchwork)
+# patchwork is already on the search path via R/setup.R → main-functions.R;
+# the `/` composition operator below comes from that load.
 
 # One panel per σ. Bands and labels are expressed in σ-units so each panel
 # carries the same percentage labels (34.1 / 13.6 / 2.15 / 0.135) on its own
