@@ -6,6 +6,9 @@ permissions:
 on:
   pull_request:
     types: [opened, synchronize]
+  merge_group:
+    branches:
+      - main
   push:
     branches:
       - main

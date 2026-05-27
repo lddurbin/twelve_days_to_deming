@@ -16,6 +16,14 @@ on:
       - 'assets/images/**'
       - 'scripts/check-structure.sh'
       - '.github/workflows/structure-check.yml'
+  # Merge queue: deliberately no `paths` filter here so the queue gets a
+  # status report on the gh-readonly-queue/main/<sha> branch even when a
+  # queued PR doesn't itself touch the structure-check input paths. Without
+  # this, the queue can stall waiting for a check that the path filter
+  # suppressed.
+  merge_group:
+    branches:
+      - main
   push:
     branches:
       - main
