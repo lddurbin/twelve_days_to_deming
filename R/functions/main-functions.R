@@ -1186,6 +1186,147 @@ pdf_family_plot <- function(pdfs,
   p
 }
 
+#' Plot a confidence-interval illustration on a standard normal curve
+#'
+#' Draws the standard-normal pdf with the central \code{level}-fraction of the
+#' area shaded "yellow" and the two tails shaded "red", plus vertical line
+#' markers and tick labels at the boundaries. This is the page-50 figure in
+#' Neave's Part D crash-course: a 95% confidence region uses
+#' \code{level = 0.95} (boundaries at ±1.96σ); a 99% confidence region uses
+#' \code{level = 0.99} (boundaries at ±2.58σ).
+#'
+#' The plot is drawn in σ-units (standard normal, μ = 0, σ = 1). The boundary
+#' labels follow Neave's printed form — \code{"μ−1.96σ"} on the
+#' left and \code{"μ+1.96σ"} on the right — so the figure reads as
+#' an illustration of *any* normal distribution rather than the standard
+#' normal specifically. The percentage label inside the central region is
+#' formatted from \code{level} (e.g. \code{0.95} renders as \code{"95%"}).
+#'
+#' Like \code{pdf_family_plot()}, this helper renders an analytic curve from
+#' \code{dnorm}; no \code{set.seed()} is required and none should be added
+#' to its calling chunks. The yellow / red fill palette intentionally
+#' matches Neave's printed figure rather than the project's dark-mode-safe
+#' palette — the central "yellow" and the tail "red" are pedagogically
+#' load-bearing (Neave's prose on page 50 refers to "the yellow area" and
+#' "the red tails" by name) and the figure's chromatic identity reads as a
+#' single coherent illustration only when those two colours are used.
+#'
+#' @param level Numeric in (0, 1). Central confidence level — e.g.
+#'   \code{0.95} or \code{0.99}.
+#' @param z Numeric or NULL. Half-width of the central region in σ-units.
+#'   If NULL (default), computed as \code{qnorm((1 + level) / 2)} — the
+#'   z-score that puts \code{level} of the area in the central region.
+#'   Override (e.g. \code{1.96} or \code{2.58}) to reproduce Neave's
+#'   conventional rounded values verbatim; without an override the
+#'   computed z-scores are 1.959964 (95%) and 2.575829 (99%), which
+#'   round to Neave's printed values but differ in the third decimal.
+#' @param xlim Numeric vector of length 2. X-axis range in σ-units.
+#'   Default \code{c(-4, 4)} — the curve is visually flat outside this
+#'   range and the same range is used for both the 95% and the 99%
+#'   figures so the two illustrations compose at the same horizontal
+#'   scale.
+#' @param fill_central Character. Fill colour for the central
+#'   \code{level}-fraction band. Default \code{"#fff176"} (the yellow
+#'   Neave uses on the printed page).
+#' @param fill_tail Character. Fill colour for the two tail bands.
+#'   Default \code{"#ed0000"} (the project's existing red, also Neave's
+#'   tail colour).
+#' @param curve_colour Character. Colour of the bell-curve outline and
+#'   the baseline. Default \code{CHART_FG}.
+#' @param boundary_label_format Function. Called as
+#'   \code{boundary_label_format(z, sign)} where \code{sign} is
+#'   \code{-1L} for the left boundary and \code{+1L} for the right.
+#'   Should return a single character string. The default formats as
+#'   \code{"μ−1.96σ"} / \code{"μ+1.96σ"} when
+#'   \code{z = 1.96}, matching Neave's printed labels. Override to
+#'   produce a different label form (e.g. raw z-scores).
+#' @param percent_label Character or NULL. Label drawn inside the
+#'   central region. If NULL (default), formatted from \code{level}
+#'   via \code{scales::label_percent(accuracy = 1)} — e.g.
+#'   \code{"95%"} for \code{level = 0.95}.
+#' @return A ggplot2 object — a single panel with no axis ink other
+#'   than the baseline and the boundary tick labels.
+#' @examples
+#' conf_interval_plot(0.95)
+#' conf_interval_plot(0.99, z = 2.58)
+conf_interval_plot <- function(level,
+                               z = NULL,
+                               xlim = c(-4, 4),
+                               fill_central = "#fff176",
+                               fill_tail    = "#ed0000",
+                               curve_colour = CHART_FG,
+                               boundary_label_format = NULL,
+                               percent_label = NULL) {
+  stopifnot(is.numeric(level), length(level) == 1L,
+            level > 0, level < 1,
+            is.numeric(xlim), length(xlim) == 2L, xlim[1] < xlim[2])
+
+  if (is.null(z)) {
+    z <- qnorm((1 + level) / 2)
+  }
+  stopifnot(is.numeric(z), length(z) == 1L, z > 0, z < xlim[2])
+
+  if (is.null(boundary_label_format)) {
+    boundary_label_format <- function(z, sign) {
+      sign_glyph <- if (sign < 0) "−" else "+"
+      # Trim trailing zeros so 1.96 stays "1.96" but 2.00 would render as "2".
+      z_text <- format(z, trim = TRUE, drop0trailing = TRUE)
+      paste0("μ", sign_glyph, z_text, "σ")
+    }
+  }
+  stopifnot(is.function(boundary_label_format))
+
+  if (is.null(percent_label)) {
+    percent_label <- scales::label_percent(accuracy = 1)(level)
+  }
+
+  xs   <- seq(xlim[1], xlim[2], length.out = 801)
+  dens <- data.frame(x = xs, y = dnorm(xs))
+  peak <- dnorm(0)
+
+  left_tail   <- dens[dens$x <= -z, ]
+  right_tail  <- dens[dens$x >=  z, ]
+  central     <- dens[dens$x >= -z & dens$x <= z, ]
+
+  # Label positions:
+  # - percentage label sits at the visual centre of the central region,
+  #   anchored at a fraction of the peak so it reads cleanly on both the
+  #   95% (wide yellow) and 99% (wider yellow) figures.
+  # - boundary labels sit just below the baseline.
+  pct_y    <- 0.40 * peak
+  label_y  <- -0.04 * peak
+
+  ggplot(dens, aes(x = .data$x, y = .data$y)) +
+    geom_ribbon(data = central, aes(x = .data$x, ymin = 0, ymax = .data$y),
+                fill = fill_central, inherit.aes = FALSE) +
+    geom_ribbon(data = left_tail, aes(x = .data$x, ymin = 0, ymax = .data$y),
+                fill = fill_tail, inherit.aes = FALSE) +
+    geom_ribbon(data = right_tail, aes(x = .data$x, ymin = 0, ymax = .data$y),
+                fill = fill_tail, inherit.aes = FALSE) +
+    geom_line(colour = curve_colour, linewidth = 0.7) +
+    annotate("segment", x = xlim[1], xend = xlim[2], y = 0, yend = 0,
+             colour = curve_colour, linewidth = 0.5) +
+    annotate("segment", x = -z, xend = -z, y = 0, yend = dnorm(z),
+             colour = curve_colour, linewidth = 0.4) +
+    annotate("segment", x =  z, xend =  z, y = 0, yend = dnorm(z),
+             colour = curve_colour, linewidth = 0.4) +
+    annotate("text", x = 0, y = pct_y, label = percent_label,
+             colour = curve_colour, size = 6, fontface = "bold") +
+    annotate("text", x = -z, y = label_y,
+             label = boundary_label_format(z, -1L),
+             colour = curve_colour, size = 5, hjust = 0.5, vjust = 1) +
+    annotate("text", x =  z, y = label_y,
+             label = boundary_label_format(z, +1L),
+             colour = curve_colour, size = 5, hjust = 0.5, vjust = 1) +
+    scale_x_continuous(limits = xlim, expand = c(0, 0)) +
+    scale_y_continuous(limits = c(-0.12 * peak, peak * 1.05),
+                       expand = c(0, 0)) +
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA),
+          plot.margin      = margin(6, 6, 6, 6))
+}
+
 #' Plot a stacked-unit-boxes "histogram" (Day 3 page 7 left panel)
 #'
 #' For each integer value in \code{values}, draws a column of unit squares —

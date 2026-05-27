@@ -47,3 +47,31 @@ test_that("pdf_family_plot rejects unnamed pdfs list", {
   pdfs <- list(function(x) dnorm(x), function(x) dnorm(x, sd = 2))
   expect_error(pdf_family_plot(pdfs, xlim = c(-5, 5)))
 })
+
+# --- conf_interval_plot ---
+
+test_that("conf_interval_plot returns a ggplot object", {
+  expect_s3_class(conf_interval_plot(0.95), "ggplot")
+})
+
+test_that("conf_interval_plot accepts explicit z override", {
+  expect_s3_class(conf_interval_plot(0.95, z = 1.96), "ggplot")
+  expect_s3_class(conf_interval_plot(0.99, z = 2.58), "ggplot")
+})
+
+test_that("conf_interval_plot rejects level outside (0, 1)", {
+  expect_error(conf_interval_plot(0))
+  expect_error(conf_interval_plot(1))
+  expect_error(conf_interval_plot(1.2))
+  expect_error(conf_interval_plot(-0.1))
+})
+
+test_that("conf_interval_plot rejects non-positive z override", {
+  expect_error(conf_interval_plot(0.95, z = 0))
+  expect_error(conf_interval_plot(0.95, z = -1.96))
+})
+
+test_that("conf_interval_plot rejects z at or beyond upper xlim", {
+  # boundary line at z must sit inside the panel
+  expect_error(conf_interval_plot(0.95, z = 4, xlim = c(-4, 4)))
+})
