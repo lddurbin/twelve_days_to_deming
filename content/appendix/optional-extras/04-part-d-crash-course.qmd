@@ -330,7 +330,23 @@ The normal distribution with mean μ and standard deviation σ is often denoted 
 
 []{#sec-optional-extras-page-47}
 
-![Three normal distributions with the same mean μ but increasing standard deviation σ](/assets/images/optional-extras/part-d-p47-normal-family.png){.lightbox}
+```{r}
+#| label: fig-normal-family
+#| fig-cap: "Three normal distributions with the same mean μ but increasing standard deviation σ"
+#| fig-alt: "Three smooth bell curves arranged in three stacked panels on a shared x axis spanning roughly −10 to +10 about a common mean μ at 0. The top panel is a tall narrow curve labelled 'Smallish σ' (σ = 1), the middle a medium curve labelled 'Larger σ' (σ = 2), and the bottom a short wide curve labelled 'Still larger σ' (σ = 3). All three panels share the same x and y scales so the height-and-width progression is directly visible: as σ grows the bell becomes shorter and wider."
+#| fig-width: 8
+#| fig-height: 7
+#| lightbox: true
+pdf_family_plot(
+  pdfs = list(
+    "Smallish σ (σ = 1)"     = function(x) dnorm(x, mean = 0, sd = 1),
+    "Larger σ (σ = 2)"       = function(x) dnorm(x, mean = 0, sd = 2),
+    "Still larger σ (σ = 3)" = function(x) dnorm(x, mean = 0, sd = 3)
+  ),
+  xlim  = c(-10, 10),
+  layout = "stack"
+)
+```
 
 []{#sec-optional-extras-page-48}Besides seeing the *shape* of the distribution developing from the histograms as the sample size increases and with the boxes becoming correspondingly narrower, you can also get reasonable approximations to μ and σ as the sample size increases. The computer program which produced the histograms also computed the values of $\bar{X}$ and *s* each time. The values obtained for all the sample sizes illustrated in this and the previous section were as follows:
 
@@ -361,7 +377,95 @@ $$2 \times (34.1\% + 13.6\%) = 2 \times 47.7\% = 95.4\%.$$
 
 []{#sec-optional-extras-page-49}
 
-![The three normal curves with the standard "proportions of area thereunder" shown between successive multiples of σ](/assets/images/optional-extras/part-d-p49-area-percentages.png){.lightbox}
+```{r}
+#| label: fig-area-percentages
+#| fig-cap: "The three normal curves with the standard 'proportions of area thereunder' shown between successive multiples of σ"
+#| fig-alt: "Three stacked panels — one each for σ = 1, σ = 2 and σ = 3 — each showing a normal curve centred on μ at 0 with the area under it divided into shaded bands and labelled with the standard percentages. In every panel the central inner ±σ band is shaded blue and labelled 34.1% on each side of μ; the next outward band from ±σ to ±2σ is shaded red and labelled 13.6% on each side; the band from ±2σ to ±3σ is shaded mid-grey and labelled 2.15% on each side; and the two extreme tails beyond ±3σ are shaded a darker red and labelled 0.135% via leader arrows. The panels share x and y scales, so the σ = 1 curve is tall and narrow, the σ = 2 curve is medium, and the σ = 3 curve is short and wide — yet the percentages in each panel are identical, illustrating that they apply irrespective of σ."
+#| fig-width: 7
+#| fig-height: 10
+#| lightbox: true
+# patchwork is already on the search path via R/setup.R → main-functions.R;
+# the `/` composition operator below comes from that load.
+
+# One panel per σ. Bands and labels are expressed in σ-units so each panel
+# carries the same percentage labels (34.1 / 13.6 / 2.15 / 0.135) on its own
+# curve — the whole point of the figure is that these percentages apply
+# irrespective of σ.
+area_percentages_panel <- function(sigma, strip_label) {
+  xx   <- seq(-10, 10, length.out = 1001)
+  dens <- data.frame(x = xx, y = dnorm(xx, sd = sigma))
+  peak <- dnorm(0, sd = sigma)
+
+  ribbon_band <- function(lo_z, hi_z, fill, alpha) {
+    sub <- dens[dens$x >= lo_z * sigma & dens$x <= hi_z * sigma, ]
+    geom_ribbon(data = sub, aes(x = .data$x, ymin = 0, ymax = .data$y),
+                fill = fill, alpha = alpha, inherit.aes = FALSE)
+  }
+
+  # Label y-positions are expressed as a fraction of this panel's peak, so
+  # they sit at the same *relative* height on every curve.
+  y_at <- function(frac) frac * peak
+
+  # Tail annotation x-positions, capped so they stay inside the shared
+  # (-10, 10) xlim on the σ = 3 panel (where 3.7σ = 11.1 would otherwise
+  # be clipped). For σ ≤ 2 the σ-relative positions fall well inside the
+  # cap and the original geometry is preserved unchanged.
+  tail_anchor_x <- min(3.15 * sigma, 9.0)
+  tail_label_x  <- min(3.7  * sigma, 9.5)
+
+  ggplot(dens, aes(x = .data$x, y = .data$y)) +
+    ribbon_band(-1,  1, CONTROL_LIMIT_COLOUR, 0.25) +
+    ribbon_band(-2, -1, CHART_LINE_COLOUR,    0.30) +
+    ribbon_band( 1,  2, CHART_LINE_COLOUR,    0.30) +
+    ribbon_band(-3, -2, CHART_GRID,           0.50) +
+    ribbon_band( 2,  3, CHART_GRID,           0.50) +
+    ribbon_band(-4, -3, CHART_LINE_COLOUR,    0.70) +
+    ribbon_band( 3,  4, CHART_LINE_COLOUR,    0.70) +
+    geom_line(colour = CHART_FG, linewidth = 0.6) +
+    annotate("segment", x = 0, xend = 0, y = 0, yend = peak,
+             colour = CHART_FG, linewidth = 0.3) +
+    # Percentage labels in the body of the curve.
+    annotate("text", x = -0.5 * sigma, y = y_at(0.45), label = "34.1%",
+             colour = CHART_FG, size = 4) +
+    annotate("text", x =  0.5 * sigma, y = y_at(0.45), label = "34.1%",
+             colour = CHART_FG, size = 4) +
+    annotate("text", x = -1.5 * sigma, y = y_at(0.18), label = "13.6%",
+             colour = CHART_FG, size = 3.5) +
+    annotate("text", x =  1.5 * sigma, y = y_at(0.18), label = "13.6%",
+             colour = CHART_FG, size = 3.5) +
+    annotate("text", x = -2.45 * sigma, y = y_at(0.045), label = "2.15%",
+             colour = CHART_FG, size = 3.2) +
+    annotate("text", x =  2.45 * sigma, y = y_at(0.045), label = "2.15%",
+             colour = CHART_FG, size = 3.2) +
+    # Tail leader arrows + 0.135% labels (x-positions computed above).
+    annotate("segment", x = -tail_label_x, xend = -tail_anchor_x,
+             y = y_at(0.075), yend = y_at(0.012),
+             colour = CHART_FG, linewidth = 0.3,
+             arrow = arrow(length = unit(0.12, "cm"))) +
+    annotate("text", x = -tail_label_x, y = y_at(0.085), label = "0.135%",
+             colour = CHART_FG, size = 3.2, hjust = 0.5, vjust = 0) +
+    annotate("segment", x = tail_label_x, xend = tail_anchor_x,
+             y = y_at(0.075), yend = y_at(0.012),
+             colour = CHART_FG, linewidth = 0.3,
+             arrow = arrow(length = unit(0.12, "cm"))) +
+    annotate("text", x = tail_label_x, y = y_at(0.085), label = "0.135%",
+             colour = CHART_FG, size = 3.2, hjust = 0.5, vjust = 0) +
+    scale_x_continuous(limits = c(-10, 10), expand = c(0, 0)) +
+    # Shared y limits across panels (set to the σ = 1 peak, which is the
+    # tallest of the three) so the height progression reads directly.
+    scale_y_continuous(limits = c(0, dnorm(0) * 1.05), expand = c(0, 0)) +
+    labs(subtitle = strip_label) +
+    run_chart_theme(gridlines = "none") +
+    theme(axis.text.y  = element_blank(),
+          axis.ticks.y = element_blank(),
+          axis.title.y = element_blank(),
+          axis.line.y  = element_blank())
+}
+
+area_percentages_panel(1, "Smallish σ (σ = 1)") /
+  area_percentages_panel(2, "Larger σ (σ = 2)") /
+  area_percentages_panel(3, "Still larger σ (σ = 3)")
+```
 
 As is clearly seen in those pictures, and as is in any case obvious from the preceding development, the curve which illustrates a *continuous* probability distribution is relatively high in regions of high probability and relatively low in regions of low probability. The curve is therefore usually referred to as the *probability density function*, or *pdf* for short. (A relatively ancient expression for the pdf was *frequency function*—and this is what Shewhart was referring to in his [quotation on page 30](03-part-c-ne-er-twain.qmd#sec-optional-extras-part-c).)
 

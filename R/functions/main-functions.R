@@ -908,6 +908,166 @@ histogram_with_pdf <- function(values,
   p + run_chart_theme()
 }
 
+#' Plot one or more smooth probability density functions, overlaid or stacked
+#'
+#' Draws each function in \code{pdfs} on a shared x range. Two layouts:
+#'
+#' \itemize{
+#'   \item \code{layout = "overlay"} (default): all curves on one panel,
+#'         mapped to a colour legend — useful for direct visual comparison
+#'         when shapes are intentionally different and the eye is meant to
+#'         see them stacked atop each other.
+#'   \item \code{layout = "stack"}: one panel per curve, faceted vertically
+#'         in input order, fixed x and y scales across panels so heights
+#'         and widths remain directly comparable — matches Neave's printed
+#'         page 47 layout (three independent panels for σ = 1, 2, 3) and
+#'         is the right default whenever the source figure stacks rather
+#'         than overlays.
+#' }
+#'
+#' Both layouts evaluate each PDF on \code{n} evenly-spaced points across
+#' \code{xlim}. The overlay layout uses \code{geom_function} (which performs
+#' its own adaptive sampling around \code{n} points); the stacked layout
+#' pre-evaluates into a long data frame and uses \code{geom_line} with
+#' \code{facet_wrap} — same visual fidelity at the n used here.
+#'
+#' Default palette: \code{CHART_LINE_COLOUR} (the red data ink) for the first
+#' curve, \code{CONTROL_LIMIT_COLOUR} (blue) for the second, \code{CHART_FG}
+#' (black) for the third. The palette extends with \code{CHART_GRID} (mid-grey)
+#' for a fourth curve so the #358 four-family case has a non-repeating
+#' colour assignment. No new colour tokens are introduced — every entry is
+#' one of the existing dark-mode-safe constants documented at the top of
+#' this file.
+#'
+#' @param pdfs Named list of functions \code{function(x) numeric}. The list
+#'   names are used as legend labels and as the colour scale's breaks (so
+#'   legend order matches list order).
+#' @param xlim Numeric vector of length 2. The x range over which every
+#'   curve is evaluated; passed to \code{geom_function}'s \code{xlim} and
+#'   used to set the panel's x scale.
+#' @param colours Character vector or NULL. Colours aligned to \code{pdfs}
+#'   (positionally or by name). NULL (default) uses the project palette
+#'   described above, recycled if there are more PDFs than palette entries.
+#' @param linewidth Numeric. Line width for every curve. Default 0.7 —
+#'   thinner than \code{histogram_with_pdf()}'s 0.9 because multiple
+#'   curves on one panel read more cleanly when each is a finer line.
+#' @param legend_title Character or NULL. Title above the colour legend.
+#'   NULL (default) suppresses the legend title — fine when the legend
+#'   labels are self-describing (e.g. "Smallish σ").
+#' @param y_label Character. Y-axis label. Default \code{"Density"}.
+#' @param show_y_axis Logical. If FALSE (default), suppress y-axis ink and
+#'   labels — appropriate for PDF illustrations where only the *shape* and
+#'   *relative* heights carry meaning, as in Neave's printed page 47. Set
+#'   TRUE if the caller wants a numeric density axis.
+#' @param n Integer. Number of points each curve is evaluated at across
+#'   \code{xlim}. Default 401 — finer than ggplot's 101 default so the bell
+#'   shoulders read smoothly even on tall narrow panels.
+#' @param layout Character. \code{"overlay"} (default) returns a single
+#'   panel with all curves; \code{"stack"} returns a vertically faceted
+#'   plot with one panel per curve in input order, fixed x and y scales
+#'   across panels.
+#' @return A ggplot2 object — one shared panel for \code{"overlay"}, a
+#'   \code{facet_wrap}-ed plot with one row per curve for \code{"stack"}.
+#' @examples
+#' pdf_family_plot(
+#'   pdfs = list(
+#'     "σ = 1" = function(x) dnorm(x, 0, 1),
+#'     "σ = 2" = function(x) dnorm(x, 0, 2),
+#'     "σ = 3" = function(x) dnorm(x, 0, 3)
+#'   ),
+#'   xlim = c(-10, 10)
+#' )
+#' pdf_family_plot(
+#'   pdfs = list(
+#'     "Smallish σ"     = function(x) dnorm(x, 0, 1),
+#'     "Larger σ"       = function(x) dnorm(x, 0, 2),
+#'     "Still larger σ" = function(x) dnorm(x, 0, 3)
+#'   ),
+#'   xlim = c(-10, 10),
+#'   layout = "stack"
+#' )
+pdf_family_plot <- function(pdfs,
+                            xlim,
+                            colours      = NULL,
+                            linewidth    = 0.7,
+                            legend_title = NULL,
+                            y_label      = "Density",
+                            show_y_axis  = FALSE,
+                            n            = 401,
+                            layout       = c("overlay", "stack")) {
+  layout <- match.arg(layout)
+  stopifnot(is.list(pdfs), length(pdfs) >= 1,
+            !is.null(names(pdfs)), all(nzchar(names(pdfs))),
+            all(vapply(pdfs, is.function, logical(1))),
+            is.numeric(xlim), length(xlim) == 2L, xlim[1] < xlim[2])
+
+  palette <- c(CHART_LINE_COLOUR, CONTROL_LIMIT_COLOUR, CHART_FG, CHART_GRID)
+  if (is.null(colours)) {
+    colours <- rep_len(palette, length(pdfs))
+  } else {
+    stopifnot(length(colours) == length(pdfs))
+  }
+  names(colours) <- names(pdfs)
+
+  if (layout == "stack") {
+    xs <- seq(xlim[1], xlim[2], length.out = n)
+    long <- do.call(rbind, lapply(names(pdfs), function(lbl) {
+      data.frame(label = lbl, x = xs, density = pdfs[[lbl]](xs))
+    }))
+    long$label <- factor(long$label, levels = names(pdfs))
+
+    p <- ggplot(long, aes(x = .data$x, y = .data$density,
+                          colour = .data$label)) +
+      geom_line(linewidth = linewidth) +
+      facet_wrap(~ label, ncol = 1, scales = "fixed", strip.position = "top") +
+      scale_colour_manual(values = colours, breaks = names(pdfs),
+                          guide = "none") +
+      scale_x_continuous(limits = xlim, expand = c(0, 0)) +
+      labs(y = y_label) +
+      run_chart_theme()
+  } else {
+    # Dummy single-row data layer: geom_function ignores it and computes y
+    # from `fun`. Same trick is used elsewhere in this file (histogram_with_pdf
+    # at least supplies a real data layer for the bars, but pure-curve plots
+    # have no observations to bind to).
+    dummy <- data.frame(x = mean(xlim))
+
+    p <- ggplot(dummy, aes(x = .data$x))
+    for (label in names(pdfs)) {
+      p <- p + geom_function(
+        fun       = pdfs[[label]],
+        aes(colour = !!label),
+        xlim      = xlim,
+        linewidth = linewidth,
+        n         = n
+      )
+    }
+
+    p <- p +
+      scale_colour_manual(
+        name   = legend_title,
+        values = colours,
+        breaks = names(pdfs)
+      ) +
+      scale_x_continuous(limits = xlim, expand = c(0, 0)) +
+      labs(y = y_label) +
+      run_chart_theme()
+  }
+
+  if (!show_y_axis) {
+    p <- p + theme(axis.text.y        = element_blank(),
+                   axis.ticks.y       = element_blank(),
+                   axis.title.y       = element_blank(),
+                   axis.line.y        = element_blank(),
+                   panel.grid.major.x = element_blank(),
+                   panel.grid.major.y = element_blank(),
+                   panel.grid.minor.x = element_blank(),
+                   panel.grid.minor.y = element_blank())
+  }
+
+  p
+}
+
 #' Plot a stacked-unit-boxes "histogram" (Day 3 page 7 left panel)
 #'
 #' For each integer value in \code{values}, draws a column of unit squares —
