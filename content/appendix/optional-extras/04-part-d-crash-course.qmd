@@ -478,9 +478,25 @@ On [pages 90–91 in the Technical Section](06-part-f-technical.qmd#sec-optional
 
 On pages 54 and 55 I briefly describe the two most commonly-used methods of statistical inference, and the way in which these particular figures apply to them.
 
-![95% confidence region: the yellow area between μ − 1.96σ and μ + 1.96σ](/assets/images/optional-extras/part-d-p50-conf-95.png){.lightbox}
+```{r}
+#| label: fig-conf-95
+#| fig-cap: "95% confidence region: the yellow area between μ − 1.96σ and μ + 1.96σ"
+#| fig-alt: "A standard normal bell curve drawn over the interval roughly −4σ to +4σ. The central region between μ − 1.96σ and μ + 1.96σ is shaded yellow and labelled '95%'; the two narrow tails outside those boundaries are shaded red. Vertical lines drop from the curve to the baseline at ±1.96σ, and the boundary labels 'μ−1.96σ' and 'μ+1.96σ' sit just below the axis. There is no y-axis ink — only the baseline, the boundary tick labels, and the shaded regions carry meaning."
+#| fig-width: 7
+#| fig-height: 4
+#| lightbox: true
+conf_interval_plot(0.95, z = 1.96)
+```
 
-![99% confidence region: the yellow area between μ − 2.58σ and μ + 2.58σ](/assets/images/optional-extras/part-d-p50-conf-99.png){.lightbox}
+```{r}
+#| label: fig-conf-99
+#| fig-cap: "99% confidence region: the yellow area between μ − 2.58σ and μ + 2.58σ"
+#| fig-alt: "A standard normal bell curve drawn over the interval roughly −4σ to +4σ. The central region between μ − 2.58σ and μ + 2.58σ is shaded yellow and labelled '99%'; the two very narrow tails outside those boundaries are shaded red. Vertical lines drop from the curve to the baseline at ±2.58σ, and the boundary labels 'μ−2.58σ' and 'μ+2.58σ' sit just below the axis. There is no y-axis ink — only the baseline, the boundary tick labels, and the shaded regions carry meaning. Compared with the 95% figure above, the yellow region is wider and the red tails are much smaller."
+#| fig-width: 7
+#| fig-height: 4
+#| lightbox: true
+conf_interval_plot(0.99, z = 2.58)
+```
 
 Incidentally, if I were to show you a similar diagram with 99.8% in the middle region and thus 0.1% in each of the two red tails then this would correspond to replacing the 1.96 or 2.58 with 3.09—which explains the remark made about "3.09σ" in the middle of [page 2 in these Optional Extras](00-introduction.qmd#sec-optional-extras-introduction).
 

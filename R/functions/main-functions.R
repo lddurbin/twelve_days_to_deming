@@ -1186,6 +1186,147 @@ pdf_family_plot <- function(pdfs,
   p
 }
 
+#' Plot a confidence-interval illustration on a standard normal curve
+#'
+#' Draws the standard-normal pdf with the central \code{level}-fraction of the
+#' area shaded "yellow" and the two tails shaded "red", plus vertical line
+#' markers and tick labels at the boundaries. This is the page-50 figure in
+#' Neave's Part D crash-course: a 95% confidence region uses
+#' \code{level = 0.95} (boundaries at ±1.96σ); a 99% confidence region uses
+#' \code{level = 0.99} (boundaries at ±2.58σ).
+#'
+#' The plot is drawn in σ-units (standard normal, μ = 0, σ = 1). The boundary
+#' labels follow Neave's printed form — \code{"μ−1.96σ"} on the
+#' left and \code{"μ+1.96σ"} on the right — so the figure reads as
+#' an illustration of *any* normal distribution rather than the standard
+#' normal specifically. The percentage label inside the central region is
+#' formatted from \code{level} (e.g. \code{0.95} renders as \code{"95%"}).
+#'
+#' Like \code{pdf_family_plot()}, this helper renders an analytic curve from
+#' \code{dnorm}; no \code{set.seed()} is required and none should be added
+#' to its calling chunks. The yellow / red fill palette intentionally
+#' matches Neave's printed figure rather than the project's dark-mode-safe
+#' palette — the central "yellow" and the tail "red" are pedagogically
+#' load-bearing (Neave's prose on page 50 refers to "the yellow area" and
+#' "the red tails" by name) and the figure's chromatic identity reads as a
+#' single coherent illustration only when those two colours are used.
+#'
+#' @param level Numeric in (0, 1). Central confidence level — e.g.
+#'   \code{0.95} or \code{0.99}.
+#' @param z Numeric or NULL. Half-width of the central region in σ-units.
+#'   If NULL (default), computed as \code{qnorm((1 + level) / 2)} — the
+#'   z-score that puts \code{level} of the area in the central region.
+#'   Override (e.g. \code{1.96} or \code{2.58}) to reproduce Neave's
+#'   conventional rounded values verbatim; without an override the
+#'   computed z-scores are 1.959964 (95%) and 2.575829 (99%), which
+#'   round to Neave's printed values but differ in the third decimal.
+#' @param xlim Numeric vector of length 2. X-axis range in σ-units.
+#'   Default \code{c(-4, 4)} — the curve is visually flat outside this
+#'   range and the same range is used for both the 95% and the 99%
+#'   figures so the two illustrations compose at the same horizontal
+#'   scale.
+#' @param fill_central Character. Fill colour for the central
+#'   \code{level}-fraction band. Default \code{"#fff176"} (the yellow
+#'   Neave uses on the printed page).
+#' @param fill_tail Character. Fill colour for the two tail bands.
+#'   Default \code{"#ed0000"} (the project's existing red, also Neave's
+#'   tail colour).
+#' @param curve_colour Character. Colour of the bell-curve outline and
+#'   the baseline. Default \code{CHART_FG}.
+#' @param boundary_label_format Function. Called as
+#'   \code{boundary_label_format(z, sign)} where \code{sign} is
+#'   \code{-1L} for the left boundary and \code{+1L} for the right.
+#'   Should return a single character string. The default formats as
+#'   \code{"μ−1.96σ"} / \code{"μ+1.96σ"} when
+#'   \code{z = 1.96}, matching Neave's printed labels. Override to
+#'   produce a different label form (e.g. raw z-scores).
+#' @param percent_label Character or NULL. Label drawn inside the
+#'   central region. If NULL (default), formatted from \code{level}
+#'   via \code{scales::label_percent(accuracy = 1)} — e.g.
+#'   \code{"95%"} for \code{level = 0.95}.
+#' @return A ggplot2 object — a single panel with no axis ink other
+#'   than the baseline and the boundary tick labels.
+#' @examples
+#' conf_interval_plot(0.95)
+#' conf_interval_plot(0.99, z = 2.58)
+conf_interval_plot <- function(level,
+                               z = NULL,
+                               xlim = c(-4, 4),
+                               fill_central = "#fff176",
+                               fill_tail    = "#ed0000",
+                               curve_colour = CHART_FG,
+                               boundary_label_format = NULL,
+                               percent_label = NULL) {
+  stopifnot(is.numeric(level), length(level) == 1L,
+            level > 0, level < 1,
+            is.numeric(xlim), length(xlim) == 2L, xlim[1] < xlim[2])
+
+  if (is.null(z)) {
+    z <- qnorm((1 + level) / 2)
+  }
+  stopifnot(is.numeric(z), length(z) == 1L, z > 0, z < xlim[2])
+
+  if (is.null(boundary_label_format)) {
+    boundary_label_format <- function(z, sign) {
+      sign_glyph <- if (sign < 0) "−" else "+"
+      # Trim trailing zeros so 1.96 stays "1.96" but 2.00 would render as "2".
+      z_text <- format(z, trim = TRUE, drop0trailing = TRUE)
+      paste0("μ", sign_glyph, z_text, "σ")
+    }
+  }
+  stopifnot(is.function(boundary_label_format))
+
+  if (is.null(percent_label)) {
+    percent_label <- scales::label_percent(accuracy = 1)(level)
+  }
+
+  xs   <- seq(xlim[1], xlim[2], length.out = 801)
+  dens <- data.frame(x = xs, y = dnorm(xs))
+  peak <- dnorm(0)
+
+  left_tail   <- dens[dens$x <= -z, ]
+  right_tail  <- dens[dens$x >=  z, ]
+  central     <- dens[dens$x >= -z & dens$x <= z, ]
+
+  # Label positions:
+  # - percentage label sits at the visual centre of the central region,
+  #   anchored at a fraction of the peak so it reads cleanly on both the
+  #   95% (wide yellow) and 99% (wider yellow) figures.
+  # - boundary labels sit just below the baseline.
+  pct_y    <- 0.40 * peak
+  label_y  <- -0.04 * peak
+
+  ggplot(dens, aes(x = .data$x, y = .data$y)) +
+    geom_ribbon(data = central, aes(x = .data$x, ymin = 0, ymax = .data$y),
+                fill = fill_central, inherit.aes = FALSE) +
+    geom_ribbon(data = left_tail, aes(x = .data$x, ymin = 0, ymax = .data$y),
+                fill = fill_tail, inherit.aes = FALSE) +
+    geom_ribbon(data = right_tail, aes(x = .data$x, ymin = 0, ymax = .data$y),
+                fill = fill_tail, inherit.aes = FALSE) +
+    geom_line(colour = curve_colour, linewidth = 0.7) +
+    annotate("segment", x = xlim[1], xend = xlim[2], y = 0, yend = 0,
+             colour = curve_colour, linewidth = 0.5) +
+    annotate("segment", x = -z, xend = -z, y = 0, yend = dnorm(z),
+             colour = curve_colour, linewidth = 0.4) +
+    annotate("segment", x =  z, xend =  z, y = 0, yend = dnorm(z),
+             colour = curve_colour, linewidth = 0.4) +
+    annotate("text", x = 0, y = pct_y, label = percent_label,
+             colour = curve_colour, size = 6, fontface = "bold") +
+    annotate("text", x = -z, y = label_y,
+             label = boundary_label_format(z, -1L),
+             colour = curve_colour, size = 5, hjust = 0.5, vjust = 1) +
+    annotate("text", x =  z, y = label_y,
+             label = boundary_label_format(z, +1L),
+             colour = curve_colour, size = 5, hjust = 0.5, vjust = 1) +
+    scale_x_continuous(limits = xlim, expand = c(0, 0)) +
+    scale_y_continuous(limits = c(-0.12 * peak, peak * 1.05),
+                       expand = c(0, 0)) +
+    theme_void() +
+    theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+          panel.background = element_rect(fill = "transparent", colour = NA),
+          plot.margin      = margin(6, 6, 6, 6))
+}
+
 #' Plot a stacked-unit-boxes "histogram" (Day 3 page 7 left panel)
 #'
 #' For each integer value in \code{values}, draws a column of unit squares —
@@ -1323,6 +1464,208 @@ ford_histogram_plot <- function(values,
       panel.background = element_rect(fill = "transparent", colour = NA),
       axis.title.x     = element_text(color = CHART_FG, size = 14,
                                       margin = margin(t = 10))
+    )
+}
+
+# --- Optional Extras Part E §4: X-bar false-signal probabilities ---
+
+#' Simulate the false-signal probability for an X-bar chart
+#'
+#' For each of \code{n_replications} replications, draws \code{m_subgroups}
+#' subgroups of size \code{n} from a standard normal distribution, builds an
+#' X-bar control chart in the textbook way (grand mean ± A2 · R-bar), then
+#' computes the probability that a *future* subgroup mean (which under the
+#' true model is N(0, 1/√n)) falls outside those limits. Returns a vector of
+#' \code{n_replications} probabilities — one per replication.
+#'
+#' This is the simulation behind the histograms on Neave's Optional Extras
+#' Part E pages 69 and 70. The pages 69/70 histograms are built by calling
+#' this function once per subgroup size n ∈ \{2, 4, 6\} with
+#' \code{m_subgroups = 12} (page 69) or \code{m_subgroups = 40} (page 70).
+#' The textbook claim that the false-signal probability "is" 0.0027 assumes
+#' that the *true* μ and σ are known; in practice they have to be estimated
+#' from finite data, and the spread of these histograms quantifies how
+#' badly that estimation noise affects the claim.
+#'
+#' The X-bar chart constants follow Shewhart's standard form
+#' \eqn{UCL/LCL = \bar{\bar{X}} \pm A_2 \bar{R}}, where
+#' \eqn{A_2 = 3 / (d_2 \sqrt{n})} and \eqn{d_2} depends only on the
+#' subgroup size \eqn{n}. The values of \eqn{d_2} used are the standard
+#' ones tabulated in Part B (page 20): 1.128 (n=2), 1.693 (n=3),
+#' 2.059 (n=4), 2.326 (n=5), 2.534 (n=6). Callers can override \eqn{d_2}
+#' via the optional \code{d2_override} argument; the default lookup covers
+#' \eqn{n \in \{2, 3, 4, 5, 6\}}.
+#'
+#' Vectorised throughout. Subgroups are stored as an
+#' \code{n_replications × (m_subgroups · n)} matrix; row-wise subgroup
+#' ranges are computed by reshaping the matrix to an
+#' \code{n × m_subgroups × n_replications} array and folding the n-axis
+#' with \code{pmax} / \code{pmin}, so no \code{apply()} calls appear.
+#'
+#' @param n Integer-ish. Subgroup size. Must be in \{2, 3, 4, 5, 6\} unless
+#'   \code{d2_override} is supplied.
+#' @param m_subgroups Integer-ish. Number of subgroups used to compute the
+#'   control limits in each replication.
+#' @param n_replications Integer-ish. Number of replications.
+#' @param d2_override Numeric or NULL. If non-NULL, used as \eqn{d_2}
+#'   instead of the built-in lookup — useful for non-standard \eqn{n}.
+#' @return Numeric vector of length \code{n_replications}: the simulated
+#'   false-signal probability for each replication.
+#' @examples
+#' set.seed(359)
+#' probs <- xbar_false_signal_probs(n = 4, m_subgroups = 12,
+#'                                  n_replications = 1000)
+#' summary(probs)
+xbar_false_signal_probs <- function(n,
+                                    m_subgroups,
+                                    n_replications,
+                                    d2_override = NULL) {
+  stopifnot(is.numeric(n), length(n) == 1, n >= 2,
+            is.numeric(m_subgroups), length(m_subgroups) == 1,
+            m_subgroups >= 2,
+            is.numeric(n_replications), length(n_replications) == 1,
+            n_replications >= 1)
+
+  d2_table <- c("2" = 1.128, "3" = 1.693, "4" = 2.059,
+                "5" = 2.326, "6" = 2.534)
+  d2 <- if (!is.null(d2_override)) {
+    d2_override
+  } else {
+    val <- d2_table[as.character(n)]
+    if (is.na(val)) {
+      stop("No built-in d2 for n = ", n,
+           "; supply d2_override.", call. = FALSE)
+    }
+    unname(val)
+  }
+  A2 <- 3 / (d2 * sqrt(n))
+
+  total <- n_replications * m_subgroups * n
+  draws <- matrix(rnorm(total),
+                  nrow = n_replications,
+                  ncol = m_subgroups * n)
+
+  # Row-wise grand mean = simple mean across all m_subgroups * n columns.
+  grand_mean <- rowMeans(draws)
+
+  # Row-wise subgroup ranges: reshape each replication's row to an
+  # n × m_subgroups slice (one subgroup per column) and fold over the n
+  # axis with pmax / pmin to get colMax / colMin per slice — vectorised
+  # across replications. `array(t(draws), c(n, m_subgroups, R))` lays out
+  # storage column-major so consecutive within-subgroup observations
+  # land in one column of each m_subgroups × R slice as the n-axis varies
+  # fastest.
+  arr <- array(t(draws), dim = c(n, m_subgroups, n_replications))
+  col_max <- arr[1, , , drop = FALSE]
+  col_min <- arr[1, , , drop = FALSE]
+  if (n >= 2) {
+    for (i in seq.int(2L, n)) {
+      col_max <- pmax(col_max, arr[i, , , drop = FALSE])
+      col_min <- pmin(col_min, arr[i, , , drop = FALSE])
+    }
+  }
+  # Drop the leading singleton n-axis so we end up with an
+  # m_subgroups × n_replications matrix.
+  dim(col_max) <- c(m_subgroups, n_replications)
+  dim(col_min) <- c(m_subgroups, n_replications)
+  ranges <- col_max - col_min
+  r_bar  <- colMeans(ranges)
+
+  half_width <- A2 * r_bar
+  UCL <- grand_mean + half_width
+  LCL <- grand_mean - half_width
+
+  # Future subgroup mean has distribution N(0, 1/√n) under the true model.
+  sd_xbar <- 1 / sqrt(n)
+  pnorm(LCL, mean = 0, sd = sd_xbar) +
+    pnorm(UCL, mean = 0, sd = sd_xbar, lower.tail = FALSE)
+}
+
+#' Plot a single Optional Extras Part E §4 false-signal histogram panel
+#'
+#' Builds one of the three stacked histograms on Neave's pages 69 and 70:
+#' a histogram of simulated X-bar-chart false-signal probabilities with a
+#' red tick and "0.0027" label marking the textbook target value on the
+#' x axis, and a subgroup-size caption (for example "12 subgroups of
+#' size 2") centred under the panel.
+#'
+#' Layout faithfulness to Neave's printed page is the brief here. The
+#' histogram uses unfilled bars with thin black outlines; the x axis is
+#' a single black baseline with major ticks at every 0.005; there is no
+#' y-axis ink at all (the printed page has none); the 0.0027 marker is
+#' drawn as a short red tick *below* the baseline with the label "0.0027"
+#' in red just under it; the panel caption sits well below the axis.
+#'
+#' @param values Numeric vector. False-signal probabilities for the
+#'   replications behind this panel. Values beyond \code{x_max} are clipped
+#'   onto the rightmost bin so the histogram does not visually under-count
+#'   the long tail (matching the printed page, which truncates rather than
+#'   trims).
+#' @param caption Character. Caption text placed below the panel
+#'   (for example "12 subgroups of size 2").
+#' @param x_max Numeric. Upper limit of the x axis. Neave uses 0.020 on
+#'   page 69 and 0.025 on page 70.
+#' @param binwidth Numeric. Histogram bin width. Default 0.0003 matches
+#'   the visual bin density of Neave's printed page (about 65 bins across
+#'   \code{[0, x_max]}).
+#' @return A ggplot2 object.
+#' @examples
+#' set.seed(359)
+#' xbar_false_signal_panel(
+#'   xbar_false_signal_probs(n = 4, m_subgroups = 12, n_replications = 1000),
+#'   caption = "12 subgroups of size 4", x_max = 0.020
+#' )
+xbar_false_signal_panel <- function(values,
+                                    caption,
+                                    x_max,
+                                    binwidth = 0.0003) {
+  stopifnot(is.numeric(values), length(values) >= 1,
+            is.character(caption), length(caption) == 1,
+            is.numeric(x_max), length(x_max) == 1, x_max > 0)
+
+  df <- data.frame(v = pmin(values, x_max))
+  x_breaks <- seq(0, x_max, by = 0.005)
+
+  ggplot(df, aes(x = .data$v)) +
+    geom_histogram(
+      binwidth  = binwidth,
+      boundary  = 0,
+      closed    = "left",
+      fill      = "white",
+      colour    = CHART_FG,
+      linewidth = 0.2
+    ) +
+    # Red 0.0027 tick + label below the baseline. clip = "off" so the tick
+    # and the label can sit underneath the plotting area.
+    annotate("segment", x = 0.0027, xend = 0.0027,
+             y = 0, yend = -Inf,
+             colour = CHART_LINE_COLOUR, linewidth = 0.6) +
+    annotate("text", x = 0.0027, y = 0,
+             label = "0.0027",
+             colour = CHART_LINE_COLOUR,
+             hjust = 0.5, vjust = 1.8, size = 4) +
+    labs(caption = caption) +
+    scale_x_continuous(
+      limits = c(0, x_max),
+      breaks = x_breaks,
+      labels = format(x_breaks, nsmall = 3, trim = TRUE),
+      expand = c(0, 0)
+    ) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+    coord_cartesian(clip = "off") +
+    theme_void() +
+    theme(
+      plot.background     = element_rect(fill = "transparent", colour = NA),
+      panel.background    = element_rect(fill = "transparent", colour = NA),
+      axis.line.x         = element_line(colour = CHART_FG, linewidth = 0.5),
+      axis.ticks.x        = element_line(colour = CHART_FG, linewidth = 0.4),
+      axis.ticks.length.x = unit(3, "pt"),
+      axis.text.x         = element_text(colour = CHART_FG, size = 10,
+                                         margin = margin(t = 4)),
+      plot.caption        = element_text(colour = CHART_FG, size = 12,
+                                         hjust = 0.5,
+                                         margin = margin(t = 18, b = 4)),
+      plot.margin         = margin(8, 12, 24, 12)
     )
 }
 
