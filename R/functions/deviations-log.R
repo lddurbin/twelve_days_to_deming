@@ -25,7 +25,7 @@ deviations_log_assemble <- function(deviations_dir = "docs/deviations",
   }
 
   entry_blocks <- lapply(seq_along(entry_files), function(i) {
-    body <- readLines(entry_files[[i]], encoding = "UTF-8")
+    body <- readLines(entry_files[[i]], encoding = "UTF-8", warn = FALSE)
     if (downshift_headings) {
       body <- sub("^## ", "### ", body)
     }

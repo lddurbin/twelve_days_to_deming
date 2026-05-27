@@ -36,6 +36,21 @@ the stitched artifact even though their per-entry source files merged cleanly.
 When a Pending entry lands, bump its "Landed in" field to the merge commit /
 PR number in the per-entry file. No regeneration step.
 
+### Cross-references between entry files
+
+Entry files get inlined into `changes-from-source.qmd` at the project root, so
+relative paths like `./other-entry.md` or `../glossary-audit.md` do not resolve
+in the rendered site. **Use absolute GitHub URLs** for any link from one entry
+file to another, or from an entry to anything under `docs/`:
+
+```markdown
+[other entry](https://github.com/lddurbin/twelve_days_to_deming/blob/main/docs/deviations/2026-05-26-…)
+```
+
+For links from an entry to a Quarto page (`*.qmd`), use a path relative to the
+project root with a leading slash — e.g. `[Glossary](/content/appendix/glossary.qmd)`
+— which Quarto resolves correctly when the entry is inlined.
+
 ## Ordering
 
 The assembler (`deviations_log_assemble()` in
