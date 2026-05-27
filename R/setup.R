@@ -27,3 +27,4 @@ knitr::opts_chunk$set(
 
 source(file.path("R", "functions", "main-functions.R"))
 source(file.path("R", "functions", "funnel-rules.R"))
+source(file.path("R", "functions", "deviations-log.R"))
