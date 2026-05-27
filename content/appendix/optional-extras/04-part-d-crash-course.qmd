@@ -734,27 +734,115 @@ clt_demo_plot(
 
 Some similar simulation work is reported in Chapter 4 of Wheeler and Chambers' *Understanding Statistical Process Control*. Three further distributions are illustrated there. I'll use just one of them here: this is the exponential distribution, whose pdf is shown alongside. This is a distribution which is used as a model in many situations including failure analysis and queuing theory, but its main interest here is as one of the most *un*symmetric distributions imaginable.
 
-![Pdf of the exponential distribution](/assets/images/optional-extras/part-d-p53-exp-pdf.png){.lightbox}
+```{r}
+#| label: fig-exp-pdf
+#| fig-cap: "Pdf of the exponential distribution"
+#| fig-alt: "Probability density function of the exponential distribution with rate 1 (so σ = 1). The density starts high on the left at x = 0 and falls smoothly and monotonically toward zero as x increases, drawn as a thin black curve over a horizontal baseline. No axis numbers — only the shape is shown, illustrating Neave's choice of 'one of the most unsymmetric distributions imaginable'."
+#| fig-width: 5
+#| fig-height: 3.5
+#| lightbox: true
+# Deterministic — closed-form exponential density evaluated on a fixed grid.
+# Rate 1 exponential has mean = sd = 1, matching the σ = 1 parametrisation
+# used throughout pages 52–54 (see fig-uniform-pdf and fig-tri-pdf above).
+exp_rate <- 1
+exp_pdf  <- function(x) dexp(x, rate = exp_rate)
+
+x_pad <- 0.3
+x_max <- 6
+xx    <- seq(-x_pad, x_max, length.out = 401)
+df    <- data.frame(x = xx, y = exp_pdf(xx))
+peak  <- exp_rate
+
+ggplot(df, aes(x = .data$x, y = .data$y)) +
+  annotate("segment", x = -x_pad, xend = x_max,
+           y = 0, yend = 0,
+           colour = CHART_FG, linewidth = 0.5) +
+  geom_line(colour = CHART_FG, linewidth = 0.9) +
+  annotate("segment", x = 0, xend = 0, y = 0, yend = peak,
+           colour = CHART_FG, linewidth = 0.9) +
+  scale_x_continuous(limits = c(-x_pad, x_max), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(-peak * 0.18, peak * 1.25), expand = c(0, 0)) +
+  theme_void() +
+  theme(plot.background  = element_rect(fill = "transparent", colour = NA),
+        panel.background = element_rect(fill = "transparent", colour = NA),
+        plot.margin      = margin(8, 12, 8, 12))
+```
 
 So let's see what shape of distribution the standardised version of $\bar{X}$ has with *n* = 2. Here it is:
 
-![Histogram of standardised $\bar{X}$ from an exponential distribution, *n* = 2](/assets/images/optional-extras/part-d-p53-exp-n2.png){.lightbox}
+```{r}
+#| label: fig-exp-n2
+#| fig-cap: "Histogram of standardised $\\bar{X}$ from an exponential distribution, *n* = 2"
+#| fig-alt: "Histogram of the standardised sample mean Z = (X-bar − μ) / (σ / √n) from 100,000 samples of size n = 2 drawn from an exponential distribution with rate 1. The histogram is markedly right-skewed: a tall pile to the left of 0 with a long tail trailing off to the right. The overlaid blue N(0, 1) density is a clear target the histogram has not yet reached — illustrating the combined influence of both the parent exponential and an early stage of the Central Limit Theorem."
+#| fig-width: 7
+#| fig-height: 4.5
+#| lightbox: true
+set.seed(357)
+clt_demo_plot(
+  parent_dist = function(n) rexp(n, rate = 1),
+  n           = 2,
+  mu          = 1,
+  sigma       = 1
+)
+```
 
 In this histogram it is fairly easy to see the combined influence of both the original exponential distribution and of an early stage of the Central Limit Theorem. But there's a long way to go.
 
 With *n* = 4 we have:
 
-![Histogram of standardised $\bar{X}$ from an exponential distribution, *n* = 4](/assets/images/optional-extras/part-d-p53-exp-n4.png){.lightbox}
+```{r}
+#| label: fig-exp-n4
+#| fig-cap: "Histogram of standardised $\\bar{X}$ from an exponential distribution, *n* = 4"
+#| fig-alt: "Histogram of the standardised sample mean Z from 100,000 samples of size n = 4 drawn from an exponential distribution with rate 1. The histogram is still visibly right-skewed but the bulk has shifted closer to 0 and the right tail is shorter than at n = 2. The overlaid blue N(0, 1) density sits noticeably above the right tail and below the left shoulder, showing the Central Limit Theorem effect is well under way but not yet complete."
+#| fig-width: 7
+#| fig-height: 4.5
+#| lightbox: true
+set.seed(357)
+clt_demo_plot(
+  parent_dist = function(n) rexp(n, rate = 1),
+  n           = 4,
+  mu          = 1,
+  sigma       = 1
+)
+```
 
 And with *n* = 10 we have:
 
-![Histogram of standardised $\bar{X}$ from an exponential distribution, *n* = 10](/assets/images/optional-extras/part-d-p53-exp-n10.png){.lightbox}
+```{r}
+#| label: fig-exp-n10
+#| fig-cap: "Histogram of standardised $\\bar{X}$ from an exponential distribution, *n* = 10"
+#| fig-alt: "Histogram of the standardised sample mean Z from 100,000 samples of size n = 10 drawn from an exponential distribution with rate 1. The histogram is much closer to symmetric than at n = 4 — the right-skew is now subtle — and the overlaid blue N(0, 1) density tracks the bar tops well across most of the range. Some residual top-sided asymmetry remains, reflecting the lingering effect of the highly non-symmetric parent."
+#| fig-width: 7
+#| fig-height: 4.5
+#| lightbox: true
+set.seed(357)
+clt_demo_plot(
+  parent_dist = function(n) rexp(n, rate = 1),
+  n           = 10,
+  mu          = 1,
+  sigma       = 1
+)
+```
 
 Well, it *is* getting there but, unsurprisingly, not very quickly. So, in this case, let's give the computer some real work to do and go right up to *n* = 100. Yes, the Central Limit Theorem even works with something as unfriendly as the exponential distribution!
 
 []{#sec-optional-extras-page-54}
 
-![Histogram of standardised $\bar{X}$ from an exponential distribution, *n* = 100](/assets/images/optional-extras/part-d-p54-exp-n100.png){.lightbox}
+```{r}
+#| label: fig-exp-n100
+#| fig-cap: "Histogram of standardised $\\bar{X}$ from an exponential distribution, *n* = 100"
+#| fig-alt: "Histogram of the standardised sample mean Z from 100,000 samples of size n = 100 drawn from an exponential distribution with rate 1. The histogram is now visually almost indistinguishable from the overlaid standard normal N(0, 1) density — symmetric, bell-shaped, centred on 0, with the blue curve sitting along the tops of the bars. Even the highly unsymmetric exponential parent has been tamed by the Central Limit Theorem at this sample size."
+#| fig-width: 7
+#| fig-height: 4.5
+#| lightbox: true
+set.seed(357)
+clt_demo_plot(
+  parent_dist = function(n) rexp(n, rate = 1),
+  n           = 100,
+  mu          = 1,
+  sigma       = 1
+)
+```
 
 After all this, it's hardly surprising that, in developing their theory as well as their tools and techniques, conventional statisticians have been very happy to base them on assumptions of normality, justifying this via the Central Limit Theorem in the case of large samples, or directly requiring the normality assumption in the case of small samples—for another really nice feature is that if the population being sampled is already normally distributed then $\bar{X}$ itself is also *exactly* normally distributed, however small the sample size.
 
