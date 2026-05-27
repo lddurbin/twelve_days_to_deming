@@ -856,9 +856,15 @@ histogram_with_pdf <- function(values,
   # Rescale the unit-area PDF so the curve matches the histogram's vertical
   # scale. Raw counts: bar area = n * binwidth, so multiply by n * binwidth.
   # Relative frequency: bar area = binwidth, so multiply by binwidth alone.
-  # When binwidth is NULL we cannot rescale; fall back to the unscaled PDF
-  # and let the caller cope (or supply binwidth — strongly recommended).
+  # When binwidth is NULL we cannot rescale; warn so the caller notices the
+  # near-invisible curve, then fall back to the unscaled PDF.
   scale_factor <- if (is.null(binwidth)) {
+    warning(
+      "binwidth = NULL: the PDF overlay cannot be rescaled to match the ",
+      "histogram's vertical scale and will appear near-zero. Supply ",
+      "binwidth for a meaningful curve.",
+      call. = FALSE
+    )
     1
   } else if (y_relative) {
     binwidth
