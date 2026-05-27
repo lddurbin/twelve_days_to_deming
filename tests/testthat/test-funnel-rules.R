@@ -110,6 +110,16 @@ test_that("funnel_simulation_chart_plot adds CL + LCL + UCL hlines", {
   expect_length(hline_layers, 3)
 })
 
+test_that("funnel_simulation_chart_plot works with n_baseline = NULL", {
+  v <- funnel_rule_1_sim(15, seed = 7, sd = 5, target = 30)
+  p <- funnel_simulation_chart_plot(v,
+                                    y_limits = c(0, 60),
+                                    y_breaks = seq(0, 60, by = 10))
+  expect_s3_class(p, "ggplot")
+  hline_layers <- Filter(function(l) inherits(l$geom, "GeomHline"), p$layers)
+  expect_length(hline_layers, 3)
+})
+
 test_that("Rule sim outputs can be passed directly to run_chart_plot", {
   v <- funnel_rule_2_sim(20, seed = 2, sd = 5, target = 30)
   p <- run_chart_plot(v, y_limits = c(0, 60),

@@ -40,12 +40,16 @@
 # in the source PDF or this repo) — they are *illustrative* runs that exhibit
 # each rule's signature shape.
 #
-# Vectorisation. Rules 1 and 4 admit closed-form vectorised expressions:
-# Rule 1 is plain `rnorm`, Rule 4 is `target + cumsum(noise)`. Rules 2 and
-# 3 are *inherently sequential* — each next aim depends on the previous
-# resting position via the rule's update — so they use a `for` loop over a
-# pre-drawn noise vector. The loop runs once per drop with O(1) work per
-# iteration, so there is no point pushing harder on vectorisation here.
+# Vectorisation. Rules 1 and 4 admit clean closed-form vectorised
+# expressions: Rule 1 is plain `rnorm`, Rule 4 is `target + cumsum(noise)`.
+# Rule 2 also has a closed form — substituting `rest[i] = aim[i] + noise[i]`
+# into the recurrence collapses to `rest[i] = target + noise[i] − noise[i−1]`
+# for i ≥ 2 — so vectorisation is possible. Rule 3 is more genuinely
+# sequential: the alternating-cumulative-sum closed form exists in principle
+# but reads less clearly than the recurrence. For consistency, both Rule 2
+# and Rule 3 use a `for` loop here. Each loop runs once per drop with O(1)
+# work per iteration; at the n ≤ 50 sizes the consumer chart uses, there is
+# no measurable benefit to vectorising.
 #
 # Why a separate file (not main-functions.R). The four sim helpers form a
 # small, self-contained module; keeping them in their own file keeps the
@@ -105,9 +109,14 @@ funnel_rule_1_sim <- function(n, seed = 7, sd = 1, target = 0) {
 #' Default seed `2` produces a pronounced zig-zag suitable for a 50-drop
 #' control chart demo.
 #'
-#' Loop: sequential by construction (next aim depends on previous rest);
-#' no vectorisation is possible. The loop pre-draws all noise terms in one
-#' `rnorm` call, then walks the recurrence.
+#' Loop vs closed form: substituting `rest[i] = aim[i] + noise[i]` into the
+#' recurrence collapses it to `rest[i] = target + noise[i] − noise[i−1]` for
+#' i ≥ 2, so vectorisation via lagged differences *is* possible. The loop
+#' is kept for parity with `funnel_rule_3_sim()` (whose recurrence reads
+#' more clearly than its alternating-cumulative-sum closed form) and
+#' because at n ≤ 50 — the size the chart consumer uses — there is no
+#' measurable benefit. The loop pre-draws all noise terms in one `rnorm`
+#' call, then walks the recurrence.
 #'
 #' @param n Integer. Number of drops. Must be >= 1.
 #' @param seed Integer. RNG seed. Default 2.
