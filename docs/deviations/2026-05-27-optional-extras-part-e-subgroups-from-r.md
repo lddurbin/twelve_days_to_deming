@@ -12,4 +12,4 @@
   - The 0.0027 red tick on the printed page is a short tick *with no surrounding axis ticks*. The R chunk includes 0.005-spaced axis ticks (black) underneath the histogram for readability, with the 0.0027 tick rendered in red just below the baseline (linewidth 1.2 to stand out from the slimmer regular ticks).
 - **Colour deviations** — None new: black axes and white-filled / black-outlined bars matching Neave's printed page, and `CHART_LINE_COLOUR` (the existing project red) for the 0.0027 tick and label.
 - **Decided in** — Issue [#359](https://github.com/lddurbin/twelve_days_to_deming/issues/359) under the [#315](https://github.com/lddurbin/twelve_days_to_deming/issues/315) sub-epic / [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) epic.
-- **Landed in** — _pending_.
+- **Landed in** — PR [#382](https://github.com/lddurbin/twelve_days_to_deming/pull/382).
