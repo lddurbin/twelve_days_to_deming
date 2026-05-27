@@ -1520,7 +1520,8 @@ xbar_false_signal_probs <- function(n,
                                     m_subgroups,
                                     n_replications,
                                     d2_override = NULL) {
-  stopifnot(is.numeric(n), length(n) == 1, n >= 2,
+  stopifnot(is.numeric(n), length(n) == 1, is.finite(n),
+            n >= 2, n == as.integer(n),
             is.numeric(m_subgroups), length(m_subgroups) == 1,
             m_subgroups >= 2,
             is.numeric(n_replications), length(n_replications) == 1,
@@ -1558,11 +1559,9 @@ xbar_false_signal_probs <- function(n,
   arr <- array(t(draws), dim = c(n, m_subgroups, n_replications))
   col_max <- arr[1, , , drop = FALSE]
   col_min <- arr[1, , , drop = FALSE]
-  if (n >= 2) {
-    for (i in seq.int(2L, n)) {
-      col_max <- pmax(col_max, arr[i, , , drop = FALSE])
-      col_min <- pmin(col_min, arr[i, , , drop = FALSE])
-    }
+  for (i in seq.int(2L, n)) {
+    col_max <- pmax(col_max, arr[i, , , drop = FALSE])
+    col_min <- pmin(col_min, arr[i, , , drop = FALSE])
   }
   # Drop the leading singleton n-axis so we end up with an
   # m_subgroups × n_replications matrix.
