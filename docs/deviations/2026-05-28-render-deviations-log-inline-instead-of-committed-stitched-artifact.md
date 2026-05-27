@@ -8,4 +8,4 @@
 - **Implementation note — heading downshift** — `deviations_log_emit()` downshifts per-entry `##` headings to `###` so they nest under the page's existing `## The full technical log` section instead of colliding with it. The per-entry files on disk are unchanged; the downshift happens in memory at render time.
 - **Implementation note — script removed, not preserved as a thin wrapper** — The previous `scripts/build-deviations-log.R` existed only to write the now-removed stitched artifact. Maintainers who want to inspect the raw stitched markdown can `source("R/functions/deviations-log.R")` and call `deviations_log_assemble(downshift_headings = FALSE)` from an R session, as documented in the updated `docs/deviations/README.md`.
 - **Decided in** — Issue [#384](https://github.com/lddurbin/twelve_days_to_deming/issues/384).
-- **Landed in** — PR (URL to be added on open).
+- **Landed in** — PR [#386](https://github.com/lddurbin/twelve_days_to_deming/pull/386).
