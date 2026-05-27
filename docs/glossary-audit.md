@@ -52,5 +52,5 @@ The cap of ~10 leaves three slots unused. This is deliberate: future audits may 
 ## Verification
 
 - pa11y CI continues to pass (the appendix glossary page is listed in `.pa11yci.json`; the chapters that host the seven defining instances are either already covered or rely on coverage of nearby chapters).
-- One entry summarising the audit is recorded in `docs/deviations-from-source.md`.
+- One entry summarising the audit is recorded under `docs/deviations/` (rendered into the "Full technical log" section of `changes-from-source.qmd`).
 - The pattern documentation in `workflow/PATTERNS.md` § Glossary terms is the canonical "how to add a new dfn" reference and now describes the post-#265 markup (`<dfn id="anchor-slug">term</dfn>` plus a glossary entry, no `data-definition`).

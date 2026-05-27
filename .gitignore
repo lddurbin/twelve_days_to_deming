@@ -35,6 +35,12 @@ issues/
 
 docs/context/analysis/
 
+# Stitched deviations log: previously a committed build artifact, now
+# rendered inline into changes-from-source.qmd at site-build time. Keep
+# the path ignored so a stray local build of an old script can't sneak
+# the file back into git.
+docs/deviations-from-source.md
+
 venv/
 temp/
 

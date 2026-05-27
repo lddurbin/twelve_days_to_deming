@@ -12,8 +12,8 @@
 #    Neave does not print the original values; he simulated them when
 #    preparing the source material in the 1980s. We reproduce the same
 #    recipes under fixed seeds so the chart shapes match the published
-#    image. See `docs/deviations-from-source.md` for the rationale and
-#    the seed-selection methodology.
+#    image. See the deviations log under `docs/deviations/` for the
+#    rationale and the seed-selection methodology.
 #
 # 2. Digitised (the "serious" trio — D, E, F):
 #    - D: Neave's breakfast pulse-rates over 24 consecutive days.
@@ -50,7 +50,7 @@ draw_red_beads <- function(n_paddles, paddle_size = 50, p_red = 0.20) {
 # Seed chosen so that the SD-based ("magenta") limits on A1 come out
 # virtually identical to the MR-based limits, while the SD-based limits
 # on A2 come out roughly twice as wide as MR — exactly the contrast
-# Neave's prose makes about page 19. See deviations-from-source.md.
+# Neave's prose makes about page 19. See docs/deviations/.
 
 set.seed(274)
 process_A1 <- roll_dice_totals(n_dice = 4, n_throws = 24)
@@ -124,7 +124,7 @@ process_E2 <- c(15.91, 15.91, 15.91, 15.91, 15.92, 15.91, 15.91, 15.91,
 # around the $60–70 bn band). F2 covers 2008–09 — the GFC drops the
 # deficit sharply mid-period, with partial recovery toward year-end.
 # These approximate the *shapes* Neave printed, not the BEA series
-# values; see deviations-from-source.md.
+# values; see docs/deviations/.
 
 process_F1 <- c(63, 67, 65, 60, 64, 65, 69, 67, 65, 64, 70, 64,
                 60, 65, 64, 62, 57, 61, 60, 58, 58, 55, 56, 58)

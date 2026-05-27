@@ -34,6 +34,12 @@ All other external links in the course — to Deming-related organisations, YouT
 
 ## The full technical log
 
-Every material departure from the source is recorded, with PR and commit references, in the [deviations log on GitHub](https://github.com/lddurbin/twelve_days_to_deming/blob/main/docs/deviations-from-source.md). That log is intended for contributors and for readers cross-referencing the source PDFs who want to know exactly where and when each change landed.
+Every material departure from the source is recorded below, with PR and commit references, newest first. The log is intended for contributors and for readers cross-referencing the source PDFs who want to know exactly where and when each change landed. The per-entry source files live in [`docs/deviations/`](https://github.com/lddurbin/twelve_days_to_deming/tree/main/docs/deviations) in the repository.
 
-If you spot something that you think is a material departure and isn't documented here or in the technical log, please [open an issue](https://github.com/lddurbin/twelve_days_to_deming/issues). Invisible changes are the failure mode this page is here to prevent.
+If you spot something that you think is a material departure and isn't documented here, please [open an issue](https://github.com/lddurbin/twelve_days_to_deming/issues). Invisible changes are the failure mode this page is here to prevent.
+
+```{r}
+#| label: deviations-log
+#| results: asis
+deviations_log_emit()
+```
