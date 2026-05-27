@@ -57,7 +57,15 @@ Ready, go! Using your chosen KEYs in turn, carry out this procedure on the large
 
 ### Your radar diagram
 
-![Blank radar diagram for plotting your 19 shapes](/assets/images/day-12/radar-diagram-large.png){fig-align="center" width="85%" .lightbox}
+```{r}
+#| label: fig-radar-diagram-large
+#| fig-cap: "Blank radar diagram for plotting your 19 shapes"
+#| fig-alt: "Blank four-arm radar (or kite) diagram. Four labelled arms project from a common origin: PSYCHOLOGY upwards, SYSTEM to the right, KNOWLEDGE downwards, and VARIATION to the left. Each arm carries a 0-to-5 scale with 0 at the centre and 5 at the tip. The diagram is empty so the learner can plot all 19 four-sided shapes (one per Point and Disease) themselves."
+#| fig-width: 7
+#| fig-height: 7
+#| lightbox: true
+radar_diagram_plot()
+```
 
 ### Interpretation of your radar diagram
 
