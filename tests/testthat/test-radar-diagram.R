@@ -25,6 +25,9 @@ test_that("radar_diagram_plot labels all four arms", {
 
 test_that("radar_diagram_plot uses a fixed-aspect coordinate system", {
   p <- radar_diagram_plot()
-  expect_s3_class(p$coordinates, "CoordFixed")
+  # ggplot2 4.0 collapsed CoordFixed into CoordCartesian; the surviving
+  # signal that this is coord_fixed() and not coord_cartesian() is a
+  # non-null ratio (coord_cartesian leaves ratio NULL).
+  expect_s3_class(p$coordinates, "CoordCartesian")
   expect_equal(p$coordinates$ratio, 1)
 })
