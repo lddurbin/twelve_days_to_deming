@@ -908,6 +908,124 @@ histogram_with_pdf <- function(values,
   p + run_chart_theme()
 }
 
+#' Plot a Central Limit Theorem demonstration histogram
+#'
+#' Simulates \code{n_samples} draws of the sample mean \eqn{\bar{X}} of size
+#' \code{n} from a user-supplied parent-distribution sampler, standardises each
+#' \eqn{\bar{X}} to \eqn{Z = (\bar{X} - \mu) / (\sigma / \sqrt{n})}, and returns
+#' a histogram of those Z values with the standard normal density \eqn{N(0, 1)}
+#' overlaid for comparison. This is the figure-shape Neave uses on Part D
+#' pages 52–54 of the Optional Extras to demonstrate the Central Limit Theorem:
+#' as \code{n} grows, the standardised \eqn{\bar{X}} histogram converges in shape
+#' to the standard normal — irrespective of the parent distribution's shape.
+#'
+#' The parent distribution must be supplied as a sampler function
+#' \code{function(n) numeric}; the helper does not bake-in any particular
+#' family. Issue #356 calls this for triangular and uniform parents; issue #357
+#' will reuse the same helper for an exponential parent via
+#' \code{function(n) rexp(n, rate = 1)}. The population mean and standard
+#' deviation \code{mu} and \code{sigma} default to the standardising values
+#' from Neave's chosen σ = 1 parents (\code{sigma = 1}, \code{mu = NULL} ->
+#' estimated from a large pilot sample) but should be supplied directly when
+#' the closed-form values are known, both for accuracy and to make the chunks
+#' deterministic.
+#'
+#' Visual idiom matches \code{histogram_with_pdf()}: red bars with thin black
+#' outlines, smooth blue \eqn{N(0, 1)} overlay, \code{run_chart_theme()} for
+#' axis treatment and dark-mode parity. The histogram is drawn on the
+#' density (proportion-per-unit) scale so the unit-area normal curve sits
+#' naturally on top of it without further rescaling — that single visual
+#' difference from \code{histogram_with_pdf()} is what makes the curve-over-bars
+#' comparison readable when the histogram is itself a sampling distribution.
+#'
+#' @param parent_dist Function \code{function(n) numeric}. Sampler for the
+#'   parent distribution — must return \code{n} draws each time it is called.
+#'   The function will be invoked \code{n_samples} times with argument \code{n}.
+#' @param n Integer. Sample size per \eqn{\bar{X}}.
+#' @param n_samples Integer. Number of \eqn{\bar{X}} values to simulate.
+#'   Default 100,000 — comfortably enough to show the CLT shape clearly while
+#'   keeping per-chunk render time well under a second. Neave used 10,000,000;
+#'   the shape is visually indistinguishable at 100K on a printed/screen page.
+#' @param mu Numeric or NULL. Theoretical mean of the parent distribution
+#'   used to standardise \eqn{\bar{X}}. If NULL (default), estimated from a
+#'   pilot sample of size \code{1e5} drawn via \code{parent_dist}.
+#' @param sigma Numeric. Theoretical standard deviation of the parent
+#'   distribution. Default 1 — matches Neave's chosen σ = 1 parametrisations
+#'   across all four CLT-demo families on pages 52–54.
+#' @param binwidth Numeric. Bin width for the histogram in standardised
+#'   units. Default 0.2 — fine enough to read the bell shape, coarse enough
+#'   to keep individual bars stable at moderate \code{n_samples}.
+#' @param xlim Numeric vector of length 2. X-axis range in standardised
+#'   units. Default \code{c(-4, 4)} — covers the bulk of any plausible
+#'   \eqn{Z} distribution after the CLT has taken effect.
+#' @param fill_colour Character. Bar fill. Default \code{CHART_LINE_COLOUR}.
+#' @param pdf_colour Character. Overlay-curve colour. Default
+#'   \code{CONTROL_LIMIT_COLOUR} (blue).
+#' @param pdf_linewidth Numeric. Overlay curve line width. Default 0.9.
+#' @return A ggplot2 object containing the standardised-\eqn{\bar{X}}
+#'   histogram with the standard normal density overlaid.
+#' @examples
+#' set.seed(356)
+#' clt_demo_plot(function(n) runif(n, min = -sqrt(3), max = sqrt(3)), n = 4)
+clt_demo_plot <- function(parent_dist,
+                          n,
+                          n_samples     = 100000L,
+                          mu            = NULL,
+                          sigma         = 1,
+                          binwidth      = 0.2,
+                          xlim          = c(-4, 4),
+                          fill_colour   = CHART_LINE_COLOUR,
+                          pdf_colour    = CONTROL_LIMIT_COLOUR,
+                          pdf_linewidth = 0.9) {
+  stopifnot(is.function(parent_dist),
+            is.numeric(n), length(n) == 1L, n >= 1,
+            is.numeric(n_samples), length(n_samples) == 1L, n_samples >= 1,
+            is.numeric(sigma), length(sigma) == 1L, sigma > 0,
+            is.numeric(binwidth), length(binwidth) == 1L, binwidth > 0,
+            is.numeric(xlim), length(xlim) == 2L, xlim[1] < xlim[2])
+
+  n         <- as.integer(n)
+  n_samples <- as.integer(n_samples)
+
+  # Estimate mu from a pilot sample if not supplied. A large pilot keeps the
+  # estimate stable across runs even when no seed is set in the calling chunk.
+  if (is.null(mu)) {
+    pilot <- parent_dist(1e5)
+    mu    <- mean(pilot)
+  }
+  stopifnot(is.numeric(mu), length(mu) == 1L, is.finite(mu))
+
+  # One big draw, reshape into rows. rowMeans is the vectorised idiom; avoid
+  # apply() (which silently transposes when the inner function returns a
+  # vector) so the code reads cleanly and matches the project's style.
+  total <- n_samples * n
+  draws <- matrix(parent_dist(total), nrow = n_samples, ncol = n)
+  xbar  <- rowMeans(draws)
+  z     <- (xbar - mu) / (sigma / sqrt(n))
+
+  df <- data.frame(z = z)
+
+  ggplot(df, aes(x = .data$z)) +
+    geom_histogram(
+      mapping  = aes(y = after_stat(density)),
+      binwidth = binwidth,
+      boundary = 0,
+      closed   = "left",
+      fill     = fill_colour,
+      colour   = CHART_FG,
+      linewidth = 0.3
+    ) +
+    geom_function(
+      fun       = function(x) dnorm(x, mean = 0, sd = 1),
+      colour    = pdf_colour,
+      linewidth = pdf_linewidth,
+      xlim      = xlim,
+      n         = 401
+    ) +
+    scale_x_continuous(limits = xlim, expand = c(0, 0)) +
+    run_chart_theme()
+}
+
 #' Plot one or more smooth probability density functions, overlaid or stacked
 #'
 #' Draws each function in \code{pdfs} on a shared x range. Two layouts:
