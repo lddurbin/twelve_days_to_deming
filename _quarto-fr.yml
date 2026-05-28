@@ -5,5 +5,5 @@ project:
 
 book:
   chapters:
+    - index.fr.qmd
     - content-fr/welcome.qmd
-  appendices: []
