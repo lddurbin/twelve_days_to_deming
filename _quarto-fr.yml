@@ -1,0 +1,9 @@
+lang: fr
+
+project:
+  output-dir: _book/fr
+
+book:
+  chapters:
+    - content-fr/welcome.qmd
+  appendices: []
