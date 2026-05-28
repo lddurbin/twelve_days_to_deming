@@ -113,10 +113,26 @@ jobs:
           ${{ runner.os }}-freeze-${{ hashFiles('renv.lock') }}-
           ${{ runner.os }}-freeze-
 
-    - name: Build Quarto book
+    - name: Build Quarto book (EN)
       run: quarto render
 
+    # FR must render AFTER EN: Quarto cleans its output-dir before each render,
+    # and the FR output-dir (_book/fr) is nested inside EN's (_book). Rendering
+    # EN second would wipe the FR tree. This produces the merged _book/{,fr/}
+    # tree the single rsync below ships.
+    #
+    # Gated on the DEPLOY_FR repo variable (Settings → Variables), default off.
+    # While the French edition is built incrementally on main, this stays off so
+    # partial FR never reaches production — every merge re-deploys EN only. Flip
+    # DEPLOY_FR to 'true' on launch day to ship the complete FR edition at /fr/;
+    # flip back to roll the launch back. No code change needed either way.
+    - name: Build Quarto book (FR)
+      if: vars.DEPLOY_FR == 'true'
+      run: quarto render --profile fr
+
     - name: Smoke test build output
+      env:
+        DEPLOY_FR: ${{ vars.DEPLOY_FR }}
       run: |
         echo "Checking index.html exists..."
         test -f _book/index.html || { echo "FAIL: _book/index.html missing"; exit 1; }
@@ -135,6 +151,35 @@ jobs:
           ls _book/content/days/day-${day}/*.html > /dev/null 2>&1 || { echo "FAIL: No HTML files for day-${day}"; exit 1; }
           echo "  day-${day}: OK"
         done
+
+        # FR assertions only apply when DEPLOY_FR is on (matching the gated FR
+        # render step above). While FR is off, _book/fr is never produced and
+        # asserting it would fail the EN-only deploy.
+        if [ "$DEPLOY_FR" = "true" ]; then
+          echo "Checking FR build output..."
+          # FR entry page is a Quarto-generated index.html that redirects to
+          # index.fr.html (the first chapter is index.fr.qmd). Asserting
+          # index.html both gates the deploy and verifies the redirect shipped.
+          test -f _book/fr/index.html || { echo "FAIL: _book/fr/index.html missing"; exit 1; }
+
+          # FR content lives in content-fr/ and renders to _book/fr/content-fr/.
+          # FR_CONTENT_GLOBS is the generalization point: today FR has only the
+          # stub welcome page, so adding FR day content later is a one-line glob
+          # addition (e.g. "content-fr/days/day-*/*.qmd"), not a workflow refactor.
+          FR_CONTENT_GLOBS=(
+            "content-fr/*.qmd"
+          )
+          for glob in "${FR_CONTENT_GLOBS[@]}"; do
+            for src in $glob; do
+              [ -e "$src" ] || continue
+              html="_book/fr/${src%.qmd}.html"
+              test -f "$html" || { echo "FAIL: missing FR HTML $html (from $src)"; exit 1; }
+              echo "  ${src}: OK"
+            done
+          done
+        else
+          echo "DEPLOY_FR not 'true' — skipping FR assertions (EN-only deploy)"
+        fi
 
         echo "Smoke test passed"
 
