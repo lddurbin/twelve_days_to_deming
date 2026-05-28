@@ -91,14 +91,12 @@ The decisive factors are:
 
 **This decision specifies:**
 
-- **Where FR sources live:** in a `content-fr/` tree that mirrors `content/`, plus mirrored top-level chapters. Exact handling of top-level chapters (`.fr.qmd` siblings vs. moving everything under `content/`) is left to #321 because it interacts with redirects and sidebar ordering, but the *principle* is mirrored paths with stable IDs.
+- **Where FR sources live:** in a `content-fr/` tree that mirrors `content/` symmetrically, plus `.fr.qmd` siblings for top-level chapters at the project root (e.g. `welcome.fr.qmd` next to `welcome.qmd`, `index.fr.qmd` next to `index.qmd`, and analogously for `about-this-edition`, `accessibility`, and `changes-from-source`). The mirrored `content-fr/` name gives the translation pipeline (#323, #331) a trivial `s|^content/|content-fr/|` path mapping and the switcher (#322) URL isomorphism for free (`s|^/|/fr/|`). The `.fr.qmd`-siblings convention for top-level chapters keeps the existing `content/` tree and every existing chapter-list reference in `_quarto.yml` untouched, avoids redirect bookkeeping for already-published EN URLs, and leaves the project root browsable as a single index of "what's at the top" for both editions.
 - **How the build targets them:** a second `_quarto-fr.yml` profile activated by `quarto render --profile fr`, with `lang: fr`, an FR-specific chapter list, and `output-dir: _book/fr`. The base `_quarto.yml` continues to drive the default EN render.
 - **What ships:** one `_book/` tree containing `_book/index.html` (EN root) and `_book/fr/index.html` (FR root). The existing rsync ships both. The deploy smoke test grows a parallel set of assertions for `_book/fr/content/days/day-XX/*.html`.
 
 **This decision does not specify** — these belong to #321 and downstream tickets:
 
-- The exact name of the FR root directory (`content-fr/` vs `fr/content/` vs `content/fr/`).
-- How top-level chapters split between EN and FR sources.
 - Switcher UI (#322).
 - The extract/reinject toolchain (#323).
 - Glossary, MT/LLM adapters, alignment, parity (#326–#334).
