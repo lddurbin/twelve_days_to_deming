@@ -113,8 +113,15 @@ jobs:
           ${{ runner.os }}-freeze-${{ hashFiles('renv.lock') }}-
           ${{ runner.os }}-freeze-
 
-    - name: Build Quarto book
+    - name: Build Quarto book (EN)
       run: quarto render
+
+    # FR must render AFTER EN: Quarto cleans its output-dir before each render,
+    # and the FR output-dir (_book/fr) is nested inside EN's (_book). Rendering
+    # EN second would wipe the FR tree. This produces the merged _book/{,fr/}
+    # tree the single rsync below ships. Drop this step to revert to EN-only.
+    - name: Build Quarto book (FR)
+      run: quarto render --profile fr
 
     - name: Smoke test build output
       run: |
@@ -134,6 +141,28 @@ jobs:
           day=$(basename "$day_dir" | sed 's/day-//')
           ls _book/content/days/day-${day}/*.html > /dev/null 2>&1 || { echo "FAIL: No HTML files for day-${day}"; exit 1; }
           echo "  day-${day}: OK"
+        done
+
+        echo "Checking FR build output..."
+        # FR entry page is a Quarto-generated index.html that redirects to
+        # index.fr.html (the first chapter is index.fr.qmd). Asserting index.html
+        # both gates the deploy and verifies the redirect shim shipped.
+        test -f _book/fr/index.html || { echo "FAIL: _book/fr/index.html missing"; exit 1; }
+
+        # FR content lives in content-fr/ and renders to _book/fr/content-fr/.
+        # FR_CONTENT_GLOBS is the generalization point: today FR has only the
+        # stub welcome page, so adding FR day content later is a one-line glob
+        # addition (e.g. "content-fr/days/day-*/*.qmd"), not a workflow refactor.
+        FR_CONTENT_GLOBS=(
+          "content-fr/*.qmd"
+        )
+        for glob in "${FR_CONTENT_GLOBS[@]}"; do
+          for src in $glob; do
+            [ -e "$src" ] || continue
+            html="_book/fr/${src%.qmd}.html"
+            test -f "$html" || { echo "FAIL: missing FR HTML $html (from $src)"; exit 1; }
+            echo "  ${src}: OK"
+          done
         done
 
         echo "Smoke test passed"
