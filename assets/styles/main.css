@@ -718,7 +718,8 @@ button:focus,
   }
 
   .reading-prefs-toggle,
-  .reading-prefs-panel {
+  .reading-prefs-panel,
+  .lang-switcher {
     border-width: 3px;
   }
   .reading-prefs-control {
@@ -1106,6 +1107,73 @@ button:focus,
   .reading-prefs-panel { display: none !important; }
 }
 
+/* Language switcher (issue #322). Injected by
+   assets/scripts/language-switcher.js, this links the reader to the
+   corresponding page in the other edition (EN <-> FR). It mirrors the
+   reading-prefs toggle's visual language but pins to the bottom-LEFT so
+   the two fixed corner controls never overlap. */
+.lang-switcher {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1040;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3333a6;
+  background-color: #fff;
+  border: 2px solid #3333a6;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: opacity 200ms ease, transform 200ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-switcher:hover {
+  background-color: #e8e8f4;
+  text-decoration: none;
+}
+.lang-switcher:focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+.lang-switcher .lang-switcher-icon {
+  font-weight: 700;
+}
+.lang-switcher.is-yielding {
+  opacity: 0;
+  transform: translateY(120%);
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .lang-switcher {
+    padding: 10px;
+    min-width: 44px;
+  }
+  .lang-switcher .lang-switcher-label {
+    /* Collapse to icon-only on narrow viewports; the aria-label still
+       names the destination language for screen readers. */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+@media print {
+  .lang-switcher { display: none !important; }
+}
+
 .reading-time {
   margin-top: -0.5rem;
   margin-bottom: 1.5rem;
@@ -1350,6 +1418,17 @@ body.quarto-dark .reading-prefs-control[aria-pressed="true"]:hover {
   background-color: #4040c0;
 }
 
+/* Language switcher: same dark palette as the reading-prefs toggle so the
+   two corner controls read as a matched pair. */
+body.quarto-dark .lang-switcher {
+  color: #b0b0e6;
+  background-color: #1a1a26;
+  border-color: #8fa8ff;
+}
+body.quarto-dark .lang-switcher:hover {
+  background-color: #2a2a3a;
+}
+
 /* Glossary terms: brighten the amber underline for legibility against
    the darkly #222 body. */
 body.quarto-dark dfn {
@@ -1427,7 +1506,8 @@ body.quarto-dark .cell-output-display img[src$=".svg"] {
     border-color: #c8d4ff;
   }
   body.quarto-dark .reading-prefs-toggle,
-  body.quarto-dark .reading-prefs-panel {
+  body.quarto-dark .reading-prefs-panel,
+  body.quarto-dark .lang-switcher {
     border-color: #c8d4ff;
   }
   body.quarto-dark .reading-prefs-control {
