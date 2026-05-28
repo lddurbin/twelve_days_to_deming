@@ -1,0 +1,7 @@
+---
+title: "Bienvenue"
+execute:
+  echo: false
+---
+
+L'édition française du cours *12 jours pour Deming* est en cours de préparation. Cette page sera remplacée par la traduction de la page d'accueil dans une mise à jour ultérieure.
