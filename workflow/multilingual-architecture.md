@@ -12,7 +12,7 @@ Quarto has no first-class "multilingual book" mode. The book project type assume
 
 - **Single deploy target.** [.github/workflows/deploy.yml](../.github/workflows/deploy.yml) does one `rsync -avz --delete _book/` to a single `public_html`. Any layout that produces two separate `_book/` trees has to merge them in CI before that step, or the deploy contract has to change.
 - **Smoke test gates the deploy.** The same workflow asserts `_book/index.html` exists, that ≥10 HTML files were produced, and that every `content/days/day-XX/*.html` is present. The FR layout will need a parallel set of assertions or a refactored gate.
-- **Frozen R outputs.** `_freeze/` is cached by `renv.lock + sha` and keyed per-`.qmd`. Each FR `.qmd` is a distinct source file, so the cache cannot collide with EN — but a French render that *re-runs* every EN chunk would double the build time. Whatever layout we pick should let FR chapters reuse EN frozen outputs when the underlying R code is unchanged.
+- **Frozen R outputs (two cache layers).** At the CI layer, [.github/workflows/deploy.yml](../.github/workflows/deploy.yml) caches the whole `_freeze/` directory under a key built from `renv.lock` + the commit SHA, with restore-key fallbacks. Inside `_freeze/`, Quarto stores one subdirectory per source `.qmd` (e.g. `_freeze/content/days/day-01/01-overture/`) and hashes the chunk inputs to decide whether to re-execute. The two layers are independent: a CI cache miss costs a full freeze rebuild; a Quarto per-file miss costs one chunk. Whatever layout we pick has to behave well at both layers — and in particular, FR sources at distinct paths get distinct Quarto freeze entries, which is a constraint, not a feature, for cross-language reuse.
 - **Cross-references.** Quarto resolves `@sec-…`, `@fig-…`, `@tbl-…` within a project. Inter-day links currently sit in [workflow/inter-day-refs.csv](inter-day-refs.csv) and are written as relative paths in `.qmd`. The FR layout must keep IDs stable so EN→FR translation doesn't break the link graph.
 - **R helpers leak English strings.** `labs(y = "Loss")` at [R/functions/main-functions.R:1776](../R/functions/main-functions.R#L1776) and similar are user-facing. Issue [#324](https://github.com/lddurbin/twelve_days_to_deming/issues/324) tracks extracting these into a translatable resource; the architecture decision here just has to not preclude that.
 - **Deviations log and switcher.** [docs/deviations/](../docs/deviations/) is currently per-PR-entry; the FR build needs its own surface, or the existing surface needs a `lang:` field. The switcher (#322) needs to map EN page → FR page deterministically; that's much easier when the URL paths are isomorphic.
@@ -40,14 +40,14 @@ CI runs `quarto render` then `quarto render --profile fr`, producing the merged 
 **Pros**
 - Sticks to a documented Quarto feature; no custom build orchestration beyond a second `render` line.
 - Mirrored paths make the EN↔FR mapping trivial for the extract/reinject pipeline (#323), the segment-alignment tooling (#331), the switcher (#322), and pa11y parity (#334) — given any EN URL, the FR URL is `s|^/|/fr/|`.
-- Frozen R outputs naturally split because each `.qmd` is a distinct file with a distinct hash; no extra cache keying needed. FR chunks that don't change between languages will be cached just like EN ones.
+- Frozen R outputs naturally split because each `.qmd` is a distinct file at a distinct path; FR sources get their own `_freeze/content-fr/...` entries with no extra cache keying needed. The first FR-enabled CI run executes every FR chunk (no shared cache with EN, even for byte-identical chunks — Quarto keys per source path); subsequent runs reuse FR frozen outputs the same way EN already does.
 - Cross-reference IDs (`@sec-…`, etc.) can be kept identical in EN and FR sources, so the inter-day reference graph survives translation without rewriting `inter-day-refs.csv`.
 - Branch model unchanged; PRs touch EN and FR side by side, making cross-edition reviews and the deviations log straightforward.
 
 **Cons**
 - Doubles the number of `.qmd` files in the repo (~85 EN files → ~170 with FR). File-explorer overhead is real but manageable; the mirror is regular.
 - Top-level English files (`index.qmd`, `welcome.qmd`, `about-this-edition.qmd`, `accessibility.qmd`, `changes-from-source.qmd`) need a parallel set under the FR profile. The cleanest expression is to move them under `content/` and `content-fr/` too, or to keep them at the root and use `.fr.qmd` siblings; either is straightforward but is a decision for #321.
-- Two `quarto render` invocations roughly double the build wall time. Cacheable; in CI the second render reuses `_freeze` for any chunk that didn't change.
+- Two `quarto render` invocations roughly double the build wall time on the first FR-enabled CI run. At steady state the cost is bounded to whichever language's chunks actually changed since the previous render, because `_freeze/` persists across runs (GitHub Actions cache) and Quarto skips unchanged chunks per source path.
 
 ### Option B — Standalone `fr/` sub-project
 
@@ -107,5 +107,5 @@ The decisive factors are:
 ## Open questions to revisit during #321
 
 - **R helpers with embedded labels.** Once #324 starts, the cleanest pattern is for `R/functions/*.R` to accept a language argument or read from a per-locale table. Until #324 lands, FR chapters may need to override individual `labs(...)` calls in-line. That's tolerable for the scaffold step.
-- **Frozen-output reuse across languages.** When an FR `.qmd` carries an R chunk *identical* to its EN sibling, Quarto's freeze keys it per-file and re-runs it. If build time becomes a problem, we can either move shared R into `R/` helpers (preferred and already half-done) or investigate sharing `_freeze` paths via symlinks. Defer until measured.
+- **Frozen-output reuse across languages.** Quarto keys frozen outputs by source path, so an FR `.qmd` carrying a chunk byte-identical to its EN sibling re-executes on the first FR render and is then cached separately. If build time becomes a problem, the right move is to push shared computation into `R/` helpers (preferred, and already half-done) so each `.qmd` is a thin call site; symlinking `_freeze` paths is theoretically possible but fragile and not worth attempting until measured.
 - **Deviations log.** Whether `docs/deviations/` gains a `lang:` field or whether we keep a separate `docs/deviations-fr/`. Recommend the former for searchability, but it's a #321 detail.
