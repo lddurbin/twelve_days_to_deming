@@ -102,6 +102,24 @@ The decisive factors are:
 - Glossary, MT/LLM adapters, alignment, parity (#326–#334).
 - Whether `R/` helpers gain a `lang` argument or load strings from an external table (#324).
 
+## Deployment and launch (the `DEPLOY_FR` gate)
+
+FR content lands on `main` continuously as it's built, but **production stays EN-only until the edition is complete** — the French edition launches in one shot, not page-by-page. This is enforced by a single repository variable rather than a long-lived branch (decided on #404, implementing #396).
+
+**How the gate works.** Because FR is physically isolated (`content-fr/`, `_quarto-fr.yml`, `index.fr.qmd`) and the EN production render never reads those paths, merging FR work to `main` cannot change the live EN site. The *only* thing that puts FR in production is the `quarto render --profile fr` step in [`deploy.yml`](../.github/workflows/deploy.yml), and that step — plus its smoke-test assertions — is gated on `if: vars.DEPLOY_FR == 'true'`. The variable defaults to absent, which evaluates falsy, so EN-only is the safe default with no variable defined.
+
+**During development.** Every merge to `main` re-deploys EN only. FR health is verified per-PR by [`fr-build-check.yml`](../.github/workflows/fr-build-check.yml) — a path-filtered, build-only workflow (it renders `--profile fr` but never deploys), so FR breakage surfaces on the PR that causes it rather than at launch.
+
+**To launch the FR edition** (when the content is ready):
+
+1. Repo → **Settings → Secrets and variables → Actions → Variables → New repository variable**: name `DEPLOY_FR`, value `true`.
+2. Trigger a deploy: either push/merge anything to `main`, or run the **Build and Deploy** workflow via *Actions → Build and Deploy → Run workflow* (`workflow_dispatch`).
+3. The deploy renders both profiles into the merged `_book/{,fr/}` tree, the smoke test now asserts `_book/fr/index.html` and every FR content page, and the existing single rsync ships EN + FR. FR goes live at `/fr/`.
+
+**To roll back** a launch: set `DEPLOY_FR` to `false` (or delete the variable) and trigger a deploy. Production returns to EN-only. No code change is needed to launch or roll back.
+
+**Cost note.** The repo is public, so GitHub Actions minutes are free/unlimited on standard runners; the second build-check workflow adds no billable cost. The path filters and `concurrency: cancel-in-progress` on `fr-build-check.yml` are for latency and tidiness, not budget.
+
 ## Empirical refinements (from #401, implementation shakedown)
 
 The initial #321 scaffold (#393's `_quarto-fr.yml` + #394's `content-fr/welcome.qmd` stub) was built against this ADR's stated assumptions about Quarto profile YAML semantics and book home-page detection. The first profile-aware build surfaced two behaviours that diverge from what the ADR implied; both are recorded here so the next person reading the ADR sees the empirical truth alongside the original reasoning.
