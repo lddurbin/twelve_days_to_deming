@@ -110,8 +110,9 @@ TRANSLATABLE_YAML_KEYS <- c("title", "subtitle", "description")
 #   <summary>Describe this chart</summary>   <- has text, but it is a LABEL …
 #   <button ...>Click...</button>
 # We keep block-level structural tags structural. <summary>/<button> carry
-# translatable label text, so they are handled as prose (their inner text is
-# masked-extracted). Block container tags on their own line are structural.
+# translatable label text, so they are handled as prose; their wrapper tags are
+# masked (see html_label_tag) leaving only the inner label on the translator
+# surface. Block container tags on their own line are structural.
 .HTML_BLOCK_TAGS <- c("div", "details", "figure", "table", "thead", "tbody",
                       "tr", "td", "th", "section", "article", "aside",
                       "nav", "header", "footer", "ul", "ol", "blockquote")
@@ -135,10 +136,12 @@ TRANSLATABLE_YAML_KEYS <- c("title", "subtitle", "description")
   grepl("^[ \\t]*\\[\\]\\{#[^}]+\\}[ \\t]*$", line, perl = TRUE)
 }
 
-# HTML comment line(s).
+# HTML comment line(s). The `-->$` clause is deliberate: it catches the CLOSING
+# line of a multi-line comment block (which opens with `<!--` on an earlier
+# line), so both ends break the surrounding prose block at the call site.
 .is_comment_line <- function(line) {
   s <- trimws(line)
-  grepl("^<!--", s) || grepl("-->$", s) || s == "" && FALSE
+  grepl("^<!--", s) || grepl("-->$", s)
 }
 
 # A blank line.
@@ -176,6 +179,12 @@ TRANSLATABLE_YAML_KEYS <- c("title", "subtitle", "description")
   span_lang      = "<span\\s+lang=[\"']?[a-z-]+[\"']?\\s*>.*?</span>",
   # <dfn id=\"..\">inner</dfn>  (whole element)
   dfn            = "<dfn\\s+id=[\"'][^\"']+[\"']\\s*>.*?</dfn>",
+  # <summary>/<button> WRAPPER tags only (open or close). Unlike span_lang/dfn,
+  # the inner text of these is a translatable label, so we mask just the tags
+  # and leave the label on the translator surface. This stops a translator from
+  # ever seeing — and possibly reordering or translating — the raw HTML, which
+  # would break reinjection.
+  html_label_tag = "</?(?:summary|button)\\b[^>]*>",
   # Relative inter-day links: [text](../day-NN/file.qmd#sec-pageN) and the
   # ../days/day-NN/ form. Mask the whole link (URL is structural; text is
   # arguably translatable but conservatively preserved to honour #323's
@@ -228,7 +237,10 @@ TRANSLATABLE_YAML_KEYS <- c("title", "subtitle", "description")
       if (m[1] == -1L) break
       matched <- regmatches(masked, m)
       counter <- counter + 1L
-      token <- sprintf("%d", counter)
+      # Use the shared PUA-sentinel helper (same scheme as the YAML tokens
+      # above) so the token can never collide with a literal digit in the
+      # prose during the fixed-string substitution in .unmask_inline.
+      token <- .ph_token(counter)
       placeholders[[token]] <- list(kind = nm, value = matched)
       # replace only the first occurrence
       masked <- sub(pat, token, masked, perl = TRUE)
@@ -328,7 +340,9 @@ extract_qmd <- function(path, rel_path = path) {
       # We only handle simple `key: value` and quoted forms on one line, which
       # covers the entire corpus (verified: no block scalars). Each such value
       # becomes a prose segment addressed by its single line.
-      for (j in 2:(yaml_end - 1L)) {
+      # seq_len (not 2:(yaml_end-1)) so empty front matter (yaml_end == 2)
+      # yields an empty range, not R's descending c(2, 1).
+      for (j in seq_len(yaml_end - 2L) + 1L) {
         ln <- lines[j]
         m <- regexec("^([A-Za-z_][A-Za-z0-9_.-]*):[ \t]+(.*\\S)[ \t]*$", ln, perl = TRUE)
         g <- regmatches(ln, m)[[1]]

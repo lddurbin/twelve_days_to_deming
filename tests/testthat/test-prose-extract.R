@@ -97,6 +97,36 @@ test_that("<span lang> wrappers and <dfn id> anchors are masked whole", {
   expect_false(grepl("<dfn", r3$masked))
 })
 
+test_that("<summary>/<button> wrapper tags are masked; inner label stays translatable", {
+  r1 <- mk("<summary>Describe this chart</summary>")
+  expect_true(any(vapply(r1$placeholders, function(p) p$kind == "html_label_tag", logical(1))))
+  expect_false(grepl("<summary", r1$masked))
+  expect_false(grepl("</summary>", r1$masked))
+  expect_true(grepl("Describe this chart", r1$masked))
+  expect_identical(.unmask_inline(r1$masked, r1$placeholders),
+                   "<summary>Describe this chart</summary>")
+
+  r2 <- mk('<button class="reveal">Show answer</button>')
+  expect_true(grepl("Show answer", r2$masked))
+  expect_false(grepl("<button", r2$masked))
+  expect_identical(.unmask_inline(r2$masked, r2$placeholders),
+                   '<button class="reveal">Show answer</button>')
+})
+
+test_that("placeholder tokens never collide with literal digits in the prose", {
+  # Regression guard: tokens are PUA-delimited, so the fixed-string substitution
+  # in .unmask_inline can never clobber a bare digit that also appears as prose.
+  samples <- c(
+    "Score 1 point. Use `foo` to check 2 things.",
+    "Day 1 of training. Use `quarto render` first.",
+    "See @sec-page2 and item 2 and 22 here with `x`."
+  )
+  for (s in samples) {
+    r <- mk(s)
+    expect_identical(.unmask_inline(r$masked, r$placeholders), s)
+  }
+})
+
 test_that("YAML keys are never translatable; only the value is exposed", {
   r <- mk('title: "DAY 1: THE STORY"', yaml_value = TRUE)
   # masked surface is the bare value, no key, no quotes
