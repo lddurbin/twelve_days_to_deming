@@ -92,8 +92,8 @@ The decisive factors are:
 **This decision specifies:**
 
 - **Where FR sources live:** in a `content-fr/` tree that mirrors `content/` symmetrically, plus `.fr.qmd` siblings for top-level chapters at the project root (e.g. `welcome.fr.qmd` next to `welcome.qmd`, `index.fr.qmd` next to `index.qmd`, and analogously for `about-this-edition`, `accessibility`, and `changes-from-source`). The mirrored `content-fr/` name gives the translation pipeline (#323, #331) a trivial `s|^content/|content-fr/|` path mapping and the switcher (#322) URL isomorphism for free (`s|^/|/fr/|`). The `.fr.qmd`-siblings convention for top-level chapters keeps the existing `content/` tree and every existing chapter-list reference in `_quarto.yml` untouched, avoids redirect bookkeeping for already-published EN URLs, and leaves the project root browsable as a single index of "what's at the top" for both editions.
-- **How the build targets them:** a second `_quarto-fr.yml` profile activated by `quarto render --profile fr`, with `lang: fr`, an FR-specific chapter list, and `output-dir: _book/fr`. The base `_quarto.yml` continues to drive the default EN render.
-- **What ships:** one `_book/` tree containing `_book/index.html` (EN root) and `_book/fr/index.html` (FR root). The existing rsync ships both. The deploy smoke test grows a parallel set of assertions for `_book/fr/content/days/day-XX/*.html`.
+- **How the build targets them:** two profile files, `_quarto-en.yml` and `_quarto-fr.yml`, each carrying a complete `book.chapters` list and a `lang:` value. The base `_quarto.yml` carries only the shared config (theme, CSP header-includes, format settings, filters, page-footer) and declares `profile: { default: en }`, so `quarto render` (no flag) continues to behave exactly as the EN-only build did before #401. The FR build is `quarto render --profile fr` and lands in `output-dir: _book/fr`.
+- **What ships:** one `_book/` tree containing `_book/index.html` (EN root) and `_book/fr/index.html` (FR root, a Quarto-generated redirect to `_book/fr/index.fr.html`). The existing rsync ships both. The deploy smoke test grows a parallel set of assertions for `_book/fr/content-fr/...` (the FR content tree).
 
 **This decision does not specify** — these belong to #321 and downstream tickets:
 
@@ -101,6 +101,15 @@ The decisive factors are:
 - The extract/reinject toolchain (#323).
 - Glossary, MT/LLM adapters, alignment, parity (#326–#334).
 - Whether `R/` helpers gain a `lang` argument or load strings from an external table (#324).
+
+## Empirical refinements (from #401, implementation shakedown)
+
+The initial #321 scaffold (#393's `_quarto-fr.yml` + #394's `content-fr/welcome.qmd` stub) was built against this ADR's stated assumptions about Quarto profile YAML semantics and book home-page detection. The first profile-aware build surfaced two behaviours that diverge from what the ADR implied; both are recorded here so the next person reading the ADR sees the empirical truth alongside the original reasoning.
+
+- **Quarto profile YAML deep-merges and concatenates lists.** `QUARTO_PROFILE=fr quarto inspect` (Quarto 1.9.37) resolves `book.chapters` by concatenating the base list and the profile list, not by replacing the base list with the profile list. Putting the EN chapter list in the shared base `_quarto.yml` and an FR-specific list in `_quarto-fr.yml` therefore produces an FR build that contains *all* EN pages plus the FR pages — the FR profile additively extends rather than replaces. The fix this ADR now commits to is to move both language chapter lists out of the base entirely into `_quarto-en.yml` and `_quarto-fr.yml`, and to use Quarto's `profile.default` mechanism so unflagged `quarto render` continues to behave as the EN-only build.
+- **Quarto book home pages must live at the project root.** Quarto's `isBookIndexPage` (internal in `quarto.js`) checks `target.startsWith("index.")` against the chapter's filesystem path. A file at `content-fr/index.qmd` fails the check (it starts with `content-fr/`, not `index.`); the build aborts with `Book contents must include a home page (e.g. index.md)`. A file at the project root named `index.fr.qmd` passes (it does start with `index.`). This vindicates the ADR's choice of `.fr.qmd` siblings at the project root for the home page specifically — `index.fr.qmd` is structurally load-bearing, not just convention.
+
+These refinements do not change the four-point Decision rationale above; they tighten the "How the build targets them" and "What ships" bullets to match what Quarto actually does.
 
 ## Open questions to revisit during #321
 

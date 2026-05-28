@@ -1,0 +1,7 @@
+---
+title: "12 jours pour Deming"
+execute:
+  echo: false
+---
+
+L'édition française du cours *12 jours pour Deming* est en cours de préparation. Cette page d'accueil sera remplacée par la traduction de la page d'index dans une mise à jour ultérieure.
