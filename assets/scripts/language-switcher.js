@@ -88,7 +88,7 @@
     link.setAttribute("hreflang", destLang);
     link.setAttribute("aria-label", ariaLabel);
     link.innerHTML =
-      '<span class="lang-switcher-icon" aria-hidden="true">\u{1F310}</span>' +
+      '<span class="lang-switcher-icon" aria-hidden="true">🌐</span>' +
       '<span class="lang-switcher-label">' + destLabelText + "</span>";
 
     document.body.appendChild(link);

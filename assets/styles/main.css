@@ -1001,6 +1001,9 @@ button:focus,
   opacity: 0;
   transform: translateY(120%);
   pointer-events: none;
+  /* Same keyboard-focus fix as .lang-switcher.is-yielding: drop the toggle
+     from the tab order while it's off-screen and invisible (WCAG 2.4.7/2.4.11). */
+  visibility: hidden;
 }
 
 .reading-prefs-panel {
@@ -1148,6 +1151,10 @@ button:focus,
   opacity: 0;
   transform: translateY(120%);
   pointer-events: none;
+  /* visibility:hidden also drops the link from the tab order, so a keyboard
+     user can't focus the off-screen, invisible control (WCAG 2.4.7 / 2.4.11).
+     It doesn't participate in the opacity/transform transition above. */
+  visibility: hidden;
 }
 
 @media (max-width: 700px) {
