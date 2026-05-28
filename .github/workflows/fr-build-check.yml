@@ -1,0 +1,130 @@
+name: FR Build Check
+
+permissions:
+  contents: read
+
+# Build-only validation of the French profile. This NEVER deploys — it exists
+# so FR breakage surfaces on the PR that causes it, rather than on launch day
+# when DEPLOY_FR is flipped on in deploy.yml. Path-filtered to FR-affecting
+# files so unrelated PRs don't run it.
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'content-fr/**'
+      - 'index.fr.qmd'
+      - '_quarto-fr.yml'
+      - '_quarto.yml'
+      - '.github/workflows/fr-build-check.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Opt r-lib/actions into Node 24 ahead of the Sept 2026 Node 20 removal.
+# Remove once r-lib publishes a v3 tag that runs on Node 24 natively.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  render-fr:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+    - name: Setup R
+      id: setup-r
+      uses: r-lib/actions/setup-r@a51a8012b0aab7c32ef9d19bf54da93f3254335e  # v2
+      with:
+        r-version: '4.5.1'
+        use-public-rspm: true
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libcurl4-openssl-dev \
+          libssl-dev \
+          libxml2-dev \
+          libpng-dev \
+          libjpeg-dev \
+          libcairo2-dev \
+          libfontconfig1-dev \
+          libfreetype6-dev \
+          build-essential \
+          gfortran \
+          libgmp3-dev \
+          libglpk-dev
+
+    - name: Setup Pandoc
+      uses: r-lib/actions/setup-pandoc@a51a8012b0aab7c32ef9d19bf54da93f3254335e  # v2
+      with:
+        pandoc-version: '3.1.11'
+
+    - name: Cache Quarto installation
+      id: cache-quarto
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae  # v5.0.5
+      with:
+        path: /opt/quarto
+        key: quarto-1.4.549
+
+    - name: Install Quarto
+      if: steps.cache-quarto.outputs.cache-hit != 'true'
+      run: |
+        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
+        sudo dpkg -i quarto-1.4.549-linux-amd64.deb
+
+    - name: Add Quarto to PATH
+      run: echo "/opt/quarto/bin" >> $GITHUB_PATH
+
+    - name: Cache R packages
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae  # v5.0.5
+      with:
+        path: ~/.cache/R/renv
+        key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
+        restore-keys: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
+
+    - name: Restore R packages
+      shell: Rscript {0}
+      run: |
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+        renv::restore()
+
+    # Same freeze cache scheme as deploy.yml: Quarto keys frozen outputs per
+    # source path, so FR sources at content-fr/... seed their own
+    # _freeze/content-fr/... entries here and reuse them on later runs.
+    - name: Cache Quarto freeze outputs
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae  # v5.0.5
+      with:
+        path: _freeze
+        key: ${{ runner.os }}-freeze-${{ hashFiles('renv.lock') }}-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-freeze-${{ hashFiles('renv.lock') }}-
+          ${{ runner.os }}-freeze-
+
+    - name: Render FR profile (build-only, no deploy)
+      run: quarto render --profile fr
+
+    - name: Smoke test FR output
+      run: |
+        echo "Checking FR entry page..."
+        test -f _book/fr/index.html || { echo "FAIL: _book/fr/index.html missing"; exit 1; }
+
+        # Mirrors the FR assertion in deploy.yml. Adding FR day content later is
+        # a one-line glob addition here and in deploy.yml.
+        FR_CONTENT_GLOBS=(
+          "content-fr/*.qmd"
+        )
+        for glob in "${FR_CONTENT_GLOBS[@]}"; do
+          for src in $glob; do
+            [ -e "$src" ] || continue
+            html="_book/fr/${src%.qmd}.html"
+            test -f "$html" || { echo "FAIL: missing FR HTML $html (from $src)"; exit 1; }
+            echo "  ${src}: OK"
+          done
+        done
+
+        echo "FR build check passed"
