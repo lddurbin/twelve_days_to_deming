@@ -441,9 +441,14 @@
   # non-literal RHS (variable / call like `formatNet(net)` / concatenation)
   # leaves something other than a quote there and is skipped. The lookbehind on
   # the `=` excludes the comparison operators `==`/`===`/`!=`/`<=`/`>=` AND the
-  # compound-assignment operators `+=`/`-=`/`*=`/`/=`/`%=`/`&=`/`|=`/`^=`, so
-  # neither an equality test nor an append (`x.textContent += "…"`, which is not
-  # the full UI text) is mistaken for a plain assignment.
+  # compound-assignment operators `+=`/`-=`/`*=`/`/=`/`%=`/`&=`/`|=`/`^=` (the
+  # logical-assignment forms `&&=`/`||=` are covered too, since their last char
+  # before `=` is `&`/`|`), so neither an equality test nor an append
+  # (`x.textContent += "…"`, which is not the full UI text) is mistaken for a
+  # plain assignment. NOT excluded: `??=` (nullish-coalescing assignment) —
+  # absent from the corpus, and a `??=` default is often a legitimate user-facing
+  # fallback string, so extracting it would usually be correct rather than a
+  # false positive. Left in deliberately; revisit if a non-label `??=` appears.
   asn_m <- regexec("\\.([A-Za-z_][A-Za-z0-9_]*)[ \t]*(?<![=<>!+*/%&|^-])=[ \t]*$", pre, perl = TRUE)
   asn_g <- regmatches(pre, asn_m)[[1]]
   if (length(asn_g) == 2 && !is.null(.JS_ASSIGN_PROPS[[asn_g[2]]])) {

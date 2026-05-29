@@ -177,6 +177,7 @@ test_that("id templates, class names, SVG markup, role tokens and selectors are 
     'cell.textContent = formatNet(net);',               # RHS is a call, not literal
     'cell.setAttribute("aria-label", buildCellLabel(cell));', # value is a call
     'if (rating === "empty") { return; }',              # equality test, not assignment
+    'cell.textContent += "Append fragment";',           # compound assign -> a fragment, not a full label
     'cell.textContent = "";'                            # empty string -> nothing
   )
   for (ln in excluded_lines) {
