@@ -142,18 +142,29 @@
     if (!("IntersectionObserver" in window)) return;
     var nav = document.querySelector(".page-navigation");
     if (!nav) return;
-    // Yield only when the page-nav reaches the bottom band where the control
-    // actually sits, not merely when it's visible anywhere. The negative-top
-    // rootMargin shrinks the observation root to the bottom ~10% of the
-    // viewport, so on a short page (whose nav is on screen but well above that
-    // band) the control stays usable instead of hiding permanently.
+    // Only yield on pages that can actually scroll. On a short, unscrollable
+    // page the page-nav is statically on screen, so hiding the control to
+    // "make way" for it would hide the control permanently and leave it
+    // unreachable. There, keep the control usable. (A percentage rootMargin
+    // band was tried first but Firefox ignores it, and on a short viewport the
+    // nav genuinely sits where the control does — so scrollability, not
+    // overlap, is the right test.)
+    var navVisible = false;
+    function apply() {
+      var scrollable =
+        document.documentElement.scrollHeight > window.innerHeight + 4;
+      var yielding = scrollable && navVisible;
+      trigger.classList.toggle("is-yielding", yielding);
+      panel.classList.toggle("is-yielding", yielding);
+    }
     var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        trigger.classList.toggle("is-yielding", entry.isIntersecting);
-        panel.classList.toggle("is-yielding", entry.isIntersecting);
-      });
-    }, { rootMargin: "-90% 0px 0px 0px" });
+      entries.forEach(function (entry) { navVisible = entry.isIntersecting; });
+      apply();
+    });
     observer.observe(nav);
+    // Re-evaluate when the viewport resizes (e.g. DevTools opening can flip a
+    // page between scrollable and not) without waiting for an observer event.
+    window.addEventListener("resize", apply);
   }
 
   document.addEventListener("DOMContentLoaded", function () {

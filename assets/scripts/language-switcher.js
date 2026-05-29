@@ -95,21 +95,28 @@
     return link;
   }
 
-  // Mirror reading-prefs.js: yield (fade out) only when the page-navigation
-  // footer reaches the bottom band where this control sits, so the two corner
-  // controls never fight for the corner — while staying usable on short pages
-  // whose nav is on screen but well above the control. The negative-top
-  // rootMargin shrinks the observation root to the bottom ~10% of the viewport.
+  // Mirror reading-prefs.js: yield (fade out) when the page-navigation footer
+  // is in view so the two corner controls never fight for the corner — but
+  // only on pages that can actually scroll. On a short, unscrollable page the
+  // nav is statically on screen, so yielding would hide the switcher
+  // permanently and leave the reader unable to change language; there we keep
+  // it visible.
   function yieldToPageNav(link) {
     if (!("IntersectionObserver" in window)) return;
     var nav = document.querySelector(".page-navigation");
     if (!nav) return;
+    var navVisible = false;
+    function apply() {
+      var scrollable =
+        document.documentElement.scrollHeight > window.innerHeight + 4;
+      link.classList.toggle("is-yielding", scrollable && navVisible);
+    }
     var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        link.classList.toggle("is-yielding", entry.isIntersecting);
-      });
-    }, { rootMargin: "-90% 0px 0px 0px" });
+      entries.forEach(function (entry) { navVisible = entry.isIntersecting; });
+      apply();
+    });
     observer.observe(nav);
+    window.addEventListener("resize", apply);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
