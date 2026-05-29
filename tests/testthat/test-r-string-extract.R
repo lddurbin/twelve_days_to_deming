@@ -144,7 +144,10 @@ test_that("reinjecting a TRANSLATION rewrites only the literal, leaving the line
 
   translation <- "Diametre de l'arbre"
   rebuilt <- reinject_qmd(tmp, ex, replacements = setNames(list(translation), target))
-  rebuilt_line <- strsplit(rebuilt, "\n", fixed = TRUE)[[1]][6]
+  # Select the code line by a stable token, not a fixed index, so the assertion
+  # survives any change to the fixture's front matter line count.
+  rebuilt_lines <- strsplit(rebuilt, "\n", fixed = TRUE)[[1]]
+  rebuilt_line <- rebuilt_lines[grep("ggtitle", rebuilt_lines, fixed = TRUE)[[1]]]
 
   # the only change on the line is INSIDE the targeted literal's quotes
   expect_true(grepl('ggtitle("A1")', rebuilt_line, fixed = TRUE))   # untouched
@@ -171,7 +174,8 @@ test_that("reinjecting two literals on one line splices both correctly", {
     if (identical(as.character(s$text), "Density"))        repl[[s$id]] <- "Densite"
   }
   rebuilt <- reinject_qmd(tmp, ex, replacements = repl)
-  line <- strsplit(rebuilt, "\n", fixed = TRUE)[[1]][6]
+  rebuilt_lines <- strsplit(rebuilt, "\n", fixed = TRUE)[[1]]
+  line <- rebuilt_lines[grep("labs(", rebuilt_lines, fixed = TRUE)[[1]]]
   expect_identical(line, 'labs(x = "Diametre", y = "Densite")')
 })
 

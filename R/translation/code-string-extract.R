@@ -147,6 +147,17 @@
 # where columns are 1-based CHARACTER offsets into the line, inner_start/end
 # delimit the content BETWEEN the quotes (inner_end < inner_start for an empty
 # string), and `inner` is the raw inner substring.
+#
+# NOT supported: R 4.0+ raw strings (`r"(...)"`, `r"[...]"`, `R'(...)'`). The
+# scanner treats the leading `r`/`R` as an ordinary identifier char and would
+# mis-span the delimiter as inner content. This is safe in practice on two
+# counts: (1) the whitelist matcher only fires when a `(` or `name = ` sits
+# IMMEDIATELY before the opening quote, but a raw string puts `r`/`R` there
+# instead, so a raw-string literal is never accepted as a label nor emitted as a
+# segment; and (2) the identity round-trip reinjects original bytes, so
+# byte-identity holds even where a raw string is mis-spanned. If a future label
+# position ever needs raw strings, add an `r"`/`R"` prefix guard here rather than
+# relying on the whitelist to exclude it.
 .tokenize_string_literals <- function(line) {
   chars <- strsplit(line, "", fixed = TRUE)[[1]]
   n <- length(chars)

@@ -479,8 +479,10 @@ extract_qmd <- function(path, rel_path = path) {
     if (.is_code_fence(ln)) {
       flush_block(i - 1L)
       in_code <- TRUE
-      code_is_r <- grepl("^[ \t]*`{3,}\\{r[ ,}]", ln, perl = TRUE) ||
-                   grepl("^[ \t]*`{3,}\\{r\\}", ln, perl = TRUE)
+      # `{r}`, `{r, opts}`, `{r setup}`, `{r\topts}`: the char class after `r`
+      # covers the bare-close `}`, an options separator (space/tab/comma). One
+      # branch suffices — `}` is in the class, so the bare `{r}` form matches too.
+      code_is_r <- grepl("^[ \t]*`{3,}\\{r[ \t,}]", ln, perl = TRUE)
       code_fctx <- .func_param_context_init()  # fresh paren context per chunk
       i <- i + 1L
       next
@@ -516,6 +518,12 @@ extract_qmd <- function(path, rel_path = path) {
 # ---------------------------------------------------------------------------
 
 #' Reinject translated (or identical) segment text back into a source file.
+#'
+#' Handles BOTH `.qmd` and `.R` sources. `.qmd` extractions carry whole-line
+#' segments (prose/yaml_value) and may also carry sub-line code-string segments;
+#' `.R` extractions (from extract_r_file()) carry only sub-line segments. The
+#' two segment flavours are reinjected by different splice paths below, so this
+#' one function is the reinjection path for every file kind in the corpus.
 #'
 #' @param path        the ORIGINAL source file (provides all structural bytes)
 #' @param extraction  the result of extract_qmd() for that file
