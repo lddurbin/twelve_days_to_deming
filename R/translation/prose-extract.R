@@ -44,6 +44,40 @@ suppressPackageStartupMessages({
   library(digest)
 })
 
+# Sub-line code-string extraction primitives (issue #324) live in a sibling
+# module so a follow-up (#325) can reuse them for OJS/JS. Sourced here because
+# .mask_inline()/.ph_token() defined below are shared, and extract_qmd() needs
+# the scanner. Resolve the path relative to THIS file so callers in any CWD work.
+.prose_extract_dir <- (function() {
+  # (1) Rscript: the script path is in commandArgs as --file=.
+  ca <- commandArgs(FALSE)
+  m <- grep("^--file=", ca, value = TRUE)
+  if (length(m)) {
+    d <- dirname(normalizePath(sub("^--file=", "", m[1])))
+    if (file.exists(file.path(d, "code-string-extract.R"))) return(d)
+  }
+  # (2) source(): R stashes the sourced file path in the `source` call frame's
+  # `ofile` variable. Walk the frames to find our own directory so the sibling
+  # module resolves regardless of the caller's working directory.
+  for (fr in rev(sys.frames())) {
+    of <- tryCatch(get("ofile", envir = fr, inherits = FALSE), error = function(e) NULL)
+    if (is.character(of) && length(of) == 1L && grepl("prose-extract[.]R$", of)) {
+      d <- dirname(normalizePath(of))
+      if (file.exists(file.path(d, "code-string-extract.R"))) return(d)
+    }
+  }
+  # (3) Fallback: search upward from the working directory for the module.
+  d <- normalizePath(getwd())
+  repeat {
+    cand <- file.path(d, "R", "translation")
+    if (file.exists(file.path(cand, "code-string-extract.R"))) return(cand)
+    parent <- dirname(d)
+    if (identical(parent, d)) break
+    d <- parent
+  }
+  file.path("R", "translation")
+})()
+
 # ---------------------------------------------------------------------------
 # Low-level IO: read a file as its exact byte string, and split into lines
 # while remembering whether the final line had a trailing newline.
@@ -159,6 +193,10 @@ TRANSLATABLE_YAML_KEYS <- c("title", "subtitle", "description")
 .PH_OPEN  <- "\uE000"
 .PH_CLOSE <- "\uE001"
 .ph_token <- function(n) sprintf("%sPH%d%s", .PH_OPEN, n, .PH_CLOSE)
+
+# Now that the shared placeholder scheme exists, load the code-string module,
+# which builds on .ph_token/.PH_OPEN/.PH_CLOSE for masking R-string escapes.
+source(file.path(.prose_extract_dir, "code-string-extract.R"))
 
 # Each entry: name + PCRE pattern, applied left-to-right; matches become
 # sentinel tokens (see .ph_token).
@@ -281,6 +319,43 @@ TRANSLATABLE_YAML_KEYS <- c("title", "subtitle", "description")
 }
 
 # ---------------------------------------------------------------------------
+# Sub-line segment record builder (issue #324).
+# ---------------------------------------------------------------------------
+# A SUB-LINE segment is a translatable string LITERAL living inside one line of
+# code (e.g. the "A1" inside `ggtitle("A1")`). Unlike a prose segment, its
+# address carries CHARACTER OFFSETS (start_col/end_col, 1-based, INNER span
+# between the quotes) so reinjection can splice within the line and leave the
+# rest of that line byte-identical. start_line == end_line by construction.
+#
+# The masked surface protects R escapes / format specifiers (via
+# .mask_code_string) so a translator never breaks `\n`, `%s`, `{x}` etc. The
+# raw `text` is the exact inner bytes, which the identity round-trip reinjects.
+#
+# `rel_path`, `kind` and an ordinal counter come from the caller; `inner` is the
+# literal's inner content and `start_col`/`end_col` its offsets on `line_no`.
+.build_subline_segment <- function(rel_path, kind, ordinal,
+                                   line_no, start_col, end_col, inner) {
+  mk <- .mask_code_string(inner)
+  list(
+    id = .segment_id(rel_path, kind, inner, ordinal),
+    address = list(
+      file = rel_path,
+      kind = jsonlite::unbox(kind),
+      start_line = jsonlite::unbox(line_no),
+      end_line = jsonlite::unbox(line_no),
+      # Byte/char offsets (the design contract anticipated "byte offsets"; the
+      # corpus is ASCII at these literal positions, and substr() is character-
+      # based, so 1-based char offsets are the stable addressing unit).
+      start_col = jsonlite::unbox(start_col),
+      end_col = jsonlite::unbox(end_col)
+    ),
+    text = jsonlite::unbox(inner),
+    masked = jsonlite::unbox(mk$masked),
+    placeholders = mk$placeholders
+  )
+}
+
+# ---------------------------------------------------------------------------
 # Core extraction
 # ---------------------------------------------------------------------------
 
@@ -359,6 +434,8 @@ extract_qmd <- function(path, rel_path = path) {
 
   # ---- Phase 2: body ------------------------------------------------------
   in_code <- FALSE
+  code_is_r <- FALSE  # is the currently-open fenced chunk an ```{r} chunk?
+  code_fctx <- .func_param_context_init()  # cross-line function-param tracker
   code_fence_re <- NULL
   block_start <- 0L  # start of an open prose block, 0 if none
 
@@ -376,15 +453,35 @@ extract_qmd <- function(path, rel_path = path) {
     if (in_code) {
       if (.is_code_fence(ln)) {
         in_code <- FALSE
+      } else if (code_is_r) {
+        # R chunk BODY line: scan for whitelisted user-facing string literals and
+        # emit each as a sub-line `r-string` segment. Code logic is never altered
+        # — only the inner bytes of a label literal become translatable.
+        upd <- .update_func_param_context(ln, code_fctx)
+        code_fctx <- upd$state
+        for (lit in .scan_code_line_literals(ln, in_func_params = upd$line_in_params)) {
+          o <- next_ord("r-string")
+          seg <- .build_subline_segment(
+            rel_path, "r-string", o, i,
+            lit$inner_start, lit$inner_end, lit$inner
+          )
+          segments[[length(segments) + 1L]] <- seg
+        }
       }
       i <- i + 1L
       next
     }
 
-    # Code fence opener (closes any open prose block first).
+    # Code fence opener (closes any open prose block first). Detect whether this
+    # is an R chunk (```{r ...} or ```{r}) so only R bodies are string-scanned;
+    # other languages (ojs, python, mermaid, dot, plain ```) are left untouched
+    # here — #325 will add OJS/JS handling via the same machinery.
     if (.is_code_fence(ln)) {
       flush_block(i - 1L)
       in_code <- TRUE
+      code_is_r <- grepl("^[ \t]*`{3,}\\{r[ ,}]", ln, perl = TRUE) ||
+                   grepl("^[ \t]*`{3,}\\{r\\}", ln, perl = TRUE)
+      code_fctx <- .func_param_context_init()  # fresh paren context per chunk
       i <- i + 1L
       next
     }
@@ -432,16 +529,44 @@ reinject_qmd <- function(path, extraction, replacements = list(), rel_path = ext
   sl <- .split_lines(content)
   lines <- sl$lines
 
-  # Apply replacements segment-by-segment. Because segments never overlap and
-  # are line-addressed, we rebuild the line vector by splicing replacement
-  # lines into each segment's [start_line, end_line] range. We process in
-  # DESCENDING line order so earlier indices remain valid.
   segs <- extraction$segments
-  if (length(segs)) {
-    starts <- vapply(segs, function(s) as.integer(s$address$start_line), integer(1))
+
+  # Segments come in two flavours:
+  #   * WHOLE-LINE segments (prose, yaml_value): addressed by [start_line,
+  #     end_line]; replacement may change the line COUNT.
+  #   * SUB-LINE segments (r-string and, later, ojs/js-string): addressed by a
+  #     character span start_col..end_col on a single line; replacement rewrites
+  #     only that span, leaving the rest of the line byte-identical.
+  # We apply SUB-LINE edits FIRST, on the ORIGINAL line numbering, because
+  # whole-line splicing below can change line indices. Sub-line segments only
+  # ever sit inside code chunks while whole-line segments sit outside them, so
+  # the two never contend for the same line.
+  is_subline <- function(s) !is.null(s$address$start_col)
+
+  sub_segs <- Filter(is_subline, segs)
+  if (length(sub_segs)) {
+    recs <- lapply(sub_segs, function(s) {
+      repl_inner <- if (!is.null(replacements[[s$id]])) replacements[[s$id]] else as.character(s$text)
+      list(
+        start_line = as.integer(s$address$start_line),
+        start_col  = as.integer(s$address$start_col),
+        end_col    = as.integer(s$address$end_col),
+        repl       = repl_inner
+      )
+    })
+    lines <- .reinject_subline_segments(lines, recs)
+  }
+
+  # Whole-line segments. Because they never overlap and are line-addressed, we
+  # rebuild the line vector by splicing replacement lines into each segment's
+  # [start_line, end_line] range. We process in DESCENDING line order so earlier
+  # indices remain valid.
+  line_segs <- Filter(function(s) !is_subline(s), segs)
+  if (length(line_segs)) {
+    starts <- vapply(line_segs, function(s) as.integer(s$address$start_line), integer(1))
     ord <- order(starts, decreasing = TRUE)
     for (k in ord) {
-      s <- segs[[k]]
+      s <- line_segs[[k]]
       id <- s$id
       repl <- if (!is.null(replacements[[id]])) replacements[[id]] else as.character(s$text)
       a <- as.integer(s$address$start_line)
@@ -461,11 +586,60 @@ reinject_qmd <- function(path, extraction, replacements = list(), rel_path = ext
 # Identity round-trip helpers
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# `.R` helper-file extraction (issue #324).
+# ---------------------------------------------------------------------------
+# User-facing default labels (e.g. `x_title = "Shaft diameter"`,
+# `lsl_label = "Lower\nSpecification\nLimit"`) and on-canvas annotate("text")
+# labels also live in the R HELPER file `R/functions/main-functions.R`, not just
+# in `.qmd` chunks. We extract them with the SAME whitelist + sub-line machinery.
+# An `.R` file is pure code, so EVERY line is a code body line (no fences, no
+# prose, no YAML). The result reuses the exact `r-string` segment shape so
+# reinjection and the round-trip gate are identical to the .qmd path.
+
+#' Extract `r-string` segments from a `.R` source file.
+#' @return list(file, trailing_newline, n_lines, segments) — same shape as
+#'         extract_qmd(), but segments are exclusively sub-line `r-string`.
+extract_r_file <- function(path, rel_path = path) {
+  content <- .read_raw_text(path)
+  sl <- .split_lines(content)
+  lines <- sl$lines
+  n <- length(lines)
+
+  segments <- list()
+  ord <- 0L
+  # Track function-parameter context across lines so helper DEFAULT-arg labels
+  # (whose `function(` opener is several lines above the default) are eligible.
+  fctx <- .func_param_context_init()
+  for (i in seq_len(n)) {
+    upd <- .update_func_param_context(lines[i], fctx)
+    fctx <- upd$state
+    for (lit in .scan_code_line_literals(lines[i], in_func_params = upd$line_in_params)) {
+      ord <- ord + 1L
+      seg <- .build_subline_segment(
+        rel_path, "r-string", ord, i,
+        lit$inner_start, lit$inner_end, lit$inner
+      )
+      segments[[length(segments) + 1L]] <- seg
+    }
+  }
+
+  list(
+    file = rel_path,
+    trailing_newline = sl$trailing_newline,
+    n_lines = n,
+    segments = segments
+  )
+}
+
 #' Round-trip one file: extract, reinject originals, compare bytes.
+#' Dispatches on extension so `.R` files use extract_r_file() while everything
+#' else uses extract_qmd(); reinjection/comparison are shared.
 #' Returns list(ok, file, n_segments, [first_diff]).
 roundtrip_file <- function(path, rel_path = path) {
   original <- .read_raw_text(path)
-  ex <- extract_qmd(path, rel_path = rel_path)
+  ex <- if (grepl("[.][Rr]$", path)) extract_r_file(path, rel_path = rel_path)
+        else extract_qmd(path, rel_path = rel_path)
   rebuilt <- reinject_qmd(path, ex, replacements = list(), rel_path = rel_path)
   ok <- identical(charToRaw(original), charToRaw(rebuilt))
   out <- list(ok = ok, file = rel_path, n_segments = length(ex$segments))
@@ -485,4 +659,14 @@ qmd_corpus <- function(root = ".") {
                      recursive = TRUE, full.names = TRUE)
   top <- list.files(root, pattern = "[.]qmd$", recursive = FALSE, full.names = TRUE)
   c(sort(body), sort(top))
+}
+
+#' Enumerate the `.R` helper corpus that carries user-facing default labels.
+#' Scoped tightly to R/functions/ (where the chart/table helpers live). Other
+#' `.R` trees (R/data/, R/translation/, the tooling itself) hold no translatable
+#' user-facing strings — keeping the corpus narrow avoids false positives and
+#' keeps the round-trip gate fast and meaningful.
+r_corpus <- function(root = ".") {
+  sort(list.files(file.path(root, "R", "functions"), pattern = "[.]R$",
+                  recursive = TRUE, full.names = TRUE))
 }
