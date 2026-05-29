@@ -47,6 +47,7 @@ format:
         })();
       </script>
       <script src="/assets/scripts/reading-prefs.js"></script>
+      <script src="/assets/scripts/language-switcher.js"></script>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
           var a = document.createElement("a");
