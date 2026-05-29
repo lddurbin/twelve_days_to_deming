@@ -75,10 +75,10 @@
     trigger.className = "reading-prefs-toggle";
     trigger.setAttribute("aria-expanded", "false");
     trigger.setAttribute("aria-controls", "reading-prefs-panel");
-    trigger.setAttribute("aria-label", "Reading preferences");
+    trigger.setAttribute("aria-label", "Preferences");
     trigger.innerHTML =
       '<span class="reading-prefs-toggle-icon" aria-hidden="true">Aa</span>' +
-      '<span class="reading-prefs-toggle-label">Reading</span>';
+      '<span class="reading-prefs-toggle-label">Preferences</span>';
 
     var panel = document.createElement("div");
     panel.id = "reading-prefs-panel";

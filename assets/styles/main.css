@@ -1114,7 +1114,7 @@ button:focus,
   }
   .reading-prefs-toggle .reading-prefs-toggle-label {
     /* On narrow viewports the trigger collapses to icon-only; the
-       button retains aria-label="Reading preferences" so screen readers
+       button retains aria-label="Preferences" so screen readers
        still announce it. */
     position: absolute;
     width: 1px;
