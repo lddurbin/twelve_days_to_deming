@@ -333,22 +333,32 @@ source(file.path(.prose_extract_dir, "code-string-extract.R"))
 #
 # `rel_path`, `kind` and an ordinal counter come from the caller; `inner` is the
 # literal's inner content and `start_col`/`end_col` its offsets on `line_no`.
+#
+# `context` (issue #325) is an OPTIONAL short "interface context" hint — the
+# attribute name, OJS field, or JS function the literal came from — so a
+# translator knows a `ui-string`/`aria-label` segment is interface text and what
+# surface it drives. It rides inside the `address` so the segment's TOP-LEVEL
+# schema (id/address/text/masked/placeholders) stays identical to #323/#324
+# segments; when NULL (the R path) no `context` key is emitted at all.
 .build_subline_segment <- function(rel_path, kind, ordinal,
-                                   line_no, start_col, end_col, inner) {
+                                   line_no, start_col, end_col, inner,
+                                   context = NULL) {
   mk <- .mask_code_string(inner)
+  address <- list(
+    file = rel_path,
+    kind = jsonlite::unbox(kind),
+    start_line = jsonlite::unbox(line_no),
+    end_line = jsonlite::unbox(line_no),
+    # Byte/char offsets (the design contract anticipated "byte offsets"; the
+    # corpus is ASCII at these literal positions, and substr() is character-
+    # based, so 1-based char offsets are the stable addressing unit).
+    start_col = jsonlite::unbox(start_col),
+    end_col = jsonlite::unbox(end_col)
+  )
+  if (!is.null(context)) address$context <- jsonlite::unbox(context)
   list(
     id = .segment_id(rel_path, kind, inner, ordinal),
-    address = list(
-      file = rel_path,
-      kind = jsonlite::unbox(kind),
-      start_line = jsonlite::unbox(line_no),
-      end_line = jsonlite::unbox(line_no),
-      # Byte/char offsets (the design contract anticipated "byte offsets"; the
-      # corpus is ASCII at these literal positions, and substr() is character-
-      # based, so 1-based char offsets are the stable addressing unit).
-      start_col = jsonlite::unbox(start_col),
-      end_col = jsonlite::unbox(end_col)
-    ),
+    address = address,
     text = jsonlite::unbox(inner),
     masked = jsonlite::unbox(mk$masked),
     placeholders = mk$placeholders
@@ -435,6 +445,7 @@ extract_qmd <- function(path, rel_path = path) {
   # ---- Phase 2: body ------------------------------------------------------
   in_code <- FALSE
   code_is_r <- FALSE  # is the currently-open fenced chunk an ```{r} chunk?
+  code_is_ojs <- FALSE  # is the currently-open fenced chunk an ```{ojs} chunk?
   code_fctx <- .func_param_context_init()  # cross-line function-param tracker
   code_fence_re <- NULL
   block_start <- 0L  # start of an open prose block, 0 if none
@@ -467,6 +478,20 @@ extract_qmd <- function(path, rel_path = path) {
           )
           segments[[length(segments) + 1L]] <- seg
         }
+      } else if (code_is_ojs) {
+        # OJS chunk BODY line (issue #325): scan for whitelisted UI literals
+        # (Inputs.* label:/placeholder: values) via the SAME sub-line machinery.
+        # The matcher returns a per-literal kind (`ui-string`); we carry the OJS
+        # field's enclosing-call name as the interface-context hint.
+        for (lit in .scan_ojs_js_line_literals(ln)) {
+          o <- next_ord(lit$kind)
+          seg <- .build_subline_segment(
+            rel_path, lit$kind, o, i,
+            lit$inner_start, lit$inner_end, lit$inner,
+            context = "ojs-input"
+          )
+          segments[[length(segments) + 1L]] <- seg
+        }
       }
       i <- i + 1L
       next
@@ -483,6 +508,10 @@ extract_qmd <- function(path, rel_path = path) {
       # covers the bare-close `}`, an options separator (space/tab/comma). One
       # branch suffices — `}` is in the class, so the bare `{r}` form matches too.
       code_is_r <- grepl("^[ \t]*`{3,}\\{r[ \t,}]", ln, perl = TRUE)
+      # ```{ojs}``` / ```{ojs <name>}``` (issue #325): same char-class trick as
+      # the `{r}` regex — after `ojs` the class covers the bare close `}`, a
+      # cell-name separator (space/tab), or an options comma.
+      code_is_ojs <- grepl("^[ \t]*`{3,}\\{ojs[ \t,}]", ln, perl = TRUE)
       code_fctx <- .func_param_context_init()  # fresh paren context per chunk
       i <- i + 1L
       next
@@ -495,6 +524,23 @@ extract_qmd <- function(path, rel_path = path) {
         .is_comment_line(ln) ||
         .is_html_structural(ln)) {
       flush_block(i - 1L)
+      # A structural raw-HTML tag line may still carry user-facing ATTRIBUTE
+      # values (issue #325): `<div ... aria-label="Commentary">`,
+      # `<img ... alt="…">`, `title=`, `placeholder=`. Scan for those whitelisted
+      # attribute values and emit each as a sub-line segment (kind aria-label /
+      # ui-string) BEFORE the line is otherwise skipped as structural. role=,
+      # class=, id=, data-*=, aria-controls= etc. are NEVER extracted. The line's
+      # structural bytes are untouched — only the inner attribute value becomes
+      # translatable, and the identity round-trip reinjects the original bytes.
+      for (av in .scan_html_attr_values(ln)) {
+        o <- next_ord(av$kind)
+        seg <- .build_subline_segment(
+          rel_path, av$kind, o, i,
+          av$inner_start, av$inner_end, av$inner,
+          context = "html-attr"
+        )
+        segments[[length(segments) + 1L]] <- seg
+      }
       i <- i + 1L
       next
     }
@@ -640,13 +686,71 @@ extract_r_file <- function(path, rel_path = path) {
   )
 }
 
+# ---------------------------------------------------------------------------
+# `.js` asset-file extraction (issue #325).
+# ---------------------------------------------------------------------------
+# User-facing UI/ARIA strings also live in the interactive JS assets
+# (`assets/scripts/*.js`): button text (`textContent = "Download Your Notes"`),
+# input placeholders, live-region announcements (`announceFunnelStatus(...)`),
+# and setAttribute("aria-label", …) values. We extract them with the SAME
+# sub-line machinery via the OJS/JS matcher. A `.js` file is pure code, so EVERY
+# line is a code body line (no fences, no prose, no YAML), exactly like the `.R`
+# helper path. The matcher returns a per-literal KIND (ui-string / aria-label).
+
+#' Extract `ui-string` / `aria-label` segments from a `.js` source file.
+#' @return list(file, trailing_newline, n_lines, segments) — same shape as
+#'         extract_qmd(), with sub-line UI/ARIA segments only. Ordinals use the
+#'         per-kind next_ord convention (the #324 follow-up note preferred this
+#'         over extract_r_file's flat counter) so ids are stable per kind.
+extract_js_file <- function(path, rel_path = path) {
+  content <- .read_raw_text(path)
+  sl <- .split_lines(content)
+  lines <- sl$lines
+  n <- length(lines)
+
+  segments <- list()
+  ord <- new.env(parent = emptyenv())
+  next_ord <- function(kind) {
+    cur <- if (exists(kind, envir = ord, inherits = FALSE)) get(kind, envir = ord) else 0L
+    cur <- cur + 1L
+    assign(kind, cur, envir = ord)
+    cur
+  }
+
+  # Track multi-line announce calls so a message literal on a continuation line
+  # is recognised (announceFunnelStatus( ... ) often spans several lines).
+  actx <- .announce_call_context_init()
+  for (i in seq_len(n)) {
+    aupd <- .update_announce_call_context(lines[i], actx)
+    actx <- aupd$state
+    for (lit in .scan_ojs_js_line_literals(lines[i], in_announce_call = aupd$line_in_call)) {
+      o <- next_ord(lit$kind)
+      seg <- .build_subline_segment(
+        rel_path, lit$kind, o, i,
+        lit$inner_start, lit$inner_end, lit$inner,
+        context = "js"
+      )
+      segments[[length(segments) + 1L]] <- seg
+    }
+  }
+
+  list(
+    file = rel_path,
+    trailing_newline = sl$trailing_newline,
+    n_lines = n,
+    segments = segments
+  )
+}
+
 #' Round-trip one file: extract, reinject originals, compare bytes.
-#' Dispatches on extension so `.R` files use extract_r_file() while everything
-#' else uses extract_qmd(); reinjection/comparison are shared.
+#' Dispatches on extension so `.R` files use extract_r_file(), `.js` files use
+#' extract_js_file(), and everything else uses extract_qmd();
+#' reinjection/comparison are shared.
 #' Returns list(ok, file, n_segments, [first_diff]).
 roundtrip_file <- function(path, rel_path = path) {
   original <- .read_raw_text(path)
   ex <- if (grepl("[.][Rr]$", path)) extract_r_file(path, rel_path = rel_path)
+        else if (grepl("[.]js$", path)) extract_js_file(path, rel_path = rel_path)
         else extract_qmd(path, rel_path = rel_path)
   rebuilt <- reinject_qmd(path, ex, replacements = list(), rel_path = rel_path)
   ok <- identical(charToRaw(original), charToRaw(rebuilt))
@@ -676,5 +780,14 @@ qmd_corpus <- function(root = ".") {
 #' keeps the round-trip gate fast and meaningful.
 r_corpus <- function(root = ".") {
   sort(list.files(file.path(root, "R", "functions"), pattern = "[.]R$",
+                  recursive = TRUE, full.names = TRUE))
+}
+
+#' Enumerate the `.js` asset corpus that carries user-facing UI/ARIA strings.
+#' Scoped to `assets/scripts/` (where the interactive widgets live). Other JS
+#' (vendored libraries, build tooling) holds no translatable user-facing strings
+#' and is excluded to keep the round-trip gate narrow and meaningful.
+js_corpus <- function(root = ".") {
+  sort(list.files(file.path(root, "assets", "scripts"), pattern = "[.]js$",
                   recursive = TRUE, full.names = TRUE))
 }

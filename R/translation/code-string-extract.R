@@ -77,6 +77,68 @@
 # annotate("segment"/"point", …) is never scanned for a label.
 .R_ANNOTATE_TEXT_GEOM <- "text"
 
+# ---------------------------------------------------------------------------
+# The whitelist of label-bearing positions for OJS / JS / HTML (issue #325).
+# ---------------------------------------------------------------------------
+# Same DISCIPLINE as the R whitelist above: only USER-FACING string literals at
+# a tight set of positions are extracted; a false positive that rewrote an
+# element id, a CSS class, an ARIA role token, a selector, an event name or a
+# file path would corrupt the UI and is far worse than a missed label. When in
+# doubt, EXCLUDE. The JS files lean HEAVILY on backtick template literals
+# (~76/file), the vast majority of which are NOT user-facing (id templates, CSS
+# class lists, SVG markup, selectors), so the matcher is positional, never
+# "extract every string".
+#
+# Each surface maps to a segment KIND so a translator sees the interface context:
+#   * `ui-string`  — visible UI text (input labels/placeholders, button text).
+#   * `aria-label` — assistive-technology text (aria-label values, live-region
+#                    announcements). These are invisible to sighted users but
+#                    must still be translated.
+#
+# OJS named-argument labels. In a call to one of these `Inputs.*` constructors,
+# the VALUE of a `label:` / `placeholder:` property is user-facing UI text.
+# (OJS object literals use `name: value`, not R's `name = value`.) The enclosing
+# call must be one of these constructors so an unrelated `label:`/`placeholder:`
+# key elsewhere is never grabbed.
+.OJS_INPUT_FUNCS <- c("Inputs.textarea", "Inputs.text", "Inputs.button")
+.OJS_LABEL_PROPS <- c("label", "placeholder")
+
+# JS object-PROPERTY assignments whose RHS string literal is user-facing. Keyed
+# by the property name appearing immediately before `= ` (e.g. `x.textContent =`,
+# `x.placeholder =`). RHS values that are NOT string literals (a variable, a
+# function call like `formatNet(net)` / `buildCellLabel(...)`, a concatenation)
+# are skipped naturally because the matcher only fires when a quote/backtick
+# sits immediately after the `= `. Each maps to its segment kind.
+.JS_ASSIGN_PROPS <- list(
+  textContent = "ui-string",
+  placeholder = "ui-string"
+)
+
+# JS DOM functions whose FIRST POSITIONAL string-literal argument is user-facing
+# assistive text (a live-region / status announcement). The whole point of the
+# call is to speak a message, so its literal first arg is an `aria-label`.
+.JS_ANNOUNCE_FUNCS <- c("announceFunnelStatus")
+
+# setAttribute(NAME, VALUE): the VALUE is user-facing ONLY when NAME is one of
+# these accessibility/label attributes. We gate on the NAME argument so
+# setAttribute("role", "button") / ("tabindex","0") / ("aria-live","polite") are
+# never touched. The kind is chosen by the attribute name.
+.JS_SETATTR_LABEL_ATTRS <- list(
+  "aria-label" = "aria-label",
+  "placeholder" = "ui-string",
+  "title"       = "ui-string"
+)
+
+# Raw-HTML attributes in `.qmd` (e.g. `<div ... aria-label="Commentary">`) whose
+# VALUE is user-facing. role=/class=/id=/data-*=/aria-controls= etc. are NEVER
+# extracted. The kind is chosen by the attribute name.
+.HTML_LABEL_ATTRS <- list(
+  "aria-label"  = "aria-label",
+  "title"       = "ui-string",
+  "alt"         = "ui-string",
+  "placeholder" = "ui-string"
+)
+
 # Default-argument NAMES in our helper functions whose default VALUE is a
 # user-facing label. We match a `NAME = "literal"` default anywhere in the file
 # (these names are unambiguous label slots in main-functions.R). String defaults
@@ -105,6 +167,11 @@
   r_escape  = "\\\\.",
   # printf/sprintf-style format specifiers: %s %d %1$s %.2f %% etc.
   sprintf_fmt = "%[-+ #0]*[0-9*]*(?:\\.[0-9*]+)?(?:[0-9]+\\$)?[diouxXeEfgGaAcspn%]",
+  # JS template-literal interpolation: ${var} or ${expr}. Listed BEFORE glue so a
+  # `${...}` is consumed as one unit and never mistaken for glue's `{...}` (which
+  # would leave a stray `$` on the translator surface and split the placeholder).
+  # An interpolation is live CODE; a translator must never see or edit it.
+  js_interp   = "\\$\\{[^}]*\\}",
   # glue/str_interp interpolation: {var} or {expr}
   glue_interp = "\\{[^}]*\\}"
 )
@@ -165,7 +232,15 @@
   i <- 1L
   while (i <= n) {
     c1 <- chars[i]
-    if (c1 == '"' || c1 == "'") {
+    # Recognise double-quote, single-quote AND JS backtick (template literal)
+    # delimiters. Backtick template literals (issue #325) escape with `\` exactly
+    # like the quoted forms — a literal backtick inside is `\``, a newline `\n`,
+    # etc. — so the SAME escape-aware scan below closes them correctly. The
+    # `${...}` interpolations a template literal may contain are masked later by
+    # .mask_code_string(); the tokenizer treats their bytes as ordinary content
+    # (any `"`/`'` inside `${...}` cannot prematurely close a backtick literal
+    # because we are tracking the backtick delimiter, not the quote chars).
+    if (c1 == '"' || c1 == "'" || c1 == "`") {
       quote <- c1
       open_col <- i
       inner_start <- i + 1L
@@ -333,6 +408,264 @@
 }
 
 # ---------------------------------------------------------------------------
+# OJS / JS whitelist matching for one literal on a line (issue #325).
+# ---------------------------------------------------------------------------
+# Mirrors .is_whitelisted_literal() but for the OJS/JS surfaces. It looks at the
+# bytes immediately BEFORE the opening quote/backtick (and, for setAttribute, a
+# little context AFTER) to decide whether the literal sits at a user-facing
+# position. Returns NULL when NOT whitelisted, or the segment KIND string
+# (`ui-string` / `aria-label`) when it is — the caller tags the segment with it.
+#
+# Why return the kind (not just TRUE/FALSE): unlike R (one kind, `r-string`), the
+# JS/OJS surfaces emit TWO kinds, chosen by the position (an aria-label attribute
+# vs a visible textContent). Threading the kind out of the matcher keeps the
+# decision in one place.
+.ojs_js_literal_kind <- function(line, lit) {
+  pre <- substr(line, 1L, lit$open_col - 1L)
+
+  # --- OJS object property: `name: "..."` immediately before the quote --------
+  # OJS object literals use `key: value`. A `label:` / `placeholder:` whose
+  # enclosing call is one of the Inputs.* constructors is user-facing UI text.
+  prop_m <- regexec("([A-Za-z_][A-Za-z0-9_]*)[ \t]*:[ \t]*$", pre, perl = TRUE)
+  prop_g <- regmatches(pre, prop_m)[[1]]
+  if (length(prop_g) == 2 && prop_g[2] %in% .OJS_LABEL_PROPS) {
+    enclosing <- .nearest_enclosing_call(pre)
+    if (!is.null(enclosing) && enclosing %in% .OJS_INPUT_FUNCS) {
+      return("ui-string")
+    }
+  }
+
+  # --- JS property assignment: `x.PROP = "..."` immediately before the quote --
+  # Match the dotted property name on the LHS of an assignment `=` directly
+  # before the literal. Only a literal sitting flush after `= ` is taken; a
+  # non-literal RHS (variable / call like `formatNet(net)` / concatenation)
+  # leaves something other than a quote there and is skipped. The lookbehind on
+  # the `=` excludes the comparison operators `==`/`===`/`!=`/`<=`/`>=` AND the
+  # compound-assignment operators `+=`/`-=`/`*=`/`/=`/`%=`/`&=`/`|=`/`^=` (the
+  # logical-assignment forms `&&=`/`||=` are covered too, since their last char
+  # before `=` is `&`/`|`), so neither an equality test nor an append
+  # (`x.textContent += "…"`, which is not the full UI text) is mistaken for a
+  # plain assignment. NOT excluded: `??=` (nullish-coalescing assignment) —
+  # absent from the corpus, and a `??=` default is often a legitimate user-facing
+  # fallback string, so extracting it would usually be correct rather than a
+  # false positive. Left in deliberately; revisit if a non-label `??=` appears.
+  asn_m <- regexec("\\.([A-Za-z_][A-Za-z0-9_]*)[ \t]*(?<![=<>!+*/%&|^-])=[ \t]*$", pre, perl = TRUE)
+  asn_g <- regmatches(pre, asn_m)[[1]]
+  if (length(asn_g) == 2 && !is.null(.JS_ASSIGN_PROPS[[asn_g[2]]])) {
+    return(.JS_ASSIGN_PROPS[[asn_g[2]]])
+  }
+
+  # --- JS announce-function first positional arg: `FUNC(` before the quote ----
+  pos_m <- regexec("([A-Za-z_][A-Za-z0-9_]*)[ \t]*\\([ \t]*$", pre, perl = TRUE)
+  pos_g <- regmatches(pre, pos_m)[[1]]
+  if (length(pos_g) == 2 && pos_g[2] %in% .JS_ANNOUNCE_FUNCS) {
+    return("aria-label")
+  }
+
+  # --- JS setAttribute(NAME, VALUE): the VALUE arg, gated on NAME --------------
+  # The literal under test must be the SECOND argument of a setAttribute call
+  # whose FIRST argument is a whitelisted attribute name. We detect this by
+  # looking for `setAttribute("<attr>", ` (the comma + space before our literal),
+  # then mapping <attr> to its kind. setAttribute("role"/"tabindex"/"aria-live",
+  # …) is excluded because those names aren't in .JS_SETATTR_LABEL_ATTRS.
+  sa_m <- regexec(
+    "setAttribute[ \t]*\\([ \t]*[\"']([A-Za-z-]+)[\"'][ \t]*,[ \t]*$",
+    pre, perl = TRUE
+  )
+  sa_g <- regmatches(pre, sa_m)[[1]]
+  if (length(sa_g) == 2 && !is.null(.JS_SETATTR_LABEL_ATTRS[[sa_g[2]]])) {
+    return(.JS_SETATTR_LABEL_ATTRS[[sa_g[2]]])
+  }
+
+  NULL
+}
+
+# ---------------------------------------------------------------------------
+# Raw-HTML attribute-value scanning for one line (issue #325).
+# ---------------------------------------------------------------------------
+# A raw-HTML line in a `.qmd` (e.g. `<div class="thought" role="note"
+# aria-label="Commentary">`) is classified STRUCTURAL by prose-extract.R and
+# skipped — but a whitelisted ATTRIBUTE VALUE on it (aria-label, title, alt,
+# placeholder) is user-facing and must be extracted BEFORE the line is skipped.
+# role=/class=/id=/data-*=/aria-controls= etc. are NEVER extracted.
+#
+# Returns a list of sub-line records { inner, inner_start, inner_end, kind } for
+# each whitelisted attribute value, the same span shape .scan_code_line_literals
+# returns (plus a per-record `kind`, since HTML mixes aria-label / ui-string).
+.scan_html_attr_values <- function(line) {
+  keep <- list()
+  # Iterate the whitelisted attribute names; for each, find every `attr="value"`
+  # (or single-quoted) occurrence and record the INNER span of the value. We use
+  # an explicit per-attribute pattern so we never grab role/class/id (not in the
+  # whitelist). The attribute name must NOT be preceded by a word char OR a
+  # hyphen, so a whitelisted name is never matched as the TAIL of a longer
+  # attribute: `aria-label` must not fire inside `data-aria-label`, nor `title`
+  # inside `data-title`, nor `alt` inside `data-alt`. A `\b` boundary is WRONG
+  # here — `\b` sits between the `-` and the name in `data-aria-label`, so it
+  # matches the wrong attribute; a negative lookbehind on [A-Za-z0-9-] is the
+  # correct guard.
+  for (attr in names(.HTML_LABEL_ATTRS)) {
+    kind <- .HTML_LABEL_ATTRS[[attr]]
+    pat <- sprintf("(?<![A-Za-z0-9-])%s[ \t]*=[ \t]*([\"'])", attr)
+    m <- gregexpr(pat, line, perl = TRUE)[[1]]
+    if (m[1] == -1L) next
+    starts <- as.integer(m)
+    lens <- attr(m, "match.length")
+    for (k in seq_along(starts)) {
+      # The opening quote is the LAST char of the matched `attr="` prefix.
+      open_col <- starts[k] + lens[k] - 1L
+      lit <- .one_literal_at(line, open_col)
+      if (is.null(lit)) next
+      keep[[length(keep) + 1L]] <- list(
+        inner = lit$inner,
+        inner_start = lit$inner_start,
+        inner_end = lit$inner_end,
+        kind = kind
+      )
+    }
+  }
+  keep
+}
+
+#' Tokenize the single string literal whose opening quote is at `open_col`.
+#' Reuses the same escape-aware scan as .tokenize_string_literals but for ONE
+#' known literal start, returning its inner span (or NULL if unterminated on the
+#' line). Used by the HTML attribute scanner where we already know the quote
+#' position from the attribute-name match.
+.one_literal_at <- function(line, open_col) {
+  chars <- strsplit(line, "", fixed = TRUE)[[1]]
+  n <- length(chars)
+  if (open_col > n) return(NULL)
+  quote <- chars[open_col]
+  inner_start <- open_col + 1L
+  j <- inner_start
+  escaped <- FALSE
+  closed <- FALSE
+  while (j <= n) {
+    cj <- chars[j]
+    if (escaped) escaped <- FALSE
+    else if (cj == "\\") escaped <- TRUE
+    else if (cj == quote) { closed <- TRUE; break }
+    j <- j + 1L
+  }
+  if (!closed) return(NULL)
+  inner_end <- j - 1L
+  inner <- if (inner_end >= inner_start) paste(chars[inner_start:inner_end], collapse = "") else ""
+  list(inner = inner, inner_start = inner_start, inner_end = inner_end)
+}
+
+# ---------------------------------------------------------------------------
+# Scan one OJS/JS code line for whitelisted literals -> kinded sub-line spans.
+# ---------------------------------------------------------------------------
+#' The OJS/JS counterpart of .scan_code_line_literals(). Returns records
+#'   { inner, inner_start, inner_end, kind }
+#' for each user-facing literal on the line. Like the R scanner it tokenizes the
+#' line (now including backtick template literals) and applies a whitelist, but
+#' the OJS/JS matcher returns the segment KIND (ui-string / aria-label) per
+#' literal rather than a single fixed kind.
+#' @param in_announce_call cross-line context: TRUE when this line lies inside an
+#'        open announce-function call (e.g. `announceFunnelStatus(` opened on a
+#'        PRIOR line). When TRUE, a string literal that is the FIRST token on the
+#'        line is taken as the announce message (kind `aria-label`). The caller
+#'        maintains this with .update_announce_call_context().
+.scan_ojs_js_line_literals <- function(line, in_announce_call = FALSE) {
+  lits <- .tokenize_string_literals(line)
+  keep <- list()
+  for (li in seq_along(lits)) {
+    lit <- lits[[li]]
+    kind <- .ojs_js_literal_kind(line, lit)
+    # Multi-line announce call: the message literal sits on its OWN line, flush
+    # after the opener on the previous line. We accept ONLY the FIRST literal on
+    # such a continuation line, and only when nothing but whitespace precedes it,
+    # so a stray later literal on the line isn't swept in.
+    if (is.null(kind) && in_announce_call && li == 1L &&
+        !grepl("\\S", substr(line, 1L, lit$open_col - 1L))) {
+      kind <- "aria-label"
+    }
+    # Skip EMPTY literals: an empty string (e.g. `cell.textContent = ""` to clear
+    # a greyed-out cell) carries no translatable text and would only pollute the
+    # translator surface. Whitelisted-but-empty is treated as nothing to extract.
+    if (!is.null(kind) && nzchar(lit$inner)) {
+      keep[[length(keep) + 1L]] <- list(
+        inner = lit$inner,
+        inner_start = lit$inner_start,
+        inner_end = lit$inner_end,
+        kind = kind
+      )
+    }
+  }
+  keep
+}
+
+# ---------------------------------------------------------------------------
+# Cross-line "inside an announce-function call" context tracker (issue #325).
+# ---------------------------------------------------------------------------
+# Live-region announcements like
+#   announceFunnelStatus(
+#     `Rule ${rule}, stage ${counter} of ${totalStages}. ...`
+#   );
+# put the user-facing message literal on a CONTINUATION line, so a single-line
+# positional match (`FUNC(` immediately before the quote) misses it. We track,
+# statefully across lines, whether we are inside an open announce-func call by
+# counting parens AFTER an announce opener, ignoring parens inside string
+# literals (same blanking trick as the function-param tracker). State:
+# list(in_call, depth).
+.announce_call_context_init <- function() list(in_call = FALSE, depth = 0L)
+
+#' Advance the announce-call context by one line. Returns
+#' list(state, line_in_call) where `line_in_call` is whether THIS line should be
+#' treated as a continuation inside an open announce call (used for THIS line's
+#' scan). A line that OPENS the call reports FALSE for itself (its own inline
+#' literal, if any, is already caught by the positional matcher); only the
+#' SUBSEQUENT continuation lines report TRUE.
+.update_announce_call_context <- function(line, state) {
+  line_starts_in <- state$in_call
+
+  # Blank out string-literal content so parens inside strings don't skew depth.
+  lits <- .tokenize_string_literals(line)
+  masked <- line
+  for (lit in lits) {
+    if (lit$inner_end >= lit$inner_start) {
+      masked <- paste0(
+        substr(masked, 1L, lit$inner_start - 1L),
+        strrep(" ", lit$inner_end - lit$inner_start + 1L),
+        substr(masked, lit$inner_end + 1L, nchar(masked))
+      )
+    }
+  }
+
+  in_call <- state$in_call
+  depth <- state$depth
+
+  # Columns of the `(` that opens an announce call on this line.
+  funcs <- paste(.JS_ANNOUNCE_FUNCS, collapse = "|")
+  op <- gregexpr(sprintf("(?:%s)[ \t]*\\(", funcs), masked, perl = TRUE)[[1]]
+  open_cols <- if (op[1] == -1L) integer(0) else op + attr(op, "match.length") - 1L
+
+  chars <- strsplit(masked, "", fixed = TRUE)[[1]]
+  for (ci in seq_along(chars)) {
+    ch <- chars[ci]
+    if (!in_call) {
+      if (ch == "(" && ci %in% open_cols) { in_call <- TRUE; depth <- 1L }
+    } else {
+      if (ch == "(") depth <- depth + 1L
+      else if (ch == ")") {
+        depth <- depth - 1L
+        if (depth == 0L) in_call <- FALSE
+      }
+    }
+  }
+
+  list(
+    state = list(in_call = in_call, depth = depth),
+    # Report TRUE only if the line STARTED inside an already-open call — i.e. a
+    # continuation line. A line that merely opens (and maybe closes) the call
+    # here is handled by the inline positional matcher, not the continuation path.
+    line_in_call = line_starts_in
+  )
+}
+
+# ---------------------------------------------------------------------------
 # Scan one code line for whitelisted string literals -> sub-line spans.
 # ---------------------------------------------------------------------------
 #' Given one physical code line, return the user-facing string literals on it as
@@ -389,6 +722,15 @@
   # We therefore recompute char-by-char and report the context as "in_params if
   # we are inside the list at the moment we pass any given point". For the scan
   # we report TRUE if the line is in_params at its START or becomes so on it.
+  #
+  # #324 follow-up note (flagged for the next reader): when a `function(` opens
+  # on THIS line, `line_in_params = TRUE` is reported for the WHOLE line —
+  # including any literal that appears textually BEFORE the `function` keyword on
+  # the same line. That is technically too eager (such a pre-keyword literal is
+  # not really inside the param list), but it is benign in this corpus: nothing
+  # places a whitelisted helper-default literal to the LEFT of a `function(` on
+  # the same physical line. If that ever changes, gate eligibility on the
+  # literal's column being to the right of the opener column.
   line_starts_in <- state$in_params
 
   # Blank out string-literal content so parens within strings don't skew depth.

@@ -29,9 +29,11 @@ args <- commandArgs(trailingOnly = TRUE)
 json_out <- NULL
 if (length(args) >= 2 && args[1] == "--json") json_out <- args[2]
 
-# The gate covers BOTH the .qmd corpus (prose + in-chunk r-string segments) and
-# the .R helper corpus (default-label r-string segments) — see issues #323/#324.
-files <- c(qmd_corpus("."), r_corpus("."))
+# The gate covers the .qmd corpus (prose + in-chunk r-string + OJS ui-string +
+# raw-HTML aria-label segments), the .R helper corpus (default-label r-string
+# segments), AND the .js asset corpus (ui-string / aria-label segments) — see
+# issues #323/#324/#325.
+files <- c(qmd_corpus("."), r_corpus("."), js_corpus("."))
 if (length(files) == 0) stop("no source files found in corpus")
 
 results <- vector("list", length(files))
@@ -52,6 +54,7 @@ for (k in seq_along(files)) {
   }
   if (!is.null(json_out)) {
     sidecar[[rel]] <- if (grepl("[.][Rr]$", f)) extract_r_file(f, rel_path = rel)
+                      else if (grepl("[.]js$", f)) extract_js_file(f, rel_path = rel)
                       else extract_qmd(f, rel_path = rel)
   }
 }
