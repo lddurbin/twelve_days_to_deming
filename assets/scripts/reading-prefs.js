@@ -32,7 +32,44 @@
     }
   }
 
+  // ----- Language switch ----------------------------------------------------
+  // The panel doubles as the language switcher, so there is one corner control
+  // rather than two. EN<->FR correspondence is explicit because the editions
+  // are not a clean path-prefix mirror (EN: /content/…, home /index.html; FR:
+  // /fr/content-fr/…, home /fr/index.fr.html). A page with no known counterpart
+  // falls back to the other edition's home, so the link can never 404.
+  var PAGE_MAP = {
+    "/index.html": "/fr/index.fr.html",
+    "/welcome.html": "/fr/content-fr/welcome.html"
+  };
+  var EN_HOME = "/index.html";
+  var FR_HOME = "/fr/index.fr.html";
+  var FR_TO_EN = {};
+  Object.keys(PAGE_MAP).forEach(function (en) { FR_TO_EN[PAGE_MAP[en]] = en; });
+
+  function currentIsFr() {
+    return /(^|\/)fr\//.test(window.location.pathname);
+  }
+  function normaliseLangPath(path) {
+    if (path === "" || path === "/") return EN_HOME;
+    if (/\/fr\/?$/.test(path)) return FR_HOME;
+    return path;
+  }
+  function languageTarget(isFr) {
+    var path = normaliseLangPath(window.location.pathname);
+    return isFr ? (FR_TO_EN[path] || EN_HOME) : (PAGE_MAP[path] || FR_HOME);
+  }
+
   function build(initialFont, initialDark) {
+    // Language row content, resolved for the current edition. The link text is
+    // the destination language's autonym (lang-tagged for correct
+    // pronunciation); the row label is in the current page's language.
+    var isFr = currentIsFr();
+    var langTarget = languageTarget(isFr);
+    var langRowLabel = isFr ? "Langue" : "Language";
+    var langName = isFr ? "English" : "Français";
+    var langDest = isFr ? "en" : "fr";
+
     var trigger = document.createElement("button");
     trigger.type = "button";
     trigger.className = "reading-prefs-toggle";
@@ -53,7 +90,7 @@
     panel.setAttribute("aria-labelledby", "reading-prefs-title");
     panel.hidden = true;
     panel.innerHTML =
-      '<p class="reading-prefs-title" id="reading-prefs-title">Reading preferences</p>' +
+      '<p class="reading-prefs-title" id="reading-prefs-title">Preferences</p>' +
       '<div class="reading-prefs-row">' +
       '  <span class="reading-prefs-row-label" id="reading-prefs-theme-label">Theme</span>' +
       '  <button type="button" class="reading-prefs-control" data-pref="theme"' +
@@ -71,6 +108,17 @@
       '    <span class="reading-prefs-state" id="reading-prefs-font-state">' +
             (initialFont ? "On" : "Off") + '</span>' +
       '  </button>' +
+      '</div>' +
+      '<div class="reading-prefs-row">' +
+      '  <span class="reading-prefs-row-label" id="reading-prefs-lang-label">' +
+            langRowLabel + '</span>' +
+      '  <a class="reading-prefs-lang-link" href="' + langTarget + '"' +
+      '    hreflang="' + langDest + '"' +
+      '    aria-labelledby="reading-prefs-lang-label reading-prefs-lang-name">' +
+      '    <span class="reading-prefs-lang-name" id="reading-prefs-lang-name"' +
+      '      lang="' + langDest + '">' + langName + '</span>' +
+      '    <span class="reading-prefs-lang-arrow" aria-hidden="true">→</span>' +
+      '  </a>' +
       '</div>';
 
     document.body.appendChild(trigger);

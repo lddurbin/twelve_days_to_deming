@@ -718,11 +718,11 @@ button:focus,
   }
 
   .reading-prefs-toggle,
-  .reading-prefs-panel,
-  .lang-switcher {
+  .reading-prefs-panel {
     border-width: 3px;
   }
-  .reading-prefs-control {
+  .reading-prefs-control,
+  .reading-prefs-lang-link {
     border-width: 2px;
   }
   .reading-prefs-control[aria-pressed="true"] {
@@ -1001,8 +1001,8 @@ button:focus,
   opacity: 0;
   transform: translateY(120%);
   pointer-events: none;
-  /* Same keyboard-focus fix as .lang-switcher.is-yielding: drop the toggle
-     from the tab order while it's off-screen and invisible (WCAG 2.4.7/2.4.11). */
+  /* visibility:hidden drops the toggle from the tab order while it's
+     off-screen and invisible (WCAG 2.4.7 / 2.4.11). */
   visibility: hidden;
 }
 
@@ -1074,6 +1074,34 @@ button:focus,
   background-color: #262680;
 }
 
+/* Language row link inside the panel. Styled to match the toggle controls,
+   but it is a navigation link to the other edition rather than a toggle. */
+.reading-prefs-lang-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3333a6;
+  background-color: #fff;
+  border: 1px solid #3333a6;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.reading-prefs-lang-link:hover {
+  background-color: #e8e8f4;
+  text-decoration: none;
+}
+.reading-prefs-lang-link:focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+.reading-prefs-lang-arrow {
+  font-weight: 700;
+}
+
 /* Hide Quarto's navbar dark-mode toggle: the panel is now the single
    reading-preferences entry point. The link still emits in HTML so its
    handler (window.quartoToggleColorScheme) remains wired. */
@@ -1108,77 +1136,6 @@ button:focus,
 @media print {
   .reading-prefs-toggle,
   .reading-prefs-panel { display: none !important; }
-}
-
-/* Language switcher (issue #322). Injected by
-   assets/scripts/language-switcher.js, this links the reader to the
-   corresponding page in the other edition (EN <-> FR). It mirrors the
-   reading-prefs toggle's visual language but pins to the bottom-LEFT so
-   the two fixed corner controls never overlap. */
-.lang-switcher {
-  position: fixed;
-  bottom: 16px;
-  left: 16px;
-  z-index: 1040;
-  min-height: 44px;
-  min-width: 44px;
-  padding: 10px 14px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #3333a6;
-  background-color: #fff;
-  border: 2px solid #3333a6;
-  border-radius: 6px;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  transition: opacity 200ms ease, transform 200ms ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.lang-switcher:hover {
-  background-color: #e8e8f4;
-  text-decoration: none;
-}
-.lang-switcher:focus-visible {
-  outline: 3px solid #ffbf00;
-  outline-offset: 2px;
-}
-.lang-switcher .lang-switcher-icon {
-  font-weight: 700;
-}
-.lang-switcher.is-yielding {
-  opacity: 0;
-  transform: translateY(120%);
-  pointer-events: none;
-  /* visibility:hidden also drops the link from the tab order, so a keyboard
-     user can't focus the off-screen, invisible control (WCAG 2.4.7 / 2.4.11).
-     It doesn't participate in the opacity/transform transition above. */
-  visibility: hidden;
-}
-
-@media (max-width: 700px) {
-  .lang-switcher {
-    padding: 10px;
-    min-width: 44px;
-  }
-  .lang-switcher .lang-switcher-label {
-    /* Collapse to icon-only on narrow viewports; the aria-label still
-       names the destination language for screen readers. */
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-}
-
-@media print {
-  .lang-switcher { display: none !important; }
 }
 
 .reading-time {
@@ -1425,14 +1382,13 @@ body.quarto-dark .reading-prefs-control[aria-pressed="true"]:hover {
   background-color: #4040c0;
 }
 
-/* Language switcher: same dark palette as the reading-prefs toggle so the
-   two corner controls read as a matched pair. */
-body.quarto-dark .lang-switcher {
+/* Language row link: same dark palette as the reading-prefs controls. */
+body.quarto-dark .reading-prefs-lang-link {
   color: #b0b0e6;
   background-color: #1a1a26;
   border-color: #8fa8ff;
 }
-body.quarto-dark .lang-switcher:hover {
+body.quarto-dark .reading-prefs-lang-link:hover {
   background-color: #2a2a3a;
 }
 
@@ -1513,11 +1469,11 @@ body.quarto-dark .cell-output-display img[src$=".svg"] {
     border-color: #c8d4ff;
   }
   body.quarto-dark .reading-prefs-toggle,
-  body.quarto-dark .reading-prefs-panel,
-  body.quarto-dark .lang-switcher {
+  body.quarto-dark .reading-prefs-panel {
     border-color: #c8d4ff;
   }
-  body.quarto-dark .reading-prefs-control {
+  body.quarto-dark .reading-prefs-control,
+  body.quarto-dark .reading-prefs-lang-link {
     border-color: #c8d4ff;
   }
 }
