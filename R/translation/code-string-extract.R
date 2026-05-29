@@ -439,10 +439,12 @@
   # Match the dotted property name on the LHS of an assignment `=` directly
   # before the literal. Only a literal sitting flush after `= ` is taken; a
   # non-literal RHS (variable / call like `formatNet(net)` / concatenation)
-  # leaves something other than a quote there and is skipped. The lookbehind
-  # `(?<![=<>!])` on the `=` excludes the comparison operators `==`/`===`/`!=`/
-  # `<=`/`>=` so an equality test is never mistaken for an assignment.
-  asn_m <- regexec("\\.([A-Za-z_][A-Za-z0-9_]*)[ \t]*(?<![=<>!])=[ \t]*$", pre, perl = TRUE)
+  # leaves something other than a quote there and is skipped. The lookbehind on
+  # the `=` excludes the comparison operators `==`/`===`/`!=`/`<=`/`>=` AND the
+  # compound-assignment operators `+=`/`-=`/`*=`/`/=`/`%=`/`&=`/`|=`/`^=`, so
+  # neither an equality test nor an append (`x.textContent += "…"`, which is not
+  # the full UI text) is mistaken for a plain assignment.
+  asn_m <- regexec("\\.([A-Za-z_][A-Za-z0-9_]*)[ \t]*(?<![=<>!+*/%&|^-])=[ \t]*$", pre, perl = TRUE)
   asn_g <- regmatches(pre, asn_m)[[1]]
   if (length(asn_g) == 2 && !is.null(.JS_ASSIGN_PROPS[[asn_g[2]]])) {
     return(.JS_ASSIGN_PROPS[[asn_g[2]]])
@@ -490,11 +492,16 @@
   # Iterate the whitelisted attribute names; for each, find every `attr="value"`
   # (or single-quoted) occurrence and record the INNER span of the value. We use
   # an explicit per-attribute pattern so we never grab role/class/id (not in the
-  # whitelist) and the `\b` word boundary stops `aria-label` from also matching a
-  # hypothetical `data-aria-label`.
+  # whitelist). The attribute name must NOT be preceded by a word char OR a
+  # hyphen, so a whitelisted name is never matched as the TAIL of a longer
+  # attribute: `aria-label` must not fire inside `data-aria-label`, nor `title`
+  # inside `data-title`, nor `alt` inside `data-alt`. A `\b` boundary is WRONG
+  # here — `\b` sits between the `-` and the name in `data-aria-label`, so it
+  # matches the wrong attribute; a negative lookbehind on [A-Za-z0-9-] is the
+  # correct guard.
   for (attr in names(.HTML_LABEL_ATTRS)) {
     kind <- .HTML_LABEL_ATTRS[[attr]]
-    pat <- sprintf("\\b%s[ \t]*=[ \t]*([\"'])", attr)
+    pat <- sprintf("(?<![A-Za-z0-9-])%s[ \t]*=[ \t]*([\"'])", attr)
     m <- gregexpr(pat, line, perl = TRUE)[[1]]
     if (m[1] == -1L) next
     starts <- as.integer(m)

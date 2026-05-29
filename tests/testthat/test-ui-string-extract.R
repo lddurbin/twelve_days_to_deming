@@ -232,6 +232,29 @@ test_that("raw-HTML alt/title/placeholder values are extracted as ui-string; ari
   expect_false("#x" %in% ui)                       # data-* NOT extracted
 })
 
+test_that("a whitelisted attribute name as the TAIL of a data-* attribute is NOT extracted", {
+  # Regression guard: a `\b` boundary matches between the `-` and the name in
+  # `data-aria-label`/`data-title`, so it would wrongly extract those values. The
+  # negative-lookbehind guard must reject them while still taking the real
+  # aria-label/title on the same tag.
+  tmp <- tempfile(fileext = ".qmd")
+  writeLines(c(
+    "---", 'title: "T"', "---", "",
+    paste0('<div data-aria-label="bad-aria" data-title="bad-title" ',
+           'aria-label="Good aria" title="Good title">'),
+    "x",
+    "</div>"
+  ), tmp)
+  ex <- extract_qmd(tmp)
+  aria <- .texts(.of_kind(ex, "aria-label"))
+  ui   <- .texts(.of_kind(ex, "ui-string"))
+  expect_true("Good aria" %in% aria)              # real aria-label extracted
+  expect_true("Good title" %in% ui)               # real title extracted
+  expect_false("bad-aria" %in% aria)              # data-aria-label NOT extracted
+  expect_false("bad-aria" %in% ui)
+  expect_false("bad-title" %in% c(aria, ui))      # data-title NOT extracted
+})
+
 # ---------------------------------------------------------------------------
 # (f) Identity round-trip byte-identical with all new kinds included.
 # ---------------------------------------------------------------------------
