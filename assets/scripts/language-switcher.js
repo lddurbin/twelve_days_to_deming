@@ -95,8 +95,11 @@
     return link;
   }
 
-  // Mirror reading-prefs.js: yield (fade out) when the page-navigation footer
-  // scrolls into view so the two corner controls never fight for the corner.
+  // Mirror reading-prefs.js: yield (fade out) only when the page-navigation
+  // footer reaches the bottom band where this control sits, so the two corner
+  // controls never fight for the corner — while staying usable on short pages
+  // whose nav is on screen but well above the control. The negative-top
+  // rootMargin shrinks the observation root to the bottom ~10% of the viewport.
   function yieldToPageNav(link) {
     if (!("IntersectionObserver" in window)) return;
     var nav = document.querySelector(".page-navigation");
@@ -105,7 +108,7 @@
       entries.forEach(function (entry) {
         link.classList.toggle("is-yielding", entry.isIntersecting);
       });
-    });
+    }, { rootMargin: "-90% 0px 0px 0px" });
     observer.observe(nav);
   }
 

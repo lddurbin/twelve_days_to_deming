@@ -142,12 +142,17 @@
     if (!("IntersectionObserver" in window)) return;
     var nav = document.querySelector(".page-navigation");
     if (!nav) return;
+    // Yield only when the page-nav reaches the bottom band where the control
+    // actually sits, not merely when it's visible anywhere. The negative-top
+    // rootMargin shrinks the observation root to the bottom ~10% of the
+    // viewport, so on a short page (whose nav is on screen but well above that
+    // band) the control stays usable instead of hiding permanently.
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         trigger.classList.toggle("is-yielding", entry.isIntersecting);
         panel.classList.toggle("is-yielding", entry.isIntersecting);
       });
-    });
+    }, { rootMargin: "-90% 0px 0px 0px" });
     observer.observe(nav);
   }
 
