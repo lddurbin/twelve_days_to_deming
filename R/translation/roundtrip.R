@@ -29,8 +29,10 @@ args <- commandArgs(trailingOnly = TRUE)
 json_out <- NULL
 if (length(args) >= 2 && args[1] == "--json") json_out <- args[2]
 
-files <- qmd_corpus(".")
-if (length(files) == 0) stop("no .qmd files found in corpus")
+# The gate covers BOTH the .qmd corpus (prose + in-chunk r-string segments) and
+# the .R helper corpus (default-label r-string segments) — see issues #323/#324.
+files <- c(qmd_corpus("."), r_corpus("."))
+if (length(files) == 0) stop("no source files found in corpus")
 
 results <- vector("list", length(files))
 fail <- 0L
@@ -49,12 +51,13 @@ for (k in seq_along(files)) {
                 rel, r$first_diff_byte, r$orig_len, r$rebuilt_len))
   }
   if (!is.null(json_out)) {
-    sidecar[[rel]] <- extract_qmd(f, rel_path = rel)
+    sidecar[[rel]] <- if (grepl("[.][Rr]$", f)) extract_r_file(f, rel_path = rel)
+                      else extract_qmd(f, rel_path = rel)
   }
 }
 
 passed <- length(files) - fail
-cat(sprintf("\nIdentity round-trip: %d/%d files byte-identical (%d prose segments extracted).\n",
+cat(sprintf("\nIdentity round-trip: %d/%d files byte-identical (%d segments extracted).\n",
             passed, length(files), total_segments))
 
 if (!is.null(json_out)) {
