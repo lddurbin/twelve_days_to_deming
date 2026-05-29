@@ -45,3 +45,6 @@ venv/
 temp/
 
 .claude/*.lock
+
+# Claude Code agent worktrees (harness-managed, never commit)
+.claude/worktrees/
