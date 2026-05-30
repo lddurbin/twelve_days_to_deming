@@ -124,7 +124,6 @@ source(file.path(.glossary_corpus_dir, "prose-extract.R"))
 
   text       <- character(n)
   raw_kind   <- character(n)
-  context    <- character(n)  # NA where the segment carries none
   file       <- character(n)
   start_line <- integer(n)
 
@@ -133,15 +132,16 @@ source(file.path(.glossary_corpus_dir, "prose-extract.R"))
     a <- s$address
     text[i]       <- as.character(s$text)
     raw_kind[i]   <- as.character(a$kind)
-    context[i]    <- if (is.null(a$context)) NA_character_ else as.character(a$context)
     file[i]       <- as.character(a$file)
     start_line[i] <- as.integer(a$start_line)
   }
 
+  # occurrence_type is a pure function of kind (see .occurrence_type); the
+  # segment's address$context is intentionally not threaded through here.
   data.frame(
     text = text,
     kind = .normalise_kind(raw_kind),
-    occurrence_type = .occurrence_type(raw_kind, context),
+    occurrence_type = .occurrence_type(raw_kind),
     file = file,
     start_line = start_line,
     stringsAsFactors = FALSE
