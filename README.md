@@ -72,7 +72,7 @@ Each day includes:
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Search and Navigation**: Easy content discovery and cross-referencing
 - **Print-Friendly**: Clean, formatted output for printing or PDF generation
-- **Accessibility**: Skip-link, optional dyslexia-friendly font, ARIA-labelled interactive elements, and reduced-motion support — see the [Accessibility](#-accessibility) section below for the full list
+- **Accessibility**: Skip-link, reading-preferences panel (dark mode + dyslexia-friendly font), ARIA-labelled interactive elements, reduced-motion and high-contrast support — see the [Accessibility](#-accessibility) section below for the full list
 
 ### Original PDF Source
 
@@ -93,12 +93,13 @@ This site is a respectful interactive rendering of that material — Dr. Neave's
 Accessibility is a first-class concern in the interactive version. Current features include:
 
 - **Skip-to-content link**: Keyboard and screen-reader users can bypass the sidebar on every page
-- **OpenDyslexic font toggle**: Fixed bottom-right button switches body and heading text to the OpenDyslexic typeface; the preference is remembered across sessions via `localStorage`
+- **Reading preferences panel**: A persistent `Aa` button (bottom-right) opens a panel with controls for dark/light theme and the OpenDyslexic font; both preferences are remembered across sessions via `localStorage`
 - **Visible focus indicators**: Keyboard focus is clearly outlined on interactive controls (`:focus-visible`) without affecting mouse users
 - **ARIA labelling**: Interactive SVGs (the Funnel Experiment), data tables (cooperation activities), and Observable JS input widgets expose accessible names to assistive technology
 - **Live regions**: Status updates in the Funnel Experiment are announced via `aria-live="polite"`
 - **Non-colour status indicators**: Funnel-experiment state is conveyed through shape and text as well as colour, meeting WCAG 1.4.1
 - **Reduced-motion support**: Animated transitions respect the `prefers-reduced-motion: reduce` media query
+- **High-contrast support**: Layout and colour overrides respond to `prefers-contrast: more` so the site stays usable under OS-level high-contrast settings
 - **Print-safe styling**: Decorative controls and colour overrides are suppressed in print media so hard-copy notes render cleanly
 
 If you encounter an accessibility issue, please open a GitHub issue — a11y regressions are treated as bugs.
