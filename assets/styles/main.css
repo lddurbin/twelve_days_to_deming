@@ -721,8 +721,7 @@ button:focus,
   .reading-prefs-panel {
     border-width: 3px;
   }
-  .reading-prefs-control,
-  .reading-prefs-lang-link {
+  .reading-prefs-control {
     border-width: 2px;
   }
   .reading-prefs-control[aria-pressed="true"] {
@@ -1074,33 +1073,6 @@ button:focus,
   background-color: #262680;
 }
 
-/* Language row link inside the panel. Styled to match the toggle controls,
-   but it is a navigation link to the other edition rather than a toggle. */
-.reading-prefs-lang-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 32px;
-  padding: 4px 12px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #3333a6;
-  background-color: #fff;
-  border: 1px solid #3333a6;
-  border-radius: 4px;
-  text-decoration: none;
-}
-.reading-prefs-lang-link:hover {
-  background-color: #e8e8f4;
-  text-decoration: none;
-}
-.reading-prefs-lang-link:focus-visible {
-  outline: 3px solid #ffbf00;
-  outline-offset: 2px;
-}
-.reading-prefs-lang-arrow {
-  font-weight: 700;
-}
 
 /* Hide Quarto's navbar dark-mode toggle: the panel is now the single
    reading-preferences entry point. The link still emits in HTML so its
@@ -1382,15 +1354,6 @@ body.quarto-dark .reading-prefs-control[aria-pressed="true"]:hover {
   background-color: #4040c0;
 }
 
-/* Language row link: same dark palette as the reading-prefs controls. */
-body.quarto-dark .reading-prefs-lang-link {
-  color: #b0b0e6;
-  background-color: #1a1a26;
-  border-color: #8fa8ff;
-}
-body.quarto-dark .reading-prefs-lang-link:hover {
-  background-color: #2a2a3a;
-}
 
 /* Glossary terms: brighten the amber underline for legibility against
    the darkly #222 body. */
@@ -1472,8 +1435,7 @@ body.quarto-dark .cell-output-display img[src$=".svg"] {
   body.quarto-dark .reading-prefs-panel {
     border-color: #c8d4ff;
   }
-  body.quarto-dark .reading-prefs-control,
-  body.quarto-dark .reading-prefs-lang-link {
+  body.quarto-dark .reading-prefs-control {
     border-color: #c8d4ff;
   }
 }
