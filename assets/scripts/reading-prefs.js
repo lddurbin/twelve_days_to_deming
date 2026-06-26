@@ -32,6 +32,22 @@
     }
   }
 
+  // mailto target for the feedback row. Built here (not in static HTML) and
+  // assembled from string fragments so the address never appears as a literal
+  // in the page source or the JS file — mild defence against scraper bots. A
+  // mailto has no endpoint, so it cannot be "submitted" by a bot; the only
+  // real risk is address harvesting, which this raises the bar against.
+  function feedbackHref() {
+    var addr = "hello" + "@" + "leedurbin.co.nz";
+    var subject = "12 Days to Deming — feedback";
+    var body =
+      "Your feedback (typos, confusing wording, accessibility issues, ideas):" +
+      "\n\n\n—\nSent from: " + document.title + "\n" + window.location.href;
+    return "mailto:" + addr +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+  }
+
   function build(initialFont, initialDark) {
     var trigger = document.createElement("button");
     trigger.type = "button";
@@ -71,10 +87,21 @@
       '    <span class="reading-prefs-state" id="reading-prefs-font-state">' +
             (initialFont ? "On" : "Off") + '</span>' +
       '  </button>' +
+      '</div>' +
+      '<div class="reading-prefs-row">' +
+      '  <span class="reading-prefs-row-label" id="reading-prefs-feedback-label">Feedback</span>' +
+      '  <a class="reading-prefs-feedback-link"' +
+      '    aria-labelledby="reading-prefs-feedback-label reading-prefs-feedback-name">' +
+      '    <span class="reading-prefs-feedback-name" id="reading-prefs-feedback-name">Send email</span>' +
+      '    <span class="reading-prefs-feedback-arrow" aria-hidden="true">→</span>' +
+      '  </a>' +
       '</div>';
 
     document.body.appendChild(trigger);
     document.body.appendChild(panel);
+    // Set the mailto after insertion so the long encoded URL doesn't have to be
+    // escaped inside the innerHTML template above.
+    panel.querySelector(".reading-prefs-feedback-link").href = feedbackHref();
 
     var themeBtn = panel.querySelector('[data-pref="theme"]');
     var themeState = panel.querySelector("#reading-prefs-theme-state");

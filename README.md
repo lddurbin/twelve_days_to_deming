@@ -65,12 +65,13 @@ Each day includes:
 **Current Status**: All 12 days are fully converted from the original PDF format into the interactive experience. Dr Henry Neave reviewed this edition and, in May 2026, gave his blessing for it to be made publicly available. Accessibility improvements and activity refinements are ongoing.
 
 **Enhanced Features in the Online Version:**
-- **Interactive Clock Indicators**: Built-in timing guidance to help you pace your study sessions
+- **Reading-Time Estimates**: Each chapter shows an estimated reading time and, where Dr. Neave's source provides it, his recommended session time
 - **Embedded Activities**: Interactive exercises and reflections integrated directly into the reading flow
 - **In-page Text Inputs**: Capture your reflections, answers, and notes directly in the browser — this edition's substitute for the printable Workbook from the NZOQ PDF version
 - **Progress Tracking**: Visual indicators to help you monitor your advancement through the material
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Search and Navigation**: Easy content discovery and cross-referencing
+- **In-app Feedback**: A "Send email" link in the preferences panel opens a pre-filled message (no account required), so readers can flag typos or suggestions on any page
 - **Print-Friendly**: Clean, formatted output for printing or PDF generation
 - **Accessibility**: Skip-link, reading-preferences panel (dark mode + dyslexia-friendly font), ARIA-labelled interactive elements, reduced-motion and high-contrast support — see the [Accessibility](#-accessibility) section below for the full list
 
