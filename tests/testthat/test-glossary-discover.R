@@ -180,6 +180,24 @@ test_that("an exact-repeat UI/ARIA label is discovered", {
   expect_equal(cand$occurrence_types[tolower(cand$term_en) == "type your comments here."], "ui")
 })
 
+test_that("term_en uses the most frequent surface casing, not whichever occurred first", {
+  # "Control Chart" (capitalised) appears first in corpus order but only 3
+  # times; "control chart" (lowercase) appears later but 7 times. The more
+  # frequent casing must win, not the first-seen one.
+  segments <- rbind(
+    .mk_segments(rep("Control Chart review happens weekly for teams.", 3)),
+    .mk_segments(rep("Please inspect the control chart before shipping.", 7))
+  )
+  seed <- .mk_seed(character(0), character(0))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+  row <- cand[tolower(cand$term_en) == "control chart", ]
+
+  expect_equal(nrow(row), 1L)
+  expect_identical(row$term_en, "control chart")
+  expect_equal(row$frequency, 10L)
+})
+
 test_that("occurrence_types aggregates across prose and ui surfaces for the same term", {
   seed <- .mk_seed(character(0), character(0))
   segments <- rbind(
@@ -196,7 +214,31 @@ test_that("occurrence_types aggregates across prose and ui surfaces for the same
 })
 
 # ---------------------------------------------------------------------------
-# 5. Determinism and edge cases.
+# 5. .cap_phrases() unit tests (direct, not routed through discover_candidates).
+# ---------------------------------------------------------------------------
+
+test_that(".cap_phrases truncates a run that ends on a dangling connector", {
+  # "Board of directors" — "of" is a connector word, but nothing capitalised
+  # follows it, so it must be dropped rather than swept into the run.
+  toks <- .tokenize_prose("Deming introduced the Total Quality Improvement Board of directors last year.")
+
+  expect_identical(.cap_phrases(toks), "Total Quality Improvement Board")
+})
+
+test_that(".cap_phrases includes a connector only when another capitalised token follows it", {
+  toks <- .tokenize_prose("Deming's own System of Profound Knowledge evolved over decades.")
+
+  expect_identical(.cap_phrases(toks), "System of Profound Knowledge")
+})
+
+test_that(".cap_phrases never emits a run shorter than 4 tokens", {
+  toks <- .tokenize_prose("The Optional Extras section covers six sigma.")
+
+  expect_identical(.cap_phrases(toks), character(0))
+})
+
+# ---------------------------------------------------------------------------
+# 6. Determinism and edge cases.
 # ---------------------------------------------------------------------------
 
 test_that("discover_candidates is deterministic", {

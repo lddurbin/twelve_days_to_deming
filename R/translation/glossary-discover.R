@@ -97,7 +97,7 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
   "you", "your", "we", "our", "i", "he", "she", "they", "them", "his", "her", "their",
   "do", "does", "did", "have", "has", "had", "can", "could", "will", "would", "should", "may", "might",
   "there", "here", "what", "which", "who", "whom", "when", "where", "why", "how", "all", "some", "any",
-  "one", "two", "three", "up", "down", "out", "about", "also", "just", "more", "most", "very", "e", "i.e"
+  "one", "two", "three", "up", "down", "out", "about", "also", "just", "more", "most", "very"
 )
 
 # Lowercase words allowed INSIDE (never at the boundary of) a capitalised-
@@ -189,6 +189,17 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
 # Public entry point.
 # ---------------------------------------------------------------------------
 
+#' Pick the most frequent original-case surface form among a key's
+#' occurrences, rather than whichever casing happened to occur first in
+#' corpus order (e.g. "control chart" beating "Control Chart" purely because
+#' a lowercase mid-sentence mention was scanned before a capitalised one).
+#' Ties break alphabetically via table()'s sorted names + which.max's
+#' first-max — deterministic either way.
+.mode_display <- function(x) {
+  tab <- table(x)
+  names(tab)[which.max(tab)]
+}
+
 .EMPTY_CANDIDATES <- data.frame(
   term_en = character(0), fr_rendering = character(0), source = character(0),
   frequency = integer(0), occurrence_types = character(0), contexts = character(0),
@@ -210,10 +221,17 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
 discover_candidates <- function(segments, seed, min_freq = 5L) {
   excluded <- .seed_exclusion_set(seed)
 
-  keys <- character(0); displays <- character(0)
-  otypes <- character(0); ctxs <- character(0)
-
   prose <- segments[segments$kind == "prose", , drop = FALSE]
+  # Collect per-segment into list slots and flatten ONCE at the end. Growing
+  # `keys`/`displays`/... via repeated c() inside this loop is O(n^2) in
+  # allocations — profiling on the real corpus (~4,700 prose segments,
+  # ~100k surviving n-gram occurrences) showed c() alone as >60% of self
+  # time, so this is not a theoretical concern.
+  key_parts <- vector("list", nrow(prose))
+  display_parts <- vector("list", nrow(prose))
+  otype_parts <- vector("list", nrow(prose))
+  ctx_parts <- vector("list", nrow(prose))
+
   for (i in seq_len(nrow(prose))) {
     toks <- .tokenize_prose(prose$text[i])
     if (length(toks) < 2L) next
@@ -227,11 +245,16 @@ discover_candidates <- function(segments, seed, min_freq = 5L) {
     cands <- cands[keep]
     if (!length(cands)) next
     ctx <- substr(trimws(gsub("\\s+", " ", .prose_plain_text(prose$text[i]), perl = TRUE)), 1, 160)
-    keys <- c(keys, tolower(cands))
-    displays <- c(displays, cands)
-    otypes <- c(otypes, rep("prose", length(cands)))
-    ctxs <- c(ctxs, rep(ctx, length(cands)))
+    key_parts[[i]] <- tolower(cands)
+    display_parts[[i]] <- cands
+    otype_parts[[i]] <- rep("prose", length(cands))
+    ctx_parts[[i]] <- rep(ctx, length(cands))
   }
+
+  keys <- unlist(key_parts, use.names = FALSE)
+  displays <- unlist(display_parts, use.names = FALSE)
+  otypes <- unlist(otype_parts, use.names = FALSE)
+  ctxs <- unlist(ctx_parts, use.names = FALSE)
 
   ui <- segments[segments$kind %in% c("ui-string", "aria-label"), , drop = FALSE]
   if (nrow(ui)) {
@@ -259,7 +282,7 @@ discover_candidates <- function(segments, seed, min_freq = 5L) {
     samples <- unique(ctxs[idx])
     samples <- head(samples[nzchar(samples)], 3L)
     rows[[k]] <- data.frame(
-      term_en = displays[idx[1L]],
+      term_en = .mode_display(displays[idx]),
       fr_rendering = NA_character_,
       source = NA_character_,
       frequency = length(idx),
