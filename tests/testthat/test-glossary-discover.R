@@ -237,6 +237,19 @@ test_that(".cap_phrases never emits a run shorter than 4 tokens", {
   expect_identical(.cap_phrases(toks), character(0))
 })
 
+test_that(".cap_phrases drops a run longer than max_len wholesale, not truncated", {
+  # Pinning intentional behaviour: a run > max_len is skipped entirely rather
+  # than emitting a max_len-length prefix. Real-corpus long runs are almost
+  # always bibliography citations or heading concatenations, so a truncated
+  # fragment would be misleading rather than useful (see the comment at the
+  # length check in .cap_phrases()).
+  toks <- .tokenize_prose(
+    "Deming Wheeler Shewhart Juran Ishikawa Crosby Feigenbaum improved quality together."
+  )
+
+  expect_identical(.cap_phrases(toks), character(0))
+})
+
 # ---------------------------------------------------------------------------
 # 6. Determinism and edge cases.
 # ---------------------------------------------------------------------------
@@ -277,7 +290,7 @@ test_that("results are sorted by frequency desc, then term_en asc", {
 })
 
 # ---------------------------------------------------------------------------
-# 6. Real-corpus integration smoke test (mirrors test-glossary-corpus.R).
+# 7. Real-corpus integration smoke test (mirrors test-glossary-corpus.R).
 # ---------------------------------------------------------------------------
 
 test_that("discover_candidates on the real corpus never reproduces a seeded term/alias", {

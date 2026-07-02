@@ -174,6 +174,12 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
       }
       j <- last_cap
       len <- j - i + 1L
+      # A run longer than max_len is skipped WHOLESALE, not truncated to a
+      # max_len-length sub-phrase: verified against the real corpus, runs
+      # this long are almost always bibliography citations ("Author Title
+      # Publisher City"), weekday lists, or heading concatenations — never
+      # genuine glossary candidates — so a truncated prefix would just be a
+      # misleading fragment rather than a useful one.
       if (len >= 4L && len <= max_len) {
         out <- c(out, paste(tokens[i:j], collapse = " "))
       }
