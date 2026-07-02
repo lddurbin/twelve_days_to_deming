@@ -123,13 +123,23 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
   out
 }
 
-#' Tokenise a segment's text into case-preserved word tokens. Hyphens are
-#' treated as separators (so "common-cause" and "common cause" tokenise
-#' identically), matching the same choice made in .norm_term().
-.tokenize_prose <- function(text) {
-  plain <- .prose_plain_text(text)
+#' Tokenise already-cleaned plain text (see .prose_plain_text()) into
+#' case-preserved word tokens. Hyphens are treated as separators (so
+#' "common-cause" and "common cause" tokenise identically), matching the
+#' same choice made in .norm_term(). Split out from .tokenize_prose() so
+#' discover_candidates() can reuse one .prose_plain_text() call for both
+#' tokenising AND building the context snippet, instead of masking the same
+#' segment text twice.
+.tokenize_plain <- function(plain) {
   m <- gregexpr("[A-Za-z][A-Za-z']*", plain, perl = TRUE)
   regmatches(plain, m)[[1]]
+}
+
+#' Tokenise a segment's raw text directly (cleans then tokenises in one
+#' call). A thin convenience wrapper over .prose_plain_text() +
+#' .tokenize_plain() for callers that only need the tokens.
+.tokenize_prose <- function(text) {
+  .tokenize_plain(.prose_plain_text(text))
 }
 
 #' All contiguous n-grams of a token vector, as space-joined strings.
@@ -239,7 +249,8 @@ discover_candidates <- function(segments, seed, min_freq = 5L) {
   ctx_parts <- vector("list", nrow(prose))
 
   for (i in seq_len(nrow(prose))) {
-    toks <- .tokenize_prose(prose$text[i])
+    plain <- .prose_plain_text(prose$text[i])
+    toks <- .tokenize_plain(plain)
     if (length(toks) < 2L) next
     cands <- c(.ngrams(toks, 2L), .ngrams(toks, 3L), .cap_phrases(toks))
     if (!length(cands)) next
@@ -250,7 +261,7 @@ discover_candidates <- function(segments, seed, min_freq = 5L) {
     )
     cands <- cands[keep]
     if (!length(cands)) next
-    ctx <- substr(trimws(gsub("\\s+", " ", .prose_plain_text(prose$text[i]), perl = TRUE)), 1, 160)
+    ctx <- substr(trimws(gsub("\\s+", " ", plain, perl = TRUE)), 1, 160)
     key_parts[[i]] <- tolower(cands)
     display_parts[[i]] <- cands
     otype_parts[[i]] <- rep("prose", length(cands))
@@ -287,13 +298,18 @@ discover_candidates <- function(segments, seed, min_freq = 5L) {
     idx <- idx_by_key[[k]]
     samples <- unique(ctxs[idx])
     samples <- head(samples[nzchar(samples)], 3L)
+    # NA, not "", when no non-empty snippet survives — matches the
+    # NA_character_ convention used by fr_rendering/source below, so a
+    # downstream caller can test is.na() uniformly across every "not filled
+    # in" column instead of "" for this one and NA for the others.
+    contexts <- if (length(samples)) paste(samples, collapse = " | ") else NA_character_
     rows[[k]] <- data.frame(
       term_en = .mode_display(displays[idx]),
       fr_rendering = NA_character_,
       source = NA_character_,
       frequency = length(idx),
       occurrence_types = paste(sort(unique(otypes[idx])), collapse = "|"),
-      contexts = paste(samples, collapse = " | "),
+      contexts = contexts,
       decision_needed = TRUE,
       stringsAsFactors = FALSE
     )

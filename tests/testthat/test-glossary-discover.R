@@ -180,6 +180,21 @@ test_that("an exact-repeat UI/ARIA label is discovered", {
   expect_equal(cand$occurrence_types[tolower(cand$term_en) == "type your comments here."], "ui")
 })
 
+test_that("contexts is NA, not empty string, when no non-empty snippet survives", {
+  # A ui-string/aria-label candidate's context is its source file path; an
+  # empty file path leaves zero non-empty samples. contexts must match the
+  # NA_character_ convention already used by fr_rendering/source, not fall
+  # back to paste()'s "" on an empty vector.
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("Thought", 5), kind = "aria-label", file = "")
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+  row <- cand[tolower(cand$term_en) == "thought", ]
+
+  expect_equal(nrow(row), 1L)
+  expect_true(is.na(row$contexts))
+})
+
 test_that("term_en uses the most frequent surface casing, not whichever occurred first", {
   # "Control Chart" (capitalised) appears first in corpus order but only 3
   # times; "control chart" (lowercase) appears later but 7 times. The more
