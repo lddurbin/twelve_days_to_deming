@@ -151,6 +151,25 @@ test_that("a 4+ word capitalised-phrase run is discovered as one candidate, not 
   expect_true("total process improvement board" %in% tolower(cand$term_en))
 })
 
+test_that("a 4+ word capitalised phrase containing a connector word survives end-to-end", {
+  # Regression test: the stopword/length guard must apply only to plain
+  # bigram/trigram candidates. .cap_phrases() output containing a connector
+  # word (e.g. the "of" in "System of Profound Knowledge" — the canonical
+  # example this whole mechanism exists for) was previously being run
+  # through the SAME guard and silently discarded, because "of" is a
+  # stopword. .cap_phrases() itself returned the phrase correctly; it was
+  # discover_candidates() that dropped it before it ever reached the
+  # frequency count.
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep(
+    "Deming described the System of Profound Knowledge in his final book.", 5
+  ))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_true("system of profound knowledge" %in% tolower(cand$term_en))
+})
+
 test_that("a capitalised phrase exactly bigram/trigram length is counted once, not doubled", {
   # "Optional Extras" is capitalised AND exactly 2 tokens long, so it is
   # reachable by both the plain bigram window and capitalised-phrase

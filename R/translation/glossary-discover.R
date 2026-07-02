@@ -252,14 +252,22 @@ discover_candidates <- function(segments, seed, min_freq = 5L) {
     plain <- .prose_plain_text(prose$text[i])
     toks <- .tokenize_plain(plain)
     if (length(toks) < 2L) next
-    cands <- c(.ngrams(toks, 2L), .ngrams(toks, 3L), .cap_phrases(toks))
-    if (!length(cands)) next
+    # The stopword/length guard applies ONLY to plain bigrams/trigrams.
+    # .cap_phrases() output must NOT go through it: a cap phrase's only
+    # lowercase tokens are connector words (e.g. the "of" in "System of
+    # Profound Knowledge") sandwiched between two capitalised tokens, which
+    # is precisely what makes it a phrase worth surfacing — filtering it out
+    # for containing a stopword would silently discard the entire reason
+    # .cap_phrases() exists (its start/end tokens are already guaranteed
+    # capitalised content words by construction, so it needs no extra guard).
+    ngram_cands <- c(.ngrams(toks, 2L), .ngrams(toks, 3L))
+    cap_cands <- .cap_phrases(toks)
     keep <- vapply(
-      strsplit(cands, " ", fixed = TRUE),
+      strsplit(ngram_cands, " ", fixed = TRUE),
       function(w) all(!tolower(w) %in% .STOPWORDS) && all(nchar(w) >= 2L),
       logical(1)
     )
-    cands <- cands[keep]
+    cands <- c(ngram_cands[keep], cap_cands)
     if (!length(cands)) next
     ctx <- substr(trimws(gsub("\\s+", " ", plain, perl = TRUE)), 1, 160)
     key_parts[[i]] <- tolower(cands)
