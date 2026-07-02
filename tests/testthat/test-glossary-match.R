@@ -201,6 +201,30 @@ test_that("a variant containing regex metacharacters is matched literally, not a
   expect_equal(out$frequency, 1L)
 })
 
+test_that("a seed row with NA aliases matches only term_en, not the literal string 'NA'", {
+  # Regression test: NA aliases (a term with none yet curated) must never
+  # leak a literal "NA" alternative into the search pattern — a corpus
+  # mention of the unrelated text "NA" must not be counted.
+  seed <- .mk_seed("variation", NA_character_)
+  segments <- .mk_segments(c(
+    "variation in the process is expected",
+    "the result is NA here"
+  ))
+
+  out <- match_terms(segments, seed)
+
+  expect_equal(out$frequency, 1L)
+})
+
+test_that("a seed row with an empty-string aliases value matches only term_en", {
+  seed <- .mk_seed("variation", "")
+  segments <- .mk_segments("variation in the process is expected")
+
+  out <- match_terms(segments, seed)
+
+  expect_equal(out$frequency, 1L)
+})
+
 test_that("empty seed yields an empty, correctly-shaped result", {
   seed <- .mk_seed(character(0), character(0))
   segments <- .mk_segments("Any text at all.")

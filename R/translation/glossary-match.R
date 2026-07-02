@@ -50,7 +50,14 @@
 #' Lookaround only asserts "not another letter/digit here", independent of
 #' what character the match itself ends or starts on.
 .term_pattern <- function(term_en, aliases) {
-  variants <- c(as.character(term_en), strsplit(as.character(aliases), "|", fixed = TRUE)[[1]])
+  # A seed row with no aliases reads as NA, not "". nzchar(NA) is TRUE (a
+  # documented R quirk: NA is not zero-length), so it survives the nzchar()
+  # filter below, and paste() later stringifies that surviving NA into the
+  # literal text "NA" when joining the alternation — turning any corpus
+  # mention of the literal string "NA" into a false match. Guard here so an
+  # NA aliases value never enters the variant vector at all.
+  alias_parts <- if (is.na(aliases)) character(0) else strsplit(as.character(aliases), "|", fixed = TRUE)[[1]]
+  variants <- c(as.character(term_en), alias_parts)
   variants <- trimws(variants)
   variants <- variants[nzchar(variants)]
 
@@ -85,9 +92,10 @@
 #'   `|`-delimited.
 #' @return data.frame with columns term_en, fr_rendering, source, frequency,
 #'   occurrence_types (`|`-joined sorted "prose"/"r"/"ui", NA if zero
-#'   occurrences), contexts (up to 3 `|`-joined sample snippets, NA if zero
-#'   occurrences), decision_needed — one row per seed row, in seed's original
-#'   order (sorting is #416's job, at merge time).
+#'   occurrences), contexts (up to 3 `|`-joined sample snippets, each
+#'   truncated to 160 characters, NA if zero occurrences), decision_needed —
+#'   one row per seed row, in seed's original order (sorting is #416's job,
+#'   at merge time).
 match_terms <- function(segments, seed) {
   if (nrow(seed) == 0L) return(.EMPTY_MATCHES)
 
