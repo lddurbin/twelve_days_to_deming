@@ -25,14 +25,11 @@ if (!file.exists(review_path)) {
     review_path
   ))
 }
-review <- read.csv(review_path, stringsAsFactors = FALSE)
+review <- read.csv(review_path, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 
 termbase <- lock_glossary(review)
 
 out_path <- file.path(repo_root, "glossary", "approved-glossary.json")
-writeLines(
-  jsonlite::toJSON(termbase, auto_unbox = TRUE, pretty = TRUE, null = "null"),
-  out_path
-)
+jsonlite::write_json(termbase, out_path, auto_unbox = TRUE, pretty = TRUE, null = "null")
 
 cat(sprintf("Locked %d terms to %s\n", length(termbase), out_path))

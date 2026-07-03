@@ -133,7 +133,10 @@ test_that("lock_glossary's output round-trips cleanly through jsonlite", {
 
 test_that("pre-resolved (established) rows in the real review file are never flagged unresolved", {
   source(file.path(repo_root, "R", "translation", "glossary-review.R"))
-  draft <- read.csv(file.path(repo_root, "glossary", "draft-glossary.csv"), stringsAsFactors = FALSE)
+  draft <- read.csv(
+    file.path(repo_root, "glossary", "draft-glossary.csv"),
+    stringsAsFactors = FALSE, fileEncoding = "UTF-8"
+  )
   review <- prepare_review_glossary(draft)
 
   pre_resolved <- review$term_en[!is.na(review$decision)]

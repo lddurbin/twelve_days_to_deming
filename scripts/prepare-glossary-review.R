@@ -19,13 +19,20 @@ repo_root <- dirname(.script_dir)
 source(file.path(repo_root, "R", "translation", "glossary-review.R"))
 source(file.path(repo_root, "R", "translation", "glossary-lock.R"))
 
-draft <- read.csv(file.path(repo_root, "glossary", "draft-glossary.csv"), stringsAsFactors = FALSE)
+draft <- read.csv(
+  file.path(repo_root, "glossary", "draft-glossary.csv"),
+  stringsAsFactors = FALSE, fileEncoding = "UTF-8"
+)
 
 out_path <- file.path(repo_root, "glossary", "glossary-for-review.csv")
-existing <- if (file.exists(out_path)) read.csv(out_path, stringsAsFactors = FALSE) else NULL
+existing <- if (file.exists(out_path)) {
+  read.csv(out_path, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+} else {
+  NULL
+}
 
 review <- prepare_review_glossary(draft, existing)
-write.csv(review, out_path, row.names = FALSE)
+write.csv(review, out_path, row.names = FALSE, fileEncoding = "UTF-8")
 
 n_unresolved <- length(find_unresolved(review))
 cat(sprintf(

@@ -139,12 +139,15 @@ test_that("terms dropped from a newer draft do not appear in the output", {
 # ---------------------------------------------------------------------------
 
 test_that("preparing the review file from the real draft glossary is well-formed", {
-  draft <- read.csv(file.path(repo_root, "glossary", "draft-glossary.csv"), stringsAsFactors = FALSE)
+  draft <- read.csv(
+    file.path(repo_root, "glossary", "draft-glossary.csv"),
+    stringsAsFactors = FALSE, fileEncoding = "UTF-8"
+  )
 
   out <- prepare_review_glossary(draft)
 
   expect_equal(nrow(out), nrow(draft))
-  established <- !draft$decision_needed & !is.na(draft$fr_rendering) & nzchar(draft$fr_rendering)
+  established <- !draft$decision_needed & .nonblank(draft$fr_rendering)
   expect_true(all(out$decision[established] == "translate"))
   expect_true(all(is.na(out$decision[!established])))
 })

@@ -12,7 +12,35 @@
 # in an existing reviewer file (matched by term_en): regenerating the file
 # must never clobber in-progress human review.
 
-.nonblank <- function(x) !is.na(x) & nzchar(trimws(x))
+.glossary_review_dir <- (function() {
+  ca <- commandArgs(FALSE)
+  m <- grep("^--file=", ca, value = TRUE)
+  if (length(m)) {
+    d <- dirname(normalizePath(sub("^--file=", "", m[1])))
+    if (file.exists(file.path(d, "glossary-corpus.R"))) return(d)
+  }
+  for (fr in rev(sys.frames())) {
+    of <- tryCatch(get("ofile", envir = fr, inherits = FALSE), error = function(e) NULL)
+    if (is.character(of) && length(of) == 1L && grepl("glossary-review[.]R$", of)) {
+      d <- dirname(normalizePath(of))
+      if (file.exists(file.path(d, "glossary-corpus.R"))) return(d)
+    }
+  }
+  d <- normalizePath(getwd())
+  repeat {
+    cand <- file.path(d, "R", "translation")
+    if (file.exists(file.path(cand, "glossary-corpus.R"))) return(cand)
+    parent <- dirname(d)
+    if (identical(parent, d)) break
+    d <- parent
+  }
+  file.path("R", "translation")
+})()
+
+# .nonblank() lives in glossary-lock.R; sourcing it here (rather than
+# redefining it) is what keeps the two modules' notion of "blank" from
+# silently drifting apart if one is edited without the other.
+source(file.path(.glossary_review_dir, "glossary-lock.R"))
 
 #' Build the reviewer-facing glossary from the assembled draft.
 #'
