@@ -26,6 +26,10 @@ seed <- read.csv(file.path(repo_root, "glossary", "seed-terms.csv"), stringsAsFa
 # snippet for ui-kind candidates. Scanning with the absolute repo_root would
 # leak this machine's checkout path into the committed CSV, breaking
 # cross-machine idempotence -- scan with a relative root instead.
+#
+# setwd() here is safe only because it never runs under source(): the
+# is.na(.file_arg) guard above already stops that path, so this always
+# executes once under Rscript and on.exit() restores the wd before exit.
 .orig_wd <- setwd(repo_root)
 on.exit(setwd(.orig_wd), add = TRUE)
 segments <- glossary_segments(".")
