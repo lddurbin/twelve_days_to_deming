@@ -106,12 +106,16 @@ Reference cropped images in `.qmd` files:
 
 ## Merge workflow
 
-The `main` branch is protected by GitHub's merge queue. When merging an approved PR, use `--auto` so the queue handles serialisation:
+GitHub's merge queue is **not available** on `main` — it's a personal-account (non-org) repo, and the "Require merge queue" option is unavailable for that account type regardless of plan. See issue [#385](https://github.com/lddurbin/twelve_days_to_deming/issues/385) for the investigation; closed as won't-fix.
+
+When merging an approved PR, use `--auto` anyway:
 
 ```
 gh pr merge <pr-number> --auto --squash --delete-branch
 ```
 
-`--auto` enqueues the PR; GitHub then rebases each entry against the projected main (current main + everything queued ahead), runs CI on an ephemeral `gh-readonly-queue/main/<sha>` branch, and merges in order. No force-push, no rebase loop on PR branches, no full CI re-run for `BEHIND` updates. See issue [#385](https://github.com/lddurbin/twelve_days_to_deming/issues/385) for the rationale.
+Without a queue, `--auto` just waits for required checks to pass on the PR's current head and then merges immediately — there is no server-side batching or rebase-against-projected-main. This requires the repo's **"Allow auto-merge" setting to stay enabled**; if it's off, `--auto` fails outright (`enablePullRequestAutoMerge` GraphQL error) instead of falling back to anything.
 
-CI workflows that gate the queue (`accessibility`, `claude-code-review`, `interday-audit`, `structure-check`) all fire on the `merge_group` event so they report status on queue branches.
+`main`'s branch protection requires status checks to be up to date (`strict: true`), so under concurrent merges each remaining open PR goes `BEHIND` as soon as another merges ahead of it, and needs an explicit branch update before it can merge — a cascade `--auto` does NOT resolve by itself (each PR still needs `gh api -X PUT repos/<owner>/<repo>/pulls/<n>/update-branch`, then a wait for CI, before merging). This rebase/re-CI cost was evaluated and explicitly accepted in #385 as tolerable for a solo project's occasional PR fleets, rather than migrating to an org to unlock a real queue.
+
+The four workflows that were wired for `merge_group` triggers (`accessibility`, `claude-code-review`, `interday-audit`, `structure-check`) are inert on this repo — `merge_group` never fires without a queue — but were left in place in case of a future org migration, at which point enabling "Require merge queue" in Settings → Rules → Rulesets is the only remaining step.
