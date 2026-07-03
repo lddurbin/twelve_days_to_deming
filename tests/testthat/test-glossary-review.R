@@ -1,0 +1,150 @@
+# --- prepare reviewer-facing glossary (issue #327) ---
+#
+# Acceptance criteria under test:
+#   * A clear reviewer-facing file with fillable approved_fr/decision/
+#     reviewer_notes columns is generated from the assembled draft.
+#   * Established (non-contested) seed terms are pre-resolved so reviewer
+#     effort concentrates on what actually needs a decision.
+#   * Re-running never clobbers decisions already recorded by a reviewer.
+
+source(here::here("R/translation/glossary-review.R"))
+
+repo_root <- here::here()
+
+#' Build a minimal draft-glossary-shaped data.frame.
+.mk_draft <- function(term_en, fr_rendering = NA_character_, source = NA_character_,
+                       frequency = 5L, decision_needed = FALSE) {
+  n <- length(term_en)
+  data.frame(
+    term_en = term_en,
+    fr_rendering = rep(fr_rendering, length.out = n),
+    source = rep(source, length.out = n),
+    frequency = rep(frequency, length.out = n),
+    occurrence_types = rep("prose", length.out = n),
+    contexts = rep("some context", length.out = n),
+    decision_needed = rep(decision_needed, length.out = n),
+    stringsAsFactors = FALSE
+  )
+}
+
+# ---------------------------------------------------------------------------
+# 1. Schema.
+# ---------------------------------------------------------------------------
+
+test_that("adds the three fillable columns to the draft's schema", {
+  draft <- .mk_draft("common-cause", fr_rendering = "causes communes")
+
+  out <- prepare_review_glossary(draft)
+
+  expect_identical(
+    colnames(out),
+    c(
+      "term_en", "fr_rendering", "source", "frequency", "occurrence_types",
+      "contexts", "decision_needed", "approved_fr", "decision", "reviewer_notes"
+    )
+  )
+  expect_equal(nrow(out), nrow(draft))
+})
+
+# ---------------------------------------------------------------------------
+# 2. Pre-resolution of established terms.
+# ---------------------------------------------------------------------------
+
+test_that("established terms are pre-filled decision = translate", {
+  draft <- .mk_draft("common-cause", fr_rendering = "causes communes", decision_needed = FALSE)
+
+  out <- prepare_review_glossary(draft)
+
+  expect_equal(out$approved_fr, "causes communes")
+  expect_equal(out$decision, "translate")
+})
+
+test_that("contested seed terms are left blank even with a candidate fr_rendering", {
+  draft <- .mk_draft("pdsa-cycle", fr_rendering = "PDSA", decision_needed = TRUE)
+
+  out <- prepare_review_glossary(draft)
+
+  expect_true(is.na(out$approved_fr))
+  expect_true(is.na(out$decision))
+})
+
+test_that("discovered candidates with no fr_rendering are left blank", {
+  draft <- .mk_draft("widget-assembly", fr_rendering = NA_character_, decision_needed = TRUE)
+
+  out <- prepare_review_glossary(draft)
+
+  expect_true(is.na(out$approved_fr))
+  expect_true(is.na(out$decision))
+})
+
+# ---------------------------------------------------------------------------
+# 3. Merge-preserve across regenerations.
+# ---------------------------------------------------------------------------
+
+test_that("a reviewer's manual decision survives regenerating against a newer draft", {
+  draft <- .mk_draft(
+    c("common-cause", "pdsa-cycle"),
+    fr_rendering = c("causes communes", "PDSA"),
+    decision_needed = c(FALSE, TRUE)
+  )
+  first <- prepare_review_glossary(draft)
+  first$decision[first$term_en == "pdsa-cycle"] <- "keep english"
+  first$reviewer_notes[first$term_en == "pdsa-cycle"] <- "sigle conservé tel quel"
+
+  second <- prepare_review_glossary(draft, existing = first)
+
+  expect_equal(second$decision[second$term_en == "pdsa-cycle"], "keep english")
+  expect_equal(second$reviewer_notes[second$term_en == "pdsa-cycle"], "sigle conservé tel quel")
+})
+
+test_that("a reviewer's override of a pre-filled established term is preserved", {
+  draft <- .mk_draft("common-cause", fr_rendering = "causes communes", decision_needed = FALSE)
+  first <- prepare_review_glossary(draft)
+  first$approved_fr[1] <- "causes communes (variante)"
+
+  second <- prepare_review_glossary(draft, existing = first)
+
+  expect_equal(second$approved_fr, "causes communes (variante)")
+})
+
+test_that("new terms in a regenerated draft start fresh, unaffected by unrelated existing rows", {
+  draft <- .mk_draft(
+    c("common-cause", "special-cause"),
+    fr_rendering = c("causes communes", "causes spéciales"),
+    decision_needed = FALSE
+  )
+  existing <- prepare_review_glossary(.mk_draft("common-cause", fr_rendering = "causes communes"))
+
+  out <- prepare_review_glossary(draft, existing = existing)
+
+  expect_equal(out$decision[out$term_en == "special-cause"], "translate")
+  expect_equal(out$approved_fr[out$term_en == "special-cause"], "causes spéciales")
+})
+
+test_that("terms dropped from a newer draft do not appear in the output", {
+  draft <- .mk_draft("common-cause", fr_rendering = "causes communes")
+  existing <- prepare_review_glossary(.mk_draft(
+    c("common-cause", "retired-term"),
+    fr_rendering = c("causes communes", "x")
+  ))
+
+  out <- prepare_review_glossary(draft, existing = existing)
+
+  expect_false("retired-term" %in% out$term_en)
+  expect_equal(nrow(out), 1L)
+})
+
+# ---------------------------------------------------------------------------
+# 4. Real-corpus integration smoke test.
+# ---------------------------------------------------------------------------
+
+test_that("preparing the review file from the real draft glossary is well-formed", {
+  draft <- read.csv(file.path(repo_root, "glossary", "draft-glossary.csv"), stringsAsFactors = FALSE)
+
+  out <- prepare_review_glossary(draft)
+
+  expect_equal(nrow(out), nrow(draft))
+  established <- !draft$decision_needed & !is.na(draft$fr_rendering) & nzchar(draft$fr_rendering)
+  expect_true(all(out$decision[established] == "translate"))
+  expect_true(all(is.na(out$decision[!established])))
+})
