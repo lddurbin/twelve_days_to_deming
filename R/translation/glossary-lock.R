@@ -34,8 +34,9 @@ find_unresolved <- function(review) {
 #'   every row resolved (see find_unresolved()).
 #' @return a named list keyed by term_en, each entry holding decision
 #'   (normalised to "translate"/"keep-english"/"gloss-first-use"),
-#'   approved_fr, source, and reviewer_notes (blank fields omitted) --
-#'   ready for jsonlite::toJSON().
+#'   approved_fr, source, and reviewer_notes (NULL when blank, which
+#'   jsonlite::write_json(..., null = "null") serialises as JSON `null`,
+#'   not an absent key) -- ready for jsonlite::toJSON()/write_json().
 #' @details Stops, listing every offending term_en, if any row is
 #'   unresolved -- there is no partial lock.
 lock_glossary <- function(review) {
