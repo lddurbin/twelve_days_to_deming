@@ -97,7 +97,18 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
   "you", "your", "we", "our", "i", "he", "she", "they", "them", "his", "her", "their",
   "do", "does", "did", "have", "has", "had", "can", "could", "will", "would", "should", "may", "might",
   "there", "here", "what", "which", "who", "whom", "when", "where", "why", "how", "all", "some", "any",
-  "one", "two", "three", "up", "down", "out", "about", "also", "just", "more", "most", "very"
+  "one", "two", "three", "up", "down", "out", "about", "also", "just", "more", "most", "very",
+  # Added after review of the mined output surfaced these as reliable noise:
+  # "dr"/"drs" only ever appear in attribution mentions ("Dr Deming", "Dr
+  # Shewhart") never a glossary term in their own right; "each"/"other"/
+  # "own"/"let"/"next"/"through"/"term" only ever showed up in generic
+  # connective phrases ("each other", "my own", "long term"); "four"/"day"/
+  # "days"/"page"/"pages" only ever showed up in document-navigation noise
+  # ("four day seminars", "Appendix page", "DemDim pages") rather than
+  # domain vocabulary. Unlike "four", "five" and "six" are deliberately NOT
+  # here — "five Deadly Diseases" and "six sigma" are genuine candidates.
+  "dr", "drs", "each", "other", "own", "let", "next", "through", "term",
+  "four", "day", "days", "page", "pages"
 )
 
 # Lowercase words allowed INSIDE (never at the boundary of) a capitalised-
