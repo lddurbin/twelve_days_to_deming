@@ -10,6 +10,22 @@
 # Usage (from repo root):
 #   Rscript scripts/prepare-glossary-review.R
 
+# write.csv()'s defaults break this file for its actual reader (a
+# non-technical reviewer opening it in Excel): no BOM means Excel guesses
+# the legacy system encoding instead of UTF-8, mangling every accented
+# character (e.g. "expérience" -> "exp√©rience"); na = "NA" (the default)
+# fills every not-yet-decided cell with the literal text "NA" instead of
+# leaving it blank for them to fill in.
+write_csv_utf8_bom <- function(df, path) {
+  tmp <- tempfile()
+  on.exit(unlink(tmp), add = TRUE)
+  write.csv(df, tmp, row.names = FALSE, fileEncoding = "UTF-8", na = "")
+  con <- file(path, "wb")
+  on.exit(close(con), add = TRUE)
+  writeBin(as.raw(c(0xEF, 0xBB, 0xBF)), con)
+  writeBin(readBin(tmp, "raw", file.info(tmp)$size), con)
+}
+
 .file_arg <- grep("^--file=", commandArgs(FALSE), value = TRUE)[1]
 if (is.na(.file_arg)) stop("Run this script with Rscript, not source().")
 .this_file <- sub("^--file=", "", .file_arg)
@@ -32,7 +48,7 @@ existing <- if (file.exists(out_path)) {
 }
 
 review <- prepare_review_glossary(draft, existing)
-write.csv(review, out_path, row.names = FALSE, fileEncoding = "UTF-8")
+write_csv_utf8_bom(review, out_path)
 
 n_unresolved <- length(find_unresolved(review))
 cat(sprintf(
