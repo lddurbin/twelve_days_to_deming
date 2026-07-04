@@ -1,49 +1,49 @@
 term_en,decision,approved_fr,reviewer_notes
 Edwards Deming,keep english,,"Person's name -- never translated, kept as-is regardless of target language."
 Peter Scholtes,keep english,,"Person's name -- never translated, kept as-is regardless of target language."
-Peter Scholtes's,keep english,,"Person's name (possessive form) -- never translated."
+Peter Scholtes's,keep english,,Person's name (possessive form) -- never translated.
 Walter Shewhart,keep english,,"Person's name -- never translated, kept as-is regardless of target language."
 Don Wheeler,keep english,,"Person's name -- never translated, kept as-is regardless of target language."
-Henry Neave,keep english,,"Person's name (the course's author) -- never translated."
-Balaji Reddie,keep english,,"Person's name (case-study character in the course) -- never translated."
+Henry Neave,keep english,,Person's name (the course's author) -- never translated.
+Balaji Reddie,keep english,,Person's name (case-study character in the course) -- never translated.
 Jackie Graham,keep english,,"Person's name -- never translated, kept as-is regardless of target language."
 Dave Young,keep english,,"Person's name -- never translated, kept as-is regardless of target language."
-Lloyd Nelson's,keep english,,"Person's name (possessive form) -- never translated."
+Lloyd Nelson's,keep english,,Person's name (possessive form) -- never translated.
 Mitch Beedie,keep english,,"Person's name -- never translated, kept as-is regardless of target language."
 Bill Conway,keep english,,"Person's name -- never translated, kept as-is regardless of target language."
 Bill Scherkenbach,keep english,,"Person's name -- never translated, kept as-is regardless of target language."
-Bill Scherkenbach's,keep english,,"Person's name (possessive form) -- never translated."
+Bill Scherkenbach's,keep english,,Person's name (possessive form) -- never translated.
 Gallery Furniture,keep english,,"Real company name (Jim McIngvale's Houston furniture retailer) -- not vocabulary, never translated."
-General Motors,keep english,,"Real company name -- never translated."
-Ford Motor Company,keep english,,"Real company name -- never translated."
-Western Electric Company,keep english,,"Real company name -- never translated."
-Western Electric,keep english,,"Real company name (short form) -- never translated."
-Nashua Corporation,keep english,,"Real company name -- never translated."
-Tokai Rika,keep english,,"Real company name -- never translated."
-SPC Press,keep english,,"Real publisher name (Donald Wheeler's SPC Press) -- never translated."
-Washington DC,keep english,,"Place name -- never translated."
-Joiner Associates,keep english,,"Real company name (Joiner's consulting firm) -- never translated."
-British Deming Association,keep english,,"Real organisation name -- never translated."
-Deming Institute,keep english,,"Real organisation name (The W. Edwards Deming Institute) -- never translated."
-Edwards Deming Institute,keep english,,"Real organisation name (The W. Edwards Deming Institute) -- never translated."
-Deming Transformation Forum,keep english,,"Real named organisation/community -- never translated."
+General Motors,keep english,,Real company name -- never translated.
+Ford Motor Company,keep english,,Real company name -- never translated.
+Western Electric Company,keep english,,Real company name -- never translated.
+Western Electric,keep english,,Real company name (short form) -- never translated.
+Nashua Corporation,keep english,,Real company name -- never translated.
+Tokai Rika,keep english,,Real company name -- never translated.
+SPC Press,keep english,,Real publisher name (Donald Wheeler's SPC Press) -- never translated.
+Washington DC,keep english,,Place name -- never translated.
+Joiner Associates,keep english,,Real company name (Joiner's consulting firm) -- never translated.
+British Deming Association,keep english,,Real organisation name -- never translated.
+Deming Institute,keep english,,Real organisation name (The W. Edwards Deming Institute) -- never translated.
+Edwards Deming Institute,keep english,,Real organisation name (The W. Edwards Deming Institute) -- never translated.
+Deming Transformation Forum,keep english,,Real named organisation/community -- never translated.
 The Deming of America,keep english,,"Documentary film title -- proper name, never translated."
 Deming Library,keep english,,"Named educational video series about Deming -- proper name, never translated."
 six sigma,keep english,,"Methodology brand name kept in English internationally, including in French quality/management literature."
-Rating (0–5):,translate,Note (0–5) :,"Mechanical UI label with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Your comments.,translate,Vos commentaires.,"Mechanical UI copy with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Type your comments here.,translate,Tapez vos commentaires ici.,"Mechanical UI placeholder with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Your notes on this item.,translate,Vos notes sur cet élément.,"Mechanical UI copy with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Author's note,translate,Note de l'auteur,"Mechanical UI/callout label with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Type your comment here.,translate,Tapez votre commentaire ici.,"Mechanical UI placeholder with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Your notes on these items.,translate,Vos notes sur ces éléments.,"Mechanical UI copy with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Your notes.,translate,Vos notes.,"Mechanical UI copy with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
+Rating (0–5):,translate,Note (0–5) :,Mechanical UI label with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Your comments.,translate,Vos commentaires.,Mechanical UI copy with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Type your comments here.,translate,Tapez vos commentaires ici.,Mechanical UI placeholder with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Your notes on this item.,translate,Vos notes sur cet élément.,Mechanical UI copy with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Author's note,translate,Note de l'auteur,Mechanical UI/callout label with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Type your comment here.,translate,Tapez votre commentaire ici.,Mechanical UI placeholder with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Your notes on these items.,translate,Vos notes sur ces éléments.,Mechanical UI copy with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Your notes.,translate,Vos notes.,Mechanical UI copy with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
 Deming Dimension,keep english,,"Book title fragment (Henry Neave, ""The Deming Dimension"", SPC Press 1990) -- never translated."
 New Economics,keep english,,"Book title fragment (W. Edwards Deming, ""The New Economics"") -- never translated."
-BDA Booklet,keep english,,"Fragment referencing a British Deming Association publication -- never translated."
-Motor Company,keep english,,"Fragment of an already-resolved real company name (Ford Motor Company / General Motors) -- never translated."
-Electric Company,keep english,,"Fragment of an already-resolved real company name (Western Electric Company) -- never translated."
-SPC Press Inc,keep english,,"Fragment of an already-resolved real publisher name (SPC Press) -- never translated."
+BDA Booklet,keep english,,Fragment referencing a British Deming Association publication -- never translated.
+Motor Company,keep english,,Fragment of an already-resolved real company name (Ford Motor Company / General Motors) -- never translated.
+Electric Company,keep english,,Fragment of an already-resolved real company name (Western Electric Company) -- never translated.
+SPC Press Inc,keep english,,Fragment of an already-resolved real publisher name (SPC Press) -- never translated.
 PLEASE START,keep english,,"Fragment of a referenced file name (""A. PLEASE START HERE"") -- never translated."
 Deming Prize,keep english,,"Real named award (The Deming Prize, Japan) -- never translated."
 Deming Management,keep english,,"Book title fragment (Mary Walton, ""The Deming Management Method"") -- never translated."
@@ -58,27 +58,30 @@ Motor Equipment,keep english,,"Named case-study organisation (City of Madison, W
 Organisation Viewed,keep english,,"Fragment of a named 1950 flow-diagram title quoted in the source (""Organisation Viewed as a System"") -- never translated."
 Health Service,keep english,,"Reference to the UK National Health Service (NHS) -- proper name, never translated."
 Prophet Unheard,keep english,,"Documentary title fragment (""A Prophet Unheard"", BBC 1992) -- never translated."
-British Deming,keep english,,"Fragment of an already-resolved real organisation name (British Deming Association) -- never translated."
-Deming Transformation,keep english,,"Fragment of an already-resolved real organisation name (Deming Transformation Forum) -- never translated."
+British Deming,keep english,,Fragment of an already-resolved real organisation name (British Deming Association) -- never translated.
+Deming Transformation,keep english,,Fragment of an already-resolved real organisation name (Deming Transformation Forum) -- never translated.
 Deming's System,keep english,,"Fragment of the already-decided seed term 'system-of-profound-knowledge' (approved fr_rendering: Système de la Connaissance Approfondie) -- not an independent term, no separate decision needed."
-Major Activity,translate,Activité principale,"Course-structural label (each day's culminating exercise) with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Major Activities,translate,Activités principales,"Plural of the course-structural label 'Major Activity' -- literal translation suggested pending reviewer spot-check."
-Optional Extras,translate,Compléments facultatifs,"Course-structural label (the optional advanced-material section) with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-First Project,translate,Premier projet,"Course-structural label with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Second Project,translate,Deuxième projet,"Course-structural label with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
+Major Activity,translate,Activité principale,Course-structural label (each day's culminating exercise) with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Major Activities,translate,Activités principales,Plural of the course-structural label 'Major Activity' -- literal translation suggested pending reviewer spot-check.
+Optional Extras,translate,Compléments facultatifs,Course-structural label (the optional advanced-material section) with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+First Project,translate,Premier projet,Course-structural label with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Second Project,translate,Deuxième projet,Course-structural label with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
 Second Strategy,translate,Deuxième stratégie,"Course-structural label (Ford's Second Strategy, a named simulation rule) with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Technical Aid,translate,Aide technique,"Course-structural label with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Technical Aids,translate,Aides techniques,"Plural of the course-structural label 'Technical Aid' -- literal translation suggested pending reviewer spot-check."
-Technical Section,translate,Section technique,"Course-structural label with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-New Climate,translate,Nouveau climat,"Course-structural label (contrasted with 'Old Climate') with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Old Climate,translate,Ancien climat,"Course-structural label (contrasted with 'New Climate') with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-New Way,translate,Nouvelle façon,"Course-structural label (contrasted with 'Old Way') with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Old Way,translate,Ancienne façon,"Course-structural label (contrasted with 'New Way') with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
-Table Five,translate,Tableau Cinq,"Course-structural enumeration label (Table One...Table Five) with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
+Technical Aid,translate,Aide technique,Course-structural label with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Technical Aids,translate,Aides techniques,Plural of the course-structural label 'Technical Aid' -- literal translation suggested pending reviewer spot-check.
+Technical Section,translate,Section technique,Course-structural label with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+New Climate,translate,Nouveau climat,Course-structural label (contrasted with 'Old Climate') with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Old Climate,translate,Ancien climat,Course-structural label (contrasted with 'New Climate') with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+New Way,translate,Nouvelle façon,Course-structural label (contrasted with 'Old Way') with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Old Way,translate,Ancienne façon,Course-structural label (contrasted with 'New Way') with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
+Table Five,translate,Tableau Cinq,Course-structural enumeration label (Table One...Table Five) with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
 top management,translate,la direction,"Standard, uncontested business-French rendering pending reviewer spot-check; appears repeatedly as a stable concept (Point 14 heading), not incidental prose."
-difference between,translate,différence entre,"Compositionally transparent connector phrase with a single uncontested rendering -- literal translation suggested pending reviewer spot-check."
-See Appendix,translate,Voir l'annexe,"Stable navigational phrase (always followed by a masked page cross-reference) with no domain ambiguity -- literal translation suggested pending reviewer spot-check."
+difference between,translate,différence entre,Compositionally transparent connector phrase with a single uncontested rendering -- literal translation suggested pending reviewer spot-check.
+See Appendix,translate,Voir l'annexe,Stable navigational phrase (always followed by a masked page cross-reference) with no domain ambiguity -- literal translation suggested pending reviewer spot-check.
 today's Major Activity,keep english,,"Compositional extension of the already-resolved course-structural label 'Major Activity' (approved fr_rendering: Activité principale) with an ordinary possessive prefix -- not an independent term, no separate decision needed."
 today's Major,keep english,,"Fragment of 'today's Major Activity' (n-gram boundary truncation, same 13 occurrences) -- see 'Major Activity' for the locked rendering, no separate decision needed."
 Optional Extras section,translate,section des Compléments facultatifs,Compositional extension of the already-resolved course-structural label 'Optional Extras' (approved fr_rendering: Compléments facultatifs) with the ordinary noun 'section' -- literal translation suggested pending reviewer spot-check.
 Extras section,keep english,,"Fragment of 'Optional Extras section' (n-gram boundary truncation, same 16 occurrences, always preceded by 'Optional') -- see 'Optional Extras' for the locked rendering, no separate decision needed."
+Vice President,translate,vice-président,"Generic but standard business job title appearing in several unrelated anecdotes (not a named individual) -- uncontested translation, analogous to the already-resolved 'top management'."
+Ken ichi,keep english,,"Fragment of the person's name 'Ken-ichi Koyanagi' (author of The Deming Prize booklet, pictured with Dr Deming) -- never translated."
+final Major,keep english,,"Compositional extension of the already-resolved course-structural label 'Major Activity' (approved fr_rendering: Activité principale) with the ordinary adjective 'final' -- not an independent term, no separate decision needed."
