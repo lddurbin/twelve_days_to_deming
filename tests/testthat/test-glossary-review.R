@@ -77,6 +77,86 @@ test_that("discovered candidates with no fr_rendering are left blank", {
   expect_true(is.na(out$decision))
 })
 
+#' Build a minimal auto_resolutions-shaped data.frame.
+.mk_auto <- function(term_en, decision, approved_fr = NA_character_, reviewer_notes = NA_character_) {
+  n <- length(term_en)
+  data.frame(
+    term_en = term_en,
+    decision = rep(decision, length.out = n),
+    approved_fr = rep(approved_fr, length.out = n),
+    reviewer_notes = rep(reviewer_notes, length.out = n),
+    stringsAsFactors = FALSE
+  )
+}
+
+# ---------------------------------------------------------------------------
+# 2b. Curated auto-resolutions for discovered candidates.
+# ---------------------------------------------------------------------------
+
+test_that("a curated auto-resolution pre-fills decision/approved_fr and clears decision_needed", {
+  draft <- .mk_draft("Gallery Furniture", fr_rendering = NA_character_, decision_needed = TRUE)
+  auto <- .mk_auto("Gallery Furniture", "keep english", reviewer_notes = "real company name")
+
+  out <- prepare_review_glossary(draft, auto_resolutions = auto)
+
+  expect_equal(out$decision, "keep english")
+  expect_true(is.na(out$approved_fr))
+  expect_equal(out$reviewer_notes, "real company name")
+  expect_false(out$decision_needed)
+})
+
+test_that("auto-resolution matching is case- and hyphen-insensitive, like seed exclusion", {
+  draft <- .mk_draft("gallery furniture", fr_rendering = NA_character_, decision_needed = TRUE)
+  auto <- .mk_auto("Gallery-Furniture", "keep english")
+
+  out <- prepare_review_glossary(draft, auto_resolutions = auto)
+
+  expect_equal(out$decision, "keep english")
+})
+
+test_that("a translate-type auto-resolution fills approved_fr too", {
+  draft <- .mk_draft("Your comments.", fr_rendering = NA_character_, decision_needed = TRUE)
+  auto <- .mk_auto("Your comments.", "translate", approved_fr = "Vos commentaires.",
+                    reviewer_notes = "mechanical UI copy, auto-suggested")
+
+  out <- prepare_review_glossary(draft, auto_resolutions = auto)
+
+  expect_equal(out$decision, "translate")
+  expect_equal(out$approved_fr, "Vos commentaires.")
+})
+
+test_that("auto-resolutions never override an already-established seed term", {
+  draft <- .mk_draft("common-cause", fr_rendering = "causes communes", decision_needed = FALSE)
+  auto <- .mk_auto("common-cause", "keep english")
+
+  out <- prepare_review_glossary(draft, auto_resolutions = auto)
+
+  expect_equal(out$decision, "translate")
+  expect_equal(out$approved_fr, "causes communes")
+})
+
+test_that("a reviewer's override of an auto-resolution survives regenerating against a newer draft", {
+  draft <- .mk_draft("Gallery Furniture", fr_rendering = NA_character_, decision_needed = TRUE)
+  auto <- .mk_auto("Gallery Furniture", "keep english")
+  first <- prepare_review_glossary(draft, auto_resolutions = auto)
+  first$decision[1] <- "gloss on first use"
+  first$reviewer_notes[1] <- "reviewer disagreed with auto-resolution"
+
+  second <- prepare_review_glossary(draft, existing = first, auto_resolutions = auto)
+
+  expect_equal(second$decision, "gloss on first use")
+  expect_equal(second$reviewer_notes, "reviewer disagreed with auto-resolution")
+})
+
+test_that("a candidate absent from the auto-resolutions table is left blank", {
+  draft <- .mk_draft("widget-assembly", fr_rendering = NA_character_, decision_needed = TRUE)
+  auto <- .mk_auto("Gallery Furniture", "keep english")
+
+  out <- prepare_review_glossary(draft, auto_resolutions = auto)
+
+  expect_true(is.na(out$decision))
+})
+
 # ---------------------------------------------------------------------------
 # 3. Merge-preserve across regenerations.
 # ---------------------------------------------------------------------------

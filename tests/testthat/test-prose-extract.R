@@ -60,6 +60,10 @@ test_that("maths (inline and display) are masked", {
 
   r2 <- mk("Formula: $$E = mc^2$$ done.")
   expect_true(any(vapply(r2$placeholders, function(p) p$kind == "math_display", logical(1))))
+
+  r3 <- mk("Probabilities:\n\n$$\\begin{aligned}\n\\text{P(Heads)} &= \\tfrac{1}{2}\n\\end{aligned}$$\n\nnext.")
+  expect_true(any(vapply(r3$placeholders, function(p) p$kind == "math_display", logical(1))))
+  expect_false(grepl("tfrac", r3$masked, fixed = TRUE))
 })
 
 test_that("shortcodes are masked", {
