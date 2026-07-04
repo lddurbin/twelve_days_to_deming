@@ -81,6 +81,19 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
   unique(c(terms, aliases))
 }
 
+#' Build the set of normalised terms curated in glossary/discovery-exclusions.csv
+#' -- candidates confirmed to be generic English collocations (personal
+#' pronouns, narrative filler, temporal/spatial idioms) that recur only
+#' because the corpus is long, not because they are domain terminology
+#' needing a consistent, locked French rendering. Unlike the seed exclusion
+#' set (established vocabulary already decided), these were never terms in
+#' the first place, so they are dropped before ever reaching a reviewer,
+#' the same way a seeded term is.
+.discovery_exclusion_set <- function(exclusions) {
+  if (is.null(exclusions) || !NROW(exclusions)) return(character(0))
+  unique(.norm_term(exclusions$term_en))
+}
+
 # ---------------------------------------------------------------------------
 # Prose cleaning + tokenisation.
 # ---------------------------------------------------------------------------
@@ -153,14 +166,53 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
   .tokenize_plain(.prose_plain_text(text))
 }
 
-#' All contiguous n-grams of a token vector, as space-joined strings.
+#' Tokenise into words like .tokenize_plain(), but insert an NA_character_
+#' break between two consecutive words whose gap in the source is neither
+#' whitespace nor a hyphen. .tokenize_plain()'s regex only ever matches
+#' letter runs, so a stripped digit, punctuation mark, or table-cell divider
+#' simply vanishes rather than surfacing as a token -- "Point 10. Eliminate
+#' exhortations" tokenises to just "Point", "Eliminate", making them look
+#' like a genuine adjacent bigram "Point Eliminate" that never existed in the
+#' source (the same failure mode turns a "Worker 1 | Worker 2" table row into
+#' "Worker Worker"). n-gram/cap-phrase generation must never bridge across
+#' such a gap. A bare hyphen IS allowed to bridge, though -- .norm_term()
+#' already treats "common-cause" and "common cause" as the same term, so
+#' "decision-making" must tokenise the same as "decision making", not break
+#' into a fake gap the same way a stripped digit does. Kept separate from
+#' .tokenize_plain() (used elsewhere, e.g. dedup boundary checks, where
+#' adjacency doesn't matter) to avoid widening its contract for callers that
+#' don't expect NA in the result.
+.tokenize_bridged <- function(plain) {
+  g <- gregexpr("[A-Za-z][A-Za-z']*", plain, perl = TRUE)
+  starts <- g[[1]]
+  if (starts[1] == -1L) return(character(0))
+  ends <- starts + attr(starts, "match.length") - 1L
+  words <- regmatches(plain, g)[[1]]
+  n <- length(words)
+  if (n <= 1L) return(words)
+  out <- vector("list", n)
+  out[[1]] <- words[1]
+  for (i in 2:n) {
+    gap <- substr(plain, ends[i - 1L] + 1L, starts[i] - 1L)
+    out[[i]] <- if (grepl("^[\\s-]*$", gap, perl = TRUE)) words[i] else c(NA_character_, words[i])
+  }
+  unlist(out, use.names = FALSE)
+}
+
+#' All contiguous n-grams of a token vector, as space-joined strings. A
+#' window containing an NA (see .tokenize_bridged()) is skipped entirely --
+#' it marks a gap that was not pure whitespace in the source, so the tokens
+#' either side were never actually adjacent prose.
 .ngrams <- function(tokens, n) {
   L <- length(tokens)
   if (L < n) return(character(0))
-  vapply(seq_len(L - n + 1L), function(i) paste(tokens[i:(i + n - 1L)], collapse = " "), character(1))
+  idx <- seq_len(L - n + 1L)
+  valid <- vapply(idx, function(i) !anyNA(tokens[i:(i + n - 1L)]), logical(1))
+  idx <- idx[valid]
+  vapply(idx, function(i) paste(tokens[i:(i + n - 1L)], collapse = " "), character(1))
 }
 
-.is_capitalised <- function(word) grepl("^[A-Z].", word, perl = TRUE)
+.is_capitalised <- function(word) !is.na(word) && grepl("^[A-Z].", word, perl = TRUE)
 
 #' Maximal capitalised-phrase runs of 4+ tokens: sequences starting and
 #' ending on a capitalised token, allowing single interior connector words
@@ -174,6 +226,10 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
 #' inflate frequency. Capitalised-run detection's only genuinely new
 #' contribution beyond fixed-width n-grams is spans n-grams can't reach —
 #' i.e. length >= 4 (e.g. "System of Profound Knowledge").
+#'
+#' An NA token (see .tokenize_bridged()) is never capitalised and never a
+#' valid connector, so a run always breaks there rather than bridging across
+#' a stripped digit/punctuation gap.
 .cap_phrases <- function(tokens, max_len = 6L) {
   n <- length(tokens)
   out <- character(0)
@@ -187,7 +243,7 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
         if (.is_capitalised(nxt)) {
           j <- j + 1L
           last_cap <- j
-        } else if (tolower(nxt) %in% .CONNECTOR_WORDS && (j + 1L) < n && .is_capitalised(tokens[j + 2L])) {
+        } else if (!is.na(nxt) && tolower(nxt) %in% .CONNECTOR_WORDS && (j + 1L) < n && .is_capitalised(tokens[j + 2L])) {
           j <- j + 1L
         } else {
           break
@@ -334,12 +390,17 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
 #'   term_en, fr_rendering, source, aliases, decision_needed); `aliases` is
 #'   `|`-delimited.
 #' @param min_freq minimum occurrence count for a candidate to be returned.
+#' @param exclusions optional data.frame as read from
+#'   glossary/discovery-exclusions.csv (column term_en) — confirmed
+#'   non-terminological candidates to drop before they ever reach a
+#'   reviewer, matched the same case/hyphen-insensitive way as seed
+#'   exclusion.
 #' @return data.frame with columns term_en, fr_rendering (NA), source (NA),
 #'   frequency, occurrence_types (`|`-joined "prose"/"ui"), contexts (up to 3
 #'   `|`-joined sample snippets), decision_needed (TRUE) — sorted by
 #'   frequency desc, then term_en asc, for determinism.
-discover_candidates <- function(segments, seed, min_freq = 5L) {
-  excluded <- .seed_exclusion_set(seed)
+discover_candidates <- function(segments, seed, min_freq = 5L, exclusions = NULL) {
+  excluded <- union(.seed_exclusion_set(seed), .discovery_exclusion_set(exclusions))
 
   prose <- segments[segments$kind == "prose", , drop = FALSE]
   # Collect per-segment into list slots and flatten ONCE at the end. Growing
@@ -354,7 +415,7 @@ discover_candidates <- function(segments, seed, min_freq = 5L) {
 
   for (i in seq_len(nrow(prose))) {
     plain <- .prose_plain_text(prose$text[i])
-    toks <- .tokenize_plain(plain)
+    toks <- .tokenize_bridged(plain)
     if (length(toks) < 2L) next
     # The stopword/length guard applies ONLY to plain bigrams/trigrams.
     # .cap_phrases() output must NOT go through it: a cap phrase's only

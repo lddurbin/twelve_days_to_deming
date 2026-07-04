@@ -53,12 +53,15 @@ source(file.path(.glossary_assemble_dir, "glossary-discover.R"))
 #'   term_en, fr_rendering, source, aliases, decision_needed).
 #' @param min_freq minimum occurrence count for a discovered candidate to be
 #'   included (passed through to discover_candidates()).
+#' @param exclusions optional data.frame as read from
+#'   glossary/discovery-exclusions.csv (passed through to
+#'   discover_candidates()).
 #' @return data.frame with columns term_en, fr_rendering, source, frequency,
 #'   occurrence_types, contexts, decision_needed — sorted by frequency desc,
 #'   then term_en asc, for stable, idempotent tie-breaks.
-build_draft_glossary <- function(segments, seed, min_freq = 5L) {
+build_draft_glossary <- function(segments, seed, min_freq = 5L, exclusions = NULL) {
   seeded <- match_terms(segments, seed)
-  discovered <- discover_candidates(segments, seed, min_freq = min_freq)
+  discovered <- discover_candidates(segments, seed, min_freq = min_freq, exclusions = exclusions)
 
   out <- rbind(seeded, discovered)
   out <- out[order(-out$frequency, out$term_en), ]
