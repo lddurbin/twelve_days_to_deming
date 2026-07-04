@@ -227,6 +227,99 @@ source(file.path(.glossary_discover_dir, "glossary-corpus.R"))
   names(tab)[which.max(tab)]
 }
 
+#' Escape regex metacharacters so a candidate's raw text can be spliced into
+#' a PCRE pattern as a literal (needed for the boundary lookaround below,
+#' which fixed = TRUE can't express).
+.regex_escape_literal <- function(x) gsub("([.^$|()\\[\\]{}*+?\\\\-])", "\\\\\\1", x, perl = TRUE)
+
+#' Drop a candidate that never occurs except as part of a longer surviving
+#' candidate: e.g. "Beads Experiment" (freq 72) only ever appears as part of
+#' "Red Beads Experiment" (freq 72), and "0-5" (freq 76) only ever appears
+#' inside "Rating (0-5):" (freq 76) -- neither is an independent term worth
+#' its own reviewer decision.
+#'
+#' Containment alone is not sufficient: a trigram's constituent bigram is
+#' ALWAYS at least as frequent as the trigram (every trigram occurrence
+#' implies the bigram occurs at that position too), so freq(short) >=
+#' freq(long) whenever short is a substring of long. Only EXACT frequency
+#' equality means short never occurs independently -- if short is strictly
+#' more frequent, it has occurrences of its own outside long's context and
+#' must be kept as its own candidate (e.g. "control chart", freq 230, is
+#' presumably a substring of some far rarer trigram somewhere, but must
+#' never be dropped for it).
+#'
+#' The containment check requires a boundary (start/end-of-string or a
+#' non-alphanumeric neighbour) on both sides of the match, not a bare
+#' fixed-string search -- otherwise "Technical Aid" (freq 38) would look
+#' "contained" in the unrelated plural "Technical Aids" (freq 18) merely
+#' because one string prefixes the other.
+#'
+#' Two further guards keep this from swallowing perfectly ordinary
+#' vocabulary, both discovered via regression: (1) only a candidate that
+#' reads as proper-noun-like or non-linguistic (every word capitalised, or
+#' made of no letters at all) is ever a DROP candidate -- otherwise
+#' "control chart" would vanish into an equally-frequent, purely incidental
+#' "control chart before" in any corpus where it always happens to precede
+#' the same next word; (2) the longer candidate's extra token(s) beyond the
+#' short one must include real content, not just an article/connector --
+#' otherwise "Widget Assembly Protocol" would vanish into "The Widget
+#' Assembly Protocol" merely because .cap_phrases() swept in a
+#' sentence-initial "The", which is capitalisation noise, not a genuine
+#' named-entity expansion the way "Red " is for "Red Beads Experiment".
+.looks_proper_or_bare <- function(term) {
+  words <- strsplit(term, "\\s+", perl = TRUE)[[1]]
+  words <- words[nzchar(words)]
+  if (!length(words)) return(FALSE)
+  all(vapply(words, function(w) {
+    letters_only <- gsub("[^A-Za-z]", "", w)
+    !nzchar(letters_only) || .is_capitalised(letters_only)
+  }, logical(1)))
+}
+
+#' TRUE if the longer key's tokens outside the matched span of the shorter
+#' key (found at position `m` by the caller) include at least one
+#' non-stopword -- i.e. the "extra" is genuine content, not just an article.
+.delta_has_content <- function(long_key, m) {
+  before <- substr(long_key, 1L, m[1] - 1L)
+  after  <- substr(long_key, m[1] + attr(m, "match.length")[1], nchar(long_key))
+  delta_tokens <- c(.tokenize_plain(before), .tokenize_plain(after))
+  length(delta_tokens) > 0L && !all(tolower(delta_tokens) %in% .STOPWORDS)
+}
+
+.drop_nested_duplicates <- function(out) {
+  if (nrow(out) <= 1L) return(out)
+  keys <- .norm_term(out$term_en)
+  freq <- out$frequency
+  eligible <- vapply(out$term_en, .looks_proper_or_bare, logical(1), USE.NAMES = FALSE)
+  drop <- logical(length(keys))
+
+  by_freq <- split(seq_along(keys), freq)
+  for (idxs in by_freq) {
+    if (length(idxs) < 2L) next
+    ord <- idxs[order(nchar(keys[idxs]))]
+    for (a in ord) {
+      if (drop[a] || !eligible[a]) next
+      # Boundary class includes "'" alongside [A-Za-z0-9]: .tokenize_plain()
+      # treats an apostrophe as part of the SAME word ("Scherkenbach's" is
+      # one token, not "Scherkenbach" + "'s"), so without it "Bill
+      # Scherkenbach" would look "contained" in "Bill Scherkenbach's" the
+      # same way "aid" would wrongly look contained in "aids" without the
+      # [A-Za-z0-9] guard alone.
+      pat <- paste0("(?<!['A-Za-z0-9])", .regex_escape_literal(keys[a]), "(?!['A-Za-z0-9])")
+      for (b in ord) {
+        if (a == b || nchar(keys[b]) <= nchar(keys[a])) next
+        m <- regexpr(pat, keys[b], perl = TRUE)
+        if (m[1] == -1L) next
+        if (.delta_has_content(keys[b], m)) {
+          drop[a] <- TRUE
+          break
+        }
+      }
+    }
+  }
+  out[!drop, , drop = FALSE]
+}
+
 .EMPTY_CANDIDATES <- data.frame(
   term_en = character(0), fr_rendering = character(0), source = character(0),
   frequency = integer(0), occurrence_types = character(0), contexts = character(0),
@@ -334,6 +427,7 @@ discover_candidates <- function(segments, seed, min_freq = 5L) {
     )
   }
   out <- do.call(rbind, rows)
+  out <- .drop_nested_duplicates(out)
   out <- out[order(-out$frequency, out$term_en), ]
   rownames(out) <- NULL
   out

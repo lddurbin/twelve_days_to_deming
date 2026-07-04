@@ -42,6 +42,11 @@
 # silently drifting apart if one is edited without the other.
 source(file.path(.glossary_review_dir, "glossary-lock.R"))
 
+# .norm_term() lives in glossary-discover.R; sourcing it here (rather than
+# redefining it) keeps auto-resolution matching (below) using the exact same
+# case/hyphen-insensitive normalisation as seed exclusion.
+source(file.path(.glossary_review_dir, "glossary-discover.R"))
+
 #' Build the reviewer-facing glossary from the assembled draft.
 #'
 #' @param draft data.frame as returned by build_draft_glossary() / read from
@@ -49,12 +54,22 @@ source(file.path(.glossary_review_dir, "glossary-lock.R"))
 #' @param existing NULL, or a previously-written reviewer data.frame (same
 #'   shape as this function's return value) whose approved_fr/decision/
 #'   reviewer_notes take precedence over fresh pre-fills, keyed by term_en.
+#' @param auto_resolutions NULL, or a data.frame (columns term_en, decision,
+#'   approved_fr, reviewer_notes) of curated pre-resolutions for specific
+#'   discovered candidates -- e.g. proper nouns ("Gallery Furniture") that
+#'   need "keep english" rather than a French rendering, or mechanical UI
+#'   copy safe to translate outright. Matched against `draft$term_en` via
+#'   the same case/hyphen-insensitive normalisation as seed exclusion, and
+#'   applied only to rows not already established from the seed --
+#'   `existing`'s carried-over decisions (above) still take final
+#'   precedence, so a reviewer who has already overridden an auto-resolution
+#'   is never clobbered by re-running this against a newer draft.
 #' @return data.frame: draft's columns plus approved_fr, decision,
 #'   reviewer_notes (all NA_character_ by default). Established terms
 #'   (decision_needed == FALSE with a non-blank fr_rendering) are pre-filled
 #'   decision = "translate", approved_fr = fr_rendering; every other row
 #'   starts blank pending review. Row order matches `draft`.
-prepare_review_glossary <- function(draft, existing = NULL) {
+prepare_review_glossary <- function(draft, existing = NULL, auto_resolutions = NULL) {
   out <- draft
   out$approved_fr <- NA_character_
   out$decision <- NA_character_
@@ -63,6 +78,18 @@ prepare_review_glossary <- function(draft, existing = NULL) {
   established <- !out$decision_needed & .nonblank(out$fr_rendering)
   out$approved_fr[established] <- out$fr_rendering[established]
   out$decision[established] <- "translate"
+
+  if (!is.null(auto_resolutions) && nrow(auto_resolutions) > 0L) {
+    idx <- match(.norm_term(out$term_en), .norm_term(auto_resolutions$term_en))
+    apply_to <- which(!is.na(idx) & !established)
+    if (length(apply_to)) {
+      src <- auto_resolutions[idx[apply_to], , drop = FALSE]
+      out$decision[apply_to] <- src$decision
+      out$approved_fr[apply_to] <- src$approved_fr
+      out$reviewer_notes[apply_to] <- src$reviewer_notes
+      out$decision_needed[apply_to] <- FALSE
+    }
+  }
 
   if (!is.null(existing) && nrow(existing) > 0L) {
     idx <- match(out$term_en, existing$term_en)

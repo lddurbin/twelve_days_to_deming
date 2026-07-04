@@ -203,8 +203,11 @@ source(file.path(.prose_extract_dir, "code-string-extract.R"))
 .PROTECT_PATTERNS <- list(
   # Quarto/pandoc shortcodes: {{< ... >}}
   shortcode      = "\\{\\{<.*?>\\}\\}",
-  # Display maths $$ ... $$  (non-greedy, may span — but we mask per line)
-  math_display   = "\\$\\$.+?\\$\\$",
+  # Display maths $$ ... $$  (non-greedy; (?s) lets "." cross the embedded
+  # newlines a segment can contain, e.g. a multi-line $$\begin{aligned}...
+  # \end{aligned}$$ block -- without it, PCRE's "." stops at "\n" and the
+  # block's LaTeX macros leak through as if they were prose)
+  math_display   = "(?s)\\$\\$.+?\\$\\$",
   # Inline maths $ ... $  (avoid $$, avoid currency: require non-space after $)
   math_inline    = "(?<!\\$)\\$(?!\\$)[^$\\n]+?\\$(?!\\$)",
   # Inline code `...` (1+ backticks)

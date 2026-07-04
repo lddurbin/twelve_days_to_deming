@@ -285,6 +285,123 @@ test_that(".cap_phrases drops a run longer than max_len wholesale, not truncated
 })
 
 # ---------------------------------------------------------------------------
+# 5b. Nested-duplicate suppression.
+# ---------------------------------------------------------------------------
+
+test_that("a bigram that never occurs outside a longer trigram is dropped", {
+  # Every occurrence of "Beads Experiment" here is immediately preceded by
+  # "Red", so the two candidates end up with identical frequency -- the
+  # bigram is never an independent term in this corpus. ("We now recall the"
+  # keeps the capitalised run from starting at the sentence-initial word, so
+  # this is genuinely a plain trigram/bigram pair, not a .cap_phrases() run.)
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("We now recall the Red Beads Experiment from earlier.", 6))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_true("red beads experiment" %in% tolower(cand$term_en))
+  expect_false("beads experiment" %in% tolower(cand$term_en))
+})
+
+test_that("a shorter candidate is kept when it also recurs outside the longer one", {
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(c(
+    rep("We now recall the Red Beads Experiment from earlier.", 6),
+    rep("Later the Beads Experiment was repeated differently.", 3)
+  ))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_true("red beads experiment" %in% tolower(cand$term_en))
+  row <- cand[tolower(cand$term_en) == "beads experiment", ]
+  expect_equal(nrow(row), 1L)
+  expect_equal(row$frequency, 9L)
+})
+
+test_that("a plural is never treated as containing its singular", {
+  # "Technical Aid" must not be dropped as if it were "contained" in
+  # "Technical Aids" merely because one string prefixes the other --
+  # matching requires a boundary, not a bare substring search. Each form
+  # recurs across two DIFFERENT trailing words so neither's total frequency
+  # ties any single trigram's -- otherwise the bigram itself would be
+  # (correctly) dropped as fully nested in one specific trigram context,
+  # which isn't what this test is checking.
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(c(
+    rep("The Technical Aid section covers this rule.", 3),
+    rep("We reviewed the Technical Aid resource yesterday.", 2),
+    rep("Several Technical Aids cover this material.", 3),
+    rep("Additional Technical Aids exist elsewhere.", 2)
+  ))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_true("technical aid" %in% tolower(cand$term_en))
+  expect_true("technical aids" %in% tolower(cand$term_en))
+})
+
+test_that("ordinary lower-case vocabulary is never dropped, even if always followed by the same word", {
+  # "control chart" here is always immediately followed by "before", so the
+  # trigram "control chart before" ties its frequency exactly -- but
+  # ordinary vocabulary must never be treated as a nested duplicate just
+  # because a small corpus happens to repeat the same next word every time.
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("Please inspect the control chart before the next shift.", 5))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_true("control chart" %in% tolower(cand$term_en))
+})
+
+test_that("a capitalised phrase is not swallowed by a sentence-initial article artifact", {
+  # .cap_phrases() can't tell a sentence-initial "The" from a genuine
+  # proper-noun-initial capital, so "The Widget Assembly Protocol" (a
+  # .cap_phrases() run) and "Widget Assembly Protocol" (the plain trigram)
+  # tie in frequency here. The former's only extra token is the article
+  # "The" -- capitalisation noise, not a real named-entity expansion -- so
+  # the latter, more useful candidate must survive.
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("The Widget Assembly Protocol was reviewed again.", 4))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_true("widget assembly protocol" %in% tolower(cand$term_en))
+})
+
+test_that("a name is never treated as containing its own possessive form", {
+  # .tokenize_plain() treats an apostrophe as part of the same word, so
+  # "Scherkenbach's" is one token, not "Scherkenbach" + "'s" -- "Bill
+  # Scherkenbach" must not be dropped as if it were "contained" in "Bill
+  # Scherkenbach's" merely because the apostrophe reads as a boundary. Each
+  # form recurs across two different trailing words so neither's total
+  # frequency ties any single trigram's (see the "Technical Aid"/"Technical
+  # Aids" test above for why that variation matters here).
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(c(
+    rep("We recall what Bill Scherkenbach taught us in Detroit.", 2),
+    rep("History remembers how Bill Scherkenbach guided the team.", 2),
+    rep("Later, Bill Scherkenbach's guidance proved essential.", 2),
+    rep("Indeed, Bill Scherkenbach's insight helped everyone.", 2)
+  ))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_true("bill scherkenbach" %in% tolower(cand$term_en))
+  expect_true("bill scherkenbach's" %in% tolower(cand$term_en))
+})
+
+test_that("nested-duplicate suppression on the real corpus never drops an independently-recurring term", {
+  segments <- glossary_segments(repo_root)
+  seed <- read.csv(file.path(repo_root, "glossary", "seed-terms.csv"), stringsAsFactors = FALSE)
+
+  cand <- discover_candidates(segments, seed, min_freq = 10)
+
+  # "control chart" recurs far more often on its own than inside any longer
+  # phrase containing it; suppression must never remove a term this common.
+  expect_true("control chart" %in% tolower(cand$term_en))
+})
+
+# ---------------------------------------------------------------------------
 # 6. Determinism and edge cases.
 # ---------------------------------------------------------------------------
 

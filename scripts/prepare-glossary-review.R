@@ -7,6 +7,11 @@
 # changes -- any decisions already recorded in the existing review file are
 # preserved by term_en, never clobbered.
 #
+# Also applies glossary/discovery-resolutions.csv, a curated table of
+# pre-resolved discovered candidates (proper nouns kept as-is, mechanical UI
+# copy safe to translate outright) so reviewer effort concentrates on
+# candidates that actually need a domain judgment call.
+#
 # Usage (from repo root):
 #   Rscript scripts/prepare-glossary-review.R
 
@@ -40,6 +45,13 @@ draft <- read.csv(
   stringsAsFactors = FALSE, fileEncoding = "UTF-8"
 )
 
+auto_resolutions_path <- file.path(repo_root, "glossary", "discovery-resolutions.csv")
+auto_resolutions <- if (file.exists(auto_resolutions_path)) {
+  read.csv(auto_resolutions_path, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+} else {
+  NULL
+}
+
 out_path <- file.path(repo_root, "glossary", "glossary-for-review.csv")
 existing <- if (file.exists(out_path)) {
   read.csv(out_path, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
@@ -47,7 +59,7 @@ existing <- if (file.exists(out_path)) {
   NULL
 }
 
-review <- prepare_review_glossary(draft, existing)
+review <- prepare_review_glossary(draft, existing, auto_resolutions)
 write_csv_utf8_bom(review, out_path)
 
 n_unresolved <- length(find_unresolved(review))
