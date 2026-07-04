@@ -23,7 +23,7 @@ write_csv_utf8_bom <- function(df, path) {
   con <- file(path, "wb")
   on.exit(close(con), add = TRUE)
   writeBin(as.raw(c(0xEF, 0xBB, 0xBF)), con)
-  writeBin(readBin(tmp, "raw", file.info(tmp)$size), con)
+  writeBin(readBin(tmp, "raw", file.size(tmp)), con)
 }
 
 .file_arg <- grep("^--file=", commandArgs(FALSE), value = TRUE)[1]
