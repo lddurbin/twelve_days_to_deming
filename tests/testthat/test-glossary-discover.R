@@ -78,6 +78,57 @@ test_that("a genuinely new recurring phrase is still discovered alongside an exc
 })
 
 # ---------------------------------------------------------------------------
+# 1b. Curated non-terminological exclusions (glossary/discovery-exclusions.csv).
+# ---------------------------------------------------------------------------
+
+#' Build a minimal exclusions data.frame matching discovery-exclusions.csv's schema.
+.mk_exclusions <- function(term_en) {
+  data.frame(term_en = term_en, reason = rep("test", length(term_en)), stringsAsFactors = FALSE)
+}
+
+test_that("a curated exclusion does not reappear as a discovered candidate", {
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("He told me the results a long while ago.", 5))
+  exclusions <- .mk_exclusions("told me")
+
+  cand <- discover_candidates(segments, seed, min_freq = 4, exclusions = exclusions)
+
+  expect_false("told me" %in% tolower(cand$term_en))
+})
+
+test_that("exclusion matching is case- and hyphen-insensitive, like seed exclusion", {
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("Effective decision-making relies on good data every time.", 5))
+  exclusions <- .mk_exclusions("Decision Making")
+
+  cand <- discover_candidates(segments, seed, min_freq = 4, exclusions = exclusions)
+
+  expect_false("decision making" %in% tolower(cand$term_en))
+})
+
+test_that("a candidate not in the exclusion list is still discovered", {
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("Please inspect the control chart before the next shift.", 5))
+  exclusions <- .mk_exclusions("told me")
+
+  cand <- discover_candidates(segments, seed, min_freq = 4, exclusions = exclusions)
+
+  expect_true("control chart" %in% tolower(cand$term_en))
+})
+
+test_that("a NULL or empty exclusions argument behaves exactly like the default", {
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("Please inspect the control chart before the next shift.", 5))
+
+  a <- discover_candidates(segments, seed, min_freq = 4)
+  b <- discover_candidates(segments, seed, min_freq = 4, exclusions = NULL)
+  c <- discover_candidates(segments, seed, min_freq = 4, exclusions = .mk_exclusions(character(0)))
+
+  expect_identical(a, b)
+  expect_identical(a, c)
+})
+
+# ---------------------------------------------------------------------------
 # 2. Every candidate: decision_needed = TRUE, blank fr_rendering (AC2).
 # ---------------------------------------------------------------------------
 
@@ -399,6 +450,96 @@ test_that("nested-duplicate suppression on the real corpus never drops an indepe
   # "control chart" recurs far more often on its own than inside any longer
   # phrase containing it; suppression must never remove a term this common.
   expect_true("control chart" %in% tolower(cand$term_en))
+})
+
+# ---------------------------------------------------------------------------
+# 5c. False adjacency across a stripped digit/punctuation gap.
+# ---------------------------------------------------------------------------
+
+test_that(".tokenize_bridged inserts a break where a digit/punctuation gap was stripped", {
+  # .tokenize_plain()'s regex only ever matches letter runs, so " 10. "
+  # between "Point" and "Eliminate" simply vanishes -- .tokenize_bridged()
+  # must mark that gap with NA instead of letting the words end up adjacent.
+  toks <- .tokenize_bridged("Point 10. Eliminate exhortations now.")
+
+  expect_true(is.na(toks[2]))
+  expect_identical(toks[-2], c("Point", "Eliminate", "exhortations", "now"))
+})
+
+test_that(".tokenize_bridged does not break on an ordinary whitespace-only gap", {
+  toks <- .tokenize_bridged("Eliminate exhortations now.")
+
+  expect_false(anyNA(toks))
+  expect_identical(toks, c("Eliminate", "exhortations", "now"))
+})
+
+test_that(".tokenize_bridged treats a bare hyphen as bridgeable, not a break", {
+  # .norm_term() already treats "common-cause" and "common cause" as the same
+  # term, so a hyphenated compound must tokenise adjacently like the
+  # space-separated form does -- it must NOT be mistaken for a stripped-digit
+  # gap the way "Point 10. Eliminate" is.
+  toks <- .tokenize_bridged("Effective decision-making relies on data.")
+
+  expect_false(anyNA(toks))
+  expect_identical(toks, c("Effective", "decision", "making", "relies", "on", "data"))
+})
+
+test_that("a hyphenated compound is still discovered as a bigram end-to-end", {
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("Effective decision-making relies on good data every time.", 5))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_true("decision making" %in% tolower(cand$term_en))
+})
+
+test_that("a heading's stripped point number never fabricates a bigram", {
+  # Real-corpus bug: "## Point 10. Eliminate exhortations ..." lost its "10."
+  # during tokenisation, leaving "Point" and "Eliminate" looking like a
+  # genuine adjacent bigram that never existed in the source text.
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(c(
+    rep("Point 10. Eliminate exhortations for the workforce.", 4),
+    rep("Point 11. Eliminate arbitrary numerical targets today.", 4)
+  ))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_false("point eliminate" %in% tolower(cand$term_en))
+  # The fix must not be a blunt hammer: a genuinely adjacent bigram either
+  # side of the stripped gap is still discovered.
+  expect_true("eliminate exhortations" %in% tolower(cand$term_en))
+})
+
+test_that("a table row's stripped cell numbers never fabricate a repeated-word bigram", {
+  # Real-corpus bug: "| Worker 1 | Worker 2 | Worker 3 |" lost its digits and
+  # pipes, leaving four adjacent "Worker" tokens that read as a recurring
+  # "Worker Worker" bigram.
+  seed <- .mk_seed(character(0), character(0))
+  segments <- .mk_segments(rep("| Worker 1 | Worker 2 | Worker 3 | Worker 4 |", 6))
+
+  cand <- discover_candidates(segments, seed, min_freq = 4)
+
+  expect_false("worker worker" %in% tolower(cand$term_en))
+})
+
+test_that(".cap_phrases breaks a capitalised run at a bridging NA instead of spanning it", {
+  # Without the NA, this is a single 5-token capitalised run (>= 4, so
+  # normally captured whole). The NA must split it into two runs of 2 and 3
+  # tokens, both below the length-4 cutoff, so neither survives.
+  toks <- c("Deming", "Point", NA, "Eliminate", "Fear", "Now")
+
+  expect_identical(.cap_phrases(toks), character(0))
+})
+
+test_that("known false-adjacency artifacts no longer appear when mining the real corpus", {
+  segments <- glossary_segments(repo_root)
+  seed <- read.csv(file.path(repo_root, "glossary", "seed-terms.csv"), stringsAsFactors = FALSE)
+
+  cand <- discover_candidates(segments, seed, min_freq = 5)
+
+  artifacts <- c("point eliminate", "point institute", "disease short", "step step", "worker worker")
+  expect_equal(sum(tolower(cand$term_en) %in% artifacts), 0L)
 })
 
 # ---------------------------------------------------------------------------
