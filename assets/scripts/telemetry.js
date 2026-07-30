@@ -28,11 +28,16 @@ const PAGE_PATH = /\/content\/days\/day-(\d+)\/(\d+)-[^/]+\.html$/;
 
 export function pageContext() {
   if (typeof window === "undefined") return { day: null, chapter: null };
-  var match = PAGE_PATH.exec(window.location.pathname);
+  const match = PAGE_PATH.exec(window.location.pathname);
   if (!match) return { day: null, chapter: null };
   return { day: Number(match[1]), chapter: Number(match[2]) };
 }
 
+// Loaded as type="module", which defers execution until after the document
+// has parsed — later than classic <script> tags in <head>, but always before
+// DOMContentLoaded. window.track/pageContext are safe to call from event
+// handlers (clicks, toggles) but not from a classic script's top-level body,
+// which can run before this assignment happens.
 if (typeof window !== "undefined") {
   window.track = track;
   window.pageContext = pageContext;

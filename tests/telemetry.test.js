@@ -18,6 +18,11 @@ describe("track", () => {
     expect(() => track("Notes downloaded")).not.toThrow();
   });
 
+  it("does not throw when window.sa_event is not a function", () => {
+    globalThis.window = { sa_event: null };
+    expect(() => track("Notes downloaded")).not.toThrow();
+  });
+
   it("does not throw when window.sa_event throws", () => {
     globalThis.window = {
       sa_event: () => { throw new Error("blocked"); },

@@ -38,10 +38,10 @@ format:
     header-includes: |
       <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://cdn.jsdelivr.net https://queue.simpleanalyticscdn.com;">
       <!--
-        Simple Analytics: cookieless, EU-hosted, honours Do Not Track by
-        default. data-collect-dnt is set explicitly to "false" (the actual
-        default) so the choice is visible here rather than implicit — this
-        site should undercount DNT readers rather than override their
+        Simple Analytics: cookieless, EU-hosted, honours Do Not Track (DNT)
+        by default. data-collect-dnt="false" is written here — rather than
+        left to that default — so the privacy stance is auditable in config:
+        this site should undercount DNT readers rather than override their
         preference. No <noscript> fallback pixel is added (JS-disabled
         readers are a rounding error here) — but img-src still needs
         queue.simpleanalyticscdn.com regardless, because latest.js sends
