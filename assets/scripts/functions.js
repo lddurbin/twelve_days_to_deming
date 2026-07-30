@@ -1,3 +1,5 @@
+import { track, pageContext } from "./telemetry.js";
+
 export function createDownloadButton(inputs, fileName) {
   const button = document.createElement("button");
   button.className = "btn btn-primary";
@@ -20,6 +22,7 @@ export function downloadNotes(inputs, fileName) {
 
   triggerDownload(url, fileName);
   cleanupUrl(url);
+  track("Notes downloaded", pageContext());
 }
 
 function combineInputValues(inputs) {

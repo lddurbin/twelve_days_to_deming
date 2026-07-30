@@ -42,3 +42,26 @@ if (typeof window !== "undefined") {
   window.track = track;
   window.pageContext = pageContext;
 }
+
+// ============================================================
+// Commentary reveals — one delegated listener covers all 16
+// "Pause for Thought" buttons across the site, so a new reveal
+// button in a future chapter needs no per-page JS to be tracked.
+// ============================================================
+
+// Quarto's own sidebar TOC also uses [data-bs-toggle="collapse"] for its
+// collapsible sections, so the selector must key on the "#collapse_" target
+// naming convention shared by all 16 reveal buttons — not the bare
+// data-bs-toggle attribute, which would also fire on sidebar navigation.
+const REVEAL_SELECTOR = '[data-bs-toggle="collapse"][data-bs-target^="#collapse_"]';
+
+export function handleCommentaryReveal(event) {
+  const button = event.target.closest(REVEAL_SELECTOR);
+  if (!button) return;
+  const activity = button.getAttribute("data-bs-target").replace(/^#collapse_/, "");
+  track("Commentary revealed", { ...pageContext(), activity });
+}
+
+if (typeof document !== "undefined") {
+  document.addEventListener("click", handleCommentaryReveal);
+}

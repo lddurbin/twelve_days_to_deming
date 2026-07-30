@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { track, pageContext } from "../assets/scripts/telemetry.js";
+import { track, pageContext, handleCommentaryReveal } from "../assets/scripts/telemetry.js";
 
 // ---------------------------------------------------------------------------
 // track
@@ -76,5 +76,44 @@ describe("pageContext", () => {
       location: { pathname: "/content/days/day-12/06-activity-12d.html" },
     };
     expect(pageContext()).toEqual({ day: 12, chapter: 6 });
+  });
+});
+
+// ---------------------------------------------------------------------------
+// handleCommentaryReveal
+// ---------------------------------------------------------------------------
+describe("handleCommentaryReveal", () => {
+  afterEach(() => {
+    delete globalThis.window;
+  });
+
+  it("does nothing when the click did not land on a reveal button", () => {
+    // closest() returning null covers both "clicked elsewhere" and "clicked
+    // a non-reveal collapse toggle" (e.g. Quarto's own sidebar TOC sections,
+    // which also carry data-bs-toggle="collapse" but don't match the
+    // "#collapse_" target-id convention the real selector requires).
+    const sa_event = vi.fn();
+    globalThis.window = { sa_event };
+    handleCommentaryReveal({ target: { closest: () => null } });
+    expect(sa_event).not.toHaveBeenCalled();
+  });
+
+  it("fires Commentary revealed with day, chapter and the activity id", () => {
+    const sa_event = vi.fn();
+    globalThis.window = {
+      sa_event,
+      location: {
+        pathname: "/content/days/day-03/01-variation-the-enemy-of-quality.html",
+      },
+    };
+    const button = {
+      getAttribute: (name) => (name === "data-bs-target" ? "#collapse_3a" : null),
+    };
+    handleCommentaryReveal({ target: { closest: () => button } });
+    expect(sa_event).toHaveBeenCalledWith("Commentary revealed", {
+      day: 3,
+      chapter: 1,
+      activity: "3a",
+    });
   });
 });
