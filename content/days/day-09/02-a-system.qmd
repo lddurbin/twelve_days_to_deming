@@ -1,5 +1,9 @@
 ---
 title: "A SYSTEM ..."
+# Covers both this chapter and the preceding "introduction" chapter: the
+# source outline lists both under the same 9:00 clock (see day-09-brief.yml),
+# so introduction has no distinguishable gap of its own to set.
+session_minutes: 30
 execute:
   echo: false
 ---
