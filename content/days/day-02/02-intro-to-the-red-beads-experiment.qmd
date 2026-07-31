@@ -1,5 +1,6 @@
 ---
 title: "INTRODUCTION TO THE RED BEADS EXPERIMENT"
+session_minutes: 45
 execute:
   echo: false
 ---

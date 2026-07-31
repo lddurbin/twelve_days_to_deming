@@ -527,9 +527,11 @@ session_minutes: 35
 
 - If `session_minutes` differs from the reading estimate by more than
   1 min, render both side-by-side:
-  `~ 7 min reading · ~ 35 min recommended`. The aria-label becomes
-  *"Estimated reading time and the author's recommended time including
-  reflection and activities."*
+  `~ 7 min reading · ~ 35 min at Neave's pace`. The aria-label (and the
+  matching `title` tooltip) becomes *"About 7 minutes to read the text.
+  Dr Neave's course allows about 35 minutes for this section, including
+  reflection and activities."* The visible text says "Neave" for
+  compactness; the tooltip says "Dr Neave", matching prose style.
 - If the difference is within ±1 min, the values are within the
   combined rounding noise (our `ceil` on one side, Neave's 5-min
   clock granularity on the other) — collapse to the single-number
@@ -537,6 +539,60 @@ session_minutes: 35
   neither number has.
 - If `session_minutes` is unset, fall back to today's behaviour
   (`~ N min reading [+ activities]`).
+
+Don't reword the indicator to "recommended" or any other unattributed
+term. A live cohort participant asked what the second number meant, and
+naming Neave is what fixed it — the previous wording left both the
+source of the figure and the reason for the gap unstated.
+
+#### `session_minutes_stats0` — the second clock column
+
+Days 2 and 3 print **two** columns of clocks per page: the left column
+paces readers who self-classified as Stats-level 0 in `welcome.qmd`,
+the right paces Stats-levels 1–3. The right-hand ("read everything")
+track is the one that becomes `session_minutes`, because the site
+renders Neave's full text for every reader — Stats-level 0 is only
+invited *in the prose* to skip ahead, there's no site-side branching.
+
+Set `session_minutes_stats0:` only where the two tracks yield a
+**different** session length:
+
+```yaml
+---
+title: "..."
+session_minutes: 45
+session_minutes_stats0: 30
+---
+```
+
+Renders as
+`~ 12 min reading · ~ 45 min at Neave's pace (~ 30 min on Stats-level 0)`.
+
+Expect this to be rare. A constant wall-clock offset between the two
+columns cancels out of a *gap* between consecutive clocks, so the two
+tracks agree wherever Stats-level 0 doesn't actually diverge from the
+main path. On Day 2 they agree on 6 of the 8 settable chapters; only
+`05-the-truth-the-whole-truth-and-nothing-but` (45 vs 30 — Stats-level
+0 skips the three Technical Aids) and `07-some-recollections` (105 vs
+90 — Stats-level 0 looks control limits up in the Appendix rather than
+computing them) carry the field. Compute both tracks before assuming a
+chapter needs it.
+
+Two guards, both in `filters/reading-time.lua`:
+
+- The value is ignored unless it differs from `session_minutes` by more
+  than 1 min — same rounding-noise threshold as the primary collapse.
+- The parenthetical only renders when the two-number form itself
+  renders. If `session_minutes` collapsed into the single-number form,
+  the Stats-level 0 figure is suppressed too rather than appearing
+  beside a number that isn't shown.
+
+Use the fixed "Stats-level 0" label rather than a per-chapter free-text
+note. The two Day 2 chapters diverge for genuinely different reasons
+(one skips content, one doesn't), so any specific phrasing would be
+wrong on one of them — and Neave's own term is accurate for both. It
+also keeps the string in the filter beside the other UI copy instead of
+putting untranslated English prose into front-matter.
 
 The two numbers are framed as **independent measures**, not as a
 bracket or an additive pair. `session_minutes` may be lower than the
@@ -552,6 +608,13 @@ weight.
 - The chapter has a clock anchor *and* the next anchor (or the next
   chapter's first anchor) is in the same continuous sitting — then
   `session_minutes` = next anchor − this anchor, in minutes.
+- The chapter is the day's *last* chapter and a reliable day-end clock
+  exists (the day's own printed closing time, or a clock reading
+  explicitly marking the end of the day) — then `session_minutes` =
+  day-end time − this chapter's opening clock, using the day-end time
+  in place of a next chapter's opening clock. (Precedent: Day 2's
+  `postscript`, opens 4:30pm, day ends 5:00pm → `session_minutes: 30`
+  — see `workflow/briefs/day-02-brief.yml`.)
 - The clock data is editorially trustworthy (not a transcription artefact;
   not spanning a meal break).
 
@@ -564,8 +627,9 @@ weight.
 - The clock data is broken (e.g. all `12:00` placeholders).
 - The gap spans a lunch or end-of-day break — the gap-time wouldn't
   reflect time-on-task.
-- The chapter has the last clock of the day (no next anchor to measure
-  against).
+- The chapter has the last clock of the day *and* no reliable day-end
+  anchor exists to substitute for a next chapter's opening clock (see
+  the day-end exception above).
 - Two chapters' opening content sits under the same outline-page clock
   line (the outline's granularity is coarser than the qmd chapter
   split in places) — the earlier chapter has no measurable gap to set.

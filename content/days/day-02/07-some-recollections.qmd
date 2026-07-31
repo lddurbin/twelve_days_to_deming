@@ -1,5 +1,10 @@
 ---
 title: "SOME RECOLLECTIONS"
+session_minutes: 105
+# Stats-level 0 readers look the control limits up in the Appendix
+# rather than computing them — 15 min less on Neave's clocks. Nothing
+# is skipped here, unlike chapter 05.
+session_minutes_stats0: 90
 execute:
   echo: false
   warning: false

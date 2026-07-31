@@ -1,5 +1,6 @@
 ---
 title: "A BRIEF OVERVIEW"
+session_minutes: 10
 execute:
   echo: false
 ---
