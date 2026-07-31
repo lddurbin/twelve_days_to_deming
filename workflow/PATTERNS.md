@@ -574,7 +574,13 @@ weight.
   reading and pixel-angle analysis (the latter is also undermined by
   contamination from adjacent icons in a tightly-packed column; see
   `workflow/briefs/day-09-brief.yml`'s clock-extraction pilot notes).
-  Don't guess a value just because a line item exists on the outline.
+  Don't guess a value just because a line item exists on the outline —
+  but don't give up on it either: crop the specific icon (same
+  `magick -crop` workflow used for the confident reads), name the
+  source PNG and which outline/chapter line it belongs to, and ask
+  Lee to read it and report back. A human read is just as trustworthy
+  as a confident automated one; only leave the anchor unset if that
+  check is declined or still comes back ambiguous.
 
 `session_minutes` is editorial, not estimated — only encode it when
 Neave's source supports it. Day 1 is fully clocked from data already in
