@@ -39,4 +39,4 @@ A small set of pa11y rules are suppressed in `.pa11yci.json` — chiefly framewo
 
 ## What's still to come
 
-Planned improvements are tracked on GitHub under the [accessibility label](https://github.com/lddurbin/twelve_days_to_deming/issues?q=is%3Aissue+is%3Aopen+label%3Aaccessibility). Current priorities include long-descriptions for the statistical charts across Days 4–12, a per-chapter text-to-speech control, and an estimated reading-time indicator.
+Planned improvements are tracked on GitHub under the [accessibility label](https://github.com/lddurbin/twelve_days_to_deming/issues?q=is%3Aissue+is%3Aopen+label%3Aaccessibility). Current priorities include long-descriptions for the statistical charts across Days 4–12 and a per-chapter text-to-speech control.

@@ -557,7 +557,10 @@ weight.
 
 **When to leave it unset:**
 
-- No clock anchors in the source for that chapter.
+- No clock anchors transcribed yet for that chapter. (Neave's source PDFs carry clock
+  anchors throughout Days 2-12 too — see the per-day "Outline of Today's Work" page and
+  in-body corner clocks in `12-Days-to-Deming/PNGs/` — they just haven't all been read into
+  the qmd files yet. "Unset" means "not yet transcribed," not "doesn't exist in the source.")
 - The clock data is broken (e.g. all `12:00` placeholders).
 - The gap spans a lunch or end-of-day break — the gap-time wouldn't
   reflect time-on-task.
