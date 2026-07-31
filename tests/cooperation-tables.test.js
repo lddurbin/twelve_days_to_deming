@@ -4,7 +4,7 @@ import { track, pageContext } from "../assets/scripts/telemetry.js";
 
 vi.mock("../assets/scripts/telemetry.js", () => ({
   track: vi.fn(),
-  pageContext: vi.fn(() => ({ day: 8, chapter: 4 })),
+  pageContext: vi.fn(() => ({ day: 8, chapter: 6 })),
 }));
 
 // A minimal fake container: only the ".rating-cell:not(.own-area)" query needs
@@ -50,7 +50,7 @@ describe("attachRatingClicks", () => {
     attachRatingClicks(makeContainer([cell]), ["Sales", "Admin"]);
     cell._handlers.click();
     expect(track).toHaveBeenCalledTimes(1);
-    expect(track).toHaveBeenCalledWith("Cooperation table used", { day: 8, chapter: 4 });
+    expect(track).toHaveBeenCalledWith("Cooperation table used", { day: 8, chapter: 6 });
   });
 
   it("fires on keyboard activation (Enter/Space) as well as click", () => {
