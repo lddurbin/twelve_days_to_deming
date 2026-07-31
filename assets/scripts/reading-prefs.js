@@ -11,6 +11,18 @@
     } catch (e) { /* localStorage may be disabled */ }
   }
 
+  // reading-prefs.js is a classic (non-module) script, so it can't `import`
+  // telemetry.js the way the OJS-loaded modules do — it reaches the same
+  // functions via window.track/window.pageContext, which telemetry.js
+  // deliberately exposes there for exactly this case.
+  function trackEvent(name, extra) {
+    if (typeof window.track !== "function") return;
+    var ctx = typeof window.pageContext === "function" ?
+      window.pageContext() : { day: null, chapter: null };
+    for (var key in extra || {}) { ctx[key] = extra[key]; }
+    window.track(name, ctx);
+  }
+
   function fontIsEnabled() {
     return safeGet(FONT_KEY) === "1";
   }
@@ -101,7 +113,13 @@
     document.body.appendChild(panel);
     // Set the mailto after insertion so the long encoded URL doesn't have to be
     // escaped inside the innerHTML template above.
-    panel.querySelector(".reading-prefs-feedback-link").href = feedbackHref();
+    var feedbackLink = panel.querySelector(".reading-prefs-feedback-link");
+    feedbackLink.href = feedbackHref();
+    // No preventDefault anywhere in this handler, so the mailto navigation is
+    // never delayed or blocked by tracking.
+    feedbackLink.addEventListener("click", function () {
+      trackEvent("Feedback email opened");
+    });
 
     var themeBtn = panel.querySelector('[data-pref="theme"]');
     var themeState = panel.querySelector("#reading-prefs-theme-state");
@@ -120,6 +138,7 @@
       applyFont(on);
       fontBtn.setAttribute("aria-pressed", on ? "true" : "false");
       fontState.textContent = on ? "On" : "Off";
+      trackEvent("Dyslexia font toggled", { on: on });
     });
 
     return { trigger: trigger, panel: panel };
