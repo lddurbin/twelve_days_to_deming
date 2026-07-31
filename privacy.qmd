@@ -1,0 +1,28 @@
+---
+title: "Privacy"
+execute:
+  echo: false
+---
+
+This page explains what this site collects about your visit, and what it deliberately doesn't. If anything below is unclear, email me at [hello@leedurbin.co.nz](mailto:hello@leedurbin.co.nz) or [open an issue on GitHub](https://github.com/lddurbin/twelve_days_to_deming/issues).
+
+## Analytics
+
+This site uses [Simple Analytics](https://www.simpleanalytics.com/) to see, in aggregate, which pages get read. It's built to collect as little as possible:
+
+- **No cookies.** Simple Analytics doesn't set any, so no cookie banner is needed.
+- **EU-hosted**, outside the advertising-data ecosystem that most mainstream analytics tools sit inside.
+- **No personal data.** It records that a page was viewed, not who viewed it — there's no identifier that ties one of your visits to the next.
+- **Honours Do Not Track.** If your browser sends a Do Not Track signal, Simple Analytics drops your visit entirely rather than collecting a reduced version of it. That's a deliberate choice on this site's part, not the vendor's default behaviour on its own — it means the numbers I see slightly undercount real readers, which I'd rather have than override anyone's stated preference.
+
+A small number of named actions on this site — for example, opening the feedback email link or turning on the dyslexia-friendly font — are also sent to Simple Analytics as events, so I can tell whether specific features are actually being used. These events carry no more identifying information than a page view does.
+
+## What stays on your device
+
+Your reading preferences — light/dark theme and the dyslexia-friendly font toggle — are saved with your browser's `localStorage`, not sent to me or anyone else. The same is true of your progress through the Day 3 funnel experiment, if you've used it. This data lives only in your browser and is used only to restore your preferences and progress the next time you open the site.
+
+Clearing your browser's site data for this page (or using it in a private/incognito window) resets all of it.
+
+## Why any of this exists at all
+
+This course spends a full day on the danger of managing by numbers you don't understand, so I'm cautious about instrumenting the site that teaches it. The intent here is narrow: find out where readers get stuck or drop off, and check whether the accessibility features are actually being used — not to build a dashboard for its own sake.

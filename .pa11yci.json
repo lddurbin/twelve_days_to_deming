@@ -15,6 +15,7 @@
   },
   "urls": [
     "http://localhost:8765/",
+    "http://localhost:8765/privacy.html",
     "http://localhost:8765/content/appendix/glossary.html",
     "http://localhost:8765/content/appendix/00-welcome.html",
     "http://localhost:8765/content/appendix/01-day-1.html",
