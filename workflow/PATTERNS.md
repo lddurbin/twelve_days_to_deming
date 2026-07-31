@@ -547,12 +547,18 @@ source of the figure and the reason for the gap unstated.
 
 #### `session_minutes_stats0` — the second clock column
 
-Days 2 and 3 print **two** columns of clocks per page: the left column
-paces readers who self-classified as Stats-level 0 in `welcome.qmd`,
-the right paces Stats-levels 1–3. The right-hand ("read everything")
-track is the one that becomes `session_minutes`, because the site
-renders Neave's full text for every reader — Stats-level 0 is only
-invited *in the prose* to skip ahead, there's no site-side branching.
+Day 2 prints **two** columns of clocks per page: the left column paces
+readers who self-classified as Stats-level 0 in `welcome.qmd`, the
+right paces Stats-levels 1–3. The right-hand ("read everything") track
+is the one that becomes `session_minutes`, because the site renders
+Neave's full text for every reader — Stats-level 0 is only invited *in
+the prose* to skip ahead, there's no site-side branching.
+
+Day 3 is the other day carrying Stats-level forks in its prose, so it
+may well have two columns too — but that is **unverified**. The only
+Day 3 observation actually on record is a clock-and-arrow *wayfinding*
+icon, explicitly noted as not a pacing clock. Confirm against the
+source when Day 3's clocks are dictated rather than assuming.
 
 Set `session_minutes_stats0:` only where the two tracks yield a
 **different** session length:

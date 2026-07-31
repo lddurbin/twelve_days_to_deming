@@ -153,11 +153,11 @@ local function indicator_block(minutes, has_activity, session_minutes, stats0_mi
       "About %d minutes to read the text. Dr Neave's course allows about %d minutes for this section, including reflection and activities.",
       minutes, session_minutes
     )
-    -- Days 2-3 print two clock columns — one for readers on
-    -- Stats-level 0, one for Stats-level 1-3 — so some chapters carry
-    -- a second budget. Most chapters' two tracks yield the same
-    -- session length (a constant wall-clock offset cancels out of a
-    -- gap), so this only renders where the numbers genuinely diverge.
+    -- Day 2 prints two clock columns — one for readers on Stats-level
+    -- 0, one for Stats-level 1-3 — so some chapters carry a second
+    -- budget. Most chapters' two tracks yield the same session length
+    -- (a constant wall-clock offset cancels out of a gap), so this
+    -- only renders where the numbers genuinely diverge.
     if stats0_minutes and math.abs(stats0_minutes - session_minutes) > 1 then
       body = body .. string.format(
         " (~ %d min on Stats-level 0)", stats0_minutes

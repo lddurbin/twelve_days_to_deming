@@ -2,8 +2,11 @@
 title: "CHAPTER TITLE HERE"
 # Optional: set when Neave's source has a clock-budget for this chapter.
 # session_minutes: 35
-# Optional, Days 2-3 only: the Stats-level 0 clock column's budget, set
-# only where it differs from the value above. See PATTERNS.md.
+# Optional (Day 2 today; possibly Day 3 once its clocks are read): the
+# Stats-level 0 clock column's budget. Set only where it differs from
+# the value above by more than 1 min — and note it only renders when
+# session_minutes itself renders the two-number form, so it shows
+# nothing on a chapter whose session_minutes collapsed. See PATTERNS.md.
 # session_minutes_stats0: 30
 execute:
   echo: false
