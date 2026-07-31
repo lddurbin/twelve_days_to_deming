@@ -577,12 +577,13 @@ weight.
   Don't guess a value just because a line item exists on the outline.
 
 `session_minutes` is editorial, not estimated — only encode it when
-Neave's source supports it. Day 1 is fully clocked; Day 9 has two
-chapters clocked so far (`a-system`, `activity-9c-and-organisation-charts`)
-as a first pilot of reading clocks from the source PNGs directly — see
-`workflow/briefs/day-09-brief.yml` for the raw reads and confidence
-notes. Most other days still leave the field unset and render with the
-existing one-number indicator.
+Neave's source supports it. Day 1 is fully clocked from data already in
+qmd history; other days are being clocked incrementally by reading
+Neave's clock icons directly from the source PNGs, day by day — each
+day's own brief (`workflow/briefs/day-XX-brief.yml`) is the source of
+truth for which of its chapters have a trustworthy value and why, so
+that record isn't duplicated here. Most days still leave the field
+unset and render with the existing one-number indicator.
 
 ---
 
