@@ -1,5 +1,6 @@
 ---
 title: "MAJOR ACTIVITY"
+session_minutes: 60
 execute:
   echo: false
 ---

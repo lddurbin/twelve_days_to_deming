@@ -1,5 +1,6 @@
 ---
 title: "POSTSCRIPT"
+session_minutes: 30
 execute:
   echo: false
 ---

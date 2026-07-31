@@ -1,5 +1,6 @@
 ---
 title: "OUR FIRST CONTROL CHART"
+session_minutes: 25
 execute:
   echo: false
 ---

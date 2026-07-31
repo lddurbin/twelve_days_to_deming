@@ -1,5 +1,6 @@
 ---
 title: "RUN CHARTS"
+session_minutes: 35
 execute:
   echo: false
 ---

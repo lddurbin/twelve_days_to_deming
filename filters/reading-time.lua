@@ -121,8 +121,8 @@ local function html_escape(s)
   }))
 end
 
-local function read_session_minutes(meta)
-  local v = meta and meta.session_minutes
+local function read_minutes_field(meta, key)
+  local v = meta and meta[key]
   if v == nil then return nil end
   local s = pandoc.utils.stringify(v)
   local n = tonumber(s)
@@ -130,12 +130,14 @@ local function read_session_minutes(meta)
   return nil
 end
 
-local function indicator_block(minutes, has_activity, session_minutes)
+local function indicator_block(minutes, has_activity, session_minutes, stats0_minutes)
   -- The two numbers measure different things — our reading metric is
   -- a literal text-throughput floor at 200 wpm, while session_minutes
   -- is the author's editorial allocation including reflection and
   -- activities. Render them side-by-side as independent measures, not
-  -- as a bracket or an additive pair.
+  -- as a bracket or an additive pair. The wording names Neave rather
+  -- than saying "recommended", which left both the source and the
+  -- reason for the gap unstated.
   --
   -- Collapse to the single-number form when the two values are within
   -- 1 min of each other: ceil rounding on our side and Neave's 5-min
@@ -144,10 +146,27 @@ local function indicator_block(minutes, has_activity, session_minutes)
   local body, label
   if session_minutes and math.abs(session_minutes - minutes) > 1 then
     body = string.format(
-      "~ %d min reading &middot; ~ %d min recommended",
+      "~ %d min reading &middot; ~ %d min at Neave&rsquo;s pace",
       minutes, session_minutes
     )
-    label = "Estimated reading time and the author's recommended time including reflection and activities"
+    label = string.format(
+      "About %d minutes to read the text. Dr Neave's course allows about %d minutes for this section, including reflection and activities.",
+      minutes, session_minutes
+    )
+    -- Day 2 prints two clock columns — one for readers on Stats-level
+    -- 0, one for Stats-level 1-3 — so some chapters carry a second
+    -- budget. Most chapters' two tracks yield the same session length
+    -- (a constant wall-clock offset cancels out of a gap), so this
+    -- only renders where the numbers genuinely diverge.
+    if stats0_minutes and math.abs(stats0_minutes - session_minutes) > 1 then
+      body = body .. string.format(
+        " (~ %d min on Stats-level 0)", stats0_minutes
+      )
+      label = string.format(
+        "About %d minutes to read the text. Dr Neave's course allows about %d minutes for this section — about %d minutes on Stats-level 0 — including reflection and activities.",
+        minutes, session_minutes, stats0_minutes
+      )
+    end
   elseif session_minutes then
     -- Within rounding noise — show the reading metric only.
     -- Omit the "+ activities" suffix even when has_activity is true:
@@ -162,9 +181,12 @@ local function indicator_block(minutes, has_activity, session_minutes)
       and "Estimated reading time; this chapter also contains activities that add time"
       or "Estimated reading time"
   end
-  -- `body` is composed entirely of integer-formatted values plus the
-  -- static `&middot;` HTML entity, so it is intentionally not run
-  -- through html_escape. Only `label` carries free-form text.
+  -- `body` is composed entirely of integer-formatted values plus
+  -- static literals and HTML entities (`&middot;`, `&rsquo;`), so it
+  -- is intentionally not run through html_escape — doing so would
+  -- double-escape those entities. Only `label` carries free-form text.
+  -- Keep it that way: any front-matter-sourced string reaching `body`
+  -- would need escaping first.
   local html = string.format(
     '<p class="reading-time" aria-label="%s" title="%s">%s</p>',
     html_escape(label), html_escape(label), body
@@ -178,14 +200,15 @@ function Pandoc(doc)
 
   local minutes = math.max(1, math.ceil(words / WPM))
   local has_activity = detect_activity(doc.blocks)
-  local session_minutes = read_session_minutes(doc.meta)
+  local session_minutes = read_minutes_field(doc.meta, "session_minutes")
+  local stats0_minutes = read_minutes_field(doc.meta, "session_minutes_stats0")
   local out = pandoc.List()
   local inserted = false
 
   for _, b in ipairs(doc.blocks) do
     out:insert(b)
     if not inserted and b.t == "Header" and b.level == 1 then
-      out:insert(indicator_block(minutes, has_activity, session_minutes))
+      out:insert(indicator_block(minutes, has_activity, session_minutes, stats0_minutes))
       inserted = true
     end
   end
@@ -193,7 +216,7 @@ function Pandoc(doc)
   -- If no H1 is present in the body (Quarto renders title from YAML),
   -- inject at the very top so it still appears under the page title.
   if not inserted then
-    out:insert(1, indicator_block(minutes, has_activity, session_minutes))
+    out:insert(1, indicator_block(minutes, has_activity, session_minutes, stats0_minutes))
   end
 
   doc.blocks = out

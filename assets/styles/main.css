@@ -1144,6 +1144,13 @@ button:focus,
   font-size: 0.9rem;
   color: var(--bs-secondary-color, #6c757d);
   font-style: italic;
+  /* The longest form of this indicator — reading time, Neave's pace,
+     and a Stats-level 0 parenthetical — runs ~70 characters and wraps
+     to two or three lines on a phone. Let it wrap: `nowrap` would push
+     the page into horizontal scroll, which is worse than a wrapped
+     subtitle. `pretty` just discourages a lone orphaned word on the
+     last line, and is ignored where unsupported. */
+  text-wrap: pretty;
 }
 
 @media print {

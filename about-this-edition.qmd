@@ -39,12 +39,16 @@ The most visible change is that the printable Workbook — Dr Neave's original r
 
 ## Reading-time indicator
 
-Under most chapter titles you'll see a small note like *"~ 6 min reading"* or *"~ 6 min reading · ~ 20 min recommended."* These measure two different things:
+Under most chapter titles you'll see a small note like *"~ 6 min reading"* or *"~ 6 min reading · ~ 20 min at Neave's pace."* These measure two different things:
 
 - **Reading time** is a plain word count divided by an average reading speed. It only tells you how long the prose takes to read.
-- **Recommended time**, when it's shown, is Dr Neave's own guidance for that section, taken from timing notes in his original course material, and includes reflection, activities, and time spent on figures — not just reading.
+- **At Neave's pace**, when it's shown, is Dr Neave's own timing for that section, read from the clock faces printed in the margins of his original course material. It's how long he allowed a room of course participants to spend there — so it covers reflection, activities, and time on the figures, not just reading the words.
 
-Most chapters currently show reading time only, with no recommended figure. That isn't a signal that the two are roughly equal — it's simply that the recommended-time data for that part of the course hasn't been transcribed into the site yet. Day 1 is fully covered today; the rest of the course will gain recommended times as that transcription work continues. Treat a bare reading-time figure as a floor on how long the chapter will take, not a full estimate.
+The two numbers can differ a lot in either direction, and that's the point: a short passage Dr Neave wanted you to sit with for half an hour tells you something a word count can't.
+
+On Day 2 you may also see a third figure, like *"(~ 30 min on Stats-level 0)"*. Dr Neave printed two columns of clocks on those pages — one pace for readers who chose Stats-level 0 back in the [Welcome](welcome.qmd), another for those on Stats-levels 1 to 3. The two paces are the same for most chapters; where they differ, both are shown.
+
+Most chapters currently show reading time only, with no second figure. That isn't a signal that the two are roughly equal — it's simply that Dr Neave's timings for that part of the course haven't been transcribed into the site yet. Days 1 and 2 are covered today; the rest of the course will follow as that work continues. Treat a bare reading-time figure as a floor on how long the chapter will take, not a full estimate.
 
 ## Thanks
 

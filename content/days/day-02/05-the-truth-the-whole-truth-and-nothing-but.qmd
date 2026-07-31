@@ -1,5 +1,9 @@
 ---
 title: "THE TRUTH, THE WHOLE TRUTH, AND NOTHING BUT ..."
+session_minutes: 45
+# Stats-level 0 readers are invited to skip the three Technical Aids
+# (see the note before Technical Aid 1) — 15 min less on Neave's clocks.
+session_minutes_stats0: 30
 execute:
   echo: false
 ---

@@ -112,11 +112,17 @@ chapters:
 
   - slug: "postscript"
     title: "POSTSCRIPT"
-    pages: "40"
+    pages: "40-44"
     notes: |
       Brief closing section. Spanish Red Beads Experiment results
       table (postscript-table.png). No interactive elements. No
-      workbook callout. Final page of Day 2 content.
+      workbook callout. Final chapter of Day 2 content.
+
+      Correction (2026-08-01): pages 41-44 are NOT missing/blank as
+      a previous note here claimed — this chapter already includes
+      Dave Kerr's "Wrap-Up Brief" pointer (p43) and an "Out-of-hours"
+      note previewing Day 3's Funnel Experiment prep (p43-44). The
+      chapter's true page range is 40-44, not just 40.
     interactive: "none"
 
 # ------ Figure Decisions ------
@@ -181,6 +187,156 @@ figures:
     action: "existing"
     notes: "Spanish Red Beads Experiment results → postscript-table.png"
 
+# ------ Clock Reads (dictated by Lee from the original book, 2026-08-01) ------
+# Raw pacing-clock reads, dictated directly from the source pages rather
+# than extracted from the outline page — the outline page's clock column
+# turned out to be a shared decorative template, not real per-day data
+# (see issue #471 and project memory project_clock_extraction_paused.md).
+# Page numbers are printed page numbers, matching the chapter `pages:`
+# ranges above. Two clock columns run throughout Day 2: left column =
+# Stats-level 0, right column = Stats-level 1-3 (Stats-level 0 skips the
+# "technical aids" content, hence the occasional duplicate time between
+# columns). Validated against the day's printed time range
+# (9.15am-12.45pm; 1.45pm-4.45pm): p1 top = 9:15am (day start), p27
+# bottom = 12:45pm (morning end), p28 top = 1:45pm (afternoon start),
+# p43 middle = 4:45pm (day end) — all match exactly.
+#
+# Cross-track validation: Stats-level 1-3 starts 15 min earlier
+# (9:00am vs 9:15am) and runs a stable +15 min ahead of Stats-level 0
+# through p16 — consistent with reading extra content Stats-level 0
+# skips. At p20 (technical aids), Stats-level 0's lead is fully
+# absorbed: both tracks land on the exact same absolute times from
+# p22 through p27 (lunch), matching at 12:45pm exactly. Both restart
+# together at 1:45pm, then Stats-level 1-3 gradually re-opens a 15 min
+# gap through the afternoon, ending at 5:00pm vs 4:45pm — mirroring
+# the morning's gap exactly. This coherent, explicable pacing pattern
+# (not naive repetition) is further evidence these are real per-day
+# reads, not template artifacts. p23 bottom initially seemed to
+# mismatch (12:10pm vs 12:05pm) but Lee re-checked the source and
+# confirmed both clocks read 12:05pm — corrected below.
+clock_reads:
+  stats_level_0:
+    - { page: 1,  position: "top",    time: "9:15am" }
+    - { page: 4,  position: "bottom", time: "9:40am" }
+    - { page: 6,  position: "bottom", time: "9:50am" }
+    - { page: 7,  position: "bottom", time: "10:10am" }
+    - { page: 8,  position: "bottom", time: "10:20am" }
+    - { page: 11, position: "bottom", time: "10:35am" }
+    - { page: 13, position: "bottom", time: "10:45am" }
+    - { page: 16, position: "bottom", time: "11:10am" }
+    - { page: 20, position: "middle", time: "11:40am" }
+    - { page: 22, position: "top",    time: "11:40am", notes: "same time as p20 middle — Stats-level 0 skips the technical aids section" }
+    - { page: 22, position: "middle", time: "11:55am" }
+    - { page: 23, position: "bottom", time: "12:05pm" }
+    - { page: 25, position: "bottom", time: "12:20pm" }
+    - { page: 26, position: "bottom", time: "12:30pm" }
+    - { page: 27, position: "bottom", time: "12:45pm", notes: "end of morning session" }
+    - { page: 28, position: "top",    time: "1:45pm",  notes: "start of afternoon session" }
+    - { page: 31, position: "bottom", time: "2:05pm" }
+    - { page: 33, position: "bottom", time: "2:20pm" }
+    - { page: 34, position: "bottom", time: "2:35pm" }
+    - { page: 36, position: "bottom", time: "2:45pm" }
+    - { page: 37, position: "bottom", time: "3:00pm" }
+    - { page: 38, position: "middle", time: "3:15pm" }
+    - { page: 38, position: "bottom", time: "3:30pm" }
+    - { page: 40, position: "bottom", time: "4:15pm" }
+    - { page: 41, position: "bottom", time: "4:35pm" }
+    - { page: 43, position: "middle", time: "4:45pm", notes: "just before the Out of Hours section; day end" }
+  stats_level_1_3:
+    - { page: 1,  position: "top",    time: "9:00am" }
+    - { page: 4,  position: "bottom", time: "9:25am" }
+    - { page: 6,  position: "bottom", time: "9:35am" }
+    - { page: 7,  position: "bottom", time: "9:50am" }
+    - { page: 8,  position: "bottom", time: "10:05am" }
+    - { page: 11, position: "bottom", time: "10:20am" }
+    - { page: 13, position: "bottom", time: "10:30am" }
+    - { page: 16, position: "bottom", time: "10:55am" }
+    - { page: 20, position: "middle", time: "11:25am", notes: "just before the technical aids" }
+    - { page: 21, position: "bottom", time: "11:40am" }
+    - { page: 22, position: "bottom", time: "11:40am" }
+    - { page: 22, position: "middle", time: "11:55am", notes: "beginning of Activity 2-f" }
+    - { page: 23, position: "bottom", time: "12:05pm" }
+    - { page: 25, position: "bottom", time: "12:20pm" }
+    - { page: 26, position: "bottom", time: "12:30pm" }
+    - { page: 27, position: "bottom", time: "12:45pm", notes: "end of morning session" }
+    - { page: 28, position: "top",    time: "1:45pm",  notes: "start of afternoon session" }
+    - { page: 31, position: "bottom", time: "2:05pm" }
+    - { page: 33, position: "bottom", time: "2:20pm" }
+    - { page: 34, position: "bottom", time: "2:45pm" }
+    - { page: 36, position: "bottom", time: "2:55pm" }
+    - { page: 37, position: "bottom", time: "3:15pm" }
+    - { page: 38, position: "middle", time: "3:30pm" }
+    - { page: 38, position: "bottom", time: "3:45pm" }
+    - { page: 40, position: "bottom", time: "4:30pm" }
+    - { page: 41, position: "bottom", time: "4:50pm", notes: "just before the Deming quote" }
+    - { page: 43, position: "middle", time: "5:00pm", notes: "just before the Out of Hours note; day end" }
+
+# ------ session_minutes Computation (2026-08-01) ------
+# Site chapters render Neave's full text for every reader, including the
+# Technical Aids that Stats-level 0 is invited (in-prose) to skip — see
+# 05-the-truth-the-whole-truth-and-nothing-but.qmd:70. So the Stats-level
+# 1-3 track (the "read everything" path) is the correct source for
+# session_minutes, not Stats-level 0.
+#
+# Method: each chapter's "opening clock" = the earliest Stats-level 1-3
+# checkpoint on or after the chapter's first page (per PATTERNS.md's
+# session_minutes rules). session_minutes = next chapter's opening clock
+# minus this chapter's opening clock, in minutes. Left unset where the
+# gap spans the lunch break. For the day's last chapter (postscript),
+# the day-end clock (5:00pm, p43 middle) substitutes for a next
+# chapter's opening clock — see the day-end exception added to
+# PATTERNS.md's session_minutes rules on 2026-08-01.
+#
+#   chapter                              opening   next chapter's   session_minutes
+#                                         clock     opening clock
+#   run-charts (p1)                      9:00am    9:35am           35
+#   intro-to-the-red-beads-experiment(p6)9:35am    10:20am          45
+#   a-brief-overview (p9→p11 checkpoint) 10:20am   10:30am          10
+#   our-first-control-chart (p13)        10:30am   10:55am          25
+#   the-truth-the-whole-truth (p15→p16)  10:55am   11:40am          45
+#   your-turn (p22)                      11:40am   1:45pm           unset — spans lunch (12:45-1:45pm)
+#   some-recollections (p28)             1:45pm    3:30pm           105
+#   major-activity (p38)                 3:30pm    4:30pm           60
+#   postscript (p40)                     4:30pm    5:00pm (day end) 30
+#
+# Two chapters' opening pages (a-brief-overview p9, the-truth... p15) have
+# no checkpoint exactly on their first page — the nearest available
+# checkpoint 1-2 pages later was used instead (p11 and p16 respectively).
+# This slightly understates those two chapters' true session length and
+# is a known limitation of the checkpoint density, not an error.
+#
+# ------ Stats-level 0 track, same method (2026-08-01) ------
+# Running the identical computation over the left-hand (Stats-level 0)
+# column shows the two tracks agree on 6 of the 8 settable chapters.
+# That is expected, not a coincidence: Stats-level 1-3 runs a constant
+# 15 min ahead through the morning, and session_minutes is a *difference*
+# between consecutive clocks, so a constant offset cancels. The tracks
+# only diverge where Stats-level 0's path through the material genuinely
+# differs.
+#
+#   chapter                     opens (S0 / S1-3)      S0   S1-3
+#   run-charts                  9:15am  / 9:00am       35     35
+#   intro-to-the-red-beads      9:50am  / 9:35am       45     45
+#   a-brief-overview            10:35am / 10:20am      10     10
+#   our-first-control-chart     10:45am / 10:30am      25     25
+#   the-truth-the-whole-truth   11:10am / 10:55am      30     45   ← DIFFERS
+#   your-turn                   11:40am / 11:40am   unset  unset   (spans lunch)
+#   some-recollections          1:45pm  / 1:45pm       90    105   ← DIFFERS
+#   major-activity              3:15pm  / 3:30pm       60     60
+#   postscript                  4:15pm  / 4:30pm       30     30
+#
+# The whole 30-min day-length difference (S0 9:15am-4:45pm = 390 min;
+# S1-3 9:00am-5:00pm = 420 min) sits in those two chapters, 15 min each.
+# They diverge for different reasons, which is why the rendered label is
+# Neave's own "Stats-level 0" rather than a per-chapter explanation:
+#   - the-truth-the-whole-truth: Stats-level 0 genuinely skips content —
+#     the three Technical Aids ("please now move straight on to page 22",
+#     05-the-truth-the-whole-truth-and-nothing-but.qmd:71).
+#   - some-recollections: nothing is skipped. Stats-level 0 looks the
+#     control limits up on Appendix page 8 instead of computing them
+#     (07-some-recollections.qmd:138-140 and :327).
+# Only those two chapters carry session_minutes_stats0 in front-matter.
+
 # ------ Context Notes ------
 context_notes: |
   Day 2 was converted early in the project, before the structured
@@ -193,7 +349,10 @@ context_notes: |
   2. Image naming uses legacy convention (Picture 1.jpg, image-N)
      rather than the descriptive names adopted from Day 3 onward.
 
-  3. No clocks are used in Day 2 (unlike Day 1 which has 20+).
+  3. Correction (2026-08-01): Day 2 DOES have pacing clocks throughout —
+     two columns per page (left = Stats-level 0, right = Stats-level
+     1-3). The original "no clocks" note above was wrong; see the
+     Clock Reads section for Lee's dictated raw reads.
 
   4. The Red Beads data entry (chapter 06, "Your Turn") is the
      first major interactive R-powered section in the book — users
@@ -210,10 +369,15 @@ context_notes: |
      05-09 lack download buttons — this may be an inconsistency
      from the early conversion.
 
-  Gaps: Pages 41-44 of the PDF are likely blank/end matter and
-  are not covered by any chapter. All substantive content appears
-  to be accounted for across the 9 chapters.
+  Gaps: none. Correction (2026-08-01), superseding an earlier
+  correction that was itself wrong: pages 41-44 are NOT an
+  untranscribed gap — the "Out-of-hours" note (previewing Day 3's
+  Funnel Experiment prep) is already part of 09-postscript.qmd,
+  which spans pages 40-44 (not just page 40 as this brief's
+  Chapter Plan previously said — now fixed). Lee confirmed this
+  directly after I incorrectly flagged it as missing content based
+  on clock reads continuing past p40 without checking the qmd
+  first.
 
   Page coverage summary:
-    Pages 1-40: covered by chapters 01-09
-    Pages 41-44: presumed blank/end matter (not covered)
+    Pages 1-44: covered by chapters 01-09 (postscript covers 40-44)
