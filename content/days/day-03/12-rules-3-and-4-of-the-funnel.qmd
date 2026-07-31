@@ -100,7 +100,7 @@ import {
   generateDiceSequence, saveDiceSequence, loadDiceSequence,
   runAllStages, renderStatusHTML, renderTrackHTML,
   renderStageButtonsHTML, renderDataTablesHTML,
-  restoreStageFocus,
+  restoreStageFocus, trackFunnelRun,
   TARGET, TOTAL_STAGES
 } from "../../../assets/scripts/funnel-experiment.js"
 ```
@@ -150,12 +150,15 @@ html`${renderTrackHTML(rule3Visible, rule3AllStages)}`
   const el = html`${renderStageButtonsHTML(rule3Counter, TOTAL_STAGES)}`;
   el.querySelector('.fe-stage-next').onclick = () => {
     if (rule3Counter < TOTAL_STAGES) {
-      mutable rule3Counter = rule3Counter + 1;
+      const newCounter = rule3Counter + 1;
+      mutable rule3Counter = newCounter;
+      trackFunnelRun(3, newCounter);
       restoreStageFocus(el, '.fe-stage-next');
     }
   };
   el.querySelector('.fe-stage-complete').onclick = () => {
     mutable rule3Counter = TOTAL_STAGES;
+    trackFunnelRun(3, TOTAL_STAGES);
     restoreStageFocus(el, '.fe-stage-complete');
   };
   return el;
@@ -311,12 +314,15 @@ html`${renderTrackHTML(rule4Visible, rule4AllStages)}`
   const el = html`${renderStageButtonsHTML(rule4Counter, TOTAL_STAGES)}`;
   el.querySelector('.fe-stage-next').onclick = () => {
     if (rule4Counter < TOTAL_STAGES) {
-      mutable rule4Counter = rule4Counter + 1;
+      const newCounter = rule4Counter + 1;
+      mutable rule4Counter = newCounter;
+      trackFunnelRun(4, newCounter);
       restoreStageFocus(el, '.fe-stage-next');
     }
   };
   el.querySelector('.fe-stage-complete').onclick = () => {
     mutable rule4Counter = TOTAL_STAGES;
+    trackFunnelRun(4, TOTAL_STAGES);
     restoreStageFocus(el, '.fe-stage-complete');
   };
   return el;

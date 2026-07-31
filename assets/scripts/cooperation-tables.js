@@ -1,6 +1,8 @@
 // Cooperation Tables Widget for Day 8 Major Activity
 // Progressive cascade: Table One → Two → Three, Table Four → Five (merged with Three)
 
+import { track, pageContext } from "./telemetry.js";
+
 const RATINGS = ["+", "++", "+++", "0", "-", "--", "---"];
 
 function nextRating(current) {
@@ -227,7 +229,7 @@ function computeNetEffects(container, areas) {
   }
 }
 
-function attachRatingClicks(container, areas, onChange) {
+export function attachRatingClicks(container, areas, onChange) {
   container.querySelectorAll(".rating-cell:not(.own-area)").forEach(cell => {
     cell.setAttribute("role", "button");
     cell.setAttribute("tabindex", "0");
@@ -240,6 +242,7 @@ function attachRatingClicks(container, areas, onChange) {
       cell.className = `rating-cell ${ratingClass(next)}`;
       cell.setAttribute("aria-label", buildCellLabel(cell, areas));
       computeNetEffects(container, areas);
+      track("Cooperation table used", pageContext());
       if (onChange) onChange();
     };
     cell.addEventListener("click", cycle);
