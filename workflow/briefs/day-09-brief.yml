@@ -290,21 +290,56 @@ figures:
 
 # ------ Context Notes ------
 context_notes: |
-  Schedule from page 3 (approximate):
+  Schedule from page 3 (approximate), with clock-icon times read from that
+  page (2026-07-31, first pilot of the clock-extraction mechanism —
+  see workflow/PATTERNS.md's "session_minutes" section):
   - 9:00am-12:45pm; 1:45pm-5:45pm
-  - Introduction (p 1); A SYSTEM ... (p 2); What ignited Japan? (p 3)
+  - [9:00] Introduction (p 1); A SYSTEM ... (p 2); What ignited Japan? (p 3)
   - The "Old Way" and the "New Way" (p 3) — Pauses 9-a and 9-b
-  - "A dynamic scientific process of acquiring knowledge" (p 5)
+  - [9:30] "A dynamic scientific process of acquiring knowledge" (p 5)
   - Activity 9-c (p 7 [WB 142])
-  - Organisation charts — vertical or horizontal? (p 7) — Pause 9-d
+  - [10:00] Organisation charts — vertical or horizontal? (p 7) — Pause 9-d
   - Where's the fault? (p 9); Some notes from friends (p 10)
-  - Major Activity 9-e (p 11 [WB 144]); Stages 1-5 (pp 12-15)
-  - ... OF PROFOUND KNOWLEDGE; Our "12 Days" — what's left? (p 16)
+  - [10:30] Major Activity 9-e (p 11 [WB 144]); Stage 1 (p 12)
+  - [11:00] Stage 2 (p 12); [11:30] Stage 3 (p 13);
+    [12:00] Stage 4 (p 14); [12:30] Stage 5 (p 15)
+  - [~12:45, end of morning session — no separate heading]
+  - [~1:45, low confidence] ... OF PROFOUND KNOWLEDGE; Our "12 Days" — what's left? (p 16)
   - Development of "Profound Knowledge"; Sources of learning (p 17)
   - Guidance for the Second Project (Days 10 and 11) (p 18)
-  - Introductions to the System of Profound Knowledge (p 21)
-  - "Out-of-hours" preparation for the Second Project (p 26)
+  - [not reliably read] Introductions to the System of Profound Knowledge (p 21)
+  - [not reliably read] "Out-of-hours" preparation for the Second Project (p 26)
   - "Out-of-hours" note (p 30)
+
+  Clock-extraction pilot notes (2026-07-31): read from the "OUTLINE OF
+  TODAY'S WORK" page (L.Day.9.15Feb22_page_003.png), cross-checked where
+  possible against individual body-page corner clocks (confirmed on
+  page_005.png for the Introduction chapter: also 9:00, matching the
+  outline). Morning readings (9:00 through 12:30, one clean 30-min step
+  per outline line) are high-confidence: unambiguous hand separation,
+  and independently cross-checked against the printed "9.00am" start and
+  the corner-clock match. Afternoon readings are low-confidence: the
+  hour/minute hands sit close enough together on several afternoon icons
+  that neither careful zoomed visual reading nor pixel-angle analysis
+  (attempted, but undermined by contamination from adjacent icons in
+  this tightly-packed column) could resolve them reliably. Only two
+  chapters ended up with enough resolution for a trustworthy
+  session_minutes value:
+  - a-system: opens at the same 9:00 anchor as introduction (both sit
+    under the outline's first line item — the source doesn't distinguish
+    them at chapter granularity), but its own next-chapter gap (to
+    9:30) is clean → session_minutes: 30.
+  - activity-9c-and-organisation-charts: opens at 9:30, next chapter
+    (major-activity) opens at 10:30 → session_minutes: 60.
+  introduction is left unset (shares a-system's anchor — zero
+  measurable gap, not a trustworthy non-zero value). major-activity is
+  left unset (its gap to of-profound-knowledge spans the lunch break).
+  of-profound-knowledge and introductions-to-the-system are left unset
+  despite having outline entries, because the specific clock reads
+  needed for their gaps are the low-confidence afternoon ones above.
+  out-of-hours is left unset (last chapter of the day, no next anchor).
+  Revisit if body-page corner clocks for the afternoon pages turn out
+  to be clearer than the outline page's afternoon column.
 
   Key themes: Day 9 marks the transition from the practical "New Climate"
   topics (Day 8) to the theoretical foundations of Deming's teaching.

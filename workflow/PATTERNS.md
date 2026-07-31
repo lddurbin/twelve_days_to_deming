@@ -566,10 +566,22 @@ weight.
   reflect time-on-task.
 - The chapter has the last clock of the day (no next anchor to measure
   against).
+- Two chapters' opening content sits under the same outline-page clock
+  line (the outline's granularity is coarser than the qmd chapter
+  split in places) — the earlier chapter has no measurable gap to set.
+- The clock icon itself can't be read with confidence — hands sitting
+  close together on some pages resist both careful zoomed visual
+  reading and pixel-angle analysis (the latter is also undermined by
+  contamination from adjacent icons in a tightly-packed column; see
+  `workflow/briefs/day-09-brief.yml`'s clock-extraction pilot notes).
+  Don't guess a value just because a line item exists on the outline.
 
 `session_minutes` is editorial, not estimated — only encode it when
-Neave's source supports it. Day 1 is the only fully-clocked day in the
-book, so most other days will leave the field unset and render with the
+Neave's source supports it. Day 1 is fully clocked; Day 9 has two
+chapters clocked so far (`a-system`, `activity-9c-and-organisation-charts`)
+as a first pilot of reading clocks from the source PNGs directly — see
+`workflow/briefs/day-09-brief.yml` for the raw reads and confidence
+notes. Most other days still leave the field unset and render with the
 existing one-number indicator.
 
 ---

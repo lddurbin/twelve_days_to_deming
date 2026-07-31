@@ -1,5 +1,6 @@
 ---
 title: "ORGANISATION CHARTS AND FLOW DIAGRAMS"
+session_minutes: 60
 execute:
   echo: false
 ---
