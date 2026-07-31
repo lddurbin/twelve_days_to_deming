@@ -37,6 +37,15 @@ This interactive online version preserves Dr Neave's original content exactly as
 
 The most visible change is that the printable Workbook — Dr Neave's original response-capture document — has been replaced with in-page text boxes and a per-page notes download. A full summary of deliberate departures from the source text is on the [changes from the source](changes-from-source.qmd) page.
 
+## Reading-time indicator
+
+Under most chapter titles you'll see a small note like *"~ 6 min reading"* or *"~ 6 min reading · ~ 20 min recommended."* These measure two different things:
+
+- **Reading time** is a plain word count divided by an average reading speed. It only tells you how long the prose takes to read.
+- **Recommended time**, when it's shown, is Dr Neave's own guidance for that section, taken from timing notes in his original course material, and includes reflection, activities, and time spent on figures — not just reading.
+
+Most chapters currently show reading time only, with no recommended figure. That isn't a signal that the two are roughly equal — it's simply that the recommended-time data for that part of the course hasn't been transcribed into the site yet. Day 1 is fully covered today; the rest of the course will gain recommended times as that transcription work continues. Treat a bare reading-time figure as a floor on how long the chapter will take, not a full estimate.
+
 ## Thanks
 
 There are a number of individuals I'd like to thank for contributing directly or indirectly to the existence of this edition.

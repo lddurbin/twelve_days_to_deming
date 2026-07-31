@@ -166,8 +166,8 @@ local function indicator_block(minutes, has_activity, session_minutes)
   -- static `&middot;` HTML entity, so it is intentionally not run
   -- through html_escape. Only `label` carries free-form text.
   local html = string.format(
-    '<p class="reading-time" aria-label="%s">%s</p>',
-    html_escape(label), body
+    '<p class="reading-time" aria-label="%s" title="%s">%s</p>',
+    html_escape(label), html_escape(label), body
   )
   return pandoc.RawBlock("html", html)
 end
