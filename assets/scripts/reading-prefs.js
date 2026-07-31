@@ -19,7 +19,7 @@
     if (typeof window.track !== "function") return;
     var ctx = typeof window.pageContext === "function" ?
       window.pageContext() : { day: null, chapter: null };
-    for (var key in extra || {}) { ctx[key] = extra[key]; }
+    Object.assign(ctx, extra || {});
     window.track(name, ctx);
   }
 
