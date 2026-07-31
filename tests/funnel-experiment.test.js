@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from "vitest";
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import {
   TARGET,
   TRACK_MIN,
@@ -17,7 +17,14 @@ import {
   clearDiceSequence,
   escapeHTML,
   renderDataTable,
+  trackFunnelRun,
 } from "../assets/scripts/funnel-experiment.js";
+import { track, pageContext } from "../assets/scripts/telemetry.js";
+
+vi.mock("../assets/scripts/telemetry.js", () => ({
+  track: vi.fn(),
+  pageContext: vi.fn(() => ({ day: 3, chapter: 11 })),
+}));
 
 // ---------------------------------------------------------------------------
 // diceToDisplacement
@@ -446,5 +453,35 @@ describe("renderDataTable", () => {
     const html = renderDataTable(1, stages, 0);
     expect(html).not.toContain("<img");
     expect(html).toContain("&lt;img");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// trackFunnelRun
+// ---------------------------------------------------------------------------
+describe("trackFunnelRun", () => {
+  afterEach(() => {
+    track.mockClear();
+    pageContext.mockClear();
+  });
+
+  it("does not track while the counter is short of TOTAL_STAGES", () => {
+    trackFunnelRun(2, TOTAL_STAGES - 1);
+    expect(track).not.toHaveBeenCalled();
+  });
+
+  it("fires Funnel run with pageContext() and the rule once the counter reaches TOTAL_STAGES", () => {
+    trackFunnelRun(2, TOTAL_STAGES);
+    expect(track).toHaveBeenCalledTimes(1);
+    expect(track).toHaveBeenCalledWith("Funnel run", { day: 3, chapter: 11, rule: 2 });
+  });
+
+  it("fires for each of the four rules", () => {
+    for (const rule of [1, 2, 3, 4]) {
+      trackFunnelRun(rule, TOTAL_STAGES);
+    }
+    expect(track).toHaveBeenCalledTimes(4);
+    expect(track).toHaveBeenNthCalledWith(1, "Funnel run", { day: 3, chapter: 11, rule: 1 });
+    expect(track).toHaveBeenNthCalledWith(4, "Funnel run", { day: 3, chapter: 11, rule: 4 });
   });
 });

@@ -3,6 +3,8 @@
 // Used by OJS cells in chapters 11 and 12 of Day 3
 // ============================================================
 
+import { track, pageContext } from "./telemetry.js";
+
 // --- Constants ---
 
 export const TARGET = 30;
@@ -497,6 +499,18 @@ export function renderStageButtonsHTML(counter, totalStages) {
   const d = counter >= totalStages ? " disabled" : "";
   return `<div><button class="fe-button fe-stage-next"${d}>Next Stage \u2192</button>`
        + `<button class="fe-button fe-button-complete fe-stage-complete"${d}>Complete Remaining Stages</button></div>`;
+}
+
+// runAllStages() pre-computes all 40 stages eagerly on every page load (and
+// again, for all 4 rules, on the Day 3 summary page) — that's rendering
+// setup, not a user completing a run. The real completion signal is the
+// stage counter reaching TOTAL_STAGES, which only happens via the
+// fe-stage-next/fe-stage-complete button handlers below. Call this
+// immediately after the `mutable counter = ...` assignment in those
+// handlers, passing the counter's new value.
+export function trackFunnelRun(rule, counter) {
+  if (counter < TOTAL_STAGES) return;
+  track("Funnel run", { ...pageContext(), rule });
 }
 
 // Restore keyboard focus after an OJS re-render replaces the button container.
