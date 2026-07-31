@@ -7,16 +7,65 @@
 // ever no-ops on error — it never throws outward.
 // ============================================================
 
-export function track(name, props) {
-  try {
-    if (typeof window === "undefined" || typeof window.sa_event !== "function") {
+function sendNow(name, props) {
+  if (props) {
+    window.sa_event(name, props);
+  } else {
+    window.sa_event(name);
+  }
+}
+
+// latest.js loads via <script async>, so a call made in the first moment
+// after page load can land before window.sa_event exists yet — not
+// blocked, just not ready. Queue calls made in that window and retry on a
+// short, exponentially-backed-off timer rather than silently dropping a
+// real interaction. Retries stop after MAX_RETRIES so a genuinely
+// blocked/absent script (ad-blocker, CSP failure) still gives up cleanly.
+let pending = [];
+const MAX_RETRIES = 5;
+const BASE_DELAY_MS = 100;
+
+function flushPending() {
+  const queued = pending;
+  pending = [];
+  for (const [name, props] of queued) {
+    try {
+      sendNow(name, props);
+    } catch (e) {
+      // A tracking failure must never be able to break a learning activity.
+    }
+  }
+}
+
+function scheduleRetry(attempt) {
+  const delay = BASE_DELAY_MS * 2 ** (attempt - 1);
+  setTimeout(() => {
+    if (typeof window === "undefined") {
+      pending = [];
       return;
     }
-    if (props) {
-      window.sa_event(name, props);
+    if (typeof window.sa_event === "function") {
+      flushPending();
+    } else if (attempt < MAX_RETRIES) {
+      scheduleRetry(attempt + 1);
     } else {
-      window.sa_event(name);
+      pending = [];
     }
+  }, delay);
+}
+
+export function track(name, props) {
+  try {
+    if (typeof window === "undefined") {
+      return;
+    }
+    if (typeof window.sa_event === "function") {
+      sendNow(name, props);
+      return;
+    }
+    const wasEmpty = pending.length === 0;
+    pending.push([name, props]);
+    if (wasEmpty) scheduleRetry(1);
   } catch (e) {
     // A tracking failure must never be able to break a learning activity.
   }

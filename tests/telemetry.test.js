@@ -5,7 +5,13 @@ import { track, pageContext, handleCommentaryReveal } from "../assets/scripts/te
 // track
 // ---------------------------------------------------------------------------
 describe("track", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
   afterEach(() => {
+    vi.runAllTimers(); // fully drain any recursive retry chain queued by this test before the next one runs
+    vi.useRealTimers();
     delete globalThis.window;
   });
 
@@ -42,6 +48,68 @@ describe("track", () => {
     globalThis.window = { sa_event };
     track("Notes downloaded", { day: 3 });
     expect(sa_event).toHaveBeenCalledWith("Notes downloaded", { day: 3 });
+  });
+});
+
+// ---------------------------------------------------------------------------
+// track — queueing before sa_event is ready
+//
+// latest.js loads async, so a call made in the first moment after page
+// load can arrive before window.sa_event exists. These cover the retry
+// queue that catches that race instead of silently dropping the event.
+// ---------------------------------------------------------------------------
+describe("track — queueing before sa_event is ready", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.runOnlyPendingTimers(); // drain any in-flight retry chain before the next test
+    vi.useRealTimers();
+    delete globalThis.window;
+  });
+
+  it("queues a call made before sa_event exists and sends it once sa_event appears", () => {
+    globalThis.window = {};
+    track("Notes downloaded", { day: 3 });
+
+    const sa_event = vi.fn();
+    globalThis.window.sa_event = sa_event;
+    vi.advanceTimersByTime(100); // first retry check
+
+    expect(sa_event).toHaveBeenCalledTimes(1);
+    expect(sa_event).toHaveBeenCalledWith("Notes downloaded", { day: 3 });
+  });
+
+  it("flushes multiple queued calls in order once sa_event appears", () => {
+    globalThis.window = {};
+    track("Notes downloaded");
+    track("Commentary revealed", { activity: "3a" });
+
+    const sa_event = vi.fn();
+    globalThis.window.sa_event = sa_event;
+    vi.advanceTimersByTime(100);
+
+    expect(sa_event).toHaveBeenNthCalledWith(1, "Notes downloaded");
+    expect(sa_event).toHaveBeenNthCalledWith(2, "Commentary revealed", { activity: "3a" });
+  });
+
+  it("gives up after the retry window and does not throw when sa_event never appears", () => {
+    globalThis.window = {};
+    expect(() => track("Notes downloaded")).not.toThrow();
+    expect(() => vi.advanceTimersByTime(10000)).not.toThrow();
+  });
+
+  it("does not replay a given-up call once sa_event eventually appears", () => {
+    globalThis.window = {};
+    track("Notes downloaded");
+    vi.advanceTimersByTime(10000); // exhaust all retries — queued call is dropped
+
+    const sa_event = vi.fn();
+    globalThis.window.sa_event = sa_event;
+    vi.advanceTimersByTime(10000); // nothing left scheduled to flush it
+
+    expect(sa_event).not.toHaveBeenCalled();
   });
 });
 
