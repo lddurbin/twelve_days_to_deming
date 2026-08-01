@@ -93,6 +93,73 @@ export function recordAct() {
 }
 
 // ---------------------------------------------------------------
+// Feedback state — separate from the engagement ledger above because it
+// tracks the prompt's own lifecycle (never shown/dismissed/pending a form
+// submission/submitted), not reading activity. Kept in its own storage key
+// so the two can be reasoned about, seeded, and reset independently — the
+// manual DevTools testing in #459 relies on setting td:feedback without
+// disturbing td:engagement, and vice versa.
+// ---------------------------------------------------------------
+
+const FEEDBACK_STORAGE_KEY = "td:feedback";
+
+function freshFeedback() {
+  return { status: "none", dismissals: 0, at: null };
+}
+
+const FEEDBACK_STATUSES = ["none", "dismissed", "pending", "submitted"];
+
+function isValidFeedback(value) {
+  return (
+    value !== null &&
+    typeof value === "object" &&
+    FEEDBACK_STATUSES.includes(value.status) &&
+    typeof value.dismissals === "number" &&
+    (value.at === null || typeof value.at === "string")
+  );
+}
+
+function loadFeedback() {
+  const raw = safeGet(FEEDBACK_STORAGE_KEY);
+  if (!raw) return freshFeedback();
+  try {
+    const parsed = JSON.parse(raw);
+    return isValidFeedback(parsed) ? parsed : freshFeedback();
+  } catch (e) {
+    return freshFeedback();
+  }
+}
+
+let feedbackState = loadFeedback();
+
+function persistFeedback() {
+  safeSet(FEEDBACK_STORAGE_KEY, JSON.stringify(feedbackState));
+}
+
+export function getFeedback() {
+  return structuredClone(feedbackState);
+}
+
+// Called from feedback-prompt.js's dismiss control.
+export function recordFeedbackDismissal() {
+  feedbackState.status = "dismissed";
+  feedbackState.dismissals += 1;
+  feedbackState.at = new Date().toISOString();
+  persistFeedback();
+}
+
+// Called from feedback-prompt.js's CTA click, before the browser navigates
+// to the Tally form (#452). isFeedbackEligible below only re-opens
+// eligibility from "dismissed", never from "pending" — so this suppresses
+// the prompt indefinitely, even if the reader abandons the form without
+// submitting, until #452's redirect page moves status to "submitted" (or
+// some other mechanism explicitly resets it).
+export function recordFeedbackPending() {
+  feedbackState.status = "pending";
+  persistFeedback();
+}
+
+// ---------------------------------------------------------------
 // shouldPrompt — pure trigger predicate for the feedback/testimonial
 // prompt (#459 renders it). Takes all state as arguments, no I/O or DOM
 // access, so it's unit-testable in isolation. Scroll-depth and
