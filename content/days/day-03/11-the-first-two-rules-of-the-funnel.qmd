@@ -1,5 +1,6 @@
 ---
 title: "THE FIRST TWO RULES OF THE FUNNEL"
+session_minutes: 105
 execute:
   echo: false
 ---

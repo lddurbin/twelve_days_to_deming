@@ -232,6 +232,231 @@ figures:
   # These will be cropped during Phase 3 as each chapter is built.
   # Expect many track images across pp.42-60 for the funnel chapters.
 
+# ------ Clock Reads (dictated by Lee from the original book, 2026-08-01) ------
+# Raw pacing-clock reads, dictated directly from the source pages rather than
+# extracted from the outline page (see issue #474 and project memory
+# project_clock_extraction_paused.md — the outline page's clock column is a
+# reused decorative template, not real per-day data).
+#
+# This entry covers both MORNING forks (Stats-level 0 and Stats-level 1-3)
+# plus the AFTERNOON, which per Lee is a single track shared by all Stats
+# levels — i.e. unlike Day 2 (which forks all day), Day 3's fork is
+# morning-only. This settles the "does Day 3 fork like Day 2?" question
+# issue #474 asked to verify: yes, in the morning; no, in the afternoon.
+# All three tracks are now dictated in full; session_minutes computation is
+# the remaining step before this can close #474.
+#
+# Page numbers below are PRINTED page numbers (printed = pdf_page - 4, per
+# this brief's own Page Mapping section) — NOT the PDF-page numbers used in
+# this brief's chapter `pages:` field and the Figure Decisions section above.
+# Cross-validated against two independent in-body textual landmarks, each a
+# Stats-level 0 skip instruction that produces a same-time pair in the
+# stats_level_0 track below but a real (non-zero) gap in stats_level_1_3 —
+# mirroring Day 2's Technical-Aids-skip pattern exactly:
+#   - Technical Aids 5-8 (printed 16-17) and Activity 3-g (printed 18),
+#     inside how-do-we-compute-control-limits ("Extra-curricular starts
+#     here. Stats-level 0 skip guidance included"). stats_level_0 reads
+#     p16 middle → p19 top as 11:30am → 11:30am (0 min, skipped);
+#     stats_level_1_3 reads the same span as p16 middle → p18 bottom → p19
+#     top, 11:00am → 11:30am → 11:30am (30 min spent on TA5-8 + 3-g, then a
+#     coincidental same-time page turn into six-processes).
+#   - Technical Aids 10-11 at the end of the-six-processes-revisited — "As
+#     you can see, all we have left on this page is a couple of Technical
+#     Aids. So if you are on Stats-level 0 then please move straight on to
+#     page 35." (09-the-six-processes-revisited.qmd:122). stats_level_0
+#     reads p34 top → p35 top as 12:45pm → 12:45pm (0 min, skipped);
+#     stats_level_1_3 reads the same span as 12:40pm → 12:45pm (5 min spent
+#     on TA10-11) — the clearest single-chapter divergence in the morning
+#     data, and a strong session_minutes_stats0 candidate on
+#     the-six-processes-revisited once the afternoon track closes out the
+#     computation.
+clock_reads:
+  stats_level_0:
+    - { page: 1,  position: "top",    time: "9:30am" }
+    - { page: 3,  position: "bottom", time: "10:00am" }
+    - { page: 4,  position: "bottom", time: "10:15am", notes: "end of variation-the-enemy-of-quality" }
+    - { page: 6,  position: "bottom", time: "10:25am", notes: "end of at-the-ford-motor-company" }
+    - { page: 7,  position: "bottom", time: "10:30am" }
+    - { page: 8,  position: "bottom", time: "10:40am" }
+    - { page: 9,  position: "bottom", time: "10:45am", notes: "end of the-importance-of-time" }
+    - { page: 10, position: "middle", time: "10:50am", notes: "after Pause for Thought 3-f" }
+    - { page: 12, position: "middle", time: "11:05am", notes: "just before the Stats-level NB; end of more-on-the-sales-data" }
+    - { page: 16, position: "middle", time: "11:30am", notes: "just before Technical Aid 5" }
+    - { page: 19, position: "top",    time: "11:30am", notes: "same time as p16 middle — Stats-level 0 skips Technical Aids 5-8 (and Activity 3-g)" }
+    - { page: 22, position: "bottom", time: "11:50am" }
+    - { page: 24, position: "bottom", time: "11:50am", notes: "same time as p22 bottom" }
+    - { page: 25, position: "bottom", time: "12:00pm", notes: "end of a-favourite-example" }
+    - { page: 29, position: "bottom", time: "12:25pm", notes: "end of control-chart-and-brain; no clocks on p26-28, confirmed by Lee" }
+    - { page: 30, position: "top",    time: "12:25pm" }
+    - { page: 34, position: "top",    time: "12:45pm" }
+    - { page: 35, position: "top",    time: "12:45pm", notes: "same time as p34 top — Stats-level 0 skips Technical Aids 10-11 (\"please move straight on to page 35\", 09-the-six-processes-revisited.qmd:122)" }
+    - { page: 37, position: "bottom", time: "1:00pm",  notes: "end of morning session; end of introduction-to-the-funnel-experiment" }
+  stats_level_1_3:
+    - { page: 1,  position: "top",    time: "9:00am" }
+    - { page: 3,  position: "bottom", time: "9:30am" }
+    - { page: 4,  position: "bottom", time: "9:45am",  notes: "end of variation-the-enemy-of-quality" }
+    - { page: 6,  position: "bottom", time: "9:55am",  notes: "end of at-the-ford-motor-company" }
+    - { page: 7,  position: "bottom", time: "10:00am" }
+    - { page: 8,  position: "bottom", time: "10:10am" }
+    - { page: 9,  position: "bottom", time: "10:15am", notes: "end of the-importance-of-time" }
+    - { page: 10, position: "middle", time: "10:20am", notes: "after Pause for Thought 3-f" }
+    - { page: 12, position: "middle", time: "10:35am", notes: "just before the Stats-level NB; end of more-on-the-sales-data" }
+    - { page: 16, position: "middle", time: "11:00am", notes: "just before Technical Aid 5" }
+    - { page: 18, position: "bottom", time: "11:30am", notes: "end of how-do-we-compute-control-limits, after reading Technical Aids 5-8 and Activity 3-g in full" }
+    - { page: 19, position: "top",    time: "11:30am", notes: "same time as p18 bottom — plain page turn into six-processes, not a skip" }
+    - { page: 22, position: "bottom", time: "11:45am" }
+    - { page: 24, position: "top",    time: "11:45am", notes: "same time as p22 bottom" }
+    - { page: 25, position: "bottom", time: "11:55am", notes: "end of a-favourite-example" }
+    - { page: 29, position: "bottom", time: "12:20pm", notes: "end of control-chart-and-brain; no clocks on p26-28, confirmed by Lee" }
+    - { page: 30, position: "top",    time: "12:20pm" }
+    - { page: 34, position: "top",    time: "12:40pm" }
+    - { page: 35, position: "top",    time: "12:45pm", notes: "5 min after p34 top — Stats-level 1-3 reads Technical Aids 10-11 in full, unlike Stats-level 0's skip to the same page at the same time" }
+    - { page: 37, position: "bottom", time: "1:00pm",  notes: "end of morning session; end of introduction-to-the-funnel-experiment" }
+  # afternoon: single track, applies to ALL Stats levels (per Lee, no fork
+  # unlike the morning). Checkpoint descriptions below use Lee's own wording
+  # (paragraph landmarks, table position on the page) rather than the day's
+  # chapter slugs, since several checkpoints exposed a page-range problem in
+  # this brief's Chapter Plan — see the note below the list.
+  afternoon:
+    - { page: 38, position: "top",             time: "2:00pm",  notes: "start of the-first-two-rules-of-the-funnel (MAJOR ACTIVITY 3-h)" }
+    - { page: 38, position: "middle",           time: "2:05pm",  notes: "just before the section titled 'The First Two Rules of the Funnel'" }
+    - { page: 39, position: "middle",           time: "2:10pm",  notes: "above 'In this example, since of course the preferred outcome is always that target of 30' (11-the-first-two-rules-of-the-funnel.qmd:28)" }
+    - { page: 40, position: "middle",           time: "2:15pm",  notes: "above 'We'll use my own dice-scores to start with' (11-the-first-two-rules-of-the-funnel.qmd:47)" }
+    - { page: 42, position: "three-quarters down", time: "2:30pm", notes: "above 'the table in which to develop your data is on page 44' — this instructional sentence isn't in the qmd verbatim, likely paraphrased away in favour of the interactive step-through widget that replaces the paper recording table" }
+    - { page: 44, position: "table 1 of 3",     time: "2:40pm" }
+    - { page: 44, position: "table 2 of 3",     time: "2:50pm" }
+    - { page: 44, position: "table 3 of 3",     time: "3:00pm" }
+    - { page: 46, position: "top",              time: "3:10pm" }
+    - { page: 47, position: "middle",           time: "3:25pm",  notes: "above 'So now summarise your new data in a histogram as before' — confirmed in Rule 1 of the Funnel section, anchored {#sec-page47} (11-the-first-two-rules-of-the-funnel.qmd:239)" }
+    - { page: 49, position: "bottom",           time: "3:45pm" }
+    - { page: 51, position: "bottom",           time: "4:10pm" }
+    - { page: 53, position: "bottom",           time: "4:20pm" }
+    - { page: 54, position: "bottom",           time: "4:30pm" }
+    - { page: 55, position: "bottom",           time: "4:35pm" }
+    - { page: 56, position: "middle",           time: "4:40pm",  notes: "above 'Some may find that phrase \"it would have been better if we had just done nothing\"' — confirmed at the start of the Summary chapter, anchored {#sec-page56} (13-summary.qmd:16)" }
+    - { page: 56, position: "bottom",           time: "4:55pm" }
+    - { page: 57, position: "bottom",           time: "5:20pm",  notes: "Four-Rule Comparison section, anchored {#sec-page57} (13-summary.qmd:22)" }
+    - { page: 58, position: "top",              time: "5:40pm",  notes: "next to Activity 3-j — Summary Statistics section anchored {#sec-page58} (13-summary.qmd:115), Activity 3-j at 13-summary.qmd:193" }
+    - { page: 58, position: "bottom",           time: "6:00pm",  notes: "last dictated checkpoint; not confirmed as day-end — page 59 (summary's likely final page) is not yet clocked" }
+
+# Chapter-boundary verification (2026-08-01): before computing session_minutes,
+# every chapter opening used below was checked against the actual source PNGs
+# in 12-Days-to-Deming/PNGs/F.Day.3.13Jan20_page_NNN.png (PDF page = printed
+# page + 4), not inferred from this brief's Chapter Plan or from the qmd
+# files' `{#sec-pageN}` anchors alone — both turned out to be unreliable in
+# places. Findings:
+#   - The `{#sec-pageN}` anchors are NOT trustworthy as page ground-truth.
+#     Confirmed wrong in at least three places: "ACTIVITY 3-b" is anchored
+#     {#sec-page5} in 01-variation-the-enemy-of-quality.qmd but is really on
+#     printed page 4 (PNG page_008); "A FAVOURITE EXAMPLE" is anchored
+#     {#sec-page21} but really opens on page 24 (PNG page_028, clock icons
+#     visible either side of the heading, matching this brief's dictated
+#     checkpoints exactly); "Technical Aid 5" is anchored {#sec-page13} but
+#     Lee's own direct dictation ("just before technical aid 5" at page 16)
+#     is obviously correct instead. Likely stale from an earlier page-range
+#     estimate that was later corrected without updating the anchors.
+#   - Despite that, this brief's ORIGINAL Chapter Plan page ranges (the
+#     PDF-page-minus-4 conversion) turned out to be CORRECT for chapters
+#     1-10: confirmed variation-the-enemy-of-quality=1-4, at-the-ford-motor-
+#     company opens page 5 (PNG page_009, heading visible), six-processes=
+#     19-23, a-favourite-example opens page 24 (PNG page_028), control-chart-
+#     and-brain opens page 26 (PNG page_030, heading visible) — all exactly
+#     as the Chapter Plan already said.
+#   - Chapters 11-13 (the ones the Chapter Plan itself flagged as
+#     "estimated... verify") really were off by one page: rules-3-and-4-of-
+#     the-funnel opens page 48, not the estimated 49 (PNG page_052, heading
+#     appears mid-page, right after the-first-two-rules-of-the-funnel's
+#     closing "Discussion" paragraph — the two chapters share page 48); and
+#     summary opens page 56, not the estimated 57 (PNG page_060, heading
+#     visible, matching both the qmd's {#sec-page56} anchor and Lee's own
+#     dictated checkpoint here). Chapter Plan not edited in this pass
+#     (out of scope for clock dictation) but these two corrected openings
+#     are what the computation below actually uses.
+
+# ------ session_minutes Computation (2026-08-01) ------
+# Method: each chapter's session_minutes = (next chapter's opening clock) -
+# (this chapter's opening clock), per PATTERNS.md, sourced from the
+# Stats-level 1-3 ("read everything") track for the morning and the single
+# shared track for the afternoon. Where a chapter's own true opening page has
+# no checkpoint, the nearest available later checkpoint stands in (Day 2
+# precedent) - noted per chapter.
+#
+# Lee confirmed two source-side gaps, both genuine absences rather than
+# un-dictated data: page 5 (at-the-ford-motor-company's own opening page)
+# carries no clock icons at all, and pages 26-28 (control-chart-and-brain's
+# own opening through most of its body) carry none either - the only clocks
+# in that stretch are p25 bottom (end of a-favourite-example) and p29 bottom
+# (end of control-chart-and-brain). An earlier pass here briefly recorded a
+# checkpoint at "p26 bottom" that turned out to be a mis-transcription of the
+# already-recorded p25-bottom reading - corrected back out; there is no p26
+# checkpoint. Two chapters (at-the-ford-motor-company, control-chart-and-
+# brain) therefore have no usable checkpoint anywhere near their own opening
+# page - the nearest available checkpoint is actually that SAME chapter's
+# own closing page, which would make its own "opening" and the following
+# chapter's computation collide and collapse toward zero. Left unset rather
+# than publish an artifact of checkpoint placement.
+#
+#   chapter                          opens    next opens   session_minutes
+#   variation-the-enemy-of-quality   9:00am   9:55am       55   (next-chapter substitute is at-the-ford-motor-company's own closing page, p6 - likely folds in most of that chapter's true length; see at-the-ford-motor-company below)
+#   at-the-ford-motor-company        —        —            UNSET — page 5 (its own opening page) carries no clock icons in the source at all (confirmed by Lee); only checkpoint available (p6 bottom) is this chapter's own last page, not its opening
+#   the-importance-of-time           10:00am  10:20am      20
+#   more-on-the-sales-data           10:20am  11:00am      40   (next-chapter substitute is 3 pages into how-do-we-compute-control-limits, p16 not p13 - likely overstates by folding in some of that chapter's early content)
+#   how-do-we-compute-control-limits 11:00am  11:30am      30   (own opening substitute is p16, 3 pages past the true p13 start - likely understates; see Stats-level 0 note below)
+#   six-processes                    11:30am  11:45am      15
+#   a-favourite-example              11:45am  12:20pm      35   (next-chapter substitute is control-chart-and-brain's own closing page, p29 - likely overstates; see control-chart-and-brain below)
+#   control-chart-and-brain          —        —            UNSET — pages 26-28 (its own opening through most of its body) carry no clock icons in the source at all (confirmed by Lee); only checkpoint near it (p29 bottom) is its own last page, not its opening
+#   the-six-processes-revisited      12:20pm  12:45pm      25   (both boundaries exact - highest-confidence value in the set)
+#   introduction-to-the-funnel-exp.  1:00pm   2:00pm       UNSET — spans the lunch break
+#   the-first-two-rules-of-the-funnel 2:00pm  3:45pm       105  (next-chapter substitute is 1 page into rules-3-and-4, p49 not the confirmed true opening p48)
+#   rules-3-and-4-of-the-funnel      3:45pm   4:40pm       55   (own opening substitute is p49, 1 page past the confirmed true opening p48)
+#   summary                          4:40pm   —            UNSET — day's last chapter, and the last dictated checkpoint (p58 bottom, 6:00pm) was not confirmed by Lee as end-of-day, so PATTERNS.md's day-end substitution doesn't apply. If Lee confirms 6:00pm is day-end, this becomes 80.
+#
+# ------ Stats-level 0 track, same method (2026-08-01) ------
+# Only the morning chapters can carry a Stats-level 0 divergence at all - the
+# afternoon is one shared track (see above), so chapters 11-13 are not
+# candidates by construction. Computed the identical method over the
+# Stats-level 0 column for every morning chapter that got a session_minutes
+# value above:
+#
+#   chapter                          opens (S0)   next (S0)   S0 min   1-3 min
+#   variation-the-enemy-of-quality   9:30am       10:25am     55       55       (agrees)
+#   the-importance-of-time           10:30am      10:50am     20       20       (agrees)
+#   more-on-the-sales-data           10:50am      11:30am     40       40       (agrees)
+#   how-do-we-compute-control-limits 11:30am      11:30am      0       30       ← NOT SET, see note
+#   six-processes                    11:30am      11:50am     20       15       ← DIFFERS, set. Lee confirmed (2026-08-01): correct as-is - more time allotted for Stats-level 0 here, on the reasoning that this chapter carries more Stats-heavy copy and Stats-level 0 readers need more affordance to process it.
+#   a-favourite-example              11:50am      12:25pm     35       35       (agrees)
+#   the-six-processes-revisited      12:25pm      12:45pm     20       25       ← DIFFERS, set (Technical Aids 10-11 skip)
+#
+# how-do-we-compute-control-limits: the Stats-level 0 computation collapses to
+# 0 min because its own opening substitute (p16 middle, the nearest available
+# checkpoint to the chapter's true p13 start) happens to be the EXACT same
+# clock reading as the next chapter's opening (p19 top) on the Stats-level 0
+# track specifically - that's the Technical-Aid-5-8 skip pair documented in
+# the stats_level_0 checkpoint list above, not a real "0-minute chapter".
+# session_minutes stays sourced from Stats-level 1-3 (30, above);
+# session_minutes_stats0 is deliberately NOT set here - publishing 0 would
+# misrepresent a checkpoint-placement artifact as an editorial figure.
+#
+# six-processes and the-six-processes-revisited both clear the >1 min
+# threshold and get session_minutes_stats0. the-six-processes-revisited's
+# cause is on record (Technical Aids 10-11, "please move straight on to page
+# 35" — 09-the-six-processes-revisited.qmd:122). six-processes' 5-minute
+# difference has no equivalent documented skip-guidance in that chapter's
+# text, but Lee confirmed (2026-08-01) it's correct as dictated: Stats-level
+# 0 gets more time on this chapter because it carries more Stats-heavy copy
+# and needs more affordance to process it.
+
+# ------ Front-matter applied (2026-08-01) ------
+# session_minutes: variation-the-enemy-of-quality=55, the-importance-of-time=20,
+# more-on-the-sales-data=40, how-do-we-compute-control-limits=30,
+# six-processes=15, a-favourite-example=35, the-six-processes-revisited=25,
+# the-first-two-rules-of-the-funnel=105, rules-3-and-4-of-the-funnel=55.
+# session_minutes_stats0: six-processes=20, the-six-processes-revisited=20.
+# Left unset: at-the-ford-motor-company, control-chart-and-brain (both
+# confirmed source-side clock gaps, not un-dictated data - see Lee's
+# correction above), introduction-to-the-funnel-experiment (spans lunch),
+# summary (last chapter, no confirmed day-end).
+
 # ------ Implementation Notes ------
 # Lessons learned from building chapters 1–6:
 #

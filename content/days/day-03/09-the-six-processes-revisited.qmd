@@ -1,5 +1,7 @@
 ---
 title: "THE SIX PROCESSES REVISITED"
+session_minutes: 25
+session_minutes_stats0: 20
 execute:
   echo: false
 ---

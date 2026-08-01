@@ -1,5 +1,6 @@
 ---
 title: "VARIATION—THE ENEMY OF QUALITY"
+session_minutes: 55
 execute:
   echo: false
 ---

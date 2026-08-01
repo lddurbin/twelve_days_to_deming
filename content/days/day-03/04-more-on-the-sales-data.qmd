@@ -1,5 +1,6 @@
 ---
 title: "MORE ON THE \"SALES DATA\""
+session_minutes: 40
 execute:
   echo: false
 ---
