@@ -93,6 +93,42 @@ export function recordAct() {
 }
 
 // ---------------------------------------------------------------
+// shouldPrompt — pure trigger predicate for the feedback/testimonial
+// prompt (#459 renders it). Takes all state as arguments, no I/O or DOM
+// access, so it's unit-testable in isolation. Scroll-depth and
+// time-since-page-load gating are DOM-only concerns #459 checks itself;
+// this only covers what the ledger and feedback state can decide.
+// ---------------------------------------------------------------
+
+const ACTIVE_MS_THRESHOLD = 30 * 60 * 1000;
+const MIN_DAYS_RETURNED = 2;
+const MIN_ACTS = 1;
+const MAX_DISMISSALS = 2;
+const DISMISSAL_COOLDOWN_MS = 45 * 24 * 60 * 60 * 1000;
+
+function isFeedbackEligible(feedback, now) {
+  if (feedback.status === "none") return true;
+  // "pending" and "submitted" are both permanently excluded here, since
+  // only "dismissed" ever re-opens eligibility (subject to the checks below).
+  if (feedback.status !== "dismissed") return false;
+  if (feedback.dismissals >= MAX_DISMISSALS) return false;
+  // A dismissed status implies a dismissal was recorded. If `at` is missing,
+  // `new Date(null)` resolves to the Unix epoch rather than an invalid date,
+  // which would otherwise satisfy the cooldown immediately.
+  if (!feedback.at) return false;
+  return now.getTime() - new Date(feedback.at).getTime() >= DISMISSAL_COOLDOWN_MS;
+}
+
+export function shouldPrompt(engagement, feedback, now) {
+  return (
+    isFeedbackEligible(feedback, now) &&
+    engagement.activeMs >= ACTIVE_MS_THRESHOLD &&
+    engagement.days.length >= MIN_DAYS_RETURNED &&
+    engagement.acts >= MIN_ACTS
+  );
+}
+
+// ---------------------------------------------------------------
 // Active-time heartbeat. Counts a tick only while the tab is visible AND
 // there's been scroll/keyboard/pointer/click input within the last minute,
 // so an open-but-idle foreground tab doesn't inflate active time.
