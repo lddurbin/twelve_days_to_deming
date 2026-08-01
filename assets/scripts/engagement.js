@@ -112,6 +112,10 @@ function isFeedbackEligible(feedback, now) {
   // only "dismissed" ever re-opens eligibility (subject to the checks below).
   if (feedback.status !== "dismissed") return false;
   if (feedback.dismissals >= MAX_DISMISSALS) return false;
+  // A dismissed status implies a dismissal was recorded. If `at` is missing,
+  // `new Date(null)` resolves to the Unix epoch rather than an invalid date,
+  // which would otherwise satisfy the cooldown immediately.
+  if (!feedback.at) return false;
   return now.getTime() - new Date(feedback.at).getTime() >= DISMISSAL_COOLDOWN_MS;
 }
 

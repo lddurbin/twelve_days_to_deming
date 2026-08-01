@@ -90,6 +90,16 @@ describe("shouldPrompt", () => {
     expect(shouldPrompt(qualifying, dismissedTwice, NOW)).toBe(false);
   });
 
+  it("returns false when dismissed but at is missing (malformed feedback state)", () => {
+    const qualifying = engagement({
+      activeMs: 30 * 60 * 1000,
+      days: ["2026-07-31", "2026-08-01"],
+      acts: 1,
+    });
+    const dismissedWithoutTimestamp = feedback({ status: "dismissed", dismissals: 1, at: null });
+    expect(shouldPrompt(qualifying, dismissedWithoutTimestamp, NOW)).toBe(false);
+  });
+
   it("returns false when a form is pending", () => {
     const qualifying = engagement({
       activeMs: 30 * 60 * 1000,
