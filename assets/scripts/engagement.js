@@ -159,6 +159,14 @@ export function recordFeedbackPending() {
   persistFeedback();
 }
 
+// Called from share-your-experience.js (#452) when the reader lands back
+// from Tally with ?submitted=1. Permanent, same as "pending" above —
+// isFeedbackEligible never re-opens eligibility from "submitted" either.
+export function recordFeedbackSubmitted() {
+  feedbackState.status = "submitted";
+  persistFeedback();
+}
+
 // ---------------------------------------------------------------
 // shouldPrompt — pure trigger predicate for the feedback/testimonial
 // prompt (#459 renders it). Takes all state as arguments, no I/O or DOM

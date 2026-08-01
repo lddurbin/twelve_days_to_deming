@@ -64,6 +64,7 @@ format:
       <script type="module" src="/assets/scripts/storage.js"></script>
       <script type="module" src="/assets/scripts/engagement.js"></script>
       <script type="module" src="/assets/scripts/feedback-prompt.js"></script>
+      <script type="module" src="/assets/scripts/share-your-experience.js"></script>
       <script>
         (function () {
           try {

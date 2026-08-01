@@ -126,6 +126,7 @@ book:
         - content/days/day-12/08-epilogue.qmd
 
     - accessibility.qmd
+    - share-your-experience.qmd
     - privacy.qmd
     - changes-from-source.qmd
 

@@ -1,0 +1,35 @@
+---
+title: "Share Your Experience"
+execute:
+  echo: false
+---
+
+<div id="share-form-view">
+
+I'd love to hear how the course is going for you — what's working, what's confusing, what you'd change. It takes a couple of minutes, and every response helps me improve this web edition for the people coming after you.
+
+If you're willing to be quoted, there's a spot on the form to say so — anonymously or with your name and role — but that's entirely optional. Anything you share is otherwise just for me.
+
+<!--
+  TODO(#452): replace with the real Tally form URL once the form is built
+  and its "May I quote you on the site?" consent field (No / Yes,
+  anonymously / Yes, with my name and role, with conditional name + role
+  fields) and redirect-on-completion
+  (https://deming.leedurbin.co.nz/share-your-experience.html?submitted=1)
+  are configured in Tally's dashboard.
+-->
+<a id="share-form-cta" class="feedback-prompt-cta" href="https://tally.so/r/REPLACE_WITH_FORM_ID">Share your experience</a>
+
+</div>
+
+<div id="share-thankyou-view" hidden>
+
+<!--
+  Not a markdown heading: Quarto builds the sidebar table of contents
+  statically from every heading in the source, regardless of the `hidden`
+  attribute toggled at runtime — a heading here would show as a dead "Thank
+  you" TOC entry even while this view is hidden on first load.
+-->
+**Thank you.** Thanks for taking the time to share your experience — I read every response, and it genuinely shapes what I work on next.
+
+</div>
