@@ -1,20 +1,18 @@
 (function () {
   var FONT_KEY = "td:dyslexic-font";
 
+  // reading-prefs.js is a classic (non-module) script, so it can't `import`
+  // telemetry.js or storage.js the way the OJS-loaded modules do — it
+  // reaches their functions via window.track/window.pageContext and
+  // window.safeGet/window.safeSet, which those modules deliberately expose
+  // there for exactly this case.
   function safeGet(key) {
-    try { return localStorage.getItem(key); } catch (e) { return null; }
+    return typeof window.safeGet === "function" ? window.safeGet(key) : null;
   }
   function safeSet(key, value) {
-    try {
-      if (value === null) localStorage.removeItem(key);
-      else localStorage.setItem(key, value);
-    } catch (e) { /* localStorage may be disabled */ }
+    if (typeof window.safeSet === "function") window.safeSet(key, value);
   }
 
-  // reading-prefs.js is a classic (non-module) script, so it can't `import`
-  // telemetry.js the way the OJS-loaded modules do — it reaches the same
-  // functions via window.track/window.pageContext, which telemetry.js
-  // deliberately exposes there for exactly this case.
   function trackEvent(name, extra) {
     if (typeof window.track !== "function") return;
     var ctx = typeof window.pageContext === "function" ?
