@@ -57,7 +57,7 @@ function persist() {
 }
 
 export function getLedger() {
-  return { ...ledger };
+  return structuredClone(ledger);
 }
 
 // Local calendar date, not UTC — "a distinct day returned" should match the
@@ -109,10 +109,19 @@ function startHeartbeat() {
   INPUT_EVENTS.forEach((type) => {
     document.addEventListener(type, markInput, { passive: true });
   });
+  let lastTick = Date.now();
   setInterval(() => {
-    const idleFor = Date.now() - lastInputAt;
+    const now = Date.now();
+    // setInterval isn't exact - main-thread jank can delay a tick by a few
+    // hundred ms, and a backgrounded/suspended tab can delay one by much
+    // more. Measure the real gap so normal jitter is credited accurately,
+    // but clamp it so a long-suspended tick (tab hidden, laptop asleep)
+    // never gets credited as active time once visibility returns.
+    const elapsed = Math.min(now - lastTick, HEARTBEAT_MS * 1.5);
+    lastTick = now;
+    const idleFor = now - lastInputAt;
     if (document.visibilityState === "visible" && idleFor <= IDLE_THRESHOLD_MS) {
-      ledger.activeMs += HEARTBEAT_MS;
+      ledger.activeMs += elapsed;
       persist();
     }
   }, HEARTBEAT_MS);
