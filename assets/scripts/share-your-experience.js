@@ -10,7 +10,7 @@
 // ============================================================
 
 import { track, pageContext } from "./telemetry.js";
-import { recordFeedbackPending, recordFeedbackSubmitted } from "./engagement.js";
+import { getFeedback, recordFeedbackPending, recordFeedbackSubmitted } from "./engagement.js";
 
 function init() {
   const formView = document.getElementById("share-form-view");
@@ -20,11 +20,17 @@ function init() {
   const submitted = new URLSearchParams(window.location.search).get("submitted") === "1";
 
   if (submitted) {
-    // Permanent, matching recordFeedbackPending's own precedent: nothing
-    // in isFeedbackEligible (engagement.js) ever re-opens eligibility from
-    // "submitted".
+    // Unlike the CTA click below, ?submitted=1 fires on every load of this
+    // URL, not just a genuine completion — a refresh, a back-button return,
+    // or a bookmarked/shared link all replay it. Checking status BEFORE
+    // recordFeedbackSubmitted() (which is itself idempotent, same as
+    // recordFeedbackPending's precedent) keeps the event counting real
+    // completions rather than every revisit.
+    const alreadySubmitted = getFeedback().status === "submitted";
     recordFeedbackSubmitted();
-    track("Feedback submitted", pageContext());
+    if (!alreadySubmitted) {
+      track("Feedback submitted", pageContext());
+    }
     formView.hidden = true;
     thankyouView.hidden = false;
     return;
