@@ -4,6 +4,7 @@
 // ============================================================
 
 import { track, pageContext } from "./telemetry.js";
+import { recordAct } from "./engagement.js";
 
 // --- Constants ---
 
@@ -511,6 +512,7 @@ export function renderStageButtonsHTML(counter, totalStages) {
 export function trackFunnelRun(rule, counter) {
   if (counter < TOTAL_STAGES) return;
   track("Funnel run", { ...pageContext(), rule });
+  recordAct();
 }
 
 // Restore keyboard focus after an OJS re-render replaces the button container.

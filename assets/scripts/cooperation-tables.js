@@ -2,6 +2,7 @@
 // Progressive cascade: Table One → Two → Three, Table Four → Five (merged with Three)
 
 import { track, pageContext } from "./telemetry.js";
+import { recordAct } from "./engagement.js";
 
 const RATINGS = ["+", "++", "+++", "0", "-", "--", "---"];
 
@@ -243,6 +244,7 @@ export function attachRatingClicks(container, areas, onChange) {
       cell.setAttribute("aria-label", buildCellLabel(cell, areas));
       computeNetEffects(container, areas);
       track("Cooperation table used", pageContext());
+      recordAct();
       if (onChange) onChange();
     };
     cell.addEventListener("click", cycle);

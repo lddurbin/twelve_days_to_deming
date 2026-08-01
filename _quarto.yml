@@ -51,6 +51,7 @@ format:
       <script async data-collect-dnt="false" src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
       <script type="module" src="/assets/scripts/telemetry.js"></script>
       <script type="module" src="/assets/scripts/storage.js"></script>
+      <script type="module" src="/assets/scripts/engagement.js"></script>
       <script>
         (function () {
           try {
