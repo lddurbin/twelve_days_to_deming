@@ -22,10 +22,18 @@ const STRINGS = {
   dismiss: "Not now",
 };
 
+// Deliberately kept out of STRINGS: the future FR extractor's whitelist (see
+// R/translation/code-string-extract.R) is designed to sweep translatable
+// prose, and its own stated discipline is "when in doubt, EXCLUDE" anything
+// that isn't user-facing text — a URL swept in as if it were copy risks a
+// translator "translating" a path and silently breaking the link. Still
+// pulled out to its own named constant, not left inline in the innerHTML
+// template, so it has one obvious place to update if it changes.
+const CTA_HREF = "/share-your-experience.html";
+
 const DEV_FLAG_PARAM = "feedback_prompt";
 
 function devFlagForcesOn() {
-  if (typeof window === "undefined") return false;
   try {
     return new URLSearchParams(window.location.search).get(DEV_FLAG_PARAM) === "1";
   } catch (e) {
@@ -44,7 +52,7 @@ function build() {
     '<p class="feedback-prompt-heading">' + STRINGS.heading + "</p>" +
     '<p class="feedback-prompt-body">' + STRINGS.body + "</p>" +
     '<div class="feedback-prompt-actions">' +
-    '  <a class="feedback-prompt-cta" href="/share-your-experience.html">' + STRINGS.cta + "</a>" +
+    '  <a class="feedback-prompt-cta" href="' + CTA_HREF + '">' + STRINGS.cta + "</a>" +
     '  <button type="button" class="feedback-prompt-dismiss">' + STRINGS.dismiss + "</button>" +
     "</div>";
   return el;
@@ -73,21 +81,31 @@ function insertBeforePageNav(el) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  if (!devFlagForcesOn()) return;
+// Guarded on `document`, matching storage.js/telemetry.js/engagement.js:
+// keeps this module side-effect-free (and therefore safely `import`able
+// under Node/vitest, where `document` doesn't exist) if a future change
+// ever needs to test something here directly, the way #459's wiring likely
+// will once it imports shouldPrompt()/track() into this file.
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!devFlagForcesOn()) return;
 
-  const el = build();
-  insertBeforePageNav(el);
-  // Added on the next frame, not in the same pass as insertion, so the
-  // opacity/transform transition in main.css actually runs instead of
-  // snapping straight to its end state. prefers-reduced-motion is handled
-  // globally (main.css:735 zeroes all transition durations), so no
-  // matchMedia check is needed here.
-  requestAnimationFrame(function () {
+    const el = build();
+    insertBeforePageNav(el);
+    // A single requestAnimationFrame is the common pattern for triggering a
+    // transition on a just-inserted element, and it does work here (verified
+    // in Chromium: the opacity/transform transition plays smoothly either
+    // way). Using a forced synchronous layout read instead removes any
+    // reliance on this browser's specific rAF/style-recalc timing — general
+    // CSS-transition folklore has real cross-browser cases where a single
+    // rAF gets coalesced with the insertion and the transition never starts,
+    // and this costs nothing extra to rule out entirely rather than trust
+    // that Chromium's current behaviour holds everywhere.
+    void el.offsetHeight;
     el.classList.add("is-visible");
-  });
 
-  el.querySelector(".feedback-prompt-dismiss").addEventListener("click", function () {
-    el.remove();
+    el.querySelector(".feedback-prompt-dismiss").addEventListener("click", function () {
+      el.remove();
+    });
   });
-});
+}
