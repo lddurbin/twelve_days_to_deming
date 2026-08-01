@@ -1,4 +1,5 @@
 import { track, pageContext } from "./telemetry.js";
+import { recordAct } from "./engagement.js";
 
 export function createDownloadButton(inputs, fileName) {
   const button = document.createElement("button");
@@ -23,6 +24,7 @@ export function downloadNotes(inputs, fileName) {
   triggerDownload(url, fileName);
   cleanupUrl(url);
   track("Notes downloaded", pageContext());
+  recordAct();
 }
 
 function combineInputValues(inputs) {
