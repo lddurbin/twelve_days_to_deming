@@ -729,6 +729,14 @@ button:focus,
     outline: 2px solid currentColor;
     outline-offset: 1px;
   }
+
+  .feedback-prompt {
+    border-width: 3px;
+  }
+  .feedback-prompt-cta,
+  .feedback-prompt-dismiss {
+    border-width: 2px;
+  }
 }
 
 /* Reduced motion */
@@ -1138,6 +1146,98 @@ button:focus,
   .reading-prefs-panel { display: none !important; }
 }
 
+/* ===== FEEDBACK PROMPT =====
+   Dismissible inline block inviting feedback/testimonials, rendered in
+   normal document flow (never fixed/floating) so it needs no focus trap
+   and reaches screen readers in natural reading order. It's page chrome
+   rather than course content, so it borrows the reading-prefs indigo
+   identity instead of a pedagogical callout colour. Trigger logic lives in
+   #459; this file only covers markup, styling and the dismiss control. */
+
+.feedback-prompt {
+  margin: 1.5em 0;
+  padding: 1em 1.25em;
+  background-color: #fff;
+  border: 2px solid #3333a6;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+.feedback-prompt.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feedback-prompt-heading {
+  margin: 0 0 0.4em 0;
+  font-size: 1.05em;
+  font-weight: 700;
+  color: #3333a6;
+}
+
+.feedback-prompt-body {
+  margin: 0 0 0.9em 0;
+  font-size: 0.95em;
+  color: #222;
+}
+
+.feedback-prompt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.feedback-prompt-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #3333a6;
+  border: 2px solid #3333a6;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.feedback-prompt-cta:hover {
+  background-color: #262680;
+  text-decoration: none;
+}
+.feedback-prompt-cta:focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+
+/* Text-label dismiss control (not a bare "×"), sized to the same 44px
+   target as the CTA button per WCAG 2.5.8. */
+.feedback-prompt-dismiss {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3333a6;
+  background-color: #fff;
+  border: 2px solid #3333a6;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.feedback-prompt-dismiss:hover {
+  background-color: #e8e8f4;
+}
+.feedback-prompt-dismiss:focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+
+@media print {
+  .feedback-prompt { display: none !important; }
+}
+
 .reading-time {
   margin-top: -0.5rem;
   margin-bottom: 1.5rem;
@@ -1396,6 +1496,36 @@ body.quarto-dark .reading-prefs-feedback-link {
   border-color: #8fa8ff;
 }
 body.quarto-dark .reading-prefs-feedback-link:hover {
+  background-color: #2a2a3a;
+}
+
+/* Feedback prompt: same indigo-on-dark palette as the reading-prefs panel,
+   with the CTA inverted (solid fill) so it still reads as the primary
+   action against the dark background. */
+body.quarto-dark .feedback-prompt {
+  background-color: #1a1a26;
+  border-color: #8fa8ff;
+}
+body.quarto-dark .feedback-prompt-heading {
+  color: #b0b0e6;
+}
+body.quarto-dark .feedback-prompt-body {
+  color: #e4e4e4;
+}
+body.quarto-dark .feedback-prompt-cta {
+  color: #1a1a26;
+  background-color: #8fa8ff;
+  border-color: #8fa8ff;
+}
+body.quarto-dark .feedback-prompt-cta:hover {
+  background-color: #a8bdff;
+}
+body.quarto-dark .feedback-prompt-dismiss {
+  color: #b0b0e6;
+  background-color: #1a1a26;
+  border-color: #8fa8ff;
+}
+body.quarto-dark .feedback-prompt-dismiss:hover {
   background-color: #2a2a3a;
 }
 
