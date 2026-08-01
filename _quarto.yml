@@ -36,7 +36,18 @@ format:
       dark: [darkly, assets/styles/disable-google-fonts.scss]
     css: assets/styles/main.css
     header-includes: |
-      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://cdn.jsdelivr.net https://queue.simpleanalyticscdn.com;">
+      <!--
+        font-src includes cdn.jsdelivr.net because MathJax's CHTML renderer
+        loads its own web font (mathjax-newcm-font) from there — the same
+        host script-src/connect-src already trust for MathJax's JS, but
+        trusting a host for scripts says nothing about trusting it for
+        fonts under CSP. Without this, every math glyph (letters, digits,
+        √, overlines) 404s against the policy and the browser substitutes
+        glyphs from whatever font claims those Unicode PUA codepoints
+        instead, corrupting every rendered formula site-wide. Confirmed via
+        a CSP violation in local testing before this line was added.
+      -->
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https://cdn.jsdelivr.net; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://cdn.jsdelivr.net https://queue.simpleanalyticscdn.com;">
       <!--
         Simple Analytics: cookieless, EU-hosted, honours Do Not Track (DNT)
         by default. data-collect-dnt="false" is written here — rather than
