@@ -1,5 +1,6 @@
 ---
 title: "RULES 3 AND 4 OF THE FUNNEL"
+session_minutes: 55
 execute:
   echo: false
 ---

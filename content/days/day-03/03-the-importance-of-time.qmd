@@ -1,5 +1,6 @@
 ---
 title: "THE IMPORTANCE OF TIME"
+session_minutes: 20
 execute:
   echo: false
 ---

@@ -1,5 +1,6 @@
 ---
 title: "HOW DO WE COMPUTE THESE CONTROL LIMITS—AND WHY?"
+session_minutes: 30
 execute:
   echo: false
 ---

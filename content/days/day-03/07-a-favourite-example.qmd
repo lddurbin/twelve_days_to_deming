@@ -1,5 +1,6 @@
 ---
 title: "A FAVOURITE EXAMPLE"
+session_minutes: 35
 execute:
   echo: false
 ---
