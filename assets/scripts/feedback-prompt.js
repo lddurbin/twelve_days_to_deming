@@ -141,10 +141,16 @@ if (typeof document !== "undefined") {
       const timeOnPageMs = Date.now() - pageLoadedAt;
       if (timeOnPageMs < TIME_ON_PAGE_THRESHOLD_MS) return;
       if (scrollFraction() < SCROLL_THRESHOLD) return;
-      // Re-validated against live state, not the snapshot above: state can
-      // change during the wait (another tab dismisses or submits the
-      // prompt, or this tab's own heartbeat pushes activeMs past the
-      // threshold mid-visit).
+      // Re-validated against live state, not the snapshot at
+      // DOMContentLoaded: this tab's own engagement heartbeat can push
+      // activeMs past the threshold during the wait. This does NOT catch
+      // another tab dismissing or submitting the prompt in the meantime —
+      // getLedger()/getFeedback() return engagement.js's in-memory state,
+      // which that module only refreshes from localStorage on a fresh page
+      // load, not live. A second open tab could still show the prompt just
+      // after another tab suppressed it; narrow enough (simultaneous tabs,
+      // both independently reaching the 45s/70% gate) that it isn't worth
+      // a storage-event listener for now.
       clearInterval(intervalId);
       if (!shouldPrompt(getLedger(), getFeedback(), new Date())) return;
       show();
