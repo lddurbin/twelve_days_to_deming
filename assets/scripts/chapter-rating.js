@@ -34,14 +34,21 @@ import { show as showTestimonialPrompt } from "./feedback-prompt.js";
 // the French edition (epic #461 constraint 3). URLs and addresses are built
 // in code below, deliberately not here.
 const STRINGS = {
-  question: "Was this chapter useful?",
+  question: "Did this chapter work well for you?",
   yes: "Yes",
   no: "No",
   // Appended visually-hidden so the accessible name is specific while the
   // visible label stays short. WCAG 2.5.3 needs the accessible name to
   // contain the visible text, which it does — "Yes" leads both.
-  yesContext: ", this chapter was useful",
-  noContext: ", this chapter wasn't useful",
+  //
+  // Deliberately "worked well" rather than "useful": Neave's text is
+  // transcribed verbatim and this site doesn't touch it, so a question
+  // about its value would be asking readers to grade content nobody here
+  // wrote. "Worked well" scopes the ask to what the site controls —
+  // layout, pacing, activities — and matches detailLabel below, which asks
+  // the same thing in its own words rather than pivoting the framing.
+  yesContext: ", this chapter worked well for you",
+  noContext: ", this chapter didn't work well for you",
   thanksUp: "Thanks — glad it's landing.",
   thanksDown: "Thanks for saying so.",
   detailLabel: "What didn't work here?",
