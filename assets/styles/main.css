@@ -1238,6 +1238,14 @@ button:focus,
   .feedback-prompt { display: none !important; }
 }
 
+/* share-your-experience.qmd (#452) reuses .feedback-prompt-cta for its own
+   CTA so the "ask" reads visually the same whether a reader arrives via
+   the inline prompt or lands on the page directly. It just needs separation
+   from the preceding paragraph, which inline-flex doesn't get for free. */
+#share-form-view .feedback-prompt-cta {
+  margin-top: 0.5em;
+}
+
 .reading-time {
   margin-top: -0.5rem;
   margin-bottom: 1.5rem;
