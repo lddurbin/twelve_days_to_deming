@@ -60,9 +60,15 @@ I'd also like to thank Richard Hamilton, Jenny Perks, Dr Jackie Graham, and all 
 
 Cedric Chen's essay, "Becoming Data Driven, From First Principles", was the catalyst that prompted me to immerse myself in Deming's philosophy. It also transformed the way I think about the work I do as a data analyst, and so I'm grateful to Cedric for his writing and his continued leadership in this space.
 
-## Contributing and reporting issues
+## Feedback, contributions, and reporting issues
 
-The site lives on GitHub at [github.com/lddurbin/twelve_days_to_deming](https://github.com/lddurbin/twelve_days_to_deming) and I welcome contributions of all sizes. If you spot a typo, a broken link, a cross-reference that doesn't resolve, or anything else that looks wrong, please [open an issue](https://github.com/lddurbin/twelve_days_to_deming/issues/new) or a pull request. Suggestions for new activities, improvements to existing ones, or additional accessibility features are just as valuable as bug reports — if you're not sure whether something is worth raising, raise it anyway. I'd rather hear about small issues than miss them.
+There are three ways to tell me something, and the right one depends on what you want to say. None of them require an account.
+
+**If a chapter worked for you, or didn't**, use the thumbs up or down at the foot of it. A thumbs-down opens an optional box for the detail — what was confusing, what was broken, what you expected instead. It takes one click, and because it knows which chapter you were on, it tells me *where* something went wrong in a way a general message about the site can't. What that sends, and what it deliberately doesn't, is set out on the [Privacy](privacy.qmd) page.
+
+**If you'd be happy to be quoted**, there's a short form on the [Share Your Experience](share-your-experience.qmd) page. This edition exists partly because people took the trouble to say the course was worth their time, and a few sentences from you would help the next person decide the same. Nothing gets published unless you explicitly choose that option, and you can say yes anonymously.
+
+**If you're comfortable on GitHub**, the site lives at [github.com/lddurbin/twelve_days_to_deming](https://github.com/lddurbin/twelve_days_to_deming) and I welcome contributions of all sizes. If you spot a typo, a broken link, a cross-reference that doesn't resolve, or anything else that looks wrong, please [open an issue](https://github.com/lddurbin/twelve_days_to_deming/issues/new) or a pull request. Suggestions for new activities, improvements to existing ones, or additional accessibility features are just as valuable as bug reports — if you're not sure whether something is worth raising, raise it anyway. I'd rather hear about small issues than miss them.
 
 ---
 
