@@ -2,6 +2,14 @@ project:
   type: book
   resources:
     - "assets/fonts/**"
+    # Quarto only copies a script into _book if it sees it in a <script src>
+    # tag; a module reached solely through an ES `import` from another module
+    # is invisible to that scan and silently 404s in production (#494 —
+    # feedback-prompt.js and feedback-transport.js both went missing this
+    # way, and the deploy is an rsync --delete of _book, so nothing on the
+    # server would have covered for it). Declaring the directory makes the
+    # copy independent of how any given module happens to be referenced.
+    - "assets/scripts/**"
 
 profile:
   default: en
@@ -46,8 +54,16 @@ format:
         glyphs from whatever font claims those Unicode PUA codepoints
         instead, corrupting every rendered formula site-wide. Confirmed via
         a CSP violation in local testing before this line was added.
+
+        connect-src also includes api.web3forms.com for the chapter-rating
+        widget's thumbs-down text box (#494). It is the ONLY host the site
+        posts reader-written content to — there is no backend on the origin
+        to receive it — and it is deliberately not in script-src: nothing is
+        loaded from that host, only sent to it. See privacy.qmd, which
+        discloses exactly what travels with it, and feedback-transport.js,
+        which is the single place that constructs the request.
       -->
-      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https://cdn.jsdelivr.net; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://cdn.jsdelivr.net https://queue.simpleanalyticscdn.com;">
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https://cdn.jsdelivr.net; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://cdn.jsdelivr.net https://queue.simpleanalyticscdn.com https://api.web3forms.com;">
       <!--
         Simple Analytics: cookieless, EU-hosted, honours Do Not Track (DNT)
         by default. data-collect-dnt="false" is written here — rather than
@@ -63,7 +79,17 @@ format:
       <script type="module" src="/assets/scripts/telemetry.js"></script>
       <script type="module" src="/assets/scripts/storage.js"></script>
       <script type="module" src="/assets/scripts/engagement.js"></script>
-      <script type="module" src="/assets/scripts/feedback-prompt.js"></script>
+      <!--
+        feedback-prompt.js and feedback-transport.js deliberately have no tag
+        of their own: since #494 they only export, with no side effects on
+        load, and chapter-rating.js imports both. The browser resolves those
+        imports to the same URLs and evaluates each module once, so a tag
+        here would fetch and evaluate code that does nothing on its own.
+        Their presence in _book comes from the assets/scripts/** resources
+        entry at the top of this file — see the note there, since dropping
+        it would make both modules 404 in production.
+      -->
+      <script type="module" src="/assets/scripts/chapter-rating.js"></script>
       <script type="module" src="/assets/scripts/share-your-experience.js"></script>
       <script>
         (function () {

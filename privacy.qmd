@@ -13,13 +13,27 @@ This site uses [Simple Analytics](https://www.simpleanalytics.com/) to see, in a
 - **No cookies.** Simple Analytics doesn't set any, so no cookie banner is needed.
 - **EU-hosted**, outside the advertising-data ecosystem that most mainstream analytics tools sit inside.
 - **No personal data.** It records that a page was viewed, not who viewed it — there's no identifier that ties one of your visits to the next.
-- **Honours Do Not Track.** If your browser sends a Do Not Track signal, Simple Analytics drops your visit entirely rather than collecting a reduced version of it. That's a deliberate choice on this site's part, not the vendor's default behaviour on its own — it means the numbers I see slightly undercount real readers, which I'd rather have than override anyone's stated preference.
+- **Honours Do Not Track.** If your browser sends a Do Not Track signal, Simple Analytics drops your visit entirely rather than collecting a reduced version of it. That's the vendor's default, and this site writes the setting out explicitly anyway so the stance is visible in the configuration rather than merely assumed. It means the numbers I see slightly undercount real readers, which I'd rather have than override anyone's stated preference.
 
 A small number of named actions on this site — for example, opening the feedback email link or turning on the dyslexia-friendly font — are also sent to Simple Analytics as events, so I can tell whether specific features are actually being used. These events carry no more identifying information than a page view does.
 
+## When you send me something
+
+Everything above happens in the background. Three things on this site let you send me something on purpose, and none of them send anything unless you choose to.
+
+**The thumbs up or down at the end of each chapter.** Clicking one records a single value — up or down, plus which chapter you were on — as a Simple Analytics event, exactly like the events described above. Nothing else goes with it.
+
+**The text box that appears if you click thumbs-down.** This is the one place on the site where something you have written is sent onward, so it's worth being exact about it.
+
+This site is a set of static files with no server behind it, which means there is nowhere on `deming.leedurbin.co.nz` that can receive what you type. The text is therefore passed to [Web3Forms](https://web3forms.com/), a form-forwarding service, which delivers it to my inbox; their [privacy policy](https://web3forms.com/privacy) covers what they do with it in transit. What travels with your words is the chapter you were on and the fact that you clicked thumbs-down. What doesn't: your name, your email address, your reading history, or anything else that would let me connect it to your other visits. If you leave the box empty, nothing is sent at all.
+
+If that send fails for any reason, you'll be offered an ordinary email link instead — which, unlike everything else on this page, would show me your email address. That's your call to make at the time, and declining it costs you nothing.
+
+**The testimonial form**, linked from [Share Your Experience](/share-your-experience.html) and hosted by [Tally](https://tally.so/). It's a normal form: you can see every field before you fill anything in. It only asks for your name and role if you've said you're happy to be quoted, and an email address is optional and used only if I need to reply to you.
+
 ## What stays on your device
 
-Your reading preferences — light/dark theme and the dyslexia-friendly font toggle — are saved with your browser's `localStorage`, not sent to me or anyone else. The same is true of your progress through the Day 3 funnel experiment, if you've used it. This data lives only in your browser and is used only to restore your preferences and progress the next time you open the site.
+Your reading preferences — light/dark theme and the dyslexia-friendly font toggle — are saved with your browser's `localStorage`, not sent to me or anyone else. The same is true of your progress through the Day 3 funnel experiment, which chapters you've given a thumbs up or down, and a rough count of time spent reading that the site uses to decide whether to ask you for feedback at all. This data lives only in your browser and is used only to restore your preferences and progress, and to avoid asking you the same thing twice.
 
 Clearing your browser's site data for this page (or using it in a private/incognito window) resets all of it.
 

@@ -737,6 +737,21 @@ button:focus,
   .feedback-prompt-dismiss {
     border-width: 2px;
   }
+
+  .chapter-rating-btn,
+  .chapter-rating-send,
+  .chapter-rating-skip {
+    border-width: 2px;
+  }
+  /* Forced-colors modes flatten the filled/unfilled distinction the chosen
+     thumb relies on, so restore it with an outline rather than a colour. */
+  .chapter-rating-btn.is-chosen {
+    outline: 2px solid currentColor;
+    outline-offset: 1px;
+  }
+  .chapter-rating-detail-text {
+    border-width: 2px;
+  }
 }
 
 /* Reduced motion */
@@ -1246,6 +1261,194 @@ button:focus,
   margin-top: 0.5em;
 }
 
+/* ===== CHAPTER RATING =====
+   Inline thumbs up/down appended to every chapter (#494). Deliberately much
+   lighter than .feedback-prompt above: that block is an occasional boxed
+   callout, this one is on all ~60 chapters, so it reads as a quiet rule at
+   the foot of the text rather than another thing competing for attention.
+   Same indigo chrome identity, no fill and no border box. */
+
+.chapter-rating {
+  margin: 2.5em 0 0;
+  padding-top: 1em;
+  border-top: 1px solid #d0d0e0;
+}
+
+/* Programmatic focus target only (tabindex="-1"), used to keep the reader's
+   place after the detail form is removed. :focus-visible still gets a ring
+   if it somehow receives keyboard focus — this only drops the ring for the
+   scripted case, where a stray outline would look like a rendering bug. */
+.chapter-rating:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.chapter-rating-question {
+  margin: 0 0 0.6em 0;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #3333a6;
+}
+
+.chapter-rating-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chapter-rating-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3333a6;
+  background-color: #fff;
+  border: 2px solid #3333a6;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.chapter-rating-btn:hover {
+  background-color: #e8e8f4;
+}
+.chapter-rating-btn:focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+.chapter-rating-btn.is-chosen {
+  color: #fff;
+  background-color: #3333a6;
+}
+/* Once a rating is recorded both buttons stop responding, so they should
+   stop inviting a click. Not the `disabled` attribute — see markChosen()
+   in chapter-rating.js for why that would cost the reader their focus. */
+.chapter-rating-btn[aria-disabled="true"] {
+  cursor: default;
+}
+.chapter-rating-btn[aria-disabled="true"]:not(.is-chosen):hover {
+  background-color: #fff;
+}
+.chapter-rating-btn[aria-disabled="true"].is-chosen:hover {
+  background-color: #3333a6;
+}
+
+.chapter-rating-icon {
+  font-size: 1.15em;
+  line-height: 1;
+}
+
+.chapter-rating-detail {
+  margin-top: 1em;
+}
+
+.chapter-rating-detail-label {
+  display: block;
+  margin-bottom: 0.2em;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #222;
+}
+
+.chapter-rating-detail-hint {
+  margin: 0 0 0.5em 0;
+  font-size: 0.85em;
+  color: #555;
+}
+
+.chapter-rating-detail-text {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 0.95em;
+  color: #222;
+  background-color: #fff;
+  /* 7.0:1 against white — comfortably past the 3:1 that WCAG 1.4.11 asks
+     of a form control's boundary. */
+  border: 1px solid #595959;
+  border-radius: 4px;
+}
+.chapter-rating-detail-text:focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+
+.chapter-rating-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 0.75em;
+}
+
+.chapter-rating-send,
+.chapter-rating-skip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #3333a6;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.chapter-rating-send {
+  color: #fff;
+  background-color: #3333a6;
+}
+.chapter-rating-send:hover {
+  background-color: #262680;
+}
+.chapter-rating-skip {
+  color: #3333a6;
+  background-color: #fff;
+}
+.chapter-rating-skip:hover {
+  background-color: #e8e8f4;
+}
+.chapter-rating-send:focus-visible,
+.chapter-rating-skip:focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+.chapter-rating-send[aria-disabled="true"] {
+  cursor: default;
+  background-color: #6666bb;
+}
+
+.chapter-rating-failed {
+  margin: 0 0 0.5em 0;
+  font-size: 0.9em;
+  color: #222;
+}
+
+.chapter-rating-failed-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3333a6;
+  background-color: #fff;
+  border: 2px solid #3333a6;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.chapter-rating-failed-cta:hover {
+  background-color: #e8e8f4;
+  text-decoration: none;
+}
+.chapter-rating-failed-cta:focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+
+@media print {
+  .chapter-rating { display: none !important; }
+}
+
 .reading-time {
   margin-top: -0.5rem;
   margin-bottom: 1.5rem;
@@ -1535,6 +1738,58 @@ body.quarto-dark .feedback-prompt-dismiss {
 }
 body.quarto-dark .feedback-prompt-dismiss:hover {
   background-color: #2a2a3a;
+}
+
+/* Chapter rating: same indigo-on-dark palette, with the chosen thumb
+   inverted to a solid fill exactly as the prompt's CTA is. */
+body.quarto-dark .chapter-rating {
+  border-top-color: #3a3a4a;
+}
+body.quarto-dark .chapter-rating-question {
+  color: #b0b0e6;
+}
+body.quarto-dark .chapter-rating-btn,
+body.quarto-dark .chapter-rating-skip,
+body.quarto-dark .chapter-rating-failed-cta {
+  color: #b0b0e6;
+  background-color: #1a1a26;
+  border-color: #8fa8ff;
+}
+body.quarto-dark .chapter-rating-btn:hover,
+body.quarto-dark .chapter-rating-skip:hover,
+body.quarto-dark .chapter-rating-failed-cta:hover {
+  background-color: #2a2a3a;
+}
+body.quarto-dark .chapter-rating-btn.is-chosen,
+body.quarto-dark .chapter-rating-send {
+  color: #1a1a26;
+  background-color: #8fa8ff;
+  border-color: #8fa8ff;
+}
+body.quarto-dark .chapter-rating-btn.is-chosen:hover,
+body.quarto-dark .chapter-rating-send:hover {
+  background-color: #a8bdff;
+}
+body.quarto-dark .chapter-rating-btn[aria-disabled="true"]:not(.is-chosen):hover {
+  background-color: #1a1a26;
+}
+body.quarto-dark .chapter-rating-btn[aria-disabled="true"].is-chosen:hover {
+  background-color: #8fa8ff;
+}
+body.quarto-dark .chapter-rating-send[aria-disabled="true"] {
+  background-color: #6f83c9;
+}
+body.quarto-dark .chapter-rating-detail-label,
+body.quarto-dark .chapter-rating-failed {
+  color: #e4e4e4;
+}
+body.quarto-dark .chapter-rating-detail-hint {
+  color: #b8b8b8;
+}
+body.quarto-dark .chapter-rating-detail-text {
+  color: #e4e4e4;
+  background-color: #1a1a26;
+  border-color: #8f8fa6;
 }
 
 /* Glossary terms: brighten the amber underline for legibility against
