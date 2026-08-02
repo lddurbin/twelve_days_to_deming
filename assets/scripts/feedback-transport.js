@@ -17,11 +17,12 @@
 // added here.
 // ============================================================
 
-// TODO(#494): replace with the real access key from the Web3Forms dashboard.
 // Web3Forms access keys are designed to be public — they identify the
 // destination inbox, not the sender — so this sitting in client-side source
-// is the intended usage, not a leak.
-const ACCESS_KEY = "REPLACE_WITH_WEB3FORMS_ACCESS_KEY";
+// (and in a public repo) is the intended usage, not a leak. The worst a
+// scraped key allows is unsolicited mail to the same inbox, which is
+// Web3Forms' problem to rate-limit rather than a secret to protect.
+const ACCESS_KEY = "00086f62-2350-4acf-a3b7-acd582fa9d6b";
 
 // Kept out of any STRINGS object for the reason feedback-prompt.js documents
 // at its own CTA_HREF: the FR extractor sweeps translatable prose, and a URL

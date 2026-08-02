@@ -25,7 +25,13 @@ Everything above happens in the background. Three things on this site let you se
 
 **The text box that appears if you click thumbs-down.** This is the one place on the site where something you have written is sent onward, so it's worth being exact about it.
 
-This site is a set of static files with no server behind it, which means there is nowhere on `deming.leedurbin.co.nz` that can receive what you type. The text is therefore passed to [Web3Forms](https://web3forms.com/), a form-forwarding service, which delivers it to my inbox; their [privacy policy](https://web3forms.com/privacy) covers what they do with it in transit. What travels with your words is the chapter you were on and the fact that you clicked thumbs-down. What doesn't: your name, your email address, your reading history, or anything else that would let me connect it to your other visits. If you leave the box empty, nothing is sent at all.
+This site is a set of static files with no server behind it, which means there is nowhere on `deming.leedurbin.co.nz` that can receive what you type. The text is therefore passed to [Web3Forms](https://web3forms.com/), a form-forwarding service, which delivers it to my inbox.
+
+What this site sends with your words is the chapter you were on and whether you'd clicked thumbs-up or thumbs-down. That's the whole of it — no name, no email address, and nothing about the rest of your reading.
+
+One thing worth being plain about, though: like any request to any server anywhere, this one arrives at Web3Forms carrying your IP address and your browser's user-agent string. That's a property of how the web works rather than something this site asks for or does anything with, but Web3Forms records them alongside the submission, and their [privacy policy](https://web3forms.com/privacy) governs what happens to them from there. It is the one place on this site where something sent to me could, in principle, be traced back to a person — so it's worth knowing before you use it rather than after.
+
+The box is entirely optional. If you leave it empty, nothing is sent at all, and the thumbs rating on its own never goes anywhere near it.
 
 If that send fails for any reason, you'll be offered an ordinary email link instead — which, unlike everything else on this page, would show me your email address. That's your call to make at the time, and declining it costs you nothing.
 

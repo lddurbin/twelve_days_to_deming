@@ -13,14 +13,14 @@ There are three questions: how you're finding the course, whether I may quote yo
 If instead you've hit something confusing or broken, you don't need this form at all — the thumbs-down at the foot of any chapter has a box for exactly that, and it goes straight to me.
 
 <!--
-  TODO(#452): replace with the real Tally form URL once the form is built
-  and its "May I quote you on the site?" consent field (No / Yes,
-  anonymously / Yes, with my name and role, with conditional name + role
-  fields) and redirect-on-completion
-  (https://deming.leedurbin.co.nz/share-your-experience.html?submitted=1)
-  are configured in Tally's dashboard.
+  The form's redirect-on-completion is configured in Tally's dashboard to
+  return here with ?submitted=1, which is what share-your-experience.js
+  reads to set td:feedback.status = "submitted" and stop the site ever
+  asking this reader again. Changing the form's redirect setting silently
+  breaks that suppression — the page would still render, but every future
+  visit would keep prompting.
 -->
-<a id="share-form-cta" class="feedback-prompt-cta" href="https://tally.so/r/REPLACE_WITH_FORM_ID">Share your experience</a>
+<a id="share-form-cta" class="feedback-prompt-cta" href="https://tally.so/r/q4X62g">Share your experience</a>
 
 </div>
 
