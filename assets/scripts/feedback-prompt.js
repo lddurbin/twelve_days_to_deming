@@ -1,32 +1,34 @@
 // ============================================================
-// Feedback prompt — dismissible inline block inviting feedback and
-// testimonials.
+// Testimonial prompt — dismissible inline block asking whether the reader
+// would be willing to be quoted on the site.
 //
-// #451 built the static markup/styling/dismiss control behind a temporary
-// dev flag. This wires it to the real trigger: shouldPrompt() (engagement.js)
-// gates on ledger/feedback state, and this file adds the two DOM-only gates
-// shouldPrompt() can't see — scroll depth and time-on-page — before the
-// block actually renders.
+// #451 built the markup/styling/dismiss control; #459 wired it to
+// shouldPrompt() behind a scroll-depth and time-on-page poller. #494
+// replaced that trigger: chapter-rating.js calls show() directly when a
+// reader gives a chapter a thumbs-up and shouldPrompt() agrees. Asking
+// someone who has just said "yes, this helped" is far better aim than
+// inferring a formed opinion from dwell time, and it deletes the poller.
+//
+// General feedback is no longer this block's job — the rating widget's
+// thumbs-down box handles that inline. This asks one thing only.
 //
 // Deliberately NOT a modal, toast, or floating popover: inline placement
 // (appended inside #quarto-document-content, directly above .page-navigation)
 // means it never covers content, needs no focus trap, and screen-reader
-// users meet it in natural reading order. No aria-live — announcing its
-// appearance is exactly the intrusive behaviour to avoid.
+// users meet it in natural reading order. No aria-live — it appears as a
+// consequence of the reader's own click, and chapter-rating.js already
+// announces that outcome through its own status region.
+//
+// No side effects on load: this module now only exports. It is pulled into
+// the graph by chapter-rating.js's import rather than its own script tag.
 // ============================================================
 
 import { track, pageContext } from "./telemetry.js";
-import {
-  getLedger,
-  getFeedback,
-  shouldPrompt,
-  recordFeedbackDismissal,
-  recordFeedbackPending,
-} from "./engagement.js";
+import { recordFeedbackDismissal, recordFeedbackPending } from "./engagement.js";
 
 const STRINGS = {
-  heading: "Is this course helping you?",
-  body: "If you've got a minute, we'd love to hear how it's going — what's working, what's confusing, anything at all.",
+  heading: "Would you be willing to be quoted?",
+  body: "If you'd be happy for a line of your feedback to appear on the site — anonymously, or with your name and role — I'd be glad to hear from you. It takes a couple of minutes.",
   cta: "Share your experience",
   dismiss: "Not now",
 };
@@ -39,23 +41,6 @@ const STRINGS = {
 // pulled out to its own named constant, not left inline in the innerHTML
 // template, so it has one obvious place to update if it changes.
 const CTA_HREF = "/share-your-experience.html";
-
-// shouldPrompt() (engagement.js) covers everything decidable from ledger and
-// feedback state alone; scroll depth and time-on-page are DOM-only concerns
-// that function's own header comment leaves to this file.
-const TIME_ON_PAGE_THRESHOLD_MS = 45 * 1000;
-const SCROLL_THRESHOLD = 0.7;
-const CHECK_INTERVAL_MS = 1000;
-
-function scrollFraction() {
-  const doc = document.documentElement;
-  const scrollable = doc.scrollHeight - doc.clientHeight;
-  // Nothing to scroll means there's nothing left to read before showing —
-  // treat the page as fully seen rather than waiting on a scroll event that
-  // can never come.
-  if (scrollable <= 0) return 1;
-  return (doc.scrollTop || window.scrollY) / scrollable;
-}
 
 function build() {
   const el = document.createElement("div");
@@ -97,9 +82,20 @@ function insertBeforePageNav(el) {
   }
 }
 
-function show() {
+// Callers are responsible for the gating — chapter-rating.js checks
+// shouldPrompt() before calling this. Kept dumb on purpose so the trigger
+// policy lives in one place rather than being half-enforced here.
+//
+// @param {HTMLElement} [anchor] element to append after, instead of the
+//   page-nav position. The rating widget passes itself so the ask appears
+//   attached to the thumb the reader just clicked.
+export function show(anchor) {
   const el = build();
-  insertBeforePageNav(el);
+  if (anchor && anchor.parentNode) {
+    anchor.insertAdjacentElement("afterend", el);
+  } else {
+    insertBeforePageNav(el);
+  }
   // Forced synchronous layout read, not a single requestAnimationFrame: rAF
   // genuinely races the insertion in some browsers and can get coalesced
   // away, silently skipping the transition. This costs nothing extra and
@@ -110,9 +106,9 @@ function show() {
   track("Feedback prompt shown", pageContext());
 
   el.querySelector(".feedback-prompt-cta").addEventListener("click", function () {
-    // No preventDefault — the link navigates normally to the Tally form
-    // (#452); this only needs to fire before that navigation completes,
-    // which a synchronous click handler guarantees.
+    // No preventDefault — the link navigates normally to
+    // /share-your-experience.html; this only needs to fire before that
+    // navigation completes, which a synchronous click handler guarantees.
     recordFeedbackPending();
     track("Feedback prompt clicked", pageContext());
   });
@@ -122,38 +118,6 @@ function show() {
     track("Feedback prompt dismissed", pageContext());
     el.remove();
   });
-}
 
-// Guarded on `document`, matching storage.js/telemetry.js/engagement.js:
-// keeps this module side-effect-free (and therefore safely `import`able
-// under Node/vitest, where `document` doesn't exist).
-if (typeof document !== "undefined") {
-  document.addEventListener("DOMContentLoaded", function () {
-    // Cheap up-front gate: the overwhelming majority of pageviews are from
-    // readers nowhere near eligible, and this skips arming the poller below
-    // for all of them. Re-checked on every tick once armed (see below), so
-    // this initial read only needs to decide whether polling is worth
-    // starting at all — not to be the final word.
-    if (!shouldPrompt(getLedger(), getFeedback(), new Date())) return;
-
-    const pageLoadedAt = Date.now();
-    const intervalId = setInterval(function () {
-      const timeOnPageMs = Date.now() - pageLoadedAt;
-      if (timeOnPageMs < TIME_ON_PAGE_THRESHOLD_MS) return;
-      if (scrollFraction() < SCROLL_THRESHOLD) return;
-      // Re-validated against live state, not the snapshot at
-      // DOMContentLoaded: this tab's own engagement heartbeat can push
-      // activeMs past the threshold during the wait. This does NOT catch
-      // another tab dismissing or submitting the prompt in the meantime —
-      // getLedger()/getFeedback() return engagement.js's in-memory state,
-      // which that module only refreshes from localStorage on a fresh page
-      // load, not live. A second open tab could still show the prompt just
-      // after another tab suppressed it; narrow enough (simultaneous tabs,
-      // both independently reaching the 45s/70% gate) that it isn't worth
-      // a storage-event listener for now.
-      clearInterval(intervalId);
-      if (!shouldPrompt(getLedger(), getFeedback(), new Date())) return;
-      show();
-    }, CHECK_INTERVAL_MS);
-  });
+  return el;
 }

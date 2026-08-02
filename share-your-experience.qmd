@@ -6,19 +6,21 @@ execute:
 
 <div id="share-form-view">
 
-I'd love to hear how the course is going for you — what's working, what's confusing, what you'd change. It takes a couple of minutes, and every response helps me improve this web edition for the people coming after you.
+This web edition exists because a course this good deserved to be more than a stack of PDFs. If it's been useful to you, a few sentences from you would help someone else decide it's worth their twelve days.
 
-If you're willing to be quoted, there's a spot on the form to say so — anonymously or with your name and role — but that's entirely optional. Anything you share is otherwise just for me.
+There are three questions: how you're finding the course, whether I may quote you on this site, and — only if you say yes — what name and role to put to it. You can say yes anonymously, or no entirely; the answer is genuinely fine either way, and nothing is published without you choosing that option explicitly.
+
+If instead you've hit something confusing or broken, you don't need this form at all — the thumbs-down at the foot of any chapter has a box for exactly that, and it goes straight to me.
 
 <!--
-  TODO(#452): replace with the real Tally form URL once the form is built
-  and its "May I quote you on the site?" consent field (No / Yes,
-  anonymously / Yes, with my name and role, with conditional name + role
-  fields) and redirect-on-completion
-  (https://deming.leedurbin.co.nz/share-your-experience.html?submitted=1)
-  are configured in Tally's dashboard.
+  The form's redirect-on-completion is configured in Tally's dashboard to
+  return here with ?submitted=1, which is what share-your-experience.js
+  reads to set td:feedback.status = "submitted" and stop the site ever
+  asking this reader again. Changing the form's redirect setting silently
+  breaks that suppression — the page would still render, but every future
+  visit would keep prompting.
 -->
-<a id="share-form-cta" class="feedback-prompt-cta" href="https://tally.so/r/REPLACE_WITH_FORM_ID">Share your experience</a>
+<a id="share-form-cta" class="feedback-prompt-cta" href="https://tally.so/r/q4X62g">Share your experience</a>
 
 </div>
 

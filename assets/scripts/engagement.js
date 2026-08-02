@@ -149,7 +149,8 @@ export function recordFeedbackDismissal() {
 }
 
 // Called from feedback-prompt.js's CTA click, before the browser navigates
-// to the Tally form (#452). isFeedbackEligible below only re-opens
+// to /share-your-experience.html (which in turn links out to the Tally
+// testimonial form, #452). isFeedbackEligible below only re-opens
 // eligibility from "dismissed", never from "pending" — so this suppresses
 // the prompt indefinitely, even if the reader abandons the form without
 // submitting, until #452's redirect page moves status to "submitted" (or
@@ -168,11 +169,86 @@ export function recordFeedbackSubmitted() {
 }
 
 // ---------------------------------------------------------------
+// Chapter ratings (#494) — which chapters this reader has given a thumbs
+// up or down, so chapter-rating.js can render its "already rated" state
+// and never re-ask. A third storage key for the same reason td:feedback is
+// separate from td:engagement above: each can be seeded and reset in
+// DevTools without disturbing the others.
+//
+// Keyed "<day>.<chapter>" to match ledger.chapters in recordVisit(), so the
+// two can be compared directly — e.g. chapters seen but not rated.
+// ---------------------------------------------------------------
+
+const RATINGS_STORAGE_KEY = "td:ratings";
+
+const RATING_VALUES = ["up", "down"];
+
+function isValidRatings(value) {
+  return (
+    value !== null &&
+    typeof value === "object" &&
+    // typeof [] is also "object", and an array would survive every check
+    // below (no entries to iterate), so it has to be excluded explicitly.
+    !Array.isArray(value) &&
+    Object.values(value).every((v) => RATING_VALUES.includes(v))
+  );
+}
+
+function loadRatings() {
+  const raw = safeGet(RATINGS_STORAGE_KEY);
+  if (!raw) return {};
+  try {
+    const parsed = JSON.parse(raw);
+    return isValidRatings(parsed) ? parsed : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+let ratings = loadRatings();
+
+function persistRatings() {
+  safeSet(RATINGS_STORAGE_KEY, JSON.stringify(ratings));
+}
+
+export function ratingKey(day, chapter) {
+  return `${day}.${chapter}`;
+}
+
+export function getRatings() {
+  return structuredClone(ratings);
+}
+
+// null (not undefined) for an unrated chapter, matching the null-means-absent
+// convention pageContext() already uses for day/chapter.
+export function getRating(day, chapter) {
+  const existing = ratings[ratingKey(day, chapter)];
+  return existing === undefined ? null : existing;
+}
+
+// Rating a chapter is a genuine content interaction, so it counts toward
+// shouldPrompt()'s MIN_ACTS — but only the first time for a given chapter.
+// The widget never re-asks once a chapter is rated, so a second call here
+// shouldn't happen; guarding anyway keeps acts honest if it ever does.
+export function recordRating(day, chapter, value) {
+  if (!RATING_VALUES.includes(value)) return;
+  const key = ratingKey(day, chapter);
+  const isFirst = ratings[key] === undefined;
+  ratings[key] = value;
+  persistRatings();
+  if (isFirst) recordAct();
+}
+
+// ---------------------------------------------------------------
 // shouldPrompt — pure trigger predicate for the feedback/testimonial
 // prompt (#459 renders it). Takes all state as arguments, no I/O or DOM
-// access, so it's unit-testable in isolation. Scroll-depth and
-// time-since-page-load gating are DOM-only concerns #459 checks itself;
-// this only covers what the ledger and feedback state can decide.
+// access, so it's unit-testable in isolation.
+//
+// #494 replaced the scroll-depth/time-on-page gating this originally left
+// to the caller: the prompt now fires off a thumbs-up in chapter-rating.js
+// instead of a timer, so "has this reader formed an opinion?" is answered
+// by the rating itself rather than inferred from dwell time. The thresholds
+// below are deliberately unchanged pending real rating data.
 // ---------------------------------------------------------------
 
 const ACTIVE_MS_THRESHOLD = 30 * 60 * 1000;
