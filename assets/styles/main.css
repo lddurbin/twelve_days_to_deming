@@ -1358,6 +1358,11 @@ button:focus,
 
 .chapter-rating-detail-text {
   display: block;
+  /* Bootstrap's global reset already sets this, so nothing renders wrong
+     today — declared anyway because width:100% plus horizontal padding is
+     exactly the combination that breaks if that reset ever stops applying,
+     and .float-box above takes the same belt-and-braces approach. */
+  box-sizing: border-box;
   width: 100%;
   padding: 8px 10px;
   font-family: inherit;
