@@ -1,5 +1,6 @@
 ---
 title: "INTRODUCTION"
+pagetitle: "Day 5: The Joiner Triangle, the 14 Points (Part 2), and the Deadly Diseases"
 execute:
   echo: false
 ---

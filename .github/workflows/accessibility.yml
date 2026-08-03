@@ -109,6 +109,13 @@ jobs:
     - name: Build Quarto book
       run: quarto render
 
+    - name: SPIKE - print title tag (issue #498, remove before merge)
+      run: |
+        echo "--- day-05/01-introduction.html ---"
+        grep -o '<title>[^<]*</title>' _book/content/days/day-05/01-introduction.html || echo "NOT FOUND"
+        echo "--- raw head, first 40 lines ---"
+        grep -n -A2 -B2 'title' _book/content/days/day-05/01-introduction.html | head -60
+
     - name: Start local server
       run: npm run a11y:serve &
 
