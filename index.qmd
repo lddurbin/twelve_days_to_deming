@@ -1,5 +1,6 @@
 ---
 title: "PLEASE START HERE"
+image: assets/images/og-card.png
 execute:
   echo: false
   warning: false
