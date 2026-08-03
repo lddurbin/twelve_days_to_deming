@@ -25,7 +25,7 @@ book:
   subtitle: "An active-learning course"
   author: "Henry R. Neave"
   site-url: https://deming.leedurbin.co.nz
-  description: |
+  description: >
     The complete text of Dr Henry R. Neave's 12 Days to Deming — a free,
     interactive active-learning course on W. Edwards Deming's management
     philosophy, published online with the author's permission.
