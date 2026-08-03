@@ -25,6 +25,17 @@ book:
   subtitle: "An active-learning course"
   author: "Henry R. Neave"
   site-url: https://deming.leedurbin.co.nz
+  description: >
+    The complete text of Dr Henry R. Neave's 12 Days to Deming — a free,
+    interactive active-learning course on W. Edwards Deming's management
+    philosophy, published online with the author's permission.
+  favicon: assets/images/favicon.png
+  cover-image: cover.png
+  cover-image-alt: "12 Days to Deming logo mark"
+  image: assets/images/og-card.png
+  open-graph: true
+  twitter-card: true
+  repo-url: https://github.com/lddurbin/twelve_days_to_deming
   reader-mode: true
   sidebar:
     collapse-level: 1
@@ -32,7 +43,7 @@ book:
     left: |
       Course content © Dr Henry R. Neave. Reproduced with permission (May 2026).
     right: |
-      Web edition by [Lee Durbin](https://leedurbin.co.nz) <span aria-hidden="true">·</span> [Source on GitHub](https://github.com/lddurbin/twelve_days_to_deming) <span aria-hidden="true">·</span> [Privacy](/privacy.html)
+      Web edition by [Lee Durbin](https://leedurbin.co.nz) <span aria-hidden="true">·</span> [Privacy](/privacy.html)
 
 filters:
   - filters/reading-time.lua
