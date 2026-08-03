@@ -115,8 +115,8 @@ jobs:
         grep -o '<title>[^<]*</title>' _book/content/days/day-05/01-introduction.html || echo "NOT FOUND"
         echo "--- sidebar link text for day-05/01-introduction ---"
         grep -o '<a href="[^"]*day-05/01-introduction.html"[^>]*>.*</a>' _book/content/days/day-05/01-introduction.html | head -5
-        echo "--- search.json entry for day-05/01-introduction ---"
-        grep -o '"[^"]*01-introduction.html[^}]*' _book/search.json | head -5
+        echo "--- search.json entries for day-05/01-introduction (title field) ---"
+        jq -r '.[] | select(.href | test("day-05/01-introduction.html")) | "\(.href) -> \(.title)"' _book/search.json
 
     - name: Start local server
       run: npm run a11y:serve &
