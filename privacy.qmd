@@ -1,5 +1,7 @@
 ---
 title: "Privacy"
+pagetitle: "Privacy: what this site collects, and what it deliberately doesn't"
+description: "What 12 Days to Deming collects about your visit — cookie-free analytics, optional feedback forms — and exactly what it doesn't, explained in plain terms."
 execute:
   echo: false
 ---

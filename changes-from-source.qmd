@@ -1,5 +1,7 @@
 ---
 title: "Changes from the source"
+pagetitle: "Changes from the source: how this edition differs from Neave's PDFs"
+description: "The two material differences between this web edition and Neave's original PDF course, plus a full, dated changelog of every departure from the source."
 execute:
   echo: false
 ---
