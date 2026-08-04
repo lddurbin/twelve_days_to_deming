@@ -1,5 +1,6 @@
 ---
 title: "THE FIRST PROJECT"
+session_minutes: 50
 execute:
   echo: false
 ---

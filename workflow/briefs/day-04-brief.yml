@@ -81,3 +81,79 @@ context_notes: |
 
   The "First Project" runs through Day 5 ("this project will continue throughout Day 5").
   The closing note on doc page 27 says the project continues tomorrow.
+
+# ------ Clock Reads (dictated by Lee from the original book, 2026-08-04) ------
+# Raw pacing-clock reads, dictated directly from the source pages — same
+# mechanism as Day 2 (workflow/briefs/day-02-brief.yml) and Day 3, not the
+# abandoned outline-page extraction (see issue #471 and project memory
+# project_clock_extraction_paused.md).
+#
+# Page numbers below are DOC/PRINTED page numbers — the numbering used by
+# this file's {#sec-pageN} anchors in the qmd (confirmed against
+# 01-introduction.qmd:62, whose "Now please read DemDim from the bottom of
+# page 31 to the end of page 36" callout sits just above the dictated p3
+# three-quarters-down checkpoint) — NOT the "File pages" numbers used in
+# this brief's Chapter Plan `pages:` field above (File page = doc page + 4).
+#
+# Day 4 has no Stats-level fork in its prose (confirmed: no "Stats-level"
+# text anywhere in content/days/day-04/*.qmd), so there is only one clock
+# column, unlike Day 2 and (unverified) Day 3.
+#
+# Lee confirmed (2026-08-04) that the last checkpoint, page 27 bottom
+# (5:30pm), is the end of Day 4.
+clock_reads:
+  - { page: 1,  position: "top",              time: "9:00am" }
+  - { page: 3,  position: "three-quarters down", time: "9:20am", notes: "just above the return_callout \"Now please read DemDim from the bottom of page 31 to the end of page 36\" (01-introduction.qmd:62)" }
+  - { page: 3,  position: "bottom",           time: "9:40am" }
+  - { page: 4,  position: "bottom",           time: "10:15am" }
+  - { page: 5,  position: "middle",           time: "10:45am", notes: "just above point (3) in Activity 4-a" }
+  - { page: 5,  position: "bottom",           time: "11:15am" }
+  - { page: 7,  position: "bottom",           time: "11:45am" }
+  - { page: 9,  position: "middle",           time: "12:00pm", notes: "just after Pause for Thought 4-c" }
+  - { page: 10, position: "bottom",           time: "12:20pm" }
+  - { page: 11, position: "bottom",           time: "12:30pm" }
+  - { page: 12, position: "bottom",           time: "12:40pm" }
+  - { page: 13, position: "bottom",           time: "12:45pm", notes: "end of the morning session" }
+  - { page: 14, position: "top",              time: "1:45pm",  notes: "start of the afternoon session" }
+  - { page: 15, position: "bottom",           time: "2:00pm" }
+  - { page: 17, position: "bottom",           time: "2:35pm" }
+  - { page: 19, position: "bottom",           time: "3:10pm" }
+  - { page: 21, position: "bottom",           time: "3:45pm" }
+  - { page: 23, position: "bottom",           time: "4:20pm" }
+  - { page: 25, position: "bottom",           time: "4:55pm" }
+  - { page: 27, position: "bottom",           time: "5:30pm",  notes: "end of Day 4 — confirmed by Lee, 2026-08-04" }
+
+# ------ session_minutes Computation (2026-08-04) ------
+# Method (Day 2/3 precedent): each chapter's opening clock = the earliest
+# checkpoint on or after the chapter's true first page (confirmed via the
+# qmd {#sec-pageN} anchors: the-joiner-triangle opens page 4, the-first-
+# project opens page 14, points-1-to-6 opens page 16). session_minutes =
+# next chapter's opening clock minus this chapter's opening clock, in
+# minutes. Left unset where the gap spans the lunch break. For the day's
+# last chapter, the confirmed day-end clock (5:30pm, p27 bottom) substitutes
+# for a next chapter's opening clock.
+#
+#   chapter               opens    next chapter's opening   session_minutes
+#   introduction (p1)     9:00am   10:15am                  75
+#   the-joiner-triangle   10:15am  1:45pm                    unset — spans lunch (12:45-1:45pm; chapter's own last page, p13 bottom, is the 12:45pm end-of-morning-session anchor)
+#   (p4)
+#   the-first-project     1:45pm   2:35pm                   50
+#   (p14)
+#   points-1-to-6         2:35pm   5:30pm (day end)          175
+#   (p16, substitute —
+#   nearest checkpoint
+#   is p17 bottom, no
+#   checkpoint on p16
+#   itself)
+#
+# Two chapters' opening checkpoints are substitutes rather than exact
+# matches to the chapter's true first page: the-joiner-triangle (p4
+# bottom stands in for p4 top — same page, so no distortion) and
+# points-1-to-6 (p17 bottom stands in for p16 — one page late, so its
+# 175 min likely slightly understates the chapter's true length by
+# folding p16's reading time into the previous gap instead). introduction
+# and the-first-project both open on an exact top-of-page checkpoint.
+
+# ------ Front-matter applied (2026-08-04) ------
+# session_minutes: introduction=75, the-first-project=50, points-1-to-6=175.
+# Left unset: the-joiner-triangle (spans lunch break).

@@ -1,5 +1,6 @@
 ---
 title: "INTRODUCTION"
+session_minutes: 75
 execute:
   echo: false
 ---
