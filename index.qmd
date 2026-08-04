@@ -1,5 +1,6 @@
 ---
 title: "PLEASE START HERE"
+include-in-header: assets/schema/course-jsonld.html
 execute:
   echo: false
   warning: false
