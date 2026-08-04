@@ -1,5 +1,6 @@
 ---
 title: "POINTS 1–6"
+session_minutes: 175
 execute:
   echo: false
 ---
