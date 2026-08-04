@@ -1,5 +1,7 @@
 ---
 title: "Welcome"
+pagetitle: "Welcome: the story of W. Edwards Deming and what this course covers"
+description: "How Deming transformed Japanese industry from 1950, what this course covers, and why practitioners recommend it — introduced by Dr Henry Neave."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "Share Your Experience"
+pagetitle: "Share your experience of 12 Days to Deming"
+description: "Tell us how 12 Days to Deming has helped you — a short, optional form, with the choice to be quoted publicly or to stay anonymous."
 execute:
   echo: false
 ---

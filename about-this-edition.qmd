@@ -1,5 +1,7 @@
 ---
 title: "About this Edition"
+pagetitle: "About this edition: why and how this web adaptation was built"
+description: "Why Lee Durbin adapted 12 Days to Deming for the web, what changed from Neave's original PDFs, and the author's personal blessing for this edition."
 execute:
   echo: false
 ---

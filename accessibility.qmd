@@ -1,5 +1,7 @@
 ---
 title: "Accessibility"
+pagetitle: "Accessibility features of the 12 Days to Deming web edition"
+description: "The accessibility features built into this course — skip links, a dyslexia font, keyboard navigation, ARIA labelling — and what's still on the roadmap."
 execute:
   echo: false
 ---

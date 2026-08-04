@@ -1,5 +1,7 @@
 ---
 title: "PLEASE START HERE"
+pagetitle: "12 Days to Deming: Dr Henry Neave's free interactive Deming course"
+description: "Henry Neave's 12 Days to Deming, adapted for the web: a free, interactive course on W. Edwards Deming's management philosophy, published with his blessing."
 include-in-header: assets/schema/course-jsonld.html
 execute:
   echo: false
