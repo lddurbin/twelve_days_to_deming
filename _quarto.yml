@@ -30,8 +30,6 @@ book:
     interactive active-learning course on W. Edwards Deming's management
     philosophy, published online with the author's permission.
   favicon: assets/images/favicon.png
-  cover-image: cover.png
-  cover-image-alt: "12 Days to Deming logo mark"
   image: assets/images/og-card.png
   open-graph: true
   twitter-card: true
