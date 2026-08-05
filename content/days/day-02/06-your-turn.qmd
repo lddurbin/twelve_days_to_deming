@@ -1,5 +1,7 @@
 ---
 title: "YOUR TURN"
+pagetitle: "Day 2: Play the Foreman, reacting to the Red Beads results"
+description: "Now you play the Foreman: react to each Red Beads result as it comes in, then see how easily you invented explanations for pure random variation."
 execute:
   echo: false
 ---

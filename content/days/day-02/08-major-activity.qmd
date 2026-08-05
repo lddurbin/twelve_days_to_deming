@@ -1,5 +1,7 @@
 ---
 title: "MAJOR ACTIVITY"
+pagetitle: "Day 2: Major Activity — writing up the Red Beads Experiment's lessons"
+description: "Day 2's Major Activity: summarise the lessons from the Red Beads Experiment, then reflect on times you've been the Willing Worker or the Foreman."
 session_minutes: 60
 execute:
   echo: false

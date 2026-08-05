@@ -1,5 +1,7 @@
 ---
 title: "HELPFUL BOOKS AND VIDEOS"
+pagetitle: "Day 1: Recommended Deming books and videos beyond the course text"
+description: "Neave's reading list beyond the course text: Out of the Crisis, The New Economics, and video recommendations including The Deming of America."
 session_minutes: 10
 execute:
   echo: false

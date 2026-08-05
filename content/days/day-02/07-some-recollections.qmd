@@ -1,5 +1,7 @@
 ---
 title: "SOME RECOLLECTIONS"
+pagetitle: "Day 2: Best and worst-ever Red Beads results, and what they don't prove"
+description: "Neave's Red Beads recollections: the best-ever result (professional statisticians) and worst-ever (a Madrid seminar) — and why neither proves anything."
 session_minutes: 105
 # Stats-level 0 readers look the control limits up in the Appendix
 # rather than computing them — 15 min less on Neave's clocks. Nothing

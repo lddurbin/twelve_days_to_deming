@@ -1,5 +1,7 @@
 ---
 title: "POSTSCRIPT"
+pagetitle: "Day 2: Postscript — a second Madrid result, and prepping for Day 3"
+description: "The rest of the Spaniards' story from a second Madrid seminar, a colleague's Red Beads wrap-up brief, and how to prepare for Day 3's Funnel Experiment."
 session_minutes: 30
 execute:
   echo: false

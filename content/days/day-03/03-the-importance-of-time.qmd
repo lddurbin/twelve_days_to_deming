@@ -1,5 +1,7 @@
 ---
 title: "THE IMPORTANCE OF TIME"
+pagetitle: "Day 3: Why histograms hide a process's story over time"
+description: "Two datasets share an identical histogram but opposite trends over time, showing why histograms alone can't tell you if a process is in control."
 session_minutes: 20
 execute:
   echo: false

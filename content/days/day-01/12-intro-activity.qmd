@@ -1,5 +1,7 @@
 ---
 title: "INTRODUCTION TO THE MAJOR ACTIVITY"
+pagetitle: "Day 1: Why most problems come from the system, not the individual"
+description: "Neave introduces Deming's provocative claim that the system, not the individual, causes the vast majority of problems, ahead of Major Activity 1-f."
 execute:
   echo: false
 ---

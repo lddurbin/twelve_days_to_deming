@@ -1,5 +1,7 @@
 ---
 title: "DAY 1 (afternoon): THE DEMING STORY"
+pagetitle: "Day 1: The Deming story, from Shewhart's mentee to Japan and beyond"
+description: "Deming's life story: mentored by Walter Shewhart in the 1920s, teaching Japan's industrialists in 1950, the 'wasted years', and his Profound Knowledge."
 session_minutes: 130
 execute:
   echo: false

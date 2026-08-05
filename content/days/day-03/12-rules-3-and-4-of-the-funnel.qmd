@@ -1,5 +1,7 @@
 ---
 title: "RULES 3 AND 4 OF THE FUNNEL"
+pagetitle: "Day 3: Funnel Experiment Rules 3 and 4 — tampering gets worse"
+description: "Rules 3 and 4 of the Funnel Experiment: symmetric placement produces a zig-zag disaster, while chasing the last result makes the process drift away."
 session_minutes: 55
 execute:
   echo: false

@@ -1,5 +1,7 @@
 ---
 title: "MAJOR ACTIVITY 1-f"
+pagetitle: "Day 1: Major Activity 1-f — contrasting environments and behaviour"
+description: "Major Activity 1-f: compare how you'd behave across ten pairs of opposite environments, from trust vs distrust to war vs peace, to explore system effects."
 execute:
   echo: false
 ---

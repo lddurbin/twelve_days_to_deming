@@ -1,5 +1,7 @@
 ---
 title: "SIX PROCESSES"
+pagetitle: "Day 3: Six real processes, in and out of statistical control"
+description: "Twelve control charts from six very different processes — dice, coins, pulse rate, manufacturing, trade deficits — comparing stable and unstable behaviour."
 session_minutes: 15
 session_minutes_stats0: 20
 execute:

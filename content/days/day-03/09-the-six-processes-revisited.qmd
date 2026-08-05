@@ -1,5 +1,7 @@
 ---
 title: "THE SIX PROCESSES REVISITED"
+pagetitle: "Day 3: The Six Processes revisited — spotting special causes"
+description: "Extending the Six Processes charts to 48 points each, tracing exactly where and how special causes show up, from a beta-blocker to a financial crisis."
 session_minutes: 25
 session_minutes_stats0: 20
 execute:

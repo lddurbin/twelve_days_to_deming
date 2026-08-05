@@ -1,5 +1,7 @@
 ---
-title: "THE ATTRACTION OF DEMING’S WORK"
+title: "THE ATTRACTION OF DEMING'S WORK"
+pagetitle: "Day 1: What first attracted Henry Neave to Deming's work"
+description: "Henry Neave explains what drew him to Deming: not the statistics, but the humanity, logic, and systems-thinking behind his approach to management."
 session_minutes: 40
 execute:
   echo: false

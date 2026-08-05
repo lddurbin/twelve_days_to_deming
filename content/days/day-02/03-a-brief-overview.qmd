@@ -1,5 +1,7 @@
 ---
 title: "A BRIEF OVERVIEW"
+pagetitle: "Day 2: How the Red Beads Experiment is run, step by step"
+description: "A full walkthrough of the Red Beads Experiment: Foreman, Willing Workers and Inspectors, training, quotas, and firing the 'worst' performers by name."
 session_minutes: 10
 execute:
   echo: false

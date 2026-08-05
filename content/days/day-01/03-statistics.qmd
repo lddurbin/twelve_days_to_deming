@@ -1,5 +1,7 @@
 ---
 title: "'STATISTICS? OH NO!'"
+pagetitle: "Day 1: Why 'understanding variation' isn't traditional statistics"
+description: "Neave reassures statistics-averse readers: this course needs no probability or hypothesis tests — just Shewhart's idea of understanding variation."
 session_minutes: 30
 execute:
   echo: false

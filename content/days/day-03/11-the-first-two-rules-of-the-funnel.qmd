@@ -1,5 +1,7 @@
 ---
 title: "THE FIRST TWO RULES OF THE FUNNEL"
+pagetitle: "Day 3: Funnel Experiment Rules 1 and 2 — doing nothing wins"
+description: "Major Activity 3-h: running the Funnel Experiment's Rules 1 and 2 shows that leaving the process alone beats constantly compensating for each result."
 session_minutes: 105
 execute:
   echo: false

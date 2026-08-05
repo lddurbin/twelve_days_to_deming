@@ -1,5 +1,7 @@
 ---
 title: "INTRODUCTION TO THE RED BEADS EXPERIMENT"
+pagetitle: "Day 2: Introducing Deming's Red Beads Experiment"
+description: "Neave introduces Deming's famous Red Beads Experiment, confessing that he too was sceptical of this 'stupidly simple' exercise before he saw it work."
 session_minutes: 45
 execute:
   echo: false

@@ -1,5 +1,7 @@
 ---
 title: "ACTIVITIES, MAJOR ACTIVITIES, PAUSES FOR THOUGHT, PROJECTS AND 'YOUR ORGANISATION'"
+pagetitle: "Day 1: How this course's Activities and Pauses for Thought work"
+description: "Explains the course's four levels of interactive exercise — Pauses for Thought, Activities, Major Activities and Projects — and their colour conventions."
 session_minutes: 20
 execute:
   echo: false

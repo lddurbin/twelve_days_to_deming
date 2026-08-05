@@ -1,5 +1,7 @@
 ---
 title: "HOW DO WE COMPUTE THESE CONTROL LIMITS—AND WHY?"
+pagetitle: "Day 3: How control limits are computed, using moving ranges"
+description: "Why control limits are computed from moving ranges rather than the standard deviation, a method that stays useful even when a process is out of control."
 session_minutes: 30
 execute:
   echo: false

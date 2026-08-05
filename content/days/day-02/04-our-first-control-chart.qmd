@@ -1,5 +1,7 @@
 ---
 title: "OUR FIRST CONTROL CHART"
+pagetitle: "Day 2: The Red Beads control chart — all just common-cause variation"
+description: "Plotting the Red Beads data on a control chart shows every result within the limits, proving the workers' scores were common-cause variation, not skill."
 session_minutes: 25
 execute:
   echo: false
