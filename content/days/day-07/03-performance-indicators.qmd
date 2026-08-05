@@ -1,5 +1,7 @@
 ---
 title: "PERFORMANCE INDICATORS"
+pagetitle: "Day 7: Why performance indicators can't indicate performance"
+description: "Performance indicators are singular and local, but performance is multi-faceted and systemic — plus how Peter Scholtes phased out appraisal, not banned it."
 execute:
   echo: false
 ---

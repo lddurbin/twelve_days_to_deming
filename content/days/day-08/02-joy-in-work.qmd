@@ -1,5 +1,7 @@
 ---
 title: "JOY IN WORK"
+pagetitle: "Day 8: Joy in Work"
+description: "An activity reflecting on how much Joy in Work exists in your organisation, what obstructs it, and what could be done to encourage more of it."
 execute:
   echo: false
 ---

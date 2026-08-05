@@ -1,5 +1,7 @@
 ---
 title: "MANY MORE TRUE STORIES"
+pagetitle: "Day 7: More true stories of targets gone wrong"
+description: "Real accounts of nail factories, railway timetable padding, spiky chairs and fudged KPIs — how numerical targets invite gaming rather than improvement."
 execute:
   echo: false
 ---

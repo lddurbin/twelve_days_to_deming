@@ -1,5 +1,7 @@
 ---
 title: "INTRODUCTION"
+pagetitle: "Day 9: Introduction to a System of Profound Knowledge"
+description: "Neave introduces Day 9's two halves: appreciating an organisation as a system this morning, then the System of Profound Knowledge itself this afternoon."
 execute:
   echo: false
 ---

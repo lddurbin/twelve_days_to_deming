@@ -1,5 +1,7 @@
 ---
 title: "INTRODUCTIONS TO THE SYSTEM OF PROFOUND KNOWLEDGE"
+pagetitle: "Day 9: Four introductions to the System of Profound Knowledge"
+description: "Scholtes's diagram, DemDim's chapter, Balaji Reddie's newspaper articles, and Deming's own May 1990 text — four routes into his final teaching."
 execute:
   echo: false
 ---

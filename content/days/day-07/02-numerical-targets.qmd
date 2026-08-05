@@ -1,5 +1,7 @@
 ---
 title: "THREE KINDS OF NUMERICAL TARGETS"
+pagetitle: "Day 7: The three kinds of numerical targets"
+description: "Neave distinguishes facts of life, numbers for guidance, and numbers for judgment — only the last, used for reward or punishment, is Deming's real target."
 execute:
   echo: false
 ---
