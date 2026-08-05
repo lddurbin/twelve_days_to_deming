@@ -1,5 +1,7 @@
 ---
 title: "PART D: KNOWLEDGE OF PSYCHOLOGY"
+pagetitle: "Day 11: Part D — Knowledge of psychology"
+description: "Intrinsic motivation, extrinsic motivation and overjustification — and Deming's case for why pay, above a certain level, is not a motivator."
 execute:
   echo: false
 ---

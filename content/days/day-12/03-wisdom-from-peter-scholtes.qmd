@@ -1,5 +1,7 @@
 ---
 title: "SECTION 2: WISDOM FROM PETER SCHOLTES"
+pagetitle: "Day 12: Wisdom from Peter Scholtes — profound knowledge in practice"
+description: "Peter Scholtes's Motor Equipment Operation story, an interlinks activity on his System of Profound Knowledge diagram, and his parody 'Profound Trouble'."
 execute:
   echo: false
 ---

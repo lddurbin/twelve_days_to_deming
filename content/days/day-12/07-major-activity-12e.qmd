@@ -1,5 +1,7 @@
 ---
 title: "SECTION 6: MAJOR ACTIVITY 12–e"
+pagetitle: "Day 12: Major Activity 12-e — drafting Dr Deming's report to your organisation"
+description: "The final Major Activity: imagine Dr Deming touring your organisation, draft his report to the Chief Executive, then plan the changes it calls for."
 execute:
   echo: false
 ---

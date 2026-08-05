@@ -1,5 +1,7 @@
 ---
 title: 'SECTION 3: "BUT WHAT CAN I DO?"'
+pagetitle: "Day 12: 'But what can I do?' — guidance for staff and middle managers"
+description: "Dave Young's practical guidance for those who feel too junior to act, built on Deming's 'transformation of the individual' from The New Economics."
 execute:
   echo: false
 ---

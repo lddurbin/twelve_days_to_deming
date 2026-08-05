@@ -1,5 +1,7 @@
 ---
 title: "ACTIVITY 10–a"
+pagetitle: "Day 10: Activity 10-a — rating the Points and Diseases against Part A"
+description: "Scoring, on a 0–5 scale, how strongly each of the 14 Points and five Deadly Diseases connects to your new understanding of Appreciation for a System."
 execute:
   echo: false
 ---

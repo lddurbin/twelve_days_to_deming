@@ -1,5 +1,7 @@
 ---
 title: "PART C, AREA 1: PREDICTION"
+pagetitle: "Day 11: Part C, Area 1 — Prediction"
+description: "Why 'management is action based on prediction', and Deming's Cedar Crest address on the difference between information and knowledge."
 execute:
   echo: false
 ---

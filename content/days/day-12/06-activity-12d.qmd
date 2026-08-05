@@ -1,5 +1,7 @@
 ---
 title: "SECTION 5: ACTIVITY 12–d"
+pagetitle: "Day 12: Activity 12-d — applying the leadership guidance to your role"
+description: "Turning Sections 3 and 4's guidance on staff, management and leadership into a plan of action for your own position and organisation."
 execute:
   echo: false
 ---

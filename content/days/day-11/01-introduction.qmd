@@ -1,5 +1,7 @@
 ---
 title: "DAY 11: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS C AND D"
+pagetitle: "Day 11: Introducing Parts C and D of the System of Profound Knowledge"
+description: "Neave introduces Theory of Knowledge and Knowledge of Psychology, both tracing back to the work of Walter Shewhart."
 execute:
   echo: false
 ---
