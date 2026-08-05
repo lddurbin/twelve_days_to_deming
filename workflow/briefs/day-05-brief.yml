@@ -120,7 +120,7 @@ clock_reads:
   - { page: 9,  position: "bottom", time: "11:15am" }
   - { page: 11, position: "bottom", time: "11:45am" }
   - { page: 13, position: "bottom", time: "12:15pm", notes: "end of the morning session" }
-  - { page: 14, position: "top",    time: "1:15pm",  notes: "start of the afternoon session (inferred from agenda match)" }
+  - { page: 14, position: "top",    time: "1:15pm",  notes: "dictated time; the \"start of the afternoon session\" label is inferred from the agenda match, not a phrase Lee used for this checkpoint" }
   - { page: 15, position: "bottom", time: "1:45pm" }
   - { page: 17, position: "bottom", time: "2:15pm" }
   - { page: 18, position: "top",    time: "2:45pm",  notes: "start of the section labelled \"Disease 1: Lack of Constancy\" — matches {#sec-page18} in 03-the-deadly-diseases.qmd exactly" }
