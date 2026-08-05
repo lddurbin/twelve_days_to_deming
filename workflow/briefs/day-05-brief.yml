@@ -82,3 +82,81 @@ context_notes: |
 
   Approvals footnote (file p32): quotations from Volume 21 of The Deming Library have been
   included with the approval of Clare Crawford-Mason.
+
+# ------ Clock Reads (dictated by Lee from the original book, 2026-08-06) ------
+# Raw pacing-clock reads, dictated directly from the source pages — same
+# mechanism as Day 2 (workflow/briefs/day-02-brief.yml), Day 3, and Day 4
+# (workflow/briefs/day-04-brief.yml), not the abandoned outline-page
+# extraction (see issue #471 and project memory
+# project_clock_extraction_paused.md). This corrects issue #476: an
+# earlier pass at this day's session_minutes was transcribed as broken
+# (all-12:00 placeholders) and never made it into committed qmd/brief
+# state — audited both on 2026-08-06 and confirmed clean, so there was
+# nothing stale to remove alongside these real reads.
+#
+# Page numbers below are DOC/PRINTED page numbers, matching this file's
+# {#sec-pageN} anchors in the qmd — confirmed directly against
+# 03-the-deadly-diseases.qmd:14, whose "## Disease 1. Lack of constancy"
+# heading is anchored {#sec-page18} and matches the dictated p18-top
+# checkpoint's note below verbatim. This is NOT the "File pages" numbering
+# used in this brief's Chapter Plan `pages:` field above (File page = doc
+# page + 4, e.g. introduction's doc page 1 = file page 5).
+#
+# Day 5 has no Stats-level fork in its prose (that split is specific to
+# Day 2's statistics content), so there is only one clock column.
+#
+# The day's declared agenda times (see Context Notes above: "9:00am–
+# 12:15pm (Points 7–14), 1:15pm–5:15pm (video + Deadly Diseases)") match
+# the dictated reads exactly: p1 top = 9:00am (day start), p13 bottom =
+# 12:15pm (end of morning session), p14 top = 1:15pm (afternoon start,
+# inferred from the agenda match — not separately called out by Lee), p27
+# bottom = 5:15pm (day end, matching the agenda's declared 5:15pm close).
+clock_reads:
+  - { page: 1,  position: "top",    time: "9:00am",  notes: "day start" }
+  - { page: 1,  position: "bottom", time: "9:15am" }
+  - { page: 3,  position: "bottom", time: "9:45am" }
+  - { page: 5,  position: "bottom", time: "10:15am" }
+  - { page: 7,  position: "bottom", time: "10:45am" }
+  - { page: 9,  position: "bottom", time: "11:15am" }
+  - { page: 11, position: "bottom", time: "11:45am" }
+  - { page: 13, position: "bottom", time: "12:15pm", notes: "end of the morning session" }
+  - { page: 14, position: "top",    time: "1:15pm",  notes: "dictated time; the \"start of the afternoon session\" label is inferred from the agenda match, not a phrase Lee used for this checkpoint" }
+  - { page: 15, position: "bottom", time: "1:45pm" }
+  - { page: 17, position: "bottom", time: "2:15pm" }
+  - { page: 18, position: "top",    time: "2:45pm",  notes: "start of the section labelled \"Disease 1: Lack of Constancy\" — matches {#sec-page18} in 03-the-deadly-diseases.qmd exactly" }
+  - { page: 19, position: "bottom", time: "3:15pm" }
+  - { page: 21, position: "bottom", time: "3:45pm" }
+  - { page: 23, position: "bottom", time: "4:15pm" }
+  - { page: 25, position: "bottom", time: "4:45pm" }
+  - { page: 27, position: "bottom", time: "5:15pm",  notes: "end of Day 5 — matches the agenda's declared 5:15pm close" }
+
+# ------ session_minutes Computation (2026-08-06) ------
+# Method (Day 2/3/4 precedent): each chapter's opening clock = the earliest
+# checkpoint on or after the chapter's true first page (confirmed via the
+# qmd {#sec-pageN} anchors: introduction opens page 1, points-7-to-14 opens
+# page 2, the-deadly-diseases opens page 18). session_minutes = next
+# chapter's opening clock minus this chapter's opening clock, in minutes.
+# Left unset where the gap spans the lunch break. For the day's last
+# chapter, the confirmed day-end clock (5:15pm, p27 bottom) substitutes for
+# a next chapter's opening clock.
+#
+#   chapter                  opens    next chapter's opening   session_minutes
+#   introduction (p1)        9:00am   9:45am                   45
+#   points-7-to-14 (p2,      9:45am   2:45pm                   unset — spans lunch
+#   substitute — no                                            (12:15-1:15pm)
+#   checkpoint on p2 itself,
+#   nearest is p3 bottom)
+#   the-deadly-diseases      2:45pm   5:15pm (day end)          150
+#   (p18, exact)
+#
+# One chapter's opening checkpoint is a substitute rather than an exact
+# match to its true first page: points-7-to-14 (p3 bottom stands in for
+# p2 — one page late). This slightly overstates introduction's computed
+# length by folding page 2's reading time into introduction's window
+# instead of crediting it to points-7-to-14 — the same known limitation
+# noted in Day 2's and Day 4's briefs. introduction and the-deadly-diseases
+# both open on exact checkpoints (p1 top, p18 top respectively).
+
+# ------ Front-matter applied (2026-08-06) ------
+# session_minutes: introduction=45, the-deadly-diseases=150.
+# Left unset: points-7-to-14 (spans lunch break).
