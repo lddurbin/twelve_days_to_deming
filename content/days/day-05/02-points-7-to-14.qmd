@@ -1,5 +1,7 @@
 ---
 title: "POINTS 7–14"
+pagetitle: "Deming's 14 Points 7–14: leadership to top management commitment"
+description: "Points 7–14 of Deming's 14 Points: leadership, driving out fear, breaking barriers, eliminating targets, pride of workmanship, education, top management."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "INTRODUCTION"
+pagetitle: "Day 5: Introduction to Points 7–14 and the Deadly Diseases"
+description: "Day 5 continues the First Project with the remaining eight of Deming's 14 Points and the five Deadly Diseases, plus his 1984 video on the Diseases."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "THE JOINER TRIANGLE"
+pagetitle: "Day 4: The Joiner Triangle's three foundations explained"
+description: "The Joiner Triangle's three foundations — Scientific Approach, All One Team, Obsession With Quality — with activities tying each to real workplaces."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "POINTS 1–6"
+pagetitle: "Deming's 14 Points 1–6: constancy of purpose to instituting training"
+description: "Deming's first six Points: constancy of purpose, new philosophy, ending mass inspection, lowest-tender contracts, continual improvement, training."
 session_minutes: 175
 execute:
   echo: false

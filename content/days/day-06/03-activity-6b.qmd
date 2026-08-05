@@ -1,5 +1,7 @@
 ---
 title: "MAJOR ACTIVITY 6-b"
+pagetitle: "Day 6: Scoring Gallery Furniture's before-and-after transformation"
+description: "Major Activity 6-b: score Gallery Furniture against the 14 Points and Deadly Diseases before and after Deming, then compare with your own organisation."
 execute:
   echo: false
 ---

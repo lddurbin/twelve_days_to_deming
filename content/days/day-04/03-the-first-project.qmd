@@ -1,5 +1,7 @@
 ---
 title: "THE FIRST PROJECT"
+pagetitle: "Day 4: The First Project — working through the 14 Points and Deadly Diseases"
+description: "How to tackle the First Project: pairing each of Deming's 14 Points and five Deadly Diseases with the Joiner Triangle's three foundations."
 session_minutes: 50
 execute:
   echo: false

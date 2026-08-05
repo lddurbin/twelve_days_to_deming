@@ -1,5 +1,7 @@
 ---
 title: "MORE TRUE STORIES"
+pagetitle: "Day 6: true stories of targets gone wrong, from the NHS to policing"
+description: "Ten stories of numerical targets backfiring — hospital waiting lists, police response times, school league tables, Stafford Hospital, fudged crime figures."
 execute:
   echo: false
 ---
