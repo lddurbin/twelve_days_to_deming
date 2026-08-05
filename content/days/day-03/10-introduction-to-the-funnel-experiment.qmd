@@ -1,5 +1,7 @@
 ---
 title: "INTRODUCTION TO THE FUNNEL EXPERIMENT"
+pagetitle: "Day 3: Introducing the Funnel Experiment"
+description: "Introducing Lloyd Nelson's Funnel Experiment and Neave's simplified one-dimensional version, built from a numbered track, a funnel, a marble and dice."
 execute:
   echo: false
 ---

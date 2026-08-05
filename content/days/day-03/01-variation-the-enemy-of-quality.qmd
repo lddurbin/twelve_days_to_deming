@@ -1,5 +1,7 @@
 ---
 title: "VARIATION—THE ENEMY OF QUALITY"
+pagetitle: "Day 3: Variation, the enemy of quality — the school bus story"
+description: "Neave's school-bus story shows why variation matters more than the average, then Deming's Western Electric account introduces common and special causes."
 session_minutes: 55
 execute:
   echo: false

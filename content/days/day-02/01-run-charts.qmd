@@ -1,5 +1,7 @@
 ---
 title: "RUN CHARTS"
+pagetitle: "Day 2: Run charts, and why every sales wiggle looks meaningful"
+description: "A monthly sales example shows how a run chart makes trends visible, and how management reacts to random monthly ups and downs as if each were meaningful."
 session_minutes: 35
 execute:
   echo: false

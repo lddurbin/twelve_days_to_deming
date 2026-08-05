@@ -1,5 +1,7 @@
 ---
 title: "AT THE FORD MOTOR COMPANY"
+pagetitle: "Day 3: The Ford Motor Company shafts that got better with less"
+description: "A Ford Motor Company case study: turning off an expensive automatic compensation device reduced variation and improved quality, not the reverse."
 execute:
   echo: false
 ---

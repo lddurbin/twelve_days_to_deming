@@ -1,5 +1,7 @@
 ---
 title: "DEMING IS DIFFERENT"
+pagetitle: "Day 1: How Deming's philosophy differs from conventional management"
+description: "A rapid-fire list of what makes Deming's philosophy different: intrinsic motivation, driving out fear, cooperation over competition, and no targets."
 session_minutes: 5
 execute:
   echo: false

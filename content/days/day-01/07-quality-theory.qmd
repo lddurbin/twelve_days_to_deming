@@ -1,5 +1,7 @@
 ---
 title: "QUALITY, THEORY, PHILOSOPHY, MANAGEMENT,..."
+pagetitle: "Day 1: Why Deming's work is a theory of management, not 'quality'"
+description: "A word-count from The Deming of America shows Deming said 'management' and 'theory' far more than 'quality' — his real subject was a theory of management."
 session_minutes: 35
 execute:
   echo: false

@@ -1,5 +1,7 @@
 ---
 title: "SOME LIGHT RELIEF"
+pagetitle: "Day 1: Famous wrong predictions, and why new ideas get rejected"
+description: "Classic wrong predictions, from the telephone to the Beatles, illustrate why radically different ideas like Deming's are so often dismissed at first."
 execute:
   echo: false
 ---

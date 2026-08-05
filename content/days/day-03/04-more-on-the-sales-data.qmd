@@ -1,5 +1,7 @@
 ---
 title: "MORE ON THE \"SALES DATA\""
+pagetitle: "Day 3: The 'sales data' were actually dice throws all along"
+description: "The reveal: Day 2's monthly sales figures were really dice throws. A control chart shows the management's story-building was applied to pure noise."
 session_minutes: 40
 execute:
   echo: false

@@ -1,5 +1,7 @@
 ---
 title: "A FAVOURITE EXAMPLE"
+pagetitle: "Day 3: 'Hugging the Central Line' — Deming's fear-driven fudge"
+description: "Deming's favourite example: a control chart 'hugging the Central Line' too tightly reveals an inspector fudging figures out of fear of a plant closure."
 session_minutes: 35
 execute:
   echo: false

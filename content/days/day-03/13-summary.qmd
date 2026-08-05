@@ -1,5 +1,7 @@
 ---
 title: "SUMMARY"
+pagetitle: "Day 3: Summary — tampering vs improving the system"
+description: "Day 3's summary: comparing all four Rules of the Funnel confirms that tampering with a stable process only makes things worse than leaving it alone."
 execute:
   echo: false
 ---

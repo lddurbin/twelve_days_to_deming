@@ -1,5 +1,7 @@
 ---
 title: "DEMING (RE)DISCOVERED"
+pagetitle: "Day 1: How Deming was rediscovered, from Nashua to the four-day seminars"
+description: "How Nashua's Bill Conway discovered W Edwards Deming via Japan's Deming Prize, sparking the four-day seminars and the British Deming Association."
 session_minutes: 15
 execute:
   echo: false

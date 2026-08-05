@@ -1,5 +1,7 @@
 ---
 title: "CONTROL CHART + BRAIN"
+pagetitle: "Day 3: Interpreting control charts needs judgment, not just rules"
+description: "Why reading a control chart well means combining the rules with judgment and subject knowledge, not mechanically checking if points cross a line."
 execute:
   echo: false
 ---

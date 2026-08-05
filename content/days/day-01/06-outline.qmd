@@ -1,5 +1,7 @@
 ---
 title: "OUTLINE OF THE COURSE"
+pagetitle: "Day 1: A day-by-day outline of all 12 days of this course"
+description: "A preview of what's ahead: the Red Beads and Funnel Experiments, the 14 Points, Gallery Furniture, and the System of Profound Knowledge across 12 days."
 session_minutes: 15
 execute:
   echo: false

@@ -1,5 +1,7 @@
 ---
 title: "THE TRUTH, THE WHOLE TRUTH, AND NOTHING BUT ..."
+pagetitle: "Day 2: Inside the Red Beads apparatus and its control limits"
+description: "The mechanics of the Red Beads apparatus and training procedure, framed through the 'All-Knowing' vs 'Un-Knowing' lens, plus how to compute control limits."
 session_minutes: 45
 # Stats-level 0 readers are invited to skip the three Technical Aids
 # (see the note before Technical Aid 1) — 15 min less on Neave's clocks.
