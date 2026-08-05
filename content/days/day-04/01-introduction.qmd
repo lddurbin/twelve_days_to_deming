@@ -1,5 +1,7 @@
 ---
 title: "INTRODUCTION"
+pagetitle: "Day 4: Introduction to the Joiner Triangle and the 14 Points"
+description: "Day 4 opens with the 1981 Hewlett-Packard origins of Deming's 14 Points, then introduces the Joiner Triangle that ties them together."
 session_minutes: 75
 execute:
   echo: false
