@@ -2,6 +2,7 @@
 title: "THE DEADLY DISEASES"
 pagetitle: "Deming's five Deadly Diseases of Western management"
 description: "Deming's five Deadly Diseases — lack of constancy, short-termism, performance appraisal, job-hopping, visible-figures-only thinking — in his own words."
+session_minutes: 150
 execute:
   echo: false
 ---
