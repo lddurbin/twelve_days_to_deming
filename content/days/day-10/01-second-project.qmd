@@ -1,5 +1,7 @@
 ---
 title: "DAY 10: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS A AND B"
+pagetitle: "Day 10: Beginning the Second Project on the System of Profound Knowledge"
+description: "Neave opens the Second Project, guiding you to explain each item to an imagined 'interested friend' unfamiliar with Deming's terms."
 execute:
   echo: false
 ---

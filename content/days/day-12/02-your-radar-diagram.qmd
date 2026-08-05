@@ -1,5 +1,7 @@
 ---
 title: "SECTION 1: YOUR RADAR DIAGRAM"
+pagetitle: "Day 12: Your radar diagram — visualising the Second Project's scores"
+description: "Activity 12-a turns your 19 sets of 0–5 scores from Days 10–11 into a radar diagram revealing which parts of Profound Knowledge need more work."
 execute:
   echo: false
 ---

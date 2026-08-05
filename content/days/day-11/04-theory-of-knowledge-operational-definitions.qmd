@@ -1,5 +1,7 @@
 ---
 title: "PART C, AREA 3: OPERATIONAL DEFINITIONS"
+pagetitle: "Day 11: Part C, Area 3 — Operational definitions"
+description: "What makes a definition 'operational' — illustrated with punctual, unemployed and clean — plus why Deming said there is no true value of anything."
 execute:
   echo: false
 ---

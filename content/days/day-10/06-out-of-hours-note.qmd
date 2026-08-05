@@ -1,5 +1,7 @@
 ---
 title: '"OUT-OF-HOURS" NOTE'
+pagetitle: "Day 10: Out-of-hours preparation for Parts C and D"
+description: "Halfway through the Second Project, Neave guides your preparation on Balaji's Preludes and DemDim before tackling Theory of Knowledge and Psychology."
 execute:
   echo: false
 ---

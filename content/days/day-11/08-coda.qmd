@@ -1,5 +1,7 @@
 ---
 title: "CODA"
+pagetitle: "Day 11: Coda — completing the Second Project"
+description: "Neave closes the Second Project and asks you to find coloured pens ahead of Day 12's radar diagram activity."
 execute:
   echo: false
 ---

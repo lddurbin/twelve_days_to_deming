@@ -1,5 +1,7 @@
 ---
 title: "SECTION 4: LEADERSHIP FOR THE TRANSFORMATION"
+pagetitle: "Day 12: Leadership for the transformation"
+description: "Deming's expanded 'Modern Principles of Leadership' — 14 suggestions for replacing the annual performance review with genuine leadership."
 execute:
   echo: false
 ---

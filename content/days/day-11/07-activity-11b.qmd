@@ -1,5 +1,7 @@
 ---
 title: "ACTIVITY 11–b"
+pagetitle: "Day 11: Activity 11-b — rating the Points and Diseases against Part D"
+description: "The final ratings activity of the Second Project, linking the 14 Points and Deadly Diseases to Knowledge of Psychology."
 execute:
   echo: false
 ---

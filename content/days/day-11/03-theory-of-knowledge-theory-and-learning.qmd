@@ -1,5 +1,7 @@
 ---
 title: "PART C, AREA 2: THEORY AND LEARNING"
+pagetitle: "Day 11: Part C, Area 2 — Theory and learning"
+description: "The Shewhart (PDSA) Cycle and Bill Scherkenbach's seven-word theory of knowledge: theory, question, data, prediction, knowledge, action, wisdom."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "SECTION 7: EPILOGUE"
+pagetitle: "Day 12: Epilogue — 'I have done my best'"
+description: "The Deming of America's extract on the Emperor of Japan's medal, and the five words with which Deming ended every four-day seminar."
 execute:
   echo: false
 ---

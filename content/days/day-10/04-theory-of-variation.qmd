@@ -1,5 +1,7 @@
 ---
 title: "PART B: SOME KNOWLEDGE OF THEORY OF VARIATION"
+pagetitle: "Day 10: Part B — Some knowledge of theory of variation"
+description: "Neave's blood-pressure story introduces stable systems, common and special causes, and the two costly mistakes of tampering with a process."
 execute:
   echo: false
 ---

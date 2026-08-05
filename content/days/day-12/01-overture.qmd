@@ -1,5 +1,7 @@
 ---
 title: "DAY 12: BRINGING IT ALL TOGETHER—AND MAKING IT HAPPEN"
+pagetitle: "Day 12: Overture — bringing it all together"
+description: "An overview of Day 12's seven sections, from your radar diagram and Peter Scholtes's wisdom to leadership for the transformation and the epilogue."
 execute:
   echo: false
 ---
