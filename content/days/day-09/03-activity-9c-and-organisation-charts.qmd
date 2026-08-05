@@ -1,5 +1,7 @@
 ---
 title: "ORGANISATION CHARTS AND FLOW DIAGRAMS"
+pagetitle: "Day 9: Organisation charts vs Deming's flow diagram"
+description: "Why the conventional 'train-wreck' organisation chart assigns blame while Deming's horizontal flow diagram shows everyone their job and whom it serves."
 session_minutes: 60
 execute:
   echo: false

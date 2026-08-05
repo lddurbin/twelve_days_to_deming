@@ -1,5 +1,7 @@
 ---
 title: '"OUT-OF-HOURS" PREPARATION'
+pagetitle: "Day 9: Out-of-hours preparation for the Second Project"
+description: "Homework before Day 10: revisiting the 14 Points and Deadly Diseases, and rehearsing the Second Project's four-step procedure for the coming two days."
 execute:
   echo: false
 ---

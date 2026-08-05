@@ -1,5 +1,7 @@
 ---
 title: "COOPERATION: WIN-WIN — BACKBONE OF THE NEW PHILOSOPHY"
+pagetitle: "Day 8: Cooperation — win-win, the backbone of the new philosophy"
+description: "An activity on cooperation in your organisation, the longest of Day 8's three New Climate chapters and Deming's alternative to internal competition."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "... OF PROFOUND KNOWLEDGE"
+pagetitle: "Day 9: Preparing for the System of Profound Knowledge"
+description: "Neave outlines the four-step procedure for the Second Project on Days 10-11, and the three sources: Deming's 1990 text, DemDim, and The New Economics."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "MAJOR ACTIVITY 9-e"
+pagetitle: "Day 9: Major Activity — mapping your organisation as a system"
+description: "A five-stage activity building a macro flow diagram of your own organisation, starting with a practice diagram of a system of medical care."
 execute:
   echo: false
 ---

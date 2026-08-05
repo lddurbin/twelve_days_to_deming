@@ -1,5 +1,7 @@
 ---
 title: "INTRODUCTION"
+pagetitle: "Day 7: Introduction to targets, appraisals and performance indicators"
+description: "Neave opens Day 7's look at targets, appraisals, quotas, specifications and league tables — the obstacles that undermine Deming's management theory."
 execute:
   echo: false
 ---

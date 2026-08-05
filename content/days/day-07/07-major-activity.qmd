@@ -1,5 +1,7 @@
 ---
 title: "THE OBSTACLES TO THE TRANSFORMATION"
+pagetitle: "Day 7: Major Activity — the 16 obstacles to transformation"
+description: "Working through Deming's full 'parade of obstacles', from hope for instant pudding to the fallacy of zero defects, relating each to your own organisation."
 execute:
   echo: false
 ---
