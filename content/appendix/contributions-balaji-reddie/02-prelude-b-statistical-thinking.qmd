@@ -1,5 +1,7 @@
 ---
 title: "PRELUDE B: UNDERSTANDING STATISTICAL THINKING"
+pagetitle: "Prelude B: understanding statistical thinking, by Balaji Reddie"
+description: "Common cause vs special cause explained through a commute-to-work example, plus two true stories of workers wrongly blamed for a process's own variation."
 execute:
   echo: false
 ---

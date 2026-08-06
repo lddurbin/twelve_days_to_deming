@@ -1,5 +1,7 @@
 ---
 title: "REFERENCES AND SOURCES"
+pagetitle: "Appendix: references, sources, and further reading"
+description: "The course's full bibliography — books, BDA booklets, videos, and contact links for Deming and Shewhart's own writing plus the wider Deming community."
 execute:
   echo: false
 ---

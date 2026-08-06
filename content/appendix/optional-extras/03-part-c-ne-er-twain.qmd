@@ -1,5 +1,7 @@
 ---
 title: "PART C — NE'ER THE TWAIN SHALL MEET?"
+pagetitle: "Optional Extras Part C: the Deming/Shewhart and conventional-statistics divide"
+description: "Why control charts don't depend on normality or probability theory, despite what a conventionally-trained statistician believes — and how to talk to one."
 execute:
   echo: false
 ---

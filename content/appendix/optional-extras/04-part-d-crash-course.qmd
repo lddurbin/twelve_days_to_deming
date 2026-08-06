@@ -1,5 +1,7 @@
 ---
 title: "PART D — A CRASH-COURSE IN CONVENTIONAL STATISTICS"
+pagetitle: "Optional Extras Part D: a crash course in conventional Statistics"
+description: "Histograms, probability distributions, the normal distribution, the Central Limit Theorem, confidence intervals, and hypothesis tests, in plain terms."
 execute:
   echo: false
 ---

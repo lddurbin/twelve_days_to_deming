@@ -1,5 +1,7 @@
 ---
 title: "PRELUDE A: UNDERSTANDING A SYSTEM"
+pagetitle: "Prelude A: understanding a system, by Balaji Reddie"
+description: "What makes a tiger, an orchestra, or a company a system — aim, interconnection, cause and effect far apart, and why ranking people makes no sense."
 execute:
   echo: false
 ---

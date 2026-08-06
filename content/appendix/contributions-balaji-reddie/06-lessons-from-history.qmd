@@ -1,5 +1,7 @@
 ---
 title: "SOME LESSONS FROM HISTORY"
+pagetitle: "Some lessons from history: Kaizen, Quality Circles, and Six Sigma misread"
+description: "Balaji Reddie on how Kaizen, Quality Circles, Just In Time, and Six Sigma get misunderstood when copied without Deming's underlying theory."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "CODA"
+pagetitle: "Coda: Balaji Reddie's closing reflection on the Preludes"
+description: "Deming's own vision of the transformed world — 'everyone will win; no losers' — and a closing reflection on carrying his teaching forward."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "DAY 2 — RED BEADS, CONTROL LIMITS & DAVE KERR’S WRAP-UP"
+pagetitle: "Day 2 appendix: Red Beads control limits and Dave Kerr's wrap-up"
+description: "Worked control-limit calculations for the statisticians' and Spaniards' Red Beads data, plus Dave Kerr's wrap-up brief on the experiment's lessons."
 execute:
   echo: false
 ---

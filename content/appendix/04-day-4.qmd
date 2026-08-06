@@ -1,5 +1,7 @@
 ---
 title: "DAY 4 — DISCUSSION"
+pagetitle: "Day 4 appendix: continuous vs continual improvement, and the Joiner Triangle"
+description: "Answers to Day 4's Joiner Triangle activities, plus why Deming chose 'continual' over 'continuous' improvement and why removing a bad practice needs care."
 execute:
   echo: false
 ---

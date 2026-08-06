@@ -1,5 +1,7 @@
 ---
 title: "DAY 1 — DISCUSSION ON THE FIRST PARADOX"
+pagetitle: "Day 1 appendix: why control charts are missing from statistics courses"
+description: "Neave's fuller answer to the 'first paradox' — how Shewhart's empirical 3σ-limits diverge from Mathematical Statistics' reliance on normality."
 execute:
   echo: false
 ---

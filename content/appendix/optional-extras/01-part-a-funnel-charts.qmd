@@ -1,5 +1,7 @@
 ---
 title: "PART A — USING CONTROL CHARTS ON FUNNEL EXPERIMENT DATA"
+pagetitle: "Optional Extras Part A: control charts for the Funnel Experiment"
+description: "Draw and interpret control charts for your own Funnel Experiment data across all four Rules, then compare against Neave's two computer-simulated runs."
 execute:
   echo: false
 ---

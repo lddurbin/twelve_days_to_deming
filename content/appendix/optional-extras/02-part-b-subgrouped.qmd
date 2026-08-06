@@ -1,5 +1,7 @@
 ---
 title: "PART B — A-FEW-AT-A-TIME DATA"
+pagetitle: "Optional Extras Part B: the X-bar-R chart for a-few-at-a-time data"
+description: "How to build X-bar and R charts from subgrouped data, worked through with the historic hand-drawn Japanese control chart of a cigar-lighter shell."
 execute:
   echo: false
 ---

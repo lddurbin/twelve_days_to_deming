@@ -1,5 +1,7 @@
 ---
 title: "DAY 10 — DISCUSSION"
+pagetitle: "Day 10 appendix: Appreciation for a System meets the Joiner Triangle"
+description: "Neave's answers to Activities 10–a and 10–b, tracing how the System of Profound Knowledge's first two parts connect back to Day 4's Joiner Triangle."
 execute:
   echo: false
 ---
