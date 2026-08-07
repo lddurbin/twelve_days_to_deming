@@ -6,6 +6,14 @@
 #   e.g. ./scripts/verify-deployment.sh
 #        ./scripts/verify-deployment.sh https://deming.leedurbin.co.nz _book
 #
+# Environment:
+#   VERIFY_PATHS   space-separated URL paths to check, replacing the default
+#                  set below — e.g. VERIFY_PATHS="/ /privacy.html"
+#   ATTEMPTS       attempts per URL before failing (default 3)
+#   RETRY_DELAY    seconds between attempts (default 5)
+#   CACHE_BUST     token appended as ?v=… to defeat the proxy cache
+#                  (default: timestamp-pid; CI passes the run id)
+#
 # Fetches a short, fixed set of URLs from a deployed site and asserts each is
 # byte-identical to the file that was shipped.
 #
@@ -132,13 +140,18 @@ for path in "${PATHS[@]}"; do
   url="${BASE_URL}${path}?v=${CACHE_BUST}"
   reason=""
 
-  for attempt in $(seq 1 "$ATTEMPTS"); do
+  for ((attempt = 1; attempt <= ATTEMPTS; attempt++)); do
     reason=""
 
     # No --compressed: the comparison is against bytes on disk, and asking for
     # an encoding invites the server to hand back something re-encoded.
+    #
+    # No --retry either: retrying is the outer loop's job, because only it can
+    # see a content mismatch. Stacking curl's own retries underneath multiplied
+    # the worst case — an unreachable site took ~29 minutes to be reported
+    # across six paths, rather than the ~10 this bounds it to.
     status="$(curl -sS -o "$body" -w '%{http_code}' \
-      --max-time 30 --retry 2 --retry-delay 2 --retry-connrefused \
+      --connect-timeout 10 --max-time 30 \
       "$url" 2>/dev/null)" || status="000"
 
     if [[ "$status" != "200" ]]; then

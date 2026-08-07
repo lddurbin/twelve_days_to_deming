@@ -30,7 +30,14 @@ node_modules/
 
 issues/
 
-/scripts/
+# scripts/ is deliberately NOT ignored. Three workflows execute files from it
+# — deploy.yml, structure-check.yml and interday-audit.yml — so a script that
+# fails to get committed breaks CI after the merge, not before it. The blanket
+# `/scripts/` ignore here was a leftover from f7ff8ca, when the directory held
+# local scratch helpers; by #533 every file in it was tracked and nothing was
+# actually being ignored, leaving only a trap for the next file added. Note
+# that re-including with `!/scripts/*.sh` does not work: git never descends
+# into an excluded directory, so the exclusion has to go entirely.
 **/*.quarto_ipynb
 
 docs/context/analysis/
