@@ -1,5 +1,7 @@
 ---
 title: "PRELUDE C: UNDERSTANDING LEARNING"
+pagetitle: "Prelude C: understanding learning, by Balaji Reddie"
+description: "A father, a scooter, and a boy's evolving theory of what makes it start — Balaji Reddie's illustration of how theory turns information into real knowledge."
 execute:
   echo: false
 ---

@@ -1,5 +1,7 @@
 ---
 title: "DAY 9 — DISCUSSION"
+pagetitle: "Day 9 appendix: an organisation-chart activity and a medical-research diagram"
+description: "A short answer hint for Activity 9–c on job obstacles, plus the flow diagram used in Day 9's medical-research organisation Major Activity."
 execute:
   echo: false
 ---

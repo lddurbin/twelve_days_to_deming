@@ -1,5 +1,7 @@
 ---
 title: "INDIA'S MISSED OPPORTUNITY"
+pagetitle: "India's missed opportunity with Deming, by Balaji Reddie"
+description: "How Prime Minister Nehru's meeting with Deming came to nothing, and how one Lucknow school is teaching Deming's principles to children today."
 execute:
   echo: false
 ---

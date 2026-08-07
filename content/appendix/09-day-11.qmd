@@ -1,5 +1,7 @@
 ---
 title: "DAY 11 — DISCUSSION"
+pagetitle: "Day 11 appendix: Theory of Knowledge and Psychology meet the Joiner Triangle"
+description: "Neave's answers to Activities 11–a and 11–b, connecting the System of Profound Knowledge's Theory of Knowledge and Psychology parts to the Joiner Triangle."
 execute:
   echo: false
 ---

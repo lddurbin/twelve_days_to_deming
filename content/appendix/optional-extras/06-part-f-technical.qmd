@@ -1,5 +1,7 @@
 ---
 title: "PART F — TECHNICAL SECTION"
+pagetitle: "Optional Extras Part F: why control-chart constants are what they are"
+description: "Simulation evidence for choosing a baseline length, proofs behind the control-chart constants, and tables of the binomial and normal distributions."
 execute:
   echo: false
 ---

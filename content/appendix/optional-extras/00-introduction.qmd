@@ -1,5 +1,7 @@
 ---
 title: "OPTIONAL EXTRAS — INTRODUCTION"
+pagetitle: "Optional Extras: deeper control-charting material beyond the main course"
+description: "A guided introduction to six optional parts on control-charting in more depth — from Funnel Experiment charts to a crash course in conventional Statistics."
 execute:
   echo: false
 ---

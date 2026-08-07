@@ -1,5 +1,7 @@
 ---
 title: "PRELUDE D: UNDERSTANDING PEOPLE"
+pagetitle: "Prelude D: does pay motivate? by Balaji Reddie"
+description: "Why Deming said 'pay is not a motivator', competing with versus competing against, and why extrinsic rewards can extinguish the intrinsic desire to learn."
 execute:
   echo: false
 ---

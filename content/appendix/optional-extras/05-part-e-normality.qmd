@@ -1,5 +1,7 @@
 ---
 title: "PART E — IS THERE ANYTHING NORMAL ABOUT CONTROL CHARTS?"
+pagetitle: "Optional Extras Part E: is there anything normal about control charts?"
+description: "Two computer simulations disproving the claims that control-chart constants require normal data and that a 3σ signal has a 0.0027 probability."
 execute:
   echo: false
 ---

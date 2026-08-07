@@ -1,5 +1,7 @@
 ---
 title: "DAY 3 — DISCUSSION"
+pagetitle: "Day 3 appendix: the Funnel Experiment's four Rules, worked through"
+description: "Neave's simulation-based discussion of the Funnel Experiment's Rules 1–4 — zig-zag and wandering effects — with delegate-submitted real-world examples."
 execute:
   echo: false
 ---

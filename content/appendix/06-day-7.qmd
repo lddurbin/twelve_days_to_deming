@@ -1,5 +1,7 @@
 ---
 title: "DAY 7 — DISCUSSION"
+pagetitle: "Day 7 appendix: Deming's 16 Obstacles to the Transformation, in full"
+description: "The full text of Deming's Major Activity 7–i — his 16 obstacles to transformation, from 'hope for instant pudding' to the fallacy of zero defects."
 execute:
   echo: false
 ---

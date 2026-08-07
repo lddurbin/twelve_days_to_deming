@@ -1,5 +1,7 @@
 ---
 title: "Glossary"
+pagetitle: "Glossary: common cause, special cause, and the course's core terms"
+description: "Seven recurring terms defined verbatim from Neave's prose — common cause, special cause, PDSA cycle, operational definition — each linked to first use."
 execute:
   echo: false
 ---

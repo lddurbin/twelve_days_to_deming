@@ -1,5 +1,7 @@
 ---
 title: "FOUR PRELUDES AND A CODA — INTRODUCTION"
+pagetitle: "Balaji Reddie's Preludes: introducing the System of Profound Knowledge"
+description: "Balaji Reddie's four introductory Preludes to Appreciation for a System, Statistical Thinking, Learning, and Psychology, plus a closing Coda."
 execute:
   echo: false
 ---

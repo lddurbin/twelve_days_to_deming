@@ -1,5 +1,7 @@
 ---
 title: "WELCOME — RECOMMENDED “OUT-OF-HOURS” PREPARATION"
+pagetitle: "Appendix: the out-of-hours preparation checklist"
+description: "A day-by-day list of what to print or prepare ahead of Days 2 through 12, cross-linked to where each task is explained in the day it serves."
 execute:
   echo: false
 ---
