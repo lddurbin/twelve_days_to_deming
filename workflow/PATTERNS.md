@@ -60,8 +60,9 @@ answer-engine-facing title without touching the transcribed text.
 **Writing a `pagetitle`:**
 
 - Sentence case, not Title Case or ALL-CAPS.
-- Carry the day number where relevant (`"Day 1: The Overture — ..."`),
-  or `"Appendix: ..."` / `"Day N appendix: ..."` for appendix content.
+- Carry the day number where relevant (e.g. `"Day 1: The Overture —
+  Deming's transformation philosophy"`), or `"Appendix: ..."` /
+  `"Day N appendix: ..."` for appendix content.
 - Front-load the distinguishing keyword — the part that makes this page
   different from its neighbours — since search results and answer
   engines often truncate after the first several words.
@@ -78,10 +79,14 @@ answer-engine-facing title without touching the transcribed text.
   templated or boilerplate — a generic description is worse for
   answer-engine extraction than no description at all, because engines
   discard and rewrite boilerplate anyway.
-- ≤ 155 characters, counted as Unicode characters (not bytes — em-dashes,
-  curly quotes, and `σ` are multi-byte in UTF-8, so shell `${#var}` gives
-  an inflated count; verify length with a proper Unicode-aware count,
-  e.g. Python's `len()`).
+- ≤ 155 characters — a conservative project-wide cap, not a Quarto or
+  Google-imposed limit — counted as Unicode characters (not bytes:
+  em-dashes, curly quotes, and `σ` are multi-byte in UTF-8, so shell
+  `${#var}` gives an inflated count). Verify with a proper Unicode-aware
+  count, e.g. Python's `len()` on the string literal (code points, not
+  grapheme clusters — fine for the plain accented characters this
+  project actually uses, but would overcount a base+combining-diacritic
+  sequence).
 - Ends with a period, matching every existing description site-wide.
 
 **What suppresses the site-name prefix:** setting `pagetitle:` at all is
