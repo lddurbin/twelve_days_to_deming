@@ -228,13 +228,19 @@ jobs:
       contents: write
 
     steps:
-    # Needed only for the deploy tag — the shipped bytes come from the
-    # artifact, not from this checkout.
+    # Runs every time, but the repo content it provides is used only by the
+    # tagging step below. The shipped bytes come from the artifact.
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
+    # Deliberately a major ahead of the upload above (which has no v8): v8
+    # defaults `digest-mismatch` to `error`, where v7 only warned. The verify
+    # step below counts files, so it catches a truncated download but not a
+    # corrupted one — garbled bytes inside a file keep the count intact. Since
+    # whatever lands here goes straight into `rsync --delete`, having the
+    # transport fail closed on a hash mismatch is worth the version skew.
     - name: Download site artifact
-      uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131  # v7.0.0
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
       with:
         name: site
         path: _book
