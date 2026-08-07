@@ -35,6 +35,8 @@ Every chapter starts with:
 ```yaml
 ---
 title: "CHAPTER TITLE IN CAPS"
+pagetitle: "Sentence-case, search-facing title"
+description: "One to two sentences describing this chapter's actual content."
 execute:
   echo: false
 ---
@@ -45,6 +47,61 @@ R setup (knitr hooks and function sourcing) is handled automatically via `.Rprof
 Optional editorial field `session_minutes:` (an integer) can also be set —
 see [Reading-time indicator](#reading-time-indicator) below for when to
 use it.
+
+### `pagetitle` and `description`
+
+`title:` stays Neave's verbatim transcription — often ALL-CAPS, sometimes
+cryptic out of context (`"POSTSCRIPT"`, `"OPTIONAL EXTRAS"`) — because
+[exact transcription is required](../CLAUDE.md) and the displayed H1 must
+match the source. `pagetitle:` sets the rendered `<title>` tag
+independently of that H1, so the page can carry a readable, search- and
+answer-engine-facing title without touching the transcribed text.
+
+**Writing a `pagetitle`:**
+
+- Sentence case, not Title Case or ALL-CAPS.
+- Carry the day number where relevant (`"Day 1: The Overture — ..."`),
+  or `"Appendix: ..."` / `"Day N appendix: ..."` for appendix content.
+- Front-load the distinguishing keyword — the part that makes this page
+  different from its neighbours — since search results and answer
+  engines often truncate after the first several words.
+- Must be unique site-wide. Two chapters can legitimately share the same
+  print-era `title:` (e.g. Neave used `"OPTIONAL EXTRAS"` for both an
+  appendix chapter and a whole appendix subsection) — their `pagetitle:`
+  values must still disambiguate them by content.
+- Never templated (e.g. never mechanically `"{title} | 12 Days to
+  Deming"`) — write it from what the chapter actually says.
+
+**Writing a `description`:**
+
+- One to two sentences, written from the chapter's actual content, never
+  templated or boilerplate — a generic description is worse for
+  answer-engine extraction than no description at all, because engines
+  discard and rewrite boilerplate anyway.
+- ≤ 155 characters, counted as Unicode characters (not bytes — em-dashes,
+  curly quotes, and `σ` are multi-byte in UTF-8, so shell `${#var}` gives
+  an inflated count; verify length with a proper Unicode-aware count,
+  e.g. Python's `len()`).
+- Ends with a period, matching every existing description site-wide.
+
+**What suppresses the site-name prefix:** setting `pagetitle:` at all is
+what stops Quarto from prepending the book title (producing `<title>12
+Days to Deming - Chapter Title</title>`). For appendix chapters
+specifically, it *also* suppresses Quarto's automatic `"Appendix A — "` /
+`"Appendix C — "` chapter-lettering prefix — confirmed by direct
+render-and-inspect. No Lua filter is involved in either suppression; this
+is native `pagetitle:` behaviour, not a workaround, so there is no
+`filters/title-prefix.lua` to maintain alongside
+`filters/reading-time.lua`.
+
+**Quarto version caveat:** production renders on Quarto **1.4.549**
+(pinned in the deploy workflow); local dev environments commonly run a
+newer version (e.g. 1.10.18). The two emit the `<title>` element's
+internal structure in different order, so a local render can pass or fail
+a title check that means the opposite in production. Treat CI — which
+renders on the pinned production version — as the oracle for anything
+`<title>`-related; don't trust a local render's `<title>` output on its
+own.
 
 ## _quarto.yml Structure
 
