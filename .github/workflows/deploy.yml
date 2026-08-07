@@ -293,6 +293,24 @@ jobs:
       run: |
         rsync -avz --delete -e "ssh -p 18765" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
 
+    # Everything before this point validates bytes the runner can see. This is
+    # the first check that asks the live site what it is actually serving, so
+    # it is the only one that can catch a partial rsync, a permissions problem,
+    # or a server-side failure. See #533.
+    #
+    # Placed before the tagging step on purpose: docs/ROLLBACK.md treats
+    # `deploy-*` tags as known-good rebuild points, so a deploy that failed
+    # verification must not mint one — otherwise a later rollback could target
+    # the very release that broke.
+    #
+    # Detection only. Rollback stays manual (ROLLBACK.md Option 1); for a
+    # static site the worst case is a few minutes of bad HTML, which does not
+    # justify automating a destructive action.
+    - name: Verify production
+      env:
+        CACHE_BUST: ${{ github.run_id }}-${{ github.run_attempt }}
+      run: ./scripts/verify-deployment.sh https://deming.leedurbin.co.nz _book
+
     - name: Tag deployment
       run: |
         git tag "deploy-$(date +%Y%m%d%H%M%S)"

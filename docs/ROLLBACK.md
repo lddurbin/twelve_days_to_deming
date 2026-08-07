@@ -2,6 +2,19 @@
 
 Two rollback strategies are available, depending on the situation.
 
+## How you find out something is wrong
+
+The deploy workflow's **Verify production** step fetches a handful of real URLs after the rsync and asserts each is byte-identical to what was shipped ([scripts/verify-deployment.sh](../scripts/verify-deployment.sh)). A red run there means the bytes on the server are not the bytes that were deployed, and is the intended trigger for Option 1 below.
+
+That step runs *before* the deployment is tagged, so a failed deploy never produces a `deploy-*` tag. Every tag listed in Option 2 is therefore a release that passed verification.
+
+Read the failure before acting — the step distinguishes two cases:
+
+| Failure | Meaning | Action |
+|---|---|---|
+| `HTTP <code>` or `content differs from deployed artifact` | The site is serving the wrong thing | Roll back — Option 1 |
+| `not in the deployed artifact` | A checked page was renamed or removed, so the script is out of date | No rollback; update `PATHS` in the script |
+
 ## Option 1: Restore from server-side backup
 
 Every deployment creates a timestamped backup on the server before rsync overwrites the site. Backups are kept at:
