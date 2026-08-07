@@ -33,11 +33,18 @@ jobs:
     - name: Run JavaScript tests
       run: npm test
 
-  build-and-deploy:
+  # Build and deploy are separate jobs so the rendered site exists as a named
+  # artifact rather than only as a directory inside the job that ships it.
+  # That makes "deploy the same verified bytes somewhere else" — a PR preview,
+  # a staging site, a different host — a matter of adding a consumer of the
+  # artifact rather than rewriting this workflow. See #532.
+  build:
     needs: test-js
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    # Inherits the workflow-level `contents: read`. Only the deploy job needs
+    # write, and only for the deploy tag.
+    outputs:
+      html_count: ${{ steps.smoke.outputs.html_count }}
 
     steps:
     - name: Checkout repository
@@ -130,7 +137,11 @@ jobs:
       if: vars.DEPLOY_FR == 'true'
       run: quarto render --profile fr
 
+    # Stays on the build job deliberately: this validates what the build
+    # produced, and that reasoning holds for every future consumer of the
+    # artifact, not just the rsync below.
     - name: Smoke test build output
+      id: smoke
       env:
         DEPLOY_FR: ${{ vars.DEPLOY_FR }}
       run: |
@@ -182,6 +193,68 @@ jobs:
         fi
 
         echo "Smoke test passed"
+
+        # Published as a job output so the deploy job can assert the artifact
+        # it downloaded is complete — see "Verify downloaded artifact" below.
+        echo "html_count=$HTML_COUNT" >> "$GITHUB_OUTPUT"
+
+    - name: Upload site artifact
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      with:
+        name: site
+        path: _book
+        # The site ships via `rsync --delete`, so anything silently dropped
+        # here would be *removed* from production. Hidden files are excluded
+        # by default, and _book has none today, but the failure mode is
+        # invisible enough to be worth closing outright.
+        include-hidden-files: true
+        if-no-files-found: error
+        # Long enough to pull the exact bytes of a bad deploy for comparison,
+        # short enough that a ~37MB artifact per merge doesn't accumulate.
+        retention-days: 7
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # Build runs on whatever ref it was given; shipping is restricted to main.
+    # This is what makes `gh workflow run deploy.yml --ref <branch>` a safe way
+    # to exercise the build and artifact steps without touching production.
+    #
+    # The tag clause preserves docs/ROLLBACK.md Option 2, which rolls back by
+    # dispatching this workflow against a `deploy-*` tag — a bare main-only
+    # check would silently turn that documented procedure into a no-op.
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/deploy-')
+    permissions:
+      contents: write
+
+    steps:
+    # Needed only for the deploy tag — the shipped bytes come from the
+    # artifact, not from this checkout.
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    - name: Download site artifact
+      uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131  # v7.0.0
+      with:
+        name: site
+        path: _book
+
+    # Splitting the jobs put an upload/download between the smoke test and the
+    # `rsync --delete`, so "the build was complete" no longer implies "these
+    # bytes are complete". Comparing against the build's own count catches a
+    # truncated transfer, which a fixed threshold would not.
+    - name: Verify downloaded artifact
+      env:
+        EXPECTED_HTML_COUNT: ${{ needs.build.outputs.html_count }}
+      run: |
+        test -f _book/index.html || { echo "FAIL: _book/index.html missing from artifact"; exit 1; }
+
+        ACTUAL=$(find _book -name "*.html" | wc -l)
+        if [ "$ACTUAL" -ne "$EXPECTED_HTML_COUNT" ]; then
+          echo "FAIL: artifact has $ACTUAL HTML files, build produced $EXPECTED_HTML_COUNT — aborting deploy"
+          exit 1
+        fi
+        echo "Artifact verified: $ACTUAL HTML files"
 
     - name: Setup SSH
       run: |
