@@ -226,6 +226,10 @@ jobs:
     if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/deploy-')
     permissions:
       contents: write
+    # Scopes SSH_PRIVATE_KEY to this job: the secret lives on the `production`
+    # environment (GitHub Settings → Environments), not the repository, so no
+    # other job or workflow in this repo can read it. See #534.
+    environment: production
 
     steps:
     # Runs every time, but the repo content it provides is used only by the
