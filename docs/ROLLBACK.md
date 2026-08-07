@@ -57,7 +57,7 @@ Each successful deployment is tagged `deploy-YYYYMMDDHHMMSS`. To rebuild and dep
    ```
 
 2. Trigger a workflow run from that tag via the GitHub Actions UI:
-   - Go to **Actions > Build and Deploy (Current) > Run workflow**
+   - Go to **Actions > Build and Deploy > Run workflow**
    - Select the tag from the branch/tag dropdown
 
    Or use the CLI:
