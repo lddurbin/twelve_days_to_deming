@@ -14,14 +14,28 @@ This workflow automatically builds and deploys your Quarto book to your remote s
 
 ### 2. How It Works
 
-The workflow will:
+The workflow runs as three jobs.
+
+**`test-js`** — runs the JavaScript unit tests.
+
+**`build`** — produces the site, and never touches the server:
 1. **Checkout** your repository
-2. **Setup R** and Quarto environment
+2. **Setup R**, Pandoc and Quarto (pinned to 1.4.549)
 3. **Install dependencies** using `renv::restore()`
-4. **Build** the Quarto book with `quarto render`
-5. **Verify** the build output exists
-6. **Deploy** to your server via SCP
-7. **Cleanup** SSH keys for security
+4. **Run** the R unit tests
+5. **Build** the Quarto book with `quarto render`
+6. **Smoke test** the build output — fails closed before anything can ship
+7. **Upload** `_book` as the `site` artifact
+
+**`deploy`** — ships that artifact. Runs only on `main` or a `deploy-*` tag:
+1. **Download** the `site` artifact and check it arrived complete
+2. **Back up** the current server-side deployment (5 retained)
+3. **Deploy** via `rsync --delete`
+4. **Verify production** — refetch live URLs and compare them against what was shipped
+5. **Tag** the deployment `deploy-YYYYMMDDHHMMSS`
+6. **Cleanup** SSH keys for security
+
+Steps 4 and 5 are in that order deliberately: a deploy that fails verification never gets tagged, so every `deploy-*` tag is a known-good rollback target. See [docs/ROLLBACK.md](../../docs/ROLLBACK.md).
 
 ### 3. Triggers
 
