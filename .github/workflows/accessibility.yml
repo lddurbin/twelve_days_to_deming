@@ -23,7 +23,11 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  pa11y:
+  # Split out so the preview job (see below) can consume the same rendered
+  # output pa11y checks, instead of running Quarto a second time per PR. See
+  # #535 — the CI-pinned Quarto version is also what makes this render, not a
+  # local one, safe to publish as a preview.
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -88,15 +92,6 @@ jobs:
         if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
         renv::restore()
 
-    - name: Setup Node.js
-      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020  # v7.0.0
-      with:
-        node-version: '20'
-        cache: 'npm'
-
-    - name: Install npm dependencies
-      run: npm ci
-
     - name: Cache Quarto freeze outputs
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
       with:
@@ -108,6 +103,42 @@ jobs:
 
     - name: Build Quarto book
       run: quarto render
+
+    - name: Upload site artifact
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      with:
+        name: pr-book
+        path: _book
+        include-hidden-files: true
+        if-no-files-found: error
+        # Ephemeral by design: this artifact only feeds pa11y and the PR
+        # preview deploy within this same workflow run, never a rollback
+        # target. Unlike deploy.yml's `site` artifact (7 days), nothing
+        # downstream needs it to outlive the run.
+        retention-days: 1
+
+  pa11y:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    - name: Setup Node.js
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020  # v7.0.0
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install npm dependencies
+      run: npm ci
+
+    - name: Download site artifact
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: pr-book
+        path: _book
 
     - name: Start local server
       run: npm run a11y:serve &
@@ -124,3 +155,125 @@ jobs:
 
     - name: Run pa11y-ci
       run: npm run a11y
+
+  # Publishes the same artifact pa11y just checked to a per-PR Vercel preview
+  # and comments the URL on the PR. See #535 and #531 (platform spike) — no
+  # build runs on Vercel; this ships the exact bytes the CI Quarto toolchain
+  # produced via the Build Output API v3 "prebuilt" path.
+  preview:
+    needs: build
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    environment: preview
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+    - name: Download site artifact
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: pr-book
+        path: _book
+
+    # config.json's noindex route satisfies #535's crawl-protection
+    # requirement: previews are unauthenticated (see project settings —
+    # Vercel Authentication is off for this project) so they're reachable
+    # directly from the PR comment link, and noindex is what keeps them out
+    # of search results instead.
+    - name: Assemble Build Output API v3 payload
+      run: |
+        mkdir -p .vercel/output/static
+        cp -r _book/. .vercel/output/static/
+        cat > .vercel/output/config.json <<'EOF'
+        {
+          "version": 3,
+          "routes": [
+            {
+              "src": "/(.*)",
+              "headers": { "X-Robots-Tag": "noindex" },
+              "continue": true
+            }
+          ]
+        }
+        EOF
+
+    # Pinned to the version verified in #531/#535 to serve byte-identical
+    # HTML with no platform-injected script. A newer CLI could change the
+    # prebuilt deploy behavior in ways worth re-verifying before bumping.
+    - name: Install Vercel CLI
+      run: npm install -g vercel@54.20.1
+
+    # VERCEL_TOKEN must be team-scoped, not project-scoped. Diagnosed in
+    # #535: a project-scoped token authenticates fine against the raw REST
+    # API (GET /v9/projects/vercel-spike returns 200), but `vercel` CLI
+    # commands — whoami, and deploy internally — always do a user-identity
+    # check first (GET /v2/user), which a project-scoped token structurally
+    # can't satisfy (it isn't tied to a user, by design) and returns 404
+    # "User not found" on every CLI version tested (54.20.1 and 58.8.0).
+    # Vercel's own docs only demonstrate project-scoped tokens against the
+    # REST API directly, never the CLI — this looks like a real gap in CLI
+    # support rather than a config mistake. Team scope is the narrowest
+    # level that still works with `vercel deploy`.
+    - name: Deploy preview to Vercel
+      id: deploy
+      env:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+      run: |
+        set -euo pipefail
+        # --format json forces structured stdout explicitly rather than
+        # relying on the CLI's undocumented environment-detection default
+        # (flagged in PR review — see the reply on #553 for what was
+        # actually observed and why this is the more robust fix).
+        RESPONSE=$(vercel deploy --prebuilt --yes \
+          --token="$VERCEL_TOKEN" \
+          --project vercel-spike \
+          --format json \
+          --meta githubPrNumber="$PR_NUMBER" \
+          --meta githubCommitSha="$COMMIT_SHA")
+        echo "$RESPONSE"
+        # --format json's shape is flat ({"id","url",...} at the top level)
+        # — distinct from the CLI's implicit/agent-detected JSON, which
+        # nests these under a "deployment" key. Confirmed against a real
+        # deploy in CI; this is the shape --format json actually produces.
+        URL=$(echo "$RESPONSE" | jq -r '.url // empty')
+        if [ -z "$URL" ]; then
+          echo "FAIL: could not extract deployment URL from vercel output"
+          exit 1
+        fi
+        echo "url=$URL" >> "$GITHUB_OUTPUT"
+
+    # Marker-based upsert (same pattern as link-check.yml's tracking issue)
+    # so repeated pushes to the PR update one comment instead of spamming a
+    # new one per `synchronize` event.
+    - name: Comment preview URL on PR
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_REPO: ${{ github.repository }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        PREVIEW_URL: ${{ steps.deploy.outputs.url }}
+        COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+      run: |
+        set -euo pipefail
+        MARKER="<!-- preview-deployment -->"
+        BODY_FILE=$(mktemp)
+        {
+          echo "$MARKER"
+          echo "### Preview deployment"
+          echo ""
+          echo "$PREVIEW_URL"
+          echo ""
+          echo "Rendered by the production Quarto toolchain (1.4.549), built from \`${COMMIT_SHA:0:7}\`. Not indexed (\`X-Robots-Tag: noindex\`)."
+        } > "$BODY_FILE"
+
+        EXISTING=$(gh api "repos/${GH_REPO}/issues/${PR_NUMBER}/comments" --jq ".[] | select(.body | startswith(\"${MARKER}\")) | .id" | head -1)
+
+        if [ -n "$EXISTING" ]; then
+          echo "Updating existing preview comment ${EXISTING}"
+          gh api -X PATCH "repos/${GH_REPO}/issues/comments/${EXISTING}" -f body=@"$BODY_FILE"
+        else
+          echo "Posting new preview comment"
+          gh pr comment "$PR_NUMBER" --body-file "$BODY_FILE"
+        fi
