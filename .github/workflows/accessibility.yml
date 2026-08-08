@@ -204,6 +204,21 @@ jobs:
     - name: Install Vercel CLI
       run: npm install -g vercel@54.20.1
 
+    # TEMPORARY: diagnosing "Could not retrieve Project Settings" — GitHub
+    # redacts the literal VERCEL_TOKEN value from all log output regardless
+    # of what these commands print, so this is safe to run. Remove once
+    # the deploy step above is confirmed working.
+    - name: Debug token scope
+      env:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      run: |
+        echo "--- whoami ---"
+        vercel whoami --token="$VERCEL_TOKEN" || true
+        echo "--- project ls ---"
+        vercel project ls --token="$VERCEL_TOKEN" --format json || true
+        echo "--- project inspect vercel-spike ---"
+        vercel project inspect vercel-spike --token="$VERCEL_TOKEN" --format json || true
+
     # VERCEL_TOKEN is project-scoped (see #535 writeup). The CLI's
     # VERCEL_ORG_ID/VERCEL_PROJECT_ID env vars are an all-or-nothing pair
     # (it errors if only one is set) and even set together they get denied
