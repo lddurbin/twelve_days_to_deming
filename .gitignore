@@ -55,3 +55,7 @@ temp/
 
 # Claude Code agent worktrees (harness-managed, never commit)
 .claude/worktrees/
+
+# Vercel CLI project link + local Build Output API payloads (deploy.yml's
+# staging job assembles this fresh in CI each run — see #536)
+.vercel/
