@@ -234,7 +234,11 @@ jobs:
           --meta githubPrNumber="$PR_NUMBER" \
           --meta githubCommitSha="$COMMIT_SHA")
         echo "$RESPONSE"
-        URL=$(echo "$RESPONSE" | jq -r '.deployment.url // empty')
+        # --format json's shape is flat ({"id","url",...} at the top level)
+        # — distinct from the CLI's implicit/agent-detected JSON, which
+        # nests these under a "deployment" key. Confirmed against a real
+        # deploy in CI; this is the shape --format json actually produces.
+        URL=$(echo "$RESPONSE" | jq -r '.url // empty')
         if [ -z "$URL" ]; then
           echo "FAIL: could not extract deployment URL from vercel output"
           exit 1
