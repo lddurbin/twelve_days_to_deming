@@ -212,12 +212,14 @@ jobs:
       env:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       run: |
-        echo "--- whoami ---"
+        echo "--- whoami (pinned 54.20.1) ---"
         vercel whoami --token="$VERCEL_TOKEN" || true
-        echo "--- project ls ---"
-        vercel project ls --token="$VERCEL_TOKEN" --format json || true
-        echo "--- project inspect vercel-spike ---"
-        vercel project inspect vercel-spike --token="$VERCEL_TOKEN" --format json || true
+        echo "--- token length (sanity check, no value printed) ---"
+        echo -n "$VERCEL_TOKEN" | wc -c
+        echo "--- token prefix (first 4 chars only) ---"
+        echo -n "$VERCEL_TOKEN" | cut -c1-4
+        echo "--- whoami (latest CLI, via npx) ---"
+        npx --yes vercel@latest whoami --token="$VERCEL_TOKEN" || true
 
     # VERCEL_TOKEN is project-scoped (see #535 writeup). The CLI's
     # VERCEL_ORG_ID/VERCEL_PROJECT_ID env vars are an all-or-nothing pair
