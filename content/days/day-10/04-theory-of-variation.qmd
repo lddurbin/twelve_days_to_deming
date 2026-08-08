@@ -49,7 +49,12 @@ So we can never *eliminate* variation in what our processes produce. We can and 
 </div>
 
 ```{ojs}
-viewof note_10_variation_12 = Inputs.textarea({label: "Your notes on items 1–2: understanding variation, special and common causes", placeholder: "Your notes on these items.", rows: 4})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof note_10_variation_12 = persist(
+  "content/days/day-10/04-theory-of-variation.qmd#note_10_variation_12",
+  Inputs.textarea({label: "Your notes on items 1–2: understanding variation, special and common causes", placeholder: "Your notes on these items.", rows: 4})
+)
 ```
 
 (So, again, it's now over to you for reactions, comments, etc throughout Part B. Keep an eye on Step 2 in the guidance which was summarised on [Day 9 page 29](../day-09/07-out-of-hours.qmd#sec-page29).)
@@ -67,7 +72,10 @@ viewof note_10_variation_12 = Inputs.textarea({label: "Your notes on items 1–2
 </div>
 
 ```{ojs}
-viewof note_10_capability_leadership = Inputs.textarea({label: "Your notes on items 3–4: process capability and leadership in stable vs unstable states", placeholder: "Your notes on these items.", rows: 4})
+viewof note_10_capability_leadership = persist(
+  "content/days/day-10/04-theory-of-variation.qmd#note_10_capability_leadership",
+  Inputs.textarea({label: "Your notes on items 3–4: process capability and leadership in stable vs unstable states", placeholder: "Your notes on these items.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -91,7 +99,10 @@ viewof note_10_capability_leadership = Inputs.textarea({label: "Your notes on it
 </div>
 
 ```{ojs}
-viewof note_10_measurement_mistakes = Inputs.textarea({label: "Your notes on items 5–6: sources of uncertainty and the two kinds of mistakes (tampering)", placeholder: "Your notes on these items.", rows: 4})
+viewof note_10_measurement_mistakes = persist(
+  "content/days/day-10/04-theory-of-variation.qmd#note_10_measurement_mistakes",
+  Inputs.textarea({label: "Your notes on items 5–6: sources of uncertainty and the two kinds of mistakes (tampering)", placeholder: "Your notes on these items.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -109,7 +120,10 @@ viewof note_10_measurement_mistakes = Inputs.textarea({label: "Your notes on ite
 </div>
 
 ```{ojs}
-viewof note_10_shewhart_interaction = Inputs.textarea({label: "Your notes on items 7–8: Shewhart control charts and interaction of forces", placeholder: "Your notes on these items.", rows: 4})
+viewof note_10_shewhart_interaction = persist(
+  "content/days/day-10/04-theory-of-variation.qmd#note_10_shewhart_interaction",
+  Inputs.textarea({label: "Your notes on items 7–8: Shewhart control charts and interaction of forces", placeholder: "Your notes on these items.", rows: 4})
+)
 ```
 
 []{#sec-page25}
@@ -131,7 +145,10 @@ viewof note_10_shewhart_interaction = Inputs.textarea({label: "Your notes on ite
 </div>
 
 ```{ojs}
-viewof note_10_enumerative_analytic = Inputs.textarea({label: "Your notes on item 9: distinction between enumerative studies and analytic problems", placeholder: "Your notes on this item.", rows: 4})
+viewof note_10_enumerative_analytic = persist(
+  "content/days/day-10/04-theory-of-variation.qmd#note_10_enumerative_analytic",
+  Inputs.textarea({label: "Your notes on item 9: distinction between enumerative studies and analytic problems", placeholder: "Your notes on this item.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -149,7 +166,10 @@ Examples [*all of Rule 4 of the Funnel*]:
 </div>
 
 ```{ojs}
-viewof note_10_loss_random = Inputs.textarea({label: "Your notes on items 10–11: loss functions and losses from random forces (Funnel Rule 4)", placeholder: "Your notes on these items.", rows: 4})
+viewof note_10_loss_random = persist(
+  "content/days/day-10/04-theory-of-variation.qmd#note_10_loss_random",
+  Inputs.textarea({label: "Your notes on items 10–11: loss functions and losses from random forces (Funnel Rule 4)", placeholder: "Your notes on these items.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -171,7 +191,10 @@ Corollaries of this theorem are frightening.
 </div>
 
 ```{ojs}
-viewof note_10_committee_outside = Inputs.textarea({label: "Your notes on items 12–13: committee enlargement and Profound Knowledge from outside", placeholder: "Your notes on these items.", rows: 4})
+viewof note_10_committee_outside = persist(
+  "content/days/day-10/04-theory-of-variation.qmd#note_10_committee_outside",
+  Inputs.textarea({label: "Your notes on items 12–13: committee enlargement and Profound Knowledge from outside", placeholder: "Your notes on these items.", rows: 4})
+)
 ```
 
 ### Step 3: *DemDim* version
@@ -179,7 +202,10 @@ viewof note_10_committee_outside = Inputs.textarea({label: "Your notes on items 
 Now read through *DemDim* pages 270–274, revising your earlier comments and adding new points below.
 
 ```{ojs}
-viewof note_10_demdim_partb = Inputs.textarea({label: "Additional notes after reading DemDim pages 270–274 on Theory of Variation", placeholder: "Additional notes from DemDim pages 270–274.", rows: 6})
+viewof note_10_demdim_partb = persist(
+  "content/days/day-10/04-theory-of-variation.qmd#note_10_demdim_partb",
+  Inputs.textarea({label: "Additional notes after reading DemDim pages 270–274 on Theory of Variation", placeholder: "Additional notes from DemDim pages 270–274.", rows: 6})
+)
 ```
 
 <div class="neave_note">
