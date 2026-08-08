@@ -83,8 +83,39 @@ format:
         queue.simpleanalyticscdn.com regardless, because latest.js sends
         pageviews as an <img> beacon by default, not just fetch(); confirmed
         by a CSP violation in local testing before this line was added.
+
+        Loaded conditionally, keyed on hostname, rather than as a static
+        tag: the persistent staging site (#536) must not report pageviews
+        under production's Simple Analytics site, and the per-PR previews
+        in accessibility.yml (never deming.leedurbin.co.nz either) get the
+        same exclusion for free from the same check.
       -->
-      <script async data-collect-dnt="false" src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+      <script>
+        if (location.hostname === "deming.leedurbin.co.nz") {
+          var sa = document.createElement("script");
+          sa.async = true;
+          sa.dataset.collectDnt = "false";
+          sa.src = "https://scripts.simpleanalyticscdn.com/latest.js";
+          document.head.appendChild(sa);
+        }
+      </script>
+      <!--
+        Staging banner (#536): visually distinguishes the persistent
+        staging deployment from production so a bug found there isn't
+        mistaken for a live one. Scoped to the exact staging hostname, not
+        "anything that isn't production", so it never affects the per-PR
+        previews in accessibility.yml.
+      -->
+      <script>
+        if (location.hostname === "twelve-days-to-deming-staging.vercel.app") {
+          document.addEventListener("DOMContentLoaded", function () {
+            var banner = document.createElement("div");
+            banner.textContent = "STAGING — tracks main, not the live site";
+            banner.style.cssText = "position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#b91c1c;color:#fff;text-align:center;padding:4px 8px;font:600 13px/1.4 -apple-system,sans-serif;";
+            document.body.prepend(banner);
+          });
+        }
+      </script>
       <script type="module" src="/assets/scripts/telemetry.js"></script>
       <script type="module" src="/assets/scripts/storage.js"></script>
       <script type="module" src="/assets/scripts/engagement.js"></script>

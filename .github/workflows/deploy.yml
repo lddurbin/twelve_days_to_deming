@@ -323,3 +323,104 @@ jobs:
     - name: Cleanup SSH
       if: always()
       run: rm -f ~/.ssh/id_rsa
+
+  # Ships the same artifact to a persistent Vercel project that tracks
+  # main — distinct from both production (rsync above) and the ephemeral
+  # per-PR previews in accessibility.yml. See #536: a login or database
+  # phase needs somewhere durable to test end-to-end flows against, which
+  # neither production nor a preview that vanishes when its PR closes can
+  # offer. Independent of `deploy` (same `needs: build`, no ordering
+  # between them) — a slow or failed rsync never blocks staging.
+  #
+  # If this ever goes unused, tear it down rather than let it become a
+  # second thing to maintain: `vercel project rm twelve-days-to-deming-staging`,
+  # delete this job, delete deploy/staging-middleware.js.
+  staging:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+    # VERCEL_TOKEN here is its own secret, not shared with the `preview`
+    # or `production` environments — see #536 and #534 (which did the same
+    # isolation for the SSH deploy key).
+    environment: staging
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    - name: Download site artifact
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: site
+        path: _book
+
+    # Access control and noindex both apply from this first deploy, not as
+    # a follow-up — see #536. Basic Auth is a hand-rolled Edge Middleware
+    # (deploy/staging-middleware.js) rather than Vercel's built-in SSO
+    # deployment protection, which — confirmed live while building this —
+    # only gates a project's per-deployment hash URLs, never its aliased
+    # Production Domain, which is exactly the stable URL a persistent
+    # staging site needs.
+    #
+    # The header route must come BEFORE the middleware route: once
+    # middleware signals "continue" (below), routing goes straight to
+    # filesystem serving rather than back through the rest of this array —
+    # also confirmed live, the header silently went missing with the
+    # routes in the opposite order.
+    #
+    # site-url in _quarto.yml bakes production's URL into this same
+    # artifact's sitemap.xml and canonical/OG tags at render time. Left
+    # as-is deliberately (per #536): staging's own domain never appears in
+    # any sitemap, and canonicals pointing at production are arguably
+    # safer than staging advertising itself as a citable URL.
+    - name: Assemble Build Output API v3 payload
+      run: |
+        set -euo pipefail
+        mkdir -p .vercel/output/static
+        cp -r _book/. .vercel/output/static/
+
+        mkdir -p .vercel/output/functions/middleware.func
+        cp deploy/staging-middleware.js .vercel/output/functions/middleware.func/index.js
+        cat > .vercel/output/functions/middleware.func/.vc-config.json <<'EOF'
+        {
+          "runtime": "edge",
+          "entrypoint": "index.js"
+        }
+        EOF
+
+        cat > .vercel/output/config.json <<'EOF'
+        {
+          "version": 3,
+          "routes": [
+            { "src": "/(.*)", "headers": { "X-Robots-Tag": "noindex" }, "continue": true },
+            { "src": "/(.*)", "middlewarePath": "middleware" }
+          ]
+        }
+        EOF
+
+    # Pinned to the version verified in #531/#535/#536 — see the matching
+    # comment in accessibility.yml's preview job.
+    - name: Install Vercel CLI
+      run: npm install -g vercel@54.20.1
+
+    # STAGING_BASIC_AUTH_USER/PASS are deliberately NOT passed through CI —
+    # they are set directly on the twelve-days-to-deming-staging Vercel
+    # project as environment variables, read by the middleware only at
+    # request time. The only credential that travels through this
+    # workflow is the deploy token.
+    #
+    # --prod is what makes this persistent rather than another ephemeral
+    # preview: Vercel auto-aliases the project's Production Domain
+    # (twelve-days-to-deming-staging.vercel.app) to whichever deployment
+    # was most recently pushed with this flag, so the URL stays stable
+    # across pushes to main while the content behind it tracks the latest
+    # commit — confirmed live, no manual `vercel alias` step needed.
+    - name: Deploy to Vercel staging
+      env:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      run: |
+        vercel deploy --prebuilt --prod --yes \
+          --token="$VERCEL_TOKEN" \
+          --project twelve-days-to-deming-staging
