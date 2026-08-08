@@ -136,6 +136,32 @@ describe("persist — save", () => {
     });
   });
 
+  it("saves and restores a numeric value (Inputs.number) alongside a string field", async () => {
+    vi.useFakeTimers();
+    const store = stubStorage({});
+    vi.resetModules();
+    const { persist } = await import("../assets/scripts/workbook.js");
+
+    const textInput = persist("day-06#a", fakeInput(""));
+    const numberInput = persist("day-06#b", fakeInput(0));
+    typeInto(textInput, "a textarea answer");
+    typeInto(numberInput, 42);
+    vi.advanceTimersByTime(400);
+
+    expect(JSON.parse(store["td:workbook"])).toEqual({
+      "day-06#a": "a textarea answer",
+      "day-06#b": 42,
+    });
+
+    // Simulate a reload: re-import against the same store.
+    vi.resetModules();
+    const { persist: persistAfterReload } = await import("../assets/scripts/workbook.js");
+    const restoredText = persistAfterReload("day-06#a", fakeInput(""));
+    const restoredNumber = persistAfterReload("day-06#b", fakeInput(0));
+    expect(restoredText.value).toBe("a textarea answer");
+    expect(restoredNumber.value).toBe(42);
+  });
+
   it("does not throw when localStorage.setItem throws (quota exceeded)", async () => {
     vi.useFakeTimers();
     globalThis.localStorage = {
@@ -178,9 +204,9 @@ describe("corrupt-data fallback", () => {
     expect(getAnswers()).toEqual({});
   });
 
-  it("falls back to empty when a stored value isn't a string", async () => {
+  it("falls back to empty when a stored value is neither a string nor a number", async () => {
     const { getAnswers } = await freshWorkbook({
-      "td:workbook": JSON.stringify({ "day-06#a": 12345 }),
+      "td:workbook": JSON.stringify({ "day-06#a": true }),
     });
     expect(getAnswers()).toEqual({});
   });
@@ -190,6 +216,13 @@ describe("corrupt-data fallback", () => {
       "td:workbook": JSON.stringify({ "day-06#a": "valid answer" }),
     });
     expect(getAnswers()).toEqual({ "day-06#a": "valid answer" });
+  });
+
+  it("accepts a numeric value (Inputs.number) without invalidating the rest of the store", async () => {
+    const { getAnswers } = await freshWorkbook({
+      "td:workbook": JSON.stringify({ "day-06#a": "a textarea answer", "day-06#b": 42 }),
+    });
+    expect(getAnswers()).toEqual({ "day-06#a": "a textarea answer", "day-06#b": 42 });
   });
 });
 
