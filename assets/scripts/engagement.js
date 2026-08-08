@@ -65,12 +65,17 @@ function freshLedger() {
   };
 }
 
+// {} passes (every() on an empty array is vacuously true) - that's the
+// correct read for a fresh ledger's empty maps, not an oversight.
+// Number.isFinite (not just typeof) excludes Infinity, which JSON.parse can
+// legitimately produce from an oversized literal like 1e400 - unlike NaN,
+// which isn't valid JSON syntax and so can never reach here.
 function isCounterMap(value) {
   return (
     value !== null &&
     typeof value === "object" &&
     !Array.isArray(value) &&
-    Object.values(value).every((v) => typeof v === "number")
+    Object.values(value).every((v) => typeof v === "number" && Number.isFinite(v))
   );
 }
 
@@ -88,16 +93,20 @@ function isValidLedger(value) {
 }
 
 // Pre-#546 shape: activeMs/acts were plain numbers. Detected by field type
-// rather than a version flag, since none was ever recorded.
+// rather than a version flag, since none was ever recorded. Number.isFinite
+// guards against a 1e400-style overflowed literal migrating straight into
+// shouldPrompt()'s threshold comparisons - see isCounterMap above.
 function isLegacyLedger(value) {
   return (
     value !== null &&
     typeof value === "object" &&
     typeof value.firstSeen === "string" &&
     typeof value.activeMs === "number" &&
+    Number.isFinite(value.activeMs) &&
     Array.isArray(value.days) &&
     Array.isArray(value.chapters) &&
     typeof value.acts === "number" &&
+    Number.isFinite(value.acts) &&
     typeof value.maxDay === "number"
   );
 }
@@ -165,6 +174,9 @@ function unionCounterMap(a, b) {
 // than a sum, so re-merging the same pair (or a device merging its own
 // entry back in) never double-counts. No network calls happen here — this
 // is sync-*readiness*, exercised only by tests until sync itself ships.
+//
+// Expects the internal per-device ledger shape (activeMsByDevice/
+// actsByDevice maps), not getLedger()'s flattened activeMs/acts numbers.
 export function mergeLedgers(a, b) {
   return {
     firstSeen: a.firstSeen < b.firstSeen ? a.firstSeen : b.firstSeen,

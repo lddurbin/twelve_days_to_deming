@@ -352,4 +352,26 @@ describe("ledger migration", () => {
     expect(getLedger().acts).toBe(0);
     expect(getLedger().days).toEqual([]);
   });
+
+  // NaN itself isn't valid JSON syntax (JSON.parse rejects a literal `NaN`
+  // token outright), so it can never reach isLegacyLedger. An oversized
+  // number literal is valid JSON, though, and JSON.parse silently resolves
+  // it to Infinity - which would otherwise satisfy every shouldPrompt
+  // threshold's `>=` comparison regardless of real activity.
+  it("rejects a legacy ledger whose counter overflowed to Infinity", async () => {
+    const { getLedger } = await freshEngagement({
+      "td:engagement": '{"firstSeen":"2026-07-01T00:00:00.000Z","activeMs":1e400,"days":[],"chapters":[],"acts":1,"maxDay":1}',
+    });
+    expect(getLedger().activeMs).toBe(0);
+    expect(getLedger().acts).toBe(0);
+  });
+
+  it("rejects a new-shape ledger whose per-device counter overflowed to Infinity", async () => {
+    const { getLedger } = await freshEngagement({
+      "td:engagement":
+        '{"firstSeen":"2026-07-01T00:00:00.000Z","activeMsByDevice":{"device-a":1e400},"days":[],"chapters":[],"actsByDevice":{"device-a":1},"maxDay":1}',
+    });
+    expect(getLedger().activeMs).toBe(0);
+    expect(getLedger().acts).toBe(0);
+  });
 });
