@@ -204,7 +204,12 @@ Then insert the control limits on your run chart on page 8.
 If you had needed the control limits to help you interpret the data, what would they have told you?
 
 ```{ojs}
-viewof activity_3g = Inputs.textarea({label: "Compute control limits and interpret what they tell you", placeholder: "Type your workings and answer here.", rows: 10})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof activity_3g = persist(
+  "content/days/day-03/05-how-do-we-compute-control-limits.qmd#activity_3g",
+  Inputs.textarea({label: "Compute control limits and interpret what they tell you", placeholder: "Type your workings and answer here.", rows: 10})
+)
 ```
 
 </div>
