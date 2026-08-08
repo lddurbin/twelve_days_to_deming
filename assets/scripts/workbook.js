@@ -39,11 +39,12 @@ const SAVE_DEBOUNCE_MS = 400;
 // "export/delete all my answers" (#545, #547) is a single whole-object
 // operation instead of a scan over hundreds of keys.
 //
-// A value can be a string (Inputs.textarea/text) or a number
-// (Inputs.number's .value is numeric, not stringified) — persist() stores
-// whatever type .value hands it, unconverted, so both must be accepted
-// here. Rejecting number would invalidate the *whole* store on the next
-// load the moment one Inputs.number field is used, not just that field.
+// A value can be a string (Inputs.textarea/text), a number (Inputs.number's
+// .value is numeric, not stringified), or null (Inputs.number's .value when
+// the field is empty/cleared — not 0, not NaN). persist() stores whatever
+// type .value hands it, unconverted, so all three must be accepted here.
+// Rejecting any one of them would invalidate the *whole* store on the next
+// load the moment one field holds that value, not just that field.
 function isValidAnswers(value) {
   return (
     value !== null &&
@@ -51,7 +52,7 @@ function isValidAnswers(value) {
     // typeof [] is also "object", and an array would survive every check
     // below (no entries to iterate), so it has to be excluded explicitly.
     !Array.isArray(value) &&
-    Object.values(value).every((v) => typeof v === "string" || typeof v === "number")
+    Object.values(value).every((v) => typeof v === "string" || typeof v === "number" || v === null)
   );
 }
 

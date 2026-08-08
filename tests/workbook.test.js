@@ -162,6 +162,34 @@ describe("persist — save", () => {
     expect(restoredNumber.value).toBe(42);
   });
 
+  it("saves and restores a cleared Inputs.number field (null) without invalidating a sibling field", async () => {
+    vi.useFakeTimers();
+    const store = stubStorage({});
+    vi.resetModules();
+    const { persist } = await import("../assets/scripts/workbook.js");
+
+    const textInput = persist("day-06#a", fakeInput(""));
+    const numberInput = persist("day-06#b", fakeInput(0));
+    typeInto(textInput, "a textarea answer");
+    typeInto(numberInput, 42);
+    vi.advanceTimersByTime(400);
+    // Reader clears the number field — Inputs.number reports null, not 0 or NaN.
+    typeInto(numberInput, null);
+    vi.advanceTimersByTime(400);
+
+    expect(JSON.parse(store["td:workbook"])).toEqual({
+      "day-06#a": "a textarea answer",
+      "day-06#b": null,
+    });
+
+    vi.resetModules();
+    const { persist: persistAfterReload } = await import("../assets/scripts/workbook.js");
+    const restoredText = persistAfterReload("day-06#a", fakeInput(""));
+    const restoredNumber = persistAfterReload("day-06#b", fakeInput(0));
+    expect(restoredText.value).toBe("a textarea answer");
+    expect(restoredNumber.value).toBeNull();
+  });
+
   it("does not throw when localStorage.setItem throws (quota exceeded)", async () => {
     vi.useFakeTimers();
     globalThis.localStorage = {
@@ -204,7 +232,7 @@ describe("corrupt-data fallback", () => {
     expect(getAnswers()).toEqual({});
   });
 
-  it("falls back to empty when a stored value is neither a string nor a number", async () => {
+  it("falls back to empty when a stored value is neither a string, a number, nor null", async () => {
     const { getAnswers } = await freshWorkbook({
       "td:workbook": JSON.stringify({ "day-06#a": true }),
     });
@@ -223,6 +251,13 @@ describe("corrupt-data fallback", () => {
       "td:workbook": JSON.stringify({ "day-06#a": "a textarea answer", "day-06#b": 42 }),
     });
     expect(getAnswers()).toEqual({ "day-06#a": "a textarea answer", "day-06#b": 42 });
+  });
+
+  it("accepts a null value (cleared Inputs.number) without invalidating the rest of the store", async () => {
+    const { getAnswers } = await freshWorkbook({
+      "td:workbook": JSON.stringify({ "day-06#a": "a textarea answer", "day-06#b": null }),
+    });
+    expect(getAnswers()).toEqual({ "day-06#a": "a textarea answer", "day-06#b": null });
   });
 });
 
