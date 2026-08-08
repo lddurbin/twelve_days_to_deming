@@ -2,6 +2,7 @@
 title: "INTRODUCTION"
 pagetitle: "Day 6: Introduction to the Gallery Furniture case study"
 description: "Day 6 turns from theory to practice: score your own organisation against the 14 Points, then meet the Gallery Furniture case study."
+session_minutes: 15
 execute:
   echo: false
 ---

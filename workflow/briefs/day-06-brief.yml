@@ -128,6 +128,79 @@ figures:
     notes: "Activity 6-b scoring table — 14 Points + 5 Deadly Diseases, Pre/Post-Deming"
     output: "scoring-table.png"
 
+# ------ Clock Reads (dictated by Lee from the original book, 2026-08-08) ------
+# Raw pacing-clock reads, dictated directly from the printed page footers of
+# the physical book — see issue #477 and epic #471's mechanism history
+# (validated on Day 2, PR #473; automated outline-page extraction was found
+# untrustworthy and is not used here).
+#
+# IMPORTANT: page numbers below are DOC (printed/footer) page numbers,
+# matching the `{#sec-pageN}` anchor convention used throughout the site —
+# NOT the file/PNG page numbers used in this brief's Chapter Plan `pages:`
+# field above. This brief predates that distinction being standardised: its
+# `pages:` values are file/PNG numbers (see e.g. gallery-furniture's own
+# note, "the doc page numbers in the footers are offset by 4 from file page
+# numbers"). Applying that same offset across the whole day gives the doc-page
+# chapter ranges the reads below are placed against:
+#   introduction        doc 1-2   (file 5-6; file 1-4 is unnumbered front matter)
+#   gallery-furniture   doc 3-17  (file 7-21)
+#   activity-6b         doc 18-21 (file 22-25)
+#   more-true-stories   doc 22-27 (file 26-31)
+#
+# Single clock column throughout — Day 6 does not fork by Stats-level (no
+# such fork is mentioned anywhere in this day's content notes).
+clock_reads:
+  - { page: 1,  position: "top",    time: "9:00am" }
+  - { page: 3,  position: "bottom", time: "9:15am" }
+  - { page: 5,  position: "bottom", time: "10:00am" }
+  - { page: 16, position: "bottom", time: "10:45am" }
+  - { page: 18, position: "top",    time: "10:45am" }
+  - { page: 18, position: "bottom", time: "11:30am", notes: "1st of 4 clocks on this page, above the paragraph beginning \"you could then start at the top\"" }
+  - { page: 18, position: "bottom", time: "12:00pm", notes: "2nd of 4, above the paragraph beginning \"then after completing that\"" }
+  - { page: 18, position: "bottom", time: "12:30pm", notes: "3rd of 4, above the paragraph beginning \"finally for the time being\"" }
+  - { page: 18, position: "bottom", time: "12:45pm", notes: "4th of 4, beneath that paragraph; closes out the morning session" }
+  - { page: 20, position: "top",    time: "1:45pm",  notes: "begins the afternoon session" }
+  - { page: 21, position: "bottom", time: "2:45pm" }
+  - { page: 26, position: "bottom", time: "3:30pm",  notes: "last clock recorded for the day — no further clocks past this page" }
+
+# ------ session_minutes Computation (2026-08-08) ------
+# Method: each chapter's "opening clock" = the earliest doc-page checkpoint
+# on or after the chapter's own first doc page (per PATTERNS.md's
+# session_minutes rules). session_minutes = next chapter's opening clock
+# minus this chapter's opening clock, in minutes.
+#
+#   chapter                    opening (doc page)   next chapter's opening    session_minutes
+#   introduction (doc1)       9:00am                9:15am (gallery-furn.)   15
+#   gallery-furniture (doc3)  9:15am                10:45am (activity-6b)    90
+#   activity-6b (doc18)       10:45am               3:30pm (more-true-st.)   unset — spans lunch
+#   more-true-stories (doc26) 3:30pm                (no further clocks)     unset — last chapter, no day-end anchor
+#
+# activity-6b is left unset despite having the richest internal data of any
+# Day 6 chapter (5 checkpoints across its own doc pp 18-20, pacing each step
+# of the Activity 6-b instructions individually). Its own opening-to-next
+# gap crosses the lunch break: the chapter's own checkpoints show the 4th
+# clock on doc p18 explicitly closing the morning at 12:45pm, and doc p20's
+# clock explicitly reopening the afternoon at 1:45pm — so the raw gap
+# (10:45am to 3:30pm) would silently fold an hour of lunch into a
+# session-time figure. There's no clean substitute endpoint either: the
+# established method measures next-chapter's-opening minus this-chapter's-
+# opening, not a chapter's own last internal checkpoint (which would be
+# doc p21, 2:45pm) — see PATTERNS.md's set/unset rules and the Day 2
+# `your-turn` precedent for the same lunch-spanning situation.
+#
+# more-true-stories is left unset because it's Day 6's last chapter and no
+# clock exists past its own opening checkpoint to close it out. That opening
+# checkpoint (doc p26, 3:30pm) isn't near the chapter's own first page
+# (doc22) — it's the earliest one actually falling in-range, so it stands in
+# per the established method (precedent: Day 2's `a-brief-overview` and
+# `the-truth-the-whole-truth`, which substituted a later in-range checkpoint
+# for a chapter's true first page when nothing landed exactly on it). This
+# day's context_notes below records a "4:00 Approx finish" from the page 3
+# schedule — deliberately not used as a day-end substitute here, since it's
+# pre-existing schedule-summary text (not a per-page clock icon read, and
+# explicitly hedged "Approx"), not the kind of reliable printed closing time
+# or explicit end-of-day clock read PATTERNS.md's day-end exception asks for.
+
 # ------ Context Notes ------
 context_notes: |
   Schedule from page 3:

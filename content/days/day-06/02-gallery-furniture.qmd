@@ -2,6 +2,7 @@
 title: "GALLERY FURNITURE"
 pagetitle: "The Gallery Furniture story: Mack McIngvale's Deming transformation"
 description: "Jim \"Mack\" McIngvale's own account of taking Gallery Furniture from commission-driven chaos to a Deming-based, salaried, salesperson-empowered business."
+session_minutes: 90
 execute:
   echo: false
 ---
