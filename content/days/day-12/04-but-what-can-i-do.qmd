@@ -30,7 +30,12 @@ Once the individual understands the System of Profound Knowledge, he will apply 
 What do you understand by Dr Deming's second short sentence above: [This transformation is discontinuous]{.deming_quote}?
 
 ```{ojs}
-viewof thought_12c = Inputs.textarea({label: "What do you understand by Dr Deming's second short sentence: 'This transformation is discontinuous'?", placeholder: "Your thoughts.", rows: 4})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof thought_12c = persist(
+  "content/days/day-12/04-but-what-can-i-do.qmd#thought_12c",
+  Inputs.textarea({label: "What do you understand by Dr Deming's second short sentence: 'This transformation is discontinuous'?", placeholder: "Your thoughts.", rows: 4})
+)
 ```
 
 ```{ojs download_12c}
