@@ -78,7 +78,12 @@ don't take too long about it!
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_i = Inputs.textarea({label: "Your comments on the Week 1 results", placeholder: "Type your comment here.", rows: 10})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof thought_2e_i = persist(
+  "content/days/day-02/07-some-recollections.qmd#thought_2e_i",
+  Inputs.textarea({label: "Your comments on the Week 1 results", placeholder: "Type your comment here.", rows: 10})
+)
 ```
 
 *(No good looking in the Appendix for more hints—I've given you plenty of help already!)*
@@ -94,7 +99,10 @@ viewof thought_2e_i = Inputs.textarea({label: "Your comments on the Week 1 resul
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_ii = Inputs.textarea({label: "Your comments on the Week 2 results", placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_ii = persist(
+  "content/days/day-02/07-some-recollections.qmd#thought_2e_ii",
+  Inputs.textarea({label: "Your comments on the Week 2 results", placeholder: "Type your comment here.", rows: 10})
+)
 ```
 
 :::
@@ -108,7 +116,10 @@ viewof thought_2e_ii = Inputs.textarea({label: "Your comments on the Week 2 resu
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_iii = Inputs.textarea({label: "Your comments on the Week 3 results", placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_iii = persist(
+  "content/days/day-02/07-some-recollections.qmd#thought_2e_iii",
+  Inputs.textarea({label: "Your comments on the Week 3 results", placeholder: "Type your comment here.", rows: 10})
+)
 ```
 
 :::
@@ -127,7 +138,10 @@ fourth week, followed in turn by 10, 7 and 8 in their second shift.
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_iv = Inputs.textarea({label: "Your comments on the Week 4 results", placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_iv = persist(
+  "content/days/day-02/07-some-recollections.qmd#thought_2e_iv",
+  Inputs.textarea({label: "Your comments on the Week 4 results", placeholder: "Type your comment here.", rows: 10})
+)
 ```
 
 :::
@@ -146,10 +160,13 @@ on Stats-level 1 or higher then compute them in the space below. (If you need re
 details, Technical Aid 1 is on page 20.)
 
 ```{ojs}
-viewof counts1 = Inputs.text({
+viewof counts1 = persist(
+  "content/days/day-02/07-some-recollections.qmd#counts1",
+  Inputs.text({
   label: "Enter counts (space-separated):",
   value: ""
 })
+)
 
 // Parse the counts
 countsArray1 = counts1.split(" ").filter(x => x.trim() !== "").map(Number)
@@ -160,24 +177,33 @@ mean1 = countsArray1.length > 0 ? countsArray1.reduce((a, b) => a + b, 0) / coun
 std1 = countsArray1.length > 1 ? Math.sqrt(countsArray1.map(x => (x - mean1) ** 2).reduce((a, b) => a + b, 0) / (countsArray1.length - 1)) : 0
 
 // User sets their own control limits
-viewof ucl1 = Inputs.number({
+viewof ucl1 = persist(
+  "content/days/day-02/07-some-recollections.qmd#ucl1",
+  Inputs.number({
   label: "Upper Control Limit (UCL):", 
   value: 0, 
   step: 0.01,
   min: 0
 })
-viewof lcl1 = Inputs.number({
+)
+viewof lcl1 = persist(
+  "content/days/day-02/07-some-recollections.qmd#lcl1",
+  Inputs.number({
   label: "Lower Control Limit (LCL):", 
   value: 0, 
   step: 0.01,
   min: 0
 })
-viewof meanLine1 = Inputs.number({
+)
+viewof meanLine1 = persist(
+  "content/days/day-02/07-some-recollections.qmd#meanLine1",
+  Inputs.number({
   label: "Mean Line:", 
   value: 0, 
   step: 0.01,
   min: 0
 })
+)
 
 // Only show plot if we have data
 countsArray1.length > 0 ? Plot.plot({
@@ -220,7 +246,10 @@ Tamasa are crossed out since, of course, that did not happen until the end of th
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_v = Inputs.textarea({label: "Your comments on the Spaniards’ Week 1 results", placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_v = persist(
+  "content/days/day-02/07-some-recollections.qmd#thought_2e_v",
+  Inputs.textarea({label: "Your comments on the Spaniards’ Week 1 results", placeholder: "Type your comment here.", rows: 10})
+)
 ```
 
 :::
@@ -234,7 +263,10 @@ viewof thought_2e_v = Inputs.textarea({label: "Your comments on the Spaniards’
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_vi = Inputs.textarea({label: "Your comments on the Spaniards’ Week 2 results", placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_vi = persist(
+  "content/days/day-02/07-some-recollections.qmd#thought_2e_vi",
+  Inputs.textarea({label: "Your comments on the Spaniards’ Week 2 results", placeholder: "Type your comment here.", rows: 10})
+)
 ```
 
 :::
@@ -248,7 +280,10 @@ viewof thought_2e_vi = Inputs.textarea({label: "Your comments on the Spaniards�
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_vii = Inputs.textarea({label: "Your comments on the Spaniards’ Week 3 results", placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_vii = persist(
+  "content/days/day-02/07-some-recollections.qmd#thought_2e_vii",
+  Inputs.textarea({label: "Your comments on the Spaniards’ Week 3 results", placeholder: "Type your comment here.", rows: 10})
+)
 ```
 
 :::
@@ -262,7 +297,10 @@ viewof thought_2e_vii = Inputs.textarea({label: "Your comments on the Spaniards�
 :::
 ::: {.column width="45%"}
 ```{ojs}
-viewof thought_2e_viii = Inputs.textarea({label: "Your comments on the Spaniards’ Week 4 results", placeholder: "Type your comment here.", rows: 10})
+viewof thought_2e_viii = persist(
+  "content/days/day-02/07-some-recollections.qmd#thought_2e_viii",
+  Inputs.textarea({label: "Your comments on the Spaniards’ Week 4 results", placeholder: "Type your comment here.", rows: 10})
+)
 ```
 
 :::
@@ -273,10 +311,13 @@ Finally, return to the Recorder’s task of drawing the run chart and then upgra
 > 16 9 9 11 15 11 10 10 12 12 9 9 10 15 8 7 11 10 11 13 13 17 13 9
 
 ```{ojs}
-viewof counts2 = Inputs.text({
+viewof counts2 = persist(
+  "content/days/day-02/07-some-recollections.qmd#counts2",
+  Inputs.text({
   label: "Enter counts (space-separated):",
   value: ""
 })
+)
 
 // Parse the counts
 countsArray2 = counts2.split(" ").filter(x => x.trim() !== "").map(Number)
@@ -287,24 +328,33 @@ mean2 = countsArray2.length > 0 ? countsArray2.reduce((a, b) => a + b, 0) / coun
 std2 = countsArray2.length > 1 ? Math.sqrt(countsArray2.map(x => (x - mean2) ** 2).reduce((a, b) => a + b, 0) / (countsArray2.length - 1)) : 0
 
 // User sets their own control limits
-viewof ucl2 = Inputs.number({
+viewof ucl2 = persist(
+  "content/days/day-02/07-some-recollections.qmd#ucl2",
+  Inputs.number({
   label: "Upper Control Limit (UCL):", 
   value: 0, 
   step: 0.01,
   min: 0
 })
-viewof lcl2 = Inputs.number({
+)
+viewof lcl2 = persist(
+  "content/days/day-02/07-some-recollections.qmd#lcl2",
+  Inputs.number({
   label: "Lower Control Limit (LCL):", 
   value: 0, 
   step: 0.01,
   min: 0
 })
-viewof meanLine2 = Inputs.number({
+)
+viewof meanLine2 = persist(
+  "content/days/day-02/07-some-recollections.qmd#meanLine2",
+  Inputs.number({
   label: "Mean Line:", 
   value: 0, 
   step: 0.01,
   min: 0
 })
+)
 
 // Only show plot if we have data
 countsArray2.length > 0 ? Plot.plot({
