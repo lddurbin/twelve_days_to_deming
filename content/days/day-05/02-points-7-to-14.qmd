@@ -21,31 +21,42 @@ Particularly with reference to All One Team, my friend Dave Kerr wrote to me as 
 ### Obsession With Quality
 
 ```{ojs}
-viewof p7_owq = Inputs.textarea({
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof p7_owq = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p7_owq",
+  Inputs.textarea({
   label: "Point 7 (Institute leadership of people) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof p7_aot = Inputs.textarea({
+viewof p7_aot = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p7_aot",
+  Inputs.textarea({
   label: "Point 7 (Institute leadership of people) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof p7_sa = Inputs.textarea({
+viewof p7_sa = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p7_sa",
+  Inputs.textarea({
   label: "Point 7 (Institute leadership of people) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -65,31 +76,40 @@ In Point 12 we shall find Dr Deming talking of the value of "pride of workmanshi
 ### Obsession With Quality
 
 ```{ojs}
-viewof p8_owq = Inputs.textarea({
+viewof p8_owq = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p8_owq",
+  Inputs.textarea({
   label: "Point 8 (Drive out fear) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof p8_aot = Inputs.textarea({
+viewof p8_aot = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p8_aot",
+  Inputs.textarea({
   label: "Point 8 (Drive out fear) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof p8_sa = Inputs.textarea({
+viewof p8_sa = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p8_sa",
+  Inputs.textarea({
   label: "Point 8 (Drive out fear) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -125,31 +145,40 @@ Holmes was speaking to the Sales Director, Peter Marks.
 ### Obsession With Quality
 
 ```{ojs}
-viewof p9_owq = Inputs.textarea({
+viewof p9_owq = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p9_owq",
+  Inputs.textarea({
   label: "Point 9 (Break down barriers) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof p9_aot = Inputs.textarea({
+viewof p9_aot = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p9_aot",
+  Inputs.textarea({
   label: "Point 9 (Break down barriers) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof p9_sa = Inputs.textarea({
+viewof p9_sa = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p9_sa",
+  Inputs.textarea({
   label: "Point 9 (Break down barriers) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -171,31 +200,40 @@ If something so shallow as alluded to in this Point could have any positive effe
 ### Obsession With Quality
 
 ```{ojs}
-viewof p10_owq = Inputs.textarea({
+viewof p10_owq = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p10_owq",
+  Inputs.textarea({
   label: "Point 10 (Eliminate exhortations) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof p10_aot = Inputs.textarea({
+viewof p10_aot = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p10_aot",
+  Inputs.textarea({
   label: "Point 10 (Eliminate exhortations) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof p10_sa = Inputs.textarea({
+viewof p10_sa = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p10_sa",
+  Inputs.textarea({
   label: "Point 10 (Eliminate exhortations) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ![The Joiner Triangle](/assets/images/day-05/joiner-triangle-bar.png){fig-align="left" width="90%" .lightbox}
@@ -217,31 +255,40 @@ Resources are channelled into reaching that number, irrespective of the harm cau
 ### Obsession With Quality
 
 ```{ojs}
-viewof p11_owq = Inputs.textarea({
+viewof p11_owq = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p11_owq",
+  Inputs.textarea({
   label: "Point 11 (Eliminate arbitrary numerical targets) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof p11_aot = Inputs.textarea({
+viewof p11_aot = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p11_aot",
+  Inputs.textarea({
   label: "Point 11 (Eliminate arbitrary numerical targets) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof p11_sa = Inputs.textarea({
+viewof p11_sa = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p11_sa",
+  Inputs.textarea({
   label: "Point 11 (Eliminate arbitrary numerical targets) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -259,31 +306,40 @@ The matter of performance appraisal itself is the subject of the third of the De
 ### Obsession With Quality
 
 ```{ojs}
-viewof p12_owq = Inputs.textarea({
+viewof p12_owq = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p12_owq",
+  Inputs.textarea({
   label: "Point 12 (Permit pride of workmanship) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof p12_aot = Inputs.textarea({
+viewof p12_aot = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p12_aot",
+  Inputs.textarea({
   label: "Point 12 (Permit pride of workmanship) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof p12_sa = Inputs.textarea({
+viewof p12_sa = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p12_sa",
+  Inputs.textarea({
   label: "Point 12 (Permit pride of workmanship) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -315,31 +371,40 @@ Point 13 implies far more than might be noticed at first glance.
 ### Obsession With Quality
 
 ```{ojs}
-viewof p13_owq = Inputs.textarea({
+viewof p13_owq = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p13_owq",
+  Inputs.textarea({
   label: "Point 13 (Encourage education) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof p13_aot = Inputs.textarea({
+viewof p13_aot = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p13_aot",
+  Inputs.textarea({
   label: "Point 13 (Encourage education) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof p13_sa = Inputs.textarea({
+viewof p13_sa = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p13_sa",
+  Inputs.textarea({
   label: "Point 13 (Encourage education) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -355,31 +420,40 @@ viewof p13_sa = Inputs.textarea({
 ### Obsession With Quality
 
 ```{ojs}
-viewof p14_owq = Inputs.textarea({
+viewof p14_owq = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p14_owq",
+  Inputs.textarea({
   label: "Point 14 (Top management commitment and action) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof p14_aot = Inputs.textarea({
+viewof p14_aot = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p14_aot",
+  Inputs.textarea({
   label: "Point 14 (Top management commitment and action) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof p14_sa = Inputs.textarea({
+viewof p14_sa = persist(
+  "content/days/day-05/02-points-7-to-14.qmd#p14_sa",
+  Inputs.textarea({
   label: "Point 14 (Top management commitment and action) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
