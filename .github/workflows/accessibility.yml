@@ -212,14 +212,17 @@ jobs:
       env:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       run: |
-        echo "--- whoami (pinned 54.20.1) ---"
-        vercel whoami --token="$VERCEL_TOKEN" || true
-        echo "--- token length (sanity check, no value printed) ---"
-        echo -n "$VERCEL_TOKEN" | wc -c
-        echo "--- token prefix (first 4 chars only) ---"
-        echo -n "$VERCEL_TOKEN" | cut -c1-4
-        echo "--- whoami (latest CLI, via npx) ---"
-        npx --yes vercel@latest whoami --token="$VERCEL_TOKEN" || true
+        echo "--- REST API: GET /v9/projects ---"
+        curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects"
+        curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects" | head -c 500
+        echo ""
+        echo "--- REST API: GET /v9/projects/vercel-spike ---"
+        curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects/vercel-spike"
+        curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects/vercel-spike" | head -c 500
+        echo ""
+        echo "--- REST API: GET /v2/user (whoami equivalent) ---"
+        curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v2/user"
+        curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v2/user" | head -c 500
 
     # VERCEL_TOKEN is project-scoped (see #535 writeup). The CLI's
     # VERCEL_ORG_ID/VERCEL_PROJECT_ID env vars are an all-or-nothing pair
