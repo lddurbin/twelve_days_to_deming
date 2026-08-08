@@ -43,7 +43,9 @@ If that send fails for any reason, you'll be offered an ordinary email link inst
 
 Your reading preferences — light/dark theme and the dyslexia-friendly font toggle — are saved with your browser's `localStorage`, not sent to me or anyone else. The same is true of your progress through the Day 3 funnel experiment, which chapters you've given a thumbs up or down, and a rough count of time spent reading that the site uses to decide whether to ask you for feedback at all. This data lives only in your browser and is used only to restore your preferences and progress, and to avoid asking you the same thing twice.
 
-Clearing your browser's site data for this page (or using it in a private/incognito window) resets all of it.
+**Your written answers.** The notes and activity responses you type into the course itself — every text box across all 12 days — are saved locally the same way, as you type. As with the send-on-purpose text box described above, this site has no server behind it, so there is nowhere on `deming.leedurbin.co.nz` that could receive what you write here even if it wanted to: it never leaves your browser at all. That's a genuine improvement over having no saving at all, where anything you wrote would simply be lost on refresh — but it also means the same caution applies as to everything else on this page.
+
+Clearing your browser's site data for this page (or using it in a private/incognito window) resets all of it — including, this time, anything you've written. Losing a theme preference costs you a click to reset; losing written answers costs you the writing. If that matters to you, use the "Download Your Notes" button that appears alongside each set of activities to keep your own copy.
 
 ## Why any of this exists at all
 
