@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach, vi } from "vitest";
-import { shouldPrompt } from "../assets/scripts/engagement.js";
+import { shouldPrompt, mergeLedgers } from "../assets/scripts/engagement.js";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const NOW = new Date("2026-08-01T12:00:00.000Z");
@@ -120,6 +120,73 @@ describe("shouldPrompt", () => {
 });
 
 // ---------------------------------------------------------------------------
+// mergeLedgers (#546) — pure, so tested directly against synthetic ledgers
+// in the internal per-device-counter shape rather than through the module's
+// stateful storage.
+// ---------------------------------------------------------------------------
+
+function syntheticLedger(overrides = {}) {
+  return {
+    firstSeen: "2026-07-01T00:00:00.000Z",
+    activeMsByDevice: {},
+    days: [],
+    chapters: [],
+    actsByDevice: {},
+    maxDay: 1,
+    ...overrides,
+  };
+}
+
+describe("mergeLedgers", () => {
+  it("unions days and chapters without duplicating overlaps", () => {
+    const a = syntheticLedger({ days: ["2026-07-01", "2026-07-02"], chapters: ["1.1", "2.3"] });
+    const b = syntheticLedger({ days: ["2026-07-02", "2026-07-03"], chapters: ["2.3", "3.1"] });
+    const merged = mergeLedgers(a, b);
+    expect(merged.days.sort()).toEqual(["2026-07-01", "2026-07-02", "2026-07-03"]);
+    expect(merged.chapters.sort()).toEqual(["1.1", "2.3", "3.1"]);
+  });
+
+  it("takes the max maxDay and the earliest firstSeen", () => {
+    const a = syntheticLedger({ maxDay: 5, firstSeen: "2026-07-05T00:00:00.000Z" });
+    const b = syntheticLedger({ maxDay: 3, firstSeen: "2026-07-01T00:00:00.000Z" });
+    const merged = mergeLedgers(a, b);
+    expect(merged.maxDay).toBe(5);
+    expect(merged.firstSeen).toBe("2026-07-01T00:00:00.000Z");
+  });
+
+  it("combines independent per-device counters without loss", () => {
+    // Naively taking max() of two plain totals (1000 vs 500) would settle on
+    // 1000 and lose device-b's 500ms entirely - the "max() undercounts"
+    // failure mode per-device counters were introduced to avoid.
+    const a = syntheticLedger({ activeMsByDevice: { "device-a": 1000 }, actsByDevice: { "device-a": 2 } });
+    const b = syntheticLedger({ activeMsByDevice: { "device-b": 500 }, actsByDevice: { "device-b": 1 } });
+    const merged = mergeLedgers(a, b);
+    expect(merged.activeMsByDevice).toEqual({ "device-a": 1000, "device-b": 500 });
+    expect(merged.actsByDevice).toEqual({ "device-a": 2, "device-b": 1 });
+  });
+
+  it("takes the larger of two snapshots of the same device, never sums them", () => {
+    // A device's own counter only grows, so two snapshots of it (e.g. an
+    // older synced copy and a newer one) must resolve to the larger value -
+    // summing would double-count that device's own contribution.
+    const older = syntheticLedger({ activeMsByDevice: { "device-a": 1000 }, actsByDevice: { "device-a": 2 } });
+    const newer = syntheticLedger({ activeMsByDevice: { "device-a": 1500 }, actsByDevice: { "device-a": 3 } });
+    const merged = mergeLedgers(older, newer);
+    expect(merged.activeMsByDevice).toEqual({ "device-a": 1500 });
+    expect(merged.actsByDevice).toEqual({ "device-a": 3 });
+  });
+
+  it("stays correct when re-merging an already-merged ledger (idempotent on overlap)", () => {
+    const a = syntheticLedger({ activeMsByDevice: { "device-a": 1000 }, actsByDevice: { "device-a": 2 } });
+    const b = syntheticLedger({ activeMsByDevice: { "device-b": 500 }, actsByDevice: { "device-b": 1 } });
+    const firstMerge = mergeLedgers(a, b);
+    const reMerged = mergeLedgers(a, firstMerge);
+    expect(reMerged.activeMsByDevice).toEqual({ "device-a": 1000, "device-b": 500 });
+    expect(reMerged.actsByDevice).toEqual({ "device-a": 2, "device-b": 1 });
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Chapter ratings (#494)
 //
 // Unlike shouldPrompt above, these read and write module-level state seeded
@@ -234,5 +301,55 @@ describe("chapter ratings", () => {
     const snapshot = getRatings();
     snapshot["3.12"] = "down";
     expect(getRating(3, 12)).toBe("up");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Ledger migration (#546) — a stored ledger from before per-device counters
+// existed has activeMs/acts as plain numbers rather than maps. loadLedger()
+// must migrate it in place rather than discarding it as invalid.
+// ---------------------------------------------------------------------------
+
+function legacyLedger(overrides = {}) {
+  return {
+    firstSeen: "2026-07-01T00:00:00.000Z",
+    activeMs: 1234,
+    days: ["2026-07-01", "2026-07-02"],
+    chapters: ["1.1", "2.3"],
+    acts: 4,
+    maxDay: 2,
+    ...overrides,
+  };
+}
+
+describe("ledger migration", () => {
+  afterEach(() => {
+    delete globalThis.localStorage;
+  });
+
+  it("migrates an old-shape ledger to the new one without losing data", async () => {
+    const { getLedger } = await freshEngagement({
+      "td:engagement": JSON.stringify(legacyLedger()),
+    });
+    expect(getLedger()).toEqual(legacyLedger());
+  });
+
+  it("keeps recording correctly against a migrated ledger", async () => {
+    const { getLedger, recordAct } = await freshEngagement({
+      "td:engagement": JSON.stringify(legacyLedger()),
+    });
+    const before = getLedger().acts;
+    recordAct();
+    recordAct();
+    expect(getLedger().acts).toBe(before + 2);
+  });
+
+  it("falls back to a fresh ledger when the stored value matches neither shape", async () => {
+    const { getLedger } = await freshEngagement({
+      "td:engagement": JSON.stringify({ nonsense: true }),
+    });
+    expect(getLedger().activeMs).toBe(0);
+    expect(getLedger().acts).toBe(0);
+    expect(getLedger().days).toEqual([]);
   });
 });

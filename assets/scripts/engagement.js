@@ -15,18 +15,81 @@ const STORAGE_KEY = "td:engagement";
 const HEARTBEAT_MS = 5000;
 const IDLE_THRESHOLD_MS = 60000;
 
+// ---------------------------------------------------------------
+// Per-device identity — a stable id generated once per device and kept in
+// its own storage key, not inside the ledger itself. It has to live outside
+// the ledger's own merge fields: it identifies *this* device across merges
+// rather than being data that merges, and embedding it in the ledger would
+// leave no principled way to pick a winner when two ledgers combine.
+// ---------------------------------------------------------------
+
+const DEVICE_ID_STORAGE_KEY = "td:deviceId";
+
+function generateDeviceId() {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+  // crypto.randomUUID needs a secure context; this fallback only needs to
+  // be stable and distinct enough to key a merge map by, not unguessable.
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+}
+
+let cachedDeviceId = null;
+
+function getDeviceId() {
+  if (cachedDeviceId) return cachedDeviceId;
+  cachedDeviceId = safeGet(DEVICE_ID_STORAGE_KEY) || generateDeviceId();
+  safeSet(DEVICE_ID_STORAGE_KEY, cachedDeviceId);
+  return cachedDeviceId;
+}
+
+// ---------------------------------------------------------------
+// Ledger — activeMs and acts are stored as per-device grow-only counters
+// (a map of deviceId -> value, each device only ever incrementing its own
+// entry) rather than plain numbers. days[]/chapters[] are already grow-only
+// sets and maxDay is already a maximum, so those three merge correctly by
+// construction; a plain counter doesn't, since overlapping activity across
+// two devices makes max() undercount and sum() double-count. See
+// mergeLedgers below. getLedger() sums each map back into a plain number,
+// so this stays invisible to every existing caller.
+// ---------------------------------------------------------------
+
 function freshLedger() {
   return {
     firstSeen: new Date().toISOString(),
-    activeMs: 0,
+    activeMsByDevice: {},
     days: [],
     chapters: [],
-    acts: 0,
+    actsByDevice: {},
     maxDay: 0,
   };
 }
 
+function isCounterMap(value) {
+  return (
+    value !== null &&
+    typeof value === "object" &&
+    !Array.isArray(value) &&
+    Object.values(value).every((v) => typeof v === "number")
+  );
+}
+
 function isValidLedger(value) {
+  return (
+    value !== null &&
+    typeof value === "object" &&
+    typeof value.firstSeen === "string" &&
+    isCounterMap(value.activeMsByDevice) &&
+    Array.isArray(value.days) &&
+    Array.isArray(value.chapters) &&
+    isCounterMap(value.actsByDevice) &&
+    typeof value.maxDay === "number"
+  );
+}
+
+// Pre-#546 shape: activeMs/acts were plain numbers. Detected by field type
+// rather than a version flag, since none was ever recorded.
+function isLegacyLedger(value) {
   return (
     value !== null &&
     typeof value === "object" &&
@@ -39,12 +102,29 @@ function isValidLedger(value) {
   );
 }
 
+// One-way, forward-only: a legacy single-counter ledger had exactly one
+// device writing to it (this one), so its whole counter becomes that
+// device's opening entry in the new map. No path back to the old shape.
+function migrateLedger(legacy) {
+  const id = getDeviceId();
+  return {
+    firstSeen: legacy.firstSeen,
+    activeMsByDevice: { [id]: legacy.activeMs },
+    days: legacy.days,
+    chapters: legacy.chapters,
+    actsByDevice: { [id]: legacy.acts },
+    maxDay: legacy.maxDay,
+  };
+}
+
 function loadLedger() {
   const raw = safeGet(STORAGE_KEY);
   if (!raw) return freshLedger();
   try {
     const parsed = JSON.parse(raw);
-    return isValidLedger(parsed) ? parsed : freshLedger();
+    if (isValidLedger(parsed)) return parsed;
+    if (isLegacyLedger(parsed)) return migrateLedger(parsed);
+    return freshLedger();
   } catch (e) {
     return freshLedger();
   }
@@ -56,8 +136,44 @@ function persist() {
   safeSet(STORAGE_KEY, JSON.stringify(ledger));
 }
 
+function sumCounter(map) {
+  return Object.values(map).reduce((total, value) => total + value, 0);
+}
+
 export function getLedger() {
-  return structuredClone(ledger);
+  return {
+    firstSeen: ledger.firstSeen,
+    activeMs: sumCounter(ledger.activeMsByDevice),
+    days: [...ledger.days],
+    chapters: [...ledger.chapters],
+    acts: sumCounter(ledger.actsByDevice),
+    maxDay: ledger.maxDay,
+  };
+}
+
+function unionCounterMap(a, b) {
+  const merged = { ...a };
+  for (const [id, value] of Object.entries(b)) {
+    merged[id] = Math.max(merged[id] ?? 0, value);
+  }
+  return merged;
+}
+
+// Combines two ledgers — e.g. two devices reconciling saved progress once
+// sync exists. days/chapters union as sets, maxDay takes the max, firstSeen
+// takes the earliest, and the per-device counters take a per-key max rather
+// than a sum, so re-merging the same pair (or a device merging its own
+// entry back in) never double-counts. No network calls happen here — this
+// is sync-*readiness*, exercised only by tests until sync itself ships.
+export function mergeLedgers(a, b) {
+  return {
+    firstSeen: a.firstSeen < b.firstSeen ? a.firstSeen : b.firstSeen,
+    activeMsByDevice: unionCounterMap(a.activeMsByDevice, b.activeMsByDevice),
+    days: [...new Set([...a.days, ...b.days])],
+    chapters: [...new Set([...a.chapters, ...b.chapters])],
+    actsByDevice: unionCounterMap(a.actsByDevice, b.actsByDevice),
+    maxDay: Math.max(a.maxDay, b.maxDay),
+  };
 }
 
 // Local calendar date, not UTC — "a distinct day returned" should match the
@@ -88,7 +204,8 @@ function recordVisit() {
 // (functions.js, funnel-experiment.js, cooperation-tables.js) plus this
 // module's own commentary-reveal listener below.
 export function recordAct() {
-  ledger.acts += 1;
+  const id = getDeviceId();
+  ledger.actsByDevice[id] = (ledger.actsByDevice[id] || 0) + 1;
   persist();
 }
 
@@ -308,7 +425,8 @@ function startHeartbeat() {
     lastTick = now;
     const idleFor = now - lastInputAt;
     if (document.visibilityState === "visible" && idleFor <= IDLE_THRESHOLD_MS) {
-      ledger.activeMs += elapsed;
+      const id = getDeviceId();
+      ledger.activeMsByDevice[id] = (ledger.activeMsByDevice[id] || 0) + elapsed;
       persist();
     }
   }, HEARTBEAT_MS);
