@@ -48,7 +48,12 @@ One consequence of this thinking is that, in general, an operational definition 
 </div>
 
 ```{ojs}
-viewof note_11_opdef_7 = Inputs.textarea({label: "Your notes on item 7: communication and negotiation require operational definitions", placeholder: "Your notes on this item.", rows: 4})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof note_11_opdef_7 = persist(
+  "content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd#note_11_opdef_7",
+  Inputs.textarea({label: "Your notes on item 7: communication and negotiation require operational definitions", placeholder: "Your notes on this item.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -62,7 +67,10 @@ At least I can assure you that these versions of Items 8 and 9 are rather more h
 </div>
 
 ```{ojs}
-viewof note_11_opdef_8 = Inputs.textarea({label: "Your notes on item 8: there is no true value of any characteristic defined by measurement", placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_opdef_8 = persist(
+  "content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd#note_11_opdef_8",
+  Inputs.textarea({label: "Your notes on item 8: there is no true value of any characteristic defined by measurement", placeholder: "Your notes on this item.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -82,7 +90,10 @@ Would you trust apparently important "facts" deduced from unimportant or inappro
 </div>
 
 ```{ojs}
-viewof note_11_opdef_9 = Inputs.textarea({label: "Your notes on item 9: there is no such thing as a fact concerning an empirical observation", placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_opdef_9 = persist(
+  "content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd#note_11_opdef_9",
+  Inputs.textarea({label: "Your notes on item 9: there is no such thing as a fact concerning an empirical observation", placeholder: "Your notes on this item.", rows: 4})
+)
 ```
 
 *(Continue to Area 3, Step 3 overleaf.)*
@@ -92,7 +103,10 @@ viewof note_11_opdef_9 = Inputs.textarea({label: "Your notes on item 9: there is
 And so, finally with Area 3, read through paragraphs 8--10 on *DemDim* page 276 again, revising your earlier comments and adding any new points below.
 
 ```{ojs}
-viewof note_11_demdim_area3 = Inputs.textarea({label: "Additional notes after re-reading DemDim page 276 on Operational Definitions", placeholder: "Additional notes from DemDim page 276.", rows: 6})
+viewof note_11_demdim_area3 = persist(
+  "content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd#note_11_demdim_area3",
+  Inputs.textarea({label: "Additional notes after re-reading DemDim page 276 on Operational Definitions", placeholder: "Additional notes from DemDim page 276.", rows: 6})
+)
 ```
 
 ### Step 3 (complete): *DemDim* version
@@ -100,7 +114,10 @@ viewof note_11_demdim_area3 = Inputs.textarea({label: "Additional notes after re
 As you know, the complete *DemDim* version of Part C is on pages 274--276. So read through those three pages one more time (jotting down any final notes and revisions) to bring together all three areas into your mind before proceeding to Activity 11--a.
 
 ```{ojs}
-viewof note_11_demdim_partc_complete = Inputs.textarea({label: "Final notes after reading the complete DemDim pages 274–276 on Theory of Knowledge", placeholder: "Final notes from DemDim pages 274–276.", rows: 6})
+viewof note_11_demdim_partc_complete = persist(
+  "content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd#note_11_demdim_partc_complete",
+  Inputs.textarea({label: "Final notes after reading the complete DemDim pages 274–276 on Theory of Knowledge", placeholder: "Final notes from DemDim pages 274–276.", rows: 6})
+)
 ```
 
 <div class="neave_note">
