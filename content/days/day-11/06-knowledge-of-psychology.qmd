@@ -35,7 +35,12 @@ Note also that, as you would expect, Deming concentrates in this opening stateme
 </div>
 
 ```{ojs}
-viewof note_11_psych_1 = Inputs.textarea({label: "Your notes on item 1: psychology helps us understand people and interactions", placeholder: "Your notes on this item.", rows: 4})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof note_11_psych_1 = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_1",
+  Inputs.textarea({label: "Your notes on item 1: psychology helps us understand people and interactions", placeholder: "Your notes on this item.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -55,7 +60,10 @@ Finally, isn't effort greatly dependent on the way an individual reacts to, and 
 </div>
 
 ```{ojs}
-viewof note_11_psych_2 = Inputs.textarea({label: "Your notes on item 2: people are different from one another", placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_psych_2 = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_2",
+  Inputs.textarea({label: "Your notes on item 2: people are different from one another", placeholder: "Your notes on this item.", rows: 4})
+)
 ```
 
 (Now, for the final time, I hand over to you to write your thoughts and comments in the gaps provided, with the help of my guidance for Step 2 of the four-step procedure.)
@@ -65,7 +73,10 @@ viewof note_11_psych_2 = Inputs.textarea({label: "Your notes on item 2: people a
 </div>
 
 ```{ojs}
-viewof note_11_psych_3 = Inputs.textarea({label: "Your notes on item 3: people learn in different ways and at different speeds", placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_psych_3 = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_3",
+  Inputs.textarea({label: "Your notes on item 3: people learn in different ways and at different speeds", placeholder: "Your notes on this item.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -77,7 +88,10 @@ viewof note_11_psych_3 = Inputs.textarea({label: "Your notes on item 3: people l
 </div>
 
 ```{ojs}
-viewof note_11_psych_4 = Inputs.textarea({label: "Your notes on item 4: a leader's obligation to make changes that bring improvement", placeholder: "Your notes on this item.", rows: 4})
+viewof note_11_psych_4 = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_4",
+  Inputs.textarea({label: "Your notes on item 4: a leader's obligation to make changes that bring improvement", placeholder: "Your notes on this item.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -103,7 +117,10 @@ All that follows on the next five and a half pages concerns these matters.]
 </div>
 
 ```{ojs}
-viewof note_11_psych_5a = Inputs.textarea({label: "Your notes on item 5a: innate need for relationships, love, and self-esteem", placeholder: "Your notes.", rows: 4})
+viewof note_11_psych_5a = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_5a",
+  Inputs.textarea({label: "Your notes on item 5a: innate need for relationships, love, and self-esteem", placeholder: "Your notes.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -119,7 +136,10 @@ viewof note_11_psych_5a = Inputs.textarea({label: "Your notes on item 5a: innate
 </div>
 
 ```{ojs}
-viewof note_11_psych_5b = Inputs.textarea({label: "Your notes on item 5b: how circumstances and management affect dignity, self-esteem, and intrinsic motivation", placeholder: "Your notes.", rows: 4})
+viewof note_11_psych_5b = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_5b",
+  Inputs.textarea({label: "Your notes on item 5b: how circumstances and management affect dignity, self-esteem, and intrinsic motivation", placeholder: "Your notes.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -143,7 +163,10 @@ viewof note_11_psych_5b = Inputs.textarea({label: "Your notes on item 5b: how ci
 </div>
 
 ```{ojs}
-viewof note_11_psych_5c = Inputs.textarea({label: "Your notes on item 5c: extrinsic motivators that rob dignity, and the harm of grading", placeholder: "Your notes.", rows: 4})
+viewof note_11_psych_5c = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_5c",
+  Inputs.textarea({label: "Your notes on item 5c: extrinsic motivators that rob dignity, and the harm of grading", placeholder: "Your notes.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -167,7 +190,10 @@ Regarding these matters, recall also the reference to Norb Keller of General Mot
 </div>
 
 ```{ojs}
-viewof note_11_psych_5d = Inputs.textarea({label: "Your notes on item 5d: the natural inclination to learn, and 'pay is not a motivator'", placeholder: "Your notes.", rows: 4})
+viewof note_11_psych_5d = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_5d",
+  Inputs.textarea({label: "Your notes on item 5d: the natural inclination to learn, and 'pay is not a motivator'", placeholder: "Your notes.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -183,7 +209,10 @@ viewof note_11_psych_5d = Inputs.textarea({label: "Your notes on item 5d: the na
 </div>
 
 ```{ojs}
-viewof note_11_psych_5e = Inputs.textarea({label: "Your notes on item 5e: extrinsic motivation as a Zero-Defect mentality, and removal of demotivators", placeholder: "Your notes.", rows: 4})
+viewof note_11_psych_5e = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_5e",
+  Inputs.textarea({label: "Your notes on item 5e: extrinsic motivation as a Zero-Defect mentality, and removal of demotivators", placeholder: "Your notes.", rows: 4})
+)
 ```
 
 <div class="deming_quote">
@@ -207,7 +236,10 @@ viewof note_11_psych_5e = Inputs.textarea({label: "Your notes on item 5e: extrin
 </div>
 
 ```{ojs}
-viewof note_11_psych_5f = Inputs.textarea({label: "Your notes on item 5f: overjustification and monetary reward as a manager's way out", placeholder: "Your notes.", rows: 4})
+viewof note_11_psych_5f = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_psych_5f",
+  Inputs.textarea({label: "Your notes on item 5f: overjustification and monetary reward as a manager's way out", placeholder: "Your notes.", rows: 4})
+)
 ```
 
 ### Step 3: *DemDim* version
@@ -215,7 +247,10 @@ viewof note_11_psych_5f = Inputs.textarea({label: "Your notes on item 5f: overju
 Now read through *DemDim* pages 277--279 again, revising your earlier comments and adding new thoughts below.
 
 ```{ojs}
-viewof note_11_demdim_partd = Inputs.textarea({label: "Additional notes after re-reading DemDim pages 277–279 on Knowledge of Psychology", placeholder: "Additional notes from DemDim pages 277–279.", rows: 6})
+viewof note_11_demdim_partd = persist(
+  "content/days/day-11/06-knowledge-of-psychology.qmd#note_11_demdim_partd",
+  Inputs.textarea({label: "Additional notes after re-reading DemDim pages 277–279 on Knowledge of Psychology", placeholder: "Additional notes from DemDim pages 277–279.", rows: 6})
+)
 ```
 
 <div class="neave_note">
