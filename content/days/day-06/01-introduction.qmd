@@ -85,7 +85,12 @@ Work through the table reasonably carefully and accurately, but there's no need 
 :::
 
 ```{ojs}
-viewof activity_6a = Inputs.textarea({label: "Score your organisation against the 14 Points and Deadly Diseases (0-5 scale):", placeholder: "For each Point and Disease, note your comments and score.\n\nPoint 1: Create constancy of purpose — Comments: ... Score: ...\nPoint 2: Adopt the new philosophy — Comments: ... Score: ...\n(continue for all 14 Points and 5 Deadly Diseases)", rows: 30})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof activity_6a = persist(
+  "content/days/day-06/01-introduction.qmd#activity_6a",
+  Inputs.textarea({label: "Score your organisation against the 14 Points and Deadly Diseases (0-5 scale):", placeholder: "For each Point and Disease, note your comments and score.\n\nPoint 1: Create constancy of purpose — Comments: ... Score: ...\nPoint 2: Adopt the new philosophy — Comments: ... Score: ...\n(continue for all 14 Points and 5 Deadly Diseases)", rows: 30})
+)
 ```
 
 </div>

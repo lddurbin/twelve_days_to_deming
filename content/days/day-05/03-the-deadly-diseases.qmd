@@ -27,31 +27,42 @@ It is relevant here to point out the error in a phrase glibly trotted out by man
 ### Obsession With Quality
 
 ```{ojs}
-viewof d1_owq = Inputs.textarea({
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof d1_owq = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d1_owq",
+  Inputs.textarea({
   label: "Disease 1 (Lack of constancy) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof d1_aot = Inputs.textarea({
+viewof d1_aot = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d1_aot",
+  Inputs.textarea({
   label: "Disease 1 (Lack of constancy) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof d1_sa = Inputs.textarea({
+viewof d1_sa = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d1_sa",
+  Inputs.textarea({
   label: "Disease 1 (Lack of constancy) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -75,31 +86,40 @@ This will be so familiar to many readers that I need say no more.
 ### Obsession With Quality
 
 ```{ojs}
-viewof d2_owq = Inputs.textarea({
+viewof d2_owq = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d2_owq",
+  Inputs.textarea({
   label: "Disease 2 (Short-termism) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof d2_aot = Inputs.textarea({
+viewof d2_aot = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d2_aot",
+  Inputs.textarea({
   label: "Disease 2 (Short-termism) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof d2_sa = Inputs.textarea({
+viewof d2_sa = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d2_sa",
+  Inputs.textarea({
   label: "Disease 2 (Short-termism) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -123,31 +143,40 @@ It may be wise at this stage for me to remind you of my warning at the bottom of
 ### Obsession With Quality
 
 ```{ojs}
-viewof d3_owq = Inputs.textarea({
+viewof d3_owq = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d3_owq",
+  Inputs.textarea({
   label: "Disease 3 (Appraisal of performance) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof d3_aot = Inputs.textarea({
+viewof d3_aot = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d3_aot",
+  Inputs.textarea({
   label: "Disease 3 (Appraisal of performance) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof d3_sa = Inputs.textarea({
+viewof d3_sa = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d3_sa",
+  Inputs.textarea({
   label: "Disease 3 (Appraisal of performance) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -167,31 +196,40 @@ Moving around the organisation in order to acquire that broader understanding is
 ### Obsession With Quality
 
 ```{ojs}
-viewof d4_owq = Inputs.textarea({
+viewof d4_owq = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d4_owq",
+  Inputs.textarea({
   label: "Disease 4 (Management job-hopping) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### All One Team
 
 ```{ojs}
-viewof d4_aot = Inputs.textarea({
+viewof d4_aot = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d4_aot",
+  Inputs.textarea({
   label: "Disease 4 (Management job-hopping) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof d4_sa = Inputs.textarea({
+viewof d4_sa = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d4_sa",
+  Inputs.textarea({
   label: "Disease 4 (Management job-hopping) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---
@@ -215,11 +253,14 @@ In conclusion, and back to the main issue (from *Out of the Crisis* pages 104–
 ### Obsession With Quality
 
 ```{ojs}
-viewof d5_owq = Inputs.textarea({
+viewof d5_owq = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d5_owq",
+  Inputs.textarea({
   label: "Disease 5 (Use of only visible figures) — Obsession With Quality",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 []{#sec-page27}
@@ -229,21 +270,27 @@ viewof d5_owq = Inputs.textarea({
 ### All One Team
 
 ```{ojs}
-viewof d5_aot = Inputs.textarea({
+viewof d5_aot = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d5_aot",
+  Inputs.textarea({
   label: "Disease 5 (Use of only visible figures) — All One Team",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ### Scientific Approach
 
 ```{ojs}
-viewof d5_sa = Inputs.textarea({
+viewof d5_sa = persist(
+  "content/days/day-05/03-the-deadly-diseases.qmd#d5_sa",
+  Inputs.textarea({
   label: "Disease 5 (Use of only visible figures) — Scientific Approach",
   placeholder: "Your notes here.",
   rows: 5
 })
+)
 ```
 
 ---

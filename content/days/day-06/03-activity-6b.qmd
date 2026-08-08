@@ -35,7 +35,12 @@ Finally, for the time being, work through the table one more time, now consideri
 Score Gallery Furniture in its "pre-Deming" state against each of the 14 Points and 5 Deadly Diseases, using the 0–5 scale from Activity 6-a. Include brief comments referencing Mack's account.
 
 ```{ojs}
-viewof activity_6b_pre = Inputs.textarea({label: "\"Pre-Deming\" Gallery Furniture — Comments and Scores:", placeholder: "For each Point and Disease, note your comments and score based on Mack's account.\n\nPoint 1: Create constancy of purpose — Comments: ... Score: ...\nPoint 2: Adopt the new philosophy — Comments: ... Score: ...\n(continue for all 14 Points and 5 Deadly Diseases)", rows: 30})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof activity_6b_pre = persist(
+  "content/days/day-06/03-activity-6b.qmd#activity_6b_pre",
+  Inputs.textarea({label: "\"Pre-Deming\" Gallery Furniture — Comments and Scores:", placeholder: "For each Point and Disease, note your comments and score based on Mack's account.\n\nPoint 1: Create constancy of purpose — Comments: ... Score: ...\nPoint 2: Adopt the new philosophy — Comments: ... Score: ...\n(continue for all 14 Points and 5 Deadly Diseases)", rows: 30})
+)
 ```
 
 </div>
@@ -47,7 +52,10 @@ viewof activity_6b_pre = Inputs.textarea({label: "\"Pre-Deming\" Gallery Furnitu
 Now score Gallery Furniture in its "post-Deming" state against the same 14 Points and 5 Deadly Diseases, again using the 0–5 scale.
 
 ```{ojs}
-viewof activity_6b_post = Inputs.textarea({label: "\"Post-Deming\" Gallery Furniture — Comments and Scores:", placeholder: "For each Point and Disease, note your comments and score based on Mack's account.\n\nPoint 1: Create constancy of purpose — Comments: ... Score: ...\nPoint 2: Adopt the new philosophy — Comments: ... Score: ...\n(continue for all 14 Points and 5 Deadly Diseases)", rows: 30})
+viewof activity_6b_post = persist(
+  "content/days/day-06/03-activity-6b.qmd#activity_6b_post",
+  Inputs.textarea({label: "\"Post-Deming\" Gallery Furniture — Comments and Scores:", placeholder: "For each Point and Disease, note your comments and score based on Mack's account.\n\nPoint 1: Create constancy of purpose — Comments: ... Score: ...\nPoint 2: Adopt the new philosophy — Comments: ... Score: ...\n(continue for all 14 Points and 5 Deadly Diseases)", rows: 30})
+)
 ```
 
 </div>
@@ -71,7 +79,10 @@ To complete this Major Activity, transcribe from the table on page 5 in Activity
 Compare your Activity 6-a scores with Gallery Furniture's "Pre-Deming" and "Post-Deming" scores. Where do the most significant gaps lie? What can your organisation learn from the Gallery Furniture transformation?
 
 ```{ojs}
-viewof activity_6b_comparison = Inputs.textarea({label: "Comparison and reflections:", placeholder: "Compare your organisation's scores with Gallery Furniture's scores.\n\nWhich Points or Diseases show the biggest gaps?\nWhat lessons from the Gallery story are most relevant to your organisation?\nWhat specific changes might help improve matters?", rows: 20})
+viewof activity_6b_comparison = persist(
+  "content/days/day-06/03-activity-6b.qmd#activity_6b_comparison",
+  Inputs.textarea({label: "Comparison and reflections:", placeholder: "Compare your organisation's scores with Gallery Furniture's scores.\n\nWhich Points or Diseases show the biggest gaps?\nWhat lessons from the Gallery story are most relevant to your organisation?\nWhat specific changes might help improve matters?", rows: 20})
+)
 ```
 
 </div>
