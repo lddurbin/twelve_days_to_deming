@@ -204,33 +204,17 @@ jobs:
     - name: Install Vercel CLI
       run: npm install -g vercel@54.20.1
 
-    # TEMPORARY: diagnosing "Could not retrieve Project Settings" — GitHub
-    # redacts the literal VERCEL_TOKEN value from all log output regardless
-    # of what these commands print, so this is safe to run. Remove once
-    # the deploy step above is confirmed working.
-    - name: Debug token scope
-      env:
-        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      run: |
-        echo "--- REST API: GET /v9/projects ---"
-        curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects"
-        curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects" | head -c 500
-        echo ""
-        echo "--- REST API: GET /v9/projects/vercel-spike ---"
-        curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects/vercel-spike"
-        curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects/vercel-spike" | head -c 500
-        echo ""
-        echo "--- REST API: GET /v2/user (whoami equivalent) ---"
-        curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v2/user"
-        curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v2/user" | head -c 500
-
-    # VERCEL_TOKEN is project-scoped (see #535 writeup). The CLI's
-    # VERCEL_ORG_ID/VERCEL_PROJECT_ID env vars are an all-or-nothing pair
-    # (it errors if only one is set) and even set together they get denied
-    # for a project-scoped token, because resolving VERCEL_ORG_ID is itself
-    # a team-level lookup the token isn't allowed to make. `--project` sides
-    # steps this: it names the project directly, and since the token is
-    # already locked to that one project, no org context is needed at all.
+    # VERCEL_TOKEN must be team-scoped, not project-scoped. Diagnosed in
+    # #535: a project-scoped token authenticates fine against the raw REST
+    # API (GET /v9/projects/vercel-spike returns 200), but `vercel` CLI
+    # commands — whoami, and deploy internally — always do a user-identity
+    # check first (GET /v2/user), which a project-scoped token structurally
+    # can't satisfy (it isn't tied to a user, by design) and returns 404
+    # "User not found" on every CLI version tested (54.20.1 and 58.8.0).
+    # Vercel's own docs only demonstrate project-scoped tokens against the
+    # REST API directly, never the CLI — this looks like a real gap in CLI
+    # support rather than a config mistake. Team scope is the narrowest
+    # level that still works with `vercel deploy`.
     - name: Deploy preview to Vercel
       id: deploy
       env:
@@ -239,9 +223,14 @@ jobs:
         COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
       run: |
         set -euo pipefail
+        # --format json forces structured stdout explicitly rather than
+        # relying on the CLI's undocumented environment-detection default
+        # (flagged in PR review — see the reply on #553 for what was
+        # actually observed and why this is the more robust fix).
         RESPONSE=$(vercel deploy --prebuilt --yes \
           --token="$VERCEL_TOKEN" \
           --project vercel-spike \
+          --format json \
           --meta githubPrNumber="$PR_NUMBER" \
           --meta githubCommitSha="$COMMIT_SHA")
         echo "$RESPONSE"

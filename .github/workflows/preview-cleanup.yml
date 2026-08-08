@@ -20,9 +20,10 @@ jobs:
     # `vercel deploy`, no git integration), so the only way to find them is
     # the --meta tag set at deploy time in accessibility.yml's preview job.
     #
-    # VERCEL_TOKEN is project-scoped — see the matching comment in
-    # accessibility.yml's preview job for why `--project` replaces the
-    # VERCEL_ORG_ID/VERCEL_PROJECT_ID env vars here too.
+    # VERCEL_TOKEN must be team-scoped, not project-scoped — see the
+    # matching comment in accessibility.yml's preview job for why (a
+    # project-scoped token can't pass the CLI's internal user-identity
+    # check at all). `--project` still narrows each call to vercel-spike.
     - name: Remove preview deployments for this PR
       env:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -34,7 +35,8 @@ jobs:
           echo "No preview deployments found for PR #${PR_NUMBER}"
           exit 0
         fi
-        for url in $URLS; do
+        readarray -t urls <<< "$URLS"
+        for url in "${urls[@]}"; do
           echo "Removing $url"
           vercel remove "$url" --yes --token="$VERCEL_TOKEN"
         done
