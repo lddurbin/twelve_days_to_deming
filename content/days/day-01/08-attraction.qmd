@@ -58,7 +58,12 @@ might some “old” views of Economics also be a hindrance, and what might “N
 account?
 
 ```{ojs}
-viewof activity_1d = Inputs.textarea({label: "How do Government and Education systems help or hinder Industry?", placeholder: "Type your comments here.", rows: 30})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof activity_1d = persist(
+  "content/days/day-01/08-attraction.qmd#activity_1d",
+  Inputs.textarea({label: "How do Government and Education systems help or hinder Industry?", placeholder: "Type your comments here.", rows: 30})
+)
 ```
 
 <div class=activity_afterthought>In such an Activity you are not expected to be able to set the world to rights! Its purpose is to trigger
@@ -96,7 +101,10 @@ would warrant your attention? I am not asking for any logical argument here: jus
 feel”.
 
 ```{ojs}
-viewof activity_1e_1 = Inputs.number([10, 50], {step: 1, label: "Dissatisfied callers", placeholder: 10})
+viewof activity_1e_1 = persist(
+  "content/days/day-01/08-attraction.qmd#activity_1e_1",
+  Inputs.number([10, 50], {step: 1, label: "Dissatisfied callers", placeholder: 10})
+)
 ```
 
 On the bright side, how much better than the average of 10 dissatisfied callers would a result need to
@@ -104,7 +112,10 @@ be for you to feel justified in congratulating the member of staff: “Well done
 9 dissatisfied callers? 8 dissatisfied callers? 7 dissatisfied callers? Fewer?
 
 ```{ojs}
-viewof activity_1e_2 = Inputs.number([10, 0], {step: 1, label: "Dissatisfied callers", placeholder: 10})
+viewof activity_1e_2 = persist(
+  "content/days/day-01/08-attraction.qmd#activity_1e_2",
+  Inputs.number([10, 0], {step: 1, label: "Dissatisfied callers", placeholder: 10})
+)
 ```
 
 </div>

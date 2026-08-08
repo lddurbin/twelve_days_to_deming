@@ -100,11 +100,16 @@ See if you can use this method to obtain the control limits quoted on page 14 an
 <div class="technical_aid" role="note" aria-label="Working space for Technical Aid 1">
 
 ```{ojs}
-viewof working_ta1 = Inputs.textarea({
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof working_ta1 = persist(
+  "content/days/day-02/05-the-truth-the-whole-truth-and-nothing-but.qmd#working_ta1",
+  Inputs.textarea({
   label: "Your working",
   placeholder: "Try the calculation yourself in this space before checking Technical Aid 2 on the next page. Use the Download button at the bottom of the page to save your working into your notes.",
   rows: 8
 })
+)
 ```
 
 </div>

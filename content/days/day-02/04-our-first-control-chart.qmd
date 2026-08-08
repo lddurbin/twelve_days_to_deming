@@ -75,7 +75,12 @@ As a new user of the control chart, here is your obvious Pause for Thought:
 What does the above control chart tell you?
 
 ```{ojs}
-viewof thought_2e = Inputs.textarea({label: "What does the control chart tell you?", placeholder: "Type your comments here.", rows: 10})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof thought_2e = persist(
+  "content/days/day-02/04-our-first-control-chart.qmd#thought_2e",
+  Inputs.textarea({label: "What does the control chart tell you?", placeholder: "Type your comments here.", rows: 10})
+)
 ```
 
 *(For brief but very important discussion, see [Appendix page 7](../../appendix/02-day-2.qmd#sec-page7) one more time.)*
