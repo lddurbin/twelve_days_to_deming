@@ -204,11 +204,16 @@ jobs:
     - name: Install Vercel CLI
       run: npm install -g vercel@54.20.1
 
+    # VERCEL_TOKEN is project-scoped (see #535 writeup), so VERCEL_ORG_ID is
+    # deliberately not set here: Vercel infers team + project from the
+    # token's own scope, and a project-scoped token is denied any
+    # team-level request — including resolving an explicit org ID.
+    # Passing it alongside a project-scoped token is what broke the first
+    # attempt at this (`Could not retrieve Project Settings`).
     - name: Deploy preview to Vercel
       id: deploy
       env:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
         VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
         PR_NUMBER: ${{ github.event.pull_request.number }}
         COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
