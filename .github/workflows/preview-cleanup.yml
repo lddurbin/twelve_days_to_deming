@@ -1,0 +1,38 @@
+name: Preview Cleanup
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    environment: preview
+
+    steps:
+    - name: Install Vercel CLI
+      run: npm install -g vercel@54.20.1
+
+    # Previews aren't tied to the PR by branch name (every deploy is a bare
+    # `vercel deploy`, no git integration), so the only way to find them is
+    # the --meta tag set at deploy time in accessibility.yml's preview job.
+    - name: Remove preview deployments for this PR
+      env:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+        VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+      run: |
+        set -euo pipefail
+        URLS=$(vercel list --token="$VERCEL_TOKEN" -m githubPrNumber="$PR_NUMBER" --format json --yes | jq -r '.deployments[].url')
+        if [ -z "$URLS" ]; then
+          echo "No preview deployments found for PR #${PR_NUMBER}"
+          exit 0
+        fi
+        for url in $URLS; do
+          echo "Removing $url"
+          vercel remove "$url" --yes --token="$VERCEL_TOKEN"
+        done
