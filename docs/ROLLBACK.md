@@ -100,9 +100,7 @@ After either rollback method, confirm:
 
 ## Stateful rollback
 
-Options 1 and 2 above both rest on the same assumption: **the site is just files, so restoring files restores the site.** That holds today — there is no database, no sessions, no server-side reader data. It stops holding the moment any of that exists.
-
-`cp -r` of a docroot does nothing for a schema, a Worker/function version, or a half-applied migration. Restoring yesterday's files *beside* today's schema is worse than doing nothing: it produces a running site that's making wrong assumptions about the shape of its own data. Once accounts or saved progress ship, do not reach for Option 1 or Option 2 to undo a bad data-touching deploy — they were never designed to, and this document isn't proposing to extend them to cover it. This section is written ahead of that work landing (see the [accounts epic](https://github.com/lddurbin/twelve_days_to_deming/issues/529)), so the constraint shapes the design instead of being discovered during the first incident.
+Options 1 and 2 above rest on the file-restore assumption from the top of this doc. It stops holding the moment there's a database, sessions, or server-side reader data: `cp -r` of a docroot does nothing for a schema, a Worker/function version, or a half-applied migration. Restoring yesterday's files *beside* today's schema is worse than doing nothing: it produces a running site that's making wrong assumptions about the shape of its own data. Once accounts or saved progress ship, do not reach for Option 1 or Option 2 to undo a bad data-touching deploy — they were never designed to, and this document isn't proposing to extend them to cover it. This section is written ahead of that work landing (see the [accounts epic](https://github.com/lddurbin/twelve_days_to_deming/issues/529)), so the constraint shapes the design instead of being discovered during the first incident.
 
 ### Forward-only migrations
 
@@ -132,6 +130,6 @@ Once there is reader data, it needs a backup regime of its own, separate from th
 
 - A retention window for data backups (it does not need to match the five-backup docroot retention above).
 - Where backups are stored, and that the store is independent of the primary database's own infrastructure.
-- A periodic restore test. An untested backup is unverified until the day it's needed — the same principle [Verify production](#how-you-find-out-something-is-wrong) already applies to deploys, extended to data.
+- A periodic restore test. An untested backup is unverified until the day it's needed — the same principle [already applied to deploys](#how-you-find-out-something-is-wrong), extended to data.
 
 The concrete mechanism (which platform, which tool, what cadence) is deferred to the account data-model design note, not decided here — this section only fixes the *policy*: reader data gets backed up and restore-tested, on a footing separate from the file-based procedures above.
