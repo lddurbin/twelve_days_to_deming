@@ -374,4 +374,12 @@ describe("ledger migration", () => {
     expect(getLedger().activeMs).toBe(0);
     expect(getLedger().acts).toBe(0);
   });
+
+  it("rejects a ledger whose maxDay overflowed to Infinity", async () => {
+    const { getLedger } = await freshEngagement({
+      "td:engagement":
+        '{"firstSeen":"2026-07-01T00:00:00.000Z","activeMsByDevice":{},"days":[],"chapters":[],"actsByDevice":{},"maxDay":1e400}',
+    });
+    expect(getLedger().maxDay).toBe(0);
+  });
 });

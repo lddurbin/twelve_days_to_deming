@@ -88,7 +88,8 @@ function isValidLedger(value) {
     Array.isArray(value.days) &&
     Array.isArray(value.chapters) &&
     isCounterMap(value.actsByDevice) &&
-    typeof value.maxDay === "number"
+    typeof value.maxDay === "number" &&
+    Number.isFinite(value.maxDay)
   );
 }
 
@@ -107,7 +108,8 @@ function isLegacyLedger(value) {
     Array.isArray(value.chapters) &&
     typeof value.acts === "number" &&
     Number.isFinite(value.acts) &&
-    typeof value.maxDay === "number"
+    typeof value.maxDay === "number" &&
+    Number.isFinite(value.maxDay)
   );
 }
 
