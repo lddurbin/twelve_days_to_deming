@@ -22,7 +22,12 @@ There are two particular problems.
 Can you think what those two problems might be? You may find a clue in the above introduction.
 
 ```{ojs}
-viewof thought_7c = Inputs.textarea({label: "What two particular problems with performance indicators can you think of?", placeholder: "Type your comments here.", rows: 10})
+import { persist } from "../../../assets/scripts/workbook.js"
+
+viewof thought_7c = persist(
+  "content/days/day-07/03-performance-indicators.qmd#thought_7c",
+  Inputs.textarea({label: "What two particular problems with performance indicators can you think of?", placeholder: "Type your comments here.", rows: 10})
+)
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_7c" aria-expanded="false" aria-controls="collapse_7c">
