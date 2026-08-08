@@ -169,11 +169,11 @@ clock_reads:
 # session_minutes rules). session_minutes = next chapter's opening clock
 # minus this chapter's opening clock, in minutes.
 #
-#   chapter                  opening (doc page)   next chapter's opening    session_minutes
-#   introduction (doc1)      9:00am                9:15am (gallery-furn.)   15
-#   gallery-furniture (doc3) 9:15am                10:45am (activity-6b)    90
-#   activity-6b (doc18)      10:45am               3:30pm (more-true-st.)   unset — spans lunch
-#   more-true-stories (doc26)3:30pm                (no further clocks)     unset — last chapter, no day-end anchor
+#   chapter                    opening (doc page)   next chapter's opening    session_minutes
+#   introduction (doc1)       9:00am                9:15am (gallery-furn.)   15
+#   gallery-furniture (doc3)  9:15am                10:45am (activity-6b)    90
+#   activity-6b (doc18)       10:45am               3:30pm (more-true-st.)   unset — spans lunch
+#   more-true-stories (doc26) 3:30pm                (no further clocks)     unset — last chapter, no day-end anchor
 #
 # activity-6b is left unset despite having the richest internal data of any
 # Day 6 chapter (5 checkpoints across its own doc pp 18-20, pacing each step
