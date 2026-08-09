@@ -34,7 +34,7 @@
 }
 
 .llms_txt_url <- function(path, site_url) {
-  paste0(site_url, "/", sub(.llms_txt_ext_re, ".html", path))
+  paste0(sub("/$", "", site_url), "/", sub(.llms_txt_ext_re, ".html", path))
 }
 
 .llms_txt_bullet <- function(path, site_url) {
