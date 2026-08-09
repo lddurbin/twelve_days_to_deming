@@ -18,7 +18,7 @@ GitHub repo visibility is per-repo, not per-path. There's no setting that makes 
 
 A submodule embeds a reference to the private repo — its `.gitmodules` entry and pointer commits — permanently into this repo's public git history. That reveals the private repo's name and location to anyone who clones this repo, even though its *contents* stay inaccessible without credentials. It's not a real vulnerability (repo existence isn't sensitive, only contents are), but it's an unforced information leak, and it complicates plain `git clone` for external contributors unless `.gitmodules` is carefully configured to never auto-fetch.
 
-A CI-only clone step avoids both problems: nothing about the private repo is recorded in this repo's git objects. Taken further, the private repo's clone URL should itself be a secret (e.g. `PAID_CONTENT_REPO_URL`) rather than hardcoded in the public `deploy.yml` — so the workflow file reveals only that gated content exists (already a public fact per #549), not which repo holds it.
+A CI-only clone step avoids both problems: nothing about the private repo is recorded in this repo's git objects. Taken further, the private repo's clone URL should itself be a secret (e.g. `PAID_CONTENT_REPO_URL`) rather than hardcoded in the public `deploy.yml`. The security value of hiding the URL itself is modest — a repo name isn't much of a secret — but the operational value is real: the private repo can be renamed, moved, or rotated to a fresh one without a commit to this public repo, and nothing about its current or former location is permanently baked into public git history the way a hardcoded URL would be.
 
 Target layout: a `content-paid/` directory at the project root, parallel to `content/days/` and `content-fr/`, populated by CI before `quarto render` runs.
 
@@ -30,7 +30,7 @@ Target layout: a `content-paid/` directory at the project root, parallel to `con
 
 Contributors without access to the private repo won't have `content-paid/` populated, and the free-tier build must not fail because of that.
 
-This is flagged as a real open question, not a solved one: Quarto book projects typically require every chapter listed in `_quarto.yml`'s `chapters:` to exist, or the render fails outright. A static chapter list won't tolerate an absent directory. The implementation issue will likely need a pre-render step that builds the paid-content chapter list dynamically — only including `content-paid/*.qmd` in the nav when the directory is non-empty — rather than declaring it statically. Worth sizing before committing to the `content-paid/` shape at all.
+This is flagged as a real open question, not a solved one: Quarto book projects typically require every chapter listed in `_quarto.yml`'s `chapters:` to exist, or the render fails outright. A static chapter list won't tolerate an absent directory. The implementation issue will likely need a pre-render step that builds the paid-content chapter list dynamically — only including `content-paid/*.qmd` in the nav when the directory is non-empty — rather than declaring it statically. Quarto's [project profiles](https://quarto.org/docs/projects/profiles.html) (`--profile`, merging a `_quarto-{profile}.yml` override) are worth investigating as an alternative to a hand-rolled pre-render script — a `paid` profile could supply its own `chapters:` list without a public/private-repo-aware script maintaining one. Not decided here; named as an avenue rather than a conclusion. Worth sizing either way before committing to the `content-paid/` shape at all.
 
 ## 4. `.gitignore` discipline
 
@@ -48,4 +48,4 @@ Whether paid content stays `.qmd`-authored, matching the free content's existing
 
 ## Using this note
 
-Before scoping the implementation issue: confirm the `_quarto.yml` dynamic-chapter-list question (§3) can actually be solved cleanly, since it's the one item here that could invalidate the `content-paid/`-directory shape rather than just needing configuration. Everything else (§1, §2, §4, §5) is a matter of following the pattern, not a risk to the approach itself.
+Before scoping the implementation issue: confirm the `_quarto.yml` dynamic-chapter-list question ([§3](#3-local-dev-without-access)) can actually be solved cleanly, since it's the one item here that could invalidate the `content-paid/`-directory shape rather than just needing configuration. Everything else ([§1](#1-pull-mechanism), [§2](#2-credential-scoping), [§4](#4-gitignore-discipline), [§5](#5-pr-preview-behaviour)) is a matter of following the pattern, not a risk to the approach itself.
