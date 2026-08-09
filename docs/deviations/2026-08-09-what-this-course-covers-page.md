@@ -5,4 +5,4 @@
 - **Source reference** — n/a. This content never existed in Neave's PDFs; it originates entirely in `README.md`, itself written for this project's GitHub audience rather than transcribed from Neave's source.
 - **Why** — Part of the SEO/GEO epic [#497](https://github.com/lddurbin/twelve_days_to_deming/issues/497): `README.md` carried the clearest, most keyword-dense positioning copy in the project, but it reached only GitHub visitors — the audience least in need of convincing. The site's own front matter (`welcome.qmd`, `index.qmd`) is Neave's own preface, kept verbatim, and isn't the place for this kind of scannable, audience-matching summary. A dedicated page keeps that distinction clean: Neave's narrative prefaces stay untouched, and the new page is unambiguously Lee's editorial voice, like `about-this-edition.qmd`.
 - **Decided in** — [#510](https://github.com/lddurbin/twelve_days_to_deming/issues/510), part of epic [#497](https://github.com/lddurbin/twelve_days_to_deming/issues/497).
-- **Landed in** — *Pending — tracked in #510.*
+- **Landed in** — PR [#574](https://github.com/lddurbin/twelve_days_to_deming/pull/574).
