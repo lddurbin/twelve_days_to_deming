@@ -104,6 +104,18 @@ Reference cropped images in `.qmd` files:
 - **Build Environment**: Ubuntu with R, Quarto, and system dependencies
 - **Deploy Method**: rsync over SSH to production server
 
+## URL and Content Policy
+
+The accounts epic ([#529](https://github.com/lddurbin/twelve_days_to_deming/issues/529)) commits that the current course content stays free permanently. That commitment needs to be a structural rule that future work is checked against, not a remembered intention — the failure mode is gradual, and each individual step toward gating content looks reasonable in isolation. There's also a concrete asset at stake: epic [#497](https://github.com/lddurbin/twelve_days_to_deming/issues/497) put hand-written `pagetitle` and `description` metadata on all 123 pages, and gating or relocating any of those pages discards that investment.
+
+- **The current 123 URLs are permanent.** They do not move, do not redirect behind auth, and do not change what they serve to an anonymous visitor.
+- **Gating is additive only.** New paid or member surfaces get new routes. Nothing existing is ever relocated behind a login.
+- **Anonymous and crawler views are byte-identical.** Serving a crawler something different from an anonymous reader is cloaking, and risks a manual action against the whole site. Any personalisation happens client-side, after load — never server-side by request signature.
+- **Paid content lives in the same Quarto project**, under a distinct path, so it inherits the build, the CSS, the accessibility conventions, and the `workflow/PATTERNS.md` standards rather than forking into a parallel stack.
+- **New gated routes need a CI story before they ship.** `.pa11yci.json` enumerates 64 URLs explicitly and `link-check` will 401 on anything gated, so accessibility coverage silently stops at the login wall unless someone deliberately extends it. Whoever adds the first gated route owns that extension.
+
+This rule is inert with respect to `structure-check.yml`, which validates `.qmd` files against `workflow/validation/*.yml` manifests, not against this file.
+
 ## Merge workflow
 
 GitHub's merge queue is **not available** on `main` — it's a personal-account (non-org) repo, and the "Require merge queue" option is unavailable for that account type regardless of plan. See issue [#385](https://github.com/lddurbin/twelve_days_to_deming/issues/385) for the investigation; closed as won't-fix.
