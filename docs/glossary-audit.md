@@ -49,6 +49,8 @@ The `id` attribute on each `<dfn>` matches the slug used by the appendix glossar
 
 The cap of ~10 leaves three slots unused. This is deliberate: future audits may find a stronger candidate that warrants displacing one of the seven, but the headroom is **not** a backlog to be filled. Each addition still has to clear the same bar — a clean defining sentence in Neave's prose, at the first chapter that does the defining work.
 
+**Why the rejected candidates got a page anyway.** [#509](https://github.com/lddurbin/twelve_days_to_deming/issues/509) built `concepts.qmd`, a separate "Concepts Index" page, covering (among 23 terms) the funnel experiment, the Joiner Triangle, and appreciation for a system — the three candidates this audit rejected above. That is not the cap being quietly raised. The glossary's job is a defining sentence a reader can rely on at the exact point they need it; the concepts index's job is a one-line orientation plus a link to where the course actually teaches the idea, aimed at a reader who found the course via search and doesn't know it exists yet. It deliberately does not define anything, so the "pedagogical short-circuiting" objection above doesn't transfer to it. The cap here still stands, unchanged.
+
 ## Verification
 
 - pa11y CI continues to pass (the appendix glossary page is listed in `.pa11yci.json`; the chapters that host the seven defining instances are either already covered or rely on coverage of nearby chapters).

@@ -8,7 +8,7 @@ execute:
 
 A short, alphabetical reference for the course's most-recurring specialised terms. Definitions are taken verbatim from Neave's prose (or from a Deming quote that Neave reproduces). Each entry links back to the chapter where the term is first defined in context.
 
-The set is intentionally small — seven terms, capped at around ten — because the value of a glossary lives in being predictable and uncluttered, not exhaustive.
+The set is intentionally small — seven terms, capped at around ten — because the value of a glossary lives in being predictable and uncluttered, not exhaustive. For a much wider map of Deming concepts — each with a one-line orientation and a link to where the course teaches it, rather than a full definition — see the [Concepts Index](/concepts.qmd).
 
 ## common cause / common-cause variation {#common-cause}
 
