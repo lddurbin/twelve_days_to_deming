@@ -1,5 +1,7 @@
 # Account data model, storage location, export and deletion
 
+_Last updated: 2026-08-09_
+
 Design note for [#547](https://github.com/lddurbin/twelve_days_to_deming/issues/547), part of the accounts epic ([#529](https://github.com/lddurbin/twelve_days_to_deming/issues/529)). No code. This is written before any account data is collected, so every question here is answered on paper rather than discovered later while already holding data.
 
 The current site's promise, from `privacy.qmd`, is that "there's no identifier that ties one of your visits to the next." Accounts change that for logged-in readers. The goal of this note is to change it deliberately and minimally — this document is the specification that promise gets rewritten against, not a rewrite of `privacy.qmd` itself, and not something wired into the build yet.
@@ -31,7 +33,9 @@ Two categories, deliberately handled differently:
 - **Progress and ratings** (which chapters are read, funnel-experiment state, thumbs up/down) — low sensitivity, no free text, synced in plain form.
 - **Written workbook answers** — free text a reader has written about their own workplace. Day 12 explicitly asks for a report to a named Chief Executive. This is the one category where "what can the operator read" matters.
 
-**Decision: workbook answers are encrypted at rest.** This matches the site's current posture (nothing traceable back to a reader) more closely than plaintext storage would, at the cost of key-management complexity the eventual implementation issue will need to size. The operator (me) should not be able to read a reader's saved answers by querying the database directly — only the reader's own authenticated session decrypts them.
+**Decision: workbook answers are encrypted at rest, using a client-side model.** The encryption key is derived from something only the reader's device or credential holds — for example a WebAuthn PRF-derived key, if passkeys are chosen as the auth mechanism (see [#548](https://github.com/lddurbin/twelve_days_to_deming/issues/548)) — never a key the server holds on the reader's behalf. That's the only model consistent with the guarantee this note is making: the operator (me) should not be able to read a reader's saved answers by querying the database directly, even with full database *and* key-store access, because no single thing the server holds is sufficient to decrypt them.
+
+This is a real cost, not a checkbox. It constrains the auth-mechanism choice — a pure email-magic-link flow hands the server no client-held secret to derive a key from — and it rules out server-side search over workbook answers. **If the auth issue lands on a mechanism that can't supply a client-held secret, this guarantee doesn't hold**, and the fallback (a server-side per-user key, which the operator *could* decrypt with database and key-store access) must be disclosed as the weaker guarantee it actually is — here and in `privacy.qmd` — rather than left implied as the stronger one.
 
 Progress and ratings are not encrypted at rest; there's nothing in them to protect beyond normal access control.
 
