@@ -14,30 +14,9 @@ An active-learning course based on the teachings of Dr. W. Edwards Deming, devel
 - **Interactive Elements**: Built-in exercises, reflections, and practical applications
 - **Comprehensive Coverage**: From basic concepts to advanced applications of Deming's System of Profound Knowledge
 
-## 🎯 Who This Course Is For
+## 🎯 Who This Course Is For, and How It's Structured
 
-- **Managers and Leaders** seeking to improve organizational performance
-- **Quality Professionals** wanting to understand Deming's approach to quality management
-- **Students** studying management, operations, or quality improvement
-- **Anyone** interested in learning about systems thinking and continuous improvement
-- **Self-learners** or **study groups** (2-12 people) working together
-
-## 📖 Course Structure
-
-The course is organized into 12 "days" of learning:
-
-- **Day 1**: The Overture - Introduction and overview
-- **Days 2-3**: Foundation concepts and principles
-- **Days 4-5**: First Project - Practical application
-- **Days 6-9**: Deep dive into Deming's System of Profound Knowledge
-- **Days 10-11**: Second Project - Advanced application (the climax of the course)
-- **Day 12**: Integration and next steps
-
-Each day includes:
-- Reading materials with embedded activities
-- Interactive exercises and reflections
-- Practical applications of concepts
-- Time management guidance with clock indicators
+See [**What This Course Covers**](https://deming.leedurbin.co.nz/what-this-course-covers.html) on the live site for the audience breakdown, the day-by-day structure, and the key topics — kept there rather than duplicated here so the two can't drift apart.
 
 ## 🚀 Getting Started
 
@@ -132,13 +111,7 @@ quarto render
 
 ## 📚 Course Content
 
-### Key Topics Covered
-- **System of Profound Knowledge**: Deming's four interrelated areas of knowledge
-- **Variation**: Understanding and managing variation in processes
-- **Theory of Knowledge**: How we learn and improve
-- **Psychology**: Understanding human behavior in organizations
-- **Quality Management**: Beyond inspection to prevention
-- **Leadership**: The role of management in improvement
+Key topics are covered on the [**What This Course Covers**](https://deming.leedurbin.co.nz/what-this-course-covers.html) page linked above.
 
 ### Learning Approach
 - **Active participation** through embedded exercises

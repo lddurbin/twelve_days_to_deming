@@ -5,6 +5,7 @@
 ## Pages
 
 - [About this edition: why and how this web adaptation was built](https://deming.leedurbin.co.nz/about-this-edition.html): Why Lee Durbin adapted 12 Days to Deming for the web, what changed from Neave's original PDFs, and the author's personal blessing for this edition.
+- [What this course covers: who it's for and how the 12 days break down](https://deming.leedurbin.co.nz/what-this-course-covers.html): A day-by-day breakdown of what 12 Days to Deming covers, who each part suits, and the two hands-on projects at its core.
 - [Welcome: the story of W. Edwards Deming and what this course covers](https://deming.leedurbin.co.nz/welcome.html): How Deming transformed Japanese industry from 1950, what this course covers, and why practitioners recommend it — introduced by Dr Henry Neave.
 - [12 Days to Deming: Dr Henry Neave's free interactive Deming course](https://deming.leedurbin.co.nz/index.html): Henry Neave's 12 Days to Deming, adapted for the web: a free, interactive course on W. Edwards Deming's management philosophy, published with his blessing.
 - [Accessibility features of the 12 Days to Deming web edition](https://deming.leedurbin.co.nz/accessibility.html): The accessibility features built into this course — skip links, a dyslexia font, keyboard navigation, ARIA labelling — and what's still on the roadmap.
