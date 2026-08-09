@@ -17,7 +17,7 @@ Quick answers to the questions that come up most often about the course. For a f
 
 W. Edwards Deming (1900–1993) was an American statistician and management thinker whose work transforming Japanese industry from the 1950s, and later influencing manufacturers across the West, made him one of the most significant figures in 20th-century quality management. His teaching centred on understanding variation, systems thinking, and the view that most problems in an organisation come from the system itself rather than the people working in it. Neave's own introduction to Deming's life and work opens the course; see [A Brief Introduction to the Life and Work of W Edwards Deming](welcome.qmd#a-brief-introduction-to-the-life-and-work-of-w-edwards-deming).
 
-## Who was Henry Neave?
+## Who is Henry Neave?
 
 Henry R. Neave developed the original 12 Days to Deming course, drawing on nearly 20 years teaching Deming's principles at the University of Nottingham and hundreds of seminars delivered to students and practitioners worldwide. He attended several of Deming's own four-day seminars, authored *The Deming Dimension*, and received the American Society for Quality's Deming Medal in 2001. Neave reviewed this web edition in 2026 and gave his personal blessing for its publication; see [About this Edition](about-this-edition.qmd) for that story in full.
 
