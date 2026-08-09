@@ -18,6 +18,7 @@ This is a constraint on the eventual implementation, not just a description: wha
 | `Secure` | yes | The site is HTTPS-only already; the cookie should never be sent in the clear. |
 | `SameSite` | `Lax` | `Strict` would drop the cookie on a top-level cross-site navigation into the site — e.g. a reader clicking a bookmarked or shared link from another tab — which reads as "you got logged out" for no reason. `Lax` still blocks the cookie on cross-site subresource requests and non-GET requests, which is what actually matters for CSRF protection on a session cookie. |
 | Expiry | sliding, 30 days idle timeout (proposed) | Balances "don't make readers log in every visit" against not keeping a valid session alive indefinitely on a shared device. This is a default for whoever scopes the auth issue to confirm, not a hard requirement of this note — it depends on the auth mechanism chosen. |
+| Name | `__Host-session` (or similar `__Host-` prefix) | Browser-enforced, not just a naming convention: the `__Host-` prefix is rejected by the browser unless the cookie also has `Secure`, no `Domain` attribute, and `Path=/`. That closes the class of attack where a compromised or malicious subdomain sets a same-named cookie to shadow the real session cookie. The site is HTTPS-only with no auth subdomain planned, so this costs nothing to adopt. |
 
 ## 3. Third-party cookies are a hard vendor-selection criterion
 
@@ -25,7 +26,7 @@ If an auth vendor sets its own cookie (for its own session tracking, fraud detec
 
 ## 4. The logged-out reader is unaffected
 
-No cookie, no banner, nothing changes. `privacy.qmd:17`'s existing promise — "there's no identifier that ties one of your visits to the next" — holds exactly as written for anyone who never creates an account.
+No cookie, no banner, nothing changes. `privacy.qmd`'s existing promise — "there's no identifier that ties one of your visits to the next" (currently the "No personal data" bullet under Analytics) — holds exactly as written for anyone who never creates an account.
 
 ## 5. How `privacy.qmd` should be restructured (when accounts ship)
 
