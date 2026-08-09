@@ -129,6 +129,7 @@ book:
     - accessibility.qmd
     - share-your-experience.qmd
     - privacy.qmd
+    - concepts.qmd
     - changes-from-source.qmd
 
   appendices:
