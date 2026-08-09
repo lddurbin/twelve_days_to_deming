@@ -11,6 +11,7 @@
 - [Accessibility features of the 12 Days to Deming web edition](https://deming.leedurbin.co.nz/accessibility.html): The accessibility features built into this course — skip links, a dyslexia font, keyboard navigation, ARIA labelling — and what's still on the roadmap.
 - [Share your experience of 12 Days to Deming](https://deming.leedurbin.co.nz/share-your-experience.html): Tell us how 12 Days to Deming has helped you — a short, optional form, with the choice to be quoted publicly or to stay anonymous.
 - [Privacy: what this site collects, and what it deliberately doesn't](https://deming.leedurbin.co.nz/privacy.html): What 12 Days to Deming collects about your visit — cookie-free analytics, optional feedback forms — and exactly what it doesn't, explained in plain terms.
+- [Deming concepts index: where each idea is taught in the course](https://deming.leedurbin.co.nz/concepts.html): A quick-reference map of 23 Deming concepts — the 14 Points, control charts, tampering — each linking to where this course teaches it.
 - [Changes from the source: how this edition differs from Neave's PDFs](https://deming.leedurbin.co.nz/changes-from-source.html): The two material differences between this web edition and Neave's original PDF course, plus a full, dated changelog of every departure from the source.
 - [FAQ: cost, length, prerequisites, and key concepts in 12 Days to Deming](https://deming.leedurbin.co.nz/faq.html): Answers to common questions about 12 Days to Deming: cost, time commitment, prerequisites, and core concepts like the Red Bead Experiment.
 
