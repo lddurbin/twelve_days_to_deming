@@ -1,0 +1,43 @@
+---
+title: "What This Course Covers"
+pagetitle: "What this course covers: who it's for and how the 12 days break down"
+description: "A day-by-day breakdown of what 12 Days to Deming covers, who each part suits, and the two hands-on projects at its core."
+execute:
+  echo: false
+---
+
+12 Days to Deming is a free, interactive course on Dr W. Edwards Deming's management philosophy, adapted for the web from Henry Neave's original active-learning course. It's built around doing rather than just reading: activities and reflections are woven through the material as you go, rather than saved for the end, and two substantial projects give you a chance to put what you've learned into practice before the course is over.
+
+## Who this course is for
+
+- **Managers and leaders** looking to improve organisational performance through Deming's approach to systems and leadership.
+- **Quality professionals** who want a thorough grounding in Deming's philosophy, not just the tools that are often associated with it.
+- **Students** studying management, operations, or quality improvement.
+- **Anyone curious about systems thinking and continuous improvement**, whether or not "quality" is part of your job title.
+- **Self-learners and study groups** of two to twelve people — the course is designed to work either way; see [Self-study or group-learning](index.qmd#self-study-or-group-learning) for Neave's own guidance on running it with others.
+
+No prior knowledge of Deming's work is assumed anywhere in the course.
+
+## Course structure
+
+The course is organised into 12 "days" of learning, each designed as a full day's study — six to eight hours, though you can split a day however suits you:
+
+- **Day 1** — The Overture: an introduction to Deming, why his teaching still matters, and how the course works.
+- **Days 2–3** — Foundation concepts: the Red Beads Experiment, control charts, and understanding variation through the Funnel Experiment.
+- **Days 4–5** — The First Project: the Joiner Triangle and Deming's 14 Points, put into practice.
+- **Days 6–9** — Deming's System of Profound Knowledge, explored through true stories, obstacles to improvement, and its four interrelated parts.
+- **Days 10–11** — The Second Project: the climax of the course, applying the System of Profound Knowledge in depth.
+- **Day 12** — Bringing it all together, and making it happen back in your own organisation.
+
+Each day combines reading with embedded activities and interactive exercises, plus — where Neave's original source material provides it — his own timing guidance for how long to spend on each section.
+
+## Key topics covered
+
+- The **System of Profound Knowledge** — Deming's four interrelated areas of knowledge.
+- **Variation** — understanding and managing variation in processes, via the Red Beads and Funnel experiments.
+- **Theory of knowledge** — how we learn, predict, and improve.
+- **Psychology** — understanding human behaviour and motivation in organisations.
+- **Quality management** — moving beyond inspection to prevention.
+- **Leadership** — management's role in transformation.
+
+For the story of why and how this web edition was built, see [About this Edition](about-this-edition.qmd).

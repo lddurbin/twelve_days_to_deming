@@ -3,6 +3,7 @@ lang: en
 book:
   chapters:
     - about-this-edition.qmd
+    - what-this-course-covers.qmd
     - welcome.qmd
     - index.qmd
     - part: "Day 1: The Overture"
