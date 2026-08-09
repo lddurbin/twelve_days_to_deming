@@ -131,6 +131,7 @@ book:
     - privacy.qmd
     - concepts.qmd
     - changes-from-source.qmd
+    - faq.qmd
 
   appendices:
     - content/appendix/glossary.qmd

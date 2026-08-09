@@ -1,0 +1,58 @@
+---
+title: "Frequently Asked Questions"
+pagetitle: "FAQ: cost, length, prerequisites, and key concepts in 12 Days to Deming"
+description: "Answers to common questions about 12 Days to Deming: cost, time commitment, prerequisites, and core concepts like the Red Bead Experiment."
+include-in-header: assets/schema/faq-jsonld.html
+execute:
+  echo: false
+---
+
+Quick answers to the questions that come up most often about the course. For a fuller walkthrough of what's inside, see [What This Course Covers](what-this-course-covers.qmd).
+
+## What is 12 Days to Deming?
+
+12 Days to Deming is a free, interactive online course based on the teaching of Dr W. Edwards Deming, adapted for the web from Henry R. Neave's original active-learning course. It's built around doing rather than just reading: activities, reflections, and two substantial hands-on projects are woven through 12 days of material rather than saved for the end. See [What This Course Covers](what-this-course-covers.qmd) for a full day-by-day breakdown.
+
+## Who was W. Edwards Deming?
+
+W. Edwards Deming (1900–1993) was an American statistician and management thinker whose work transforming Japanese industry from the 1950s, and later influencing manufacturers across the West, made him one of the most significant figures in 20th-century quality management. His teaching centred on understanding variation, systems thinking, and the view that most problems in an organisation come from the system itself rather than the people working in it. Neave's own introduction to Deming's life and work opens the course; see [A Brief Introduction to the Life and Work of W Edwards Deming](welcome.qmd#a-brief-introduction-to-the-life-and-work-of-w-edwards-deming).
+
+## Who was Henry Neave?
+
+Henry R. Neave developed the original 12 Days to Deming course, drawing on nearly 20 years teaching Deming's principles at the University of Nottingham and hundreds of seminars delivered to students and practitioners worldwide. He attended several of Deming's own four-day seminars, authored *The Deming Dimension*, and received the American Society for Quality's Deming Medal in 2001. Neave reviewed this web edition in 2026 and gave his personal blessing for its publication; see [About this Edition](about-this-edition.qmd) for that story in full.
+
+## How long does the course take?
+
+The course is organised into 12 "days" of learning, each designed as a full day's study — roughly six to eight hours — though you're free to split a day across as many sittings as you need. Under most chapter titles you'll see a reading-time estimate, and where Neave's original seminar timing has been transcribed it's shown alongside as a second figure. See [What This Course Covers](what-this-course-covers.qmd#course-structure) for how the 12 days break down.
+
+## Is it free?
+
+Yes. The full course is free to read, with no account, sign-up, or subscription required, and that isn't an introductory offer — the project treats today's course pages as permanently free. Neave built the original course to be free of charge as a matter of principle, writing that he wanted "more people to benefit from [Deming's] wisdom."
+
+## Do I need to know statistics?
+
+No. Neave is explicit about this in the course's own introduction: "I've heard that Deming was a statistician. Do I need to know anything about Statistics? NO! A thousand times NO!!" Readers can also self-select a "Stats-level" from 0 (minimal technical content) to 3 (full technical detail) before starting, so the depth of statistical material can match your own background. See the [Welcome](welcome.qmd) chapter for how to choose your level.
+
+## Can I work through it with a study group?
+
+Yes. Neave designed the course primarily for individual study but built it to work equally well for groups of two to twelve people, meeting either in person or online. See [Self-study or Group-learning](index.qmd#self-study-or-group-learning) for his own guidance on running it with others.
+
+## What is the Red Bead Experiment?
+
+The Red Bead Experiment is Deming's demonstration of a simple production process — workers drawing beads from a mixed batch with a paddle — that shows how much of what looks like individual performance is actually the output of the system itself. Workers are trained, rewarded, punished, and ultimately fired based on results that are almost entirely determined by the mix of beads they were given, not by any change in their effort or skill. It's covered in full on Day 2 of the course; see [A Brief Overview](content/days/day-02/03-a-brief-overview.qmd#sec-page9) for the full walkthrough of how it's run.
+
+## What is the funnel experiment?
+
+The Funnel Experiment, created by Lloyd Nelson and used extensively by Deming, demonstrates what happens when you "tamper" with a stable process — adjusting it in response to each individual result instead of leaving it alone. A marble is dropped through a funnel onto a target, and successive adjustment rules, each trying to compensate for the last drop, are shown to make results worse rather than better. See [Introduction to the Funnel Experiment](content/days/day-03/10-introduction-to-the-funnel-experiment.qmd#sec-page35) on Day 3 for the full setup and rules.
+
+## What are Deming's 14 Points?
+
+Deming's 14 Points are his core recommendations for transforming management, covering everything from constancy of purpose and driving out fear to eliminating numerical targets and instituting genuine leadership. The course works through all 14 across Days 4 and 5, pairing each point with real organisational examples. See [Point 1: Constancy of Purpose](content/days/day-04/04-points-1-to-6.qmd#sec-page16) to start, continuing through to [Point 14](content/days/day-05/02-points-7-to-14.qmd#sec-page16) on Day 5.
+
+## What is the System of Profound Knowledge?
+
+The System of Profound Knowledge is Deming's attempt to summarise the essence of his life's work, comprising four interlinked parts — appreciation for a system, theory of variation, theory of knowledge, and psychology. No single part is sufficient on its own; the interplay between them is what makes it "profound." It's introduced on Day 9 and forms the focus of the course's Second Project on Days 10 and 11; see [Introductions to the System of Profound Knowledge](content/days/day-09/06-introductions-to-the-system.qmd#sec-page22), or the [glossary entry](content/appendix/glossary.qmd#system-of-profound-knowledge) for Neave's own short definition.
+
+## How does this relate to the printed workbook?
+
+Neave's original PDF edition ships with a separate printable Workbook for hand-writing your answers to each Activity and Pause for Thought. This web edition replaces that with in-page text boxes and a per-chapter notes-download button, so you can work through everything on-screen without printing anything. Anything you type stays in your own browser rather than being sent anywhere; see [What Stays on Your Device](privacy.qmd#what-stays-on-your-device) on the Privacy page for exactly what that means.
