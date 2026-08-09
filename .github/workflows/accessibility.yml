@@ -68,13 +68,13 @@ jobs:
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
       with:
         path: /opt/quarto
-        key: quarto-1.4.549
+        key: quarto-1.10.18
 
     - name: Install Quarto
       if: steps.cache-quarto.outputs.cache-hit != 'true'
       run: |
-        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
-        sudo dpkg -i quarto-1.4.549-linux-amd64.deb
+        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.10.18/quarto-1.10.18-linux-amd64.deb
+        sudo dpkg -i quarto-1.10.18-linux-amd64.deb
 
     - name: Add Quarto to PATH
       run: echo "/opt/quarto/bin" >> $GITHUB_PATH
@@ -265,7 +265,7 @@ jobs:
           echo ""
           echo "$PREVIEW_URL"
           echo ""
-          echo "Rendered by the production Quarto toolchain (1.4.549), built from \`${COMMIT_SHA:0:7}\`. Not indexed (\`X-Robots-Tag: noindex\`)."
+          echo "Rendered by the production Quarto toolchain (1.10.18), built from \`${COMMIT_SHA:0:7}\`. Not indexed (\`X-Robots-Tag: noindex\`)."
         } > "$BODY_FILE"
 
         EXISTING=$(gh api "repos/${GH_REPO}/issues/${PR_NUMBER}/comments" --jq ".[] | select(.body | startswith(\"${MARKER}\")) | .id" | head -1)

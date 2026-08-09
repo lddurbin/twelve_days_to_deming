@@ -99,14 +99,25 @@ is native `pagetitle:` behaviour, not a workaround, so there is no
 `filters/title-prefix.lua` to maintain alongside
 `filters/reading-time.lua`.
 
-**Quarto version caveat:** production renders on Quarto **1.4.549**
-(pinned in the deploy workflow); local dev environments commonly run a
-newer version (e.g. 1.10.18). The two emit the `<title>` element's
-internal structure in different order, so a local render can pass or fail
-a title check that means the opposite in production. Treat CI — which
-renders on the pinned production version — as the oracle for anything
-`<title>`-related; don't trust a local render's `<title>` output on its
-own.
+**Quarto version:** production and CI are pinned to Quarto **1.10.18**
+(see #514), matching current local dev environments — there is no
+version skew to account for here anymore.
+
+**`format.html.title-prefix: ""` in `_quarto.yml` is load-bearing.**
+Quarto's book/website HTML template renders `<title>` as
+`$pagetitle$$if(title-prefix)$ – $title-prefix$$endif$`
+(`formats/html/pandoc/metadata.html`). On the old pinned version
+(1.4.549), `title-prefix` was effectively empty by default for book
+projects, so setting `pagetitle:` alone was sufficient to produce a bare
+`<title>` with no site name attached. That default changed somewhere
+between 1.4 and 1.10: without the explicit override, every page's
+`<title>` gained a mechanical `" – 12 Days to Deming"` suffix — exactly
+the templated, non-unique tail the pagetitle epic (#497) was written to
+avoid, and a regression only caught by diffing a real render against
+production output, not by reading the config. If this key is ever
+removed (e.g. during a future Quarto upgrade "cleanup"), re-check
+whether the site-name suffix has come back before assuming it's dead
+code.
 
 ## _quarto.yml Structure
 
