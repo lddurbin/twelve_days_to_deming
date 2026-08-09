@@ -10,6 +10,13 @@ project:
     # server would have covered for it). Declaring the directory makes the
     # copy independent of how any given module happens to be referenced.
     - "assets/scripts/**"
+  post-render:
+    # Fixes og:description/twitter:description falling back to the
+    # book-level description on every page, regardless of the page's own
+    # `description:` — a Quarto bug specific to boolean `open-graph`/
+    # `twitter-card` config on book projects. See #521 and
+    # R/functions/og-description-fix.R for the root cause.
+    - Rscript scripts/fix-og-description.R
 
 profile:
   default: en
