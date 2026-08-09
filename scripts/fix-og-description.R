@@ -14,11 +14,18 @@
 source(here::here("R/functions/og-description-fix.R"))
 
 output_files <- strsplit(Sys.getenv("QUARTO_PROJECT_OUTPUT_FILES"), "\n")[[1]]
-fixed_count <- fix_og_description(output_files)
 
-if (fixed_count > 0) {
-  cat(sprintf(
-    "fix-og-description.R: corrected og:description/twitter:description on %d page(s)\n",
-    fixed_count
-  ))
+if (all(nchar(trimws(output_files)) == 0)) {
+  # Only happens if this is run outside a Quarto post-render context (e.g.
+  # by hand, or from a CI step that doesn't chain through Quarto). Silent
+  # no-ops here are exactly what makes a misfiring hook hard to diagnose.
+  message("fix-og-description.R: QUARTO_PROJECT_OUTPUT_FILES is empty — nothing to fix")
+} else {
+  fixed_count <- fix_og_description(output_files)
+  if (fixed_count > 0) {
+    cat(sprintf(
+      "fix-og-description.R: corrected og:description/twitter:description on %d page(s)\n",
+      fixed_count
+    ))
+  }
 }

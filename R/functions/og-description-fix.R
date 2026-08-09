@@ -25,6 +25,14 @@
 
 .og_description_fix_description_tag_re <-
   '<meta name="description" content="[^"]*">'
+# All three patterns assume Quarto's current attribute order (name/property
+# first, then content) and an unclosed <meta ...> tag — both verified against
+# actual rendered output as of Quarto 1.4.549/1.10.18. If a future Quarto
+# version reorders attributes or switches to a self-closing <meta .../> form,
+# these silently stop matching: fix_og_description_in_file() returns FALSE
+# rather than erroring, so this would regress quietly. A rendered-output spot
+# check (as in this PR's test plan) after any Quarto version bump is the way
+# to catch that.
 .og_description_fix_og_tag_re <-
   '<meta property="og:description" content="[^"]*">'
 .og_description_fix_twitter_tag_re <-
