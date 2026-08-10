@@ -51,3 +51,17 @@ If you remove a rule from `.pa11yci.json`, also remove the entry below.
 **Source.** Added during #256 review (commit `a3a59a8`).
 
 **Last verified.** 2026-04-25.
+
+## Per-URL suppressions
+
+Unlike the site-wide rules above (in `.pa11yci.json`'s `defaults.ignore`), these are scoped to a single `urls` entry via that entry's own `ignore` array. Note pa11y-ci deep-merges a per-URL `ignore` array with `defaults.ignore` by array index (lodash `defaultsDeep`), not by concatenation — so a per-URL override must always repeat the full site-wide list verbatim before appending its own additions, or later site-wide entries silently stop applying to that URL.
+
+### `content/days/day-02/06-your-turn.html` — `WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr`
+
+**What it checks.** `<td headers="...">` must reference the correct `id`s of the header cells that apply to it, in a specific token order.
+
+**Why suppressed.** The page's 24 `gt`-package tables (via `render_redbeads_table()`, `R/functions/main-functions.R:2017`) emit each `headers` attribute with its two header IDs in the wrong order (e.g. `"stub_1_1 Day 1"` instead of the expected `"Day-1 stub_1_1"`) — a `gt` HTML-emission quirk, not a hand-authored mistake. This page was untested until #569 expanded `.pa11yci.json`'s coverage from 67 to 127 URLs; the real fix is tracked in #586 and scoped there rather than blocking the coverage expansion.
+
+**Source.** Added in #587 (the #569 coverage expansion), to keep the newly-covered page from failing CI on a pre-existing bug.
+
+**Last verified.** 2026-08-10. Remove this entry and the corresponding per-URL `ignore` override in `.pa11yci.json` when #586 lands.
