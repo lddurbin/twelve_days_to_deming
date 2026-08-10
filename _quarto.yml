@@ -66,6 +66,17 @@ filters:
 
 format:
   html:
+    title-prefix: ""
+    # Quarto 1.10.18 defaults to MathJax 4, whose CHTML renderer emits a
+    # deprecated `align` attribute on the <mjx-itable> it generates for
+    # tagged/numbered equations (see content/appendix/optional-extras/
+    # 06-part-f-technical.qmd) — a pa11y failure not present under
+    # MathJax 3. Pinned to the exact v3 URL production already serves
+    # (#514) rather than accepting new a11y regressions as a side effect
+    # of an unrelated CI toolchain bump.
+    html-math-method:
+      method: mathjax
+      url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js
     theme:
       light: [cosmo, assets/styles/disable-google-fonts.scss]
       dark: [darkly, assets/styles/disable-google-fonts.scss]

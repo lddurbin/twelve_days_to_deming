@@ -20,7 +20,7 @@ The workflow runs as three jobs.
 
 **`build`** — produces the site, and never touches the server:
 1. **Checkout** your repository
-2. **Setup R**, Pandoc and Quarto (pinned to 1.4.549)
+2. **Setup R**, Pandoc and Quarto (pinned to 1.10.18)
 3. **Install dependencies** using `renv::restore()`
 4. **Run** the R unit tests
 5. **Build** the Quarto book with `quarto render`
