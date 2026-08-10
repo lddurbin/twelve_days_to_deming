@@ -45,21 +45,10 @@ library(patchwork)
 #     #8c8c8c → #737373, which contrasts against #222 at 3.55:1 — so
 #     the contrast survives the round-trip, with ~0.55:1 of margin on
 #     both sides.
-#     (Issue #585: this constant was #808080, with major-gridline
-#     linewidths of 0.8 (y) / 1.2 (x) — see run_chart_theme() below.
-#     The x-gridlines at 1.2 were literally thicker than the blue
-#     control-limit hlines they were meant to frame (linewidth 1),
-#     so gridlines could visually out-weigh the limits, worse at
-#     mobile sizes. Fix lightens the grey and roughly halves both
-#     major linewidths (now 0.4 / 0.6, both below the hlines' 1) so
-#     gridlines read as clearly subordinate to the control limits and
-#     the black axis line while staying legible enough to read values
-#     off the y-axis. In the same pass, re-verified the #808080 figures
-#     recorded here previously: computed with the WCAG relative-
-#     luminance formula against the actual darkly body-bg #222222,
-#     #808080 clears dark-mode contrast at 3.97:1, not the 3.51:1
-#     this comment used to say — doesn't change the conclusion, just
-#     corrects the figure.)
+#     Major-gridline linewidths (see run_chart_theme() below) are 0.4
+#     (y) / 0.6 (x), kept below the control-limit hlines' linewidth of
+#     1 so gridlines read as clearly subordinate rather than competing
+#     with the limits they frame (#585).
 #   - CHART_GRID_FAINT ("#cccccc"): minor gridlines. Inverts to #333 on
 #     dark, which is faint against #222 — minor gridlines are decorative
 #     by design and reading them is not load-bearing.
