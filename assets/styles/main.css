@@ -514,6 +514,20 @@ Usage:
 .text-highlight-red { color: var(--color-outcome); font-weight: bold; }
 .blue-text { color: #0000a0; }
 .data-sequence-mono { text-align: center; font-family: monospace; }
+/* Backstop for the <meta name="format-detection" content="telephone=no">
+   in _quarto.yml (#588). That meta tag is a Mobile-Safari-only convention;
+   other iOS browsers (Firefox, DuckDuckGo, ...) embed WebKit via WKWebView
+   with their own app-level data-detector config and don't honour a page's
+   opt-out, so number sequences like Day 3 Technical Aid 6's
+   "13 19 18 14 16 12 21 18 17 22" (#583) still get wrapped in a real
+   `<a href="tel:...">` there. No content on this site is an intentional
+   tel: link (confirmed by grep in #588), so neutralising every tel: link
+   site-wide is safe. */
+a[href^="tel:"] {
+  color: inherit;
+  text-decoration: inherit;
+  pointer-events: none;
+}
 .table-cell-highlight { background: var(--color-highlight-green); font-weight: bold; }
 .callout-emphasis {
   background-color: var(--color-callout-emphasis);
@@ -961,6 +975,20 @@ mjx-container[display="true"] {
   overflow-x: auto;
   max-width: 100%;
   min-width: 0 !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Inline math (e.g. "So $\overline{MR} = (6 + 1 + ... ) \div 9 = ...$." in
+   Day 3 Technical Aid 6) overflows too, and the [display="true"] rule above
+   doesn't reach it — MathJax only sets that attribute on $$...$$ equations.
+   A bare <mjx-container> is an unrecognised custom element, which defaults
+   to `display: inline`; the CSS overflow property only takes effect on
+   block containers (block or inline-block boxes), so overflow-x: auto is a
+   no-op without forcing inline-block here first. */
+mjx-container:not([display="true"]) {
+  display: inline-block;
+  overflow-x: auto;
+  max-width: 100%;
   -webkit-overflow-scrolling: touch;
 }
 
