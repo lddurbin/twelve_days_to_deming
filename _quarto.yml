@@ -28,6 +28,11 @@ project:
     # `twitter-card` config on book projects. See #521 and
     # R/functions/og-description-fix.R for the root cause.
     - Rscript scripts/fix-og-description.R
+    # Fixes the `headers` attribute gt (pinned 1.3.0) emits in the wrong
+    # token order on the red-beads results tables on Day 2's "Your Turn"
+    # page — a gt HTML-emission bug with no table-option workaround. See
+    # #586 and R/functions/redbeads-headers-fix.R for the root cause.
+    - Rscript scripts/fix-redbeads-headers.R
 
 profile:
   default: en
