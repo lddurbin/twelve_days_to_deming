@@ -103,6 +103,18 @@ format:
       -->
       <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https://cdn.jsdelivr.net; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://cdn.jsdelivr.net https://queue.simpleanalyticscdn.com https://api.web3forms.com;">
       <!--
+        iOS Safari/WebKit (all iOS browsers, including Firefox, since Apple
+        requires WebKit there) auto-detects number-like text and turns it
+        into a tappable tel: link unless a page opts out. Several chapters'
+        Technical Aids sections contain bare numeric sequences (e.g. Day 3
+        Chapter 5's "13 19 18 14 16 12 21 18 17 22") in
+        <p class="data-sequence-mono">/<p class="text-center"> markup, which
+        iOS was rendering as phone links (#583). No content on this site is
+        an intentional tel: link (confirmed by grep), so opting out
+        site-wide is safe.
+      -->
+      <meta name="format-detection" content="telephone=no">
+      <!--
         Simple Analytics: cookieless, EU-hosted, honours Do Not Track (DNT)
         by default. data-collect-dnt="false" is written here — rather than
         left to that default — so the privacy stance is auditable in config:
