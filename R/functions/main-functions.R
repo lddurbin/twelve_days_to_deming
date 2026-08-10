@@ -37,11 +37,29 @@ library(patchwork)
 #     the light-mode appearance; under dark mode the page-level CSS
 #     `filter: invert(1) hue-rotate(180deg)` (see "Dark-mode mechanism"
 #     below) flips it to near-white against the dark page.
-#   - CHART_GRID ("#808080"): major gridlines. Picked so the same single
+#   - CHART_GRID ("#8c8c8c"): major gridlines. Picked so the same single
 #     colour clears WCAG 1.4.11 (3:1 contrast for essential non-text
-#     graphics) on both light (#fff, 3.95:1) and Darkly (~#222, 3.51:1)
-#     backgrounds. The invert filter takes #808080 → #7f7f7f — near
-#     symmetric — so the contrast survives the round-trip.
+#     graphics) on both light (#fff, 3.55:1) and Darkly (body-bg is
+#     literally `#222` — see bootswatch's darkly.scss `$gray-900`, not
+#     just an approximation) backgrounds. The invert filter takes
+#     #8c8c8c → #737373, which contrasts against #222 at 3.55:1 — so
+#     the contrast survives the round-trip, with ~0.55:1 of margin on
+#     both sides.
+#     (Issue #585: this constant was #808080, with major-gridline
+#     linewidths of 0.8 (y) / 1.2 (x) — see run_chart_theme() below.
+#     The x-gridlines at 1.2 were literally thicker than the blue
+#     control-limit hlines they were meant to frame (linewidth 1),
+#     so gridlines could visually out-weigh the limits, worse at
+#     mobile sizes. Fix lightens the grey and roughly halves both
+#     major linewidths (now 0.4 / 0.6, both below the hlines' 1) so
+#     gridlines read as clearly subordinate to the control limits and
+#     the black axis line while staying legible enough to read values
+#     off the y-axis. In the same pass, re-verified the #808080 figures
+#     recorded here previously: computed with the WCAG relative-
+#     luminance formula against the actual darkly body-bg #222222,
+#     #808080 clears dark-mode contrast at 3.97:1, not the 3.51:1
+#     this comment used to say — doesn't change the conclusion, just
+#     corrects the figure.)
 #   - CHART_GRID_FAINT ("#cccccc"): minor gridlines. Inverts to #333 on
 #     dark, which is faint against #222 — minor gridlines are decorative
 #     by design and reading them is not load-bearing.
@@ -78,7 +96,7 @@ library(patchwork)
 # --- Named constants ---
 
 CHART_FG             <- "black"
-CHART_GRID           <- "#808080"
+CHART_GRID           <- "#8c8c8c"
 CHART_GRID_FAINT     <- "#cccccc"
 CHART_LINE_COLOUR    <- "#ed0000"
 CONTROL_LIMIT_COLOUR <- "blue"
@@ -101,7 +119,10 @@ CONTROL_LIMIT_COLOUR <- "blue"
 #' @param gridlines Character. \code{"full"} (default) draws the Day 2 / Day 3
 #'   technical-aid grid: major y, major x, faint minor y. \code{"none"}
 #'   suppresses every gridline (used for charts where Neave drew clean axes
-#'   without grid paper, e.g. the "favourite example" charts on Day 3 page 21).
+#'   without grid paper, e.g. the "favourite example" charts on Day 3 page 21,
+#'   the Chart A1/A2 standard-deviation comparison on Day 3 page 15, and the
+#'   Six Processes panel on Day 3 page 19 — confirmed against the source
+#'   PNGs while fixing issue #585).
 #' @return A ggplot2 theme object.
 run_chart_theme <- function(right_margin = 5, gridlines = c("full", "none")) {
   gridlines <- match.arg(gridlines)
@@ -121,8 +142,11 @@ run_chart_theme <- function(right_margin = 5, gridlines = c("full", "none")) {
 
   if (gridlines == "full") {
     base + theme(
-      panel.grid.major.y = element_line(color = CHART_GRID, linewidth = .8),
-      panel.grid.major.x = element_line(color = CHART_GRID, linewidth = 1.2),
+      # Linewidths kept below the control-limit hlines' linewidth 1
+      # (see run_chart_plot()) so gridlines read as subordinate to the
+      # limits they frame, rather than competing with them (issue #585).
+      panel.grid.major.y = element_line(color = CHART_GRID, linewidth = .4),
+      panel.grid.major.x = element_line(color = CHART_GRID, linewidth = .6),
       panel.grid.minor.y = element_line(color = CHART_GRID_FAINT, linewidth = .3),
       panel.grid.minor.x = element_blank()
     )
@@ -290,6 +314,16 @@ mr_limits <- function(values) {
 #' Reused by Day 3.06 (this 6×2 grid) and by Day 3.09 (the extended A3–F3
 #' panel of 48-point charts with limits from the first 24).
 #'
+#' Gridlines are suppressed (\code{gridlines = "none"}): the source PNG
+#' for Day 3 page 19 (confirmed while fixing issue #585) draws these
+#' twelve charts with clean axes and no grid paper, matching the
+#' extended/individual renderings of the same processes
+#' (\code{six_processes_extended_panel}, \code{individual_process_chart}),
+#' which already suppress gridlines for the same reason. This panel had
+#' been left on the "full" grid default, which was both a source-fidelity
+#' miss and, at this small multi-panel size, the most acute case of
+#' gridlines competing with the control-limit lines on mobile.
+#'
 #' @param processes Named list. Each entry must contain \code{data}
 #'   (numeric vector), \code{label} (chart title), \code{y_limits} and
 #'   \code{y_breaks}. \code{y_minor_breaks} is optional. Layout follows
@@ -311,6 +345,7 @@ six_processes_panel <- function(processes, ncol = 2,
       y_minor_breaks = minor,
       hlines         = c(lims$lcl, lims$ucl),
       central_line   = lims$central,
+      gridlines      = "none",
       show_x_labels  = FALSE
     ) +
       ggtitle(p$label) +
