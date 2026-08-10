@@ -62,6 +62,7 @@ chart_a1 <- run_chart_plot(
   central_line = a1_cl,
   hlines       = c(a1_cl - a1_sd, a1_cl + a1_sd),
   hline_colour = "magenta",
+  gridlines    = "none",
   show_x_labels = FALSE
 ) + ggtitle("A1") +
   theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 18))
@@ -77,6 +78,7 @@ chart_a2 <- run_chart_plot(
   central_line = a2_cl,
   hlines       = c(a2_cl - a2_sd, a2_cl + a2_sd),
   hline_colour = "magenta",
+  gridlines    = "none",
   show_x_labels = FALSE
 ) + ggtitle("A2") +
   theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 18))
