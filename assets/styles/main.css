@@ -930,6 +930,40 @@ button:focus,
   font-weight: bold;
 }
 
+/* ===== MATH DISPLAY ===== */
+
+/* Display-math overflow on narrow viewports (#584). Long $$...$$ equations
+   (e.g. the moving-range calculations in Day 3's Technical Aid 6, and the
+   tagged/aligned equations in the optional-extras Part F technical section)
+   render at their natural width regardless of the column width. MathJax v3's
+   CHTML output wraps each display equation in <mjx-container display="true">
+   with no width constraint of its own, so on a narrow screen the inner
+   <mjx-math> overflows that box and bleeds into the page's own horizontal
+   scroll instead of staying contained — confirmed by inspecting the actual
+   rendered DOM under the MathJax v3 pin (_quarto.yml, #514), not assumed.
+   Same containment technique as the Funnel Experiment track above: scroll
+   the box, don't let it blow out the layout.
+
+   Tagged/labelled equations (\tag*{...}, used throughout the optional-extras
+   Part F technical section) additionally switch MathJax's CHTML output to
+   `display: flex` and set an inline `min-width` (in em units) sized to fit
+   the equation and its tag on one line without wrapping. min-width always
+   wins over max-width in CSS's box-sizing algorithm regardless of selector
+   specificity, so without overriding it a long tagged equation's min-width
+   forces the container itself wider than the text column — defeating
+   max-width: 100% below and spilling past the column, since ancestors don't
+   clip. The !important is required to beat that inline min-width (a
+   non-important author stylesheet declaration is the one case that can
+   still out-rank a non-important inline style); it zeroes the container back
+   down to the column width so it falls back to the overflow-x: auto
+   scrollbox like every other display equation. */
+mjx-container[display="true"] {
+  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0 !important;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ===== DYSLEXIA-FRIENDLY FONT TOGGLE ===== */
 /* The inline head script sets .dyslexic-font on <html> before paint
    (FOUC prevention); the toggle handler keeps html+body in lockstep.
