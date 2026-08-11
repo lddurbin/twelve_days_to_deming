@@ -100,9 +100,9 @@ jobs:
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
       with:
         path: _freeze
-        key: ${{ runner.os }}-freeze-${{ hashFiles('renv.lock') }}-${{ github.sha }}
+        key: ${{ runner.os }}-freeze-${{ hashFiles('renv.lock', 'R/**/*.R', 'filters/**/*.lua') }}-${{ github.sha }}
         restore-keys: |
-          ${{ runner.os }}-freeze-${{ hashFiles('renv.lock') }}-
+          ${{ runner.os }}-freeze-${{ hashFiles('renv.lock', 'R/**/*.R', 'filters/**/*.lua') }}-
           ${{ runner.os }}-freeze-
 
     - name: Render FR profile (build-only, no deploy)
