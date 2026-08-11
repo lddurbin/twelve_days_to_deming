@@ -68,6 +68,7 @@ book:
 
 filters:
   - filters/reading-time.lua
+  - filters/table-responsive.lua
 
 format:
   html:
