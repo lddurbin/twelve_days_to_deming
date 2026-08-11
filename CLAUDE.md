@@ -132,3 +132,26 @@ Without a queue, `--auto` just waits for required checks to pass on the PR's cur
 `main`'s branch protection requires status checks to be up to date (`strict: true`), so under concurrent merges each remaining open PR goes `BEHIND` as soon as another merges ahead of it, and needs an explicit branch update before it can merge — a cascade `--auto` does NOT resolve by itself (each PR still needs `gh api -X PUT repos/<owner>/<repo>/pulls/<n>/update-branch`, then a wait for CI, before merging). This rebase/re-CI cost was evaluated and explicitly accepted in #385 as tolerable for a solo project's occasional PR fleets, rather than migrating to an org to unlock a real queue.
 
 The four workflows that were wired for `merge_group` triggers (`accessibility`, `claude-code-review`, `interday-audit`, `structure-check`) are inert on this repo — `merge_group` never fires without a queue — but were left in place in case of a future org migration, at which point enabling "Require merge queue" in Settings → Rules → Rulesets is the only remaining step.
+
+## Changelog and releases
+
+`CHANGELOG.md` is not hand-edited. Each user-facing PR adds its own small
+entry file to `docs/changesets/` (format documented in
+`docs/changesets/README.md`) — additive, so parallel PRs never collide on
+the same line the way a single shared changelog file would. This is the
+same shape already used for the deviations log (`docs/deviations/`), for
+the same reason: see [#384](https://github.com/lddurbin/twelve_days_to_deming/issues/384).
+
+The `ship-it` skill adds this entry as part of shipping a PR — skip it for
+internal-only changes (CI, refactors, dependency bumps). When it's time to
+cut a release, `./scripts/cut-release.sh <version>` rolls up every pending
+entry into a new `CHANGELOG.md` section and stages the consumed entry files
+for removal; it deliberately stops short of committing, tagging, pushing, or
+calling `gh release create` itself, so a release is always a reviewed,
+explicit action rather than something that happens as a side effect of a
+script run.
+
+The project's only release before this workflow existed is
+[`v0.1.0`](https://github.com/lddurbin/twelve_days_to_deming/releases/tag/v0.1.0)
+(2026-04-27, "Course Complete"), cut by hand from a manually assembled PR
+list. `CHANGELOG.md` is seeded with that release's notes as a baseline.
