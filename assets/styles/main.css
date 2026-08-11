@@ -794,7 +794,6 @@ button:focus,
   overflow-x: auto;
   margin: 1.5em 0;
   text-align: center;
-  -webkit-overflow-scrolling: touch;
 }
 .fe-track-container svg {
   display: inline-block;
@@ -975,7 +974,6 @@ mjx-container[display="true"] {
   overflow-x: auto;
   max-width: 100%;
   min-width: 0 !important;
-  -webkit-overflow-scrolling: touch;
 }
 
 /* Inline math (e.g. "So $\overline{MR} = (6 + 1 + ... ) \div 9 = ...$." in
@@ -989,7 +987,6 @@ mjx-container:not([display="true"]) {
   display: inline-block;
   overflow-x: auto;
   max-width: 100%;
-  -webkit-overflow-scrolling: touch;
 }
 
 /* ===== DYSLEXIA-FRIENDLY FONT TOGGLE ===== */
