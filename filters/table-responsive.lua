@@ -1,0 +1,29 @@
+-- Wrap every Pandoc Table AST node in a Div with class
+-- "table-responsive" so Bootstrap's built-in overflow-x: auto rule
+-- gives it its own horizontal scrollbar on narrow viewports, instead
+-- of the table blowing out the page.
+--
+-- Without this, a plain markdown pipe table renders as a bare
+-- `<table class="caption-top table">` with no containment at all —
+-- the worst case being the standard-normal (z) table in the Part F
+-- technical appendix, which has 11 numeric columns plus a label
+-- column and cannot fit a 360-375px viewport. See #594.
+--
+-- This fires for any Table AST node, which in practice covers two
+-- source shapes: markdown pipe tables, and knitr/gt HTML table output
+-- (Pandoc's reader parses complete raw <table> HTML back into a
+-- native Table node, confirmed by rendering the red-beads results
+-- tables in content/days/day-02/06-your-turn.qmd — they get wrapped
+-- too, harmlessly, and R/functions/redbeads-headers-fix.R's later
+-- post-processing pass still finds and fixes their `headers`
+-- attributes unaffected by the extra wrapper div).
+--
+-- It does NOT affect `.fe-data-table` elements — those are built
+-- entirely client-side by assets/scripts/funnel-experiment.js into an
+-- empty container, so no <table> markup for them ever reaches Pandoc
+-- to be parsed into a Table node in the first place. They already
+-- manage their own overflow-x directly on the <table> element (see
+-- assets/styles/main.css).
+function Table(tbl)
+  return pandoc.Div(tbl, pandoc.Attr("", {"table-responsive"}))
+end
