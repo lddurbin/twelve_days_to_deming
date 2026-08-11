@@ -172,6 +172,15 @@ git -C "$REPO_ROOT" add "$CHANGELOG"
 rm -f "${ENTRY_FILES[@]}"
 git -C "$REPO_ROOT" add -A "$CHANGESETS_DIR"
 
+# `gh release create --notes-file` takes the file verbatim — it does not
+# open an editor to trim it. Extract just this version's section (skip the
+# leading blank line and the "## [<version>] - <date>" heading, which
+# `--title` already covers) into its own file so the printed command below
+# is correct as-is. `.git/` is never tracked, so this is a safe scratch
+# location that doesn't need cleaning up.
+RELEASE_NOTES_FILE="$REPO_ROOT/.git/RELEASE_NOTES_$VERSION.md"
+tail -n +3 "$BODY_FILE" > "$RELEASE_NOTES_FILE"
+
 echo
 echo "CHANGELOG.md updated; ${#ENTRY_FILES[@]} changeset file(s) staged for removal."
 echo
@@ -181,5 +190,4 @@ echo "Next steps once you're happy with the diff:"
 echo "  git commit -m \"Cut v$VERSION\""
 echo "  git tag v$VERSION"
 echo "  git push origin main --tags"
-echo "  gh release create v$VERSION --title \"v$VERSION\" --notes-file CHANGELOG.md"
-echo "    (then trim the notes to just the v$VERSION section in the editor gh opens)"
+echo "  gh release create v$VERSION --title \"v$VERSION\" --notes-file \"$RELEASE_NOTES_FILE\""

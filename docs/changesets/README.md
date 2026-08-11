@@ -44,6 +44,11 @@ removals.
    - **PR**: #NNN
    ```
 
+   `What` must be a single line — `scripts/cut-release.sh` reads only the
+   first line of each field, so a wrapped or multi-line value silently
+   loses everything after the first line. If it doesn't fit on one line,
+   shorten it.
+
    `Section` is free text and controls grouping in the rolled-up changelog.
    Prefer one of the sections already used in [`CHANGELOG.md`](../../CHANGELOG.md)
    (`Course Content`, `Accessibility`, `Reader Experience`,
