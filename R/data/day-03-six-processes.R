@@ -82,8 +82,19 @@ process_B2 <- c(
 # inspectors' counts on the same paddle — so roughly double the count
 # (the "process of *recording* the data" went out of control, not the
 # physical process). We model the inspector-sum as 2 * single-count.
+#
+# Seed chosen by sweeping 1–20000 for a match to the two numeric claims
+# Day 3.09's prose makes about this chart: the first doubled point (Point
+# 43) has a small enough raw count that it still hides under the
+# C1-derived UCL, while Points 44–48 clearly breach it ("well above the
+# UCL"). Under seed 1170, Point 43's raw count is exactly 4 (doubled: 8),
+# matching Neave's own text ("the first actual count ... happened to be
+# only 4, so Point 43 is at 8"); Points 44–48 double to 24, 22, 24, 22, 24
+# against a C1-derived UCL of 18.19. See issue #603 — the previous seed
+# (88) never actually pushed those points past the UCL, contradicting the
+# prose sitting right next to the chart.
 
-set.seed(88)
+set.seed(1170)
 process_C1 <- draw_red_beads(24)
 process_C2 <- c(
   draw_red_beads(18),
