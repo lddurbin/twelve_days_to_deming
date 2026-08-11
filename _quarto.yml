@@ -108,6 +108,49 @@ format:
       -->
       <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https://cdn.jsdelivr.net; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://cdn.jsdelivr.net https://queue.simpleanalyticscdn.com https://api.web3forms.com;">
       <!--
+        Subresource Integrity (#581): audited every externally-hosted
+        script/link the rendered site emits. None currently get `integrity`/
+        `crossorigin` attributes — not an oversight, each is excluded for a
+        specific, verified reason:
+
+        - MathJax script (jsdelivr, pinned via html-math-method.url above):
+          the URL floats on major version `@3` (not an exact release), and
+          Quarto 1.10.18's html-math-method schema has no `integrity` field
+          — the `<script src>` tag is emitted by pandoc's own math writer,
+          outside anything this file configures.
+        - The cdnjs.cloudflare.com polyfill.io mirror pandoc's HTML template
+          emits alongside MathJax: also floats on `v3`, also outside this
+          file's control, and its response varies by request User-Agent —
+          not a fixed byte sequence a single hash could ever validate. Moot
+          in practice anyway: script-src above doesn't list cdnjs.
+          cloudflare.com, so CSP already blocks it from executing.
+        - Simple Analytics' latest.js below is deliberately unpinned — that
+          IS the point of "latest" — so there is no stable version to hash
+          against; pinning it would just mean the script silently stops
+          loading the next time Simple Analytics ships an update.
+        - api.web3forms.com (connect-src only, see above) is a fetch()
+          destination, never a loaded script/link — SRI has nothing to
+          attach to there.
+        - The one resource that passes SRI's own bar — explicitly pinned,
+          confirmed byte-identical across repeat fetches, served
+          `Cache-Control: immutable` — is the Observable Plot ESM import in
+          content/days/day-03/{11,12,13}*.qmd (`@observablehq/plot@0.6.16`).
+          Classic `integrity`/`crossorigin` attributes don't apply to a bare
+          `await import(url)`; the only mechanism is the `integrity` key in
+          a `<script type="importmap">` (Chrome 127+, Firefox 138+, Safari
+          18+, ignored gracefully elsewhere). But rendering a day-03 page
+          and inspecting <head> in document order confirms Quarto emits
+          `quarto-ojs-runtime.js` as a `<script type="module">` from its own
+          htmldependencies mechanism, which lands ahead of anything this
+          header-includes block contributes (including per-page
+          include-in-header) — an import map inserted this late registers
+          after that module's fetch has already started and is silently
+          ignored by the browser. Fixing it needs Quarto's own dependency
+          ordering bypassed (e.g. a post-render HTML rewrite relocating the
+          tag), which is real engineering, not a one-line config change —
+          tracked separately as #597 rather than folded into #581.
+      -->
+      <!--
         iOS Safari/WebKit (all iOS browsers, including Firefox, since Apple
         requires WebKit there) auto-detects number-like text and turns it
         into a tappable tel: link unless a page opts out. Several chapters'
