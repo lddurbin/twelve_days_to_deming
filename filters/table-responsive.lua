@@ -24,6 +24,21 @@
 -- to be parsed into a Table node in the first place. They already
 -- manage their own overflow-x directly on the <table> element (see
 -- assets/styles/main.css).
+--
+-- tabindex="0" makes the scroll region itself focusable. Without it,
+-- a bare `overflow-x: auto` div is invisible to keyboard navigation —
+-- it's never in the tab order, so a keyboard-only user has no way to
+-- trigger the horizontal scroll and reach columns past the fold
+-- (WCAG 2.1 SC 2.1.1, Keyboard). Bootstrap's own docs recommend this
+-- for .table-responsive for the same reason.
+--
+-- Caution for future authors: don't manually wrap a table in a
+-- `::: {.table-responsive}` fenced div in a .qmd. This filter matches
+-- every Table AST node regardless of context, so a manual wrapper
+-- would double-wrap (`<div class="table-responsive"><div
+-- class="table-responsive"><table>`) rather than being deduplicated —
+-- the filter has no guard against it.
 function Table(tbl)
-  return pandoc.Div(tbl, pandoc.Attr("", {"table-responsive"}))
+  local attr = pandoc.Attr("", {"table-responsive"}, {tabindex = "0"})
+  return pandoc.Div(tbl, attr)
 end
