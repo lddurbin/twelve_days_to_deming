@@ -207,7 +207,7 @@ export function renderTrackSVG(currentStage, trackRange) {
   const funnelLabel = currentStage ? `Funnel at ${currentStage.funnelBefore}, marble at ${currentStage.marblePos}.` : "No stage active.";
   const titleId = `track-title-${++trackSvgId}`;
   const descId = `track-desc-${trackSvgId}`;
-  let svg = `<svg role="img" aria-labelledby="${titleId}" aria-describedby="${descId}" width="${totalW}" height="${totalH}" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif; max-width: 100%;">`;
+  let svg = `<svg role="img" aria-labelledby="${titleId}" aria-describedby="${descId}" width="${totalW}" height="${totalH}" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">`;
   svg += `<title id="${titleId}">Funnel Experiment Track</title>`;
   svg += `<desc id="${descId}">Track showing positions ${trackRange.min} to ${trackRange.max}. ${funnelLabel}</desc>`;
 
