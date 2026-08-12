@@ -205,9 +205,16 @@ export function renderTrackSVG(currentStage, trackRange) {
   const cellW = TRACK_CELL_W;
   const cellH = 40;
   const padding = TRACK_PADDING;
+  const funnelAreaH = 50; // space above the cells for the funnel triangle + label
+  const marbleGap = 15;   // gap between the cell bottom and the marble's centre
+  const marbleR = 10;
+  const cellY = padding + funnelAreaH;
+  const marbleY = cellY + cellH + marbleGap;
   const cells = trackRange.max - trackRange.min + 1;
   const totalW = cells * cellW + padding * 2;
-  const totalH = cellH + 60 + padding * 2; // room for icons above
+  // Bottom padding must clear the marble's radius, not just the cell edge —
+  // otherwise the marble's own bottom arc is clipped by the viewBox/height.
+  const totalH = marbleY + marbleR + padding;
 
   const funnelLabel = currentStage ? `Funnel at ${currentStage.funnelBefore}, marble at ${currentStage.marblePos}.` : "No stage active.";
   const titleId = `track-title-${++trackSvgId}`;
@@ -219,7 +226,7 @@ export function renderTrackSVG(currentStage, trackRange) {
   // Draw cells
   for (let pos = trackRange.min; pos <= trackRange.max; pos++) {
     const x = (pos - trackRange.min) * cellW + padding;
-    const y = 50 + padding;
+    const y = cellY;
     const isTarget = pos === TARGET;
     const inNormalRange = pos >= TRACK_MIN && pos <= TRACK_MAX;
 
@@ -263,8 +270,7 @@ export function renderTrackSVG(currentStage, trackRange) {
 
     // Draw marble icon (brown/orange circle)
     const marbleX = (currentStage.marblePos - trackRange.min) * cellW + padding + cellW / 2;
-    const marbleY = 50 + padding + cellH + 15;
-    svg += `<circle cx="${marbleX}" cy="${marbleY}" r="10" fill="#cc6633" stroke="#663300" stroke-width="1.5"/>`;
+    svg += `<circle cx="${marbleX}" cy="${marbleY}" r="${marbleR}" fill="#cc6633" stroke="#663300" stroke-width="1.5"/>`;
   }
 
   svg += `</svg>`;
