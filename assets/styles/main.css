@@ -930,10 +930,22 @@ button:focus,
   background: #fafafa;
 }
 
-/* Summary statistics table */
+/* Summary statistics table — container scrolls horizontally on narrow
+   screens instead of the table shrinking or spilling past the page edge
+   (same pattern as .fe-track-container above). Centering comes from the
+   table's own margin: auto (a <table> is block-level, unlike
+   .fe-track-container's inline-block svg, so text-align here would do
+   nothing). The table carries no vertical margin of its own — overflow-x:
+   auto makes this container a block formatting context, which stops a
+   child's margin from collapsing into the container's, so a margin on
+   both would stack into visibly doubled spacing instead. */
+.fe-summary-table-container {
+  overflow-x: auto;
+  margin: 1em 0;
+}
 .fe-summary-table {
   border-collapse: collapse;
-  margin: 1em auto;
+  margin: 0 auto;
   font-size: 14px;
 }
 .fe-summary-table th,
