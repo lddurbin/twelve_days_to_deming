@@ -195,11 +195,16 @@ export function computeTrackRange(stages) {
 
 // --- SVG track renderer ---
 
+// Cell width/padding are shared with scrollTrackIntoView() below, which needs
+// to reconstruct the same x-coordinates to know where the funnel/marble sit.
+export const TRACK_CELL_W = 36;
+export const TRACK_PADDING = 10;
+
 // Returns an SVG string for the track visualisation
 export function renderTrackSVG(currentStage, trackRange) {
-  const cellW = 36;
+  const cellW = TRACK_CELL_W;
   const cellH = 40;
-  const padding = 10;
+  const padding = TRACK_PADDING;
   const cells = trackRange.max - trackRange.min + 1;
   const totalW = cells * cellW + padding * 2;
   const totalH = cellH + 60 + padding * 2; // room for icons above
@@ -492,6 +497,70 @@ export function renderTrackHTML(visible, allStages) {
   const currentStage = visible.length > 0 ? visible[visible.length - 1] : null;
   const trackRange = computeTrackRange(allStages);
   return `<div class="fe-track-container">${renderTrackSVG(currentStage, trackRange)}</div>`;
+}
+
+// Pure calculation of where to scroll the track container so the funnel and
+// marble (or, before the first stage, the target) are visible. Kept separate
+// from scrollTrackIntoView() so it's testable without a DOM.
+// currentStage: null before the first stage — centres on the target instead.
+// trackRange: from computeTrackRange().
+// containerWidth/contentWidth: the container's visible width and the full
+//   scrollable width (i.e. the SVG's native width).
+export function computeTrackScrollTarget(currentStage, trackRange, containerWidth, contentWidth) {
+  if (!(containerWidth > 0)) return 0;
+
+  const cellCenter = pos => (pos - trackRange.min) * TRACK_CELL_W + TRACK_PADDING + TRACK_CELL_W / 2;
+
+  let focus;
+  if (currentStage) {
+    const funnelX = cellCenter(currentStage.funnelBefore);
+    const marbleX = cellCenter(currentStage.marblePos);
+    const lo = Math.min(funnelX, marbleX);
+    const hi = Math.max(funnelX, marbleX);
+    // Centre both when they fit; otherwise prioritise the marble (the
+    // outcome) over perfectly centring both.
+    focus = (hi - lo) <= containerWidth ? (lo + hi) / 2 : marbleX;
+  } else {
+    focus = cellCenter(TARGET);
+  }
+
+  const maxScroll = Math.max(0, contentWidth - containerWidth);
+  return Math.max(0, Math.min(focus - containerWidth / 2, maxScroll));
+}
+
+// Scrolls a mounted .fe-track-container so the current stage's funnel and
+// marble stay visible, instead of leaving the user to discover the scroll
+// bar themselves. Deferred to the next animation frame because OJS attaches
+// the element returned by the cell to the document *after* the cell body
+// returns, so containerEl has no layout (clientWidth is 0) yet when this is
+// called synchronously from that cell.
+export function scrollTrackIntoView(containerEl, visible, allStages) {
+  if (!containerEl) return;
+  const currentStage = visible.length > 0 ? visible[visible.length - 1] : null;
+  const trackRange = computeTrackRange(allStages);
+
+  const apply = () => {
+    if (!containerEl.isConnected) return;
+    const containerWidth = containerEl.clientWidth;
+    if (!containerWidth) return;
+    const target = computeTrackScrollTarget(currentStage, trackRange, containerWidth, containerEl.scrollWidth);
+    const reducedMotion = typeof window !== "undefined" && typeof window.matchMedia === "function"
+      && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // No stage yet: snap straight to the target square rather than
+    // animating from the default scroll position on first paint.
+    const behavior = (!currentStage || reducedMotion) ? "auto" : "smooth";
+    if (typeof containerEl.scrollTo === "function") {
+      containerEl.scrollTo({ left: target, behavior });
+    } else {
+      containerEl.scrollLeft = target;
+    }
+  };
+
+  if (typeof requestAnimationFrame === "function") {
+    requestAnimationFrame(apply);
+  } else {
+    apply();
+  }
 }
 
 // Next/Complete buttons — returns HTML with .fe-stage-next and .fe-stage-complete classes
