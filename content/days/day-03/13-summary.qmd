@@ -134,7 +134,8 @@ summaryR4 = runAllStages(4, diceSeqSummary)
   const s3 = stats(summaryR3);
   const s4 = stats(summaryR4);
 
-  return html`<table class="fe-summary-table">
+  return html`<div class="fe-summary-table-container" tabindex="0">
+  <table class="fe-summary-table">
     <caption>Summary statistics for all four Rules of the Funnel</caption>
     <thead>
       <tr><th scope="col"></th><th scope="col">Rule 1</th><th scope="col">Rule 2</th><th scope="col">Rule 3</th><th scope="col">Rule 4</th></tr>
@@ -146,7 +147,8 @@ summaryR4 = runAllStages(4, diceSeqSummary)
       <tr><th scope="row">Max</th><td>${s1.max}</td><td>${s2.max}</td><td>${s3.max}</td><td>${s4.max}</td></tr>
       <tr><th scope="row">Range</th><td>${s1.range}</td><td>${s2.range}</td><td>${s3.range}</td><td>${s4.range}</td></tr>
     </tbody>
-  </table>`;
+  </table>
+  </div>`;
 }
 ```
 

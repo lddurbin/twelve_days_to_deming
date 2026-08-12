@@ -930,7 +930,14 @@ button:focus,
   background: #fafafa;
 }
 
-/* Summary statistics table */
+/* Summary statistics table — container scrolls horizontally on narrow
+   screens instead of the table shrinking or spilling past the page edge
+   (same pattern as .fe-track-container above). */
+.fe-summary-table-container {
+  overflow-x: auto;
+  margin: 1em 0;
+  text-align: center;
+}
 .fe-summary-table {
   border-collapse: collapse;
   margin: 1em auto;
