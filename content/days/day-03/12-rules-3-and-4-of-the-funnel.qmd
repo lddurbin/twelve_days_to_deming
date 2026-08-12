@@ -101,7 +101,7 @@ Just for interest, take a moment's thought to guess what will happen in the long
 // Import the funnel experiment module
 import {
   generateDiceSequence, saveDiceSequence, loadDiceSequence,
-  runAllStages, renderStatusHTML, renderTrackHTML,
+  runAllStages, renderStatusHTML, renderTrackHTML, scrollTrackIntoView,
   renderStageButtonsHTML, renderDataTablesHTML,
   restoreStageFocus, trackFunnelRun,
   TARGET, TOTAL_STAGES
@@ -145,7 +145,11 @@ html`${renderStatusHTML(3, "Symmetric Placement", rule3Counter, rule3Visible, TO
 ```
 
 ```{ojs}
-html`${renderTrackHTML(rule3Visible, rule3AllStages)}`
+{
+  const el = html`${renderTrackHTML(rule3Visible, rule3AllStages)}`;
+  scrollTrackIntoView(el, rule3Visible, rule3AllStages);
+  return el;
+}
 ```
 
 ```{ojs}
@@ -309,7 +313,11 @@ html`${renderStatusHTML(4, "Place Funnel Where Marble Landed", rule4Counter, rul
 ```
 
 ```{ojs}
-html`${renderTrackHTML(rule4Visible, rule4AllStages)}`
+{
+  const el = html`${renderTrackHTML(rule4Visible, rule4AllStages)}`;
+  scrollTrackIntoView(el, rule4Visible, rule4AllStages);
+  return el;
+}
 ```
 
 ```{ojs}

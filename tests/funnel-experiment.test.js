@@ -12,6 +12,10 @@ import {
   runAllStages,
   generateDiceSequence,
   computeTrackRange,
+  computeTrackScrollTarget,
+  scrollTrackIntoView,
+  TRACK_CELL_W,
+  TRACK_PADDING,
   loadDiceSequence,
   saveDiceSequence,
   clearDiceSequence,
@@ -325,6 +329,131 @@ describe("computeTrackRange", () => {
     const range = computeTrackRange(stages);
     expect(range.min).toBe(8);  // 10 - 2
     expect(range.max).toBe(52); // 50 + 2
+  });
+});
+
+// ---------------------------------------------------------------------------
+// computeTrackScrollTarget
+// ---------------------------------------------------------------------------
+describe("computeTrackScrollTarget", () => {
+  const trackRange = { min: 18, max: 42 }; // the standard always-padded range
+
+  // cellCenter(pos) = (pos - trackRange.min) * TRACK_CELL_W + TRACK_PADDING + TRACK_CELL_W / 2
+  function cellCenter(pos) {
+    return (pos - trackRange.min) * TRACK_CELL_W + TRACK_PADDING + TRACK_CELL_W / 2;
+  }
+
+  it("centres on the target square when there is no current stage yet", () => {
+    const target = computeTrackScrollTarget(null, trackRange, 300, 920);
+    expect(target).toBe(cellCenter(TARGET) - 150); // 310
+  });
+
+  it("centres between funnel and marble when both fit in the viewport", () => {
+    const stage = { funnelBefore: 30, marblePos: 33 };
+    const mid = (cellCenter(30) + cellCenter(33)) / 2;
+    const target = computeTrackScrollTarget(stage, trackRange, 300, 920);
+    expect(target).toBe(mid - 150); // 364
+  });
+
+  it("prioritises the marble over centring both when they're farther apart than the viewport", () => {
+    const stage = { funnelBefore: 20, marblePos: 40 };
+    // spread = cellCenter(40) - cellCenter(20) = 720, wider than the 300px viewport
+    const target = computeTrackScrollTarget(stage, trackRange, 300, 920);
+    // marbleX - containerWidth/2 = 820 - 150 = 670, clamped to maxScroll (920-300=620)
+    expect(target).toBe(620);
+  });
+
+  it("returns 0 when the container has no measured width", () => {
+    expect(computeTrackScrollTarget(null, trackRange, 0, 920)).toBe(0);
+    expect(computeTrackScrollTarget(null, trackRange, -5, 920)).toBe(0);
+  });
+
+  it("clamps to 0 when the content is no wider than the container", () => {
+    expect(computeTrackScrollTarget(null, trackRange, 1000, 920)).toBe(0);
+  });
+
+  it("clamps to 0 rather than going negative near the left edge", () => {
+    const stage = { funnelBefore: 18, marblePos: 18 };
+    const target = computeTrackScrollTarget(stage, trackRange, 300, 920);
+    expect(target).toBe(0);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// scrollTrackIntoView
+// ---------------------------------------------------------------------------
+describe("scrollTrackIntoView", () => {
+  function fakeContainer({ clientWidth = 300, scrollWidth = 920, isConnected = true } = {}) {
+    return {
+      clientWidth,
+      scrollWidth,
+      isConnected,
+      scrollLeft: 0,
+      scrollTo: vi.fn(function (opts) { this.scrollLeft = opts.left; }),
+    };
+  }
+
+  afterEach(() => {
+    delete globalThis.window;
+    delete globalThis.requestAnimationFrame;
+  });
+
+  it("does nothing when containerEl is null", () => {
+    expect(() => scrollTrackIntoView(null, [], [])).not.toThrow();
+  });
+
+  it("applies immediately when requestAnimationFrame is unavailable (test/Node environment)", () => {
+    const el = fakeContainer();
+    scrollTrackIntoView(el, [{ funnelBefore: 30, marblePos: 33 }], []);
+    expect(el.scrollTo).toHaveBeenCalledTimes(1);
+  });
+
+  it("skips applying when the container isn't connected to the document", () => {
+    const el = fakeContainer({ isConnected: false });
+    scrollTrackIntoView(el, [{ funnelBefore: 30, marblePos: 33 }], []);
+    expect(el.scrollTo).not.toHaveBeenCalled();
+  });
+
+  it("skips applying when the container has no measured width", () => {
+    const el = fakeContainer({ clientWidth: 0 });
+    scrollTrackIntoView(el, [{ funnelBefore: 30, marblePos: 33 }], []);
+    expect(el.scrollTo).not.toHaveBeenCalled();
+  });
+
+  it("uses instant scroll before the first stage rather than animating in", () => {
+    const el = fakeContainer();
+    scrollTrackIntoView(el, [], []);
+    expect(el.scrollTo).toHaveBeenCalledWith(expect.objectContaining({ behavior: "auto" }));
+  });
+
+  it("smooth-scrolls once a stage is active", () => {
+    const el = fakeContainer();
+    scrollTrackIntoView(el, [{ funnelBefore: 30, marblePos: 33 }], []);
+    expect(el.scrollTo).toHaveBeenCalledWith(expect.objectContaining({ behavior: "smooth" }));
+  });
+
+  it("falls back to instant scroll when the reader prefers reduced motion", () => {
+    globalThis.window = { matchMedia: () => ({ matches: true }) };
+    const el = fakeContainer();
+    scrollTrackIntoView(el, [{ funnelBefore: 30, marblePos: 33 }], []);
+    expect(el.scrollTo).toHaveBeenCalledWith(expect.objectContaining({ behavior: "auto" }));
+  });
+
+  it("defers to requestAnimationFrame when available, instead of applying inline", () => {
+    let capturedCallback = null;
+    globalThis.requestAnimationFrame = (cb) => { capturedCallback = cb; };
+    const el = fakeContainer();
+    scrollTrackIntoView(el, [{ funnelBefore: 30, marblePos: 33 }], []);
+    expect(el.scrollTo).not.toHaveBeenCalled();
+    capturedCallback();
+    expect(el.scrollTo).toHaveBeenCalledTimes(1);
+  });
+
+  it("falls back to setting scrollLeft directly when scrollTo isn't available", () => {
+    const el = fakeContainer();
+    delete el.scrollTo;
+    scrollTrackIntoView(el, [], []); // no stage -> centres on TARGET within default 20-40 range
+    expect(el.scrollLeft).toBe(238);
   });
 });
 

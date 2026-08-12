@@ -195,26 +195,38 @@ export function computeTrackRange(stages) {
 
 // --- SVG track renderer ---
 
+// Cell width/padding are shared with scrollTrackIntoView() below, which needs
+// to reconstruct the same x-coordinates to know where the funnel/marble sit.
+export const TRACK_CELL_W = 36;
+export const TRACK_PADDING = 10;
+
 // Returns an SVG string for the track visualisation
 export function renderTrackSVG(currentStage, trackRange) {
-  const cellW = 36;
+  const cellW = TRACK_CELL_W;
   const cellH = 40;
-  const padding = 10;
+  const padding = TRACK_PADDING;
+  const funnelAreaH = 50; // space above the cells for the funnel triangle + label
+  const marbleGap = 15;   // gap between the cell bottom and the marble's centre
+  const marbleR = 10;
+  const cellY = padding + funnelAreaH;
+  const marbleY = cellY + cellH + marbleGap;
   const cells = trackRange.max - trackRange.min + 1;
   const totalW = cells * cellW + padding * 2;
-  const totalH = cellH + 60 + padding * 2; // room for icons above
+  // Bottom padding must clear the marble's radius, not just the cell edge —
+  // otherwise the marble's own bottom arc is clipped by the viewBox/height.
+  const totalH = marbleY + marbleR + padding;
 
   const funnelLabel = currentStage ? `Funnel at ${currentStage.funnelBefore}, marble at ${currentStage.marblePos}.` : "No stage active.";
   const titleId = `track-title-${++trackSvgId}`;
   const descId = `track-desc-${trackSvgId}`;
-  let svg = `<svg role="img" aria-labelledby="${titleId}" aria-describedby="${descId}" width="${totalW}" height="${totalH}" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif; max-width: 100%;">`;
+  let svg = `<svg role="img" aria-labelledby="${titleId}" aria-describedby="${descId}" width="${totalW}" height="${totalH}" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">`;
   svg += `<title id="${titleId}">Funnel Experiment Track</title>`;
   svg += `<desc id="${descId}">Track showing positions ${trackRange.min} to ${trackRange.max}. ${funnelLabel}</desc>`;
 
   // Draw cells
   for (let pos = trackRange.min; pos <= trackRange.max; pos++) {
     const x = (pos - trackRange.min) * cellW + padding;
-    const y = 50 + padding;
+    const y = cellY;
     const isTarget = pos === TARGET;
     const inNormalRange = pos >= TRACK_MIN && pos <= TRACK_MAX;
 
@@ -258,8 +270,7 @@ export function renderTrackSVG(currentStage, trackRange) {
 
     // Draw marble icon (brown/orange circle)
     const marbleX = (currentStage.marblePos - trackRange.min) * cellW + padding + cellW / 2;
-    const marbleY = 50 + padding + cellH + 15;
-    svg += `<circle cx="${marbleX}" cy="${marbleY}" r="10" fill="#cc6633" stroke="#663300" stroke-width="1.5"/>`;
+    svg += `<circle cx="${marbleX}" cy="${marbleY}" r="${marbleR}" fill="#cc6633" stroke="#663300" stroke-width="1.5"/>`;
   }
 
   svg += `</svg>`;
@@ -492,6 +503,70 @@ export function renderTrackHTML(visible, allStages) {
   const currentStage = visible.length > 0 ? visible[visible.length - 1] : null;
   const trackRange = computeTrackRange(allStages);
   return `<div class="fe-track-container">${renderTrackSVG(currentStage, trackRange)}</div>`;
+}
+
+// Pure calculation of where to scroll the track container so the funnel and
+// marble (or, before the first stage, the target) are visible. Kept separate
+// from scrollTrackIntoView() so it's testable without a DOM.
+// currentStage: null before the first stage — centres on the target instead.
+// trackRange: from computeTrackRange().
+// containerWidth/contentWidth: the container's visible width and the full
+//   scrollable width (i.e. the SVG's native width).
+export function computeTrackScrollTarget(currentStage, trackRange, containerWidth, contentWidth) {
+  if (!(containerWidth > 0)) return 0;
+
+  const cellCenter = pos => (pos - trackRange.min) * TRACK_CELL_W + TRACK_PADDING + TRACK_CELL_W / 2;
+
+  let focus;
+  if (currentStage) {
+    const funnelX = cellCenter(currentStage.funnelBefore);
+    const marbleX = cellCenter(currentStage.marblePos);
+    const lo = Math.min(funnelX, marbleX);
+    const hi = Math.max(funnelX, marbleX);
+    // Centre both when they fit; otherwise prioritise the marble (the
+    // outcome) over perfectly centring both.
+    focus = (hi - lo) <= containerWidth ? (lo + hi) / 2 : marbleX;
+  } else {
+    focus = cellCenter(TARGET);
+  }
+
+  const maxScroll = Math.max(0, contentWidth - containerWidth);
+  return Math.max(0, Math.min(focus - containerWidth / 2, maxScroll));
+}
+
+// Scrolls a mounted .fe-track-container so the current stage's funnel and
+// marble stay visible, instead of leaving the user to discover the scroll
+// bar themselves. Deferred to the next animation frame because OJS attaches
+// the element returned by the cell to the document *after* the cell body
+// returns, so containerEl has no layout (clientWidth is 0) yet when this is
+// called synchronously from that cell.
+export function scrollTrackIntoView(containerEl, visible, allStages) {
+  if (!containerEl) return;
+  const currentStage = visible.length > 0 ? visible[visible.length - 1] : null;
+  const trackRange = computeTrackRange(allStages);
+
+  const apply = () => {
+    if (!containerEl.isConnected) return;
+    const containerWidth = containerEl.clientWidth;
+    if (!containerWidth) return;
+    const target = computeTrackScrollTarget(currentStage, trackRange, containerWidth, containerEl.scrollWidth);
+    const reducedMotion = typeof window !== "undefined" && typeof window.matchMedia === "function"
+      && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // No stage yet: snap straight to the target square rather than
+    // animating from the default scroll position on first paint.
+    const behavior = (!currentStage || reducedMotion) ? "auto" : "smooth";
+    if (typeof containerEl.scrollTo === "function") {
+      containerEl.scrollTo({ left: target, behavior });
+    } else {
+      containerEl.scrollLeft = target;
+    }
+  };
+
+  if (typeof requestAnimationFrame === "function") {
+    requestAnimationFrame(apply);
+  } else {
+    apply();
+  }
 }
 
 // Next/Complete buttons — returns HTML with .fe-stage-next and .fe-stage-complete classes

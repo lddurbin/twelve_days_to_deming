@@ -61,7 +61,7 @@ We'll use my own dice-scores to start with so that you can follow my illustratio
 // Import the funnel experiment module
 import {
   generateDiceSequence, saveDiceSequence, loadDiceSequence,
-  runAllStages, renderStatusHTML, renderTrackHTML,
+  runAllStages, renderStatusHTML, renderTrackHTML, scrollTrackIntoView,
   renderStageButtonsHTML, renderDataTablesHTML,
   restoreStageFocus, trackFunnelRun,
   TARGET, TOTAL_STAGES
@@ -108,7 +108,11 @@ html`${renderStatusHTML(2, "Ford's First Strategy (Compensation)", rule2Counter,
 ```
 
 ```{ojs}
-html`${renderTrackHTML(rule2Visible, rule2AllStages)}`
+{
+  const el = html`${renderTrackHTML(rule2Visible, rule2AllStages)}`;
+  scrollTrackIntoView(el, rule2Visible, rule2AllStages);
+  return el;
+}
 ```
 
 ```{ojs}
@@ -216,7 +220,11 @@ html`${renderStatusHTML(1, "Ford's Second Strategy (Leave the Funnel Alone)", ru
 ```
 
 ```{ojs}
-html`${renderTrackHTML(rule1Visible, rule1AllStages)}`
+{
+  const el = html`${renderTrackHTML(rule1Visible, rule1AllStages)}`;
+  scrollTrackIntoView(el, rule1Visible, rule1AllStages);
+  return el;
+}
 ```
 
 ```{ojs}

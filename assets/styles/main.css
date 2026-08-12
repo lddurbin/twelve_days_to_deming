@@ -797,6 +797,10 @@ button:focus,
 }
 .fe-track-container svg {
   display: inline-block;
+  /* Override the mobile/tablet `.cell svg` scale-down below — this SVG
+     already handles narrow screens via the container's horizontal
+     scroll, so shrinking it on top of that just makes it illegible. */
+  transform: none;
 }
 
 /* Data tables */
