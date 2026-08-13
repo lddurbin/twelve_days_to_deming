@@ -23,7 +23,7 @@ if (length(orphans) > 0) {
 
 if ("--check" %in% commandArgs(trailingOnly = TRUE)) {
   if (!pa11y_urls_up_to_date()) {
-    cat("generate-pa11y-urls.R: .pa11yci.json is stale — run `Rscript scripts/generate-pa11y-urls.R` and commit the result.\n")
+    cat("generate-pa11y-urls.R: .pa11yci.json is stale: run `Rscript scripts/generate-pa11y-urls.R` and commit the result.\n")
     quit(status = 1)
   }
   cat("generate-pa11y-urls.R: .pa11yci.json is up to date.\n")

@@ -8,10 +8,14 @@
 #     it varies from.
 #   * pa11y_urls_json() keeps the existing file's `defaults` block verbatim
 #     and only replaces `urls`.
-#   * pa11y_urls_up_to_date() detects both a stale `urls` list and a
-#     manually hand-edited `defaults` block as drift.
+#   * pa11y_urls_up_to_date() detects a stale `urls` list as drift. A value
+#     change to `defaults` is carried through untouched either way —
+#     `defaults` is intentionally hand-maintained, not validated against
+#     anything — so it is never itself a source of drift.
 #   * pa11y_urls_write() writes a file pa11y_urls_up_to_date() then accepts,
 #     and running it twice is a no-op the second time.
+#   * A missing `appendices:` key (as opposed to an empty list) doesn't
+#     error — chapters alone still flatten correctly.
 #   * pa11y_urls_orphaned_essays() is empty when there's no essays
 #     directory, empty when every essay is listed as a chapter, and lists
 #     exactly the essays that aren't — never touching content-fr/.
@@ -64,6 +68,17 @@ test_that("pa11y_urls_build flattens chapters then appendices in document order"
   expect_identical(urls[1], "http://localhost:8765/")
   expect_identical(urls[2], "http://localhost:8765/day1/a.html")
   expect_identical(tail(urls, 1), "http://localhost:8765/appendix/plain.html")
+})
+
+test_that("pa11y_urls_build doesn't error when appendices: is absent entirely, not just empty", {
+  .setup_fixture_project()
+  writeLines(c(
+    "book:",
+    "  chapters:",
+    "    - index.qmd"
+  ), "_quarto-en.yml")
+
+  expect_identical(pa11y_urls_build(), "http://localhost:8765/")
 })
 
 # ---------------------------------------------------------------------------

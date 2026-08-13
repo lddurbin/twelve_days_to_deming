@@ -58,6 +58,13 @@ pa11y_urls_build <- function(quarto_en_yml = "_quarto-en.yml") {
 #' Any .qmd under the essays directory missing from `chapters:` — scoped to
 #' that directory only, never repo-wide: content-fr/ and the FR profile
 #' legitimately hold .qmd files outside the EN chapter list.
+#'
+#' Deliberately checks `book$chapters` only, not `book$appendices`: essays
+#' belong in `chapters:`, never `appendices:` (#637) — appendices collapse
+#' into llms.txt's "Optional" section, the wrong signal for original essays.
+#' An essay wrongly filed under `appendices:` would still render (so it
+#' isn't the silent-drop failure this check exists to catch) but would be
+#' reported here as an orphan, since it's absent from `chapters:`.
 pa11y_urls_orphaned_essays <- function(quarto_en_yml = "_quarto-en.yml",
                                        essays_dir = .pa11y_urls_essays_dir) {
   if (!dir.exists(essays_dir)) {
