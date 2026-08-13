@@ -61,8 +61,14 @@ book:
   sidebar:
     collapse-level: 1
   page-footer:
+    # book.page-footer has no per-page override (Quarto 1.10.18), so this
+    # copy must hold on every page — the 12 days of transcribed course
+    # content AND any original essay. It must never read as Neave having
+    # written the latter. "Their respective authors" (not a named person)
+    # is deliberate: essays may come from contributors, not just the site's
+    # maintainer. See #631 and docs/blog-location-spike.md Constraint 9.
     left: |
-      Course content © Dr Henry R. Neave. Reproduced with permission (May 2026).
+      Course content © Dr Henry R. Neave. Reproduced with permission (May 2026). Essays and other original writing are © their respective authors.
     right: |
       Web edition by [Lee Durbin](https://leedurbin.co.nz) <span aria-hidden="true">·</span> [Privacy](/privacy.html)
 
