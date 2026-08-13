@@ -92,6 +92,14 @@ jobs:
         if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
         renv::restore()
 
+    # Fails fast, before the render below, if .pa11yci.json's `urls` list is
+    # stale relative to _quarto-en.yml's chapters (a chapter added without
+    # regenerating), or if a .qmd under the essays directory is missing from
+    # `chapters:` and would otherwise render successfully but silently drop
+    # out of the site, the listing page, and the RSS feed. See #630.
+    - name: Verify .pa11yci.json is current
+      run: Rscript scripts/generate-pa11y-urls.R --check
+
     - name: Cache Quarto freeze outputs
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
       with:
