@@ -80,14 +80,36 @@ this repo's existing `number-sections: false`**
 ([`_quarto.yml:252`](../_quarto.yml#L252)). Re-rendering with that setting
 produced clean titles, a clean `<h1>`, and no `chapter-number` spans anywhere.
 
-Two caveats found during testing, both real but minor:
+Two caveats found during testing. The second is minor; **the first is the
+sharpest ergonomic cost of this recommendation** and needs an explicit
+mitigation.
 
-- **The posts must be listed as chapters.** A `listing:` pointing at a
-  directory of unlisted `.qmd` files silently finds nothing —
-  `WARN: The listing ... doesn't match any files or folders`. In a book
-  project only enumerated chapters get rendered, and only rendered pages
-  become listing candidates. This is a constraint, not a blocker, and it is
-  what makes most of the CI integration below free.
+- **Every post must be listed as a chapter in `_quarto-en.yml`, by hand.**
+  In a book project only enumerated chapters get rendered, and only rendered
+  pages become listing candidates. Two things were tested here:
+
+  - **Globs are rejected outright.** `chapters: [essays/*.qmd]` fails the
+    build with `ERROR: Book chapter 'essays/*.qmd' not found`. There is no
+    drop-a-file-in-a-folder workflow available.
+  - **A post that exists on disk but isn't listed is dropped *silently*.**
+    Tested with two essays where only one was a chapter: the render
+    succeeded with **no error and no warning**, and the unlisted post was
+    absent from the rendered output, the listing page, *and* the feed. The
+    `WARN: The listing ... doesn't match any files or folders` message only
+    appears when the listing directory resolves to nothing at all — it does
+    **not** fire for individual orphaned posts.
+
+  So the realistic failure mode is: write an essay, forget the config edit,
+  get a green build, and publish nothing. That is a trap rather than a
+  papercut, and it should not be left to author discipline.
+
+  **Mitigation, and it is nearly free:** the Phase 0 pa11y generator
+  ([Constraint 2](#2-accessibility-ci--the-treadmill-and-how-it-ends))
+  already has to parse `_quarto-en.yml` and flatten the chapter list. The
+  same script can assert that every `.qmd` under the essays directory
+  appears in that list, turning the silent drop into a CI failure. This is
+  folded into follow-up issue #1 below rather than tracked separately.
+
 - **`feed: true` requires `site-url`.** Already set at
   [`_quarto.yml:50`](../_quarto.yml#L50).
 
@@ -132,6 +154,14 @@ regenerates `.pa11yci.json` from the single source of truth.
 
 Because essays are chapters under Option A, **every new post is enumerated
 automatically**. The treadmill never starts.
+
+The same script should also carry the **orphan check** described in the
+caveat above: assert that every `.qmd` under the essays directory appears in
+`_quarto-en.yml`. The parsing work is already done by then, and it closes the
+one silent failure mode Option A introduces. Note this check is specific to
+the essays directory — it must *not* be generalised to the whole repo, since
+`content-fr/` and the FR profile legitimately hold `.qmd` files outside the
+EN chapter list.
 
 This is worth doing on its own merits, independent of whether any essay is
 ever written: today's zero drift is luck plus discipline, not a guarantee,
@@ -354,21 +384,27 @@ land first.
 
 | # | Phase | Issue | Size | Notes |
 |---|---|---|---|---|
-| 1 | 0 | Generate `.pa11yci.json` URL list from `_quarto-en.yml` | **S–M** | Reuse `.llms_txt_flatten_paths()`; hand-maintained extras list for `?submitted=1`; CI check that the committed file matches regeneration. Verified zero drift today, so this lands green. |
+| 1 | 0 | Generate `.pa11yci.json` URL list from `_quarto-en.yml`, **plus an orphan check** | **S–M** | Reuse `.llms_txt_flatten_paths()`; hand-maintained extras list for `?submitted=1`; CI check that the committed file matches regeneration. Verified zero drift today, so this lands green. Also assert no `.qmd` under the essays directory is missing from the chapter list — scoped to that directory only, not repo-wide (`content-fr/` is legitimately outside it). |
 | 2 | 0 | Fix global `page-footer` authorship attribution | **S** | Constraint 9. Blocks the first essay. Benefits all 126 existing pages. |
 | 3 | 1 | Add the Essays part, listing page, and directory scaffold | **M** | Final part in `chapters:` (not `appendices:`); `listing:` with `feed: true`; `pagetitle`/`description` on the listing page. |
-| 4 | 1 | Authoring conventions for essays | **S** | Front-matter contract (`title`, `pagetitle`, `description`, `date`, `categories`, `author`); authorship callout convention; note in `workflow/PATTERNS.md`. |
+| 4 | 1 | Authoring conventions for essays | **S** | Front-matter contract (`title`, `pagetitle`, `description`, `date`, `categories`, `author`); authorship callout convention; note in `workflow/PATTERNS.md`. **Must document the `_quarto-en.yml` edit as a required publishing step** — authors used to dropping a file in a folder will otherwise hit the silent-drop failure above. |
 | 5 | 1 | Document structure-check exemption | **XS** | Record in the manifest README that essays are deliberately unvalidated, and why. |
 | 6 | 2 | Deploy smoke-test assertions for essays + feed | **S** | Mirror the existing per-day assertion loop; assert the feed XML is non-empty. |
 | 7 | 2 | Changeset for the blog infrastructure | **XS** | Per Constraint 12 — the infrastructure gets an entry, individual posts don't. |
 
 Two smaller decisions to fold into #3 rather than track separately:
 
-- **Reading time appears twice.** `filters/reading-time.lua` injects an
-  estimate under each chapter's `<h1>`, and Quarto's listing computes its own
-  `listing-reading-time`. Both use ~200 wpm but they are independent
-  implementations and may disagree. Simplest fix: drop `reading-time` from the
-  listing `fields:`.
+- **Reading time is computed twice, and the fix is card-only.**
+  `filters/reading-time.lua` is a project-level filter
+  ([`_quarto.yml:69-71`](../_quarto.yml#L69-L71)), so it runs on every
+  rendered document — essays included — injecting an estimate under the
+  page's `<h1>`. Quarto's listing separately computes `listing-reading-time`
+  for the card. Both use ~200 wpm but are independent implementations and may
+  disagree. **Fix: drop `reading-time` from the listing `fields:` only.** The
+  per-page estimate under the `<h1>` stays, and is wanted — it is the same
+  affordance every course chapter already offers. The listing page itself
+  won't gain a spurious estimate, since the filter's `MIN_WORDS = 50`
+  threshold suppresses output on prose-light pages.
 - **Category filtering is client-side only.** Quarto's category chips filter
   the listing in-page; there are no per-category URLs. Acceptable, and it
   keeps the URL surface small — but worth knowing before anyone expects
