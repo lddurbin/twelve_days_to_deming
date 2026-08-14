@@ -203,10 +203,93 @@ figures:
     notes: "Taguchi loss function parabola sketch + Neave's plotted personal graph"
     output: "taguchi-loss-function.png"
 
+# ------ Clock Reads (dictated by Lee from the original book, 2026-08-14) ------
+# Raw pacing-clock reads, dictated directly from the source pages per the
+# mechanism validated on Day 2 (PR #473) — the outline page's clock column
+# turned out to be a shared decorative template, not real per-day data (see
+# issue #471 and project memory project_clock_extraction_paused.md). Day 7
+# carries a single clock column (no Stats-level fork evidenced in the prose
+# or the dictation, unlike Day 2's two-column pages). Page numbers are
+# printed page numbers, matching the chapter `pages:` ranges above.
+clock_reads:
+  - { page: 1,  position: "top",    time: "9:00am" }
+  - { page: 2,  position: "bottom", time: "9:10am" }
+  - { page: 4,  position: "bottom", time: "9:30am" }
+  - { page: 5,  position: "bottom", time: "9:45am" }
+  - { page: 6,  position: "middle", time: "9:55am",  notes: "after Pause for Thought 7-c" }
+  - { page: 8,  position: "bottom", time: "10:05am" }
+  - { page: 18, position: "middle", time: "11:30am", notes: "at Activity 7-d" }
+  - { page: 18, position: "bottom", time: "11:45am", notes: "after Activity 7-d" }
+  - { page: 20, position: "middle", time: "11:55am", notes: "at Activity 7-e" }
+  - { page: 23, position: "middle", time: "12:20pm", notes: "after Pause for Thought 7-f" }
+  - { page: 24, position: "middle", time: "12:30pm", notes: "after Pause for Thought 7-g" }
+  - { page: 25, position: "middle", time: "12:45pm", notes: "after Pause for Thought 7-h" }
+  - { page: 26, position: "bottom", time: "12:50pm" }
+  - { page: 27, position: "bottom", time: "1:00pm",  notes: "end of morning session" }
+  - { page: 28, position: "top",    time: "2:00pm" }
+  - { page: 28, position: "middle", time: "2:10pm",  notes: "above the paragraph beginning 'hope for instant pudding' (Obstacle 1)" }
+  - { page: 29, position: "bottom", time: "3:10pm" }
+  - { page: 31, position: "bottom", time: "4:10pm" }
+  - { page: 33, position: "bottom", time: "5:10pm" }
+  - { page: 34, position: "bottom", time: "5:30pm" }
+  - { page: 35, position: "bottom", time: "6:00pm",  notes: "day end" }
+
+# ------ session_minutes Computation (2026-08-14) ------
+# Method matches PATTERNS.md's session_minutes section (as applied on Day 2):
+# each chapter's "opening clock" = the earliest checkpoint on or after the
+# chapter's first page; session_minutes = next chapter's opening clock minus
+# this chapter's opening clock. Where no checkpoint falls on a chapter's own
+# first page, the nearest later checkpoint stands in for the opening only
+# when it's 1-2 pages in (per Day 2 precedent) — a wider gap makes it an
+# unsafe proxy for "the chapter just started," so is left unset instead.
+#
+#   chapter                        opens     next chapter's   session_minutes
+#                                             opening clock
+#   introduction (p1)              9:00am    9:30am           30
+#   numerical-targets (p3→p4)      9:30am    9:55am           25
+#   performance-indicators (p6)    9:55am    unreliable       unset
+#   many-more-true-stories (p9)    unreliable                 unset
+#   thirteenth-obstacle (p19→p20)  11:55am   12:20pm          25
+#   taguchi-reflections (p23)      12:20pm   1:00pm           40
+#   major-activity (p27)           1:00pm    6:00pm (day end) unset
+#
+# performance-indicators and many-more-true-stories: the only checkpoint
+# available for many-more-true-stories' opening (p9-18) is p18 middle
+# (11:30am) — the chapter's own last page, 9 pages past its first. Using
+# it as "next chapter's opening" would attribute nearly all of
+# many-more-true-stories' actual reading time to performance-indicators,
+# and using it as many-more-true-stories' own opening would understate
+# that chapter's session to almost nothing. Both left unset rather than
+# publish numbers the data can't support; revisit if a closer checkpoint
+# to p9 is ever dictated.
+#
+# major-activity: this is the day's last chapter, so the day-end exception
+# (session_minutes = day-end clock minus this chapter's opening clock)
+# would normally apply — but the chapter's own opening checkpoint (p27
+# bottom, 1:00pm) is explicitly "end of morning session," and the next
+# checkpoint within the same chapter (p28 top, 2:00pm) follows a full
+# hour's lunch break. The chapter's clock reads straddle that break
+# internally rather than the break falling cleanly between two chapters
+# (contrast Day 2's your-turn/some-recollections split), so any single
+# opening-to-day-end figure would include an hour of lunch as if it were
+# reading time. Left unset per the "gap spans a break" rule, generalised
+# to this internal-break case rather than a cross-chapter one.
+#
+# Schedule correction: the existing Context Notes below (written before
+# these reads existed) estimated the afternoon resuming at 3:00pm from
+# page 3's printed schedule. The actual dictated reads show page 27
+# ending the morning at 1:00pm and page 28 resuming at 2:00pm — a
+# one-hour lunch, not two. Corrected in the Context Notes below.
+
 # ------ Context Notes ------
 context_notes: |
-  Schedule from page 3 (approximate):
-  - 9:00am-1:00pm; 3:00pm-6:00pm
+  Schedule from page 3 (approximate), corrected 2026-08-14 against the
+  dictated clock reads above (see the session_minutes Computation section):
+  actual reads show the morning ending at 1:00pm (p27 bottom) and the
+  afternoon resuming at 2:00pm (p28 top) — a one-hour lunch, not the
+  two-hour 1:00pm-3:00pm gap this line previously estimated from page 3's
+  printed schedule alone. Day end confirmed at 6:00pm (p35 bottom).
+  - 9:00am-1:00pm; 2:00pm-6:00pm
   - Introduction (p1)
   - Three kinds of numerical targets (p3) → begins Activities 7-a and 7-b
   - Performance Indicators (p6) → Pause for Thought 7-c

@@ -2,6 +2,7 @@
 title: "THE THIRTEENTH OBSTACLE"
 pagetitle: "Day 7: The 13th obstacle — meeting specifications isn't enough"
 description: "A hands-on temperature exercise introduces the Taguchi loss function, showing why conformance to specification is a crude, illogical measure of quality."
+session_minutes: 25
 execute:
   echo: false
 ---

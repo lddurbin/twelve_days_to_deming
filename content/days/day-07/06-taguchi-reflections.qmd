@@ -2,6 +2,7 @@
 title: "TAGUCHI REFLECTIONS"
 pagetitle: "Day 7: Reflecting on the Taguchi loss function"
 description: "Why the Taguchi loss function justifies continual improvement and centring a process, while conformance-to-specifications thinking says 'good enough'."
+session_minutes: 40
 execute:
   echo: false
 ---
