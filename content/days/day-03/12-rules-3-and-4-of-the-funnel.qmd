@@ -91,7 +91,7 @@ End of Stage 3 with Rule 3. The marble dropped one square to the *left* of the f
 
 </details>
 
-And so on. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and 3 to the *left* of the funnel. Carefully confirm with your track that the next finishing positions are: marble at 29, funnel moves to 31; marble at 25, and funnel moves to 35. So the picture stays unchanged at the fourth stage and, at the fifth stage, both the marble and then the funnel end up at the target of 30—the "happy accident" to which I referred on page 52.
+And so on. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and 3 to the *left* of the funnel. Carefully confirm with your track that the next finishing positions are: marble under funnel at 29, funnel moved to 31, marble at 28, and funnel moved to 32.
 
 Just for interest, take a moment's thought to guess what will happen in the long term as you take Rule 3 through its 40 stages. Then, later on, see if you've guessed correctly!
 
