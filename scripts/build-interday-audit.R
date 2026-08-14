@@ -395,6 +395,11 @@ anchor_defs <- extract_matches(
 
 if (nrow(sec_links) > 0) {
   sec_links <- sec_links |>
+    # External links that happen to carry a '#sec-...' fragment (e.g. a link
+    # to Quarto's own docs) are not local cross-references — resolving
+    # link_path as a repo-relative file path would always fail for these and
+    # emit a false ::error::.
+    dplyr::filter(!str_starts(link_path, "https?://")) |>
     mutate(
       is_bare = link_path == "",
       target_file = if_else(
@@ -420,27 +425,28 @@ if (nrow(sec_links) > 0) {
       "::error::Found %d invalid '#sec-' link(s) among %d checked in content/**/*.qmd.",
       nrow(violations), nrow(sec_links)
     ))
-    purrr::pwalk(violations, function(...) {
-      row <- list(...)
+    purrr::pwalk(violations, function(source_file, source_line, match_text,
+                                       anchor_id, target_file, day_pattern_bare,
+                                       target_exists, anchor_defined, ...) {
       reasons <- character(0)
-      if (isTRUE(row$day_pattern_bare)) {
+      if (isTRUE(day_pattern_bare)) {
         reasons <- c(reasons, sprintf(
           "bare '#%s' fragment is forbidden — {#sec-pageN} ids repeat in every day, so PATTERNS.md requires an explicit file path even for a same-file link",
-          row$anchor_id
+          anchor_id
         ))
       }
-      if (!isTRUE(row$target_exists)) {
-        reasons <- c(reasons, sprintf("target file '%s' does not exist", row$target_file))
-      } else if (!isTRUE(row$anchor_defined)) {
+      if (!isTRUE(target_exists)) {
+        reasons <- c(reasons, sprintf("target file '%s' does not exist", target_file))
+      } else if (!isTRUE(anchor_defined)) {
         reasons <- c(reasons, sprintf(
-          "'{#%s}' is not defined in '%s'", row$anchor_id, row$target_file
+          "'{#%s}' is not defined in '%s'", anchor_id, target_file
         ))
       }
       message(sprintf(
         "::error file=%s,line=%d::%s:%d — link '%s' — %s",
-        row$source_file, row$source_line,
-        row$source_file, row$source_line,
-        row$match_text, paste(reasons, collapse = "; ")
+        source_file, source_line,
+        source_file, source_line,
+        match_text, paste(reasons, collapse = "; ")
       ))
     })
     message(
@@ -455,4 +461,6 @@ if (nrow(sec_links) > 0) {
     "All %d '#sec-' link(s) checked in content/**/*.qmd resolve correctly.",
     nrow(sec_links)
   ))
+} else {
+  message("No '#sec-' links found in content/**/*.qmd — anchor validation skipped.")
 }
