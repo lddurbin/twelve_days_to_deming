@@ -767,14 +767,48 @@ Anchors are file-scoped — `#sec-page7` in one day and `#sec-page7` in another
 do **not** collide because links reference them through the file path, not
 Quarto's global `@sec-` cross-reference system.
 
+### Optional Extras anchor namespace
+
+`content/appendix/optional-extras/` uses a second, separate anchor
+convention: **`{#sec-optional-extras-page-N}`**, where `N` is the print page
+number from the *Optional Extras* booklet, not from any Day. That booklet has
+its own continuous page numbering (1–91) running across its six Parts (A–F),
+independent of the Day page numbers used everywhere else, so it needs its own
+namespace rather than reusing `{#sec-pageN}`.
+
+Unlike `{#sec-pageN}`, each `sec-optional-extras-page-N` id is unique across
+the *entire* booklet — pages are never reused between Parts. The existing
+content still follows the same shape as the Day convention below: a bare
+fragment only for a link within the same file, an explicit relative path for
+a link to another Part:
+
+```markdown
+<!-- Same-file link within one Part -->
+See [Section 3 (page 20)](#sec-optional-extras-page-20).
+
+<!-- Cross-file link to another Part -->
+See [page 84 in the Technical Section](06-part-f-technical.qmd#sec-optional-extras-page-84).
+```
+
+Link text names the destination Part (e.g. "in the Technical Section", "in
+Part B of these Optional Extras") rather than giving a bare page number,
+since the Part name doesn't otherwise appear anywhere in the link.
+
 ### Link syntax
 
 Use plain Markdown links with a `.qmd` path — Quarto rewrites the extension to
 `.html` at render time, and the path resolves correctly during `quarto preview`.
 
+Always include the explicit file path, **even for a link to another chapter
+in the same day** — never link with a bare `#sec-pageN` fragment. Quarto
+resolves `#sec-` ids against a book-wide index, not the current file, and
+`{#sec-pageN}` is deliberately duplicated across all 12 days, so a bare
+fragment can silently resolve to the wrong day's page instead of erroring.
+This has already happened in production (fixed under #610).
+
 ```markdown
-<!-- Same-day link: no path needed -->
-See [page 27](#sec-page27).
+<!-- Same-day link, to another chapter file in the same day-NN directory -->
+See [page 27](03-the-importance-of-time.qmd#sec-page27).
 
 <!-- Cross-day link from a content/days/day-NN/ chapter -->
 See [Day 4 page 20](../day-04/04-points-1-to-6.qmd#sec-page20).
@@ -783,10 +817,11 @@ See [Day 4 page 20](../day-04/04-points-1-to-6.qmd#sec-page20).
 See [Day 2 page 16](../days/day-02/04-our-first-control-chart.qmd#sec-page16).
 ```
 
-The relative path differs by source location — `../day-NN/` when the linking
-file lives in another day directory, `../days/day-NN/` when it lives in
-`content/appendix/`. The audit table's `source_file` column tells you which
-form to use for each row.
+The relative path differs by source location — a bare filename when linking
+to another chapter within the same day directory, `../day-NN/` when the
+linking file lives in another day directory, `../days/day-NN/` when it lives
+in `content/appendix/`. The audit table's `source_file` column tells you
+which form to use for each row.
 
 Do **not** use Quarto's `@sec-pageN` cross-reference syntax for inter-day links
 — it is ambiguous across days because `#sec-page7` exists in multiple files.
