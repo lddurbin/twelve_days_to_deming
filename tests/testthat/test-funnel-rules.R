@@ -152,12 +152,20 @@ move_arrow_from_plot <- function(gg) {
 
 test_that("funnel_track_plot() with no annotation args is unchanged (bare)", {
   p <- funnel_track_plot()
+  # 4 layers: track tiles, position-number text, target bullseye point,
+  # target number text. A change here means a base-track layer was
+  # added/removed/reordered — cross-check against an SVG diff (see PR
+  # #649 description) before trusting this count alone, since it can
+  # also shift on an unrelated ggplot2 upgrade.
   expect_length(p$layers, 4)
   expect_equal(p$scales$get_scales("y")$limits, c(-0.7, 1.6))
 })
 
 test_that("funnel_track_plot() with no annotation args is unchanged (funnel + marble)", {
   p <- funnel_track_plot(funnel_pos = 27, marble_pos = 28)
+  # 7 = the 4 base layers above + funnel stick, funnel triangle, marble
+  # circle. See the comment on the "(bare)" case above for the caveat
+  # on trusting this count in isolation.
   expect_length(p$layers, 7)
   expect_equal(p$scales$get_scales("y")$limits, c(-0.7, 1.6))
   expect_null(move_arrow_from_plot(p))
@@ -184,6 +192,18 @@ test_that("funnel_track_plot() with a move annotation extends the lower y limit"
 test_that("funnel_rule_comparison_plot returns a composed patchwork object", {
   p <- funnel_rule_comparison_plot()
   expect_s3_class(p, "patchwork")
+})
+
+test_that("funnel_rule_comparison_plot names the computed rule result on out-of-range error", {
+  # funnel_pos = 40, marble_pos = 39, target = 21 sends Rule 3's result
+  # (target - (marble_pos - target) = 3) below x_min = 20. The error
+  # should name "Rule 3's computed funnel position", not the generic
+  # "funnel_pos" complaint funnel_track_plot()'s own stopifnot would
+  # raise if this weren't pre-validated.
+  expect_error(
+    funnel_rule_comparison_plot(funnel_pos = 40, marble_pos = 39, target = 21),
+    "Rule 3's computed funnel position"
+  )
 })
 
 test_that("funnel_rule_comparison_plot's three rows carry funnel positions 27, 29, 32 with the marble at 28 throughout", {

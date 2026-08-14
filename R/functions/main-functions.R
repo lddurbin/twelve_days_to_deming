@@ -612,6 +612,11 @@ funnel_track_plot <- function(funnel_pos = NULL,
   }
 
   if (!is.null(ghost_funnel)) {
+    # Shape 24 (upward triangle) rather than the live marker's shape 25
+    # (downward triangle) is deliberate: both point *toward* the track
+    # from their own side (live marker above pointing down, ghost below
+    # pointing up), so the direction reads as "this marks a square" in
+    # either position rather than as an unrelated symbol.
     p <- p +
       annotate("segment", x = ghost_funnel, xend = ghost_funnel,
                y = -0.55, yend = -1.25,
@@ -686,6 +691,19 @@ funnel_rule_comparison_plot <- function(funnel_pos = 27,
 
   rule2_to <- funnel_pos - (marble_pos - target)
   rule3_to <- target - (marble_pos - target)
+
+  # Validated here (rather than left to funnel_track_plot()'s own
+  # stopifnot) so an out-of-range result names the *computed* rule
+  # output, not funnel_pos — the caller never passed rule2_to/rule3_to
+  # directly, so an error about "funnel_pos" would be confusing.
+  if (rule2_to < x_min || rule2_to > x_max) {
+    stop("Rule 2's computed funnel position (", rule2_to,
+         ") falls outside [x_min, x_max] = [", x_min, ", ", x_max, "]")
+  }
+  if (rule3_to < x_min || rule3_to > x_max) {
+    stop("Rule 3's computed funnel position (", rule3_to,
+         ") falls outside [x_min, x_max] = [", x_min, ", ", x_max, "]")
+  }
 
   title_theme <- theme(plot.title = element_text(hjust = 0.5, face = "bold",
                                                   size = 13, colour = CHART_FG))
