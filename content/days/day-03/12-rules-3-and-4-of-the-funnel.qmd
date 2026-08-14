@@ -78,6 +78,27 @@ Rule 3 has just moved the funnel from 27 to **32**, the mirror image of the marb
 
 </details>
 
+<div class="aside_callout" role="note" aria-label="Editorial note">
+**Editorial note:** the figure below lines up all three positions — 27, 29 and 32 — to show Rules 2 and 3 making the *same-sized* move but from *different* origins.
+</div>
+
+```{r}
+#| label: fig-rule2-rule3-comparison
+#| fig-cap: "Rule 2 and Rule 3 compared: same funnel and marble, different move origins"
+#| fig-alt: "Three funnel tracks: same start, then Rule 2 moves the funnel from itself, Rule 3 moves it from the target"
+#| fig-width: 9
+#| fig-height: 8
+#| lightbox: true
+funnel_rule_comparison_plot(x_min = 25, x_max = 35)
+```
+
+<details>
+<summary>Describe this diagram</summary>
+
+Three stacked funnel tracks running 25 to 35, all starting from the same state: funnel at 27, marble at 28. Row 2 shows Rule 2's move: the funnel goes to 29, a 2-square arrow measured from its own prior position at 27, where a faint ghost marker is left behind. Row 3 shows Rule 3's move: the funnel goes to 32, a 2-square arrow of the same length, but measured from the target at 30 — a dotted line drops from the target square to confirm the arrow starts there, not at the ghost marker still shown at 27. Same distance, same direction, different origin, different destination.
+
+</details>
+
 The third dice-score was 6 corresponding to the marble dropping at 1 *left* of the funnel. So the marble now finishes up at 31. 31 is 1 *right* of ◎, and thus you move the funnel to 29 (1 *left* of ◎), giving:
 
 ```{r rule3-funnel-to-29, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel moved to square 29 with the marble at square 31 — Rule 3, end of Stage 3."}
