@@ -102,7 +102,7 @@ join some of them together as well as adding plenty more. Take it steady—there
 1. Good quality of a product or service surely implies that it can be described in such terms as reliable, dependable, predictable—no nasty surprises. The quality of a service or product depends on
 the processes used to make the product or carry out the service, and the management of those
 processes. The adjectives just used to represent good quality can largely be summed up by “low
-variation”. Recall the use of <span class=deming_quote>“uniformity”</span> in the inscription on the Deming Medal (today’s [page 2](#sec-page2)):
+variation”. Recall the use of <span class=deming_quote>“uniformity”</span> in the inscription on the Deming Medal (today’s [page 2](02-rediscovered.qmd#sec-page2)):
 uniformity implies *very* low variation! Processes that are exhibiting high levels of variation need to
 be improved: they are unreliable, not dependable—full of nasty surprises. Their variation needs to
 be reduced.

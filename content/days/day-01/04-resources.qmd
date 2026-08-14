@@ -119,7 +119,7 @@ companies. I shall quote from *The Deming of America* several times during this 
 
 Having recently checked on the internet, I cannot find *Doctor’s Orders* anywhere, but *A Prophet Unheard* is
 available. Also, both the *Deming Library* collection and *The Deming of America* are available from official
-distributors, the former from the Deming Institute (see [page 4](#sec-page6)) and the latter from <http://www.PriscillaPetty.com>.
+distributors, the former from the Deming Institute (see [page 4](02-rediscovered.qmd#sec-page6)) and the latter from <http://www.PriscillaPetty.com>.
 As you’d expect from the quantity concerned, the *Deming Library* would burn rather a hole in your pocket
 but *The Deming of America* is not overly expensive for this excellent hour-long programme.
 
@@ -129,4 +129,4 @@ If and when the time comes that you might like to learn more about the man as we
 final recommendation does both), treat yourself to *The World of W Edwards Deming*, the superb biography
 compiled and written by his faithful long-term secretary, the late Cecelia (Ceil) Kilian. This is where I discovered the various entries from his diary that I quote during this opening day of the course and also his
 extremely illuminating <span class=deming_quote>“Summary of Teachings to Top Management and to Engineers in Japan”</span>, based on
-his work in that country in the summer of 1950—see today’s [page 35](#sec-page35).
+his work in that country in the summer of 1950—see today’s [page 35](11-deming-story.qmd#sec-page35).

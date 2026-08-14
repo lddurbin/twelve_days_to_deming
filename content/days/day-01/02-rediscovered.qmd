@@ -132,9 +132,9 @@ sure that all three of the above will welcome contact with *12 Days* students—
 was founded by Dr Deming just before his death in 1993 and becomes more and more active as the years
 go by. Their main website is <http://www.deming.org> and there you will find extensive resources on Dr Deming’s
 work and teaching, including many of his publications at <https://deming.org/deming/deming-articles>. The
-Institute presents various seminars and offers videos including the *Deming Library* (see today’s [page 13](#sec-page13))
+Institute presents various seminars and offers videos including the *Deming Library* (see today’s [page 13](04-resources.qmd#sec-page13))
   and some substantial extracts from his celebrated four-day seminars. The Institute also has a YouTube
-  channel which includes the 1980 NBC White Paper *If Japan Can, Why Can’t We?* (see [page 37](#sec-page37)) that was so
+  channel which includes the 1980 NBC White Paper *If Japan Can, Why Can’t We?* (see [page 37](11-deming-story.qmd#sec-page37)) that was so
     successful in introducing Dr Deming to the American public in 1980.
     
 Also in America, SPC Press Inc (<https://www.spcpress.com>), who published my book *The Deming Dimension* in
