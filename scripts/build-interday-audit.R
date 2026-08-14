@@ -349,3 +349,110 @@ message("Decision distribution for appendix-page refs:")
 print(out |>
   dplyr::filter(kind == "appendix-page") |>
   count(anchor_present, decision, name = "n"))
+
+# ---------------------------------------------------------------------------
+# 6. Validate every markdown link containing '#sec-' (#613)
+# ---------------------------------------------------------------------------
+#
+# Two anchor namespaces exist — see PATTERNS.md "Inter-Day Cross-References":
+#
+#   - {#sec-pageN} is deliberately duplicated across all 12 days (every day
+#     restarts its print-page numbering at 1), so a bare `](#sec-pageN)`
+#     fragment is *always* forbidden — even when it happens to resolve to the
+#     right page today — because Quarto resolves #sec- ids book-wide and the
+#     id collides with every other day's #sec-pageN.
+#   - {#sec-optional-extras-page-N} is unique across the whole Optional
+#     Extras booklet (continuous 1–91 numbering), so a bare fragment is fine
+#     there, but only for a genuine same-file link.
+#
+# The check below is namespace-agnostic: for any '#sec-' link (bare or
+# explicit-path), resolve the file the anchor should live in — explicit path
+# -> that path relative to the linking file's directory; bare fragment ->
+# the linking file itself, since a bare fragment can only ever *correctly*
+# mean "the anchor is here". Then verify the target file exists and actually
+# defines that anchor. Separately, and unconditionally, flag any bare
+# fragment whose id matches the Day pattern (^sec-page[0-9]+$) as a style
+# violation even when it resolves correctly, per the "no same-file
+# exception" rule in PATTERNS.md.
+
+content_lines <- all_lines |> dplyr::filter(str_detect(source_file, "^content/"))
+
+sec_links <- extract_matches(
+  content_lines,
+  pattern = "\\]\\(([^()#]*)#(sec-[A-Za-z0-9_-]+)\\)",
+  group_names = c("link_path", "anchor_id")
+)
+
+# Every {#id} definition in the corpus (headings or bare []{#id} markers),
+# keyed by the file it's defined in. Attributes after the id (e.g. the
+# `.unnumbered` on some Optional Extras headings) are tolerated.
+anchor_defs <- extract_matches(
+  all_lines,
+  pattern = "\\{#([A-Za-z0-9_-]+)(?:\\s[^}]*)?\\}",
+  group_names = "anchor_id"
+) |>
+  distinct(source_file, anchor_id)
+
+if (nrow(sec_links) > 0) {
+  sec_links <- sec_links |>
+    mutate(
+      is_bare = link_path == "",
+      target_file = if_else(
+        is_bare,
+        source_file,
+        as.character(fs::path_norm(fs::path(fs::path_dir(source_file), link_path)))
+      ),
+      target_exists = fs::file_exists(fs::path(repo_root, target_file)),
+      day_pattern_bare = is_bare & str_detect(anchor_id, "^sec-page[0-9]+$")
+    ) |>
+    dplyr::left_join(
+      anchor_defs |> dplyr::mutate(anchor_defined = TRUE),
+      by = c("target_file" = "source_file", "anchor_id")
+    ) |>
+    dplyr::mutate(anchor_defined = tidyr::replace_na(anchor_defined, FALSE))
+
+  violations <- sec_links |>
+    dplyr::filter(day_pattern_bare | !target_exists | !anchor_defined) |>
+    dplyr::arrange(source_file, source_line)
+
+  if (nrow(violations) > 0) {
+    message(sprintf(
+      "::error::Found %d invalid '#sec-' link(s) among %d checked in content/**/*.qmd.",
+      nrow(violations), nrow(sec_links)
+    ))
+    purrr::pwalk(violations, function(...) {
+      row <- list(...)
+      reasons <- character(0)
+      if (isTRUE(row$day_pattern_bare)) {
+        reasons <- c(reasons, sprintf(
+          "bare '#%s' fragment is forbidden — {#sec-pageN} ids repeat in every day, so PATTERNS.md requires an explicit file path even for a same-file link",
+          row$anchor_id
+        ))
+      }
+      if (!isTRUE(row$target_exists)) {
+        reasons <- c(reasons, sprintf("target file '%s' does not exist", row$target_file))
+      } else if (!isTRUE(row$anchor_defined)) {
+        reasons <- c(reasons, sprintf(
+          "'{#%s}' is not defined in '%s'", row$anchor_id, row$target_file
+        ))
+      }
+      message(sprintf(
+        "::error file=%s,line=%d::%s:%d — link '%s' — %s",
+        row$source_file, row$source_line,
+        row$source_file, row$source_line,
+        row$match_text, paste(reasons, collapse = "; ")
+      ))
+    })
+    message(
+      "\nSee workflow/PATTERNS.md 'Inter-Day Cross-References' for the anchor conventions ",
+      "(Day pages: {#sec-pageN}, always explicit path; Optional Extras: ",
+      "{#sec-optional-extras-page-N}, bare only within the same file)."
+    )
+    quit(status = 1, save = "no")
+  }
+
+  message(sprintf(
+    "All %d '#sec-' link(s) checked in content/**/*.qmd resolve correctly.",
+    nrow(sec_links)
+  ))
+}
