@@ -500,8 +500,14 @@ individual_process_chart <- function(processes, letter,
 #'     under \code{move_from}. The distinction between origins is always
 #'     carried by this label and the anchor dot's position, never by
 #'     colour alone (WCAG 1.4.1).
+#'   \item \code{drop_line} — a dotted vertical guide from the target
+#'     marker down to the move arrow, for the case where the arrow's
+#'     origin (\code{move_from}) is the target rather than
+#'     \code{ghost_funnel}'s position. Without it, an arrow anchored at
+#'     the target with a ghost echo sitting elsewhere could read as
+#'     starting from the ghost instead.
 #' }
-#' All four default to \code{NULL}, in which case they are a strict
+#' All five default to \code{NULL}, in which case they are a strict
 #' no-op: nothing new is drawn and the track's vertical extent is
 #' unchanged. Supplying any one of them reserves extra space below the
 #' track (via a lower \code{scale_y_continuous} limit) for all of them,
@@ -525,6 +531,9 @@ individual_process_chart <- function(processes, letter,
 #' @param ghost_funnel Numeric or NULL. Track position of a faint,
 #'   outline-only echo of the funnel marker, showing where the funnel
 #'   was before the move. Default \code{NULL}.
+#' @param drop_line Numeric or NULL. Track position of a dotted vertical
+#'   guide line from the target marker down to the move arrow. Default
+#'   \code{NULL}.
 #' @return A ggplot2 object.
 funnel_track_plot <- function(funnel_pos = NULL,
                               marble_pos = NULL,
@@ -534,7 +543,8 @@ funnel_track_plot <- function(funnel_pos = NULL,
                               move_from = NULL,
                               move_to = NULL,
                               move_label = NULL,
-                              ghost_funnel = NULL) {
+                              ghost_funnel = NULL,
+                              drop_line = NULL) {
   stopifnot(x_min < x_max, target >= x_min, target <= x_max)
   if (!is.null(funnel_pos)) {
     stopifnot(funnel_pos >= x_min, funnel_pos <= x_max)
@@ -551,9 +561,12 @@ funnel_track_plot <- function(funnel_pos = NULL,
   if (!is.null(ghost_funnel)) {
     stopifnot(ghost_funnel >= x_min, ghost_funnel <= x_max)
   }
+  if (!is.null(drop_line)) {
+    stopifnot(drop_line >= x_min, drop_line <= x_max)
+  }
 
   has_move <- !is.null(move_from) || !is.null(move_to) ||
-    !is.null(move_label) || !is.null(ghost_funnel)
+    !is.null(move_label) || !is.null(ghost_funnel) || !is.null(drop_line)
 
   positions <- seq(x_min, x_max)
   track_df  <- data.frame(
@@ -626,6 +639,13 @@ funnel_track_plot <- function(funnel_pos = NULL,
                fill = NA, colour = "#1565c0", stroke = 1, alpha = 0.6)
   }
 
+  if (!is.null(drop_line)) {
+    p <- p +
+      annotate("segment", x = drop_line, xend = drop_line,
+               y = -0.55, yend = -1.5,
+               colour = CHART_GRID, linewidth = 0.6, linetype = "dotted")
+  }
+
   if (!is.null(move_from) && !is.null(move_to)) {
     p <- p +
       annotate("segment", x = move_from, xend = move_to,
@@ -666,7 +686,10 @@ funnel_track_plot <- function(funnel_pos = NULL,
 #' \code{marble_pos - target}; only their origin differs. Row 2 and row 3
 #' each show a faint \code{ghost_funnel} echo at the original
 #' \code{funnel_pos}, and a labelled move arrow so the differing origins
-#' are legible without relying on colour.
+#' are legible without relying on colour. Row 3's arrow originates at
+#' \code{target} rather than at the (elsewhere-positioned) ghost echo, so
+#' it also gets a dotted \code{drop_line} from the target marker down to
+#' the arrow, making that origin unambiguous.
 #'
 #' @param funnel_pos Numeric. The shared starting funnel position.
 #'   Default 27 — matches the worked example on
@@ -723,7 +746,8 @@ funnel_rule_comparison_plot <- function(funnel_pos = 27,
                           x_min = x_min, x_max = x_max, target = target,
                           move_from = target, move_to = rule3_to,
                           move_label = "Rule 3 measures from the target",
-                          ghost_funnel = funnel_pos) +
+                          ghost_funnel = funnel_pos,
+                          drop_line = target) +
     ggtitle("Rule 3 (no memory)") + title_theme
 
   p1 / p2 / p3

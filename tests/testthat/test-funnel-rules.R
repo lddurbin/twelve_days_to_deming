@@ -148,6 +148,15 @@ move_arrow_from_plot <- function(gg) {
   seg[[1]]$data
 }
 
+# The dotted drop-line is a GeomSegment layer distinguished from the
+# funnel/ghost sticks (also vertical, y != yend) by its linetype.
+drop_line_from_plot <- function(gg) {
+  seg <- Filter(function(l) inherits(l$geom, "GeomSegment") &&
+                  identical(l$aes_params$linetype, "dotted"), gg$layers)
+  if (length(seg) == 0) return(NULL)
+  seg[[1]]$data
+}
+
 # --- funnel_track_plot() no-op regression guard ---
 
 test_that("funnel_track_plot() with no annotation args is unchanged (bare)", {
@@ -175,6 +184,7 @@ test_that("funnel_track_plot() rejects out-of-range move/ghost positions", {
   expect_error(funnel_track_plot(move_from = 10, move_to = 29))
   expect_error(funnel_track_plot(move_from = 27, move_to = 50))
   expect_error(funnel_track_plot(ghost_funnel = 100))
+  expect_error(funnel_track_plot(drop_line = 100))
 })
 
 test_that("funnel_track_plot() with a move annotation extends the lower y limit", {
@@ -185,6 +195,20 @@ test_that("funnel_track_plot() with a move annotation extends the lower y limit"
   arrow_data <- move_arrow_from_plot(p)
   expect_equal(arrow_data$x, 27)
   expect_equal(arrow_data$xend, 29)
+})
+
+test_that("funnel_track_plot() with drop_line draws a dotted guide and is otherwise a no-op alone", {
+  bare <- funnel_track_plot(drop_line = 30)
+  expect_lt(bare$scales$get_scales("y")$limits[1], -0.7)
+  guide <- drop_line_from_plot(bare)
+  expect_false(is.null(guide))
+  expect_equal(guide$x, 30)
+  expect_equal(guide$xend, 30)
+
+  no_drop_line <- funnel_track_plot(funnel_pos = 29, marble_pos = 28,
+                                    move_from = 27, move_to = 29,
+                                    ghost_funnel = 27)
+  expect_null(drop_line_from_plot(no_drop_line))
 })
 
 # --- funnel_rule_comparison_plot() ---
@@ -225,4 +249,16 @@ test_that("funnel_rule_comparison_plot's Rule 2 and Rule 3 arrows share span but
   expect_equal(rule2_arrow$x, 27)
   expect_equal(rule3_arrow$x, 30)
   expect_false(identical(rule2_arrow$x, rule3_arrow$x))
+})
+
+test_that("funnel_rule_comparison_plot's Rule 3 row alone carries the target drop-line", {
+  p <- funnel_rule_comparison_plot()
+  rows <- c(p$patches$plots, list(p))
+
+  expect_null(drop_line_from_plot(rows[[1]]))
+  expect_null(drop_line_from_plot(rows[[2]]))
+
+  rule3_drop_line <- drop_line_from_plot(rows[[3]])
+  expect_false(is.null(rule3_drop_line))
+  expect_equal(rule3_drop_line$x, 30)
 })
