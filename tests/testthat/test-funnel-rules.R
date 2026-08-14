@@ -127,3 +127,82 @@ test_that("Rule sim outputs can be passed directly to run_chart_plot", {
                      y_minor_breaks = seq(0, 60, by = 5))
   expect_s3_class(p, "ggplot")
 })
+
+# --- funnel_track_plot() move-annotation helpers (test-local) ---
+
+# The funnel/ghost markers are GeomPoint layers distinguished by shape
+# (25 = solid funnel marker, 24 = outline ghost echo). The move arrow is
+# the one GeomSegment layer whose y == yend (a horizontal segment) —
+# the funnel-stick and ghost-stick segments are both vertical (y != yend).
+funnel_pos_from_plot <- function(gg) {
+  pt <- Filter(function(l) inherits(l$geom, "GeomPoint") &&
+                 identical(l$aes_params$shape, 25), gg$layers)
+  if (length(pt) == 0) return(NULL)
+  pt[[1]]$data$x
+}
+
+move_arrow_from_plot <- function(gg) {
+  seg <- Filter(function(l) inherits(l$geom, "GeomSegment") &&
+                  isTRUE(all.equal(l$data$y, l$data$yend)), gg$layers)
+  if (length(seg) == 0) return(NULL)
+  seg[[1]]$data
+}
+
+# --- funnel_track_plot() no-op regression guard ---
+
+test_that("funnel_track_plot() with no annotation args is unchanged (bare)", {
+  p <- funnel_track_plot()
+  expect_length(p$layers, 4)
+  expect_equal(p$scales$get_scales("y")$limits, c(-0.7, 1.6))
+})
+
+test_that("funnel_track_plot() with no annotation args is unchanged (funnel + marble)", {
+  p <- funnel_track_plot(funnel_pos = 27, marble_pos = 28)
+  expect_length(p$layers, 7)
+  expect_equal(p$scales$get_scales("y")$limits, c(-0.7, 1.6))
+  expect_null(move_arrow_from_plot(p))
+})
+
+test_that("funnel_track_plot() rejects out-of-range move/ghost positions", {
+  expect_error(funnel_track_plot(move_from = 10, move_to = 29))
+  expect_error(funnel_track_plot(move_from = 27, move_to = 50))
+  expect_error(funnel_track_plot(ghost_funnel = 100))
+})
+
+test_that("funnel_track_plot() with a move annotation extends the lower y limit", {
+  p <- funnel_track_plot(funnel_pos = 29, marble_pos = 28,
+                         move_from = 27, move_to = 29,
+                         move_label = "test origin", ghost_funnel = 27)
+  expect_lt(p$scales$get_scales("y")$limits[1], -0.7)
+  arrow_data <- move_arrow_from_plot(p)
+  expect_equal(arrow_data$x, 27)
+  expect_equal(arrow_data$xend, 29)
+})
+
+# --- funnel_rule_comparison_plot() ---
+
+test_that("funnel_rule_comparison_plot returns a composed patchwork object", {
+  p <- funnel_rule_comparison_plot()
+  expect_s3_class(p, "patchwork")
+})
+
+test_that("funnel_rule_comparison_plot's three rows carry funnel positions 27, 29, 32 with the marble at 28 throughout", {
+  p <- funnel_rule_comparison_plot()
+  rows <- c(p$patches$plots, list(p))
+  expect_length(rows, 3)
+  expect_equal(vapply(rows, funnel_pos_from_plot, numeric(1)), c(27, 29, 32))
+})
+
+test_that("funnel_rule_comparison_plot's Rule 2 and Rule 3 arrows share span but differ in origin", {
+  p <- funnel_rule_comparison_plot()
+  rows <- c(p$patches$plots, list(p))
+
+  rule2_arrow <- move_arrow_from_plot(rows[[2]])
+  rule3_arrow <- move_arrow_from_plot(rows[[3]])
+
+  expect_equal(abs(rule2_arrow$xend - rule2_arrow$x), 2)
+  expect_equal(abs(rule3_arrow$xend - rule3_arrow$x), 2)
+  expect_equal(rule2_arrow$x, 27)
+  expect_equal(rule3_arrow$x, 30)
+  expect_false(identical(rule2_arrow$x, rule3_arrow$x))
+})
