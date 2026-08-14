@@ -483,6 +483,31 @@ individual_process_chart <- function(processes, letter,
 #' Either or both may be \code{NULL} (the default) to produce the
 #' "basic" empty track.
 #'
+#' A second, independent set of optional markers floats just *below* the
+#' track to annotate a single move — i.e. where the funnel was
+#' repositioned *from* and *to*, and (optionally) what that origin was.
+#' This is groundwork for figures contrasting Funnel Rules 2 and 3, which
+#' move the funnel by the same distance but measure that distance from
+#' different origins (see \code{funnel_rule_comparison_plot()}).
+#' \itemize{
+#'   \item \code{ghost_funnel} — a faint outline echo of the funnel
+#'     marker at its pre-move position.
+#'   \item \code{move_from}/\code{move_to} — an arrowed segment from the
+#'     move's origin to its destination, with a solid dot anchoring the
+#'     origin.
+#'   \item \code{move_label} — text naming what the origin represents
+#'     (e.g. "the funnel's current position" vs "the target"), anchored
+#'     under \code{move_from}. The distinction between origins is always
+#'     carried by this label and the anchor dot's position, never by
+#'     colour alone (WCAG 1.4.1).
+#' }
+#' All four default to \code{NULL}, in which case they are a strict
+#' no-op: nothing new is drawn and the track's vertical extent is
+#' unchanged. Supplying any one of them reserves extra space below the
+#' track (via a lower \code{scale_y_continuous} limit) for all of them,
+#' so \code{coord_fixed(ratio = 1)} renders a taller image whenever a
+#' move is annotated.
+#'
 #' @param funnel_pos Numeric or NULL. Track position of the funnel
 #'   marker. Default \code{NULL}.
 #' @param marble_pos Numeric or NULL. Track position of the marble
@@ -491,12 +516,25 @@ individual_process_chart <- function(processes, letter,
 #'   Default 20 to 40.
 #' @param target Numeric. Position of the highlighted target square.
 #'   Default 30.
+#' @param move_from,move_to Numeric or NULL. Track positions the move
+#'   arrow is drawn from/to, below the track. Both default \code{NULL};
+#'   the arrow is only drawn when both are supplied.
+#' @param move_label Character or NULL. Text naming the move's origin,
+#'   anchored under \code{move_from} (or \code{target} if
+#'   \code{move_from} is not supplied). Default \code{NULL}.
+#' @param ghost_funnel Numeric or NULL. Track position of a faint,
+#'   outline-only echo of the funnel marker, showing where the funnel
+#'   was before the move. Default \code{NULL}.
 #' @return A ggplot2 object.
 funnel_track_plot <- function(funnel_pos = NULL,
                               marble_pos = NULL,
                               x_min = 20,
                               x_max = 40,
-                              target = 30) {
+                              target = 30,
+                              move_from = NULL,
+                              move_to = NULL,
+                              move_label = NULL,
+                              ghost_funnel = NULL) {
   stopifnot(x_min < x_max, target >= x_min, target <= x_max)
   if (!is.null(funnel_pos)) {
     stopifnot(funnel_pos >= x_min, funnel_pos <= x_max)
@@ -504,6 +542,18 @@ funnel_track_plot <- function(funnel_pos = NULL,
   if (!is.null(marble_pos)) {
     stopifnot(marble_pos >= x_min, marble_pos <= x_max)
   }
+  if (!is.null(move_from)) {
+    stopifnot(move_from >= x_min, move_from <= x_max)
+  }
+  if (!is.null(move_to)) {
+    stopifnot(move_to >= x_min, move_to <= x_max)
+  }
+  if (!is.null(ghost_funnel)) {
+    stopifnot(ghost_funnel >= x_min, ghost_funnel <= x_max)
+  }
+
+  has_move <- !is.null(move_from) || !is.null(move_to) ||
+    !is.null(move_label) || !is.null(ghost_funnel)
 
   positions <- seq(x_min, x_max)
   track_df  <- data.frame(
@@ -514,6 +564,7 @@ funnel_track_plot <- function(funnel_pos = NULL,
 
   border_colour <- "#d32f2f"
   number_size   <- 7
+  y_lower       <- if (has_move) -2.0 else -0.7
 
   p <- ggplot() +
     geom_tile(
@@ -537,7 +588,7 @@ funnel_track_plot <- function(funnel_pos = NULL,
              size = number_size - 1, colour = border_colour) +
     coord_fixed(ratio = 1, clip = "off") +
     scale_x_continuous(limits = c(x_min - 0.6, x_max + 0.6), expand = c(0, 0)) +
-    scale_y_continuous(limits = c(-0.7, 1.6), expand = c(0, 0)) +
+    scale_y_continuous(limits = c(y_lower, 1.6), expand = c(0, 0)) +
     theme_void() +
     theme(plot.background  = element_rect(fill = "transparent", colour = NA),
           panel.background = element_rect(fill = "transparent", colour = NA),
@@ -560,7 +611,122 @@ funnel_track_plot <- function(funnel_pos = NULL,
                fill = "#fbc02d", colour = CHART_FG, stroke = 0.6)
   }
 
+  if (!is.null(ghost_funnel)) {
+    # Shape 24 (upward triangle) rather than the live marker's shape 25
+    # (downward triangle) is deliberate: both point *toward* the track
+    # from their own side (live marker above pointing down, ghost below
+    # pointing up), so the direction reads as "this marks a square" in
+    # either position rather than as an unrelated symbol.
+    p <- p +
+      annotate("segment", x = ghost_funnel, xend = ghost_funnel,
+               y = -0.55, yend = -1.25,
+               colour = "#1565c0", linewidth = 1, alpha = 0.4) +
+      annotate("point", x = ghost_funnel, y = -0.7,
+               shape = 24, size = 7,
+               fill = NA, colour = "#1565c0", stroke = 1, alpha = 0.6)
+  }
+
+  if (!is.null(move_from) && !is.null(move_to)) {
+    p <- p +
+      annotate("segment", x = move_from, xend = move_to,
+               y = -1.5, yend = -1.5,
+               colour = "#1565c0", linewidth = 1,
+               arrow = arrow(length = unit(0.18, "cm"), type = "closed")) +
+      annotate("point", x = move_from, y = -1.5,
+               shape = 16, size = 2.5, colour = CHART_FG)
+  }
+
+  if (!is.null(move_label)) {
+    label_x <- if (!is.null(move_from)) move_from else target
+    p <- p +
+      annotate("text", x = label_x, y = -1.8, label = move_label,
+               family = "serif", colour = CHART_FG, size = 3.5, hjust = 0.5)
+  }
+
   p
+}
+
+#' Compare Funnel Rules 2 and 3 from identical inputs
+#'
+#' Composes three stacked \code{funnel_track_plot()} rows, via
+#' \code{patchwork}, to show Rules 2 and 3 of the Funnel Experiment
+#' producing *different* answers from the *same* funnel position and the
+#' *same* marble drop:
+#' \enumerate{
+#'   \item the starting state — \code{funnel_pos} and \code{marble_pos}
+#'     as given, no move annotated;
+#'   \item Rule 2's response — the funnel moves to
+#'     \code{funnel_pos - (marble_pos - target)}, a move measured from
+#'     the funnel's *current position* (Rule 2 has memory);
+#'   \item Rule 3's response — the funnel moves to
+#'     \code{target - (marble_pos - target)}, a move measured from the
+#'     *target* (Rule 3 has no memory of where the funnel was).
+#' }
+#' Both moves span the same distance in opposite directions from
+#' \code{marble_pos - target}; only their origin differs. Row 2 and row 3
+#' each show a faint \code{ghost_funnel} echo at the original
+#' \code{funnel_pos}, and a labelled move arrow so the differing origins
+#' are legible without relying on colour.
+#'
+#' @param funnel_pos Numeric. The shared starting funnel position.
+#'   Default 27 — matches the worked example on
+#'   [Day 3.12](../../../content/days/day-03/12-rules-3-and-4-of-the-funnel.qmd).
+#' @param marble_pos Numeric. The shared marble resting position that
+#'   both rules react to. Default 28.
+#' @param target Numeric. The target position both rules measure
+#'   against. Default 30.
+#' @param x_min,x_max Numeric. Inclusive range of track positions,
+#'   forwarded to each row. Default 20 to 40.
+#' @return A \code{patchwork} object (three stacked ggplot2 rows).
+#' @examples
+#' funnel_rule_comparison_plot()
+funnel_rule_comparison_plot <- function(funnel_pos = 27,
+                                        marble_pos = 28,
+                                        target = 30,
+                                        x_min = 20,
+                                        x_max = 40) {
+  stopifnot(is.numeric(funnel_pos), length(funnel_pos) == 1,
+            is.numeric(marble_pos), length(marble_pos) == 1,
+            is.numeric(target), length(target) == 1)
+
+  rule2_to <- funnel_pos - (marble_pos - target)
+  rule3_to <- target - (marble_pos - target)
+
+  # Validated here (rather than left to funnel_track_plot()'s own
+  # stopifnot) so an out-of-range result names the *computed* rule
+  # output, not funnel_pos — the caller never passed rule2_to/rule3_to
+  # directly, so an error about "funnel_pos" would be confusing.
+  if (rule2_to < x_min || rule2_to > x_max) {
+    stop("Rule 2's computed funnel position (", rule2_to,
+         ") falls outside [x_min, x_max] = [", x_min, ", ", x_max, "]")
+  }
+  if (rule3_to < x_min || rule3_to > x_max) {
+    stop("Rule 3's computed funnel position (", rule3_to,
+         ") falls outside [x_min, x_max] = [", x_min, ", ", x_max, "]")
+  }
+
+  title_theme <- theme(plot.title = element_text(hjust = 0.5, face = "bold",
+                                                  size = 13, colour = CHART_FG))
+
+  p1 <- funnel_track_plot(funnel_pos = funnel_pos, marble_pos = marble_pos,
+                          x_min = x_min, x_max = x_max, target = target) +
+    ggtitle("Same starting point") + title_theme
+
+  p2 <- funnel_track_plot(funnel_pos = rule2_to, marble_pos = marble_pos,
+                          x_min = x_min, x_max = x_max, target = target,
+                          move_from = funnel_pos, move_to = rule2_to,
+                          move_label = "Rule 2 measures from the funnel's current position",
+                          ghost_funnel = funnel_pos) +
+    ggtitle("Rule 2 (has memory)") + title_theme
+
+  p3 <- funnel_track_plot(funnel_pos = rule3_to, marble_pos = marble_pos,
+                          x_min = x_min, x_max = x_max, target = target,
+                          move_from = target, move_to = rule3_to,
+                          move_label = "Rule 3 measures from the target",
+                          ghost_funnel = funnel_pos) +
+    ggtitle("Rule 3 (no memory)") + title_theme
+
+  p1 / p2 / p3
 }
 
 #' Plot the Funnel Experiment "dice sequences" fallback table
