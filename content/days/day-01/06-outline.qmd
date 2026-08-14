@@ -56,8 +56,8 @@ with a group then, of course, you have the opportunity to engage in some introdu
 on such occasions.
 
 You might find it helpful to briefly check out those three sections right now and make a note to give them
-special attention when the time comes. The first section is on [pages 27 and 28](#sec-page27); the second section starts
-at the bottom of [page 31](#sec-page31) and continues to the middle of [page 33](#sec-page33); and the third section is on [page 35](#sec-page35).
+special attention when the time comes. The first section is on [pages 27 and 28](09-different.qmd#sec-page27); the second section starts
+at the bottom of [page 31](09-different.qmd#sec-page27) and continues to the middle of [page 33](11-deming-story.qmd#sec-page33); and the third section is on [page 35](11-deming-story.qmd#sec-page35).
 
 Finally, at the end of the day, there will be your first “Major Activity”. This one will help you to appreciate
 the truth of what might initially appear to be a rather controversial claim, but which is a yet further foundation for much of what will follow. Getting all these foundations firmly in your mind will be extremely helpful
