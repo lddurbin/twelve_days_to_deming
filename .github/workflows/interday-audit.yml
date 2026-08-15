@@ -14,6 +14,7 @@ on:
       - '*.qmd'
       - 'scripts/build-interday-audit.R'
       - 'workflow/inter-day-refs.csv'
+      - 'workflow/bare-page-refs.csv'
       - '.github/workflows/interday-audit.yml'
   # Merge queue: GitHub creates an ephemeral gh-readonly-queue/main/<sha>
   # branch and waits on required checks. We deliberately omit `paths` here so
@@ -62,14 +63,14 @@ jobs:
           "fs", "purrr", "readr", "stringr", "tibble", "tidyr", "dplyr"
         ))
 
-    - name: Regenerate inter-day audit CSV
+    - name: Regenerate inter-day audit CSVs
       run: Rscript scripts/build-interday-audit.R
 
-    - name: Verify CSV is in sync with content
+    - name: Verify CSVs are in sync with content
       run: |
-        if ! git diff --exit-code workflow/inter-day-refs.csv; then
+        if ! git diff --exit-code workflow/inter-day-refs.csv workflow/bare-page-refs.csv; then
           echo ""
-          echo "::error::workflow/inter-day-refs.csv is out of sync with content."
-          echo "::error::Run 'Rscript scripts/build-interday-audit.R' locally and commit the updated CSV."
+          echo "::error::workflow/inter-day-refs.csv or workflow/bare-page-refs.csv is out of sync with content."
+          echo "::error::Run 'Rscript scripts/build-interday-audit.R' locally and commit the updated CSV(s)."
           exit 1
         fi

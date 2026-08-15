@@ -881,6 +881,74 @@ Rscript scripts/build-interday-audit.R
 A 30-item fuzzy-mention spot check is appended at the bottom of the CSV
 (rows with `kind = fuzzy`) to sanity-check the policy before execution.
 
+### Bare page-mention audit (`kind = bare-page`)
+
+Most "page N" prose in the course has no "Day N" or "Appendix" prefix at
+all — Neave's own convention (spelled out in `index.qmd`'s "Page references
+and call-outs" section) is that an unqualified "page N" means page N of
+*whatever you're currently reading*. These bare mentions are structurally
+invisible to the concrete/appendix-page passes above, which both require an
+explicit prefix immediately before "page". `build-interday-audit.R`
+extracts them separately into **`workflow/bare-page-refs.csv`** (a sibling
+file, not merged into `inter-day-refs.csv` — same script, same
+`Rscript scripts/build-interday-audit.R` command, different output shape)
+with a `decision` classification per row:
+
+- **`link`** — an anchor already exists at that page in the source day; add
+  the link.
+- **`anchor-needed`** — no `{#sec-pageN}` anchor exists at that page in the
+  source day; one needs authoring before the link can be added.
+- **`range`** — the mention spans multiple pages (`pages 19–34`); which
+  page(s) to link to is an editorial call, not a mechanical one.
+- **`external-work-candidate`** — the mention likely refers to a page in a
+  *different* book (Neave's own *Out of the Crisis*-style citations,
+  Wheeler, Shewhart, Walton, *DemDim*, BDA Booklets, *Statistics Tables*),
+  triggered by a bracketed alternate-edition page (`page 57*[66]*`) or a
+  book-title/author mention near the page number.
+
+The `external-work-candidate` signature is a triage aid, not a final
+classification — it is deliberately never auto-linked. Two real sites with
+identical surface form and opposite targets:
+
+- `content/days/day-09/02-a-system.qmd` — "Shewhart (1939, page 45)" → external.
+- `content/days/day-01/03-statistics.qmd` — "Wheeler's book mentioned on
+  page 5" → internal (page 5 *of this course*, where the book gets
+  mentioned).
+
+Both get flagged for human confirmation; disambiguating them is a semantic
+judgement call the audit intentionally leaves to a person.
+
+### Page-number units in `workflow/briefs/day-XX-brief.yml`
+
+A chapter-level fallback resolver (link a bare mention to the chapter file
+covering that printed page, per the brief, when no clean anchor point
+exists) needs the 12 briefs' `pages:` fields to mean the same thing. They
+don't, by convention family:
+
+| Family | Days | `pages:` field is... |
+|---|---|---|
+| Printed-page-direct | 1, 2, **7**, 10, 11, 12 | the printed page number itself (Days 10–12 say so explicitly in a header comment; Days 1–2 say "ESTIMATED printed page numbers"; Day 7 does neither — see below) |
+| File/PDF-page | 3, 4, 5, 6, 8, 9 | the source file/PDF page number — subtract 4 (front matter) to get the printed page |
+
+Day 3's header comment documents its own family explicitly
+(`printed_page = pdf_page - 4`). Days 4–6, 8–9 don't have a header comment
+for it, but every chapter's per-chapter notes give both numbers ("File
+pages 8–17 (doc pages 4–13)"), and the `pages:` field matches the *File*
+number in each — confirmed by diffing the YAML value against the notes
+across all chapters in all five files, not just the first.
+
+**Day 7 is the outlier.** Its per-chapter notes use the same "File pages X
+(doc pages Y)" phrasing as Days 4–6/8–9, which reads as the same family —
+but its `pages:` field actually matches the *doc/printed* number, not the
+File number (chapter 1: `pages: "1-2"` against "File pages 5-6 (doc pages
+1-2)" — the YAML value is the doc pair, offset by −4 from File, confirmed
+consistently across every chapter in the file). Day 7 has no header comment
+warning about this, so it silently reads like its File/PDF-page neighbours
+while actually belonging to the printed-page-direct family. Anyone building
+or using a brief-derived resolver must special-case Day 7 (or fix its
+`pages:` fields to match its neighbours) rather than trusting the
+surrounding per-chapter note phrasing.
+
 ---
 
 ## Image Cropping Workflow

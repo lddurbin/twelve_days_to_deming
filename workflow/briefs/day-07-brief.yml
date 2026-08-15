@@ -1,6 +1,14 @@
 # ============================================================
 # Day 7 Brief
 # ============================================================
+# ------ Page Mapping ------
+# Unlike Days 4-6/8-9, the chapters[].pages field below is the DOC/PRINTED
+# page number, not the File/PDF page number, even though the per-chapter
+# notes use the same "File pages X (doc pages Y)" phrasing as those days.
+# printed_page = pages field value; file_page = pages field value + 4.
+# See workflow/PATTERNS.md "Page-number units in workflow/briefs/*.yml" —
+# this was flagged during #614's brief-unit verification as an
+# undocumented inconsistency with its neighbours.
 
 # ------ Day Metadata ------
 day:
