@@ -12,7 +12,7 @@ execute:
 
 ## Introduction
 
-This article that Balaji Reddie has been very keen for me to show you (see his "Contributions" page 33) was the seventh in a series of eight short articles that I drafted around 20 years ago. My title for the series was *SPC—Back to the Future*. I did not submit them for publication to any of the main journals but was content to simply distribute them to members of the British Deming Association. My aim was to help a keen but general audience to develop understanding and confident use of control charts; that audience, of course, included many who had no previous background in Statistics. It will not surprise you therefore to know that there is quite a lot of overlap between the content of some of those articles and parts of the "Optional Extras" section in *12 Days to Deming* including, of course, Part D: the "crash-course in conventional Statistics".
+This article that Balaji Reddie has been very keen for me to show you (see his ["Contributions" page 33, in the Summary to "Some Lessons from History"](contributions-balaji-reddie/06-lessons-from-history.qmd#sec-page33)) was the seventh in a series of eight short articles that I drafted around 20 years ago. My title for the series was *SPC—Back to the Future*. I did not submit them for publication to any of the main journals but was content to simply distribute them to members of the British Deming Association. My aim was to help a keen but general audience to develop understanding and confident use of control charts; that audience, of course, included many who had no previous background in Statistics. It will not surprise you therefore to know that there is quite a lot of overlap between the content of some of those articles and parts of the "Optional Extras" section in *12 Days to Deming* including, of course, Part D: the "crash-course in conventional Statistics".
 
 Part E of the Optional Extras: "Is There *Anything* Normal about Control Charts?" is effectively a rewrite of the sixth of those short articles. That article was titled *Two Superstitions*; quite simply, those two superstitions, both of which were involved with control charts, just do not relate to the "real world". The seventh of the short articles was titled *More Superstitions*. These further superstitions were related not to control charts but, as Balaji has already told you, to the concept of "six-sigma" quality.
 
@@ -138,7 +138,7 @@ Then recall the simple example on [Day 3 page 1](../days/day-03/01-variation-the
 
 I have but a single word for it: absurd.
 
-*(Return to Contributions from Balaji Reddie page 33.)*
+*(Return to [Contributions from Balaji Reddie page 33](contributions-balaji-reddie/06-lessons-from-history.qmd#sec-page33).)*
 
 ## Approvals, Acknowledgments and Information {#sec-page51}
 

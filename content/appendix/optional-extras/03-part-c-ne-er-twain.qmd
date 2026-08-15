@@ -8,13 +8,13 @@ execute:
 
 # PART C: NE'ER THE TWAIN SHALL MEET? {#sec-optional-extras-part-c}
 
-## 1. Introduction
+## 1. Introduction {#sec-optional-extras-page-2}
 
-Well, the twain *may* meet—but there's often a serious problem when they do: neither can understand what the other is talking about! The "twain" to whom I am referring are students from what we might call the Deming/Shewhart school of Statistics on the one hand and from the "conventional" or "traditional" or "mathematical" school of Statistics on the other. As I said as early as [Day 1 page 6](../../days/day-01/02-rediscovered.qmd#sec-page6), and repeated here in the Introduction on page 2:
+Well, the twain *may* meet—but there's often a serious problem when they do: neither can understand what the other is talking about! The "twain" to whom I am referring are students from what we might call the Deming/Shewhart school of Statistics on the one hand and from the "conventional" or "traditional" or "mathematical" school of Statistics on the other. As I said as early as [Day 1 page 6](../../days/day-01/02-rediscovered.qmd#sec-page6), and repeated here in the Introduction on [page 2](03-part-c-ne-er-twain.qmd#sec-optional-extras-page-2):
 
 > "Over the nearly 20 years of my seminars on Dr Deming's teaching I rarely suffered from any 'difficult' delegates. The few that I had could be divided into two types. One type were very senior managers; the other type were those with some qualification in Statistics."
 
-On page 2 I then pointed out that
+On [page 2](03-part-c-ne-er-twain.qmd#sec-optional-extras-page-2) I then pointed out that
 
 > "… the latter were often the more difficult type. That may sound *rather* flippant, but it isn't. It can be very serious. If it happens to you then I want to help you to deal with it. For *you* may not have any qualification in Statistics. So are the people in your organisation likely to believe you or the one who *is* qualified in the subject?".
 
@@ -28,7 +28,7 @@ That is clearly a matter touching upon the very management philosophy and approa
 
 The clear rejection by both Shewhart and Deming of the relevance of the conventional statistician's "lifeblood" of probability calculations and normal distributions in this context have already been evidenced by quotations from both of them that you have seen in the main text. But they surely bear repeating here.
 
-Firstly, there was the extract from *Out of the Crisis* page 286[pages 334–335] that I have just mentioned, and I make no apology for repeating part of the final sentence:
+[]{#sec-optional-extras-page-30}Firstly, there was the extract from *Out of the Crisis* page 286[pages 334–335] that I have just mentioned, and I make no apology for repeating part of the final sentence:
 
 > "It would … be wrong to attach any particular figure to the probability that a statistical signal for detection of a special cause could be wrong, or that the chart could fail to send a signal when a special cause exists. The reason is that no process, except in artificial demonstrations by use of random numbers, is steady, unwavering.
 >
@@ -46,7 +46,7 @@ And finally there was this passionate language from Deming when he was speaking 
 
 ### Two types of "statistical studies"
 
-Assuming you do not have much or any background in conventional Statistics, this section will (like the first section) contain some words, terms and phrases with which you are not familiar. But please read it nonetheless! My purpose here is to provide a broad introductory description of all of the rest of this optional extra material so that you can get an advance taste of things to come. This includes (on page 33) a typical syllabus for an introductory course on conventional Statistics which obviously will indeed include some terms with which you are unfamiliar. But, after reading these current two pages, you will have a good idea of *why* I am introducing them to you. They are mostly "part and parcel" of what the conventional statistician *is* familiar with, and so then you will have a chance of discussing things with him. That will be even more the case if you undertake the "crash-course in conventional Statistics!" that I offer you in Part D.
+Assuming you do not have much or any background in conventional Statistics, this section will (like the first section) contain some words, terms and phrases with which you are not familiar. But please read it nonetheless! My purpose here is to provide a broad introductory description of all of the rest of this optional extra material so that you can get an advance taste of things to come. This includes (on [page 33](03-part-c-ne-er-twain.qmd#sec-optional-extras-page-33)) a typical syllabus for an introductory course on conventional Statistics which obviously will indeed include some terms with which you are unfamiliar. But, after reading these current two pages, you will have a good idea of *why* I am introducing them to you. They are mostly "part and parcel" of what the conventional statistician *is* familiar with, and so then you will have a chance of discussing things with him. That will be even more the case if you undertake the "crash-course in conventional Statistics!" that I offer you in Part D.
 
 But even the conventional statistician will probably not be familiar with some or all of what I shall now introduce—so you're on a level playing-field for the time being! At least, that was my experience with what follows. Maybe a couple of years before I first met Dr Deming, I tried to read some of what he had written about the subject of Statistics. And almost immediately I was faced with terms such as "analytic studies", "enumerative studies" and "frames". All totally new to me.
 
@@ -70,7 +70,7 @@ Note that simply attempting to describe what is in the population (or frame) doe
 
 If books and courses on Statistics were to make clear—maybe not using the same terms, but at least indicating the purpose and limitations—that what they include is designed *only* for enumerative rather than for analytic studies, presumably they would not do much harm. However, if one looks at the examples illustrated in, say, chapters on histograms in introductory Statistics texts, even in the more "practical" ones, it is often the case that they are actually involved not with "populations" but with *processes*, i.e. with their data being generated over time and with a strong likelihood that time-dependence is important. Thus, not only are the purpose and limitations of enumerative studies not *made* clear—it would appear that they are not even *recognised* by many authors and teachers.
 
-### A typical syllabus for an introductory Statistics course
+### A typical syllabus for an introductory Statistics course {#sec-optional-extras-page-33}
 
 To help you understand something of the conventional statistician's mindset, Part D of these Optional Extras will introduce you to some content of a typical introductory Statistics course. But, to prepare you for that pleasure, here is a possible syllabus for such a course. Again it will, of course, contain some terms that are unfamiliar to you—but then that is likely to be true of a syllabus for a course on *any* topic with which you are not already familiar.
 
@@ -85,7 +85,7 @@ There; that's going to be fun, isn't it?
 
 ### The conventional statistician's view of control charts, …
 
-Here is an abbreviated version of Deming's second quotation on page 30:
+Here is an abbreviated version of Deming's second quotation on [page 30](03-part-c-ne-er-twain.qmd#sec-optional-extras-page-30):
 
 > "How can we aim for minimum economic loss? It is *nothing* to do with probabilities of the two kinds of mistakes. No, no, no, no: not at all. … It is not a matter of probability. It is nothing at all to do with how many errors we make on average in 500 trials or 1,000 trials. No, no, no—it can't be done that way."
 
@@ -99,7 +99,7 @@ But, before that, it is worth making the intriguing and salutary point that Shew
 
 ![Shewhart's 1924 control chart — "the very first control chart" — with guidelines placed at just one standard deviation either side of the Central Line and the indication "68% *p*" written against them.](/assets/images/optional-extras/shewhart-1924-chart.png){.lightbox}
 
-Yet, despite this, Shewhart was open-minded enough to eventually see the error of this mode of thinking. His statement on page 30 (sandwiched between the two quotations from Dr Deming) was clearly autobiographical!
+Yet, despite this, Shewhart was open-minded enough to eventually see the error of this mode of thinking. His statement on [page 30](03-part-c-ne-er-twain.qmd#sec-optional-extras-page-30) (sandwiched between the two quotations from Dr Deming) was clearly autobiographical!
 
 ### … and what can be done about it {#sec-optional-extras-page-35}
 
@@ -108,7 +108,7 @@ Substantially, the conventional statistician's case for requiring normality to m
 - because control-chart constants that are used in computation of control limits, such as the 2.66 with which we became familiar on Day 3, are derived from normal distribution theory (as indeed they are); and
 - so that a *probability interpretation* can be given to control limits: specifically, the claim is often made that, under normality, there is a probability of 0.0027 (i.e. 0.27%) that any particular data-point falls outside Shewhart's 3σ-limits (note that 0.27% = 2 × 0.135% when you look at [page 49](04-part-d-crash-course.qmd#sec-optional-extras-page-49)) if the process is in statistical control.
 
-Now again, any acceptance of Shewhart's and Deming's teachings immediately leads to the denial of the conventional statistician's claims in both of these respects. The *"fortunate and remarkable"* facts alluded to on the previous page are however that, even if we *ignore* what Shewhart and Deming said about both normality and probability interpretations (recall, in particular, page 30), the above claims are *still* demonstrably wrong! In other words, we are able to wade right into the conventional statistician's camp, onto ground which both Shewhart and Deming believed to be without foundation yet which the conventional statistician needs to have faith in (for all that he has learned is built upon it), and to talk to him in language which he both understands and accepts (even if we don't), and to *still* produce evidence which disproves his beliefs!!
+[]{#sec-optional-extras-page-34}Now again, any acceptance of Shewhart's and Deming's teachings immediately leads to the denial of the conventional statistician's claims in both of these respects. The *"fortunate and remarkable"* facts alluded to on the previous page are however that, even if we *ignore* what Shewhart and Deming said about both normality and probability interpretations (recall, in particular, [page 30](03-part-c-ne-er-twain.qmd#sec-optional-extras-page-30)), the above claims are *still* demonstrably wrong! In other words, we are able to wade right into the conventional statistician's camp, onto ground which both Shewhart and Deming believed to be without foundation yet which the conventional statistician needs to have faith in (for all that he has learned is built upon it), and to talk to him in language which he both understands and accepts (even if we don't), and to *still* produce evidence which disproves his beliefs!!
 
 That evidence is demonstrated in [Part E on pages 65–70](05-part-e-normality.qmd#sec-optional-extras-page-65).
 
