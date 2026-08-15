@@ -327,13 +327,19 @@ mark_excluded_block <- function(text) {
   excluded
 }
 
-# Replace each Markdown link span (visible text + URL) with same-length
-# spaces so a "page N" inside link text never matches, while every other
-# character keeps its original position — needed below for the
+# Replace each Markdown link span (visible text + URL/reference) with
+# same-length spaces so a "page N" inside link text never matches, while
+# every other character keeps its original position — needed below for the
 # proximity-window signature check, which reads back into the un-masked
-# `text` at positions found in `text_masked`.
+# `text` at positions found in `text_masked`. Covers both inline links
+# ([text](url)) and reference-style links ([text][ref] / [text][]); the
+# corpus has zero reference-style links today (checked), but the guard is
+# cheap and keeps that true if editorial practice ever changes.
 mask_links_same_length <- function(text) {
-  spans <- gregexpr("\\[[^\\]\n]*\\]\\([^)\n]*\\)", text, perl = TRUE)
+  spans <- gregexpr(
+    "\\[[^\\]\n]*\\]\\([^)\n]*\\)|\\[[^\\]\n]*\\]\\[[^\\]\n]*\\]",
+    text, perl = TRUE
+  )
   regmatches(text, spans) <- lapply(regmatches(text, spans), function(x) strrep(" ", nchar(x)))
   text
 }
@@ -433,7 +439,22 @@ bare_page <- bare_page |>
       anchor_present == "Y" ~ "link",
       .default = "anchor-needed"
     ),
+    # A row can be both external_candidate and is_range at once (e.g. "pages
+    # 314-315" of Out of the Crisis) — decision collapses that to
+    # external-work-candidate since human review is warranted regardless,
+    # but notes still needs to say so, or a reviewer has to notice
+    # target_page_end is populated rather than being told directly.
     notes = case_when(
+      external_candidate & is_range & bracket_signature ~
+        sprintf(
+          "external-book candidate (also spans pages %s-%s): bracketed alternate-edition page",
+          target_page, target_page_end
+        ),
+      external_candidate & is_range ~
+        sprintf(
+          "external-book candidate (also spans pages %s-%s): book-title/author match nearby",
+          target_page, target_page_end
+        ),
       external_candidate & bracket_signature ~
         "external-book candidate: bracketed alternate-edition page",
       external_candidate ~
