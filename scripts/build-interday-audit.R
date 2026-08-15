@@ -591,10 +591,12 @@ print(out |>
 # ---------------------------------------------------------------------------
 #
 # Kept separate from inter-day-refs.csv rather than appended to it: this is
-# a same-day triage list of a fundamentally different shape (557-ish rows
-# needing a decision = link/anchor-needed/range/external-work-candidate
-# judgement call, vs. inter-day-refs.csv's already-resolved concrete refs),
-# and Phase 2's per-day content issues consume it as their own work list.
+# a same-day triage list of a fundamentally different shape (every row
+# needs a decision = link/anchor-needed/range/external-work-candidate
+# judgement call, vs. inter-day-refs.csv's already-resolved concrete refs —
+# exact row count is printed below, not hardcoded here so this comment
+# can't go stale), and Phase 2's per-day content issues consume it as
+# their own work list.
 
 bare_page_out <- bare_page |> arrange(source_file, source_line)
 
