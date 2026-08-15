@@ -53,7 +53,7 @@ If you would like to study more on this, I strongly recommend Chapter 1 of *The 
 
 ## PAUSE FOR THOUGHT 9–d
 
-How would you describe the relationship between Shewhart's diagram of the "New Way" (refer back to the diagram on page 3 and also to your thoughts on page 4) with Deming's "Production (or Organisation) Viewed as a System" flow diagram on page 2? And what might that tell you about the *purpose* of Deming's flow diagram?
+How would you describe the relationship between Shewhart's diagram of the "New Way" (refer back to the diagram on [page 3, where Shewhart's diagram appears](02-a-system.qmd#sec-page3) and also to your thoughts on [page 4, where the Pauses for Thought appear](02-a-system.qmd#sec-page4)) with Deming's "Production (or Organisation) Viewed as a System" flow diagram on [page 2, Deming's flow diagram](02-a-system.qmd#sec-page2)? And what might that tell you about the *purpose* of Deming's flow diagram?
 
 ```{ojs}
 viewof thought_9d = persist(
@@ -102,7 +102,7 @@ More generally, if things do not seem to be working well in some part of an orga
 
 Dave Young showed me a couple of excellent comparisons between the two types of organisation chart that friends had suggested to him. First: "The traditional organisation chart is a pyramid, it points upward, to the boss, to the shareholder. Deming's chart points horizontally, to the consumer, to the customer." And second: "The traditional organisation chart tells us a lot about who reports to whom, but absolutely nothing about what the organisation actually does."
 
-Also, Alan Hodges pointed out to me that Deming's helix diagram (see page 6) has been adopted in the international standards ISO 14001 (Environment) and ISO 18001 (Management of Health and Safety).
+Also, Alan Hodges pointed out to me that Deming's helix diagram (see [page 6, the helix figure](02-a-system.qmd#sec-page6)) has been adopted in the international standards ISO 14001 (Environment) and ISO 18001 (Management of Health and Safety).
 
 When I first heard Deming's term "flow diagram", I did realise that he wasn't saying what I was familiar with, i.e. "flow chart", but I didn't realise the importance of the difference straightaway. "John" (of Day 7 fame!) wrote to me at some length about this; here is part of what he said:
 
