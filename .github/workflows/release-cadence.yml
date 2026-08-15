@@ -1,0 +1,167 @@
+name: Release Cadence (Weekly)
+
+permissions:
+  contents: read
+  issues: write
+
+on:
+  schedule:
+    # Monday 06:00 UTC = Monday 18:00 NZT, same slot as link-check's weekly
+    # report so both cadence nudges land together at the start of the NZ
+    # work week.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  release-cadence:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    # Pure read of docs/changesets/ — never touches CHANGELOG.md or runs
+    # cut-release.sh. Entry filenames are `YYYY-MM-DD-slug.md` (see
+    # docs/changesets/README.md), so the date prefix sorts and diffs
+    # lexicographically without needing to parse file contents.
+    - name: Check pending changeset count and age
+      id: check
+      run: |
+        set -euo pipefail
+
+        shopt -s nullglob
+        ALL_FILES=(docs/changesets/*.md)
+        shopt -u nullglob
+
+        ENTRIES=()
+        for f in "${ALL_FILES[@]}"; do
+          [[ "$(basename "$f")" == "README.md" ]] && continue
+          ENTRIES+=("$f")
+        done
+        COUNT=${#ENTRIES[@]}
+
+        OLDEST_DATE=""
+        for f in "${ENTRIES[@]}"; do
+          date_part="$(basename "$f" | cut -c1-10)"
+          if [[ -z "$OLDEST_DATE" || "$date_part" < "$OLDEST_DATE" ]]; then
+            OLDEST_DATE="$date_part"
+          fi
+        done
+
+        AGE_DAYS=0
+        if [[ -n "$OLDEST_DATE" ]]; then
+          AGE_DAYS=$(( ( $(date -u +%s) - $(date -u -d "$OLDEST_DATE" +%s) ) / 86400 ))
+        fi
+
+        # Defaults picked to match the cadence observed since the changeset
+        # workflow launched (#602): releases have been cut roughly every
+        # 1-2 weeks, with 3-10 entries accumulating in that window.
+        COUNT_THRESHOLD=5
+        AGE_THRESHOLD_DAYS=14
+
+        FLAG=0
+        if [[ "$COUNT" -ge "$COUNT_THRESHOLD" ]] || [[ "$AGE_DAYS" -ge "$AGE_THRESHOLD_DAYS" ]]; then
+          FLAG=1
+        fi
+
+        {
+          echo "count=$COUNT"
+          echo "oldest_date=$OLDEST_DATE"
+          echo "age_days=$AGE_DAYS"
+          echo "flag=$FLAG"
+          echo "entries<<EOF"
+          for f in "${ENTRIES[@]}"; do
+            echo "- $(basename "$f")"
+          done
+          echo "EOF"
+        } >> "$GITHUB_OUTPUT"
+
+    # Informational only: opens/updates a tracking issue when the threshold
+    # is crossed. Never invokes scripts/cut-release.sh or edits
+    # CHANGELOG.md — cutting a release stays an explicit, reviewed action.
+    - name: Open or update tracking issue
+      if: steps.check.outputs.flag == '1'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_REPO: ${{ github.repository }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        COUNT: ${{ steps.check.outputs.count }}
+        OLDEST_DATE: ${{ steps.check.outputs.oldest_date }}
+        AGE_DAYS: ${{ steps.check.outputs.age_days }}
+        ENTRIES: ${{ steps.check.outputs.entries }}
+      run: |
+        set -euo pipefail
+
+        TITLE="[release-cadence] docs/changesets/ ready for a release cut"
+
+        REPORT=$(mktemp)
+        {
+          echo "## Run $(date -u +'%Y-%m-%d %H:%M UTC')"
+          echo ""
+          echo "**${COUNT}** pending entries in \`docs/changesets/\`, oldest dated **${OLDEST_DATE}** (${AGE_DAYS} days ago)."
+          echo ""
+          echo "$ENTRIES"
+          echo ""
+          echo "This is informational only — nothing was changed. To cut a release:"
+          echo '```sh'
+          echo './scripts/cut-release.sh <version>'
+          echo '```'
+          echo ""
+          echo "Workflow run: ${RUN_URL}"
+        } > "$REPORT"
+
+        # $title below is a jq --arg binding, not a shell variable — it must
+        # stay unexpanded inside the single quotes.
+        # shellcheck disable=SC2016
+        EXISTING=$(gh issue list \
+          --state open \
+          --search "in:title \"${TITLE}\"" \
+          --json number,title \
+          --jq --arg title "$TITLE" '[.[] | select(.title == $title)][0].number // empty')
+
+        if [ -n "${EXISTING}" ]; then
+          echo "Updating existing tracking issue #${EXISTING}"
+          gh issue comment "${EXISTING}" --body-file "$REPORT"
+        else
+          echo "Opening new tracking issue"
+          gh issue create \
+            --title "${TITLE}" \
+            --body-file "$REPORT" \
+            --label "maintainability" \
+            --label "github_actions" \
+            --label "severity: low"
+        fi
+
+    # Count/age are recomputed fresh each run, so once a release cut brings
+    # both back under threshold, close out any nudge left open from before —
+    # otherwise it sits open indefinitely misreporting the current state.
+    - name: Close stale tracking issue
+      if: steps.check.outputs.flag == '0'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_REPO: ${{ github.repository }}
+      run: |
+        set -euo pipefail
+
+        TITLE="[release-cadence] docs/changesets/ ready for a release cut"
+
+        # $title below is a jq --arg binding, not a shell variable — it must
+        # stay unexpanded inside the single quotes.
+        # shellcheck disable=SC2016
+        EXISTING=$(gh issue list \
+          --state open \
+          --search "in:title \"${TITLE}\"" \
+          --json number,title \
+          --jq --arg title "$TITLE" '[.[] | select(.title == $title)][0].number // empty')
+
+        if [ -n "${EXISTING}" ]; then
+          echo "Closing #${EXISTING} — pending changesets back under threshold"
+          gh issue comment "${EXISTING}" --body "Pending changeset count/age dropped back under threshold (likely a release was cut). Closing."
+          gh issue close "${EXISTING}"
+        else
+          echo "No open tracking issue to close."
+        fi
