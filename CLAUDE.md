@@ -155,3 +155,14 @@ The project's only release before this workflow existed is
 [`v0.1.0`](https://github.com/lddurbin/twelve_days_to_deming/releases/tag/v0.1.0)
 (2026-04-27, "Course Complete"), cut by hand from a manually assembled PR
 list. `CHANGELOG.md` is seeded with that release's notes as a baseline.
+
+There's deliberately no automated trigger for *when* to cut a release —
+that stays a judgment call. What there is instead is a nudge:
+`.github/workflows/release-cadence.yml` runs weekly (same slot as
+`link-check`) and opens/updates a tracking issue titled
+`[release-cadence] docs/changesets/ ready for a release cut` once pending
+entries in `docs/changesets/` cross 5 files or the oldest entry is 14+
+days old. It's read-only — it never runs `cut-release.sh` or touches
+`CHANGELOG.md` — and it closes that issue automatically on a later run
+once the count/age drops back under threshold (i.e. once someone cuts a
+release). See [#608](https://github.com/lddurbin/twelve_days_to_deming/issues/608).
