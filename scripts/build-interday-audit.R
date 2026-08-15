@@ -1,10 +1,15 @@
 #!/usr/bin/env Rscript
 # build-interday-audit.R
 #
-# Regenerates workflow/inter-day-refs.csv — the authoritative list of every
-# "Day N page M" reference in content/ and a 30-item fuzzy-mention sample.
+# Regenerates two CSVs:
+#   - workflow/inter-day-refs.csv — every "Day N page M" and "Appendix
+#     page N" reference in content/, plus a 30-item fuzzy-mention sample.
+#   - workflow/bare-page-refs.csv — every same-day bare "page N" / "pages
+#     N-M" mention in content/ (no "Day N"/"Appendix" prefix), classified
+#     into a decision: link, anchor-needed, range, or
+#     external-work-candidate.
 #
-# Policy for this audit and its columns is documented in
+# Policy for both audits and their columns is documented in
 # workflow/PATTERNS.md under "Inter-Day Cross-References".
 #
 # Usage (from repo root):
@@ -25,6 +30,7 @@ set.seed(199)
 repo_root <- fs::path_wd()
 content_dir <- fs::path(repo_root, "content")
 out_csv <- fs::path(repo_root, "workflow", "inter-day-refs.csv")
+bare_page_csv <- fs::path(repo_root, "workflow", "bare-page-refs.csv")
 
 # ---------------------------------------------------------------------------
 # 1. Gather every .qmd file and its lines
@@ -255,6 +261,236 @@ appendix_page <- extract_matches(
   )
 
 # ---------------------------------------------------------------------------
+# 3c. Extract bare "page N" / "pages N-M" mentions (#614)
+# ---------------------------------------------------------------------------
+#
+# Bare mentions are same-day/same-file page references with no "Day N" or
+# "Appendix" prefix — invisible to the two passes above, which both require
+# that explicit prefix immediately before "page". Two things must not be
+# double-counted here: (a) a "page N" already claimed by "Day N " or
+# "Appendix " immediately before it (excluded via negative lookbehind in
+# bare_pattern below), and (b) a "page N" that is already the visible text
+# of a Markdown link (masked out below, not re-flagged as unlinked).
+#
+# Per the #582 spike, roughly a third of bare mentions are page references
+# into a *different* book — Neave's own Out of the Crisis-style citations,
+# Wheeler, Shewhart, Walton, DemDim, BDA Booklets, Statistics Tables — not
+# this course. Two signatures triage most of them: a bracketed
+# alternate-edition page (`page 57*[66]*`) and a book-title/author mention
+# near the page number. Neither is reliable enough to *finish* the
+# classification — "Shewhart (1939, page 45)" is external while "Wheeler's
+# book mentioned on page 5" is internal, identical surface form, opposite
+# target — so a signature hit only ever produces `decision =
+# external-work-candidate` for human confirmation; it is never auto-linked.
+#
+# This pass is scoped to content/**/*.qmd only (not the root-level .qmd
+# pages concrete/appendix-page/fuzzy above also scan), matching the scope
+# the spike counted against.
+
+# YAML front matter and fenced code blocks are excluded here — bare "page N"
+# turns up in ordinary prose in a way "Day N page M" rarely does in YAML or
+# code, so the false-positive risk is real in a way it wasn't for the
+# stricter prefixed patterns above. This mirrors an ordinary Markdown
+# parser's block model rather than reimplementing one: track "inside the
+# leading `---` front matter" and "inside a ``` fence" as we walk each
+# file's lines in order.
+mark_excluded_block <- function(text) {
+  n <- length(text)
+  excluded <- logical(n)
+  in_yaml <- FALSE
+  in_fence <- FALSE
+  yaml_started <- FALSE
+  for (i in seq_len(n)) {
+    line <- text[i]
+    if (!yaml_started && i == 1L && str_detect(line, "^---\\s*$")) {
+      in_yaml <- TRUE
+      yaml_started <- TRUE
+      excluded[i] <- TRUE
+      next
+    }
+    if (in_yaml) {
+      excluded[i] <- TRUE
+      if (str_detect(line, "^---\\s*$")) in_yaml <- FALSE
+      next
+    }
+    if (str_detect(line, "^```")) {
+      excluded[i] <- TRUE
+      in_fence <- !in_fence
+      next
+    }
+    if (in_fence) {
+      excluded[i] <- TRUE
+      next
+    }
+    excluded[i] <- FALSE
+  }
+  excluded
+}
+
+# Replace each Markdown link span (visible text + URL/reference) with
+# same-length spaces so a "page N" inside link text never matches, while
+# every other character keeps its original position — needed below for the
+# proximity-window signature check, which reads back into the un-masked
+# `text` at positions found in `text_masked`. Covers both inline links
+# ([text](url)) and reference-style links ([text][ref] / [text][]); the
+# corpus has zero reference-style links today (checked), but the guard is
+# cheap and keeps that true if editorial practice ever changes.
+mask_links_same_length <- function(text) {
+  spans <- gregexpr(
+    "\\[[^\\]\n]*\\]\\([^)\n]*\\)|\\[[^\\]\n]*\\]\\[[^\\]\n]*\\]",
+    text, perl = TRUE
+  )
+  regmatches(text, spans) <- lapply(regmatches(text, spans), function(x) strrep(" ", nchar(x)))
+  text
+}
+
+bare_source <- all_lines |>
+  dplyr::filter(str_detect(source_file, "^content/")) |>
+  group_by(source_file) |>
+  mutate(excluded_block = mark_excluded_block(text)) |>
+  ungroup() |>
+  dplyr::filter(!excluded_block) |>
+  mutate(
+    text_masked = mask_links_same_length(text),
+    .row_id = dplyr::row_number()
+  )
+
+# Matches "page"/"pages", singular mention or a range (hyphen, en dash, or
+# em dash). The lookbehind excludes anything the concrete/appendix-page
+# passes above already own — "Day N page(s) ..." and "Appendix page(s)
+# ..." — including their plural forms, which those two passes don't
+# themselves match (they only match singular "page").
+bare_pattern <- "(?<![Dd]ay\\s[0-9]{1,3}\\s)(?<!Appendix\\s)\\bpages?\\s+[0-9]+(?:\\s*[-–—]\\s*[0-9]+)?\\b"
+
+bare_locs <- str_locate_all(bare_source$text_masked, bare_pattern)
+bare_rows <- purrr::map2(
+  seq_len(nrow(bare_source)), bare_locs,
+  function(i, loc) {
+    if (nrow(loc) == 0L) return(NULL)
+    tibble(.row_id = bare_source$.row_id[i], .start = loc[, 1], .end = loc[, 2])
+  }
+)
+
+bare_page <- dplyr::bind_rows(bare_rows) |>
+  dplyr::left_join(
+    bare_source |> select(.row_id, source_file, source_line, text),
+    by = ".row_id"
+  ) |>
+  mutate(match_text = str_sub(text, .start, .end))
+
+page_nums <- str_match(bare_page$match_text, "([0-9]+)\\s*(?:[-–—]\\s*([0-9]+))?\\s*$")
+bare_page <- bare_page |>
+  mutate(
+    target_page = as.integer(page_nums[, 2]),
+    target_page_end = suppressWarnings(as.integer(page_nums[, 3])),
+    is_range = !is.na(target_page_end)
+  )
+
+# Book-title / author signatures identified in the #582 spike, checked
+# within a character window around the match rather than across the whole
+# line — a long paragraph can reference more than one source, and a
+# whole-line check would let one signature word poison every page mention
+# in it.
+external_book_signatures <- c(
+  "Out of the Crisis", "The New Economics", "DemDim", "Deming Dimension",
+  "Quality, Productivity, and Competitive Position",
+  "Statistics Tables", "Advanced Topics in Statistical Process Control",
+  "The World of W Edwards Deming", "Kilian.s", "BDA Booklet",
+  "Deming A5 Booklet", "Punished by Rewards", "Wheeler.s", "Shewhart",
+  "Walton.s", "Scherkenbach", "her book", "his book", "my book",
+  "her biography", "his biography", "\\*ST\\*", "\\*EST\\*"
+)
+book_signature_pattern <- str_c("(", str_c(external_book_signatures, collapse = "|"), ")")
+signature_window <- 80L
+
+bare_page <- bare_page |>
+  mutate(
+    .win_start = pmax(1L, .start - signature_window),
+    .win_end = pmin(str_length(text), .end + signature_window),
+    .window = str_sub(text, .win_start, .win_end),
+    .tail = str_sub(text, .end + 1L, pmin(str_length(text), .end + 10L)),
+    bracket_signature = str_detect(
+      .tail, "^\\s*\\*?\\[(?:pages?\\s*)?[0-9]+(?:[-–—][0-9]+)?\\]\\*?"
+    ),
+    book_title_signature = str_detect(.window, regex(book_signature_pattern, ignore_case = TRUE)),
+    external_candidate = bracket_signature | book_title_signature
+  )
+
+# Same-day anchor lookup, exactly as the concrete pass above — but
+# target_day is only meaningful for content/days/day-NN/ files. Appendix
+# page numbering is global across the appendix (see 3b), so an appendix
+# source file never gets a target_day here, matching kind = appendix-page.
+bare_page <- bare_page |>
+  mutate(
+    target_day = suppressWarnings(as.integer(
+      str_match(source_file, "^content/days/day-([0-9]+)/")[, 2]
+    )),
+    day_dir = str_extract(source_file, "(content/days/day-[0-9]+|content/appendix)")
+  ) |>
+  left_join(anchors_by_day, by = c("day_dir" = "day_dir", "target_page" = "target_page")) |>
+  mutate(anchor_present = if_else(!is.na(target_file), "Y", "N"))
+
+bare_page <- bare_page |>
+  mutate(
+    kind = "bare-page",
+    decision = case_when(
+      external_candidate ~ "external-work-candidate",
+      is_range ~ "range",
+      anchor_present == "Y" ~ "link",
+      .default = "anchor-needed"
+    ),
+    # A row can be both external_candidate and is_range at once (e.g. "pages
+    # 314-315" of Out of the Crisis) — decision collapses that to
+    # external-work-candidate since human review is warranted regardless,
+    # but notes still needs to say so, or a reviewer has to notice
+    # target_page_end is populated rather than being told directly.
+    notes = case_when(
+      external_candidate & is_range & bracket_signature ~
+        sprintf(
+          "external-book candidate (also spans pages %s-%s): bracketed alternate-edition page",
+          target_page, target_page_end
+        ),
+      external_candidate & is_range ~
+        sprintf(
+          "external-book candidate (also spans pages %s-%s): book-title/author match nearby",
+          target_page, target_page_end
+        ),
+      external_candidate & bracket_signature ~
+        "external-book candidate: bracketed alternate-edition page",
+      external_candidate ~
+        "external-book candidate: book-title/author match nearby",
+      is_range ~
+        sprintf(
+          "spans pages %s-%s, needs editorial judgement on link target",
+          target_page, target_page_end
+        ),
+      !is.na(n_candidates) & n_candidates > 1 ~
+        sprintf("multiple candidate anchors: %s", target_file),
+      .default = NA_character_
+    ),
+    context = str_trim(text),
+    context = if_else(
+      str_length(context) > 200,
+      paste0(str_sub(context, 1, 197), "..."),
+      context
+    )
+  ) |>
+  select(
+    kind,
+    source_file,
+    source_line,
+    match_text,
+    target_day,
+    target_page,
+    target_page_end,
+    target_file,
+    anchor_present,
+    decision,
+    notes,
+    context
+  )
+
+# ---------------------------------------------------------------------------
 # 4. 30-item fuzzy-mention sample
 # ---------------------------------------------------------------------------
 #
@@ -349,6 +585,32 @@ message("Decision distribution for appendix-page refs:")
 print(out |>
   dplyr::filter(kind == "appendix-page") |>
   count(anchor_present, decision, name = "n"))
+
+# ---------------------------------------------------------------------------
+# 5b. Write the bare-page-refs sibling CSV (#614)
+# ---------------------------------------------------------------------------
+#
+# Kept separate from inter-day-refs.csv rather than appended to it: this is
+# a same-day triage list of a fundamentally different shape (every row
+# needs a decision = link/anchor-needed/range/external-work-candidate
+# judgement call, vs. inter-day-refs.csv's already-resolved concrete refs —
+# exact row count is printed below, not hardcoded here so this comment
+# can't go stale), and Phase 2's per-day content issues consume it as
+# their own work list.
+
+bare_page_out <- bare_page |> arrange(source_file, source_line)
+
+fs::dir_create(fs::path_dir(bare_page_csv))
+write_csv(bare_page_out, bare_page_csv, na = "")
+
+message(sprintf(
+  "Wrote %s — %d bare-page mentions.",
+  fs::path_rel(bare_page_csv, repo_root),
+  nrow(bare_page_out)
+))
+
+message("Decision distribution for bare-page refs:")
+print(bare_page_out |> count(decision, name = "n"))
 
 # ---------------------------------------------------------------------------
 # 6. Validate every markdown link containing '#sec-' (#613)
