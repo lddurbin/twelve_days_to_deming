@@ -99,7 +99,7 @@ are in practice. Second, I’ll remind you of something I mentioned on page 7 of
 “process behaviour chart” is an alternative term for “control chart” which nowadays is preferred by many
 people who use the chart for the purposes relevant to Dr Deming’s teaching. Indeed, I also have generally used it in recent years because, compared with usual interpretations of the word “control”, it describes much better why the chart is so useful. The reason I’m calling it a control chart in this course is
 that I shall be including many direct quotations from both Drs Deming and Shewhart. Naturally, they used
-the traditional language, and so, similarly to something that I said on page 5, it didn’t seem sensible here to
+the traditional language, and so, similarly to something that I said on [page 5](03-statistics.qmd#sec-page5), it didn’t seem sensible here to
 keep flitting between alternative terms for the same thing.</span>
 
 ## The two paradoxes {#sec-page7}
@@ -172,7 +172,7 @@ charts once they are drawn, and then how to proceed intelligently on the basis o
 
 On the other hand, you may of course *wish* to learn a little more or even a lot more about control charts. In
 that case I’ll mention three possibilities which will enable you to go “beyond the basics”, in addition to Don
-Wheeler’s book mentioned on page 5. The first is a small number of “Technical Aids” that appear in the
+Wheeler’s book mentioned on [page 5](03-statistics.qmd#sec-page5). The first is a small number of “Technical Aids” that appear in the
 material for Days 2 and 3. These will enable you to construct the control charts yourself rather than just
 use charts which other people have drawn up. The second possibility is an article which is freely available
 on the internet. Some time ago I was encouraged by a freelance writer named Mitch Beedie to write an
@@ -269,8 +269,9 @@ side as you are already seeing today, while the clock icons for Stats-level 0 wi
 
 ----------------------------------------------------------------------------
 
+[]{#sec-page10}
 That finishes this section; so now, if you wish, take a little time out to read my discussion in the Appendix
-on the former of the two paradoxes (which I described on page 7): I hope it will shed some light on the
+on the former of the two paradoxes (which I described on [page 7](03-statistics.qmd#sec-page7)): I hope it will shed some light on the
 mystery. But, again: that discussion is *only* intended for those who are puzzled by the paradox. If instead
 you are simply content (and relieved!) by what the paradox has told you then please don’t bother with this
 extra reading—just carry straight on. Also, the discussion on the first paradox is likely to be of greatest

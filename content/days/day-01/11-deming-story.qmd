@@ -52,8 +52,7 @@ People in the Western Electric Company at that time were heavily involved in the
 technology and related equipment. They were investing massively to increase their knowledge and ability.
 Their improvement efforts paid handsome dividends for a considerable time. But gradually that improvement activity began to “run out of steam”: it was achieving less and less. They were still working as hard if
 not harder than before, spending much money, time, effort, and probably emotion (for improvement can
-get to you like that) on trying to make things better. Deming told the story during a presentation in Versailles, France in 1989 (which has already been introduced in the optional excursion into the Appendix from
-page 10). Here are two extracts (part of which you’ve already seen on page 18) from his account, and from
+get to you like that) on trying to make things better. Deming told the story during a presentation in Versailles, France in 1989 (which has already been introduced in the optional excursion into the Appendix from [page 10, in the Control Charts in This Course section](03-statistics.qmd#sec-page10)). Here are two extracts (part of which you’ve already seen on [page 18, in this morning’s course outline](06-outline.qmd#sec-page18)) from his account, and from
 which we shall quote more fully on Day 3:
 
 ><span class=deming_quote>“ ... the harder they tried, the worse were the effects. The more they tried to shrink variation, the
@@ -146,7 +145,7 @@ on the manufacturing “shop floor” and in administration processes and paperw
 This is a bad mistake. They are, of course, very important in such contexts. But in a table on page
 27[37] of his final book: *The New Economics for Industry, Government, Education*, Dr Deming made
 the observation that only 3% of the potential gains from the “statistical control of quality”, i.e. acting
-based on understanding of the causes of variation, come from such areas. (<span class=neave_note>Recall from page 12 that
+based on understanding of the causes of variation, come from such areas. (<span class=neave_note>Recall from [page 12, in the Helpful Books and Videos section](04-resources.qmd#sec-page12) that
 those page numbers refer to page 27 of the Third Edition and page 37 of the Second Edition.</span>) He described
 the application of the statistical control of quality to overall business strategy and companywide
 systems such as personnel, training, purchasing, legal and financial matters etc, i.e. to the *management* of the organisation, as:
@@ -273,7 +272,7 @@ has many entries for the 1950s, fewer for the 1960s, and then only two for the 1
 Argentina in 1971 and, interestingly, that he was a consultant to the China Productivity Centre in Taiwan in
 1970 and 1971. And then: nothing. A vacuum.
 
-Wasted years. But wasted years which, as we saw on page 2, thankfully ended when Bill Conway sought
+Wasted years. But wasted years which, as we saw on [page 2, in the Deming Prize and the Nashua Corporation section](02-rediscovered.qmd#sec-page2), thankfully ended when Bill Conway sought
 him out in 1979.
 
 ## The 1980s (first half): The West awakens {#sec-page37}
@@ -359,8 +358,7 @@ first heard what is surely an extraordinary phrase:
 Extraordinary, yes—yet valid. This was his attempt, sometimes with the wisdom of hindsight, to summarise
 the core, the guts, the essence of his whole life’s work. His work *is* to do with knowledge, understanding,
 learning—no kidding! And it *is* profound, it *is* deep—it’s not superficial. Its *implications* are also profound.
-And it *is* a “system” in an exactly analogous way to how he wanted us to consider *organisations* as systems, as implied by that 1950 flow diagram which we saw as the first in his “Summary of Teachings” on
-page 35. In the way that he used the word, a “system” contains many, many components, but its *strength*
+And it *is* a “system” in an exactly analogous way to how he wanted us to consider *organisations* as systems, as implied by that 1950 flow diagram which we saw as the first in his “Summary of Teachings” on [page 35](11-deming-story.qmd#sec-page35). In the way that he used the word, a “system” contains many, many components, but its *strength*
 lies in the understanding of how all of those components fit together, how they interlink, how they interdepend, how they integrate, and how they may help or hinder each other.
 
 :::: {.columns}
