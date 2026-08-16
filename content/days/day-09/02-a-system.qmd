@@ -33,7 +33,7 @@ The famous "Organisation Viewed as a System" flow sketch — the same diagram De
 
 Note that, with his usual precise choice of words, Deming does not write "Customers" at the right-hand side of this diagram, but "Consumers". "Customer-Supplier Relationships" is an often-used phrase. However, the "customer" strictly refers to who *pays* for what is being bought rather than necessarily who *uses* it. Clearly it is the experience of, and information from, the *consumer* that is needed to aid the improvement implicit in the use of the flow diagram.
 
-### What ignited Japan?
+### What ignited Japan? {#sec-page3}
 
 But there was certainly no doubt about the importance of the flow diagram in Deming's teaching later on. I'll refer here to a meeting held at the Queen Elizabeth Conference Centre, London in July 1990 that was jointly arranged by the European Federation for Quality Management and the British Deming Association. It was attended by top management representatives of around 20 "big-name" European companies. To those senior executives, Dr Deming simply said of the "Organisation Viewed as a System" flow diagram:
 
@@ -72,7 +72,7 @@ Were there a prize for the best-ever combination of simple and profound, this wo
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## PAUSE FOR THOUGHT 9–a
+## PAUSE FOR THOUGHT 9–a {#sec-page4}
 
 So what is the important difference between the "Old Way" and the "New Way"?
 
@@ -151,6 +151,8 @@ And having done that, with the resulting change in thought and action, he now ob
 > "The three steps constitute a dynamic scientific process of acquiring knowledge."
 
 A dynamic scientific process of acquiring knowledge! Rather different from *done; finished; gone!* And this was back in 1939---hardly "rocket science"! But eminently profound. No wonder Dr Deming always spoke of Walter Shewhart with such warmth and gratitude.
+
+[]{#sec-page6}
 
 After referencing Shewhart's work just described, on *Out of the Crisis* pages 154–155[180–181] Dr Deming then goes on in his Figure 9 to reproduce the same concepts with some different words: simpler ones for the "Old Way" and a crucial expansion of the "New Way":
 
