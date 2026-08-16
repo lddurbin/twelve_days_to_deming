@@ -7,12 +7,15 @@
 #        ./scripts/verify-deployment.sh https://deming.leedurbin.co.nz _book
 #
 # Environment:
-#   VERIFY_PATHS   space-separated URL paths to check, replacing the default
-#                  set below — e.g. VERIFY_PATHS="/ /privacy.html"
-#   ATTEMPTS       attempts per URL before failing (default 3)
-#   RETRY_DELAY    seconds between attempts (default 5)
-#   CACHE_BUST     token appended as ?v=… to defeat the proxy cache
-#                  (default: timestamp-pid; CI passes the run id)
+#   VERIFY_PATHS     space-separated URL paths to check, replacing the default
+#                    set below — e.g. VERIFY_PATHS="/ /privacy.html"
+#   ATTEMPTS         attempts per URL before failing on a real error (default 3)
+#   RETRY_DELAY      seconds between those attempts (default 5)
+#   ATTEMPTS_202     attempts per URL while the proxy keeps answering 202
+#                    (default 12) — see #653
+#   RETRY_DELAY_202  seconds between those attempts (default 10)
+#   CACHE_BUST       token appended as ?v=… to defeat the proxy cache
+#                    (default: timestamp-pid; CI passes the run id)
 #
 # Fetches a short, fixed set of URLs from a deployed site and asserts each is
 # byte-identical to the file that was shipped.
@@ -44,11 +47,22 @@ set -euo pipefail
 BASE_URL="${1:-https://deming.leedurbin.co.nz}"
 LOCAL_DIR="${2:-_book}"
 
-# Retries cover both a transient network blip on the runner and the brief
-# window where a proxy may not yet have caught up. A genuinely bad deploy fails
-# all attempts, so this delays a real failure by seconds without hiding it.
+# Retries cover a transient network blip on the runner. A genuinely bad
+# deploy fails all attempts, so this delays a real failure by seconds
+# without hiding it.
 ATTEMPTS="${ATTEMPTS:-3}"
 RETRY_DELAY="${RETRY_DELAY:-5}"
+
+# HTTP 202 is handled on its own, more patient budget rather than folded into
+# ATTEMPTS/RETRY_DELAY above. Production's proxy answers 202 ("accepted,
+# not yet serving fresh content") for well over a minute after rsync touches
+# files on disk — observed still failing 73s in, on the *last* of six
+# sequentially-checked paths, so a modest bump to the general budget doesn't
+# cover it without also slowing down detection of a genuine error. A real
+# error (4xx/5xx/timeout) still fails within ATTEMPTS/RETRY_DELAY above. See
+# #653.
+ATTEMPTS_202="${ATTEMPTS_202:-12}"
+RETRY_DELAY_202="${RETRY_DELAY_202:-10}"
 
 # The site sits behind a proxy (`x-proxy-cache-info` in production response
 # headers). Appending a token unique to this run guarantees the origin answers,
@@ -140,8 +154,12 @@ for path in "${PATHS[@]}"; do
   url="${BASE_URL}${path}?v=${CACHE_BUST}"
   reason=""
 
-  for ((attempt = 1; attempt <= ATTEMPTS; attempt++)); do
+  attempt=0
+  while true; do
+    attempt=$((attempt + 1))
     reason=""
+    max_attempts="$ATTEMPTS"
+    delay="$RETRY_DELAY"
 
     # No --compressed: the comparison is against bytes on disk, and asking for
     # an encoding invites the server to hand back something re-encoded.
@@ -154,7 +172,11 @@ for path in "${PATHS[@]}"; do
       --connect-timeout 10 --max-time 30 \
       "$url" 2>/dev/null)" || status="000"
 
-    if [[ "$status" != "200" ]]; then
+    if [[ "$status" == "202" ]]; then
+      reason="HTTP 202 (expected 200) — proxy warm-up"
+      max_attempts="$ATTEMPTS_202"
+      delay="$RETRY_DELAY_202"
+    elif [[ "$status" != "200" ]]; then
       reason="HTTP ${status} (expected 200)"
     else
       actual_hash="$(sha256_of "$body")"
@@ -167,9 +189,11 @@ for path in "${PATHS[@]}"; do
 
     [[ -z "$reason" ]] && break
 
-    if [[ "$attempt" -lt "$ATTEMPTS" ]]; then
-      echo "        attempt ${attempt}/${ATTEMPTS} failed, retrying in ${RETRY_DELAY}s…"
-      sleep "$RETRY_DELAY"
+    if [[ "$attempt" -lt "$max_attempts" ]]; then
+      echo "        attempt ${attempt}/${max_attempts} failed, retrying in ${delay}s…"
+      sleep "$delay"
+    else
+      break
     fi
   done
 

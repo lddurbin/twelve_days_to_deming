@@ -271,9 +271,25 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -p 18765 -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/dev/null
+
+        # Under `bash -e`, a non-zero ssh-keyscan used to abort the step right
+        # there, so the diagnostic below it never printed and `2>/dev/null` had
+        # already discarded the real error — a bare "exit code 1" with nothing
+        # to explain it (#653). Capturing stderr and retrying (this has been
+        # seen to fail transiently against a reachable host) fixes both.
+        for attempt in 1 2 3; do
+          if ssh-keyscan -p 18765 -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/tmp/keyscan.err; then
+            [ -s ~/.ssh/known_hosts ] && break
+            echo "ssh-keyscan exited 0 but wrote nothing (attempt ${attempt}/3)"
+          else
+            echo "ssh-keyscan failed (attempt ${attempt}/3):"
+            cat /tmp/keyscan.err
+          fi
+          [ "$attempt" -lt 3 ] && sleep 5
+        done
+
         if [ ! -s ~/.ssh/known_hosts ]; then
-          echo "ERROR: ssh-keyscan failed to retrieve host key"
+          echo "ERROR: ssh-keyscan failed to retrieve host key after 3 attempts"
           exit 1
         fi
 
