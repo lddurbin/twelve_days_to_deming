@@ -10,7 +10,7 @@ Let's spend a little time revisiting those massive issues of targets and apprais
 
 First, a reminder about appraisals. I've pointed out on [Day 5 page 22](../day-05/03-the-deadly-diseases.qmd#sec-page22) that the term "performance appraisal" means different things to different people. If it is really true that an organisation's "performance appraisal" procedure is genuinely designed for coaching and help rather than for judgment, then fine—except, as I also implied there, in order to avoid confusion maybe it ought to be called something different.
 
-In this section we shall concentrate on numerical targets. However, as already pointed out in the second paragraph of page 1, there is a strong link between them and appraisals since the latter often involve the setting of targets and then the judgment of success or failure depending on whether or not these targets are subsequently met.
+In this section we shall concentrate on numerical targets. However, as already pointed out in the second paragraph of [page 1, in the Introduction](01-introduction.qmd#sec-page1), there is a strong link between them and appraisals since the latter often involve the setting of targets and then the judgment of success or failure depending on whether or not these targets are subsequently met.
 
 Concerning numerical targets, I was indebted to my good friend, the late John Dowd, for pointing out to me over 35 years ago that there are three types of management figures which may be referred to as "numerical targets". They may look the same but they need to be treated very differently. The three are:
 
@@ -34,7 +34,7 @@ Incidentally, in view of another fact of life: variation, one might sometimes ma
 
 ## ACTIVITY 7–a {#sec-page4}
 
-Think of a few further examples of the three kinds of numerical targets. With Categories 2 and 3, mention features of the corresponding management style as appropriate. There may be some examples in your own organisation that you could include: they may affect you personally, or your department, or elsewhere. You may also recall some from the "True Stories" on Day 6 and there may well be yet more for you to insert as you read through the further such stories beginning on page 9.
+Think of a few further examples of the three kinds of numerical targets. With Categories 2 and 3, mention features of the corresponding management style as appropriate. There may be some examples in your own organisation that you could include: they may affect you personally, or your department, or elsewhere. You may also recall some from the "True Stories" on Day 6 and there may well be yet more for you to insert as you read through the further such stories beginning on [page 9, in Many More True Stories](04-many-more-true-stories.qmd#sec-page9).
 
 Category 1—facts of life:
 
@@ -70,9 +70,9 @@ viewof activity_7a_3 = persist(
 
 <div class="thought" role="note" aria-label="Activity">
 
-## ACTIVITY 7–b
+## ACTIVITY 7–b {#sec-page5}
 
-Remind yourself (e.g. by looking back at what you've written about Point 11 and the 3rd and 5th Deadly Diseases (on [Day 5 pages 10–11](../day-05/02-points-7-to-14.qmd#sec-page10), [22–23](../day-05/03-the-deadly-diseases.qmd#sec-page22) and [26–27](../day-05/03-the-deadly-diseases.qmd#sec-page26) respectively)) of some of the reasons why Category 3 is incompatible with the Deming philosophy. Again include specific examples from the true stories on Day 6 and be ready to add more here as you read through today's further true stories on pages 9–18.
+Remind yourself (e.g. by looking back at what you've written about Point 11 and the 3rd and 5th Deadly Diseases (on [Day 5 pages 10–11](../day-05/02-points-7-to-14.qmd#sec-page10), [22–23](../day-05/03-the-deadly-diseases.qmd#sec-page22) and [26–27](../day-05/03-the-deadly-diseases.qmd#sec-page26) respectively)) of some of the reasons why Category 3 is incompatible with the Deming philosophy. Again include specific examples from the true stories on Day 6 and be ready to add more here as you read through today's further true stories on [pages 9 to 18, in Many More True Stories](04-many-more-true-stories.qmd#sec-page9).
 
 ```{ojs}
 viewof activity_7b = persist(

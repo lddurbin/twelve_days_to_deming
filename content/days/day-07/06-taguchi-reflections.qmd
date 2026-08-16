@@ -62,7 +62,7 @@ Click this after writing your comments
 
 <div class="collapse" id="collapse_7g">
 
-Obviously there is zero loss at the optimum value. But now, supposedly, *everything* inside the specifications is "acceptable", "OK", whether it's at or near the optimum or not. Everything here is treated identically: off it goes to the customer! It follows that the loss function which represents conformance-to-specifications thinking must be zero *throughout the specification range*. But then what happens? Think back to the little diagram near the bottom of page 19. If the value "a" changes to "b" or the value "c" changes to "d", we get the step change from "OK" to "not OK" and all that implies. It matters not how far a value is outside specifications: if it's out, it's out. So the conformance-to-specs loss function must simply be at some high value *everywhere* outside specifications. This loss function is illustrated in Figure 36 on *DemDim* page 182. Turn to that page now and take a good look at it!
+Obviously there is zero loss at the optimum value. But now, supposedly, *everything* inside the specifications is "acceptable", "OK", whether it's at or near the optimum or not. Everything here is treated identically: off it goes to the customer! It follows that the loss function which represents conformance-to-specifications thinking must be zero *throughout the specification range*. But then what happens? Think back to the little diagram near the bottom of [page 19, in The Thirteenth Obstacle](05-thirteenth-obstacle.qmd#sec-page19). If the value "a" changes to "b" or the value "c" changes to "d", we get the step change from "OK" to "not OK" and all that implies. It matters not how far a value is outside specifications: if it's out, it's out. So the conformance-to-specs loss function must simply be at some high value *everywhere* outside specifications. This loss function is illustrated in Figure 36 on *DemDim* page 182. Turn to that page now and take a good look at it!
 
 </div>
 </div>
@@ -77,7 +77,7 @@ What do those two loss functions apparently tell you about:
 
 1. the need or otherwise for continual improvement?
 
-&nbsp;&nbsp;&nbsp;&nbsp; *Taguchi loss function* (illustrated on page 22):
+&nbsp;&nbsp;&nbsp;&nbsp; *Taguchi loss function* (illustrated on [page 22, in The Thirteenth Obstacle](05-thirteenth-obstacle.qmd#sec-page22)):
 
 &nbsp;&nbsp;&nbsp;&nbsp; *"Conformance to specifications" loss function* (illustrated on *DemDim* page 182):
 

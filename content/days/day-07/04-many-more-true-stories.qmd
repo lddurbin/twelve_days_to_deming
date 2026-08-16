@@ -7,7 +7,7 @@ execute:
 ---
 []{#sec-page9}
 
-Having assembled my collection of short true stories for Day 6, I copied it to a few friends and asked if they might have any further such contributions. These next nine pages show the results of that request! Some accounts may remind you of true stories of your own: if so, record them for use in Activity 7–d on page 18. I suggest you immediately make relevant notes for that Activity as you read through these pages.
+Having assembled my collection of short true stories for Day 6, I copied it to a few friends and asked if they might have any further such contributions. These next nine pages show the results of that request! Some accounts may remind you of true stories of your own: if so, record them for use in Activity 7–d on [page 18, below](04-many-more-true-stories.qmd#sec-page18). I suggest you immediately make relevant notes for that Activity as you read through these pages.
 
 ::: {.neave_note}
 So almost everything that follows here has been told to me by friends who were only too happy to let me publish their stories. However, in some cases they were, for probably obvious reasons, a little shy about their names being publicly associated with particular experiences. Therefore, in order to preserve their anonymity I shall refer to all of them as either "John" or friends of "John". Thus I would like to express my gratitude to the various Johns and friends who include Mitch Beedie, Malcolm Gall, Jackie Graham, Balaji Reddie, Peter Worthington, Dave Young, and the late Nigel Clements. My own few comments are printed in italics. The stories often use the first person: "I" or "me", etc; but, unless printed in italics, the "I" or "me" refers to John rather than to myself.
@@ -147,7 +147,7 @@ The sales representatives of this company do not sell to General Practitioners a
 
 *[As John again said to me: "There's always a way!"]*
 
-*The earlier story (on page 11) about the four types of blade needed for aircraft engines was reminiscent of one told at an Annual Conference of the British Deming Association. Here it is, along with two others:*
+*The earlier story (on [page 11, above](04-many-more-true-stories.qmd#sec-page11)) about the four types of blade needed for aircraft engines was reminiscent of one told at an Annual Conference of the British Deming Association. Here it is, along with two others:*
 
 ### Three from BDA Conferences
 
@@ -255,9 +255,9 @@ UK readers may have recognised several parallels between the above account and s
 
 ## ACTIVITY 7–d
 
-(a) If you have not already been doing so while reading through those stories, please return to Category 3 in both Activity 7–a (page 4) and Activity 7–b (page 5) and add some more to your answers there.
+(a) If you have not already been doing so while reading through those stories, please return to Category 3 in both Activity 7–a ([page 4](02-numerical-targets.qmd#sec-page4)) and Activity 7–b ([page 5](02-numerical-targets.qmd#sec-page5)) and add some more to your answers there.
 
-(b) The space below is left for some brief notes on your own true stories (see the top of page 9).
+(b) The space below is left for some brief notes on your own true stories (see the top of [page 9](04-many-more-true-stories.qmd#sec-page9)).
 
 ```{ojs}
 import { persist } from "../../../assets/scripts/workbook.js"
