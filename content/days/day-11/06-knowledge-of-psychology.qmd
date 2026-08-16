@@ -6,7 +6,7 @@ execute:
   echo: false
 ---
 
-## PART D: KNOWLEDGE OF PSYCHOLOGY
+## PART D: KNOWLEDGE OF PSYCHOLOGY {#sec-page22}
 
 For Part D we return to the more usual procedure as described on [Day 9](../day-09/01-introduction.qmd) and as largely used for both Parts A and B yesterday.
 
@@ -18,7 +18,7 @@ Relevant reading:
 >
 > *DemDim*: pages 277--279. Although there are only three pages here, they contain quite a lot of fleshing out of the various topics, some of which is from Dr Deming and some is from me. I think this section will be particularly helpful to you as you tackle this final part of the System of Profound Knowledge.
 >
-> Today's material: pages 22--30 [*WB* 201--209].
+> Today's material: [pages 22--30, where Part D begins](06-knowledge-of-psychology.qmd#sec-page22) [*WB* 201--209].
 
 ### Step 2: Dr Deming's May 1990 version
 
@@ -99,7 +99,7 @@ viewof note_11_psych_4 = persist(
 </div>
 
 <div class="neave_note">
-["There is" is a rather innocent beginning to this substantial section (which continues all the way through to page 30). Dr Deming placed great value on a deep understanding of these three concepts.
+["There is" is a rather innocent beginning to this substantial section (which continues all the way through to [page 30, the final bullets on overjustification](06-knowledge-of-psychology.qmd#sec-page30)). Dr Deming placed great value on a deep understanding of these three concepts.
 
 <em>Intrinsic motivation</em> for work (of any kind) is motivation coming "from within": i.e. one approaches the work with the desire to do a good job because of <em>wanting to</em>, because of job-satisfaction, because of interest and excitement in the task, because of desire to please the customer, indeed because of "joy in work".
 
@@ -214,6 +214,8 @@ viewof note_11_psych_5e = persist(
   Inputs.textarea({label: "Your notes on item 5e: extrinsic motivation as a Zero-Defect mentality, and removal of demotivators", placeholder: "Your notes.", rows: 4})
 )
 ```
+
+[]{#sec-page30}
 
 <div class="deming_quote">
 

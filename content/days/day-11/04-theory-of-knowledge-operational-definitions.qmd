@@ -14,7 +14,7 @@ Relevant reading:
 
 > *DemDim*: page 276, paragraphs 8--10.
 >
-> Today's material: pages 14--15 [*WB* 193--194].
+> Today's material: [pages 14--15, where Area 3's Step 2 begins](04-theory-of-knowledge-operational-definitions.qmd#sec-page14) [*WB* 193--194].
 
 #### Area 3, Step 1a: A chapter from *DemDim*
 
@@ -38,6 +38,8 @@ Easy enough? Well, maybe not. I'll illustrate with three examples: "punctual", "
 3. **clean:** This was one of Dr Deming's favourite illustrations, and he would use it to demonstrate the importance of the "fitness for purpose" aspect. He would point out that if somebody asked him to "clean this table", he would not know what to do unless he understood *why* it should be cleaned. Clean enough to eat off it? That would be one thing. Clean enough to perform a surgical operation on it? That would be quite another.
 
 One consequence of this thinking is that, in general, an operational definition cannot be classified in any absolute sense as "right" or "wrong". Well, OK, maybe it could be so bad that it's useless for every conceivable purpose. But the more important point is that an operational definition that is "right" for one purpose could be either wholly inadequate or else unnecessarily sophisticated for another.
+
+[]{#sec-page14}
 
 **Now turn to *DemDim* page 109 and read Chapter 7.**
 

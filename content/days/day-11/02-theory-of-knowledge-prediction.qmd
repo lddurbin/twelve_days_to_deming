@@ -36,7 +36,7 @@ Relevant reading:
 >
 > *DemDim*: page 274, paragraph 1 to page 275, paragraph 4.
 >
-> Today's material: pages 4--6 [*WB* 186--188].
+> Today's material: [pages 4--6, where Area 1: Prediction begins](02-theory-of-knowledge-prediction.qmd#sec-page4) [*WB* 186--188].
 
 #### Area 1, Step 2: Dr Deming's May 1990 version
 
@@ -64,6 +64,8 @@ viewof note_11_prediction_1 = persist(
   Inputs.textarea({label: "Your notes on item 1: rational plans require prediction", placeholder: "Your notes on this item.", rows: 4})
 )
 ```
+
+[]{#sec-page5}
 
 <div class="deming_quote">
 2. A statement devoid of prediction or explanation of past events is no help in management of a system.
@@ -103,6 +105,8 @@ viewof note_11_prediction_2 = persist(
 ```
 
 (Over to you now for your reactions, thoughts, comments for the rest of Part C.)
+
+[]{#sec-page6}
 
 <div class="deming_quote">
 3. Interpretation of data from a test or experiment is prediction---what will happen on application of the conclusions or recommendations that are drawn from a test or experiment? This prediction will depend largely on knowledge of the subject-matter. It is only in the state of statistical control that statistical theory aids prediction.
