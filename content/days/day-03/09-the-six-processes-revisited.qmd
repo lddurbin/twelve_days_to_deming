@@ -149,5 +149,5 @@ Finally, here are four "tidying-up" points.
 
 (c) If you refer to Dr Wheeler's own account of the Tokai Rika case study, you may notice that the control limits used in Charts E1 and E3 are different from the original. This is because the control limits used here were computed from the first 24 data-points on the Tokai Rika chart given to the Ford personnel. It is unclear from the account when Tokai Rika's control limits were computed, but it was probably before the beginning of the chart as we have it.
 
-(d) There is a further illustration of the moving-range method on [page 9, in the Importance of Time section above](03-the-importance-of-time.qmd#sec-page9) of the file "Q. Contributions from Balaji Reddie".
+(d) There is a further illustration of the moving-range method on page 9 of the file "Q. Contributions from Balaji Reddie".
 </div>
