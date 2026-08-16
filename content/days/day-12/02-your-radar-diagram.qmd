@@ -16,7 +16,7 @@ Let's see why I asked you to enter those 0--5 "scores" of what you saw as the st
 
 ## ACTIVITY 12–a, Part 1
 
-Your first task is simply to collect together all of your 0--5 scores from Activities 10a–b and 11a–b into the table on page 4. If you haven't printed out an extra copy of that table (suggested on [Day 11 page 36](../day-11/08-coda.qmd#sec-page36)), it will make life easier if you temporarily detach that page so that you won't have to keep turning back to it. (The table is deliberately set on a left-hand page because it will be convenient for you to have the table and the radar diagram on facing pages in the third part of this Activity.)
+Your first task is simply to collect together all of your 0--5 scores from Activities 10a–b and 11a–b into [the table on page 4](02-your-radar-diagram.qmd#sec-page4). If you haven't printed out an extra copy of that table (suggested on [Day 11 page 36](../day-11/08-coda.qmd#sec-page36)), it will make life easier if you temporarily detach that page so that you won't have to keep turning back to it. (The table is deliberately set on a left-hand page because it will be convenient for you to have the table and the radar diagram on facing pages in the third part of this Activity.)
 
 </div>
 
@@ -28,9 +28,11 @@ How will you be able to distinguish the 19 shapes from each other? I *could* hav
 
 ## ACTIVITY 12–a, Part 2
 
-So now choose your 19 combinations of colours and line styles and indicate them in the KEY column on page 4, one against each of the 14 Points and each of the five Deadly Diseases. For example, if you've decided that your four-line shape for Point 1 (Create Constancy of Purpose) is to be drawn with broken green lines: −−−−−− as in the diagram on page 3, indicate that as I've shown in the KEY column on page 4.
+So now choose your 19 combinations of colours and line styles and indicate them in [the KEY column on page 4](02-your-radar-diagram.qmd#sec-page4), one against each of the 14 Points and each of the five Deadly Diseases. For example, if you've decided that your four-line shape for Point 1 (Create Constancy of Purpose) is to be drawn with broken green lines: −−−−−− as in [the diagram on page 3](02-your-radar-diagram.qmd#sec-page3), indicate that as I've shown in [the KEY column on page 4](02-your-radar-diagram.qmd#sec-page4).
 
 </div>
+
+[]{#sec-page3}
 
 Having completed the KEY column, you're now ready to construct your radar diagram. Take a look at the diagram below. You'll immediately guess what I'm going to ask you to do. In this illustration, remember I'm supposing Point 1 will be represented by a shape consisting of four broken green lines: −−−−−− .
 
