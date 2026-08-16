@@ -398,7 +398,14 @@ external_book_signatures <- c(
   "The World of W Edwards Deming", "Kilian.s", "BDA Booklet",
   "Deming A5 Booklet", "Punished by Rewards", "Wheeler.s", "Shewhart",
   "Walton.s", "Scherkenbach", "her book", "his book", "my book",
-  "her biography", "his biography", "\\*ST\\*", "\\*EST\\*"
+  "her biography", "his biography", "\\*ST\\*", "\\*EST\\*",
+  # Balaji Reddie's "Contributions" and "Four Preludes and a Coda" are
+  # separately-paginated documents of their own — a nearby "page N" refers
+  # to their pagination, not the current day's. Without this, the mechanical
+  # same-day anchor lookup below coincidentally matches these to an
+  # unrelated day-NN anchor with the same number (confirmed wrong on
+  # multiple rows across day-03, day-11, and the appendix).
+  "Balaji Reddie", "Balaji.s"
 )
 book_signature_pattern <- str_c("(", str_c(external_book_signatures, collapse = "|"), ")")
 signature_window <- 80L

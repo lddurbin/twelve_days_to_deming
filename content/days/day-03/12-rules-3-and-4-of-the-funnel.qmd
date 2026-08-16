@@ -10,7 +10,7 @@ execute:
 
 The motivation for the various Rules of the Funnel is discussed in *DemDim* Chapter 5, so there is no need for me to go into great detail here. The important issue here is how well they work. So I'll summarise the motivations for Rules 3 and 4 quite briefly. Firstly, Rule 2 was a relatively complicated operation—you might have had to concentrate quite hard to get it right. Rule 3 is a rather easier and (at least at first sight) an apparently rather innocent variant of Rule 2. Rule 4 is quite different from both of them: it concentrates on trying to minimise the average short-term variation. The latter is, of course, an interesting mixture of good and bad. It is certainly good to reduce variation, but is it wise to do so only in the *short* term? Let's carry out similar procedures as previously, but now for Rules 3 and 4, and see what happens.
 
-Recall that in Rule 2 the distance and direction between the target and where the marble comes to rest is described in red just below the yellow-shaded rows (refer back to page 42). Rule 2 then shifts the funnel in the opposite direction *by that same distance from its current position*. The difference between Rules 2 and 3 is that, in Rule 3, the funnel is instead placed on *the opposite side of the target* and at that same distance from it. E.g., suppose that the current outcome (position of ●) is 32 (i.e. 2 above or to the right of ◎). Then, with Rule 3, the funnel simply gets placed 2 squares to the left of ◎, i.e. at 30 − 2 = 28—*irrespective of where it was before*. Or, if the current outcome was 27 (3 below or left of ◎), the funnel is then placed 3 squares to the right of ◎, i.e. at 30 + 3 = 33. This is indeed easier than Rule 2: you'll soon see that the marble and the funnel now simply finish up symmetrically positioned either side of the target—the funnel's previous position in no way affects this decision. In case of doubt, just refer to this little table:
+Recall that in Rule 2 the distance and direction between the target and where the marble comes to rest is described in red just below the yellow-shaded rows (refer back to [page 42, in the First Two Rules of the Funnel section above](11-the-first-two-rules-of-the-funnel.qmd#sec-page42)). Rule 2 then shifts the funnel in the opposite direction *by that same distance from its current position*. The difference between Rules 2 and 3 is that, in Rule 3, the funnel is instead placed on *the opposite side of the target* and at that same distance from it. E.g., suppose that the current outcome (position of ●) is 32 (i.e. 2 above or to the right of ◎). Then, with Rule 3, the funnel simply gets placed 2 squares to the left of ◎, i.e. at 30 − 2 = 28—*irrespective of where it was before*. Or, if the current outcome was 27 (3 below or left of ◎), the funnel is then placed 3 squares to the right of ◎, i.e. at 30 + 3 = 33. This is indeed easier than Rule 2: you'll soon see that the marble and the funnel now simply finish up symmetrically positioned either side of the target—the funnel's previous position in no way affects this decision. In case of doubt, just refer to this little table:
 
 <div class="fe-summary-table-container" tabindex="0">
 <table class="fe-summary-table">
@@ -199,7 +199,7 @@ html`${renderDataTablesHTML(3, rule3Visible)}`
 
 And now draw the run chart, continuing on from my first five points. Again, as with the histograms, there's no need to be too artistic about it—please yourself whether or not you use a ruler!
 
-Recall that the very first stage in Rule 3 was identical to that in Rule 2 but, as was pointed out at the time, this was simply because the funnel was initially at its "sensible" value of 30. I imagine, however, that you subsequently discovered things changed with Rule 3 ... You may recall Peter Worthington's observation (page 29) that a zig-zag pattern is not random variation!
+Recall that the very first stage in Rule 3 was identical to that in Rule 2 but, as was pointed out at the time, this was simply because the funnel was initially at its "sensible" value of 30. I imagine, however, that you subsequently discovered things changed with Rule 3 ... You may recall Peter Worthington's observation ([page 29, in the Control Chart + Brain section above](08-control-chart-and-brain.qmd#sec-page29)) that a zig-zag pattern is not random variation!
 
 ```{ojs}
 // Run chart for Rule 3
@@ -232,13 +232,14 @@ Recall that the very first stage in Rule 3 was identical to that in Rule 2 but, 
 
 <div class="separator_blue"></div>
 
-## Rule 4 of the Funnel
+## Rule 4 of the Funnel {#sec-page50}
 
 Lacking basic understanding of variation, management may with best intentions have used Rules 2 and/or 3 in the hope that they would produce better results than Rule 1. They have failed dismally: instead they have considerably increased variation. Since it is good to reduce variation, they strive to minimise variation *at least in the short term*. Certainly there are circumstances where this may seem quite reasonable in practice. For example, if you don't get exactly what you want from a supplier, but at least what you receive doesn't change much from one delivery to the next, it is quite possible that you can learn to "cope" (for a while) with whatever arrives. The situation that really throws you is when you get dramatic changes from one delivery to the next (which presumably is what happened to you sooner or later during Rule 3)—that's part of the motivation for trying Rule 4.
 
 So, what do we do with the funnel in Rule 4? Suppose the current outcome is 33. The thinking is now that, for low *short-term* variation, we would like the next outcome to be 33 again or pretty close to it. How do we achieve that? Easy! Place the funnel exactly where the marble has just finished up, i.e. at 33. You will have noticed that (again unless you've had a very unusual sequence of dice-scores) most of the time the marble was finishing up quite close to the funnel—say, no more than 2 squares away from it. So, in this case, the chances are that your next outcome will now be somewhere between 31 and 35—nicely consistent with the aim of achieving low short-term variation, and certainly generally more appealing than what Rule 3 eventually produced!
 
-Take a look at my fantastic outcomes (the yellow-shaded row) near the top of page 54! Hardly any variation for a while; and then, when there is a larger move, we find ourselves right back on the target of 30! (As you might realise, that was a very happy accident.) I wonder what will happen in the longer term ...
+[]{#sec-page52}
+Take a look at my fantastic outcomes (the yellow-shaded row) near the top of [page 54, below](12-rules-3-and-4-of-the-funnel.qmd#sec-page54)! Hardly any variation for a while; and then, when there is a larger move, we find ourselves right back on the target of 30! (As you might realise, that was a very happy accident.) I wonder what will happen in the longer term ...
 
 So, just to be sure, let's again walk through the first few stages. As always, with the funnel initially placed at 30 and the first dice-score being 10, the first outcome is again 33:
 
@@ -253,7 +254,7 @@ End of Stage 1 with Rule 4. The funnel started at its target position of **30** 
 
 </details>
 
-So, as argued near the bottom of page 50, Rule 4 then places the funnel directly above the marble at 33:
+So, as argued near the bottom of [page 50, above](12-rules-3-and-4-of-the-funnel.qmd#sec-page50), Rule 4 then places the funnel directly above the marble at 33:
 
 ```{r rule4-funnel-follows-to-33, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel and marble both at square 33 — Rule 4 places the funnel directly above the marble."}
 funnel_track_plot(funnel_pos = 33, marble_pos = 33)
@@ -305,7 +306,7 @@ End of Stage 3 with Rule 4. The marble dropped one square to the *left* of the f
 
 </details>
 
-And so it continues. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and then 3 to the *left* of the funnel. Confirm that the next positions are Stage 4: both marble and funnel sit at 33, and Stage 5: both marble and funnel end up at 30. So the picture stays unchanged at the fourth stage and, at the fifth stage, both the marble and then the funnel end up at the target of 30—the "happy accident" to which I referred on page 52.
+And so it continues. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and then 3 to the *left* of the funnel. Confirm that the next positions are Stage 4: both marble and funnel sit at 33, and Stage 5: both marble and funnel end up at 30. So the picture stays unchanged at the fourth stage and, at the fifth stage, both the marble and then the funnel end up at the target of 30—the "happy accident" to which I referred on [page 52, above](12-rules-3-and-4-of-the-funnel.qmd#sec-page52).
 
 So off you go for the final time. Again if you didn't do so when I first suggested it, you'll need to start by copying over all your "From ▼, ● then goes" rows one final time. Then, after you've generated all your Rule 4 outcomes, finish off by sketching your run chart. As usual, I've started the run chart for you on the graph-paper. Also, as with Rule 3, do have an early guess at what you think will happen in the long term!
 
@@ -361,6 +362,7 @@ html`${renderStatusHTML(4, "Place Funnel Where Marble Landed", rule4Counter, rul
 }
 ```
 
+[]{#sec-page54}
 ```{ojs}
 html`${renderDataTablesHTML(4, rule4Visible)}`
 ```

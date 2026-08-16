@@ -26,7 +26,7 @@ So I learned that the variation in the arrival-time of the bus seriously affecte
 
 ***Variation is indeed the enemy of quality.***
 
-## BACK TO THE WESTERN ELECTRIC COMPANY
+## BACK TO THE WESTERN ELECTRIC COMPANY {#sec-page2}
 
 Next, as promised on Day 1, here is a rather longer extract from Dr Deming's account of what happened at the Western Electric Company back in the 1920s. This is again transcribed directly from the presentation he gave in Versailles in July 1989 (see BDA Booklet A6 pages 2–3). You have seen part of it before but, to put it mildly, it is worth repeating:
 
@@ -59,7 +59,7 @@ viewof activity_3a_1 = persist(
 )
 ```
 
-Unsurprisingly, I do not have any data available from all those decades ago from which we could construct control charts. So, with each of the causes you've suggested above, simply say whether you think the cause is likely to have been common or special, and why. (Be guided by the paragraph on prison riots that we have just seen on page 2.)
+Unsurprisingly, I do not have any data available from all those decades ago from which we could construct control charts. So, with each of the causes you've suggested above, simply say whether you think the cause is likely to have been common or special, and why. (Be guided by the paragraph on prison riots that we have just seen on [page 2, in the Back to the Western Electric Company section above](01-variation-the-enemy-of-quality.qmd#sec-page2).)
 
 ```{ojs}
 viewof activity_3a_2 = persist(
