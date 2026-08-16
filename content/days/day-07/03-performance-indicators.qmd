@@ -17,7 +17,7 @@ There are two particular problems.
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## PAUSE FOR THOUGHT 7–c
+## PAUSE FOR THOUGHT 7–c {#sec-page6}
 
 Can you think what those two problems might be? You may find a clue in the above introduction.
 

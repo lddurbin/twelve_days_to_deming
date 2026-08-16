@@ -5,7 +5,7 @@ description: "Working through Deming's full 'parade of obstacles', from hope for
 execute:
   echo: false
 ---
-## INTRODUCTION TO THE MAJOR ACTIVITY: THE OBSTACLES TO THE TRANSFORMATION
+## INTRODUCTION TO THE MAJOR ACTIVITY: THE OBSTACLES TO THE TRANSFORMATION {#sec-page27}
 
 So, finally, on to Dr Deming's "parade of obstacles"—there are no less than 16 of them. Although you are now pretty familiar with the 14 Points and the Deadly Diseases, you may be less so with the Obstacles since what I've said about them has had more limited coverage:
 
@@ -28,7 +28,7 @@ NB As emphasised at the bottom of [Appendix page 31](../../appendix/06-day-7.qmd
 <h2>Major Activity 7–i</h2>
 </div>
 
-Please begin by reading through page 27 again.
+Please begin by reading through [page 27, above](07-major-activity.qmd#sec-page27) again.
 
 <div class="thought" role="note" aria-label="Activity">
 
@@ -116,7 +116,7 @@ viewof activity_7i_8 = persist(
 
 []{#sec-page32}
 
-**9. ["Our troubles lie entirely in the workforce."]{.blue-text}** (*Out of the Crisis* pages 114–115[134–135]; [Appendix pages 34–35](../../appendix/06-day-7.qmd#sec-page34).) Same comment as with Obstacle 4 (page 29). This nonsense is, of course, entirely contradictory to all we have learned about most of the problems (85%, 94%, 98%?) lying in the system (common causes).
+**9. ["Our troubles lie entirely in the workforce."]{.blue-text}** (*Out of the Crisis* pages 114–115[134–135]; [Appendix pages 34–35](../../appendix/06-day-7.qmd#sec-page34).) Same comment as with Obstacle 4 ([page 29, above](07-major-activity.qmd#sec-page29)). This nonsense is, of course, entirely contradictory to all we have learned about most of the problems (85%, 94%, 98%?) lying in the system (common causes).
 
 ```{ojs}
 viewof activity_7i_9 = persist(
@@ -136,7 +136,7 @@ viewof activity_7i_10 = persist(
 
 []{#sec-page33}
 
-**11. ["We installed quality control."]{.blue-text}** (*Out of the Crisis* page 117 [pages 138–139]; [Appendix page 35](../../appendix/06-day-7.qmd#sec-page35).) As with Obstacle 2, quality cannot be "bought"; see my comments on that Obstacle (page 28). Any management that thinks it can "install quality control" will achieve neither quality nor control.
+**11. ["We installed quality control."]{.blue-text}** (*Out of the Crisis* page 117 [pages 138–139]; [Appendix page 35](../../appendix/06-day-7.qmd#sec-page35).) As with Obstacle 2, quality cannot be "bought"; see my comments on that Obstacle ([page 28, above](07-major-activity.qmd#sec-page28)). Any management that thinks it can "install quality control" will achieve neither quality nor control.
 
 ```{ojs}
 viewof activity_7i_11 = persist(
@@ -185,7 +185,7 @@ viewof activity_7i_15 = persist(
 )
 ```
 
-**16. ["Anyone that comes to try to help us must understand all about our business."]{.blue-text}** (*Out of the Crisis* page 121[143]; [Appendix page 37](../../appendix/06-day-7.qmd#sec-page37).) Strongly linked with Obstacle 4 (page 29) and my comment there. We have already pointed out on [Day 6 page 6](../day-06/02-gallery-furniture.qmd#sec-page6) that Dr Deming referred to Profound Knowledge as ["outside knowledge"]{.deming_quote}; another pertinent quote (e.g. on *The New Economics* page 39[54]) is ["A system can not understand itself."]{.deming_quote} Real help comes from *new* knowledge.
+**16. ["Anyone that comes to try to help us must understand all about our business."]{.blue-text}** (*Out of the Crisis* page 121[143]; [Appendix page 37](../../appendix/06-day-7.qmd#sec-page37).) Strongly linked with Obstacle 4 ([page 29, above](07-major-activity.qmd#sec-page29)) and my comment there. We have already pointed out on [Day 6 page 6](../day-06/02-gallery-furniture.qmd#sec-page6) that Dr Deming referred to Profound Knowledge as ["outside knowledge"]{.deming_quote}; another pertinent quote (e.g. on *The New Economics* page 39[54]) is ["A system can not understand itself."]{.deming_quote} Real help comes from *new* knowledge.
 
 ```{ojs}
 viewof activity_7i_16 = persist(
