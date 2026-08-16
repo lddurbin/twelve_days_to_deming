@@ -6,19 +6,19 @@ execute:
   echo: false
 ---
 
-## DAY 12: BRINGING IT ALL TOGETHER—AND MAKING IT HAPPEN
+## DAY 12: BRINGING IT ALL TOGETHER—AND MAKING IT HAPPEN {#sec-page1}
 
 This final day of the course comprises seven sections:
 
 | Section | Title | Pages |
 |---|---|---|
-| Section 1: | Your radar diagram | pages 2–6 |
-| Section 2: | Wisdom from Peter Scholtes | pages 7–10 |
-| Section 3: | "But what can I do?" | pages 11–21 |
-| Section 4: | Leadership for the transformation | pages 22–29 |
-| Section 5: | Activity on the previous two sections | pages 30–33 |
-| Section 6: | Major Activity | pages 34–41 |
-| Section 7: | Epilogue | pages 42–43 |
+| Section 1: | Your radar diagram | [pages 2–6](02-your-radar-diagram.qmd#sec-page2) |
+| Section 2: | Wisdom from Peter Scholtes | [pages 7–10](03-wisdom-from-peter-scholtes.qmd#sec-page7) |
+| Section 3: | "But what can I do?" | [pages 11–21](04-but-what-can-i-do.qmd#sec-page11) |
+| Section 4: | Leadership for the transformation | [pages 22–29](05-leadership-for-the-transformation.qmd#sec-page22) |
+| Section 5: | Activity on the previous two sections | [pages 30–33](06-activity-12d.qmd#sec-page30) |
+| Section 6: | Major Activity | [pages 34–41](07-major-activity-12e.qmd#sec-page34) |
+| Section 7: | Epilogue | [pages 42–43](08-epilogue.qmd#sec-page42) |
 
 These seven sections are briefly summarised below. Most of your time today will be devoted to Sections 5 and 6: two Activities that are both designed for you to customise in order to concentrate on matters that are particularly relevant to the position you personally hold in your organisation.
 

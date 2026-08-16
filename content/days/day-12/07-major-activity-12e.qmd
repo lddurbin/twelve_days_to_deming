@@ -10,13 +10,13 @@ execute:
 
 <div class="major_activity_title">
 
-## MAJOR ACTIVITY 12–e
+## MAJOR ACTIVITY 12–e {#sec-page34}
 
 </div>
 
 This final Major Activity of the course is in two parts. The first part is for everyone. The second part is in two versions: choose which version is the more appropriate for you. The choice will largely depend on the position you hold in your organisation. Divide your time that remains today fairly equally between the two parts.
 
-As you will soon see, you may find it helpful to read through "Leadership for the Transformation" (pages 22--29) one more time before embarking upon Part 1.
+As you will soon see, you may find it helpful to read through "Leadership for the Transformation" ([pages 22--29](05-leadership-for-the-transformation.qmd#sec-page22)) one more time before embarking upon Part 1.
 
 ### Part 1
 
