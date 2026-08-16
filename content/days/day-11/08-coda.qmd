@@ -24,11 +24,11 @@ You would also find it useful to make some extra copies of [Day 12 page 9](../da
 
 #### Approvals, Acknowledgments and Information
 
-^a^ (page 5) This quotation from *Dedication of the Cedar Crest Academy, Washington in October 1985* has been reproduced with the approval of the Cedar Crest Academy.
+^a^ ([page 5, the Cedar Crest Academy quotation](02-theory-of-knowledge-prediction.qmd#sec-page5)) This quotation from *Dedication of the Cedar Crest Academy, Washington in October 1985* has been reproduced with the approval of the Cedar Crest Academy.
 
-^b^ (page 6) This quotation from *The Essential Deming: Leadership Principles from the Father of Quality* has been included with the approval of the W Edwards Deming Institute and McGraw-Hill Education.
+^b^ ([page 6, the Essential Deming quotation](02-theory-of-knowledge-prediction.qmd#sec-page6)) This quotation from *The Essential Deming: Leadership Principles from the Father of Quality* has been included with the approval of the W Edwards Deming Institute and McGraw-Hill Education.
 
-^c^ (page 9) This diagram from *Deming's Road to Continual Improvement* has been reproduced with the approval of Bill Scherkenbach and SPC Press Inc.
+^c^ ([page 9, the seven-word Theory of Knowledge diagram](03-theory-of-knowledge-theory-and-learning.qmd#sec-page9)) This diagram from *Deming's Road to Continual Improvement* has been reproduced with the approval of Bill Scherkenbach and SPC Press Inc.
 
 <div class="separator">
   <div class="separator_white">

@@ -16,7 +16,7 @@ Relevant reading:
 >
 > *DemDim*: page 275, paragraphs 5--7 (ending on page 276). Note that paragraph 5 neatly provides a strong link between the first two of our three areas.
 >
-> Today's material: pages 10--11 [*WB* 190--191].
+> Today's material: [pages 10--11, where Area 2's Step 2 begins](03-theory-of-knowledge-theory-and-learning.qmd#sec-page10) [*WB* 190--191].
 
 #### Area 2, Step 1a: A chapter from *DemDim*
 
@@ -55,7 +55,7 @@ A clockwise circle of seven labelled words, each connected to the next by a curv
 
 *(Continue to Area 2, Step 2 overleaf.)*
 
-#### Area 2, Step 2: Dr Deming's May 1990 version
+#### Area 2, Step 2: Dr Deming's May 1990 version {#sec-page10}
 
 <div class="deming_quote">
 4. Without theory, there is nothing to modify or to learn by comparison with experience.
