@@ -264,6 +264,14 @@ aside,
   font-style: normal;
   font-weight: bold;
 }
+/* Default link blue against the .principle_callout/.aside_callout background
+   (#c2d69b) only hits 3.43:1 — below WCAG AA's 4.5:1 floor. Use a darker
+   shade for callout links specifically so prose-on-white links stay
+   unchanged. */
+.principle_callout a,
+.aside_callout a {
+  color: #124cce;
+}
 
 /* ===== FLOATING BOX COMPONENTS ===== */
 /*

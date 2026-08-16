@@ -111,7 +111,7 @@ Toyota has become one of the most admired companies in the world. But recently, 
 
 They have such a strong process and work ethic that they did not hesitate before recalling the cars. Will our Indian companies copy this from the Japanese? Will the American companies copy this from the Japanese? What do you think?
 
-### Six Sigma
+### Six Sigma {#sec-page32}
 
 Just one further example of poor understanding—although this one is not from Japan. In 1995 I embarked on a course in Management of Quality which was titled: "Postgraduate Diploma in Quality Management". That was where I first heard of Drs Deming and Juran. It was an exciting period of my life. Whenever I reminisce about those times, a smile appears on my face. I so much wanted to know about everything about the world of Quality. I remember how I would ask many questions in class. Unfortunately, some people (both my classmates and my teachers) misinterpreted this as arrogance. I was, of course, unphased by this.
 
@@ -133,7 +133,7 @@ The explanation of the fallacy behind the whole thinking was so beautifully laid
 
 Today, when I teach my students about how Dr Deming's teachings have been abused, I talk to them about the "Six-Sigma Superstition". I'm sure you'll love the way Henry explains it so simply. I quote Henry completely from that paper. Nobody explains it better. Let me tell you, it's very difficult to explain such things in a way that is easy to understand … but Henry does it.
 
-### Summary
+### Summary {#sec-page33}
 
 We have discussed some of the errors made when those without knowledge have tried to copy KAIZEN, Quality Circles, and "Zero Stock" or "Just In Time".
 

@@ -16,7 +16,7 @@ execute:
 
 ## Contents
 
-- [Introduction](#sec-optional-extras-introduction)
+- [Introduction](00-introduction.qmd#sec-optional-extras-introduction)
 - [Part A: Using control charts on Funnel Experiment data — an extension of Major Activity 3–h](01-part-a-funnel-charts.qmd#sec-optional-extras-part-a)
     1. Introduction
     2. Rules 1 and 2 of the Funnel *(**NB** See the Note below)*
@@ -68,7 +68,7 @@ execute:
 
 *(This note would have been referred to elsewhere as an "Out-of-hours" note; however, of course, all of the Optional Extras section is "out-of-hours"!)*
 
-If you are intending to study [Part A: "Using Control Charts on Funnel Experiment data"](01-part-a-funnel-charts.qmd#sec-optional-extras-part-a) then on pages 6 and 7 you will need to draw run-charts and then control charts of your data for the first two Rules of the Funnel. Your data for Rule 1 and Rule 2 are in the [Day 3 chapter on the first two Rules of the Funnel](../../days/day-03/11-the-first-two-rules-of-the-funnel.qmd). You may therefore find it convenient to open those pages in a separate browser tab in order to save you from lots of page-turning while you are constructing those charts.
+If you are intending to study [Part A: "Using Control Charts on Funnel Experiment data"](01-part-a-funnel-charts.qmd#sec-optional-extras-part-a) then on [pages 6 and 7](01-part-a-funnel-charts.qmd#sec-optional-extras-page-6) you will need to draw run-charts and then control charts of your data for the first two Rules of the Funnel. Your data for Rule 1 and Rule 2 are in the [Day 3 chapter on the first two Rules of the Funnel](../../days/day-03/11-the-first-two-rules-of-the-funnel.qmd). You may therefore find it convenient to open those pages in a separate browser tab in order to save you from lots of page-turning while you are constructing those charts.
 :::
 
 ---
