@@ -67,6 +67,7 @@ more straightforward structure. (Because of the importance of *DemDim* to this c
 that I have made no further revisions to its main content since 1992, and so you may be pretty confident
 that all page references to it and quotations from it will still be current in your copy!)
 
+[]{#sec-page12}
 <span class=neave_note>NB New editions of *Out of the Crisis* (Second Edition) and *The New Economics* (Third Edition) were published in 2018, both now including contributions from representatives of the Deming Institute. With both
 books, Dr Deming’s text is largely unchanged but a smaller size of print is used in the new editions, and
 so almost all page references have changed. Seeing that, at the time of writing and for some time to
