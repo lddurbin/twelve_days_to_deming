@@ -4,7 +4,7 @@ Two rollback strategies are available, depending on the situation. Both restore 
 
 ## How you find out something is wrong
 
-The deploy workflow's **Verify production** step fetches a handful of real URLs after the rsync and asserts each is byte-identical to what was shipped ([scripts/verify-deployment.sh](../scripts/verify-deployment.sh)). A red run there means the bytes on the server are not the bytes that were deployed, and is the intended trigger for Option 1 below.
+The deploy workflow's **Verify production** step fetches a handful of real URLs after the rsync and asserts each is byte-identical to what was shipped ([scripts/verify-deployment.sh](../scripts/verify-deployment.sh)). A red run there means the bytes on the server are not the bytes that were deployed, and is the intended trigger for Option 1 below. (HTTP 202 from the host's proxy warming up post-rsync does not turn the run red — it's unrelated to deploy correctness and is reported separately.)
 
 That step runs *before* the deployment is tagged, so a failed deploy never produces a `deploy-*` tag. Every tag listed in Option 2 is therefore a release that passed verification.
 
