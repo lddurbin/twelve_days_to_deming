@@ -9,7 +9,7 @@ execute:
 
 ## TABLE ONE {#sec-page18}
 
-**NB** As previously recommended, in order to avoid the need to frequently turn pages backward and forward as you are developing the tables, it is more convenient to use single-sided copies of the tables that have been reproduced on [pages 29–33, above](06-major-activity.qmd#sec-page18). Also, if later you would like to consider four areas rather than three, the appropriately amended tables are on [pages 34–38, also above](06-major-activity.qmd#sec-page18).
+**NB** As previously recommended, in order to avoid the need to frequently turn pages backward and forward as you are developing the tables, it is more convenient to use single-sided copies of the tables that have been reproduced on [pages 29–33, at the start of the Major Activity](06-major-activity.qmd#sec-page18). Also, if later you would like to consider four areas rather than three, the appropriately amended tables are on [pages 34–38, also at the start of the Major Activity](06-major-activity.qmd#sec-page18).
 
 **Step 1.** Firstly, here and in the other four tables, write the names of your three chosen areas (see [page 14, in the Introduction to the Major Activity](05-introduction-to-the-major-activity.qmd#sec-page14)) in the coloured sections.
 
