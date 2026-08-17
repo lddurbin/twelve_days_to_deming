@@ -180,6 +180,41 @@ check_once() {
   fi
 }
 
+# Wraps check_once with the fast retry budget (ATTEMPTS/RETRY_DELAY), used
+# both for phase 1's first pass and for a path rechecked mid-phase-2. A 202
+# is never retried in here — that pooling is phase 2's job — so this only
+# absorbs a transient real error (a blip mid-warm-up is not implausible on
+# this host, given how long the warm-up itself already runs).
+#
+# Always returns 0: the outcome is communicated entirely through the
+# CHECK_STATUS/CHECK_REASON globals, never through this function's own exit
+# code. That's deliberate, not an oversight — under `set -e`, a bare
+# `return` after a false `[[ ]]` test propagates that test's *failure*
+# status (bash's documented behaviour for argument-less `return`), and this
+# function is called as a plain top-level statement by its callers, so a
+# non-zero return here would silently kill the whole script exactly when
+# it's about to report a real failure. Caught by testing, not by reasoning
+# about it — verify empirically before trusting a change to this function.
+check_with_retry() {
+  local path="$1" expected_hash="$2" expected_file="$3" body="$4"
+  local attempt=0
+  while true; do
+    attempt=$((attempt + 1))
+    check_once "$path" "$expected_hash" "$expected_file" "$body"
+
+    if [[ "$CHECK_STATUS" == "202" || -z "$CHECK_REASON" ]]; then
+      return 0
+    fi
+
+    if [[ "$attempt" -lt "$ATTEMPTS" ]]; then
+      echo "        attempt ${attempt}/${ATTEMPTS} failed, retrying in ${RETRY_DELAY}s…"
+      sleep "$RETRY_DELAY"
+    else
+      return 0
+    fi
+  done
+}
+
 # Parallel indexed arrays rather than an associative array keyed by path:
 # the runner for this script is macOS's default /bin/bash (3.2), which
 # predates `declare -A` and also throws "unbound variable" under `set -u`
@@ -222,21 +257,7 @@ PENDING_IDX=()
 
 for ((i = 0; i < ${#CHECK_PATHS[@]}; i++)); do
   path="${CHECK_PATHS[$i]}"
-
-  attempt=0
-  while true; do
-    attempt=$((attempt + 1))
-    check_once "$path" "${CHECK_HASHES[$i]}" "${CHECK_FILES[$i]}" "${CHECK_BODIES[$i]}"
-
-    [[ "$CHECK_STATUS" == "202" || -z "$CHECK_REASON" ]] && break
-
-    if [[ "$attempt" -lt "$ATTEMPTS" ]]; then
-      echo "        attempt ${attempt}/${ATTEMPTS} failed, retrying in ${RETRY_DELAY}s…"
-      sleep "$RETRY_DELAY"
-    else
-      break
-    fi
-  done
+  check_with_retry "$path" "${CHECK_HASHES[$i]}" "${CHECK_FILES[$i]}" "${CHECK_BODIES[$i]}"
 
   if [[ "$CHECK_STATUS" == "202" ]]; then
     PENDING_IDX+=("$i")
@@ -266,7 +287,7 @@ while [[ ${#PENDING_IDX[@]} -gt 0 && "$round" -lt "$ROUNDS_202" ]]; do
   still_pending=()
   for i in "${PENDING_IDX[@]}"; do
     path="${CHECK_PATHS[$i]}"
-    check_once "$path" "${CHECK_HASHES[$i]}" "${CHECK_FILES[$i]}" "${CHECK_BODIES[$i]}"
+    check_with_retry "$path" "${CHECK_HASHES[$i]}" "${CHECK_FILES[$i]}" "${CHECK_BODIES[$i]}"
 
     if [[ "$CHECK_STATUS" == "202" ]]; then
       still_pending+=("$i")
@@ -279,11 +300,10 @@ while [[ ${#PENDING_IDX[@]} -gt 0 && "$round" -lt "$ROUNDS_202" ]]; do
     fi
   done
 
+  PENDING_IDX=()
   if [[ ${#still_pending[@]} -gt 0 ]]; then
     PENDING_IDX=("${still_pending[@]}")
     echo "        round ${round}/${ROUNDS_202}: ${#PENDING_IDX[@]} path(s) still 202, retrying in ${RETRY_DELAY_202}s…"
-  else
-    PENDING_IDX=()
   fi
 done
 
