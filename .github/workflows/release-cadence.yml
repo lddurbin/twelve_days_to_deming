@@ -115,13 +115,15 @@ jobs:
         } > "$REPORT"
 
         # $title below is a jq --arg binding, not a shell variable — it must
-        # stay unexpanded inside the single quotes.
+        # stay unexpanded inside the single quotes. gh's own --jq only takes
+        # a single filter expression (no --arg support), so pipe into the
+        # real jq binary instead.
         # shellcheck disable=SC2016
         EXISTING=$(gh issue list \
           --state open \
           --search "in:title \"${TITLE}\"" \
           --json number,title \
-          --jq --arg title "$TITLE" '[.[] | select(.title == $title)][0].number // empty')
+          | jq -r --arg title "$TITLE" '[.[] | select(.title == $title)][0].number // empty')
 
         if [ -n "${EXISTING}" ]; then
           echo "Updating existing tracking issue #${EXISTING}"
@@ -150,13 +152,15 @@ jobs:
         TITLE="[release-cadence] docs/changesets/ ready for a release cut"
 
         # $title below is a jq --arg binding, not a shell variable — it must
-        # stay unexpanded inside the single quotes.
+        # stay unexpanded inside the single quotes. gh's own --jq only takes
+        # a single filter expression (no --arg support), so pipe into the
+        # real jq binary instead.
         # shellcheck disable=SC2016
         EXISTING=$(gh issue list \
           --state open \
           --search "in:title \"${TITLE}\"" \
           --json number,title \
-          --jq --arg title "$TITLE" '[.[] | select(.title == $title)][0].number // empty')
+          | jq -r --arg title "$TITLE" '[.[] | select(.title == $title)][0].number // empty')
 
         if [ -n "${EXISTING}" ]; then
           echo "Closing #${EXISTING} — pending changesets back under threshold"
