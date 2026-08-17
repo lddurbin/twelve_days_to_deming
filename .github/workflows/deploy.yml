@@ -326,6 +326,11 @@ jobs:
     # Detection only. Rollback stays manual (ROLLBACK.md Option 1); for a
     # static site the worst case is a few minutes of bad HTML, which does not
     # justify automating a destructive action.
+    #
+    # HTTP 202 (production's proxy warming up post-rsync — unrelated to
+    # deploy correctness, see scripts/verify-deployment.sh) does not fail
+    # this step or block tagging. Only a real error (4xx/5xx/timeout/content
+    # mismatch) does.
     - name: Verify production
       env:
         CACHE_BUST: ${{ github.run_id }}-${{ github.run_attempt }}
