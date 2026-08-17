@@ -11,9 +11,10 @@
 #                    set below — e.g. VERIFY_PATHS="/ /privacy.html"
 #   ATTEMPTS         attempts per URL before failing on a real error (default 3)
 #   RETRY_DELAY      seconds between those attempts (default 5)
-#   ATTEMPTS_202     attempts per URL while the proxy keeps answering 202
-#                    (default 12) — see #653
-#   RETRY_DELAY_202  seconds between those attempts (default 10)
+#   ROUNDS_202       rounds of the shared wait while the proxy keeps answering
+#                    202, applied once across all still-pending paths rather
+#                    than separately per path (default 80) — see #653, #663
+#   RETRY_DELAY_202  seconds between those rounds (default 15)
 #   CACHE_BUST       token appended as ?v=… to defeat the proxy cache
 #                    (default: timestamp-pid; CI passes the run id)
 #
@@ -54,15 +55,21 @@ ATTEMPTS="${ATTEMPTS:-3}"
 RETRY_DELAY="${RETRY_DELAY:-5}"
 
 # HTTP 202 is handled on its own, more patient budget rather than folded into
-# ATTEMPTS/RETRY_DELAY above. Production's proxy answers 202 ("accepted,
-# not yet serving fresh content") for well over a minute after rsync touches
-# files on disk — observed still failing 73s in, on the *last* of six
-# sequentially-checked paths, so a modest bump to the general budget doesn't
-# cover it without also slowing down detection of a genuine error. A real
-# error (4xx/5xx/timeout) still fails within ATTEMPTS/RETRY_DELAY above. See
-# #653.
-ATTEMPTS_202="${ATTEMPTS_202:-12}"
-RETRY_DELAY_202="${RETRY_DELAY_202:-10}"
+# ATTEMPTS/RETRY_DELAY above. Production's proxy answers 202 ("accepted, not
+# yet serving fresh content") for well over ten minutes after rsync touches
+# files on disk, and the condition is proxy-wide rather than per-path: a run
+# on 2026-08-16 (#663) saw all 6 checked paths still returning 202 after 12
+# straight minutes of sequential per-path retrying, because that fix gave
+# each path its own ~110s budget before moving to the next. An independent
+# budget per path both wastes time re-discovering the same site-wide
+# condition six times over, and still caps each path's *effective* patience
+# at its own slice — never the full elapsed wait, since only the
+# last-checked path benefits from everything that came before it. So 202s
+# are pooled instead: every still-pending path is rechecked together each
+# round, and all of them share one cumulative wait. A real error (4xx/5xx/
+# timeout) still fails fast within ATTEMPTS/RETRY_DELAY above. See #653.
+ROUNDS_202="${ROUNDS_202:-80}"
+RETRY_DELAY_202="${RETRY_DELAY_202:-15}"
 
 # The site sits behind a proxy (`x-proxy-cache-info` in production response
 # headers). Appending a token unique to this run guarantees the origin answers,
@@ -133,6 +140,57 @@ echo ""
 
 FAILURES=0
 STALE_PATHS=0
+WARMUP_FAILURES=0
+
+# Runs one fetch-and-compare for $1 against expected hash $2 / expected file
+# $3, writing the body to $4. Sets CHECK_STATUS (HTTP code) and CHECK_REASON
+# ("" on success) rather than returning them — bash functions can't hand back
+# a multi-line string cleanly, and every caller needs both the status (to
+# tell a 202 apart from every other failure) and the reason.
+CHECK_STATUS=""
+CHECK_REASON=""
+check_once() {
+  local path="$1" expected_hash="$2" expected_file="$3" body="$4"
+  local url="${BASE_URL}${path}?v=${CACHE_BUST}"
+
+  # No --compressed: the comparison is against bytes on disk, and asking for
+  # an encoding invites the server to hand back something re-encoded.
+  #
+  # No --retry either: retrying is the caller's job, because only it can see
+  # a content mismatch. Stacking curl's own retries underneath multiplied the
+  # worst case — an unreachable site took ~29 minutes to be reported across
+  # six paths, rather than the ~10 this bounds it to.
+  CHECK_STATUS="$(curl -sS -o "$body" -w '%{http_code}' \
+    --connect-timeout 10 --max-time 30 \
+    "$url" 2>/dev/null)" || CHECK_STATUS="000"
+  CHECK_REASON=""
+
+  if [[ "$CHECK_STATUS" == "202" ]]; then
+    CHECK_REASON="HTTP 202 (expected 200) — proxy warm-up"
+  elif [[ "$CHECK_STATUS" != "200" ]]; then
+    CHECK_REASON="HTTP ${CHECK_STATUS} (expected 200)"
+  else
+    local actual_hash
+    actual_hash="$(sha256_of "$body")"
+    if [[ "$actual_hash" != "$expected_hash" ]]; then
+      CHECK_REASON="content differs from deployed artifact"
+      CHECK_REASON+=$'\n'"        expected sha256 ${expected_hash:0:16}… ($(wc -c < "$expected_file" | tr -d ' ') bytes)"
+      CHECK_REASON+=$'\n'"        served   sha256 ${actual_hash:0:16}… ($(wc -c < "$body" | tr -d ' ') bytes)"
+    fi
+  fi
+}
+
+# Parallel indexed arrays rather than an associative array keyed by path:
+# the runner for this script is macOS's default /bin/bash (3.2), which
+# predates `declare -A` and also throws "unbound variable" under `set -u`
+# when a genuinely empty array is expanded with "${arr[@]}" — the common
+# case here, since the whole point of phase 2 below is to shrink toward
+# empty. Every expansion of a maybe-empty array is guarded with a length
+# check for that reason.
+CHECK_PATHS=()
+CHECK_FILES=()
+CHECK_HASHES=()
+CHECK_BODIES=()
 
 for path in "${PATHS[@]}"; do
   expected_file="$(local_file_for "$path")"
@@ -149,62 +207,94 @@ for path in "${PATHS[@]}"; do
     continue
   fi
 
-  expected_hash="$(sha256_of "$expected_file")"
-  body="${WORK_DIR}/body"
-  url="${BASE_URL}${path}?v=${CACHE_BUST}"
-  reason=""
+  CHECK_PATHS+=("$path")
+  CHECK_FILES+=("$expected_file")
+  CHECK_HASHES+=("$(sha256_of "$expected_file")")
+  CHECK_BODIES+=("${WORK_DIR}/body-${#CHECK_PATHS[@]}")
+done
+
+# Phase 1: one fast pass per path (ATTEMPTS/RETRY_DELAY) — catches a real
+# error quickly and clears any path that's already warm. A 202 here is not
+# retried in place; it's deferred to the shared warm-up phase below, since
+# the 202 window is a proxy-wide condition rather than one particular to a
+# single URL (see ROUNDS_202 comment above).
+PENDING_IDX=()
+
+for ((i = 0; i < ${#CHECK_PATHS[@]}; i++)); do
+  path="${CHECK_PATHS[$i]}"
 
   attempt=0
   while true; do
     attempt=$((attempt + 1))
-    reason=""
-    max_attempts="$ATTEMPTS"
-    delay="$RETRY_DELAY"
+    check_once "$path" "${CHECK_HASHES[$i]}" "${CHECK_FILES[$i]}" "${CHECK_BODIES[$i]}"
 
-    # No --compressed: the comparison is against bytes on disk, and asking for
-    # an encoding invites the server to hand back something re-encoded.
-    #
-    # No --retry either: retrying is the outer loop's job, because only it can
-    # see a content mismatch. Stacking curl's own retries underneath multiplied
-    # the worst case — an unreachable site took ~29 minutes to be reported
-    # across six paths, rather than the ~10 this bounds it to.
-    status="$(curl -sS -o "$body" -w '%{http_code}' \
-      --connect-timeout 10 --max-time 30 \
-      "$url" 2>/dev/null)" || status="000"
+    [[ "$CHECK_STATUS" == "202" || -z "$CHECK_REASON" ]] && break
 
-    if [[ "$status" == "202" ]]; then
-      reason="HTTP 202 (expected 200) — proxy warm-up"
-      max_attempts="$ATTEMPTS_202"
-      delay="$RETRY_DELAY_202"
-    elif [[ "$status" != "200" ]]; then
-      reason="HTTP ${status} (expected 200)"
-    else
-      actual_hash="$(sha256_of "$body")"
-      if [[ "$actual_hash" != "$expected_hash" ]]; then
-        reason="content differs from deployed artifact"
-        reason+=$'\n'"        expected sha256 ${expected_hash:0:16}… ($(wc -c < "$expected_file" | tr -d ' ') bytes)"
-        reason+=$'\n'"        served   sha256 ${actual_hash:0:16}… ($(wc -c < "$body" | tr -d ' ') bytes)"
-      fi
-    fi
-
-    [[ -z "$reason" ]] && break
-
-    if [[ "$attempt" -lt "$max_attempts" ]]; then
-      echo "        attempt ${attempt}/${max_attempts} failed, retrying in ${delay}s…"
-      sleep "$delay"
+    if [[ "$attempt" -lt "$ATTEMPTS" ]]; then
+      echo "        attempt ${attempt}/${ATTEMPTS} failed, retrying in ${RETRY_DELAY}s…"
+      sleep "$RETRY_DELAY"
     else
       break
     fi
   done
 
-  if [[ -n "$reason" ]]; then
+  if [[ "$CHECK_STATUS" == "202" ]]; then
+    PENDING_IDX+=("$i")
+  elif [[ -n "$CHECK_REASON" ]]; then
     echo -e "  ${RED}FAIL${RESET}  ${path}"
-    echo "        ${reason}"
+    echo "        ${CHECK_REASON}"
     FAILURES=$((FAILURES + 1))
   else
-    echo -e "  ${GREEN}PASS${RESET}  ${path}  ($(wc -c < "$body" | tr -d ' ') bytes, matches artifact)"
+    echo -e "  ${GREEN}PASS${RESET}  ${path}  ($(wc -c < "${CHECK_BODIES[$i]}" | tr -d ' ') bytes, matches artifact)"
   fi
 done
+
+# Phase 2: shared warm-up rounds. Every path still pending after phase 1 is
+# rechecked together each round, so all of them draw on the same cumulative
+# wait instead of each getting its own budget that's exhausted before the
+# others even get their turn.
+if [[ ${#PENDING_IDX[@]} -gt 0 ]]; then
+  echo ""
+  echo "  ${#PENDING_IDX[@]} path(s) still warming up (HTTP 202) — waiting up to $((ROUNDS_202 * RETRY_DELAY_202))s together…"
+fi
+
+round=0
+while [[ ${#PENDING_IDX[@]} -gt 0 && "$round" -lt "$ROUNDS_202" ]]; do
+  round=$((round + 1))
+  sleep "$RETRY_DELAY_202"
+
+  still_pending=()
+  for i in "${PENDING_IDX[@]}"; do
+    path="${CHECK_PATHS[$i]}"
+    check_once "$path" "${CHECK_HASHES[$i]}" "${CHECK_FILES[$i]}" "${CHECK_BODIES[$i]}"
+
+    if [[ "$CHECK_STATUS" == "202" ]]; then
+      still_pending+=("$i")
+    elif [[ -n "$CHECK_REASON" ]]; then
+      echo -e "  ${RED}FAIL${RESET}  ${path}"
+      echo "        ${CHECK_REASON}"
+      FAILURES=$((FAILURES + 1))
+    else
+      echo -e "  ${GREEN}PASS${RESET}  ${path}  ($(wc -c < "${CHECK_BODIES[$i]}" | tr -d ' ') bytes, matches artifact)"
+    fi
+  done
+
+  if [[ ${#still_pending[@]} -gt 0 ]]; then
+    PENDING_IDX=("${still_pending[@]}")
+    echo "        round ${round}/${ROUNDS_202}: ${#PENDING_IDX[@]} path(s) still 202, retrying in ${RETRY_DELAY_202}s…"
+  else
+    PENDING_IDX=()
+  fi
+done
+
+if [[ ${#PENDING_IDX[@]} -gt 0 ]]; then
+  for i in "${PENDING_IDX[@]}"; do
+    echo -e "  ${RED}FAIL${RESET}  ${CHECK_PATHS[$i]}"
+    echo "        HTTP 202 (expected 200) — still warming up after $((round * RETRY_DELAY_202))s"
+    FAILURES=$((FAILURES + 1))
+    WARMUP_FAILURES=$((WARMUP_FAILURES + 1))
+  done
+fi
 
 echo ""
 
@@ -218,7 +308,19 @@ if [[ "$FAILURES" -gt 0 ]]; then
     echo "scripts/verify-deployment.sh to match the current site."
   fi
 
-  if [[ "$FAILURES" -gt "$STALE_PATHS" ]]; then
+  if [[ "$WARMUP_FAILURES" -gt 0 ]]; then
+    echo ""
+    echo "${WARMUP_FAILURES} path(s) never left proxy warm-up (HTTP 202) within"
+    echo "${ROUNDS_202} rounds. That is not the same as a bad deploy — rsync"
+    echo "already succeeded before this script ran, and #653/#663 both turned"
+    echo "out to be production serving the correct bytes once warm-up finally"
+    echo "finished. Re-check by hand once the proxy settles and, if it now"
+    echo "passes, recover the missing deploy tag with:"
+    echo "  gh run rerun <run-id> --failed"
+    echo "rather than rolling back."
+  fi
+
+  if [[ "$FAILURES" -gt "$((STALE_PATHS + WARMUP_FAILURES))" ]]; then
     echo ""
     echo "The site is serving something other than what was just deployed."
     echo "See docs/ROLLBACK.md — Option 1 restores the pre-deploy backup."
