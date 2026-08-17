@@ -11,6 +11,36 @@ and this project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-08-17
+
+### Course Content
+- Day 3's Funnel Experiment (Chapter 11) now includes the reference table mapping each dice-score to the marble's displacement, which the surrounding text already pointed to but the transcription had dropped. (#606)
+- The site footer now credits course content to Dr Henry R. Neave and any other original writing to its own author(s), instead of a single Neave copyright line covering every page. (#639)
+- Day 3's Rules 3 and 4 chapter now includes a new figure comparing Rule 2 and Rule 3 side by side at the first stage where they disagree, making clear that both rules move the funnel by the same distance but measure that distance from different starting points. (#651)
+
+### Accessibility
+- The interactive track widget in Day 3's Funnel Experiment (Rules 1–4) now stays full-size and scrolls horizontally on narrow screens instead of shrinking the digits down to a few pixels, and auto-scrolls to keep the funnel and marble in view as each stage advances. (#607)
+
+### Reader Experience
+- The reading-time indicator on Day 7's introduction, numerical targets, thirteenth obstacle, and Taguchi reflections sections now also shows Dr Neave's recommended pace, dictated from the original book. (#640)
+- Bare "page N" mentions across `content/appendix/` (including Optional Extras and Balaji Reddie's Contributions) are now clickable links to the section they refer to, instead of dead text; confirmed-external book citations (Out of the Crisis, DemDim, Shewhart, Wheeler, Walton) are left as plain prose. (#658)
+- 76 previously-unlinked "page N" mentions across Day 3's 13 chapters now link to the section they refer to, with descriptive link text naming the destination; confirmed book references (Out of the Crisis, DemDim, Elementary Statistics Tables) are left as plain prose. (#657)
+- The 28 same-day "page N" mentions in Day 9 that pointed to a real destination (e.g. "the diagram on page 3", "the table on page 28") are now clickable links, with 9 new `{#sec-pageN}` anchors added where none existed; genuine references to other books (Shewhart, DemDim, Out of the Crisis, The New Economics) were left as plain text. (#656)
+- 9 same-day "page N" mentions in Day 1 that pointed to a real destination (e.g. "Don Wheeler's book mentioned on page 5", "the Deming Prize and the Nashua Corporation... on page 2") are now clickable links, with 2 new `{#sec-pageN}` anchors added where none existed; genuine references to other books (Out of the Crisis, The New Economics, Shewhart's 1931 book, The Deming Prize, Ceil Kilian's biography) were left as plain text. (#660)
+- 18 same-day "page N"/"pages N–M" mentions in Day 7 that pointed to a real destination (e.g. "the diagram on page 19", "the further true stories on pages 9–18") are now clickable links, with 5 new `{#sec-pageN}` anchors added where none existed; genuine references to other books (*Out of the Crisis*, *DemDim*, Peter Scholtes's *The Leader's Handbook*, *The New Economics*) were left as plain text. (#659)
+- 23 same-day "page N" mentions in Day 8 (including two reclassified from an external-book false-positive) now link to a real destination, with 9 new `{#sec-pageN}` anchors added where none existed; genuine references to other books (DemDim, Out of the Crisis, The New Economics) were left as plain text. (TBD)
+- 8 same-day "page N" mentions in Day 11 (e.g. "today's material: pages 4–6", the footnoted page references in the Coda) are now clickable links, with 6 new `{#sec-pageN}` anchors added where none existed; the 44 remaining bare mentions are genuine citations to other books (DemDim, The New Economics, Out of the Crisis, The Essential Deming, Scherkenbach) or to Balaji Reddie's un-anchored "Preludes" appendix, so were left as plain text. (#662)
+- The 28 same-day "page N"/"pages N–M" mentions in Day 12 that pointed to a real destination (e.g. "the table on page 4", "Guidance for Staff (pages 14–18)") are now clickable links, with 12 new `{#sec-pageN}` anchors added where none existed; genuine references to other books (*Out of the Crisis*, *DemDim*, *The New Economics*, Peter Scholtes's *The Leader's Handbook*, Balaji Reddie's "Contributions") were left as plain text. (#661)
+
+### Fixed
+- Charts C2 and C3 in Day 3's "Six Processes" material now correctly show the Red Beads process going out of statistical control, matching the surrounding reading material. (#604)
+- Four "page N" links in the Optional Extras appendix used a bare `#sec-pageN` fragment instead of an explicit file path; one of them (`#sec-page43`) collided with an identical anchor id on a Day 2 page. All four now link explicitly to their own file. (#644)
+- Ten same-day "page N" links in Day 1 used a bare `#sec-pageN` fragment instead of an explicit file path; two silently misrouted readers to Day 2 or Day 3, and one pointed at a page anchor that doesn't exist. All ten now link to their correct target with an explicit path. (#642)
+- The Rule 3 worked example in Day 3 now shows the correct Stage 4–5 finishing positions (29→31, 28→32) and no longer contains a fabricated closing sentence that belonged to Rule 4, so the text matches the source, the R simulations, and the page's own interactive widget. (#648)
+
+### Visual & Content Polish
+- The Rule 3 marble-position lookup table in Day 3's Funnel Experiment (and the Rules 1–4 summary statistics table) now scrolls horizontally within its own container on narrow screens instead of forcing the whole page to overflow. (#609)
+
 ## [0.2.0] - 2026-08-11
 
 Retroactive release covering everything merged between v0.1.0 and this tag —
