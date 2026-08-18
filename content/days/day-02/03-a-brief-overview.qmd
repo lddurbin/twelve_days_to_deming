@@ -45,7 +45,7 @@ The results produced when the experiment was performed at that company in Irelan
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## PAUSE FOR THOUGHT 2–d
+## PAUSE FOR THOUGHT 2–d {#sec-page11}
 
 Take a careful look through these results. What main feature occurs to you when comparing the six Willing Workers with each other?
 
@@ -72,6 +72,7 @@ Reveal analysis of the Willing Workers results
 </button>
 
 <div class="collapse" id="collapse_2d">
+[]{#sec-page12}
 <span class="analysis_box_title">"ANALYSIS" OF THE RESULTS</span>
 The most obvious phenomenon is surely Ernie's remarkably good performance compared with everybody else. His second week was rather disappointing (although that's not difficult to explain—see
 below). Otherwise, his superiority is plain for all to see. Ernie was the only person in single figures during the first week, when both he and everybody else was carrying out the work for the first time. And,

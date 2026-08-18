@@ -11,7 +11,7 @@ execute:
   echo: false
   warning: false
 ---
-In spite of the <span class="deming_quote">"stupidly simple"</span> nature of the Red Beads Experiment, and in spite of our naturally having the All-Knowing's perspective on it, emotions can run high. I shall not forget an occasion when, as soon as the experiment had ended, one of my delegates stood up, ashen-faced and with unsteady voice, to confirm that so much of what had just happened, so much of what I (as the Foreman) had said to the workers, so much of the way I had mistreated and abused them, eventually firing some of them for no justifiable reason, had not only all happened to him but to others in his family.
+[]{#sec-page28}In spite of the <span class="deming_quote">"stupidly simple"</span> nature of the Red Beads Experiment, and in spite of our naturally having the All-Knowing's perspective on it, emotions can run high. I shall not forget an occasion when, as soon as the experiment had ended, one of my delegates stood up, ashen-faced and with unsteady voice, to confirm that so much of what had just happened, so much of what I (as the Foreman) had said to the workers, so much of the way I had mistreated and abused them, eventually firing some of them for no justifiable reason, had not only all happened to him but to others in his family.
 
 Another memory is from February 1992: the occasion when I took Tony Carter, recently appointed to the position of Secretary General in the British Deming Association, to meet Dr Deming and attend a four-day seminar in Miami. His hand shot up when it was time for volunteers to participate in the Red Beads Experiment, and he became one of the Willing Workers. Imagine how he felt—on stage with Dr Deming in front of some 600 Americans as the new organisational and administrative head of the BDA. *Of course* he wanted to do well. *Of course* he tried hard to follow instructions. But his performance, as measured by his results, was abysmal. In the subsequent issue of the BDA's newsletter, he wrote:
 
@@ -26,7 +26,7 @@ Two particular runs of the Red Beads Experiment stick in my memory despite the f
 If you were still in the Un-Knowing state, you would probably not be at all surprised to learn where these two sets of results originated. Very the best score (a total of just 203 red beads) was obtained by the most elite set of workers I was ever privileged to have participating in the Red Beads Experiment: five departmental heads in the British Government's Central Statistical Office plus one University Professor of Statistics. At the other extreme, the very worst score of 270 red beads was produced on the first of two occasions that I performed the experiment in Madrid, and some people might have doubts about the abilities of Spanish workers. Hold on—*don't take offence at that remark!* The point of this suggestion—and yet a further important message that comes from the Red Beads Experiment—is how easy it is to find data that appear to provide "evidence" to support personal prejudices. Let's take a look at both sets of data.
 
 <div class="neave_note" role="note" aria-label="Author's note">
-As with the experiment in Ireland described on pages 9–16, a "performance appraisal" takes place at the end of the third week; the three "worst" workers are then fired and the "best" workers have to work double time during the fourth week—they will need to produce **two** paddles of 50 beads, not just one!
+As with the experiment in Ireland described on [pages 9–16, starting in A Brief Overview](03-a-brief-overview.qmd#sec-page9), a "performance appraisal" takes place at the end of the third week; the three "worst" workers are then fired and the "best" workers have to work double time during the fourth week—they will need to produce **two** paddles of 50 beads, not just one!
 </div>
 
 []{#sec-page34}
@@ -52,7 +52,7 @@ Moving on to the Spaniards below, you can be sure that, in particular, I had som
 
 So now we have yet more of the profound messages which this <span class="deming_quote">"stupidly simple"</span> experiment communicates. The emotions raised and havoc wreaked by treating common-cause variation as if it were special-cause variation is one. Then the ease with which one can invent reasons to "explain" random variation is another. Similarly, the ease with which we can find data that appear to confirm what we want to believe or what we want to persuade others about (however idiotic it is) is yet another.
 
-Finally, regarding my recollections, here is a reminder of the one I mentioned on page 22: my understandable nervousness as I approached running the Red Beads Experiment in public for the very first time. I was to be faced with 24 as-yet-unknown random numbers of red beads and would have to comment upon each with little or no hesitation. Would I be able to think of anything to say?
+Finally, regarding my recollections, here is a reminder of the one I mentioned on [page 22, at the start of Your Turn](06-your-turn.qmd#sec-page22): my understandable nervousness as I approached running the Red Beads Experiment in public for the very first time. I was to be faced with 24 as-yet-unknown random numbers of red beads and would have to comment upon each with little or no hesitation. Would I be able to think of anything to say?
 
 Well, in Activity 2-f you've now had your own initial experience of the same situation, albeit without the pressure of performing in front of a paying audience. In my case, having muddled through that first time, I was nowhere near as nervous the second time; and still less the third time. In fact, I soon found that not only was I beginning to enjoy running the experiment but I was also discovering for myself more and more of those "profound messages" which the experiment can convey. Not only were my audiences learning more from the experiment: so was I.
 
@@ -149,7 +149,7 @@ viewof thought_2e_iv = persist(
 
 Next, as I had to do when running the experiment for the statisticians, it's time for you to multi-task!
 You now take over as the Recorder and draw a run chart of the data. If you need reminding about how
-to draw a run chart, check back with the run chart of Dec's data on page 14. Also as on that page, so
+to draw a run chart, check back with the run chart of Dec's data on [page 14, in Our First Control Chart](04-our-first-control-chart.qmd#sec-page14). Also as on that page, so
 that you don't have to keep looking back, here are the statisticians' counts of red beads in time order:
 
 > 9 6 7 8 9 11 8 8 5 4 3 13 10 12 10 9 8 10 13 7 8 10 7 8
@@ -157,7 +157,7 @@ that you don't have to keep looking back, here are the statisticians' counts of 
 Finally, insert the two control limits to turn the run chart into a control chart, and then state your conclu-
 sions. If you’re on Stats-level 0 then simply look up the control limits on [Appendix page 8](../../appendix/02-day-2.qmd#sec-page8). If you are
 on Stats-level 1 or higher then compute them in the space below. (If you need reminding about the
-details, Technical Aid 1 is on page 20.)
+details, Technical Aid 1 is on [page 20, in The Truth, The Whole Truth, And Nothing But](05-the-truth-the-whole-truth-and-nothing-but.qmd#sec-page20).)
 
 ```{ojs}
 viewof counts1 = persist(
