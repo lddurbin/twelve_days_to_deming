@@ -8,7 +8,7 @@ execute:
 
 As you know, these four Preludes respectively introduce some of the concepts in the four parts of Dr Deming's System of Profound Knowledge which you will study more fully on Days 10 and 11. At the end of Prelude C we again recalled that Deming emphasised these four parts are [all related to each other]{.deming_quote}. It should therefore be of little surprise that, during this final Prelude, we shall see several important links to all of the earlier Preludes.
 
-## "What is the job of a teacher?"
+## "What is the job of a teacher?" {#sec-page20}
 
 For a start, a particularly important issue which arose in Prelude C is that we are all born with the natural desire to learn. Dr Deming most certainly subscribed to this belief, but also pointed out that [people learn in different ways, and at different speeds]{.deming_quote} (*DemDim* page 278). Some learn by watching. Some learn by doing. Some need a combination of watching and doing. Some need to read. Some need to hear. For some, one word is enough. For others, after ten attempts, the person understands during the eleventh. Some learn faster and some learn slower. Which of all these and other possibilities characterise you? Whichever they are, are they not also things that you were born with?
 

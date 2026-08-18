@@ -34,7 +34,7 @@ A tree is a further interesting example of interconnectedness. If we ask a child
 
 This was documented by a very famous quantum physicist named Dr Fritjof Capra. He wrote extensively about this in his 2002 book: *The Hidden Connections*. There he described his surprise at finding that, irrespective of where trees are physically "rooted" or what kind of trees they are, underground they behave as though they are one! Underground they seem to share everything—that's surely real togetherness! This concept was echoed by Dr Deming long ago in Japan. In 1950 he advised the Japanese Government to collaborate with industry, education and healthcare and to encourage and enable them to all work together as a system to bring Japan out of its crisis. It is thus no surprise that the complete title of his final book is *The New Economics for Industry, Government, Education*. More togetherness.
 
-## The "most important" part of the system
+## The "most important" part of the system {#sec-page2}
 
 Dr Deming was once asked this question: "What is the most important part of a system?". His answer was not anything like "In the case of a human being it's the heart" or "In the case of an organisation it's the boss". No, his striking answer was simply: ["The part that is not working"]{.deming_quote}.
 
@@ -72,7 +72,7 @@ Worse still are examples in education. Children's capabilities are confused with
 
 When Dr Deming was speaking to Japanese industrialists in the early 1950s, he warned them that they would be in danger of destroying each other if they focused on competing against each other rather than focusing on the customers. ["We must learn to cooperate instead of trying to compete."]{.deming_quote}
 
-## Optimise or maximise?
+## Optimise or maximise? {#sec-page5}
 
 Thus, in summary, we have emphasised that the different parts of a system need to optimise their combined performances ("work together") rather than maximising their individual performances (as measured by their "scores"). Nature tends to optimise, whereas mankind, especially under bad management, tends to maximise. This, of course, takes us straight back to the salesman and the lady in the call-centre and their good scores for which they were probably rewarded despite causing harm to the system as a whole. Such cases where one part of a system is maximised, but in a way which is to the detriment of the overall system, are what Deming referred to as "*suboptimisation*". If that part of the system is human (an individual, a group, a department, etc), such suboptimisation may be deliberate (again especially under bad management). There are other examples. Proteins are good for the body, but an excess of proteins can actually harm the body by destroying the bones and the nervous system. Oxygen is needed by the body, but an excess of oxygen can actually eat into parts of the body, thus causing decay.
 
