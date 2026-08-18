@@ -88,7 +88,7 @@ viewof activity_6b_comparison = persist(
 </div>
 
 ::: {.callout-note appearance="minimal"}
-On [page 15, in the "Thank you, Dr Deming" section](02-gallery-furniture.qmd#sec-page15), Mack talked of the choice between continuing to focus on the quick buck, or looking down the road toward long-term prosperity using "the Deming method". That was in the 1990s. His choice seems to have worked: when you have time, take a look at [www.galleryfurniture.com](https://www.galleryfurniture.com).
+On [page 15, in the "No going back" section](02-gallery-furniture.qmd#sec-page15), Mack talked of the choice between continuing to focus on the quick buck, or looking down the road toward long-term prosperity using "the Deming method". That was in the 1990s. His choice seems to have worked: when you have time, take a look at [www.galleryfurniture.com](https://www.galleryfurniture.com).
 :::
 
 ```{ojs download_all}
