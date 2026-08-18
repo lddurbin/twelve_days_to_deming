@@ -25,7 +25,7 @@ I should point out that Deming mentioned two further Deadly Diseases on *Out of 
 
 The 14 Points, the five main Deadly Diseases, and the later set of Obstacles are all introduced in *DemDim* Chapter 3.
 
-## THE JOINER TRIANGLE
+## THE JOINER TRIANGLE {#sec-page2}
 
 In those early seminars, I soon realised I must be getting something wrong concerning the 14 Points—because people would keep asking me awkward questions about them! Thinking hard about the matter (as I always do), I began to realise that merely consulting individual pieces of the Deming philosophy as a system, in the sense in which we have begun to use that word. To put it metaphorically, I was talking about the individual pieces of a jigsaw without trying to fit the pieces together! No wonder that I was unable to answer my delegates' questions! Perhaps it is a comment on the attractive nature of Dr Deming's material that individual pieces of the jigsaw are worth talking about in their own right—but they clearly their prime purpose and role is to help form the big picture.
 
@@ -42,9 +42,9 @@ A simple equilateral triangle with one short phrase written at each of its three
 
 </details>
 
-In fact, the people at Joiner Associates used only *six* words, with the top of the Triangle being condensed to just "Quality". However, that struck me as being rather too nebulous. On page 11 you will see the more detailed version of the Triangle which shows some of the items to be included under each of the three headings. "Develop an obsession with quality" was the first item under that single word "Quality". With that and the fact that the final item was "Continual never-ending improvement", the thrust of that part of the Triangle was clearly far greater than conventional interpretations of "Quality" would imply; thus it seemed appropriate and helpful to take those two words "Obsession With" up into the title.
+In fact, the people at Joiner Associates used only *six* words, with the top of the Triangle being condensed to just "Quality". However, that struck me as being rather too nebulous. On [page 11, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page11) you will see the more detailed version of the Triangle which shows some of the items to be included under each of the three headings. "Develop an obsession with quality" was the first item under that single word "Quality". With that and the fact that the final item was "Continual never-ending improvement", the thrust of that part of the Triangle was clearly far greater than conventional interpretations of "Quality" would imply; thus it seemed appropriate and helpful to take those two words "Obsession With" up into the title.
 
-We shall study the Joiner Triangle's three foundations in some depth on pages 4–13.
+We shall study the Joiner Triangle's three foundations in some depth on [pages 4 to 13, starting in the Joiner Triangle chapter below](02-the-joiner-triangle.qmd#sec-page4).
 
 ## Simple and profound
 
