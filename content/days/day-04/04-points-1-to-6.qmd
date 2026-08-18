@@ -47,7 +47,7 @@ viewof p1_aot = persist(
 
 ### Scientific Approach
 
-A Scientific Approach is necessary for genuine improvement, be it continual or otherwise, because of its emphasis on the system and processes both in concept and in the methods that it provides, especially the control chart. We also need well-chosen data and the knowledge of how to interpret those data in order to reflect and guide us on how successful our attempts and experiments for improvement are working (but definitely *not* in the sense of whether or not we've met some numerical target—recall the second paragraph of page 8).
+A Scientific Approach is necessary for genuine improvement, be it continual or otherwise, because of its emphasis on the system and processes both in concept and in the methods that it provides, especially the control chart. We also need well-chosen data and the knowledge of how to interpret those data in order to reflect and guide us on how successful our attempts and experiments for improvement are working (but definitely *not* in the sense of whether or not we've met some numerical target—recall the second paragraph of [page 8, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page8)).
 
 ```{ojs}
 viewof p1_sa = persist(
@@ -336,9 +336,9 @@ viewof p6_aot = persist(
 
 ### Scientific Approach
 
-Here it is appropriate to recall the original expanded version of the Joiner Triangle on page 11 in addition to my subsequent suggested modification. As we saw, Joiner Associates' own expanded version of the Triangle included flowcharting and other "old tools" of quality under the Scientific Approach. Obviously, the control chart is in both versions!
+Here it is appropriate to recall the original expanded version of the Joiner Triangle on [page 11, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page11) in addition to my subsequent suggested modification. As we saw, Joiner Associates' own expanded version of the Triangle included flowcharting and other "old tools" of quality under the Scientific Approach. Obviously, the control chart is in both versions!
 
-<div class="neave_note" role="note" aria-label="Author's note">**NB** My alternative list of topics for the Scientific Approach on page 12 was not intended as a criticism of the original expanded Joiner Triangle! Regarding the difference in nature between education and training: consultants in the Deming area clearly need to work with both, and thus the version of the Scientific Approach on page 11 was entirely appropriate for Joiner Associates. But, equally clearly, the primary nature of *12 Days to Deming* is education, and so a different emphasis regarding the Scientific Approach is usually appropriate here.</div>
+<div class="neave_note" role="note" aria-label="Author's note">**NB** My alternative list of topics for the Scientific Approach on [page 12, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page12) was not intended as a criticism of the original expanded Joiner Triangle! Regarding the difference in nature between education and training: consultants in the Deming area clearly need to work with both, and thus the version of the Scientific Approach on [page 11, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page11) was entirely appropriate for Joiner Associates. But, equally clearly, the primary nature of *12 Days to Deming* is education, and so a different emphasis regarding the Scientific Approach is usually appropriate here.</div>
 
 ```{ojs}
 viewof p6_sa = persist(

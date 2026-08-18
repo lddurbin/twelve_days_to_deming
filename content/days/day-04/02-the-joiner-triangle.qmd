@@ -109,7 +109,7 @@ viewof activity_4b_no = persist(
 <div class="activity_afterthought">(If you are not content with your answers here, you might like to return to this Activity after studying some of the 14 Points and Deadly Diseases in the forthcoming project.)</div>
 </div>
 
-## The Joiner Triangle: "Obsession With Quality"
+## The Joiner Triangle: "Obsession With Quality" {#sec-page8}
 
 In all fields of activity, everyone recognises the importance of quality *to a certain extent*. If the quality of the product and/or service being provided by our organisation is so poor that we are losing business, who could argue against the need to improve quality? Also, often there are specifications or targets or standards that have to be met, set by legislators or by customers. If our company is not meeting those requirements, who could argue against the need to improve quality? Customers like having the protection of warranties, but they much prefer *not* having to use them. Further, "a number of companies set their own specifications based on what they think a wide variety of customers will find acceptable. Often this is an R&D Department which is far removed from the practicalities of production" (my thanks to Dr Jackie Graham for this observation).
 
@@ -297,9 +297,9 @@ done for that restaurant's business?
 <div class="activity_afterthought">(For some brief discussion, again see [Appendix page 22](../../appendix/04-day-4.qmd#sec-page22).)</div>
 </div>
 
-## THE EXPANDED JOINER TRIANGLE
+## THE EXPANDED JOINER TRIANGLE {#sec-page12}
 
-In preparation for the First Project and as promised on page 2, here is a fuller version of the Triangle as used by Joiner Associates' consultants. It includes notes of a few of the topics relevant to each of the Triangle's three foundations. Take a careful look through it: you will probably find it helpful to refer repeatedly to such an expanded version of the Triangle as you work through the forthcoming project.
+In preparation for the First Project and as promised on [page 2, in the Introduction chapter](01-introduction.qmd#sec-page2), here is a fuller version of the Triangle as used by Joiner Associates' consultants. It includes notes of a few of the topics relevant to each of the Triangle's three foundations. Take a careful look through it: you will probably find it helpful to refer repeatedly to such an expanded version of the Triangle as you work through the forthcoming project.
 
 ![The Expanded Joiner Triangle (Joiner Associates version)](/assets/images/day-04/joiner-triangle-expanded.png){fig-align="center" width="80%" .lightbox}
 
