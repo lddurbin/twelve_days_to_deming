@@ -6,7 +6,7 @@ session_minutes: 150
 execute:
   echo: false
 ---
-Now it's time to take a break to watch the video *Management's Five Deadly Diseases* (see the link on page 1). Delegates used to appreciate my description of this video as featuring a rather elderly "Angry Young Man"! I think you'll soon see why.
+Now it's time to take a break to watch the video *Management's Five Deadly Diseases* (see the link on [page 1, in the Introduction](01-introduction.qmd#sec-page1)). Delegates used to appreciate my description of this video as featuring a rather elderly "Angry Young Man"! I think you'll soon see why.
 
 <div class="return_callout" role="note" aria-label="Study resource">Watch *Management's Five Deadly Diseases* at [www.youtube.com/watch?v=ehMAwIHGN0Y](https://www.youtube.com/watch?v=ehMAwIHGN0Y) (note: the penultimate character is a zero; the sixth character from the end is a capital letter I).</div>
 
@@ -75,7 +75,7 @@ My choice of Dr Deming's words here are few but surely "hit the nail on the head
 
 My friend Dr Jackie Graham, based in Australia, points out how government cycles (i.e. the times between General Elections) can seriously obstruct long-term projects: "The big joke in Australia is the fast train from Melbourne to Sydney. Been talked about for more than 30 years. Every election time it gets rolled out, dusted off, and then after the election gets put back on ice. No government can build it in one term and so it does not get done." Jackie told me that one can drive a car between the two cities (without speeding) in considerably less time than the train currently takes! The latter barely averages 50 miles (80 kilometres) per hour. No wonder she observed: "the busiest air corridor in the world is between Melbourne and Sydney".
 
-With even greater focus than the words I have quoted above, on *Out of the Crisis* page 84[99] Dr Deming expresses this Deadly Disease as "Emphasis on short-term profits". Short-term profits (like other figures discussed in Point 11 on page 10) can always be made to look better. In his first paragraph on this topic (*Out of the Crisis* page 85[99]), Dr Deming describes how to do it:
+With even greater focus than the words I have quoted above, on *Out of the Crisis* page 84[99] Dr Deming expresses this Deadly Disease as "Emphasis on short-term profits". Short-term profits (like other figures discussed in Point 11 on [page 10](02-points-7-to-14.qmd#sec-page10)) can always be made to look better. In his first paragraph on this topic (*Out of the Crisis* page 85[99]), Dr Deming describes how to do it:
 
 "Ship everything on hand, regardless of quality: mark it shipped, and show it all as accounts receivable. Defer till next quarter, so far as possible, orders for material and equipment. Cut down on research, education, training."
 
@@ -265,7 +265,7 @@ viewof d5_owq = persist(
 
 []{#sec-page27}
 
-<div class="neave_note" role="note" aria-label="Author's note">**NB** There may be a potential danger in using the summary on the previous page without clarification: it is a possible misunderstanding of the term "work standards". But we only have to refer back to Point 11 (page 10): "work standards that prescribe quotas for the workforce and numerical goals for people in management" to be clear about Deming's focus with those words. That focus is, of course, in no way related to e.g. *standardising* work, procedures, operations, etc once they have been found advantageous. Apart from anything else, this clearly reduces variation. Some refer to these more appropriate practices by alternative terms such as "standard work" which helps to avoid possible ambiguity.</div>
+<div class="neave_note" role="note" aria-label="Author's note">**NB** There may be a potential danger in using the summary on the previous page without clarification: it is a possible misunderstanding of the term "work standards". But we only have to refer back to Point 11 ([page 10](02-points-7-to-14.qmd#sec-page10)): "work standards that prescribe quotas for the workforce and numerical goals for people in management" to be clear about Deming's focus with those words. That focus is, of course, in no way related to e.g. *standardising* work, procedures, operations, etc once they have been found advantageous. Apart from anything else, this clearly reduces variation. Some refer to these more appropriate practices by alternative terms such as "standard work" which helps to avoid possible ambiguity.</div>
 
 ### All One Team
 
@@ -319,10 +319,10 @@ You may recall my saying in the Overture that I would, from time to time, ask yo
 
 Day 6 is the first time that this happens—and it happens in quite a big way. However, it may of course be that you personally are not currently involved with any organisation, either as an employee or indeed as a manager—i.e. that there isn't a "your organisation" in this context. If you are studying this course as a member of a group then your discussions could perhaps centre around the organisation to which at least one of your fellow-students belongs. Failing that, and especially if you are studying alone, this will become the time to involve your friend—please refer back to the "Activities, Major Activities, and Pauses for Thought" section in the Overture: see [Day 1 page 15](../day-01/05-activities.qmd#sec-page15).
 
-The material for [Day 6](../day-06/01-introduction.qmd) includes a substantial case study on pages 7–16. Day 6's Major Activity then follows on pages 18–20. After you've read the first few paragraphs of the Major Activity, I'll suggest that you read through the case study again, but this time highlighting and making notes on items in the case study that will be helpful to you in the Major Activity—you'll probably be able to find quite a lot of such items. To help in that preparation I recommend that you print out in advance a single-sided "working copy" of Day 6 pages 7–16, and then staple or bind together those pages so that you can make notes on the blank sides opposite to the relevant items.
+The material for [Day 6](../day-06/01-introduction.qmd) includes a substantial case study on [pages 7–16, in the Gallery Furniture case study](../day-06/02-gallery-furniture.qmd#sec-page6). Day 6's Major Activity then follows on [pages 18–20](../day-06/03-activity-6b.qmd#sec-page18). After you've read the first few paragraphs of the Major Activity, I'll suggest that you read through the case study again, but this time highlighting and making notes on items in the case study that will be helpful to you in the Major Activity—you'll probably be able to find quite a lot of such items. To help in that preparation I recommend that you print out in advance a single-sided "working copy" of Day 6 pages 7–16, and then staple or bind together those pages so that you can make notes on the blank sides opposite to the relevant items.
 
 One further considerable help with this Major Activity would be, if possible, for you to print out an enlargement of the table on [Day 6 page 19](../day-06/03-activity-6b.qmd#sec-page19). This is a table in which you will need to summarise the information you've just recorded alongside the case study, and so you would definitely benefit from having the extra space available on such an enlargement. Further guidance will be found in the middle of [Day 6 page 18](../day-06/03-activity-6b.qmd#sec-page18).
 
 **Approvals, Acknowledgments and Information**
 
-<sup>a</sup> (page 14) This and all other quotations from Volume 21 of *The Deming Library* have been included with the approval of Clare Crawford-Mason.
+<sup>a</sup> ([page 14, in Point 13](02-points-7-to-14.qmd#sec-page14)) This and all other quotations from Volume 21 of *The Deming Library* have been included with the approval of Clare Crawford-Mason.
