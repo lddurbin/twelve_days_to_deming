@@ -6,17 +6,17 @@ execute:
   echo: false
 ---
 
-## PART B: SOME KNOWLEDGE OF THEORY OF VARIATION (STATISTICAL THEORY)
+## PART B: SOME KNOWLEDGE OF THEORY OF VARIATION (STATISTICAL THEORY) {#sec-page20}
 
 ### Step 1: Browsing session
 
 Relevant reading:
 
-> Prelude B: "Preludes" pages 7–14.
+> Prelude B: "Preludes" [pages 7–14, starting "Understanding Statistical Thinking"](../../appendix/contributions-balaji-reddie/02-prelude-b-statistical-thinking.qmd#sec-page7).
 >
 > *DemDim*: pages 270–274.
 >
-> Today's material: pages 20–27 [*WB* 171–178].
+> Today's material: [pages 20–27, starting with Part B below](04-theory-of-variation.qmd#sec-page20) [*WB* 171–178].
 
 ### Step 2: Dr Deming's May 1990 version
 
@@ -39,6 +39,8 @@ The "wibble-wobble" situation is what Deming refers to in this item as a "stable
 
 The reason why Deming says that understanding of such matters [*"is essential for management"*]{.deming_quote} is this: If the system is stable, i.e. the variation is just "wibble-wobble", then relatively high or low values just cannot be "explained"---in particular, there is then no justification for blaming or indeed praising anybody for such values. It's the same kind of "random variation" as you get when throwing dice or shuffling and dealing playing cards. High or low is then just a matter of luck. Should you praise or blame people merely for being lucky or unlucky? I'd say you're a pretty lousy manager or leader if you do.
 </div>
+
+[]{#sec-page21}
 
 <div class="deming_quote">
 2. Variation there will always be, between people, in output, in service, in product. What is the variation trying to tell us about a process, and about the people that work in it?
@@ -68,7 +70,7 @@ viewof note_10_variation_12 = persist(
 </div>
 
 <div class="deming_quote">
-4. The leadership of people (manager, leader, supervisor, teacher) is entirely different in the two states: stable and unstable. Confusion between the two states leads to calamity. [*Already touched upon, particularly near the end of what I have written for the first item---see the top of page 21.*]
+4. The leadership of people (manager, leader, supervisor, teacher) is entirely different in the two states: stable and unstable. Confusion between the two states leads to calamity. [*Already touched upon, particularly near the end of what I have written for the first item---see the top of [page 21](04-theory-of-variation.qmd#sec-page21).*]
 </div>
 
 ```{ojs}
@@ -187,7 +189,7 @@ Corollaries of this theorem are frightening.
 </div>
 
 <div class="neave_note">
-[*It is interesting that, both here and in* The New Economics*, this apparently very general point appears at the end of the section on Knowledge of Variation. Maybe this indicates Dr Deming's feeling that it is in the matter of understanding variation that organisations need the greatest external help. Sadly, they will not get it from conventional statisticians. His final comment in the Knowledge of Variation section in Chapter 4 of* The New Economics *is "Again, a system can not understand itself. One may learn a lot about ice, yet know very little about water". E.g. see Preludes page 18.*]
+[*It is interesting that, both here and in* The New Economics*, this apparently very general point appears at the end of the section on Knowledge of Variation. Maybe this indicates Dr Deming's feeling that it is in the matter of understanding variation that organisations need the greatest external help. Sadly, they will not get it from conventional statisticians. His final comment in the Knowledge of Variation section in Chapter 4 of* The New Economics *is "Again, a system can not understand itself. One may learn a lot about ice, yet know very little about water". E.g. see Preludes [page 18, in Prelude C: "Understanding Learning"](../../appendix/contributions-balaji-reddie/03-prelude-c-learning.qmd#sec-page18).*]
 </div>
 
 ```{ojs}
