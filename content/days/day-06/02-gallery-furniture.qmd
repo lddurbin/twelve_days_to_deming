@@ -75,6 +75,8 @@ In our commission-based sales structure for the first eight or nine years at Gal
 
 Judging performance using arbitrary goals fostered a giant amount of fudging of the figures. Salespeople went to great lengths to cross that narrow line between being a winner or a loser. Some salespeople would work six or seven days a week to reach their quotas. The more tired they got, the harder it was for them to make the quota. It was a vicious circle.
 
+[]{#sec-page9}
+
 Our Delivery Department could expect to be overworked on Thursdays, the end of our pay period, when salespeople would force customers to take delivery of their furniture just so that their quota could be met. "To heck with what the customer wants. I have to meet my quota."
 
 On the other hand, if a salesperson already had his figure for the week, he would call off all the Thursday night deliveries he had, and postpone them till the Friday or Saturday to give him a good start to the next week. It didn't matter that the customer didn't like this. All that mattered was: "What's good for me as far as my income is concerned?".
@@ -199,7 +201,7 @@ Payroll only takes an hour each week, not the nine or ten hours it used to be. O
 
 Management is now spending time helping people, coaching and nurturing rather than ranking, rating, firing, or refereeing commission battles. A learning environment has been created, and people love to learn and excel at their job for the sheer joy of just doing it. And what's wrong with enjoying your work? Like the members of a symphony orchestra, associates each play their part for the good of the whole.
 
-### No going back
+### No going back {#sec-page15}
 
 Someone asked me, at one of the Deming downfalls, if I would go back to commission if our sales were to slide. No! Absolutely not! The biggest benefits of salary vs commission are unknown and unknowable. Employees are happier. Management is happier. And customers are treated better. The company makes more profit.
 
@@ -264,4 +266,4 @@ In finishing, I'd like to talk about the last time I saw Dr Deming. My son James
 
 We all do.
 
-*(Now please move on to page 18 to make a start on today's Major Activity.)*
+*(Now please move on to [page 18, the start of Major Activity 6-b](03-activity-6b.qmd#sec-page18) to make a start on today's Major Activity.)*

@@ -72,7 +72,7 @@ Today involves rather less than the fairly full day's work designed for most day
 
 <div class="thought" role="note" aria-label="Activity">
 
-## ACTIVITY 6-a
+## ACTIVITY 6-a {#sec-page5}
 
 Firstly, for your own interest and later use, I'd like you to spend some time thinking and "scoring" your organisation with reference to the 14 Points and Deadly Diseases. How does your organisation match up with what the 14 Points guide managers to do? Is it inflicted with the "Deadly Diseases" or not? This exercise is for your eyes only—you are not expected to divulge your scores to anybody else!
 
