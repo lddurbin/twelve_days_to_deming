@@ -6,7 +6,7 @@ session_minutes: 25
 execute:
   echo: false
 ---
-We have now seen our first set of what were referred to yesterday as "process data" (other than the set illustrated on today's first page). We certainly have a process: meticulously defined by the Foreman during the training period. And we have some time-ordered data from that process: the 24 consecutive numbers of red beads recorded by Dec, the Recorder, in his table on page 11.
+We have now seen our first set of what were referred to yesterday as "process data" (other than the set illustrated on today's first page). We certainly have a process: meticulously defined by the Foreman during the training period. And we have some time-ordered data from that process: the 24 consecutive numbers of red beads recorded by Dec, the Recorder, in his table on [page 11, in A Brief Overview](03-a-brief-overview.qmd#sec-page11).
 
 Thus, recalling some of what was introduced on Day 1, it is reasonable to think of developing a control chart of these data. The control chart has a pretty good track-record of telling the truth about a process or, at least, providing guidance on where it is sensible to look for the truth.
 
@@ -16,7 +16,7 @@ Here again are the numbers of red beads from the experiment, now for convenience
 
 7 10 11 11 12 11 11 8 10 9 12 15 3 10 10 10 9 6 6 13 10 6 14 11
 
-There are two stages in constructing a control chart. The first stage is simply to draw a run chart of the data; so here it is:
+There are two stages in constructing a control chart. []{#sec-page14}The first stage is simply to draw a run chart of the data; so here it is:
 
 ```{r}
 run_chart_plot(c(7, 10, 11, 11, 12, 11, 11, 8, 10, 9, 12, 15, 3, 10, 10, 10, 9, 6, 6, 13, 10, 6, 14, 11),
