@@ -70,7 +70,7 @@ viewof activity_6b_post = persist(
 <h2>Major Activity 6-b (concluded)</h2>
 </div>
 
-To complete this Major Activity, transcribe from the table on page 5 in Activity 6-a the scores for your own organisation into the central yellow column on page 19. Think about what they tell you. For a start, you will see "at a glance" whether your organisation relates more to Gallery as it was in its "pre-Deming" or its "post-Deming" days. More particularly, with Points or Diseases where both the "pre-Deming" Gallery and your own organisation have low scores, while "post-Deming" Gallery has a high score, there may be something to learn from the Gallery story about what your organisation might do in order to improve matters. Give yourself plenty of time for this. Write down your thoughts on these two pages.
+To complete this Major Activity, transcribe from the table on [page 5](01-introduction.qmd#sec-page5) in Activity 6-a the scores for your own organisation into the central yellow column on [page 19, the scoring table above](03-activity-6b.qmd#sec-page19). Think about what they tell you. For a start, you will see "at a glance" whether your organisation relates more to Gallery as it was in its "pre-Deming" or its "post-Deming" days. More particularly, with Points or Diseases where both the "pre-Deming" Gallery and your own organisation have low scores, while "post-Deming" Gallery has a high score, there may be something to learn from the Gallery story about what your organisation might do in order to improve matters. Give yourself plenty of time for this. Write down your thoughts on these two pages.
 
 <div class="thought" role="note" aria-label="Activity">
 
@@ -88,7 +88,7 @@ viewof activity_6b_comparison = persist(
 </div>
 
 ::: {.callout-note appearance="minimal"}
-On page 15, Mack talked of the choice between continuing to focus on the quick buck, or looking down the road toward long-term prosperity using "the Deming method". That was in the 1990s. His choice seems to have worked: when you have time, take a look at [www.galleryfurniture.com](https://www.galleryfurniture.com).
+On [page 15, in the "Thank you, Dr Deming" section](02-gallery-furniture.qmd#sec-page15), Mack talked of the choice between continuing to focus on the quick buck, or looking down the road toward long-term prosperity using "the Deming method". That was in the 1990s. His choice seems to have worked: when you have time, take a look at [www.galleryfurniture.com](https://www.galleryfurniture.com).
 :::
 
 ```{ojs download_all}
