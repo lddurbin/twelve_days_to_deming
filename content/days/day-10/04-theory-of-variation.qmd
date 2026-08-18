@@ -189,7 +189,7 @@ Corollaries of this theorem are frightening.
 </div>
 
 <div class="neave_note">
-[*It is interesting that, both here and in* The New Economics*, this apparently very general point appears at the end of the section on Knowledge of Variation. Maybe this indicates Dr Deming's feeling that it is in the matter of understanding variation that organisations need the greatest external help. Sadly, they will not get it from conventional statisticians. His final comment in the Knowledge of Variation section in Chapter 4 of* The New Economics *is "Again, a system can not understand itself. One may learn a lot about ice, yet know very little about water". E.g. see Preludes [page 18, in Prelude C: "Understanding Learning"](../../appendix/contributions-balaji-reddie/03-prelude-c-learning.qmd#sec-page15).*]
+[*It is interesting that, both here and in* The New Economics*, this apparently very general point appears at the end of the section on Knowledge of Variation. Maybe this indicates Dr Deming's feeling that it is in the matter of understanding variation that organisations need the greatest external help. Sadly, they will not get it from conventional statisticians. His final comment in the Knowledge of Variation section in Chapter 4 of* The New Economics *is "Again, a system can not understand itself. One may learn a lot about ice, yet know very little about water". E.g. see Preludes [page 18, in Prelude C: "Understanding Learning"](../../appendix/contributions-balaji-reddie/03-prelude-c-learning.qmd#sec-page18).*]
 </div>
 
 ```{ojs}
