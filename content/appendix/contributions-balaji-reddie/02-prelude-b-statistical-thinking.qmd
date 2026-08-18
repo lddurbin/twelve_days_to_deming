@@ -6,7 +6,7 @@ execute:
   echo: false
 ---
 
-## Normal and abnormal variation
+## Normal and abnormal variation {#sec-page7}
 
 The final section of Prelude A was: "Performing 'within limits'". The study of whether a process is or is not performing within its limits, and what that implies, is called "Statistical Thinking". Let's refer to those limits as the process's ["natural"]{.deming_quote} limits or simply the "process" limits.
 
