@@ -59,19 +59,11 @@ MIN_PARA_LEN=40
 # paragraph_similarity.py, which compares one PDF sentence against every QMD
 # sentence in the day, word by word.
 #
-# Two granularity choices were tried and discarded before this one. Whole
-# paragraphs: a single substituted word is diluted to near-invisibility across
-# ~100 unchanged words. Then sentences compared character by character: better,
-# but a one-digit change ("the 97% region" -> "the 37% region") is 1 character
-# in 76 and scores 0.9865, indistinguishable from a clean match.
-#
-# At word granularity a faithful transcription normalises to an identical word
-# sequence and scores exactly 1.0, while the worst-case (hardest to catch) of
-# the known Day 4 defects scores 0.9778. 0.98 sits in that gap. The defect
-# shapes are pinned in tests/test_paragraph_similarity.py, so re-tuning this
-# without re-checking them will fail the suite rather than silently lose
-# coverage. See #676 and #677.
-ALTERED_SIMILARITY_THRESHOLD=0.98
+# The threshold itself lives in that module, as ALTERED_SIMILARITY_THRESHOLD,
+# alongside the rationale for its value and the tests that pin it. This script
+# deliberately keeps no copy of the number: a second definition here could drift
+# from the one the test suite checks, leaving the suite green while validation
+# ran at a different threshold.
 
 # ── Helpers ────────────────────────────────────────────────────
 
@@ -464,7 +456,7 @@ main() {
   # the presence check but was altered past its opening words.
   local altered_report="$tmpdir/altered_report.txt"
   if ! python3 "$REPO_ROOT/scripts/lib/paragraph_similarity.py" \
-       "$matched_paras_file" "$tmpdir/qmd_paras.txt" "$ALTERED_SIMILARITY_THRESHOLD" \
+       "$matched_paras_file" "$tmpdir/qmd_paras.txt" \
        > "$altered_report"; then
     echo "Error: similarity scoring failed (see the Python error above)." >&2
     echo "       scripts/lib/paragraph_similarity.py" >&2

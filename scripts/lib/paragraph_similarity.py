@@ -65,6 +65,25 @@ import sys
 
 TRUNCATE_LEN = 200
 
+# Below this similarity, a sentence is flagged as "altered" rather than counted
+# as a clean match. This module is the single definition: validate-transcription.sh
+# no longer carries its own copy, and the test suite imports this one, so the
+# three consumers cannot drift apart.
+#
+# Two granularity choices were tried and discarded before word-level. Whole
+# paragraphs: a single substituted word is diluted to near-invisibility across
+# ~100 unchanged words. Then sentences compared character by character: better,
+# but a one-digit change ("the 97% region" -> "the 37% region") is 1 character
+# in 76 and scores 0.9865, indistinguishable from a clean match.
+#
+# At word granularity a faithful transcription normalises to an identical word
+# sequence and scores exactly 1.0, while the worst-case (hardest to catch) of
+# the known Day 4 defects scores 0.9778. 0.98 sits in that gap. The defect
+# shapes are pinned in tests/test_paragraph_similarity.py, so re-tuning this
+# without re-checking them will fail the suite rather than silently lose
+# coverage. See #676 and #677.
+ALTERED_SIMILARITY_THRESHOLD = 0.98
+
 # A flagged sentence at or above this score is near-certainly the same sentence
 # as its match, so the difference is near-certainly a defect rather than a
 # restructuring. Used only to count a "review these first" band in the header —
@@ -290,27 +309,35 @@ def read_paragraphs(path: str) -> list[str]:
 
 
 def main(argv: list[str]) -> int:
-    if len(argv) != 4:
+    if not 3 <= len(argv) <= 4:
         print(
             "Usage: paragraph_similarity.py <matched_pdf_paras.txt> "
-            "<qmd_paras.txt> <threshold>",
+            "<qmd_paras.txt> [threshold]",
             file=sys.stderr,
         )
         return 1
 
-    pdf_path, qmd_path, threshold_arg = argv[1:4]
-    try:
-        threshold = float(threshold_arg)
-    except ValueError:
-        print(f"Error: threshold must be a number, got {threshold_arg!r}", file=sys.stderr)
-        return 1
+    pdf_path, qmd_path = argv[1:3]
+    # Callers normally omit the threshold and take ALTERED_SIMILARITY_THRESHOLD,
+    # so there is one definition of it rather than a copy per caller. The
+    # override exists for tuning experiments against a single day.
+    threshold = ALTERED_SIMILARITY_THRESHOLD
+    if len(argv) == 4:
+        try:
+            threshold = float(argv[3])
+        except ValueError:
+            print(f"Error: threshold must be a number, got {argv[3]!r}", file=sys.stderr)
+            return 1
 
     pdf_paras = read_paragraphs(pdf_path)
     qmd_paras = read_paragraphs(qmd_path)
 
-    altered_by_para = analyse(pdf_paras, qmd_paras, threshold)
+    # Warn before scoring, not after: analyse() returns [] on an empty pool, so
+    # a warning printed afterwards reads like a comment on the (empty) result.
     if not qmd_paras:
         print("Warning: no QMD paragraphs to compare against", file=sys.stderr)
+
+    altered_by_para = analyse(pdf_paras, qmd_paras, threshold)
 
     scores = [f[0] for _, flagged in altered_by_para for f in flagged]
     print(f"ALTERED_COUNT={len(altered_by_para)}")

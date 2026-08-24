@@ -15,6 +15,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts" / "lib"))
 
 from paragraph_similarity import (  # noqa: E402
+    ALTERED_SIMILARITY_THRESHOLD as THRESHOLD,
     NEAR_MATCH_SCORE,
     analyse,
     diff_window,
@@ -23,9 +24,6 @@ from paragraph_similarity import (  # noqa: E402
     split_sentences,
     tokenise,
 )
-
-# Keep in step with ALTERED_SIMILARITY_THRESHOLD in validate-transcription.sh.
-THRESHOLD = 0.98
 
 
 def score_of(pdf_sentence: str, qmd_sentence: str) -> float:
