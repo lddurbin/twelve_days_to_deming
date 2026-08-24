@@ -2,6 +2,7 @@
 title: "INNOVATION — NOT JUST IMPROVEMENT"
 pagetitle: "Day 8: Innovation — not just improvement"
 description: "An activity exploring innovation in your organisation: what obstructs it, what it costs to lack it, and what could encourage more of it."
+session_minutes: 60
 execute:
   echo: false
 ---

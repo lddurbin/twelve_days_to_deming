@@ -2,6 +2,7 @@
 title: "A NEW CLIMATE"
 pagetitle: "Day 8: Introducing the New Climate — joy, innovation, cooperation"
 description: "Neave pivots from Day 7's bad practices to the New Climate of Joy in Work, Innovation and Cooperation, tracing its roots to his 1988 journal article."
+session_minutes: 20
 execute:
   echo: false
 ---
