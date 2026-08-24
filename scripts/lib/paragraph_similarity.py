@@ -42,13 +42,42 @@ hand-checked Day 4 sentences the two classes overlapped across most of the
 range, so the report states the evidence — the score, and the closest match
 found — and leaves the judgement to the reader.
 
-Usage: paragraph_similarity.py <matched_pdf_paras.txt> <qmd_paras.txt> <threshold>
+This same machinery also runs in reverse (#718): analyse()'s two paragraph
+lists are direction-agnostic — one is "walked" sentence by sentence, the
+other is flattened into the pool each of those sentences is matched against
+— so calling it with the QMD paragraphs as the walk-list and the PDF
+paragraphs as the pool finds QMD content with no credible PDF source at all,
+which the forward direction can never see: a paragraph the presence check
+never had a reason to doubt was "present" has no bearing on whether some
+*other*, fabricated paragraph exists alongside it. This is scored against a
+much lower threshold (UNSOURCED_SIMILARITY_THRESHOLD, not
+ALTERED_SIMILARITY_THRESHOLD) because the reverse pool is QMD-authored prose
+that was never meant to have a PDF counterpart — activity prompts, button
+labels, figure captions — which routinely scores 0.3-0.7 against its nearest
+PDF sentence by shared vocabulary alone.
+
+This cannot catch every shape of fabrication. A sentence copied verbatim from
+elsewhere in the *same* source PDF — present, but relocated or duplicated —
+scores a perfect match against its true origin and is indistinguishable from
+a legitimately placed quote by similarity alone. See #645, where a Rule 4
+sentence was pasted into the Rule 3 section: it would not be flagged by
+either direction of this scorer. What *would* be flagged is the numeric
+defect that accompanied it — the wrong finishing-position numbers have no
+close match anywhere in the PDF and score well under threshold. This limit is
+pinned in tests/test_paragraph_similarity.py rather than left to be
+rediscovered.
+
+Usage: paragraph_similarity.py <matched_pdf_paras.txt> <qmd_paras.txt>
+       <all_pdf_paras.txt> [threshold]
 
 Input files: one paragraph per line, as produced by validate-transcription.sh's
-text_to_paragraphs().
+text_to_paragraphs(). <all_pdf_paras.txt> is the full, unfiltered PDF
+paragraph list (not the "matched" subset) — the reverse pass needs every PDF
+paragraph as its search pool, since a QMD paragraph's true source may be one
+the forward presence check happened to mark missing.
 
-Output: `KEY=VALUE` header lines, then a blank line, then a formatted report
-section (absent when nothing is flagged). Callers should read the counts by
+Output: `KEY=VALUE` header lines, then a blank line, then formatted report
+section(s) (absent when nothing is flagged). Callers should read the counts by
 key and skip the header with `sed '1,/^$/d'` rather than by line number, so
 new keys can be added without breaking them.
 
@@ -56,6 +85,9 @@ new keys can be added without breaking them.
   FLAGGED_SENTENCES=<n>   flagged sentences in total
   NEAR_MATCH_SENTENCES=<n>  flagged sentences at or above NEAR_MATCH_SCORE —
                           the high-confidence band to review first
+  UNSOURCED_COUNT=<n>     QMD paragraphs with >=1 sentence with no credible
+                          PDF source
+  UNSOURCED_SENTENCES=<n>  such sentences in total
 """
 from __future__ import annotations  # `list[str]` annotations on Python < 3.9
 
@@ -89,6 +121,23 @@ ALTERED_SIMILARITY_THRESHOLD = 0.98
 # restructuring. Used only to count a "review these first" band in the header —
 # it does not affect what gets flagged.
 NEAR_MATCH_SCORE = 0.90
+
+# Below this similarity, a QMD sentence has no credible PDF source and is
+# flagged as "unsourced" — the reverse pass's counterpart to
+# ALTERED_SIMILARITY_THRESHOLD above. Deliberately much lower: unlike the
+# forward direction, where both sides are meant to be the same sentence, the
+# reverse pool is QMD-authored prose that was never meant to have a PDF
+# counterpart at all (activity prompts, button labels, figure captions,
+# interactive-element copy), and that legitimate site-only text routinely
+# scores 0.3-0.7 against its nearest PDF sentence just by sharing vocabulary —
+# not because it's the same sentence, altered.
+#
+# Measured against real Day 1/3/4 paragraph pools, genuinely fabricated or
+# absent content clustered under ~0.25 while every legitimate site-only
+# paragraph inspected scored above it, so 0.25 sits in that gap. Set any
+# higher and the standing baseline stops being "small enough to scan" — see
+# #718's own acceptance criteria.
+UNSOURCED_SIMILARITY_THRESHOLD = 0.25
 
 
 def normalise(text: str) -> str:
@@ -263,11 +312,40 @@ def analyse(
     return altered_by_para
 
 
+def _format_findings(
+    by_para: list[tuple[str, list[tuple[float, str, str]]]],
+    item_label: str,
+    para_label: str,
+    walk_label: str,
+    pool_label: str,
+) -> list[str]:
+    """Per-finding block shared by render() and render_unsourced().
+
+    The two directions differ only in which side is being walked and which is
+    the search pool, so the labels are the only thing that needs to change.
+    Both label pairs happen to be the same character length ("Source (PDF):"/
+    "Source (QMD):", "Closest (QMD):"/"Closest (PDF):"), so a single field
+    width keeps the excerpt columns aligned either way.
+    """
+    out = []
+    for i, (para, flagged) in enumerate(by_para, start=1):
+        out += [f"--- {item_label} {i} ({len(flagged)} sentence(s) flagged) ---",
+                f"{para_label}: {truncate(para)}",
+                ""]
+        for score, walk_sent, pool_sent in flagged:
+            walk_excerpt, pool_excerpt = diff_window(walk_sent, pool_sent)
+            out.append(f"  [similarity {score:.0%}]")
+            out.append(f"  {walk_label:<16}{walk_excerpt}")
+            out.append(f"  {pool_label:<16}{pool_excerpt}")
+            out.append("")
+    return out
+
+
 def render(
     altered_by_para: list[tuple[str, list[tuple[float, str, str]]]],
     threshold: float,
 ) -> list[str]:
-    """Format the human-readable report section."""
+    """Format the human-readable "altered content" report section."""
     out = [
         "==========================================",
         "  Altered Content (present, but modified)",
@@ -290,16 +368,45 @@ def render(
         "              closest match found is shown so you can tell which.",
         "",
     ]
-    for i, (pdf_para, flagged) in enumerate(altered_by_para, start=1):
-        out += [f"--- Altered {i} ({len(flagged)} sentence(s) flagged) ---",
-                f"Source paragraph (PDF): {truncate(pdf_para)}",
-                ""]
-        for score, pdf_sent, qmd_sent in flagged:
-            pdf_excerpt, qmd_excerpt = diff_window(pdf_sent, qmd_sent)
-            out.append(f"  [similarity {score:.0%}]")
-            out.append(f"  Source (PDF):   {pdf_excerpt}")
-            out.append(f"  Closest (QMD):  {qmd_excerpt}")
-            out.append("")
+    out += _format_findings(
+        altered_by_para, "Altered", "Source paragraph (PDF)",
+        "Source (PDF):", "Closest (QMD):",
+    )
+    return out
+
+
+def render_unsourced(
+    unsourced_by_para: list[tuple[str, list[tuple[float, str, str]]]],
+    threshold: float,
+) -> list[str]:
+    """Format the human-readable "unsourced content" report section — the
+    reverse direction: QMD paragraphs with no credible PDF source."""
+    out = [
+        "==========================================",
+        "  Unsourced Content (no credible PDF source)",
+        "==========================================",
+        "",
+        "Each QMD paragraph below has one or more sentences whose closest",
+        "match anywhere in the PDF scores below the similarity threshold",
+        f"({threshold:.0%}) — nothing in the source resembles it closely enough",
+        "to call it the same sentence, reworded.",
+        "",
+        "Most findings here are expected and harmless: activity prompts,",
+        "button labels, figure captions, and other content that only ever",
+        "existed on the site. The minority worth a second look is content",
+        "invented during transcription with no PDF counterpart at all.",
+        "",
+        "Known blind spot: a sentence copied verbatim from elsewhere in the",
+        "SAME PDF scores a perfect match against its true origin and will NOT",
+        "appear here, even if it was pasted into the wrong place in the QMD.",
+        "Only wording that resembles nothing in the source is caught — see",
+        "#645 and the module docstring.",
+        "",
+    ]
+    out += _format_findings(
+        unsourced_by_para, "Unsourced", "QMD paragraph",
+        "Source (QMD):", "Closest (PDF):",
+    )
     return out
 
 
@@ -309,44 +416,62 @@ def read_paragraphs(path: str) -> list[str]:
 
 
 def main(argv: list[str]) -> int:
-    if not 3 <= len(argv) <= 4:
+    if not 4 <= len(argv) <= 5:
         print(
             "Usage: paragraph_similarity.py <matched_pdf_paras.txt> "
-            "<qmd_paras.txt> [threshold]",
+            "<qmd_paras.txt> <all_pdf_paras.txt> [threshold]",
             file=sys.stderr,
         )
         return 1
 
-    pdf_path, qmd_path = argv[1:3]
+    pdf_path, qmd_path, all_pdf_path = argv[1:4]
     # Callers normally omit the threshold and take ALTERED_SIMILARITY_THRESHOLD,
     # so there is one definition of it rather than a copy per caller. The
-    # override exists for tuning experiments against a single day.
+    # override exists for tuning experiments against a single day, and applies
+    # only to the forward (altered) direction — nothing yet needs to override
+    # UNSOURCED_SIMILARITY_THRESHOLD from the CLI.
     threshold = ALTERED_SIMILARITY_THRESHOLD
-    if len(argv) == 4:
+    if len(argv) == 5:
         try:
-            threshold = float(argv[3])
+            threshold = float(argv[4])
         except ValueError:
-            print(f"Error: threshold must be a number, got {argv[3]!r}", file=sys.stderr)
+            print(f"Error: threshold must be a number, got {argv[4]!r}", file=sys.stderr)
             return 1
 
     pdf_paras = read_paragraphs(pdf_path)
     qmd_paras = read_paragraphs(qmd_path)
+    all_pdf_paras = read_paragraphs(all_pdf_path)
 
     # Warn before scoring, not after: analyse() returns [] on an empty pool, so
     # a warning printed afterwards reads like a comment on the (empty) result.
     if not qmd_paras:
         print("Warning: no QMD paragraphs to compare against", file=sys.stderr)
+    if not all_pdf_paras:
+        print("Warning: no PDF paragraphs to compare against", file=sys.stderr)
 
     altered_by_para = analyse(pdf_paras, qmd_paras, threshold)
+    # Reverse direction (#718): QMD paragraphs walk, the full (unfiltered) PDF
+    # paragraph pool is searched — analyse() needs no changes to run backwards.
+    unsourced_by_para = analyse(qmd_paras, all_pdf_paras, UNSOURCED_SIMILARITY_THRESHOLD)
 
     scores = [f[0] for _, flagged in altered_by_para for f in flagged]
+    unsourced_scores = [f[0] for _, flagged in unsourced_by_para for f in flagged]
     print(f"ALTERED_COUNT={len(altered_by_para)}")
     print(f"FLAGGED_SENTENCES={len(scores)}")
     print(f"NEAR_MATCH_SENTENCES={sum(1 for s in scores if s >= NEAR_MATCH_SCORE)}")
+    print(f"UNSOURCED_COUNT={len(unsourced_by_para)}")
+    print(f"UNSOURCED_SENTENCES={len(unsourced_scores)}")
     print()
 
+    sections = []
     if altered_by_para:
-        print("\n".join(render(altered_by_para, threshold)))
+        sections.append("\n".join(render(altered_by_para, threshold)))
+    if unsourced_by_para:
+        sections.append(
+            "\n".join(render_unsourced(unsourced_by_para, UNSOURCED_SIMILARITY_THRESHOLD))
+        )
+    if sections:
+        print("\n\n".join(sections))
     return 0
 
 
