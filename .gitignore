@@ -50,6 +50,8 @@ docs/deviations-from-source.md
 
 venv/
 temp/
+__pycache__/
+*.pyc
 
 .claude/*.lock
 

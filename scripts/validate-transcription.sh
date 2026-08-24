@@ -7,8 +7,23 @@
 #   e.g. ./scripts/validate-transcription.sh 3
 #        ./scripts/validate-transcription.sh --appendix contributions-balaji-reddie
 #
+# Reports two distinct kinds of gap, in two separate sections:
+#   - Missing:  a PDF paragraph whose opening words don't appear anywhere
+#               in the QMD text at all.
+#   - Altered:  a PDF paragraph that IS present (its opening words matched),
+#               but that contains one or more sentences whose closest-matching
+#               QMD sentence differs from it by more than
+#               ALTERED_SIMILARITY_THRESHOLD — e.g. a swapped word, a
+#               paraphrased sentence, or dropped detail past the opening
+#               words, none of which the presence check alone can see.
+#               Scored at sentence (not paragraph) granularity: a single
+#               swapped word is diluted to near-invisibility across a whole
+#               paragraph of otherwise-unchanged text. See
+#               scripts/lib/paragraph_similarity.py and issue #677.
+#
 # Requires: pdftotext (brew install poppler)
 #           ruby (YAML parsing for appendix manifests)
+#           python3 (paragraph similarity scoring; no third-party packages)
 #
 # Day mode uses the PDF letter-prefix mapping:
 #   D=Day1, E=Day2, F=Day3, G=Day4, H=Day5, I=Day6,
@@ -39,6 +54,17 @@ day_to_prefix() {
 # Minimum paragraph length (chars) to consider for matching
 MIN_PARA_LEN=40
 
+# Similarity ratio (0-1) below which a sentence within a "present" paragraph
+# is flagged as "altered" rather than a clean match. Scored by
+# paragraph_similarity.py, which compares one PDF sentence against every QMD
+# sentence in the day, word by word.
+#
+# The threshold itself lives in that module, as ALTERED_SIMILARITY_THRESHOLD,
+# alongside the rationale for its value and the tests that pin it. This script
+# deliberately keeps no copy of the number: a second definition here could drift
+# from the one the test suite checks, leaving the suite green while validation
+# ran at a different threshold.
+
 # ── Helpers ────────────────────────────────────────────────────
 
 usage() {
@@ -56,6 +82,10 @@ usage() {
 check_deps() {
   if ! command -v pdftotext &>/dev/null; then
     echo "Error: pdftotext not found. Install with: brew install poppler"
+    exit 1
+  fi
+  if ! command -v python3 &>/dev/null; then
+    echo "Error: python3 not found (needed for paragraph similarity scoring)"
     exit 1
   fi
 }
@@ -125,13 +155,25 @@ strip_qmd() {
 }
 
 # Extract text from PDF, normalise whitespace, filter boilerplate
+#
+# Form feeds are stripped with `tr`, not sed. BSD sed (macOS, the only
+# platform this script runs on) does not understand the `\f` escape and reads
+# it as a literal `f`, so the `s/\f//g` this used to open with silently
+# deleted every letter "f" from the PDF side of every comparison — "of far
+# off" came out as "o ar o". That corruption was long misread as pdftotext
+# mangling fi/fl/ff ligatures, and was "fixed" by stripping `f` from BOTH
+# sides in normalise() so the two agreed. pdftotext in fact emits ligatures
+# as plain ASCII here ("essential feature of" is byte-for-byte intact), so
+# with the real bug fixed, both f-stripping workarounds are gone too.
 extract_pdf_text() {
   local pdf="$1"
-  pdftotext -layout "$pdf" - | sed -E '
-    # Remove form feed characters
-    s/\f//g
-    # Remove embedded page numbers (standalone 1-3 digit numbers from layout mode)
-    s/ [0-9]{1,3} / /g
+  # Note: no rule strips inline numbers. A previous `s/ [0-9]{1,3} / /g` meant
+  # to drop layout-mode page numbers, but in a course built on "the 14 Points"
+  # and "Day 1 page 33" it hit content instead — 18 occurrences of "the 14
+  # Points" became "the Points" in Day 4 alone — while genuine page-number
+  # lines are already handled by the /^[0-9]+$/d rule below. Keeping numbers
+  # is also what lets similarity scoring see a mis-transcribed number at all.
+  pdftotext -layout "$pdf" - | tr -d '\014' | sed -E '
     # Collapse runs of spaces
     s/  +/ /g
     # Trim leading/trailing whitespace
@@ -189,13 +231,16 @@ text_to_paragraphs() {
 }
 
 # Normalise text for comparison: lowercase, strip punctuation, collapse whitespace.
-# Also strips f/F to handle pdftotext ligature issues — many PDFs use fi/fl/ff/ffi
-# ligature glyphs that pdftotext silently drops, producing "or" for "for",
-# "irst" for "first", etc. Removing f from both sides makes them matchable.
+#
+# This used to also strip every f/F, on the belief that pdftotext drops fi/fl/ff
+# ligature glyphs and yields "or" for "for", "irst" for "first". It doesn't —
+# extract_pdf_text()'s own `s/\f//g` was doing that, because BSD sed reads `\f`
+# as a literal f (see the note there). With that fixed, stripping f here would
+# only destroy real signal: "of"/"o" and "for"/"or" are distinct words, and a
+# transcription that swapped one for the other should be caught, not hidden.
 normalise() {
   tr '[:upper:]' '[:lower:]' | sed -E '
     s/[^a-z0-9 ]/ /g
-    s/f//g
     s/  +/ /g
     s/^ +//
     s/ +$//
@@ -383,6 +428,8 @@ main() {
   local matched=0
   local total=0
   local missing_paras=()
+  local matched_paras_file="$tmpdir/matched_paras.txt"
+  > "$matched_paras_file"
 
   while IFS= read -r para; do
     total=$((total + 1))
@@ -391,29 +438,60 @@ main() {
 
     if [[ -z "$fp" ]]; then
       matched=$((matched + 1))
+      echo "$para" >> "$matched_paras_file"
       continue
     fi
 
     if find_in_qmd "$fp" "$qmd_normalised"; then
       matched=$((matched + 1))
+      echo "$para" >> "$matched_paras_file"
     else
       missing=$((missing + 1))
       missing_paras+=("$para")
     fi
   done < "$tmpdir/pdf_paras.txt"
 
+  # Step 3.5: among paragraphs already confirmed "present", score each
+  # sentence against its closest QMD match to catch content that survived
+  # the presence check but was altered past its opening words.
+  local altered_report="$tmpdir/altered_report.txt"
+  if ! python3 "$REPO_ROOT/scripts/lib/paragraph_similarity.py" \
+       "$matched_paras_file" "$tmpdir/qmd_paras.txt" \
+       > "$altered_report"; then
+    echo "Error: similarity scoring failed (see the Python error above)." >&2
+    echo "       scripts/lib/paragraph_similarity.py" >&2
+    exit 1
+  fi
+
+  # Read counts by key, not by line number, so the helper can grow new header
+  # fields without silently shifting what this parses.
+  local altered flagged near_match
+  altered=$(sed -n 's/^ALTERED_COUNT=//p' "$altered_report")
+  flagged=$(sed -n 's/^FLAGGED_SENTENCES=//p' "$altered_report")
+  near_match=$(sed -n 's/^NEAR_MATCH_SENTENCES=//p' "$altered_report")
+  # A non-numeric count here would corrupt the arithmetic below into a silently
+  # wrong "Matched cleanly" figure, so fail loudly instead.
+  if ! [[ "$altered" =~ ^[0-9]+$ && "$flagged" =~ ^[0-9]+$ && "$near_match" =~ ^[0-9]+$ ]]; then
+    echo "Error: similarity scoring returned no usable counts." >&2
+    exit 1
+  fi
+  matched=$((matched - altered))
+
   # Step 4: Report
   echo "=========================================="
   echo "  Results"
   echo "=========================================="
   echo ""
-  echo "  PDF paragraphs checked:  $total"
-  echo "  Matched in QMD:          $matched"
-  echo "  Potentially missing:     $missing"
+  echo "  PDF paragraphs checked:      $total"
+  echo "  Matched cleanly:             $matched"
+  echo "  Altered (present, modified): $altered"
+  echo "    - sentences flagged:             $flagged"
+  echo "    - near-certain defects (>=90%):  $near_match"
+  echo "  Potentially missing:         $missing"
   echo ""
 
-  if (( missing == 0 )); then
-    echo "All PDF paragraphs appear to have matches in the QMD files."
+  if (( missing == 0 && altered == 0 )); then
+    echo "All PDF paragraphs appear to have clean matches in the QMD files."
     echo ""
   else
     local match_pct
@@ -422,31 +500,40 @@ main() {
     else
       match_pct=0
     fi
-    echo "Match rate: ${match_pct}%"
-    echo ""
-    echo "=========================================="
-    echo "  Potentially Missing Content"
-    echo "=========================================="
-    echo ""
-    echo "The following PDF paragraphs had no close match in the QMD files."
-    echo "Review these to determine if they are:"
-    echo "  - Genuinely missing from the transcription"
-    echo "  - Page headers/footers or boilerplate (false positives)"
-    echo "  - Content intentionally omitted or restructured"
+    echo "Clean match rate: ${match_pct}%"
     echo ""
 
-    local i=1
-    for para in "${missing_paras[@]}"; do
-      echo "--- Gap $i ---"
-      # Show first 200 chars of the paragraph
-      if (( ${#para} > 200 )); then
-        echo "${para:0:200}..."
-      else
-        echo "$para"
-      fi
+    if (( missing > 0 )); then
+      echo "=========================================="
+      echo "  Potentially Missing Content"
+      echo "=========================================="
       echo ""
-      i=$((i + 1))
-    done
+      echo "The following PDF paragraphs had no close match in the QMD files."
+      echo "Review these to determine if they are:"
+      echo "  - Genuinely missing from the transcription"
+      echo "  - Page headers/footers or boilerplate (false positives)"
+      echo "  - Content intentionally omitted or restructured"
+      echo ""
+
+      local i=1
+      for para in "${missing_paras[@]}"; do
+        echo "--- Gap $i ---"
+        # Show first 200 chars of the paragraph
+        if (( ${#para} > 200 )); then
+          echo "${para:0:200}..."
+        else
+          echo "$para"
+        fi
+        echo ""
+        i=$((i + 1))
+      done
+    fi
+
+    if (( altered > 0 )); then
+      # Skip the KEY=VALUE header block (everything up to its trailing blank
+      # line) rather than a fixed line count — see paragraph_similarity.py.
+      sed '1,/^$/d' "$altered_report"
+    fi
   fi
 
   echo "=========================================="
@@ -457,6 +544,10 @@ main() {
   echo "    figure captions, and table content that pdftotext garbles"
   echo "  - Interactive elements (OJS/R code) in QMD have no PDF equivalent"
   echo "  - Some content may be intentionally restructured for the web version"
+  echo "  - Altered flags are a triage filter, not a verdict: they only say"
+  echo "    the closest QMD match differs from the source by more than the"
+  echo "    threshold. Confirm against the actual page image before treating"
+  echo "    a flag as a defect."
   echo ""
 }
 

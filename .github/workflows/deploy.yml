@@ -33,6 +33,14 @@ jobs:
     - name: Run JavaScript tests
       run: npm test
 
+    # The transcription validator itself can't run here — it needs the source
+    # PDFs, which are gitignored and live only on the maintainer's machine.
+    # Its scoring logic has no such dependency, so the part that decides what
+    # counts as a transcription defect is covered even though the end-to-end
+    # run isn't. Stdlib unittest, no packages to install. See #677.
+    - name: Run Python tests
+      run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+
   # Build and deploy are separate jobs so the rendered site exists as a named
   # artifact rather than only as a directory inside the job that ships it.
   # That makes "deploy the same verified bytes somewhere else" — a PR preview,
