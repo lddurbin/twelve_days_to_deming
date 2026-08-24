@@ -132,6 +132,41 @@ Each day is a `part:` with nested `chapters:`:
 
 ---
 
+## Subresource Integrity (SRI) for the Observable Plot import
+
+`_quarto.yml`'s site-wide `header-includes` declares a `<script
+type="importmap">` with an `integrity` entry pinning
+`@observablehq/plot@0.6.16`, the dynamic `await import(...)` used in
+`content/days/day-03/{11,12,13}*.qmd` (see #581, #597). Whenever that
+pinned version bumps, the hash must be re-derived and the fix re-verified
+in a real browser — a stale hash fails closed (the histogram silently
+stops rendering) rather than failing loudly, so this is easy to miss:
+
+1. Re-derive the hash:
+   ```sh
+   curl -s "https://cdn.jsdelivr.net/npm/@observablehq/plot@<new-version>/+esm" \
+     | openssl dgst -sha384 -binary | openssl base64 -A
+   ```
+   Prefix the output with `sha384-` to form the full integrity value (the
+   command above only prints the raw digest) — a hash missing this prefix
+   fails SRI validation silently, exactly the "fails closed" failure mode
+   above.
+   Confirm the response still carries `Cache-Control: immutable` — if it
+   doesn't, the resource no longer passes SRI's own eligibility bar and
+   pinning should be reconsidered.
+2. Update the version in the 5 call sites (`content/days/day-03/{11,12}
+   *.qmd` have 2 each, `13-summary.qmd` has 1) and in the `integrity` map
+   in `_quarto.yml`.
+3. Render the 3 affected pages and verify in a real browser (not just
+   markup inspection) that the import still resolves — e.g. drive the
+   funnel-experiment UI to completion (click `.fe-stage-complete`) and
+   confirm both histograms render. A puppeteer script is the fastest way;
+   see PR for #597 for a worked example.
+4. Re-run pa11y against the 3 pages — a broken import doesn't itself fail
+   accessibility checks, but confirms nothing else regressed.
+
+---
+
 ## CSS Classes
 
 **Naming convention:** Use kebab-case for all new CSS classes (e.g. `.float-box`, `.fe-button`). Legacy snake_case classes (e.g. `.return_callout`) are retained as-is to avoid churn.
