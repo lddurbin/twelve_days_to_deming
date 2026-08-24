@@ -147,6 +147,10 @@ stops rendering) rather than failing loudly, so this is easy to miss:
    curl -s "https://cdn.jsdelivr.net/npm/@observablehq/plot@<new-version>/+esm" \
      | openssl dgst -sha384 -binary | openssl base64 -A
    ```
+   Prefix the output with `sha384-` to form the full integrity value (the
+   command above only prints the raw digest) — a hash missing this prefix
+   fails SRI validation silently, exactly the "fails closed" failure mode
+   above.
    Confirm the response still carries `Cache-Control: immutable` — if it
    doesn't, the resource no longer passes SRI's own eligibility bar and
    pinning should be reconsidered.
