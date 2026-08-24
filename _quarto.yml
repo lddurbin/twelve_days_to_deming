@@ -143,20 +143,43 @@ format:
           `Cache-Control: immutable` — is the Observable Plot ESM import in
           content/days/day-03/{11,12,13}*.qmd (`@observablehq/plot@0.6.16`).
           Classic `integrity`/`crossorigin` attributes don't apply to a bare
-          `await import(url)`; the only mechanism is the `integrity` key in
-          a `<script type="importmap">` (Chrome 127+, Firefox 138+, Safari
-          18+, ignored gracefully elsewhere). But rendering a day-03 page
-          and inspecting <head> in document order confirms Quarto emits
-          `quarto-ojs-runtime.js` as a `<script type="module">` from its own
-          htmldependencies mechanism, which lands ahead of anything this
-          header-includes block contributes (including per-page
-          include-in-header) — an import map inserted this late registers
-          after that module's fetch has already started and is silently
-          ignored by the browser. Fixing it needs Quarto's own dependency
-          ordering bypassed (e.g. a post-render HTML rewrite relocating the
-          tag), which is real engineering, not a one-line config change —
-          tracked separately as #597 rather than folded into #581.
+          `await import(url)`; the mechanism used below is the `integrity`
+          key in a `<script type="importmap">` (Chrome 127+, Firefox 138+,
+          Safari 18+, ignored gracefully elsewhere).
       -->
+      <!--
+        #597: this import map's `integrity` entry is what actually enforces
+        SRI on the Observable Plot dynamic import above. It's declared
+        site-wide (not scoped to just the 3 day-03 pages) because it's
+        inert everywhere else — nothing outside those pages ever fetches
+        this URL, so the extra bytes are the only cost.
+
+        An earlier version of this comment claimed placing the import map
+        here was too late to work: Quarto emits `quarto-ojs-runtime.js` as
+        a <script type="module"> ahead of anything header-includes
+        contributes, and the assumption was that any module script
+        fetching before an import map registers makes the browser ignore
+        it. That assumption was never checked against real browser
+        behaviour — only against <head> markup order — and it's wrong.
+        Verified directly (Chrome 147 via Puppeteer, 2026-08-25): an
+        earlier unrelated <script type="module"> does NOT block a later
+        import map from registering, and the import map here IS honoured
+        by the OJS-interpreted `await import(...)` call, which only runs
+        much later (end of body, after DOMContentLoaded, via
+        window._ojs.runtime.interpretFromScriptTags()). Confirmed both
+        directions end-to-end by driving the real Day 3 funnel-experiment
+        UI to completion in headless Chrome: the correct hash renders both
+        histograms; a deliberately corrupted hash fails closed with a
+        clean SRI console error on both, and nothing else on the page
+        breaks. No post-render HTML rewrite was needed.
+
+        Re-derive this hash (and re-verify with the steps above) any time
+        the pinned @observablehq/plot version bumps — see
+        workflow/PATTERNS.md.
+      -->
+      <script type="importmap">
+      {"integrity": {"https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16/+esm": "sha384-hEPuzrajVVTwgE9AuwhIlc2cEXGfg4wuZ7K53GOLTScAz+c4NIXa26iVGPr36U75"}}
+      </script>
       <!--
         iOS Safari/WebKit (all iOS browsers, including Firefox, since Apple
         requires WebKit there) auto-detects number-like text and turns it
