@@ -280,7 +280,7 @@ jobs:
 
         if [ -n "$EXISTING" ]; then
           echo "Updating existing preview comment ${EXISTING}"
-          gh api -X PATCH "repos/${GH_REPO}/issues/comments/${EXISTING}" -f body=@"$BODY_FILE"
+          gh api -X PATCH "repos/${GH_REPO}/issues/comments/${EXISTING}" -F body=@"$BODY_FILE"
         else
           echo "Posting new preview comment"
           gh pr comment "$PR_NUMBER" --body-file "$BODY_FILE"
