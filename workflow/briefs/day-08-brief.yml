@@ -74,8 +74,22 @@ chapters:
 
   - slug: "introduction-to-the-major-activity"
     title: "INTRODUCTION TO THE MAJOR ACTIVITY"
-    pages: "14-17"
+    pages: "14-21"
     notes: |
+      Correction (2026-08-25, issue #479): `pages:` was "14-17"; corrected
+      to "14-21". Verified directly against source PNGs and the qmd's own
+      `{#sec-pageN}` anchors (which use printed page numbers) while
+      recording clock reads: `05-introduction-to-the-major-activity.qmd`
+      actually runs through printed page 17 (File page 21) — including
+      Tables Two through Five and the "no clock icons during the Major
+      Activity" sentence — not just through printed page 13 (File 17) as
+      this brief originally scoped it. `06-major-activity.qmd` itself
+      confirms the boundary: its first anchor, `{#sec-page18}`, is the
+      "MAJOR ACTIVITY 8-d" pill heading / TABLE ONE, at printed page 18
+      (File 22). The per-page notes below (doc p10-13 / File 14-17) are
+      still accurate for what they describe — they just don't cover the
+      chapter's full extent. See the `clock_reads` section for the
+      dictated timings that surfaced this.
       Page 14 (doc p10): "INTRODUCTION TO THE MAJOR ACTIVITY" heading.
       Overview of exercise from DemDim Chapter 15. Personal history of
       "Deming '88" article. Dark-to-light spectrum metaphor. Mack's
@@ -100,8 +114,27 @@ chapters:
 
   - slug: "major-activity"
     title: "MAJOR ACTIVITY 8-d"
-    pages: "18-28"
+    pages: "22-32"
     notes: |
+      Correction (2026-08-25, issue #479): `pages:` was "18-28"; corrected
+      to "22-32" (see the matching correction on the preceding chapter,
+      introduction-to-the-major-activity). The chapter genuinely starts at
+      printed page 18 (File 22) — confirmed by `06-major-activity.qmd`'s
+      own `{#sec-page18}` anchor and a dictated clock read at the top of
+      that page (see `clock_reads` below).
+
+      FLAG, not fixed here (out of scope for issue #479): the per-page
+      prose immediately below was written against the old "18-28" range
+      and is consequently mislabeled by 4 File/doc pages throughout — e.g.
+      "Page 18 (doc p14)" below is actually File 22 (doc p18), "Page 20
+      (doc p16)" is actually File 24 (doc p20), and so on. The File→doc
+      offset formula each line uses (File − 4 = doc) is itself still
+      correct; only the absolute page numbers are shifted. A pre-existing,
+      unrelated typo also survives: "Page 24 (doc p19)" should read doc
+      p20 by that same formula. None of this affects the live qmd, whose
+      content and anchors are correct — it only affects this descriptive
+      brief text. Worth a follow-up pass if this brief is relied on again.
+
       Page 18 (doc p14): "MAJOR ACTIVITY 8-d" pill heading with "TABLE ONE".
       NB about using single-sided copies. Steps 1-3 instructions. Step 1:
       name three areas. Step 2: decide options. Step 3: mark effects as
@@ -139,7 +172,11 @@ chapters:
         allowed, can be negative)
       - Table Five merges Three and Four
       - Download button exports completed exercise as text file
-      - No clock icons during Major Activity (confirmed page 17)
+      - No clock icons during Major Activity (confirmed by the "there are
+        no clock icons during the Major Activity" sentence at doc page 17
+        — the closing page of the *preceding* chapter,
+        introduction-to-the-major-activity, not this one; see that
+        chapter's corrected `pages:` range above)
 
       Pages 29-42 are duplicate blank tables (3-area and 4-area versions)
       — all replaced by the interactive widget. The 4-area option could be
@@ -244,6 +281,85 @@ figures:
   - page: 42
     action: "skip"
     notes: "Duplicate 4-area tables — replaced by interactive widget"
+
+# ------ Clock Reads (dictated by Lee from the original book, 2026-08-25) ------
+# Raw pacing-clock reads, dictated directly from the source pages, per
+# issue #479 (closing the "~1 of ~18 anchors captured" gap for Day 8) —
+# same mechanism as Day 2 (workflow/briefs/day-02-brief.yml), since the
+# outline-page clock column was proven to be a shared decorative template
+# rather than real per-day data (see issue #471 and project memory
+# project_clock_extraction_paused.md).
+#
+# Audit performed first, per the issue: neither `content/days/day-08/*.qmd`
+# front matter nor this brief had any `session_minutes` or `clock_reads`
+# recorded before this pass — the "~1 anchor already captured" the issue
+# refers to is the Context Notes' schedule line below ("9:00am-1:00pm;
+# 2:00pm-6:00pm", transcribed from page 3's printed schedule). That single
+# data point is corroborated exactly by the reads below (p1 top = 9:00am;
+# p10 bottom = 1:00pm, "end of morning session"; p11 top = 2:00pm) — no
+# conflict to resolve.
+#
+# Day 8 has a single clock column (no Stats-level split — the three New
+# Climate chapters and the Major Activity apply to every reader equally),
+# so unlike Day 2 there's only one track here.
+#
+# Page numbers are printed page numbers, matching the chapter `pages:`
+# notes' "doc pN" numbering and the qmd files' own `{#sec-pageN}` anchors
+# — confirmed against source PNG page footers ("Day 8 : page N") and,
+# for p12, an exact quoted-text match ("So let's now take a look at the
+# tables provided in this Major Activity").
+#
+# There are no clock icons anywhere in the major-activity chapter (printed
+# p18 onward) — confirmed both by the brief's own implementation note and
+# by the qmd's text (05-introduction-to-the-major-activity.qmd, closing
+# paragraph) — so the 11 reads below are a complete set for the day; nothing
+# further is expected.
+clock_reads:
+  - { page: 1,  position: "top",    time: "9:00am" }
+  - { page: 2,  position: "bottom", time: "9:15am" }
+  - { page: 3,  position: "bottom", time: "9:20am" }
+  - { page: 5,  position: "bottom", time: "10:15am" }
+  - { page: 7,  position: "bottom", time: "11:15am" }
+  - { page: 9,  position: "bottom", time: "12:30pm" }
+  - { page: 10, position: "bottom", time: "1:00pm",  notes: "end of morning session" }
+  - { page: 11, position: "top",    time: "2:00pm",  notes: "start of afternoon session" }
+  - { page: 12, position: "middle", time: "2:20pm",  notes: "just above the paragraph beginning \"Let's now take a look at the tables provided in this Major Activity\"" }
+  - { page: 17, position: "bottom", time: "3:00pm",  notes: "closing page of introduction-to-the-major-activity — immediately precedes \"there are no clock icons during the Major Activity\"" }
+  - { page: 18, position: "top",    time: "3:00pm",  notes: "opening page of major-activity — same time as p17 bottom, i.e. zero measurable gap at this chapter boundary" }
+
+# ------ session_minutes Computation (2026-08-25) ------
+# Method: as PATTERNS.md's session_minutes rules — session_minutes = next
+# anchor minus this chapter's opening anchor, within the same continuous
+# sitting. Day 8's checkpoints are much sparser than Day 2's (one read per
+# short chapter, mostly at closing pages rather than each chapter's own
+# opening page), so for joy-in-work, innovation, and cooperation — none of
+# which have a read on their own first page — the preceding chapter's
+# closing read is used as this chapter's opening: pages turn with no
+# elapsed reading time in between, so the two are the same moment.
+#
+#   chapter                                  opening   next anchor   session_minutes
+#   introduction (p1)                        9:00am    9:20am (p3)   20
+#   joy-in-work (p3→p4, proxy)               9:20am    10:15am (p5)  55
+#   innovation (p5→p6, proxy)                10:15am   11:15am (p7)  60
+#   cooperation (p7→p8, proxy)               11:15am   12:30pm (p9)  75
+#   introduction-to-the-major-activity (p10) 1:00pm    3:00pm (p17)  unset — spans lunch (1:00-2:00pm)
+#   major-activity (p18)                     3:00pm    —             unset — see below
+#
+# introduction-to-the-major-activity is left unset even though both its
+# opening (p10 bottom, 1:00pm) and closing (p17 bottom, 3:00pm) reads are
+# solid: the gap spans the lunch break (1:00pm-2:00pm per the printed
+# schedule, confirmed by p11 top's "start of afternoon session" read
+# landing exactly at 2:00pm), so the raw 120-minute gap doesn't reflect
+# time-on-task.
+#
+# major-activity is left unset despite being the day's last chapter and
+# the printed schedule giving a day-end time (6:00pm) that would otherwise
+# qualify under the day-end exception (PATTERNS.md, precedent: Day 2's
+# postscript). It doesn't apply here: the qmd's own text explains *why*
+# there are no clock icons past p18 — the Major Activity's pacing
+# genuinely varies (solo vs group, one pass vs repeated), so a single
+# fixed duration would misrepresent something the source itself says is
+# open-ended, not merely untranscribed.
 
 # ------ Context Notes ------
 context_notes: |
