@@ -7,8 +7,23 @@
 #   e.g. ./scripts/validate-transcription.sh 3
 #        ./scripts/validate-transcription.sh --appendix contributions-balaji-reddie
 #
+# Reports two distinct kinds of gap, in two separate sections:
+#   - Missing:  a PDF paragraph whose opening words don't appear anywhere
+#               in the QMD text at all.
+#   - Altered:  a PDF paragraph that IS present (its opening words matched),
+#               but that contains one or more sentences whose closest-matching
+#               QMD sentence differs from it by more than
+#               ALTERED_SIMILARITY_THRESHOLD — e.g. a swapped word, a
+#               paraphrased sentence, or dropped detail past the opening
+#               words, none of which the presence check alone can see.
+#               Scored at sentence (not paragraph) granularity: a single
+#               swapped word is diluted to near-invisibility across a whole
+#               paragraph of otherwise-unchanged text. See
+#               scripts/lib/paragraph_similarity.py and issue #677.
+#
 # Requires: pdftotext (brew install poppler)
 #           ruby (YAML parsing for appendix manifests)
+#           python3 (paragraph similarity scoring; no third-party packages)
 #
 # Day mode uses the PDF letter-prefix mapping:
 #   D=Day1, E=Day2, F=Day3, G=Day4, H=Day5, I=Day6,
@@ -39,6 +54,18 @@ day_to_prefix() {
 # Minimum paragraph length (chars) to consider for matching
 MIN_PARA_LEN=40
 
+# Similarity ratio (0-1) below which a sentence within a "present" paragraph
+# is flagged as "altered" rather than a clean match. Scored by
+# paragraph_similarity.py at sentence granularity using
+# difflib.SequenceMatcher over normalised text — whole-paragraph scoring was
+# tried first and discarded: a single substituted word is diluted to
+# near-invisibility across ~100 surrounding unchanged words. Calibrated
+# against Day 4 using the three real defects from #676 as ground truth (a
+# subject swap scored 0.9697, a wording drift scored 0.9278); 0.975 catches
+# both with a margin. Re-tune if a run surfaces a lot of false positives —
+# see #677.
+ALTERED_SIMILARITY_THRESHOLD=0.975
+
 # ── Helpers ────────────────────────────────────────────────────
 
 usage() {
@@ -56,6 +83,10 @@ usage() {
 check_deps() {
   if ! command -v pdftotext &>/dev/null; then
     echo "Error: pdftotext not found. Install with: brew install poppler"
+    exit 1
+  fi
+  if ! command -v python3 &>/dev/null; then
+    echo "Error: python3 not found (needed for paragraph similarity scoring)"
     exit 1
   fi
 }
@@ -383,6 +414,8 @@ main() {
   local matched=0
   local total=0
   local missing_paras=()
+  local matched_paras_file="$tmpdir/matched_paras.txt"
+  > "$matched_paras_file"
 
   while IFS= read -r para; do
     total=$((total + 1))
@@ -391,29 +424,44 @@ main() {
 
     if [[ -z "$fp" ]]; then
       matched=$((matched + 1))
+      echo "$para" >> "$matched_paras_file"
       continue
     fi
 
     if find_in_qmd "$fp" "$qmd_normalised"; then
       matched=$((matched + 1))
+      echo "$para" >> "$matched_paras_file"
     else
       missing=$((missing + 1))
       missing_paras+=("$para")
     fi
   done < "$tmpdir/pdf_paras.txt"
 
+  # Step 3.5: among paragraphs already confirmed "present", score each
+  # sentence against its closest QMD match to catch content that survived
+  # the presence check but was altered past its opening words.
+  local altered_report="$tmpdir/altered_report.txt"
+  python3 "$REPO_ROOT/scripts/lib/paragraph_similarity.py" \
+    "$matched_paras_file" "$tmpdir/qmd_paras.txt" "$ALTERED_SIMILARITY_THRESHOLD" \
+    > "$altered_report"
+
+  local altered=0
+  altered=$(head -n1 "$altered_report" | sed -E 's/^ALTERED_COUNT=//')
+  matched=$((matched - altered))
+
   # Step 4: Report
   echo "=========================================="
   echo "  Results"
   echo "=========================================="
   echo ""
-  echo "  PDF paragraphs checked:  $total"
-  echo "  Matched in QMD:          $matched"
-  echo "  Potentially missing:     $missing"
+  echo "  PDF paragraphs checked:      $total"
+  echo "  Matched cleanly:             $matched"
+  echo "  Altered (present, modified): $altered"
+  echo "  Potentially missing:         $missing"
   echo ""
 
-  if (( missing == 0 )); then
-    echo "All PDF paragraphs appear to have matches in the QMD files."
+  if (( missing == 0 && altered == 0 )); then
+    echo "All PDF paragraphs appear to have clean matches in the QMD files."
     echo ""
   else
     local match_pct
@@ -422,31 +470,38 @@ main() {
     else
       match_pct=0
     fi
-    echo "Match rate: ${match_pct}%"
-    echo ""
-    echo "=========================================="
-    echo "  Potentially Missing Content"
-    echo "=========================================="
-    echo ""
-    echo "The following PDF paragraphs had no close match in the QMD files."
-    echo "Review these to determine if they are:"
-    echo "  - Genuinely missing from the transcription"
-    echo "  - Page headers/footers or boilerplate (false positives)"
-    echo "  - Content intentionally omitted or restructured"
+    echo "Clean match rate: ${match_pct}%"
     echo ""
 
-    local i=1
-    for para in "${missing_paras[@]}"; do
-      echo "--- Gap $i ---"
-      # Show first 200 chars of the paragraph
-      if (( ${#para} > 200 )); then
-        echo "${para:0:200}..."
-      else
-        echo "$para"
-      fi
+    if (( missing > 0 )); then
+      echo "=========================================="
+      echo "  Potentially Missing Content"
+      echo "=========================================="
       echo ""
-      i=$((i + 1))
-    done
+      echo "The following PDF paragraphs had no close match in the QMD files."
+      echo "Review these to determine if they are:"
+      echo "  - Genuinely missing from the transcription"
+      echo "  - Page headers/footers or boilerplate (false positives)"
+      echo "  - Content intentionally omitted or restructured"
+      echo ""
+
+      local i=1
+      for para in "${missing_paras[@]}"; do
+        echo "--- Gap $i ---"
+        # Show first 200 chars of the paragraph
+        if (( ${#para} > 200 )); then
+          echo "${para:0:200}..."
+        else
+          echo "$para"
+        fi
+        echo ""
+        i=$((i + 1))
+      done
+    fi
+
+    if (( altered > 0 )); then
+      tail -n +3 "$altered_report"
+    fi
   fi
 
   echo "=========================================="
@@ -457,6 +512,10 @@ main() {
   echo "    figure captions, and table content that pdftotext garbles"
   echo "  - Interactive elements (OJS/R code) in QMD have no PDF equivalent"
   echo "  - Some content may be intentionally restructured for the web version"
+  echo "  - Altered flags are a triage filter, not a verdict: they only say"
+  echo "    the closest QMD match differs from the source by more than the"
+  echo "    threshold. Confirm against the actual page image before treating"
+  echo "    a flag as a defect."
   echo ""
 }
 
