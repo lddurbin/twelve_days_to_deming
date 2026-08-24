@@ -56,15 +56,22 @@ MIN_PARA_LEN=40
 
 # Similarity ratio (0-1) below which a sentence within a "present" paragraph
 # is flagged as "altered" rather than a clean match. Scored by
-# paragraph_similarity.py at sentence granularity using
-# difflib.SequenceMatcher over normalised text — whole-paragraph scoring was
-# tried first and discarded: a single substituted word is diluted to
-# near-invisibility across ~100 surrounding unchanged words. Calibrated
-# against Day 4 using the three real defects from #676 as ground truth (a
-# subject swap scored 0.9697, a wording drift scored 0.9278); 0.975 catches
-# both with a margin. Re-tune if a run surfaces a lot of false positives —
-# see #677.
-ALTERED_SIMILARITY_THRESHOLD=0.975
+# paragraph_similarity.py, which compares one PDF sentence against every QMD
+# sentence in the day, word by word.
+#
+# Two granularity choices were tried and discarded before this one. Whole
+# paragraphs: a single substituted word is diluted to near-invisibility across
+# ~100 unchanged words. Then sentences compared character by character: better,
+# but a one-digit change ("the 97% region" -> "the 37% region") is 1 character
+# in 76 and scores 0.9865, indistinguishable from a clean match.
+#
+# At word granularity a faithful transcription normalises to an identical word
+# sequence and scores exactly 1.0, while the worst-case (hardest to catch) of
+# the known Day 4 defects scores 0.9778. 0.98 sits in that gap. The defect
+# shapes are pinned in tests/test_paragraph_similarity.py, so re-tuning this
+# without re-checking them will fail the suite rather than silently lose
+# coverage. See #676 and #677.
+ALTERED_SIMILARITY_THRESHOLD=0.98
 
 # ── Helpers ────────────────────────────────────────────────────
 
@@ -156,13 +163,25 @@ strip_qmd() {
 }
 
 # Extract text from PDF, normalise whitespace, filter boilerplate
+#
+# Form feeds are stripped with `tr`, not sed. BSD sed (macOS, the only
+# platform this script runs on) does not understand the `\f` escape and reads
+# it as a literal `f`, so the `s/\f//g` this used to open with silently
+# deleted every letter "f" from the PDF side of every comparison — "of far
+# off" came out as "o ar o". That corruption was long misread as pdftotext
+# mangling fi/fl/ff ligatures, and was "fixed" by stripping `f` from BOTH
+# sides in normalise() so the two agreed. pdftotext in fact emits ligatures
+# as plain ASCII here ("essential feature of" is byte-for-byte intact), so
+# with the real bug fixed, both f-stripping workarounds are gone too.
 extract_pdf_text() {
   local pdf="$1"
-  pdftotext -layout "$pdf" - | sed -E '
-    # Remove form feed characters
-    s/\f//g
-    # Remove embedded page numbers (standalone 1-3 digit numbers from layout mode)
-    s/ [0-9]{1,3} / /g
+  # Note: no rule strips inline numbers. A previous `s/ [0-9]{1,3} / /g` meant
+  # to drop layout-mode page numbers, but in a course built on "the 14 Points"
+  # and "Day 1 page 33" it hit content instead — 18 occurrences of "the 14
+  # Points" became "the Points" in Day 4 alone — while genuine page-number
+  # lines are already handled by the /^[0-9]+$/d rule below. Keeping numbers
+  # is also what lets similarity scoring see a mis-transcribed number at all.
+  pdftotext -layout "$pdf" - | tr -d '\014' | sed -E '
     # Collapse runs of spaces
     s/  +/ /g
     # Trim leading/trailing whitespace
@@ -220,13 +239,16 @@ text_to_paragraphs() {
 }
 
 # Normalise text for comparison: lowercase, strip punctuation, collapse whitespace.
-# Also strips f/F to handle pdftotext ligature issues — many PDFs use fi/fl/ff/ffi
-# ligature glyphs that pdftotext silently drops, producing "or" for "for",
-# "irst" for "first", etc. Removing f from both sides makes them matchable.
+#
+# This used to also strip every f/F, on the belief that pdftotext drops fi/fl/ff
+# ligature glyphs and yields "or" for "for", "irst" for "first". It doesn't —
+# extract_pdf_text()'s own `s/\f//g` was doing that, because BSD sed reads `\f`
+# as a literal f (see the note there). With that fixed, stripping f here would
+# only destroy real signal: "of"/"o" and "for"/"or" are distinct words, and a
+# transcription that swapped one for the other should be caught, not hidden.
 normalise() {
   tr '[:upper:]' '[:lower:]' | sed -E '
     s/[^a-z0-9 ]/ /g
-    s/f//g
     s/  +/ /g
     s/^ +//
     s/ +$//
@@ -441,12 +463,26 @@ main() {
   # sentence against its closest QMD match to catch content that survived
   # the presence check but was altered past its opening words.
   local altered_report="$tmpdir/altered_report.txt"
-  python3 "$REPO_ROOT/scripts/lib/paragraph_similarity.py" \
-    "$matched_paras_file" "$tmpdir/qmd_paras.txt" "$ALTERED_SIMILARITY_THRESHOLD" \
-    > "$altered_report"
+  if ! python3 "$REPO_ROOT/scripts/lib/paragraph_similarity.py" \
+       "$matched_paras_file" "$tmpdir/qmd_paras.txt" "$ALTERED_SIMILARITY_THRESHOLD" \
+       > "$altered_report"; then
+    echo "Error: similarity scoring failed (see the Python error above)." >&2
+    echo "       scripts/lib/paragraph_similarity.py" >&2
+    exit 1
+  fi
 
-  local altered=0
-  altered=$(head -n1 "$altered_report" | sed -E 's/^ALTERED_COUNT=//')
+  # Read counts by key, not by line number, so the helper can grow new header
+  # fields without silently shifting what this parses.
+  local altered flagged near_match
+  altered=$(sed -n 's/^ALTERED_COUNT=//p' "$altered_report")
+  flagged=$(sed -n 's/^FLAGGED_SENTENCES=//p' "$altered_report")
+  near_match=$(sed -n 's/^NEAR_MATCH_SENTENCES=//p' "$altered_report")
+  # A non-numeric count here would corrupt the arithmetic below into a silently
+  # wrong "Matched cleanly" figure, so fail loudly instead.
+  if ! [[ "$altered" =~ ^[0-9]+$ && "$flagged" =~ ^[0-9]+$ && "$near_match" =~ ^[0-9]+$ ]]; then
+    echo "Error: similarity scoring returned no usable counts." >&2
+    exit 1
+  fi
   matched=$((matched - altered))
 
   # Step 4: Report
@@ -457,6 +493,8 @@ main() {
   echo "  PDF paragraphs checked:      $total"
   echo "  Matched cleanly:             $matched"
   echo "  Altered (present, modified): $altered"
+  echo "    - sentences flagged:             $flagged"
+  echo "    - near-certain defects (>=90%):  $near_match"
   echo "  Potentially missing:         $missing"
   echo ""
 
@@ -500,7 +538,9 @@ main() {
     fi
 
     if (( altered > 0 )); then
-      tail -n +3 "$altered_report"
+      # Skip the KEY=VALUE header block (everything up to its trailing blank
+      # line) rather than a fixed line count — see paragraph_similarity.py.
+      sed '1,/^$/d' "$altered_report"
     fi
   fi
 
