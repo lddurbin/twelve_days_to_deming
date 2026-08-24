@@ -1,6 +1,6 @@
 # Account data model, storage location, export and deletion
 
-_Last updated: 2026-08-09_
+_Last updated: 2026-08-24_
 
 Design note for [#547](https://github.com/lddurbin/twelve_days_to_deming/issues/547), part of the accounts epic ([#529](https://github.com/lddurbin/twelve_days_to_deming/issues/529)). No code. This is written before any account data is collected, so every question here is answered on paper rather than discovered later while already holding data.
 
@@ -33,15 +33,27 @@ Two categories, deliberately handled differently:
 - **Progress and ratings** (which chapters are read, funnel-experiment state, thumbs up/down) — low sensitivity, no free text, synced in plain form.
 - **Written workbook answers** — free text a reader has written about their own workplace. Day 12 explicitly asks for a report to a named Chief Executive. This is the one category where "what can the operator read" matters.
 
-**Decision: workbook answers are encrypted at rest, using a client-side model.** The encryption key is derived from something only the reader's device or credential holds — for example a WebAuthn PRF-derived key, if passkeys are chosen as the auth mechanism (see [#548](https://github.com/lddurbin/twelve_days_to_deming/issues/548)) — never a key the server holds on the reader's behalf. That's the only model consistent with the guarantee this note is making: the operator (me) should not be able to read a reader's saved answers by querying the database directly, even with full database *and* key-store access, because no single thing the server holds is sufficient to decrypt them.
+**Decision (2026-08-09) — superseded, see the amendment below.** Workbook answers are encrypted at rest, using a client-side model. The encryption key is derived from something only the reader's device or credential holds — for example a WebAuthn PRF-derived key, if passkeys are chosen as the auth mechanism (see [#548](https://github.com/lddurbin/twelve_days_to_deming/issues/548)) — never a key the server holds on the reader's behalf. That's the only model consistent with the guarantee this note is making: the operator (me) should not be able to read a reader's saved answers by querying the database directly, even with full database *and* key-store access, because no single thing the server holds is sufficient to decrypt them.
 
 This is a real cost, not a checkbox. It constrains the auth-mechanism choice — a pure email-magic-link flow hands the server no client-held secret to derive a key from — and it rules out server-side search over workbook answers. **If the auth issue lands on a mechanism that can't supply a client-held secret, this guarantee doesn't hold**, and the fallback (a server-side per-user key, which the operator *could* decrypt with database and key-store access) must be disclosed as the weaker guarantee it actually is — here and in `privacy.qmd` — rather than left implied as the stronger one.
+
+### Amendment, 2026-08-24: the client-side model is withdrawn
+
+**Workbook answers are stored server-side in a form the operator can technically read.** This takes the fallback branch the paragraph above already drafted, and it is bound by the condition that paragraph attached: the weaker guarantee must be **stated plainly** in `privacy.qmd`, not left implied as the stronger one.
+
+The reasoning is recorded in full in [`accounts-implementation-plan.md` §2](accounts-implementation-plan.md). In short:
+
+1. **It is structurally incompatible with sharing.** Notes only the writing device can decrypt cannot be shared with another reader without building a second mechanism alongside the first. Sharing stays parked behind [#652](https://github.com/lddurbin/twelve_days_to_deming/issues/652), but this commitment would foreclose it before that spike reports.
+2. **The cost falls on the reader.** A client-held key means a passphrase or passkey, a recovery code, an unlock step per device, and permanent irrecoverable loss if either is forgotten — with no reset path possible, since any email-based reset would imply the server holds enough to decrypt.
+3. **It defends the wrong threat.** Client-side encryption uniquely defends against the operator and against legal compulsion. Against the realistic risk — a database breach — platform encryption at rest, enforced row-level security, and credential discipline do the work.
+
+What this does **not** change: the sensitivity identified above is real. The harm model is employment consequence, not fraud, and does not need regulated-category data to be serious. The mitigation moves from cryptography to disclosure — `privacy.qmd` says what is stored and who can read it, and a short line appears near activity inputs for logged-in readers, at the point of writing rather than only in a policy page.
 
 Progress and ratings are not encrypted at rest; there's nothing in them to protect beyond normal access control.
 
 ## 4. Export
 
-Readers can export everything on their account in a usable format (JSON, containing progress, ratings, and decrypted workbook answers) on request.
+Readers can export everything on their account in a usable format (JSON, containing progress, ratings, and workbook answers) on request.
 
 This extends an existing precedent rather than inventing one: `functions.js`'s `downloadNotes` already lets a reader download their per-page written answers as a `.txt` file. A whole-account export is the same idea at account scope, and should ship as part of the same feature rather than as a follow-up.
 
