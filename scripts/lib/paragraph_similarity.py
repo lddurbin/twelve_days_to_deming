@@ -1,26 +1,30 @@
 #!/usr/bin/env python3
-"""paragraph_similarity.py — find altered or dropped sentences in a transcription.
+"""paragraph_similarity.py — find missing, altered, or unsourced content in a
+transcription.
 
-Helper for scripts/validate-transcription.sh's "altered content" mode (#677).
-That script already confirms a PDF paragraph is *present* in the QMD text via
-a fingerprint (first-8-words) match against the whole QMD blob. That check
-can't see a defect sitting past those first 8 words — a swapped word, a
-paraphrased clause, a whole sentence dropped from the end of the paragraph —
-because the fingerprint still matches.
-
-This script re-examines each paragraph the caller already judged "present",
-at SENTENCE granularity rather than whole-paragraph: a single substituted
-word (e.g. "he" -> "I") gets diluted to near-invisibility in a whole-paragraph
-similarity score across ~100 surrounding unchanged words, but stands out
-clearly once the comparison window shrinks to one sentence. For each PDF
-sentence, it searches every QMD sentence in the chapter (not just those in
-the "corresponding" paragraph) for the closest match, since PDF and QMD
+Helper for scripts/validate-transcription.sh (#677, #718, #719). Every PDF
+paragraph is scored at SENTENCE granularity against every QMD sentence in the
+chapter (not just those in some "corresponding" paragraph, since PDF and QMD
 paragraph boundaries frequently don't align 1:1 -- e.g. a whole bulleted list
-often collapses into one PDF paragraph (pdftotext only splits on blank
-lines) while each bullet is its own QMD paragraph. Restricting the search to
-one (possibly wrongly-identified) "corresponding" paragraph was tried and
-discarded: it missed real defects sitting in a different bullet than the
-one a paragraph-level heuristic happened to pick.
+often collapses into one PDF paragraph, because pdftotext only splits on
+blank lines, while each bullet is its own QMD paragraph). Sentence
+granularity also catches what a paragraph-level check cannot: a single
+substituted word (e.g. "he" -> "I") gets diluted to near-invisibility in a
+whole-paragraph similarity score across ~100 surrounding unchanged words, but
+stands out clearly once the comparison window shrinks to one sentence.
+
+Until #719, presence was decided separately and first, by
+validate-transcription.sh's own find_in_qmd(): a fingerprint of a paragraph's
+first ~5 significant words, joined with `.*` and grepped against the whole
+QMD text collapsed onto one line. That is a much weaker test than it looks --
+five moderately common words, in order, at *any* distance, across several
+thousand words of chapter text -- and measured against real content, it let
+94 of 137 (69%) of Day 4's paragraphs read as "present" in the wholly
+unrelated Day 7 chapter. classify_forward() below replaces it: a paragraph is
+"missing" when even its single best-scoring sentence falls short of
+MISSING_SIMILARITY_THRESHOLD, which is a direct read of the same
+score distribution this module already computes for the "altered" check,
+rather than a second, cruder test bolted on beside it.
 
 Findings are ordered by similarity, highest first, which is a triage order
 rather than a severity order. A sentence matching its closest QMD counterpart
@@ -67,21 +71,26 @@ close match anywhere in the PDF and score well under threshold. This limit is
 pinned in tests/test_paragraph_similarity.py rather than left to be
 rediscovered.
 
-Usage: paragraph_similarity.py <matched_pdf_paras.txt> <qmd_paras.txt>
-       <all_pdf_paras.txt> [threshold]
+Usage: paragraph_similarity.py <pdf_paras.txt> <qmd_paras.txt> [threshold]
 
 Input files: one paragraph per line, as produced by validate-transcription.sh's
-text_to_paragraphs(). <all_pdf_paras.txt> is the full, unfiltered PDF
-paragraph list (not the "matched" subset) — the reverse pass needs every PDF
-paragraph as its search pool, since a QMD paragraph's true source may be one
-the forward presence check happened to mark missing.
+text_to_paragraphs(). <pdf_paras.txt> is the full, unfiltered PDF paragraph
+list — it now serves double duty as both the forward pass's walk-list (every
+PDF paragraph is classified, not a pre-filtered "matched" subset) and the
+reverse pass's search pool (a QMD paragraph's true source may be one the
+forward classification marked missing).
 
 Output: `KEY=VALUE` header lines, then a blank line, then formatted report
 section(s) (absent when nothing is flagged). Callers should read the counts by
 key and skip the header with `sed '1,/^$/d'` rather than by line number, so
 new keys can be added without breaking them.
 
+  MISSING_COUNT=<n>       PDF paragraphs with no sentence close enough to
+                          anything in the QMD pool to count as present
   ALTERED_COUNT=<n>       PDF paragraphs with >=1 flagged sentence
+  MATCHED_COUNT=<n>       PDF paragraphs with no flagged sentence, and not
+                          missing — MISSING_COUNT + ALTERED_COUNT +
+                          MATCHED_COUNT is every paragraph in <pdf_paras.txt>
   FLAGGED_SENTENCES=<n>   flagged sentences in total
   NEAR_MATCH_SENTENCES=<n>  flagged sentences at or above NEAR_MATCH_SCORE —
                           the high-confidence band to review first
@@ -96,6 +105,47 @@ import re
 import sys
 
 TRUNCATE_LEN = 200
+
+# A PDF paragraph is "missing" when even its single best-scoring sentence
+# falls below this similarity against the whole QMD pool — i.e. nothing in
+# the chapter resembles any part of it closely enough to call the paragraph
+# present. This replaces find_in_qmd()'s fingerprint grep (#719), which
+# tested presence by checking whether five moderately common words appeared
+# in order at any distance across the whole chapter — a test so weak that
+# pairing Day 4's real PDF against the wholly unrelated Day 7 chapter still
+# read 94 of 137 (69%) of Day 4's paragraphs as "present".
+#
+# Measured across two independent day-pairs (Day 4 PDF vs Day 4 QMD / vs
+# Day 7 QMD; Day 9 PDF vs Day 9 QMD / vs Day 2 QMD), scoring each PDF
+# paragraph's best sentence against its own day's real QMD content
+# ("same-day") versus an unrelated day's QMD content ("cross-day"):
+#
+#   cut   same-day flagged missing   cross-day flagged missing
+#   0.30   3-4%                       54-60%
+#   0.35   4-7%                       82%
+#   0.40   5-9%                       87-91%
+#   0.45   8-12%                      96-97%
+#
+# 0.40 is where cross-day noise (paragraphs that share no real passage)
+# crosses into "substantially all flagged", while same-day paragraphs (which
+# really are on the site) stay a single-digit-to-low-double-digit false-
+# positive rate. Those same-day false positives were inspected by hand and
+# are overwhelmingly PDF-only front matter with no prose counterpart by
+# design — session itinerary lines ("Point 4: End lowest-tender contracts
+# (p 22 [WB 62])"), table-of-contents entries — the same category of
+# expected false positive this script's Notes section already tells readers
+# to discount for headers and footers. Pushing the cut higher buys a lower
+# cross-day residual at the cost of flagging more genuinely-present prose;
+# 0.40 was chosen as the point past which further gains cost real content,
+# not noise. See #719.
+#
+# The residual cross-day false negatives (13-9% at 0.40) are individual
+# short, generic sentences ("I was right!", "Do you?", "There are several
+# reasons.") that coincidentally score high against an unrelated day's
+# equally short, generic sentence — a known limit of word-level similarity
+# on short strings, not something a different cut fixes. See #645 for the
+# same shape of blind spot in the "unsourced" direction.
+MISSING_SIMILARITY_THRESHOLD = 0.40
 
 # Below this similarity, a sentence is flagged as "altered" rather than counted
 # as a clean match. This module is the single definition: validate-transcription.sh
@@ -271,6 +321,43 @@ def find_best_sentence(
     return best_score, best_qmd
 
 
+def build_pool(paras: list[str]) -> list[tuple[str, tuple[str, ...]]]:
+    """Flatten paragraphs into a single chapter-wide sentence pool.
+
+    PDF/QMD paragraph boundaries don't reliably correspond, so both analyse()
+    and classify_forward() search the whole pool per sentence rather than
+    trying to pre-pair paragraphs. Sentences that normalise to nothing (stray
+    punctuation, page furniture) can never be a meaningful match, so they're
+    dropped here instead of being re-tested inside the O(sentences x pool)
+    inner loop.
+    """
+    return [
+        (sent, tokens)
+        for sent, tokens in ((s, tokenise(s)) for p in paras for s in split_sentences(p))
+        if tokens
+    ]
+
+
+def score_paragraph(
+    pdf_para: str, qmd_pool: list[tuple[str, tuple[str, ...]]]
+) -> list[tuple[float, str, str]]:
+    """(score, pdf_sentence, best_qmd_sentence) for every scoreable sentence
+    in `pdf_para`, unfiltered by any threshold.
+
+    Shared by analyse() (which keeps only the sentences a threshold flags)
+    and classify_forward() (which needs every score, including the ones a
+    threshold would discard, to find a paragraph's single best sentence).
+    """
+    scored = []
+    for pdf_sent in split_sentences(pdf_para):
+        sent_tokens = tokenise(pdf_sent)
+        if not sent_tokens:
+            continue
+        score, best_qmd = find_best_sentence(sent_tokens, qmd_pool)
+        scored.append((score, pdf_sent, best_qmd))
+    return scored
+
+
 def analyse(
     pdf_paras: list[str], qmd_paras: list[str], threshold: float
 ) -> list[tuple[str, list[tuple[float, str, str]]]]:
@@ -281,35 +368,64 @@ def analyse(
     ordered by their highest-scoring flagged sentence, and sentences within a
     paragraph likewise, so the near-certain defects come first.
     """
-    # Flatten QMD into a single chapter-wide sentence pool: PDF/QMD paragraph
-    # boundaries don't reliably correspond, so search the whole pool per PDF
-    # sentence rather than trying to pre-pair paragraphs. Sentences that
-    # normalise to nothing (stray punctuation, page furniture) can never be a
-    # meaningful match, so drop them here instead of re-testing them inside
-    # the O(pdf_sentences x qmd_sentences) inner loop.
-    qmd_pool = [
-        (sent, tokens)
-        for sent, tokens in ((s, tokenise(s)) for p in qmd_paras for s in split_sentences(p))
-        if tokens
-    ]
+    qmd_pool = build_pool(qmd_paras)
     if not qmd_pool:
         return []
 
     altered_by_para = []
     for pdf_para in pdf_paras:
-        flagged = []
-        for pdf_sent in split_sentences(pdf_para):
-            sent_tokens = tokenise(pdf_sent)
-            if not sent_tokens:
-                continue
-            score, best_qmd = find_best_sentence(sent_tokens, qmd_pool)
-            if score < threshold:
-                flagged.append((score, pdf_sent, best_qmd))
+        flagged = [f for f in score_paragraph(pdf_para, qmd_pool) if f[0] < threshold]
         if flagged:
             flagged.sort(key=lambda f: -f[0])
             altered_by_para.append((pdf_para, flagged))
     altered_by_para.sort(key=lambda p: -p[1][0][0])
     return altered_by_para
+
+
+def classify_forward(
+    pdf_paras: list[str],
+    qmd_paras: list[str],
+    missing_threshold: float,
+    altered_threshold: float,
+) -> tuple[list[str], list[tuple[str, list[tuple[float, str, str]]]], int]:
+    """Three-way split of every PDF paragraph: missing / altered / matched
+    cleanly. Supersedes find_in_qmd()'s fingerprint grep (#719).
+
+    A paragraph is "missing" when even its single best-scoring sentence
+    falls below `missing_threshold` against the whole QMD pool — nothing in
+    the chapter resembles any part of it closely enough to call it present.
+    A paragraph that clears that bar but still has >=1 sentence below
+    `altered_threshold` is "altered"; everything else is matched cleanly.
+
+    A paragraph with no scoreable sentence at all (all punctuation, or an
+    empty QMD pool to compare against) has a best score of 0.0 by
+    construction, so it falls out as "missing" rather than defaulting to
+    "matched" — the old find_in_qmd() fingerprint-empty case failed open
+    into a false "matched"; this fails closed instead.
+
+    Returns (missing_paragraphs, altered_by_para, matched_count).
+    altered_by_para has the same shape analyse() returns.
+    """
+    qmd_pool = build_pool(qmd_paras)
+
+    missing_paras = []
+    altered_by_para = []
+    matched = 0
+    for pdf_para in pdf_paras:
+        scored = score_paragraph(pdf_para, qmd_pool) if qmd_pool else []
+        best_score = max((s for s, _, _ in scored), default=0.0)
+        if best_score < missing_threshold:
+            missing_paras.append(pdf_para)
+            continue
+        flagged = [f for f in scored if f[0] < altered_threshold]
+        if flagged:
+            flagged.sort(key=lambda f: -f[0])
+            altered_by_para.append((pdf_para, flagged))
+        else:
+            matched += 1
+
+    altered_by_para.sort(key=lambda p: -p[1][0][0])
+    return missing_paras, altered_by_para, matched
 
 
 def _format_findings(
@@ -338,6 +454,33 @@ def _format_findings(
             out.append(f"  {walk_label:<16}{walk_excerpt}")
             out.append(f"  {pool_label:<16}{pool_excerpt}")
             out.append("")
+    return out
+
+
+def render_missing(missing_paras: list[str], threshold: float) -> list[str]:
+    """Format the human-readable "potentially missing" report section.
+
+    Unlike render()/render_unsourced(), there is no per-sentence finding to
+    show — a "missing" paragraph's best sentence still fell below threshold,
+    so nothing found is worth pointing at as "the closest match". The
+    paragraph itself, truncated, is the whole of what there is to show.
+    """
+    out = [
+        "==========================================",
+        "  Potentially Missing Content",
+        "==========================================",
+        "",
+        "The following PDF paragraphs had no sentence scoring a close match",
+        f"(>= {threshold:.0%}) anywhere in the QMD files. Review these to",
+        "determine if they are:",
+        "  - Genuinely missing from the transcription",
+        "  - Page headers/footers, tables of contents, or other boilerplate",
+        "    with no prose counterpart by design",
+        "  - Content intentionally omitted or restructured",
+        "",
+    ]
+    for i, para in enumerate(missing_paras, start=1):
+        out += [f"--- Gap {i} ---", truncate(para), ""]
     return out
 
 
@@ -416,46 +559,51 @@ def read_paragraphs(path: str) -> list[str]:
 
 
 def main(argv: list[str]) -> int:
-    if not 4 <= len(argv) <= 5:
+    if not 3 <= len(argv) <= 4:
         print(
-            "Usage: paragraph_similarity.py <matched_pdf_paras.txt> "
-            "<qmd_paras.txt> <all_pdf_paras.txt> [threshold]",
+            "Usage: paragraph_similarity.py <pdf_paras.txt> <qmd_paras.txt> [threshold]",
             file=sys.stderr,
         )
         return 1
 
-    pdf_path, qmd_path, all_pdf_path = argv[1:4]
+    pdf_path, qmd_path = argv[1:3]
     # Callers normally omit the threshold and take ALTERED_SIMILARITY_THRESHOLD,
     # so there is one definition of it rather than a copy per caller. The
     # override exists for tuning experiments against a single day, and applies
-    # only to the forward (altered) direction — nothing yet needs to override
-    # UNSOURCED_SIMILARITY_THRESHOLD from the CLI.
+    # only to the forward "altered" cut — nothing yet needs to override
+    # MISSING_SIMILARITY_THRESHOLD or UNSOURCED_SIMILARITY_THRESHOLD from the CLI.
     threshold = ALTERED_SIMILARITY_THRESHOLD
-    if len(argv) == 5:
+    if len(argv) == 4:
         try:
-            threshold = float(argv[4])
+            threshold = float(argv[3])
         except ValueError:
-            print(f"Error: threshold must be a number, got {argv[4]!r}", file=sys.stderr)
+            print(f"Error: threshold must be a number, got {argv[3]!r}", file=sys.stderr)
             return 1
 
     pdf_paras = read_paragraphs(pdf_path)
     qmd_paras = read_paragraphs(qmd_path)
-    all_pdf_paras = read_paragraphs(all_pdf_path)
 
-    # Warn before scoring, not after: analyse() returns [] on an empty pool, so
-    # a warning printed afterwards reads like a comment on the (empty) result.
+    # Warn before scoring, not after: classify_forward()/analyse() return
+    # everything-missing / [] on an empty pool, so a warning printed
+    # afterwards reads like a comment on the (empty/all-missing) result.
     if not qmd_paras:
         print("Warning: no QMD paragraphs to compare against", file=sys.stderr)
-    if not all_pdf_paras:
+    if not pdf_paras:
         print("Warning: no PDF paragraphs to compare against", file=sys.stderr)
 
-    altered_by_para = analyse(pdf_paras, qmd_paras, threshold)
-    # Reverse direction (#718): QMD paragraphs walk, the full (unfiltered) PDF
-    # paragraph pool is searched — analyse() needs no changes to run backwards.
-    unsourced_by_para = analyse(qmd_paras, all_pdf_paras, UNSOURCED_SIMILARITY_THRESHOLD)
+    missing_paras, altered_by_para, matched_count = classify_forward(
+        pdf_paras, qmd_paras, MISSING_SIMILARITY_THRESHOLD, threshold
+    )
+    # Reverse direction (#718): QMD paragraphs walk, the full PDF paragraph
+    # pool is searched — analyse() needs no changes to run backwards. The
+    # full pool is pdf_paras itself now that the forward pass no longer
+    # pre-filters to a "matched" subset (#719).
+    unsourced_by_para = analyse(qmd_paras, pdf_paras, UNSOURCED_SIMILARITY_THRESHOLD)
 
     scores = [f[0] for _, flagged in altered_by_para for f in flagged]
+    print(f"MISSING_COUNT={len(missing_paras)}")
     print(f"ALTERED_COUNT={len(altered_by_para)}")
+    print(f"MATCHED_COUNT={matched_count}")
     print(f"FLAGGED_SENTENCES={len(scores)}")
     print(f"NEAR_MATCH_SENTENCES={sum(1 for s in scores if s >= NEAR_MATCH_SCORE)}")
     print(f"UNSOURCED_COUNT={len(unsourced_by_para)}")
@@ -463,6 +611,8 @@ def main(argv: list[str]) -> int:
     print()
 
     sections = []
+    if missing_paras:
+        sections.append("\n".join(render_missing(missing_paras, MISSING_SIMILARITY_THRESHOLD)))
     if altered_by_para:
         sections.append("\n".join(render(altered_by_para, threshold)))
     if unsourced_by_para:

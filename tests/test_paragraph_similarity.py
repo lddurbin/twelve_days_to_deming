@@ -16,9 +16,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts" / "lib"))
 
 from paragraph_similarity import (  # noqa: E402
     ALTERED_SIMILARITY_THRESHOLD as THRESHOLD,
+    MISSING_SIMILARITY_THRESHOLD as MISSING_THRESHOLD,
     NEAR_MATCH_SCORE,
     UNSOURCED_SIMILARITY_THRESHOLD as UNSOURCED_THRESHOLD,
     analyse,
+    classify_forward,
     diff_window,
     find_best_sentence,
     normalise,
@@ -305,6 +307,77 @@ class AnalyseTests(unittest.TestCase):
         result = analyse(qmd_paras, pdf_paras, UNSOURCED_THRESHOLD)
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0][0], "Reveal the suggested answer for this activity below.")
+
+
+class ClassifyForwardTests(unittest.TestCase):
+    """Coverage for the #719 replacement of find_in_qmd()'s fingerprint grep:
+    classify_forward() derives missing/altered/matched from the same sentence
+    scores this module already computes, rather than a separate presence
+    check."""
+
+    def test_paragraph_with_no_close_match_is_missing(self):
+        pdf_paras = ["A wholly unrelated paragraph about beads and funnels here."]
+        qmd_paras = ["Something completely different about quality management systems."]
+        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        self.assertEqual(missing, pdf_paras)
+        self.assertEqual(altered, [])
+        self.assertEqual(matched, 0)
+
+    def test_paragraph_with_a_close_match_is_not_missing(self):
+        pdf_paras = ["The cat sat on the mat. This sentence is unrelated filler text here."]
+        qmd_paras = ["The cat sat on the mat."]
+        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        self.assertEqual(missing, [])
+
+    def test_clean_paragraph_is_matched_not_altered(self):
+        paras = ["The first paragraph. It has two sentences.", "A second paragraph here."]
+        missing, altered, matched = classify_forward(paras, paras, MISSING_THRESHOLD, THRESHOLD)
+        self.assertEqual(missing, [])
+        self.assertEqual(altered, [])
+        self.assertEqual(matched, len(paras))
+
+    def test_present_but_altered_paragraph_is_not_missing(self):
+        """A paragraph that clears the missing bar but has a flagged sentence
+        must land in 'altered', not 'missing' — the two checks are not
+        redundant, they classify different paragraphs."""
+        pdf_paras = ["Back then, those were pretty much all I knew about the Deming philosophy."]
+        qmd_paras = ["Back then, there were pretty much all I knew about the Deming philosophy."]
+        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        self.assertEqual(missing, [])
+        self.assertEqual(len(altered), 1)
+        self.assertEqual(matched, 0)
+
+    def test_paragraph_with_no_scoreable_sentence_fails_closed(self):
+        """Regression for the find_in_qmd() bug this replaces: an empty
+        fingerprint used to count as matched with no check performed at all.
+        A paragraph that normalises to nothing scoreable must fail closed
+        into 'missing', never silently into 'matched'."""
+        pdf_paras = ["--- *** ---"]
+        qmd_paras = ["Some ordinary sentence that exists on the site."]
+        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        self.assertEqual(missing, pdf_paras)
+        self.assertEqual(matched, 0)
+
+    def test_empty_qmd_pool_marks_everything_missing(self):
+        pdf_paras = ["Any paragraph at all, it doesn't matter what it says here."]
+        missing, altered, matched = classify_forward(pdf_paras, [], MISSING_THRESHOLD, THRESHOLD)
+        self.assertEqual(missing, pdf_paras)
+        self.assertEqual(altered, [])
+        self.assertEqual(matched, 0)
+
+    def test_every_paragraph_is_classified_exactly_once(self):
+        pdf_paras = [
+            "A wholly unrelated paragraph about beads and funnels here.",
+            "Back then, those were pretty much all I knew about the Deming philosophy.",
+            "The first paragraph. It has two sentences.",
+        ]
+        qmd_paras = [
+            "Something completely different about quality management systems.",
+            "Back then, there were pretty much all I knew about the Deming philosophy.",
+            "The first paragraph. It has two sentences.",
+        ]
+        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        self.assertEqual(len(missing) + len(altered) + matched, len(pdf_paras))
 
 
 class UnsourcedTests(unittest.TestCase):
