@@ -584,9 +584,12 @@ class KnownDefectShapeTests(unittest.TestCase):
     indistinguishable from 60 wording nits. That is the second thing this
     section is for, alongside the genuine >=0.98 escapes in the class above —
     it promotes the consequential findings out of a list nobody can read in
-    one sitting. REFERENCE_PAIR_THRESHOLD is set at 0.90 rather than 0.98 so
-    that shapes like these are covered too, and the assertions below pin the
-    scores that make 0.98 the wrong cut for them.
+    one sitting. REFERENCE_PAIR_THRESHOLD is set at 0.85 — not 0.98, and not
+    the 0.90 the rest of the near-certain machinery uses — so that shapes like
+    these are covered too: the page-19 pair scores 0.8788, because the
+    descriptor the site wrote into the link costs more similarity than the
+    wrong digit does. The assertions below pin those scores, so raising the
+    floor fails here rather than silently dropping the coverage.
     """
 
     def test_catches_the_page_19_cross_reference(self):
