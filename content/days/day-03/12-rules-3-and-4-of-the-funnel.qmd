@@ -241,7 +241,7 @@ So, what do we do with the funnel in Rule 4? Suppose the current outcome is 33. 
 []{#sec-page52}
 Take a look at my fantastic outcomes (the yellow-shaded row) near the top of [page 54, below](12-rules-3-and-4-of-the-funnel.qmd#sec-page54)! Hardly any variation for a while; and then, when there is a larger move, we find ourselves right back on the target of 30! (As you might realise, that was a very happy accident.) I wonder what will happen in the longer term ...
 
-So, just to be sure, let's again walk through the first few stages. As always, with the funnel initially placed at 30 and the first dice-score being 10, the first outcome is again 33:
+So, just to be sure, let's again walk through the first few stages. As always, with the funnel initially being placed at 30 and the first dice-score being 10, the first outcome is again 33:
 
 ```{r rule4-stage1-result, fig.width=9, fig.height=1.5, fig.align="center", fig.cap="Funnel track 20–40 showing the funnel placed above square 30 and the marble at square 33 — Rule 4, end of Stage 1."}
 funnel_track_plot(funnel_pos = 30, marble_pos = 33)
@@ -306,7 +306,7 @@ End of Stage 3 with Rule 4. The marble dropped one square to the *left* of the f
 
 </details>
 
-And so it continues. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and then 3 to the *left* of the funnel. Confirm that the next positions are Stage 4: both marble and funnel sit at 33, and Stage 5: both marble and funnel end up at 30. So the picture stays unchanged at the fourth stage and, at the fifth stage, both the marble and then the funnel end up at the target of 30—the "happy accident" to which I referred on [page 52, above](12-rules-3-and-4-of-the-funnel.qmd#sec-page52).
+And so it continues. The fourth and fifth dice-scores were 7 and 4 corresponding respectively to the marble falling directly under the funnel and then 3 to the *left* of the funnel. Confirm that the next positions are Stage 4: both marble and funnel still at 33, and Stage 5: both marble and funnel finish up at 30. So the picture stays unchanged at the fourth stage and, at the fifth stage, both the marble and then the funnel end up at the target of 30—the "happy accident" to which I referred on [page 52, above](12-rules-3-and-4-of-the-funnel.qmd#sec-page52).
 
 So off you go for the final time. Again if you didn't do so when I first suggested it, you'll need to start by copying over all your "From ▼, ● then goes" rows one final time. Then, after you've generated all your Rule 4 outcomes, finish off by sketching your run chart. As usual, I've started the run chart for you on the graph-paper. Also, as with Rule 3, do have an early guess at what you think will happen in the long term!
 

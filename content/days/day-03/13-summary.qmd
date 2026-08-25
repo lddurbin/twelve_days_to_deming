@@ -158,7 +158,7 @@ summaryR4 = runAllStages(4, diceSeqSummary)
 
 ## ACTIVITY 3–i
 
-Having spent much of this morning on beginners to get used to control charts and now this afternoon on the Funnel Experiment, this is a useful Activity which involves both of them. However, if you are a Stats-level 0 student then this possibly isn't for you.
+Having spent much of this morning on beginning to get used to control charts and now this afternoon on the Funnel Experiment, this is a useful Activity which involves both of them. However, if you are a Stats-level 0 student then this possibly isn't for you.
 
 Let's first précis the "How Do We Compute Those Control Limits—and Why?" section on [pages 13 to 15](05-how-do-we-compute-control-limits.qmd#sec-page13) as follows:
 
@@ -203,7 +203,7 @@ Reveal suggested answer for Activity 3-i
 
 Now that you have completed the Major Activity and after reading *DemDim* Chapter 5, it would be good if you could spend the final few minutes summarising some illustrations of your own. You will find further suggestions in the relevant discussion in the Appendix—but don't look at it just yet!
 
-It is often not possible to differentiate between Rules 2 and 3 when suggesting examples. As we have seen, in effect the difference between them depends on whether the tampering is done comparatively sensibly or completely stupidly! Also, the performances of some practical illustrations are worse than Rule 2 but not as brazen as Rule 3. I would recommend therefore that, in addition to a list of possible illustrations of Rule 1 and of Rule 4, you construct a *combined* list of illustrations for Rules 2 and 3, i.e. for any kind of "zig-zag" or "swinging the pendulum" compensation effect. Further, the Rule 4 list does not need to be restricted to a strict version of Rule 4. For example, a photocopier of a photocopy of a photocopy of ... is similar to Rule 4 except that it continually moves away from the target (the original copy) rather than being able to temporarily move back toward it.
+It is often not possible to differentiate between Rules 2 and 3 when suggesting examples. As we have seen, in effect the difference between them depends on whether the tampering is done comparatively sensibly or completely stupidly! Also, the performances of some practical illustrations are worse than Rule 2 but not as berserk as Rule 3! I would recommend therefore that, in addition to a list of possible illustrations of Rule 1 and of Rule 4, you construct a *combined* list of illustrations for Rules 2 and 3, i.e. for any kind of "zig-zag" or "swinging the pendulum" compensation effect. Further, the Rule 4 list does not need to be restricted to a strict version of Rule 4. For example, a photocopy of a photocopy of a photocopy of ... is similar to Rule 4 except that it continually moves away from the target (the original copy) rather than being able to temporarily move back toward it.
 
 ```{ojs}
 viewof activity_3j = persist(
