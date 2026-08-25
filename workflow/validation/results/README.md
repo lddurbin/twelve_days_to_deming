@@ -68,13 +68,16 @@ was produced by today's comparison logic, not how long ago that was.
 It covers *every* file that can change what a run reports, listed as
 `SCORER_VERSION_FILES` in
 [`scripts/lib/scorer-version.sh`](../../../scripts/lib/scorer-version.sh) —
-currently `scripts/lib/paragraph_similarity.py` and
-`scripts/validate-transcription.sh`. Until
+currently `scripts/lib/paragraph_similarity.py`, `scripts/lib/qmd_strip.py`
+and `scripts/validate-transcription.sh`. Until
 [#737](https://github.com/lddurbin/twelve_days_to_deming/issues/737) it hashed
 the scorer alone, which understated the pipeline: PDF text extraction, QMD
-stripping, and the paragraph-length filters all live in the shell script, and
+stripping, and the paragraph-length filters all lived in the shell script, and
 a behaviour-changing edit to any of them produced results the staleness check
-happily called fresh.
+happily called fresh. `qmd_strip.py` joined the list in
+[#739](https://github.com/lddurbin/twelve_days_to_deming/issues/739), when
+markup stripping moved out of that script into tested Python — the widening
+was designed so that move cost one line here.
 
 The value is a hash of a sorted `<path> <blob-hash>` manifest, so it is
 independent of the order the files are listed in, and moves when a file joins
@@ -97,6 +100,17 @@ guidance for the Second Project"), which costs 12-20% similarity on its own
 and lands those pairs at 0.86-0.89 — a 0.90 floor would have excluded the
 exact population the check exists for. The measured findings-per-floor table
 is in `scripts/lib/paragraph_similarity.py` beside the constant.
+
+`counts.pdf_paragraphs` can move without the source PDF changing, and did in
+#739: stripping the PDF's `[WB NN]` workbook citations shortens the paragraph
+that carried one, and ten short table-of-contents lines fell under
+`MIN_PARA_LEN` (40 characters) as a result and left the checked corpus. Eight
+were contents-page entries. Two were real, if slight: Day 3's "So off you go
+to Stage 6 on page 44." and "(Move on to the table on page 54.)", both now
+36 and 34 characters. That is the honest cost of removing 176 citations'
+worth of guaranteed-unmatched text, and the 40-character floor itself is
+[#742](https://github.com/lddurbin/twelve_days_to_deming/issues/742)'s to
+revisit.
 
 There is deliberately no pass/fail verdict field. With 446 known near-certain
 findings outstanding across the corpus as of #719's baseline, every day would
