@@ -455,12 +455,11 @@ def main(argv: list[str]) -> int:
     unsourced_by_para = analyse(qmd_paras, all_pdf_paras, UNSOURCED_SIMILARITY_THRESHOLD)
 
     scores = [f[0] for _, flagged in altered_by_para for f in flagged]
-    unsourced_scores = [f[0] for _, flagged in unsourced_by_para for f in flagged]
     print(f"ALTERED_COUNT={len(altered_by_para)}")
     print(f"FLAGGED_SENTENCES={len(scores)}")
     print(f"NEAR_MATCH_SENTENCES={sum(1 for s in scores if s >= NEAR_MATCH_SCORE)}")
     print(f"UNSOURCED_COUNT={len(unsourced_by_para)}")
-    print(f"UNSOURCED_SENTENCES={len(unsourced_scores)}")
+    print(f"UNSOURCED_SENTENCES={sum(len(flagged) for _, flagged in unsourced_by_para)}")
     print()
 
     sections = []
