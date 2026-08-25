@@ -11,7 +11,7 @@ execute:
 
 <div class="principle_callout" role="note" aria-label="Principle">**Create constancy of purpose for continual improvement of products and service,** allocating resources to provide for long-range needs rather than only short-term profitability, with a plan to become competitive, to stay in business, and to provide jobs.</div>
 
-Notice the connection with the Deming Chain Reaction, finishing up (as in both versions of the Chain Reaction—see the bottom of page 3) with "provide jobs". We have already commented ([Day 1 page 23](../day-01/08-attraction.qmd#sec-page23)) upon Dr Deming's unhappiness because of its huge waste of human potential. Deming clearly saw the "plan to become competitive, to stay in business, and to provide jobs" as requiring an Obsession With Quality. It is already well worth reflecting ahead to two of the "Deadly Diseases" which you will study tomorrow afternoon: (i) Lack of constancy of purpose, and (ii) Emphasis on short-term profits.
+Notice the nice link with the Deming Chain Reaction, finishing up (as in both versions of the Chain Reaction—see the bottom of page 3) with "provide jobs". We have already commented ([Day 1 page 23](../day-01/08-attraction.qmd#sec-page23)) upon Dr Deming's unhappiness because of its huge waste of human potential. Deming clearly saw the "plan to become competitive, to stay in business, and to provide jobs" as requiring an Obsession With Quality. It is already well worth reflecting ahead to two of the "Deadly Diseases" which you will study tomorrow afternoon: (i) Lack of constancy of purpose, and (ii) Emphasis on short-term profits.
 
 ### Obsession With Quality
 
@@ -32,7 +32,7 @@ viewof p1_owq = persist(
 
 ### All One Team
 
-Here we surely have a clear two-way connection. How can you continually improve unless you are working together as All One Team? Can you really do it on your own—or, worse still, if others are working against you? Conversely, what better motivation could there be for an All One Team culture than the purpose of continual improvement? But beware—especially management: All One Team has both horizontal and vertical implications. It is far too common for management to preach teamwork to "them down there" but subsequently to ignore or resist the results and consequences of that teamwork. If they do so then it will soon be goodbye to All One Team.
+Here we surely have a clear two-way connection. How can you continually improve unless you are working together as All One Team? Can you really do it on your own—or, worse still, if others are working against you? Conversely, what better motivation could there be for an All One Team culture than the purpose of continual improvement? But beware—especially management: All One Team has both horizontal and vertical implications. It is far too common for management to preach teamwork to "them down there" but subsequently to ignore or reject the results and consequences of that teamwork. If they do so then it will soon be goodbye to All One Team.
 
 ```{ojs}
 viewof p1_aot = persist(
@@ -47,7 +47,7 @@ viewof p1_aot = persist(
 
 ### Scientific Approach
 
-A Scientific Approach is necessary for genuine improvement, be it continual or otherwise, because of its emphasis on the system and processes both in concept and in the methods that it provides, especially the control chart. We also need well-chosen data and the knowledge of how to interpret those data in order to reflect and guide us on how successful our attempts and experiments for improvement are working (but definitely *not* in the sense of whether or not we've met some numerical target—recall the second paragraph of [page 8, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page8)).
+The Scientific Approach is necessary for genuine improvement, be it continual or otherwise, because of its emphasis on the system and processes both in concept and in the methods that it provides, especially the control chart. We also need well-chosen data and the knowledge of how to interpret those data in order to reflect and guide us on how successful our attempts and experiments for improvement are working (but definitely *not* in the sense of whether or not we've met some numerical target—recall the second paragraph of [page 8, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page8)).
 
 ```{ojs}
 viewof p1_sa = persist(
@@ -70,7 +70,7 @@ This is a whole new philosophy. It's not just optional add-ons to what we are al
 
 This Point illuminates the danger of just "making do". The implication is that we may have become so used to lower levels of product and service that we have become resigned to them and skilled in compensating for them. But that might not be so true of your customer.
 
-<div class="neave_note" role="note" aria-label="Author's note">The reason for the description "created in Japan" which Deming included in the statement of this Point may be less obvious now than when he said it in the 1980s. At that time, Japan unarguably led the world in terms of quality and reliability. But even then I puzzled about the fact that the Japanese were seemingly unaware of what was happening in their own country! Deming taught in Japan during the 1950s, but there were certainly no four-day seminars there. I doubt whether many Japanese knew much about what was teaching elsewhere during the first ten years or so of his life. I sometimes muse on the thought that perhaps, if they had, some of the difficulties subsequently experienced by their country might have been avoided. Recall my note in the middle of [Day 1 page 27](../day-01/09-different.qmd#sec-page27).</div>
+<div class="neave_note" role="note" aria-label="Author's note">The reason for the description "created in Japan" which Deming included in the statement of this Point may be less obvious now than when he said it in the 1980s. At that time, Japan unarguably led the world in terms of quality and reliability. But even then I puzzled about the fact that the Japanese were seemingly no longer learning much from him. He occasionally delivered a speech at a Deming Prize ceremony, but there were certainly no four-day seminars there. I doubt whether many Japanese knew much about what he was teaching elsewhere during the final ten years or so of his life. I sometimes muse on the thought that perhaps, if they had, some of the difficulties subsequently experienced by their country might have been avoided. Recall my note in the middle of [Day 1 page 27](../day-01/09-different.qmd#sec-page27).</div>
 
 ### Obsession With Quality
 
@@ -104,7 +104,7 @@ viewof p2_aot = persist(
 
 ### Scientific Approach
 
-What causes the "delays, mistakes, defective materials, and defective workmanship"? Maybe the underlying system itself is reasonably good but is suffering from some serious special causes. On the other hand, the underlying system itself may not be capable of producing acceptable results even when it is not being affected by special causes. How would you know? These and other related questions cry out for the use of control charts, the fundamental plank of the Scientific Approach. Remember that the capability of the underlying system cannot even be assessed if its output is being disrupted by special causes. Also remember that (as was so clearly illustrated on Day 3) taking action on an unstable process when the process is in fact stable, or vice-versa, invariably makes things worse rather than better. Without the use of the Scientific Approach you are always running that serious risk.
+What causes the "delays, mistakes, defective materials, and defective workmanship"? Maybe the underlying system itself is reasonably good but is suffering from some serious special causes. On the other hand, the underlying system itself may not be capable of producing acceptable results even when it is not being affected by special causes. How would you know? These and other related questions cry out for the use of control charts, the fundamental plank of the Scientific Approach. Remember that the capability of the underlying system cannot even be assessed if its output is being disrupted by special causes. Also remember that (as was so clearly illustrated on Day 3) taking action appropriate for an unstable process when the process is in fact stable, or vice-versa, invariably makes things worse rather than better. Without the use of the Scientific Approach you are always running that serious risk.
 
 ```{ojs}
 viewof p2_sa = persist(
@@ -123,9 +123,9 @@ viewof p2_sa = persist(
 
 <div class="principle_callout" role="note" aria-label="Principle">**Eliminate the need for mass inspection as a way to achieve quality** by building quality into the product in the first place. Require statistical evidence of built-in quality in both manufacturing and purchasing functions.</div>
 
-In some areas at least, the world has fortunately moved on since Dr Deming came up with the third of his 14 Points. Dependence on mass inspection for quality has immediate implications about what the quality is like in the first place! It is now generally stated that dependence on mass inspection is a costly and unreliable means of delivering quality. It costs just as much to make the bad as it does to make the good, and the additional costs of inspection plus the scrap or rework that results from all which fails the inspection can add up to a very large bill indeed.
+In some areas at least, the world has fortunately moved on since Dr Deming came up with the third of his 14 Points. Dependence on mass inspection for quality has immediate implications about what the quality is like in the first place! It is now more generally appreciated that dependence on mass inspection is a costly and unreliable means of delivering quality. It costs just as much to make the bad as it does to make the good, and the additional costs of the mass inspection plus the scrap or rework that results from all which fails the inspection can add up to a very large bill indeed.
 
-Except for some matters literally of life and death, mass inspection is a method for a bygone age. And sometimes, when I was relating the 14 Points, that indeed is what I was told: "Yes, we used to inspect 100%. But now we have improved our processes, resources, methods, and all else relevant so that mass inspection has become irrelevant". I might then ask: "Do you have performance appraisal? For what is but 100% inspection of your people?" (Remember this when you reach Deadly Disease 3 tomorrow afternoon.)
+Except for some matters literally of life and death, mass inspection is a method for a bygone age. And sometimes, when I was relating the 14 Points, that indeed is what I was told: "Yes, we used to inspect 100%. But now we have improved our processes, resources, methods, and all else relevant so that mass inspection has become irrelevant". I might then ask: "Do you have performance appraisal? For what is that but 100% inspection of your people?" (Remember this when you reach Deadly Disease 3 tomorrow afternoon.)
 
 Despite Dr Deming's particular wording here, the lessons from this Point relate just as strongly to service and other areas as to manufacturing.
 
@@ -245,7 +245,7 @@ Here we have a direct contradiction to a familiar saying—and maybe a familiar 
 
 ### Obsession With Quality
 
-We have already pointed out that Deming was talking about quality "across the board"—quality of the end-product or service, of course, but quality of all that contributes to delivering that product or service. This link is therefore particularly strong.
+We have already pointed out that Deming was talking about quality "across the board"—quality of the end-product or service, of course, but also quality of all that contributes to delivering that product or service. This link is therefore particularly strong.
 
 <div class="neave_note" role="note" aria-label="Author's note">An objection to Point 5 sometimes heard from those who are not yet in tune with what Deming was teaching is that "we can't afford to keep improving". It comes from those who think that improvement can only be achieved expensively by bringing in more consultants, etc, etc. But, to put it mildly, these were not Deming's focus on improvement. His emphasis was instead on reducing costs, particularly through improvement of processes and reducing variation—such improvements are frequently very inexpensive yet can produce considerable rewards. For confirmation, again refer back to his Chain Reaction (*DemDim* page 33).</div>
 
@@ -300,11 +300,11 @@ viewof p5_sa = persist(
 
 In Deming's terminology, the purpose of "training" is the acquisition of specific skills for specific tasks. Training is thus narrowly defined and finite in scale and scope. In contrast, as we shall see in Point 13, "education" is the opposite: very non-specific, very broadly defined, and essentially infinite in scale and scope.
 
-Training budgets in many organisations are absurdly small. So how do people learn the skills necessary for their jobs? Notice Deming's emphasis in his second sentence on the need to keep up-to-date. Also heed the fact that <span class="deming_quote">"Worker training worker"</span> was one of his favourite examples of the toxic Rule 4 of the Funnel.
+Training budgets in many organisations are absurdly small. So how do people learn the skills necessary for their jobs? Notice Deming's emphasis in his second sentence above on the need to keep up-to-date. Also heed the fact that <span class="deming_quote">"Worker training worker"</span> was one of his favourite examples of the toxic Rule 4 of the Funnel.
 
 ### Obsession With Quality
 
-Clearly, a prerequisite for people to do quality work is that they have received appropriate training for that work and can understand it. Notice that here Deming is at pains to emphasise the particular relevance of this to management. He is quite clearly considered, and often said, that potential managers do not learn it in most MBA courses.
+Clearly, a prerequisite for people to do quality work is that they have received appropriate training for that work and can understand it. Notice that here Deming is at pains to emphasise the particular relevance of this to management. He quite clearly considered, and often said, that potential managers do not learn it in most MBA courses.
 
 <div class="neave_note" role="note" aria-label="Author's note">As a personal viewpoint regarding training, I think it may be insufficient to simply pick off some to some external consultants' training course, however excellent it may appear to be. I have seen both of these happen to be true of training—whether it is good or bad. I think, perhaps, the first of these is usually more true of training external than internal: "People learn in different ways". Person A may respond better than Person B to a particular method of training. This is equally true with another method of training: again this is likely to be far better catered for in-house than externally.</div>
 
@@ -338,7 +338,7 @@ viewof p6_aot = persist(
 
 Here it is appropriate to recall the original expanded version of the Joiner Triangle on [page 11, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page11) in addition to my subsequent suggested modification. As we saw, Joiner Associates' own expanded version of the Triangle included flowcharting and other "old tools" of quality under the Scientific Approach. Obviously, the control chart is in both versions!
 
-<div class="neave_note" role="note" aria-label="Author's note">**NB** My alternative list of topics for the Scientific Approach on [page 12, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page12) was not intended as a criticism of the original expanded Joiner Triangle! Regarding the difference in nature between education and training: consultants in the Deming area clearly need to work with both, and thus the version of the Scientific Approach on [page 11, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page11) was entirely appropriate for Joiner Associates. But, equally clearly, the primary nature of *12 Days to Deming* is education, and so a different emphasis regarding the Scientific Approach is usually appropriate here.</div>
+<div class="neave_note" role="note" aria-label="Author's note">**NB** My alternative list of topics for the Scientific Approach on [page 12, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page12) was not intended as a criticism of the original expanded Joiner Triangle! Regarding the difference in nature between education and training, consultants in the Deming area clearly need to work with both, and thus the version of the Scientific Approach on [page 11, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page11) was entirely appropriate for Joiner Associates. But, equally clearly, the primary nature of *12 Days to Deming* is education, and so a different emphasis regarding the Scientific Approach is usually appropriate here.</div>
 
 ```{ojs}
 viewof p6_sa = persist(
