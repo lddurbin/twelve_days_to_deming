@@ -2,11 +2,12 @@ day: 3
 validated_at: 2026-08-26
 source_pdf: F.Day.3.13Jan20.pdf
 source_sha256: 8475e848a2b9a0000871aaef39514b07a3dd66525b483f94b11888dc6168ef39
-scorer_version: 09bc60eb8b92626ade1c0c9690cb0de44ba01e06
+scorer_version: 84c1a33a521ef9064589f79647960bd1afeb5ebc
 thresholds:
   missing: 0.4
   altered: 0.98
   unsourced: 0.25
+  reference: 0.85
 counts:
   pdf_paragraphs: 328
   qmd_paragraphs: 346
@@ -17,3 +18,4 @@ counts:
   missing: 36
   unsourced: 24
   unsourced_sentences: 29
+  reference_mismatches: 17

@@ -2,11 +2,12 @@ day: 9
 validated_at: 2026-08-26
 source_pdf: L.Day.9.15Feb22.pdf
 source_sha256: 9a1d7ecaab3aa8d8a3f8557b65fddd06a1d0fe1ec40a0490323022427a54567f
-scorer_version: 09bc60eb8b92626ade1c0c9690cb0de44ba01e06
+scorer_version: 84c1a33a521ef9064589f79647960bd1afeb5ebc
 thresholds:
   missing: 0.4
   altered: 0.98
   unsourced: 0.25
+  reference: 0.85
 counts:
   pdf_paragraphs: 184
   qmd_paragraphs: 200
@@ -17,3 +18,4 @@ counts:
   missing: 9
   unsourced: 9
   unsourced_sentences: 17
+  reference_mismatches: 11

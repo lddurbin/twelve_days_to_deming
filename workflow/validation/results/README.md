@@ -34,6 +34,7 @@ thresholds:
   missing: 0.40
   altered: 0.98
   unsourced: 0.25
+  reference: 0.85
 counts:
   pdf_paragraphs: 137
   qmd_paragraphs: 135
@@ -44,7 +45,16 @@ counts:
   missing: 13
   unsourced: 5
   unsourced_sentences: 5
+  reference_mismatches: 8
 ```
+
+`reference_mismatches` ([#738](https://github.com/lddurbin/twelve_days_to_deming/issues/738))
+is deliberately **not** part of the missing/altered/matched arithmetic, and
+overlaps all three. It counts sentence pairs, scoring at or above the
+`reference` threshold, whose page/day/chapter numbers or bare numerals
+disagree — most of which are *also* clean matches, because one wrong digit in
+a fifty-word sentence scores 0.98 and classifies as faithful. Track it as its
+own series: it moving is a different event from `near_certain` moving.
 
 `source_sha256` hashes the PDF's bytes, not just its filename — Neave's
 source PDFs have been re-exported before with the same name, and a filename
@@ -79,6 +89,14 @@ and the script that checks them, so the two cannot drift apart about what
 requirement that every hashed file also appears in the staleness workflow's
 `paths:` filter — a file that is hashed but not filtered is a check that
 never fires on the edit it was added to catch.
+
+`thresholds.reference` records `REFERENCE_PAIR_THRESHOLD`, which is 0.85
+rather than the 0.90 the other near-certain machinery uses. The enriched
+cross-reference links write a descriptor into the link text ("page 18, the
+guidance for the Second Project"), which costs 12-20% similarity on its own
+and lands those pairs at 0.86-0.89 — a 0.90 floor would have excluded the
+exact population the check exists for. The measured findings-per-floor table
+is in `scripts/lib/paragraph_similarity.py` beside the constant.
 
 There is deliberately no pass/fail verdict field. With 446 known near-certain
 findings outstanding across the corpus as of #719's baseline, every day would

@@ -8,7 +8,9 @@ transcription, with the wording that actually shipped.
 
 Run with:  python3 -m unittest discover -s tests -p 'test_*.py'
 """
+import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -18,12 +20,16 @@ from paragraph_similarity import (  # noqa: E402
     ALTERED_SIMILARITY_THRESHOLD as THRESHOLD,
     MISSING_SIMILARITY_THRESHOLD as MISSING_THRESHOLD,
     NEAR_MATCH_SCORE,
+    REFERENCE_PAIR_THRESHOLD,
     UNSOURCED_SIMILARITY_THRESHOLD as UNSOURCED_THRESHOLD,
     analyse,
     classify_forward,
     diff_window,
     find_best_sentence,
     normalise,
+    reference_mismatch,
+    reference_tokens,
+    render_reference_mismatches,
     split_sentences,
     tokenise,
 )
@@ -318,7 +324,7 @@ class ClassifyForwardTests(unittest.TestCase):
     def test_paragraph_with_no_close_match_is_missing(self):
         pdf_paras = ["A wholly unrelated paragraph about beads and funnels here."]
         qmd_paras = ["Something completely different about quality management systems."]
-        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        missing, altered, matched, _refs = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
         self.assertEqual(missing, pdf_paras)
         self.assertEqual(altered, [])
         self.assertEqual(matched, 0)
@@ -326,12 +332,12 @@ class ClassifyForwardTests(unittest.TestCase):
     def test_paragraph_with_a_close_match_is_not_missing(self):
         pdf_paras = ["The cat sat on the mat. This sentence is unrelated filler text here."]
         qmd_paras = ["The cat sat on the mat."]
-        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        missing, altered, matched, _refs = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
         self.assertEqual(missing, [])
 
     def test_clean_paragraph_is_matched_not_altered(self):
         paras = ["The first paragraph. It has two sentences.", "A second paragraph here."]
-        missing, altered, matched = classify_forward(paras, paras, MISSING_THRESHOLD, THRESHOLD)
+        missing, altered, matched, _refs = classify_forward(paras, paras, MISSING_THRESHOLD, THRESHOLD)
         self.assertEqual(missing, [])
         self.assertEqual(altered, [])
         self.assertEqual(matched, len(paras))
@@ -342,7 +348,7 @@ class ClassifyForwardTests(unittest.TestCase):
         redundant, they classify different paragraphs."""
         pdf_paras = ["Back then, those were pretty much all I knew about the Deming philosophy."]
         qmd_paras = ["Back then, there were pretty much all I knew about the Deming philosophy."]
-        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        missing, altered, matched, _refs = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
         self.assertEqual(missing, [])
         self.assertEqual(len(altered), 1)
         self.assertEqual(matched, 0)
@@ -354,13 +360,13 @@ class ClassifyForwardTests(unittest.TestCase):
         into 'missing', never silently into 'matched'."""
         pdf_paras = ["--- *** ---"]
         qmd_paras = ["Some ordinary sentence that exists on the site."]
-        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        missing, altered, matched, _refs = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
         self.assertEqual(missing, pdf_paras)
         self.assertEqual(matched, 0)
 
     def test_empty_qmd_pool_marks_everything_missing(self):
         pdf_paras = ["Any paragraph at all, it doesn't matter what it says here."]
-        missing, altered, matched = classify_forward(pdf_paras, [], MISSING_THRESHOLD, THRESHOLD)
+        missing, altered, matched, _refs = classify_forward(pdf_paras, [], MISSING_THRESHOLD, THRESHOLD)
         self.assertEqual(missing, pdf_paras)
         self.assertEqual(altered, [])
         self.assertEqual(matched, 0)
@@ -376,7 +382,7 @@ class ClassifyForwardTests(unittest.TestCase):
             "Back then, there were pretty much all I knew about the Deming philosophy.",
             "The first paragraph. It has two sentences.",
         ]
-        missing, altered, matched = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
+        missing, altered, matched, _refs = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
         self.assertEqual(len(missing) + len(altered) + matched, len(pdf_paras))
 
 
@@ -448,6 +454,346 @@ class UnsourcedTests(unittest.TestCase):
         score, best = find_best_sentence(tokenise(borrowed), pool)
         self.assertEqual(score, 1.0)
         self.assertEqual(best, pdf_pool[1])
+
+
+class ReferenceTokenTests(unittest.TestCase):
+    def test_qualified_and_bare_numerals_are_distinct_tokens(self):
+        self.assertEqual(
+            reference_tokens("See page 19, and also 19 others on Day 19."),
+            {"page 19": 1, "19": 1, "day 19": 1},
+        )
+
+    def test_plurals_and_abbreviations_fold_onto_the_singular(self):
+        """"pages 27" and "p 27" name the same target as "page 27".
+
+        Only the target is this check's business; "page" vs "pages" is a
+        wording difference, which the altered check already owns. Without the
+        folding, every such wording difference would be reported twice.
+        """
+        for phrase in ("on page 27", "on pages 27", "on p 27", "on pp 27"):
+            self.assertEqual(reference_tokens(phrase), {"page 27": 1}, phrase)
+
+    def test_repeated_numbers_are_counted_not_deduplicated(self):
+        """A multiset, so dropping one of a repeated pair is still visible."""
+        self.assertEqual(
+            reference_tokens("pages 10-11, 22-23 and 26-27"),
+            {"page 10": 1, "11": 1, "22": 1, "23": 1, "26": 1, "27": 1},
+        )
+        self.assertNotEqual(
+            reference_tokens("Rule 4, Rule 4"), reference_tokens("Rule 4")
+        )
+
+    def test_ordinals_years_and_degree_artifacts_read_as_their_number(self):
+        """The several shapes one number takes across PDF and QMD.
+
+        "11th"/"11" and "1990s"/"1990" are ordinary prose variation, and "2o"
+        is how `pdftotext -layout` renders "2°" — the QMD, which has the real
+        degree sign, normalises to a bare "2". Each of these would otherwise
+        read as a token present on one side and absent on the other, for no
+        defect at all.
+        """
+        self.assertEqual(reference_tokens("the 11th Point"), {"11": 1})
+        self.assertEqual(reference_tokens("back in the 1990s"), {"1990": 1})
+        self.assertEqual(reference_tokens("strays 2o from"), reference_tokens("strays 2 from"))
+
+    def test_ignores_numbers_inside_words(self):
+        """Only a word that *starts* with a digit is a reference."""
+        self.assertEqual(reference_tokens("the B1 workbook and F3 chart"), {})
+
+    def test_line_wrap_hyphenation_does_not_change_a_number(self):
+        """Inherited from normalise(), which the score also runs through."""
+        self.assertEqual(reference_tokens("on page 1-\n9 today"), reference_tokens("on page 19 today"))
+
+    def test_agreeing_sentences_report_no_mismatch(self):
+        self.assertIsNone(reference_mismatch("See page 19 today.", "See page 19 today."))
+
+    def test_mismatch_names_which_side_each_token_came_from(self):
+        """Which side is empty is the first thing a reader needs — a token only
+        the PDF has is content dropped, one only the QMD has is content added."""
+        self.assertEqual(
+            reference_mismatch("See page 19.", "See page 18."), (["page 19"], ["page 18"])
+        )
+        self.assertEqual(
+            reference_mismatch("See page 19 [WB 151].", "See page 19."), (["151"], [])
+        )
+        self.assertEqual(
+            reference_mismatch("See page 19.", "See page 19, in Point 13."),
+            ([], ["point 13"]),
+        )
+
+
+class ReferenceEscapeClassTests(unittest.TestCase):
+    """The defect class #738 exists for: a wrong number that scores as clean.
+
+    Both pairs below are real, taken verbatim from the corpus and from the
+    site as it shipped — not constructed to make a point.
+    """
+
+    # Day 9 PDF page 1 against content/days/day-09/01-introduction.qmd, as the
+    # site stands today. 50 words each side, differing in exactly one digit.
+    LIVE_PDF = (
+        "One reason for keeping this quite short is to allow you plenty of time "
+        "for today\u2019s Major Activity which is to develop an \u201cOrganisation "
+        "Viewed as a System\u201d flow diagram for your organisa- tion, guided by "
+        "Deming\u2019s famous diagram that you saw as early as Day 1 page 35."
+    )
+    LIVE_QMD = (
+        "One reason for keeping this quite short is to allow you plenty of time "
+        "for today's Major Activity which is to develop an \"Organisation Viewed "
+        "as a System\" flow diagram for your organisation, guided by Deming's "
+        "famous diagram that you saw as early as Day 1 page 25."
+    )
+
+    def test_a_one_digit_error_in_a_long_sentence_scores_as_a_clean_match(self):
+        """The premise. 50 words, one wrong digit, and the scorer says clean.
+
+        This is not a threshold that wants tightening: at word granularity one
+        word in fifty is 0.98 exactly, and any cut low enough to catch it would
+        flag every ordinary two-word rewording in the corpus.
+        """
+        self.assertEqual(len(tokenise(self.LIVE_PDF)), 50)
+        score = score_of(self.LIVE_PDF, self.LIVE_QMD)
+        self.assertAlmostEqual(score, 0.98, places=4)
+        self.assertGreaterEqual(score, THRESHOLD)
+
+    def test_that_same_pair_is_caught_by_reference_tokens(self):
+        self.assertEqual(
+            reference_mismatch(self.LIVE_PDF, self.LIVE_QMD), (["page 35"], ["page 25"])
+        )
+
+    def test_classify_forward_reports_it_while_calling_the_paragraph_clean(self):
+        """End to end: the same paragraph counts as matched *and* as a
+        reference mismatch. The two are independent by design."""
+        missing, altered, matched, refs = classify_forward(
+            [self.LIVE_PDF], [self.LIVE_QMD], MISSING_THRESHOLD, THRESHOLD
+        )
+        self.assertEqual((missing, altered, matched), ([], [], 1))
+        self.assertEqual(len(refs), 1)
+        score, _pdf, _qmd, pdf_only, qmd_only = refs[0]
+        self.assertGreaterEqual(score, THRESHOLD)
+        self.assertEqual((pdf_only, qmd_only), (["page 35"], ["page 25"]))
+
+
+class KnownDefectShapeTests(unittest.TestCase):
+    """The two hand-found reference defects named in #738, pinned verbatim.
+
+    Neither actually reaches ALTERED_SIMILARITY_THRESHOLD — both sentences are
+    around 30 words, so one wrong word costs ~3%, and both were duly flagged as
+    altered. What went wrong was not that the scorer missed them: Day 9 carried
+    62 near-certain flags at the time, and these two sat in that list
+    indistinguishable from 60 wording nits. That is the second thing this
+    section is for, alongside the genuine >=0.98 escapes in the class above —
+    it promotes the consequential findings out of a list nobody can read in
+    one sitting. REFERENCE_PAIR_THRESHOLD is set at 0.90 rather than 0.98 so
+    that shapes like these are covered too, and the assertions below pin the
+    scores that make 0.98 the wrong cut for them.
+    """
+
+    def test_catches_the_page_19_cross_reference(self):
+        """Wave 0 of #734: content/days/day-09/06-introductions-to-the-system.qmd
+        said "page 18" where the source says "page 19", and linked to
+        #sec-page18 to match. The descriptor the site had written accurately
+        described page 18, so the link was internally consistent and wrong only
+        against the PDF."""
+        pdf = (
+            "Next, as I implied on page 19, I strongly recommend that you include "
+            "the relevant \u201cPrelude\u201d within the browsing session that begins "
+            "your study of each of the four parts."
+        )
+        qmd = (
+            "Next, as I implied on page 18, the guidance for the Second Project, I "
+            "strongly recommend that you include the relevant \"Prelude\" within the "
+            "browsing session that begins your study of each of the four parts."
+        )
+        score = score_of(pdf, qmd)
+        self.assertLess(score, THRESHOLD)          # was flagged, and buried
+        # 0.8788: the six-word descriptor the site wrote into the link costs
+        # more similarity than the wrong digit does. This pair is why
+        # REFERENCE_PAIR_THRESHOLD is 0.85 and not 0.90.
+        self.assertGreaterEqual(score, REFERENCE_PAIR_THRESHOLD)
+        self.assertLess(score, 0.90)
+        self.assertEqual(reference_mismatch(pdf, qmd), (["page 19"], ["page 18"]))
+
+    def test_catches_the_day_5_for_day_6_reference(self):
+        """#732 defect 9: content/days/day-09/07-out-of-hours.qmd said the 0-5
+        scale was the one used "during Day 5"; the source says Day 6, and the
+        table really was introduced on Day 6."""
+        pdf = (
+            "I suggest you use the same kind of 0\u20135 scale in this table as you "
+            "used during Day 6 (ranging from 5 = very strong rela- tionship to 0 = "
+            "no apparent relationship)."
+        )
+        qmd = (
+            "I suggest you use the same kind of 0\u20135 scale as in this table as you "
+            "used during Day 5 (ranging from 5 = very strong relationship to 0 = no "
+            "apparent relationship)."
+        )
+        score = score_of(pdf, qmd)
+        self.assertLess(score, THRESHOLD)
+        self.assertGreaterEqual(score, REFERENCE_PAIR_THRESHOLD)
+        self.assertEqual(reference_mismatch(pdf, qmd), (["day 6"], ["day 5"]))
+
+    def test_canonicalising_the_link_text_must_not_hide_the_page_19_defect(self):
+        """The invariant #738 exists to hold for #739.
+
+        Once strip_qmd() canonicalises "[page 18, descriptor](target)" down to
+        "page 18", this pair loses the descriptor that was dragging it down and
+        rises from 0.8788 to 0.9667 — closer to a clean match than before, and
+        *further* from being flagged as altered. The reference check is the
+        thing that must still see it, and it does, because it does not consult
+        the score at all.
+        """
+        pdf = (
+            "Next, as I implied on page 19, I strongly recommend that you include "
+            "the relevant \u201cPrelude\u201d within the browsing session that begins "
+            "your study of each of the four parts."
+        )
+        canonicalised = pdf.replace("page 19", "page 18")
+        score = score_of(pdf, canonicalised)
+        self.assertGreater(score, 0.96)
+        self.assertLess(score, THRESHOLD)
+        self.assertGreaterEqual(score, REFERENCE_PAIR_THRESHOLD)
+        self.assertEqual(reference_mismatch(pdf, canonicalised), (["page 19"], ["page 18"]))
+
+    def test_the_repeated_0_and_5_do_not_mask_the_day_number(self):
+        """Both sentences above contain "0" and "5" several times over, and the
+        defect is a "5" replacing a "6". Without the day/page qualifier the two
+        multisets would still differ, but the report would say "6 -> 5" and
+        leave the reader hunting; with it, the finding names itself."""
+        self.assertIn("day 6", reference_tokens("as you used during Day 6 (5 to 0)"))
+        self.assertNotIn("day 5", reference_tokens("as you used during Day 6 (5 to 0)"))
+
+
+class ClassifyForwardReferenceTests(unittest.TestCase):
+    PDF = "The chart on page 41 shows the whole of the second year's data in one place."
+    QMD = "The chart on page 14 shows the whole of the second year's data in one place."
+
+    def test_pairs_below_the_reference_threshold_are_not_compared(self):
+        """A numeral disagreement is only evidence when the two sentences are
+        credibly the same sentence. Below the floor the "closest match" is a
+        different sentence that happens to share vocabulary, and its numbers
+        have nothing to say about this one."""
+        unrelated = "Red beads and white beads are drawn with a paddle from a bowl of 4000."
+        _m, _a, _c, refs = classify_forward(
+            [self.PDF], [unrelated], MISSING_THRESHOLD, THRESHOLD
+        )
+        self.assertEqual(refs, [])
+
+    def test_the_threshold_is_a_parameter_not_a_hardcoded_constant(self):
+        _m, _a, _c, refs = classify_forward(
+            [self.PDF], [self.QMD], MISSING_THRESHOLD, THRESHOLD, reference_threshold=1.01
+        )
+        self.assertEqual(refs, [])
+
+    def test_a_missing_paragraph_contributes_no_reference_mismatch(self):
+        """Guaranteed structurally: REFERENCE_PAIR_THRESHOLD is well above
+        MISSING_SIMILARITY_THRESHOLD, so a paragraph holding a qualifying pair
+        cannot itself be missing. Pinned so the two constants can't be re-tuned
+        into overlapping without a test going red."""
+        self.assertGreater(REFERENCE_PAIR_THRESHOLD, MISSING_THRESHOLD)
+        missing, _a, _c, refs = classify_forward(
+            [self.PDF], ["Nothing here resembles that sentence at all, page 41."],
+            MISSING_THRESHOLD, THRESHOLD,
+        )
+        self.assertEqual(missing, [self.PDF])
+        self.assertEqual(refs, [])
+
+    def test_findings_are_ordered_by_descending_similarity(self):
+        """Triage order, matching every other section of the report.
+
+        The two paragraphs share no vocabulary, so each can only match its own
+        counterpart; they differ in length, so the same one-number swap costs
+        each of them a different amount of similarity.
+        """
+        long_pdf = (
+            "The funnel experiment described on page 41 demonstrates that adjusting a "
+            "stable process against the last result makes the variation of the output "
+            "substantially worse rather than better."
+        )
+        short_pdf = "Red beads are drawn with a paddle from a bowl described on page 22."
+        _m, _a, _c, refs = classify_forward(
+            [short_pdf, long_pdf],
+            [short_pdf.replace("page 22", "page 23"), long_pdf.replace("page 41", "page 14")],
+            MISSING_THRESHOLD, THRESHOLD,
+        )
+        self.assertEqual(len(refs), 2)
+        self.assertEqual([r[0] for r in refs], sorted((r[0] for r in refs), reverse=True))
+        self.assertEqual(refs[0][3], ["page 41"])  # the longer sentence scores higher
+
+
+class RenderReferenceMismatchesTests(unittest.TestCase):
+    def test_shows_both_sides_and_the_similarity(self):
+        out = "\n".join(render_reference_mismatches(
+            [(0.98, "See page 19 today.", "See page 18 today.", ["page 19"], ["page 18"])],
+            REFERENCE_PAIR_THRESHOLD,
+        ))
+        self.assertIn("Reference mismatch 1 [similarity 98%]", out)
+        self.assertIn("PDF only:", out)
+        self.assertIn("page 19", out)
+        self.assertIn("page 18", out)
+
+    def test_an_empty_side_is_labelled_not_blank(self):
+        """A blank after "QMD only:" reads as a rendering bug rather than as
+        the finding it is — a number the site dropped entirely."""
+        out = "\n".join(render_reference_mismatches(
+            [(0.95, "See page 19 [WB 151].", "See page 19.", ["151"], [])],
+            REFERENCE_PAIR_THRESHOLD,
+        ))
+        self.assertIn("(none)", out)
+
+
+class ReportHeaderContractTests(unittest.TestCase):
+    """The KEY=VALUE header is a contract with validate-transcription.sh.
+
+    That script reads every count out of this module's stdout by key. A key
+    added here and not read there is a number that silently never reaches the
+    provenance record — the same shape of gap #737 found between the files a
+    scorer_version hashes and the paths its workflow filters.
+    """
+
+    REPO = Path(__file__).resolve().parents[1]
+    SCORER = REPO / "scripts" / "lib" / "paragraph_similarity.py"
+    VALIDATOR = REPO / "scripts" / "validate-transcription.sh"
+
+    def run_scorer(self, pdf_paras, qmd_paras):
+        with tempfile.TemporaryDirectory() as tmp:
+            pdf_path = Path(tmp) / "pdf.txt"
+            qmd_path = Path(tmp) / "qmd.txt"
+            pdf_path.write_text("\n".join(pdf_paras) + "\n", encoding="utf-8")
+            qmd_path.write_text("\n".join(qmd_paras) + "\n", encoding="utf-8")
+            result = subprocess.run(
+                [sys.executable, str(self.SCORER), str(pdf_path), str(qmd_path)],
+                capture_output=True, text=True, check=True,
+            )
+        header, _, body = result.stdout.partition("\n\n")
+        return dict(line.split("=", 1) for line in header.splitlines()), body
+
+    def test_every_header_key_is_read_by_the_validator(self):
+        header, _ = self.run_scorer(["A paragraph about page 19."], ["A paragraph about page 18."])
+        script = self.VALIDATOR.read_text(encoding="utf-8")
+        unread = [key for key in header if f"s/^{key}=//p" not in script]
+        self.assertEqual(unread, [], f"printed but never parsed by {self.VALIDATOR.name}")
+
+    def test_the_new_counts_reach_the_provenance_record(self):
+        """Parsed is not the same as recorded — #720's result files are the
+        only durable trace a run leaves."""
+        script = self.VALIDATOR.read_text(encoding="utf-8")
+        self.assertIn("reference_mismatches: $reference", script)
+        self.assertIn("reference: $reference_threshold", script)
+
+    def test_a_reference_mismatch_is_reported_even_when_everything_is_clean(self):
+        """The whole point, end to end through the CLI: nothing is missing,
+        altered or unsourced, and the section is still there to be read."""
+        pdf = [ReferenceEscapeClassTests.LIVE_PDF]
+        qmd = [ReferenceEscapeClassTests.LIVE_QMD]
+        header, body = self.run_scorer(pdf, qmd)
+        self.assertEqual(header["ALTERED_COUNT"], "0")
+        self.assertEqual(header["MISSING_COUNT"], "0")
+        self.assertEqual(header["MATCHED_COUNT"], "1")
+        self.assertEqual(header["REFERENCE_MISMATCHES"], "1")
+        self.assertEqual(float(header["REFERENCE_THRESHOLD"]), REFERENCE_PAIR_THRESHOLD)
+        self.assertIn("Reference Mismatches", body)
+        self.assertIn("page 35", body)
 
 
 if __name__ == "__main__":

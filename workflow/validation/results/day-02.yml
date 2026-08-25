@@ -2,11 +2,12 @@ day: 2
 validated_at: 2026-08-26
 source_pdf: E.Day.2.12Oct21.pdf
 source_sha256: 86ff4005198a3bf2b4a34349e348113a8b347b3072769631962f686366f122e0
-scorer_version: 09bc60eb8b92626ade1c0c9690cb0de44ba01e06
+scorer_version: 84c1a33a521ef9064589f79647960bd1afeb5ebc
 thresholds:
   missing: 0.4
   altered: 0.98
   unsourced: 0.25
+  reference: 0.85
 counts:
   pdf_paragraphs: 211
   qmd_paragraphs: 194
@@ -17,3 +18,4 @@ counts:
   missing: 31
   unsourced: 7
   unsourced_sentences: 16
+  reference_mismatches: 17
