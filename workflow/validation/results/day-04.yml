@@ -10,10 +10,10 @@ thresholds:
 counts:
   pdf_paragraphs: 137
   qmd_paragraphs: 135
-  matched_cleanly: 48
-  altered: 76
-  flagged_sentences: 130
-  near_certain: 45
+  matched_cleanly: 49
+  altered: 75
+  flagged_sentences: 128
+  near_certain: 43
   missing: 13
   unsourced: 5
   unsourced_sentences: 5
