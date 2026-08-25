@@ -48,6 +48,16 @@ compute_scorer_version() {
   local f
   local ok=1
 
+  # Guard the empty case explicitly, because the two shells this runs in
+  # disagree about it: bash 3.2 (macOS, where the validator is run by hand)
+  # dies on the unbound expansion below, while bash 4.4+ (the CI runner)
+  # expands it to nothing and cheerfully hashes the empty string into a
+  # valid-looking 40-character answer for a pipeline covering no files.
+  if [[ "${#SCORER_VERSION_FILES[@]}" -eq 0 ]]; then
+    echo "scorer-version.sh: SCORER_VERSION_FILES is empty — nothing to hash." >&2
+    return 1
+  fi
+
   for f in "${SCORER_VERSION_FILES[@]}"; do
     if [[ ! -f "$repo_root/$f" ]]; then
       echo "scorer-version.sh: '$f' is listed in SCORER_VERSION_FILES but does not exist." >&2

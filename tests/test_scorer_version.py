@@ -109,6 +109,21 @@ class ComputationTests(unittest.TestCase):
         ).stdout.strip()
         self.assertNotEqual(combined, legacy)
 
+    def test_refuses_an_empty_file_list(self):
+        """bash 3.2 and bash 4.4+ disagree about the unguarded empty case.
+
+        On macOS's bash 3.2 the unbound expansion aborts; on the CI runner's
+        bash 5 it expands to nothing and hashes the empty string into a
+        valid-looking 40-character answer. Guarded, both fail the same way.
+        """
+        result = run_bash('SCORER_VERSION_FILES=()\ncompute_scorer_version "$PWD"')
+        self.assertNotEqual(result.returncode, 0)
+        # Assert on the guard's own message, not just a non-zero exit: bash 3.2
+        # exits non-zero on the unguarded case too, so exit status alone would
+        # make this test pass on macOS whether the guard is there or not.
+        self.assertIn("SCORER_VERSION_FILES is empty", result.stderr)
+        self.assertNotIn("e69de29bb2d1d6434b8b29ae775ad8c2e48c5391", result.stdout)
+
     def test_refuses_an_incomplete_file_list(self):
         """A typo in the list must fail loudly, not quietly hash fewer files."""
         result = run_bash(
@@ -140,14 +155,26 @@ class SharedDefinitionTests(unittest.TestCase):
 class WorkflowPathFilterTests(unittest.TestCase):
     """A hashed-but-unfiltered file is a staleness check that never fires."""
 
-    def path_filter_blocks(self):
+    @staticmethod
+    def path_filter_blocks(text=None):
+        """Collect the entries of every `paths:` sequence in the workflow.
+
+        Comment lines inside a sequence are skipped rather than treated as the
+        end of it: a `# why this path is here` note is a plausible future edit,
+        and truncating on it would fail these tests for a reason that has
+        nothing to do with the coverage they exist to check. Blank lines *do*
+        end a block — a blank line is as likely to separate two unrelated keys
+        as to sit inside one sequence, and over-reading is the worse error.
+        """
         blocks, current = [], None
-        for line in WORKFLOW.read_text().splitlines():
+        for line in (WORKFLOW.read_text() if text is None else text).splitlines():
             if re.match(r"^\s+paths:\s*$", line):
                 current = []
                 blocks.append(current)
                 continue
             if current is None:
+                continue
+            if re.match(r"^\s+#", line):
                 continue
             entry = re.match(r"^\s+- '(.+)'\s*$", line)
             if entry:
@@ -155,6 +182,26 @@ class WorkflowPathFilterTests(unittest.TestCase):
             else:
                 current = None
         return blocks
+
+    def test_parser_survives_a_comment_inside_a_block(self):
+        blocks = self.path_filter_blocks(
+            "  push:\n"
+            "    paths:\n"
+            "      - 'a/one.py'\n"
+            "      # the shell script owns extraction and stripping\n"
+            "      - 'b/two.sh'\n"
+        )
+        self.assertEqual(blocks, [["a/one.py", "b/two.sh"]])
+
+    def test_parser_stops_at_the_end_of_a_block(self):
+        blocks = self.path_filter_blocks(
+            "  push:\n"
+            "    paths:\n"
+            "      - 'a/one.py'\n"
+            "    branches:\n"
+            "      - 'main'\n"
+        )
+        self.assertEqual(blocks, [["a/one.py"]])
 
     def test_both_triggers_have_a_path_filter(self):
         self.assertEqual(len(self.path_filter_blocks()), 2)
