@@ -2,7 +2,7 @@ day: 8
 validated_at: 2026-08-26
 source_pdf: K.Day.8.11Jan20.pdf
 source_sha256: ef717bb2d860057bdd1c877ce4a8e86d930c9f66be6d38b5a35fd672e4f3b430
-scorer_version: 84c1a33a521ef9064589f79647960bd1afeb5ebc
+scorer_version: 4a68d9beda77e4c609928575ba8c5eab2eee508c
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -11,11 +11,11 @@ thresholds:
 counts:
   pdf_paragraphs: 121
   qmd_paragraphs: 107
-  matched_cleanly: 53
-  altered: 47
-  flagged_sentences: 71
-  near_certain: 30
+  matched_cleanly: 70
+  altered: 30
+  flagged_sentences: 45
+  near_certain: 18
   missing: 21
   unsourced: 4
   unsourced_sentences: 6
-  reference_mismatches: 11
+  reference_mismatches: 6

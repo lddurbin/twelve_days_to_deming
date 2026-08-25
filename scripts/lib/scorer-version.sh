@@ -19,7 +19,7 @@
 
 # Every file whose content can change what a comparison run reports. Paths are
 # repo-relative. This is the one line to edit when comparator behaviour moves
-# into a new module — e.g. the strip_qmd() port in #739.
+# into a new module — as the strip_qmd() port in #739 did, adding qmd_strip.py.
 #
 # Deliberately NOT self-referential: this file computes the version, so any
 # edit here that could change the value already changes it (adding or removing
@@ -31,6 +31,7 @@
 # tests/test_scorer_version.py enforces that.
 SCORER_VERSION_FILES=(
   scripts/lib/paragraph_similarity.py
+  scripts/lib/qmd_strip.py
   scripts/validate-transcription.sh
 )
 

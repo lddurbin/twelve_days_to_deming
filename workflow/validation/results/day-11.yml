@@ -2,7 +2,7 @@ day: 11
 validated_at: 2026-08-26
 source_pdf: N.Day.11.18Jan20.pdf
 source_sha256: e2e24a83e33d2c23f6aef971af00c41b2b89ed9e7c3a5713abff3e1e72d95eed
-scorer_version: 84c1a33a521ef9064589f79647960bd1afeb5ebc
+scorer_version: 4a68d9beda77e4c609928575ba8c5eab2eee508c
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -10,12 +10,12 @@ thresholds:
   reference: 0.85
 counts:
   pdf_paragraphs: 147
-  qmd_paragraphs: 183
-  matched_cleanly: 66
-  altered: 76
-  flagged_sentences: 141
-  near_certain: 20
+  qmd_paragraphs: 186
+  matched_cleanly: 107
+  altered: 35
+  flagged_sentences: 55
+  near_certain: 19
   missing: 5
   unsourced: 1
   unsourced_sentences: 2
-  reference_mismatches: 7
+  reference_mismatches: 8

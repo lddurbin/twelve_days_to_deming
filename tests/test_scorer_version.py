@@ -64,9 +64,19 @@ class FileListTests(unittest.TestCase):
                     f"{rel} is in SCORER_VERSION_FILES but does not exist",
                 )
 
-    def test_scorer_and_validator_are_both_covered(self):
-        """The two files #737 exists to cover. A later PR may add more."""
-        for rel in ("scripts/lib/paragraph_similarity.py", "scripts/validate-transcription.sh"):
+    def test_every_pipeline_module_is_covered(self):
+        """The two files #737 exists to cover, plus what later PRs moved out of them.
+
+        qmd_strip.py joined the list in #739, when QMD stripping left the
+        shell script. Pinned by name rather than left to the existence check
+        above: dropping it would not break anything visibly, it would just
+        stop stale results being caught after a stripping change.
+        """
+        for rel in (
+            "scripts/lib/paragraph_similarity.py",
+            "scripts/lib/qmd_strip.py",
+            "scripts/validate-transcription.sh",
+        ):
             self.assertIn(rel, SCORER_VERSION_FILES)
 
     def test_library_does_not_list_itself(self):

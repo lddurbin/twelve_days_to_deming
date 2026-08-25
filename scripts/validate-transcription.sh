@@ -49,7 +49,7 @@
 #
 # Requires: pdftotext (brew install poppler)
 #           ruby (YAML parsing for appendix manifests)
-#           python3 (paragraph similarity scoring; no third-party packages)
+#           python3 (markup stripping and similarity scoring; stdlib only)
 #           git, and shasum or sha256sum (recording validation provenance)
 #
 # Day mode uses the PDF letter-prefix mapping:
@@ -171,49 +171,10 @@ read_appendix_manifest() {
   ' "$manifest"
 }
 
-# Strip QMD markup to produce plain text
-# Removes: YAML frontmatter, code fences (R/OJS/python), HTML tags,
-# Quarto layout directives, markdown image syntax, link syntax
-strip_qmd() {
-  local file="$1"
-  # First strip YAML frontmatter (only at start of file), then strip markup
-  awk '
-    # Skip YAML frontmatter: first line must be ---, skip until closing ---
-    NR == 1 && /^---$/ { in_front = 1; next }
-    in_front && /^---$/ { in_front = 0; next }
-    in_front { next }
-    # Skip code fence blocks
-    /^```/ { in_code = !in_code; next }
-    in_code { next }
-    { print }
-  ' "$file" | sed -E '
-    # Remove Quarto layout directives
-    /^:{2,}/d
-
-    # Remove HTML tags
-    s/<[^>]+>//g
-
-    # Remove markdown image syntax ![alt](path){attrs}
-    s/!\[[^]]*\]\([^)]*\)(\{[^}]*\})?//g
-
-    # Remove markdown link syntax [text](url) → keep text
-    s/\[([^]]*)\]\([^)]*\)/\1/g
-
-    # Remove markdown emphasis markers
-    s/\*\*([^*]*)\*\*/\1/g
-    s/\*([^*]*)\*/\1/g
-
-    # Remove markdown heading markers
-    s/^#{1,6} //
-
-    # Remove horizontal rules
-    /^---+$/d
-    /^\*\*\*+$/d
-
-    # Remove blockquote markers (keep text)
-    s/^> //
-  '
-}
+# QMD markup stripping lives in scripts/lib/qmd_strip.py (#739). It used to be
+# an untested awk + sed pipeline here; the constructs it has to take apart
+# nest (an editorial `[...]` inside a `[...]{.deming_quote}` span), and a
+# line-oriented regex cannot see that. This script keeps orchestration only.
 
 # Extract text from PDF, normalise whitespace, filter boilerplate
 #
@@ -234,6 +195,12 @@ extract_pdf_text() {
   # Points" became "the Points" in Day 4 alone — while genuine page-number
   # lines are already handled by the /^[0-9]+$/d rule below. Keeping numbers
   # is also what lets similarity scoring see a mis-transcribed number at all.
+  #
+  # The trailing --workbook-refs pass drops the PDF's `[WB NN]` print-workbook
+  # citations, which the site carries none of (the #195 decision) — so every
+  # one of them was a guaranteed unmatched fragment, and its bare number a
+  # standing reference mismatch under #738. It runs the same implementation
+  # the QMD side runs, rather than a second sed copy free to drift from it.
   pdftotext -layout "$pdf" - | tr -d '\014' | sed -E '
     # Collapse runs of spaces
     s/  +/ /g
@@ -248,7 +215,7 @@ extract_pdf_text() {
     /[Pp]age intentionally/d
     # Remove garbled encoding lines (non-empty, mostly non-alphanumeric)
     /^[!"#$%&()*+,.\/:;<=>?@^_{}|~ -][!"#$%&()*+,.\/:;<=>?@^_{}|~ -]*$/d
-  '
+  ' | python3 "$REPO_ROOT/scripts/lib/qmd_strip.py" --workbook-refs
 }
 
 # Split text into paragraphs (blocks separated by blank lines)
@@ -402,11 +369,15 @@ main() {
   # Step 2: Extract and normalise QMD text (all files concatenated)
   echo "Extracting QMD text..."
   local qmd_combined="$tmpdir/qmd_combined.txt"
-  > "$qmd_combined"
-  for qmd in "${qmd_files[@]}"; do
-    strip_qmd "$qmd" >> "$qmd_combined"
-    echo "" >> "$qmd_combined"
-  done
+  # One process for the whole day, not one per chapter: the module writes the
+  # blank line that separates chapters itself, so the paragraph boundary
+  # between the last paragraph of one chapter and the first of the next is
+  # part of its tested contract rather than a detail of this loop.
+  if ! python3 "$REPO_ROOT/scripts/lib/qmd_strip.py" "${qmd_files[@]}" > "$qmd_combined"; then
+    echo "Error: QMD markup stripping failed (see the Python error above)." >&2
+    echo "       scripts/lib/qmd_strip.py" >&2
+    exit 1
+  fi
 
   text_to_paragraphs < "$qmd_combined" > "$tmpdir/qmd_paras.txt"
   local qmd_para_count
