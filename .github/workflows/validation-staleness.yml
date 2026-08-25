@@ -20,6 +20,7 @@ on:
     paths:
       - 'scripts/lib/paragraph_similarity.py'
       - 'workflow/validation/results/**'
+      - 'scripts/check-validation-staleness.sh'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

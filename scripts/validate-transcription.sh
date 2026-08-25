@@ -63,6 +63,7 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PDF_DIR="$REPO_ROOT/12-Days-to-Deming/PDFs"
 MANIFEST_DIR="$REPO_ROOT/workflow/validation"
 TMPDIR_CLEANUP=""
+SHA256_CMD=""  # set by check_deps()
 
 # Map day numbers (1-12) to PDF letter prefixes (D-O)
 # ASCII: D=68, day 1 → offset 0 → D, day 2 → offset 1 → E, etc.
@@ -112,19 +113,22 @@ check_deps() {
     echo "Error: git not found (needed to record the scorer version)"
     exit 1
   fi
-  if ! command -v shasum &>/dev/null && ! command -v sha256sum &>/dev/null; then
+  # Cache the choice once here rather than re-probing PATH on every
+  # sha256_of() call — SHA256_CMD is a script-level global, same pattern as
+  # TMPDIR_CLEANUP, since check_deps() runs in the same shell as main().
+  if command -v shasum &>/dev/null; then
+    SHA256_CMD="shasum -a 256"
+  elif command -v sha256sum &>/dev/null; then
+    SHA256_CMD="sha256sum"
+  else
     echo "Error: neither shasum nor sha256sum found (needed to hash the source PDF)"
     exit 1
   fi
 }
 
-# SHA-256 of a file, via whichever of shasum/sha256sum is available.
+# SHA-256 of a file, via whichever of shasum/sha256sum check_deps() found.
 sha256_of() {
-  if command -v shasum &>/dev/null; then
-    shasum -a 256 "$1" | awk '{print $1}'
-  else
-    sha256sum "$1" | awk '{print $1}'
-  fi
+  $SHA256_CMD "$1" | awk '{print $1}'
 }
 
 # Read `pdf_file` and `content_dir` from an appendix manifest.
@@ -425,11 +429,16 @@ main() {
   altered_threshold=$(sed -n 's/^ALTERED_THRESHOLD=//p' "$altered_report")
   unsourced_threshold=$(sed -n 's/^UNSOURCED_THRESHOLD=//p' "$altered_report")
   # A non-numeric count here would corrupt the arithmetic below into a silently
-  # wrong report, so fail loudly instead.
+  # wrong report, so fail loudly instead. Thresholds get the same treatment
+  # as the counts (a real numeric-shape check, not just non-empty) — Python's
+  # float formatting always includes a decimal point, even for a whole
+  # number like 1.0, so this shape is safe for every value main() can print.
   if ! [[ "$missing" =~ ^[0-9]+$ && "$matched" =~ ^[0-9]+$ && "$altered" =~ ^[0-9]+$ \
        && "$flagged" =~ ^[0-9]+$ && "$near_match" =~ ^[0-9]+$ \
        && "$unsourced" =~ ^[0-9]+$ && "$unsourced_sentences" =~ ^[0-9]+$ \
-       && -n "$missing_threshold" && -n "$altered_threshold" && -n "$unsourced_threshold" ]]; then
+       && "$missing_threshold" =~ ^[0-9]+\.[0-9]+$ \
+       && "$altered_threshold" =~ ^[0-9]+\.[0-9]+$ \
+       && "$unsourced_threshold" =~ ^[0-9]+\.[0-9]+$ ]]; then
     echo "Error: similarity scoring returned no usable counts." >&2
     exit 1
   fi
