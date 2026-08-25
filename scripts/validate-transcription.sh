@@ -7,7 +7,7 @@
 #   e.g. ./scripts/validate-transcription.sh 3
 #        ./scripts/validate-transcription.sh --appendix contributions-balaji-reddie
 #
-# Reports three distinct kinds of gap, in three separate sections:
+# Reports four distinct kinds of gap, in four separate sections:
 #   - Missing:    a PDF paragraph whose single best-scoring sentence still
 #                 falls below MISSING_SIMILARITY_THRESHOLD against every
 #                 sentence in the QMD text — nothing in the chapter resembles
@@ -35,6 +35,17 @@
 #                 catch content copied verbatim from elsewhere in the same
 #                 PDF — that scores a perfect match against its true,
 #                 wrongly-relocated origin (see #645).
+#   - Reference:  a sentence pair that scores at or above
+#                 REFERENCE_PAIR_THRESHOLD — credibly the same sentence —
+#                 whose page/day/chapter numbers or bare numerals disagree.
+#                 Cuts across the three above rather than refining them: a
+#                 finding here is usually *also* a clean match, because one
+#                 wrong digit in a long sentence scores above the altered
+#                 threshold. "page 18" where the source says "page 19" is the
+#                 most consequential defect the site can carry, since the
+#                 enriched cross-reference link built on it sends the reader
+#                 somewhere else entirely. See
+#                 scripts/lib/paragraph_similarity.py and issue #738.
 #
 # Requires: pdftotext (brew install poppler)
 #           ruby (YAML parsing for appendix manifests)
@@ -426,7 +437,8 @@ main() {
   # Read counts by key, not by line number, so the helper can grow new header
   # fields without silently shifting what this parses.
   local missing matched altered flagged near_match unsourced unsourced_sentences
-  local missing_threshold altered_threshold unsourced_threshold
+  local reference
+  local missing_threshold altered_threshold unsourced_threshold reference_threshold
   missing=$(sed -n 's/^MISSING_COUNT=//p' "$altered_report")
   matched=$(sed -n 's/^MATCHED_COUNT=//p' "$altered_report")
   altered=$(sed -n 's/^ALTERED_COUNT=//p' "$altered_report")
@@ -434,9 +446,11 @@ main() {
   near_match=$(sed -n 's/^NEAR_MATCH_SENTENCES=//p' "$altered_report")
   unsourced=$(sed -n 's/^UNSOURCED_COUNT=//p' "$altered_report")
   unsourced_sentences=$(sed -n 's/^UNSOURCED_SENTENCES=//p' "$altered_report")
+  reference=$(sed -n 's/^REFERENCE_MISMATCHES=//p' "$altered_report")
   missing_threshold=$(sed -n 's/^MISSING_THRESHOLD=//p' "$altered_report")
   altered_threshold=$(sed -n 's/^ALTERED_THRESHOLD=//p' "$altered_report")
   unsourced_threshold=$(sed -n 's/^UNSOURCED_THRESHOLD=//p' "$altered_report")
+  reference_threshold=$(sed -n 's/^REFERENCE_THRESHOLD=//p' "$altered_report")
   # A non-numeric count here would corrupt the arithmetic below into a silently
   # wrong report, so fail loudly instead. Thresholds get the same treatment
   # as the counts (a real numeric-shape check, not just non-empty) — Python's
@@ -445,9 +459,11 @@ main() {
   if ! [[ "$missing" =~ ^[0-9]+$ && "$matched" =~ ^[0-9]+$ && "$altered" =~ ^[0-9]+$ \
        && "$flagged" =~ ^[0-9]+$ && "$near_match" =~ ^[0-9]+$ \
        && "$unsourced" =~ ^[0-9]+$ && "$unsourced_sentences" =~ ^[0-9]+$ \
+       && "$reference" =~ ^[0-9]+$ \
        && "$missing_threshold" =~ ^[0-9]+\.[0-9]+$ \
        && "$altered_threshold" =~ ^[0-9]+\.[0-9]+$ \
-       && "$unsourced_threshold" =~ ^[0-9]+\.[0-9]+$ ]]; then
+       && "$unsourced_threshold" =~ ^[0-9]+\.[0-9]+$ \
+       && "$reference_threshold" =~ ^[0-9]+\.[0-9]+$ ]]; then
     echo "Error: similarity scoring returned no usable counts." >&2
     exit 1
   fi
@@ -465,11 +481,13 @@ main() {
   echo "  Potentially missing:         $missing"
   echo "  Unsourced QMD content:       $unsourced"
   echo "    - sentences flagged:             $unsourced_sentences"
+  echo "  Reference mismatches:        $reference"
   echo ""
 
-  if (( missing == 0 && altered == 0 && unsourced == 0 )); then
+  if (( missing == 0 && altered == 0 && unsourced == 0 && reference == 0 )); then
     echo "All PDF paragraphs appear to have clean matches in the QMD files,"
-    echo "and no QMD content is without a credible source in the PDF."
+    echo "no QMD content is without a credible source in the PDF, and every"
+    echo "page, day and chapter number agrees with the source."
     echo ""
   else
     local match_pct
@@ -481,11 +499,12 @@ main() {
     echo "Clean match rate: ${match_pct}%"
     echo ""
 
-    if (( missing > 0 || altered > 0 || unsourced > 0 )); then
+    if (( missing > 0 || altered > 0 || unsourced > 0 || reference > 0 )); then
       # Skip the KEY=VALUE header block (everything up to its trailing blank
       # line) rather than a fixed line count — see paragraph_similarity.py.
-      # The body holds the Missing, Altered, and Unsourced sections when
-      # non-empty; paragraph_similarity.py separates them itself.
+      # The body holds the Reference, Missing, Altered, and Unsourced
+      # sections when non-empty; paragraph_similarity.py separates them
+      # itself, and leads with Reference — see render_reference_mismatches().
       sed '1,/^$/d' "$altered_report"
     fi
   fi
@@ -507,6 +526,10 @@ main() {
   echo "    catch a sentence copied verbatim from elsewhere in the same PDF —"
   echo "    that scores a perfect match against its true, wrongly-relocated"
   echo "    origin. See scripts/lib/paragraph_similarity.py and issue #645."
+  echo "  - Reference mismatches are counted separately from everything above"
+  echo "    and mostly overlap it: a pair can be a clean match and still point"
+  echo "    at the wrong page. Read that section first — it is the shortest"
+  echo "    and the one similarity scoring cannot see for you."
   echo ""
 
   # Step 5: record provenance (#720). The script writes this itself, rather
@@ -528,6 +551,7 @@ thresholds:
   missing: $missing_threshold
   altered: $altered_threshold
   unsourced: $unsourced_threshold
+  reference: $reference_threshold
 counts:
   pdf_paragraphs: $total
   qmd_paragraphs: $qmd_para_count
@@ -538,6 +562,7 @@ counts:
   missing: $missing
   unsourced: $unsourced
   unsourced_sentences: $unsourced_sentences
+  reference_mismatches: $reference
 EOF
   echo "Provenance recorded: ${result_file#"$REPO_ROOT/"}"
 }

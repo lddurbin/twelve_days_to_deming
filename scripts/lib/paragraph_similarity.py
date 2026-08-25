@@ -60,6 +60,16 @@ that was never meant to have a PDF counterpart — activity prompts, button
 labels, figure captions — which routinely scores 0.3-0.7 against its nearest
 PDF sentence by shared vocabulary alone.
 
+Similarity alone cannot police reference tokens, whatever the threshold, so
+a third comparison runs alongside the two above (#738): page, day and chapter
+numbers, and bare numerals, are compared as multisets on every sentence pair
+that scores at or above REFERENCE_PAIR_THRESHOLD — clean matches included. A
+single wrong digit is one word in fifty, which scores above the altered
+threshold and classifies as a faithful transcription, yet "page 18" where the
+source says "page 19" sends every reader who follows the link to the wrong
+content. Those findings are counted and reported separately, so they neither
+distort the existing counts nor get buried under them.
+
 This cannot catch every shape of fabrication. A sentence copied verbatim from
 elsewhere in the *same* source PDF — present, but relocated or duplicated —
 scores a perfect match against its true origin and is indistinguishable from
@@ -97,18 +107,24 @@ new keys can be added without breaking them.
   UNSOURCED_COUNT=<n>     QMD paragraphs with >=1 sentence with no credible
                           PDF source
   UNSOURCED_SENTENCES=<n>  such sentences in total
+  REFERENCE_MISMATCHES=<n>  sentence pairs whose page/day/chapter numbers or
+                          bare numerals disagree, counted independently of
+                          the missing/altered/matched split — most of them
+                          are *also* clean matches
   MISSING_THRESHOLD=<f>   the MISSING_SIMILARITY_THRESHOLD in effect
   ALTERED_THRESHOLD=<f>   the altered-sentence threshold in effect (the CLI
                           [threshold] override if given, else
                           ALTERED_SIMILARITY_THRESHOLD)
   UNSOURCED_THRESHOLD=<f>  the UNSOURCED_SIMILARITY_THRESHOLD in effect
+  REFERENCE_THRESHOLD=<f>  the REFERENCE_PAIR_THRESHOLD in effect
 
-These three threshold lines let a caller record exactly what a run was
+These four threshold lines let a caller record exactly what a run was
 scored against (see #720) without keeping its own copy of the numbers to
 drift out of sync with this module.
 """
 from __future__ import annotations  # `list[str]` annotations on Python < 3.9
 
+import collections
 import difflib
 import re
 import sys
@@ -197,6 +213,118 @@ NEAR_MATCH_SCORE = 0.90
 # higher and the standing baseline stops being "small enough to scan" — see
 # #718's own acceptance criteria.
 UNSOURCED_SIMILARITY_THRESHOLD = 0.25
+
+# Reference tokens — page/day/chapter numbers and bare numerals — are compared
+# on every sentence pair scoring at or above this, *including* the pairs
+# ALTERED_SIMILARITY_THRESHOLD calls clean. That inclusion is the whole point
+# (#738): a one-word error in a 50-word sentence scores 0.98 and classifies
+# clean, and when the one wrong word is a number ("page 18" where the source
+# says "page 19") it is the most consequential defect the site can carry,
+# because the enriched cross-reference links built on it then send readers to
+# the wrong content. Similarity fundamentally cannot police this — one digit
+# among fifty words is noise to SequenceMatcher, which is why the check is a
+# separate comparison rather than a tighter threshold.
+#
+# There is still a floor, because a numeral disagreement is only *evidence* of
+# a defect when the two sentences are credibly the same sentence. Below it the
+# "closest match" is a different sentence that happens to share vocabulary, and
+# its numbers have nothing to say about this one. Findings across all 12 days,
+# by where the floor is put:
+#
+#   floor   findings   per day
+#   0.98         13       1.1
+#   0.95         56       4.7
+#   0.90        100       8.3
+#   0.85        124      10.3
+#   0.80        164      13.7
+#   (none)      689      57.4
+#
+# 0.85 rather than 0.90 because of what sits in that one band. The enriched
+# cross-reference links (#610) write a descriptor into the link text — "page
+# 18, the guidance for the Second Project" — which adds four to eight words to
+# a ~30-word sentence and costs 12-20% similarity all by itself. Measured,
+# those pairs land at 0.86-0.89: a 0.90 floor would have excluded almost
+# exactly the population this check exists for, including the page-19 defect
+# named in #738 (0.8788 as it shipped). The 24 pairs the extra band adds
+# include three further real defect candidates. Going lower stops paying:
+# 0.80 adds 40 more, dominated by PDF/QMD sentence-split divergence, where the
+# closest match is a fragment whose numbers legitimately differ.
+#
+# Deliberately a separate constant from NEAR_MATCH_SCORE, and now a different
+# value: that one only labels a "review these first" band in the header, so
+# re-tuning it must not silently change what this section reports.
+REFERENCE_PAIR_THRESHOLD = 0.85
+
+# Words that turn a following numeral into a pointer at specific content, so
+# "page 19" and "Day 19" are distinguishable tokens rather than both "19".
+# Plurals and the "p"/"pp" abbreviations fold onto the singular because the
+# token names the *target*: "page 27" vs "pages 27" is a wording difference,
+# which the altered check already owns.
+_REFERENCE_QUALIFIERS = {
+    "p": "page", "pp": "page", "page": "page", "pages": "page",
+    "day": "day", "days": "day",
+    "chapter": "chapter", "chapters": "chapter",
+    "figure": "figure", "figures": "figure",
+    "section": "section", "sections": "section",
+    "part": "part", "parts": "part",
+    "point": "point", "points": "point",
+    "step": "step", "steps": "step",
+    "rule": "rule", "rules": "rule",
+    "stage": "stage", "stages": "stage",
+    "level": "level", "levels": "level",
+    "activity": "activity", "activities": "activity",
+    "table": "table", "tables": "table",
+    "volume": "volume", "volumes": "volume",
+}
+
+# The leading digit run of any word that starts with a digit, rather than a
+# whitelist of suffixes. That folds together the several shapes one reference
+# takes in this corpus — "11th", "1990s", and "2o", which is how
+# pdftotext -layout renders "2°" — each of which would otherwise read as a
+# token present on one side and absent on the other, for no defect at all.
+_NUMERAL = re.compile(r"^(\d+)")
+
+
+def reference_tokens(text: str) -> collections.Counter:
+    """Multiset of the reference tokens in `text`.
+
+    Runs on normalise()d text so it sees exactly the words the similarity score
+    sees, and inherits its de-hyphenation of line wraps — a page number that
+    pdftotext split across a line break, as "page 1-" then "9", must not read
+    as a different number here than it does there.
+
+    That inheritance cuts both ways: normalise() only rejoins a hyphen it finds
+    at a line break, so a real hyphen inside a word ("Stats-level 0") becomes a
+    space on the QMD side while the PDF's line-wrapped copy is joined up. One
+    of the corpus's 124 findings is that asymmetry rather than a defect; #740
+    is the fix, and belongs there rather than in a special case here.
+
+    A multiset, not a set: "pages 10-11, 22-23 and 26-27" repeats numbers, and
+    dropping one of a repeated pair is a defect a set would swallow.
+    """
+    words = normalise(text).split()
+    tokens: collections.Counter = collections.Counter()
+    for i, word in enumerate(words):
+        numeral = _NUMERAL.match(word)
+        if not numeral:
+            continue
+        qualifier = _REFERENCE_QUALIFIERS.get(words[i - 1]) if i else None
+        tokens[f"{qualifier} {numeral.group(1)}" if qualifier else numeral.group(1)] += 1
+    return tokens
+
+
+def reference_mismatch(pdf_sent: str, qmd_sent: str) -> tuple[list[str], list[str]] | None:
+    """(pdf_only, qmd_only) reference tokens, or None when the two agree.
+
+    Both sides are returned because which one is empty is the first thing a
+    reader needs: a token only the PDF has is content dropped or mis-copied,
+    while one only the QMD has is content added — most often a descriptor the
+    site wrote into an enriched cross-reference link.
+    """
+    pdf_refs, qmd_refs = reference_tokens(pdf_sent), reference_tokens(qmd_sent)
+    if pdf_refs == qmd_refs:
+        return None
+    return sorted((pdf_refs - qmd_refs).elements()), sorted((qmd_refs - pdf_refs).elements())
 
 
 def normalise(text: str) -> str:
@@ -396,9 +524,16 @@ def classify_forward(
     qmd_paras: list[str],
     missing_threshold: float,
     altered_threshold: float,
-) -> tuple[list[str], list[tuple[str, list[tuple[float, str, str]]]], int]:
+    reference_threshold: float = REFERENCE_PAIR_THRESHOLD,
+) -> tuple[
+    list[str],
+    list[tuple[str, list[tuple[float, str, str]]]],
+    int,
+    list[tuple[float, str, str, list[str], list[str]]],
+]:
     """Three-way split of every PDF paragraph: missing / altered / matched
-    cleanly. Supersedes find_in_qmd()'s fingerprint grep (#719).
+    cleanly, plus the reference-token mismatches found along the way.
+    Supersedes find_in_qmd()'s fingerprint grep (#719).
 
     A paragraph is "missing" when even its single best-scoring sentence
     falls below `missing_threshold` against the whole QMD pool — nothing in
@@ -412,16 +547,35 @@ def classify_forward(
     "matched" — the old find_in_qmd() fingerprint-empty case failed open
     into a false "matched"; this fails closed instead.
 
-    Returns (missing_paragraphs, altered_by_para, matched_count).
-    altered_by_para has the same shape analyse() returns.
+    Reference mismatches (#738) are collected here rather than by a second
+    pass, because this walk already scores every PDF sentence against the
+    whole QMD pool and that scan is the expensive part of a run — a separate
+    function taking the same two paragraph lists would double it. They cut
+    across the three-way split rather than refining it: a mismatch is
+    reported whether its paragraph classified altered or matched cleanly, and
+    the clean ones are the findings that motivated the check. No mismatch can
+    come from a "missing" paragraph, since reference_threshold is well above
+    missing_threshold, so a paragraph holding a qualifying pair cannot be one.
+
+    Returns (missing_paragraphs, altered_by_para, matched_count,
+    reference_mismatches). altered_by_para has the same shape analyse()
+    returns; reference_mismatches is (score, pdf_sentence, qmd_sentence,
+    pdf_only_tokens, qmd_only_tokens), highest score first.
     """
     qmd_pool = build_pool(qmd_paras)
 
     missing_paras = []
     altered_by_para = []
+    reference_mismatches = []
     matched = 0
     for pdf_para in pdf_paras:
         scored = score_paragraph(pdf_para, qmd_pool) if qmd_pool else []
+        for score, pdf_sent, qmd_sent in scored:
+            if score < reference_threshold:
+                continue
+            mismatch = reference_mismatch(pdf_sent, qmd_sent)
+            if mismatch:
+                reference_mismatches.append((score, pdf_sent, qmd_sent, *mismatch))
         best_score = max((s for s, _, _ in scored), default=0.0)
         if best_score < missing_threshold:
             missing_paras.append(pdf_para)
@@ -434,7 +588,8 @@ def classify_forward(
             matched += 1
 
     altered_by_para.sort(key=lambda p: -p[1][0][0])
-    return missing_paras, altered_by_para, matched
+    reference_mismatches.sort(key=lambda m: -m[0])
+    return missing_paras, altered_by_para, matched, reference_mismatches
 
 
 def _format_findings(
@@ -562,6 +717,59 @@ def render_unsourced(
     return out
 
 
+def render_reference_mismatches(
+    mismatches: list[tuple[float, str, str, list[str], list[str]]],
+    threshold: float,
+) -> list[str]:
+    """Format the human-readable "reference mismatches" report section.
+
+    Kept separate from the altered/unsourced sections, and counted separately
+    in the header, so it can't distort the counts those sections have been
+    tracked by since #720 — most of what appears here is *also* a clean match,
+    which is the point.
+    """
+    out = [
+        "==========================================",
+        "  Reference Mismatches (numbers that disagree)",
+        "==========================================",
+        "",
+        "Each pair below is a PDF sentence and its closest QMD match at",
+        f"{threshold:.0%} similarity or better — credibly the same sentence — whose",
+        "reference tokens disagree: page, day and chapter numbers, and bare",
+        "numerals.",
+        "",
+        "This section is deliberately independent of the missing/altered/matched",
+        "split above, and a finding here is usually *also* a clean match. That is",
+        "what it is for: one wrong digit in a long sentence scores above the",
+        "altered threshold, so a cross-reference pointing at the wrong page — the",
+        "most consequential defect this site can carry, since the reader is sent",
+        "somewhere else entirely — is invisible to similarity alone. See #738.",
+        "",
+        "Two large and mostly harmless categories are expected here:",
+        "",
+        "  PDF only    Often a page number that `pdftotext -layout` dropped into",
+        "              the middle of a line of prose (\"the control 5 chart\"), or",
+        "              a workbook cross-reference the site omits by design.",
+        "  QMD only    Often a descriptor the site writes into an enriched",
+        "              cross-reference link, or a citation tail on a quotation.",
+        "",
+        "Check the excerpts before treating any of these as a defect — as with",
+        "the altered flags, this is a triage filter, not a verdict.",
+        "",
+    ]
+    for i, (score, pdf_sent, qmd_sent, pdf_only, qmd_only) in enumerate(mismatches, start=1):
+        pdf_excerpt, qmd_excerpt = diff_window(pdf_sent, qmd_sent)
+        out += [
+            f"--- Reference mismatch {i} [similarity {score:.0%}] ---",
+            f"  {'PDF only:':<16}{', '.join(pdf_only) or '(none)'}",
+            f"  {'QMD only:':<16}{', '.join(qmd_only) or '(none)'}",
+            f"  {'Source (PDF):':<16}{pdf_excerpt}",
+            f"  {'Closest (QMD):':<16}{qmd_excerpt}",
+            "",
+        ]
+    return out
+
+
 def read_paragraphs(path: str) -> list[str]:
     with open(path, encoding="utf-8") as f:
         return [line.rstrip("\n") for line in f if line.strip()]
@@ -600,7 +808,7 @@ def main(argv: list[str]) -> int:
     if not pdf_paras:
         print("Warning: no PDF paragraphs to compare against", file=sys.stderr)
 
-    missing_paras, altered_by_para, matched_count = classify_forward(
+    missing_paras, altered_by_para, matched_count, reference_mismatches = classify_forward(
         pdf_paras, qmd_paras, MISSING_SIMILARITY_THRESHOLD, threshold
     )
     # Reverse direction (#718): QMD paragraphs walk, the full PDF paragraph
@@ -617,12 +825,21 @@ def main(argv: list[str]) -> int:
     print(f"NEAR_MATCH_SENTENCES={sum(1 for s in scores if s >= NEAR_MATCH_SCORE)}")
     print(f"UNSOURCED_COUNT={len(unsourced_by_para)}")
     print(f"UNSOURCED_SENTENCES={sum(len(flagged) for _, flagged in unsourced_by_para)}")
+    print(f"REFERENCE_MISMATCHES={len(reference_mismatches)}")
     print(f"MISSING_THRESHOLD={MISSING_SIMILARITY_THRESHOLD}")
     print(f"ALTERED_THRESHOLD={threshold}")
     print(f"UNSOURCED_THRESHOLD={UNSOURCED_SIMILARITY_THRESHOLD}")
+    print(f"REFERENCE_THRESHOLD={REFERENCE_PAIR_THRESHOLD}")
     print()
 
+    # Reference mismatches lead the report, ahead of the far longer altered
+    # list, because they are the shortest section and the highest-consequence
+    # one — burying ~9 findings under 130 altered ones is how they get skipped.
     sections = []
+    if reference_mismatches:
+        sections.append(
+            "\n".join(render_reference_mismatches(reference_mismatches, REFERENCE_PAIR_THRESHOLD))
+        )
     if missing_paras:
         sections.append("\n".join(render_missing(missing_paras, MISSING_SIMILARITY_THRESHOLD)))
     if altered_by_para:
