@@ -9,11 +9,11 @@ thresholds:
   unsourced: 0.25
 counts:
   pdf_paragraphs: 328
-  qmd_paragraphs: 347
-  matched_cleanly: 142
-  altered: 150
-  flagged_sentences: 234
-  near_certain: 70
+  qmd_paragraphs: 346
+  matched_cleanly: 152
+  altered: 140
+  flagged_sentences: 211
+  near_certain: 48
   missing: 36
   unsourced: 24
   unsourced_sentences: 29

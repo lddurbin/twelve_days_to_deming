@@ -71,7 +71,7 @@ So let's now carry on as we did through much of yesterday with the various sets 
 
 With that build-up, the control chart on the right should perhaps be less of a surprise than if I had shown it to you yesterday before you began learning from the Red Beads Experiment. Look where those control limits are in relation to the data!
 
-Returning to the question at the bottom of the previous page (concerning the All-Knowing's viewpoint, did any of the management team's interpretations of the data, and did any of the Foreman's interpretations of the numbers of red beads in the Red Beads Experiment, make any sense to the Un-Knowing?) Remember that, though knowing nothing about the process itself, the Un-Knowing did understand how to interpret a control chart!
+Returning to the question at the bottom of the previous page (concerning the All-Knowing's viewpoint), did any of the management team's interpretations of the data, and did any of the Foreman's interpretations of the numbers of red beads in the Red Beads Experiment, make any sense to the Un-Knowing? Remember that, though knowing nothing about the process itself, the Un-Knowing did understand how to interpret a control chart!
 :::
 
 ::: {.column width="5%"}
