@@ -51,6 +51,8 @@
 # Every run overwrites a provenance record in workflow/validation/results/
 # (day-NN.yml or appendix-<slug>.yml) with what was checked, against what,
 # and what it found — see workflow/validation/results/README.md and #720.
+# The `scorer_version` it stamps there covers every file that can change what
+# a run reports, this script included: see scripts/lib/scorer-version.sh.
 
 set -euo pipefail
 
@@ -60,6 +62,13 @@ export LC_ALL=C
 # ── Configuration ──────────────────────────────────────────────
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+# Shared with scripts/check-validation-staleness.sh so the value this script
+# stamps into results files and the value that script checks them against can
+# only ever come from one definition — see #737.
+# shellcheck source-path=SCRIPTDIR source=lib/scorer-version.sh
+. "$REPO_ROOT/scripts/lib/scorer-version.sh"
+
 PDF_DIR="$REPO_ROOT/12-Days-to-Deming/PDFs"
 MANIFEST_DIR="$REPO_ROOT/workflow/validation"
 TMPDIR_CLEANUP=""
@@ -508,7 +517,7 @@ main() {
   mkdir -p "$MANIFEST_DIR/results"
   local source_sha256 scorer_version
   source_sha256=$(sha256_of "$pdf_file")
-  scorer_version=$(git -C "$REPO_ROOT" hash-object "$REPO_ROOT/scripts/lib/paragraph_similarity.py")
+  scorer_version=$(compute_scorer_version "$REPO_ROOT")
   cat > "$result_file" <<EOF
 $result_identity
 validated_at: $(date +%Y-%m-%d)

@@ -1,8 +1,8 @@
 day: 1
-validated_at: 2026-08-25
+validated_at: 2026-08-26
 source_pdf: D.Day.1.07Feb22.pdf
 source_sha256: eb37f915a5c09777e2822ff92c5ddddf0d1aced714b1bf290503e3d2f0959c47
-scorer_version: 44594d35b28d2d6fee062c8b5dadd6a14978ea4f
+scorer_version: 09bc60eb8b92626ade1c0c9690cb0de44ba01e06
 thresholds:
   missing: 0.4
   altered: 0.98

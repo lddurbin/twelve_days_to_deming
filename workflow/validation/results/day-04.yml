@@ -1,8 +1,8 @@
 day: 4
-validated_at: 2026-08-25
+validated_at: 2026-08-26
 source_pdf: G.Day.4.09Jan20.pdf
 source_sha256: 923369e3dbdf50b90e2ae397e75c6568e9887375fe7c56e1e9a532997e257724
-scorer_version: 44594d35b28d2d6fee062c8b5dadd6a14978ea4f
+scorer_version: 09bc60eb8b92626ade1c0c9690cb0de44ba01e06
 thresholds:
   missing: 0.4
   altered: 0.98

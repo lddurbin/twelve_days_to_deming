@@ -6,11 +6,18 @@ permissions:
 on:
   pull_request:
     types: [opened, synchronize]
-    # The scorer is the only thing that can make a recorded result stale
-    # (see scripts/check-validation-staleness.sh and #720) — narrow the
+    # Only the comparison pipeline and the recorded results can make a result
+    # stale (see scripts/check-validation-staleness.sh and #720) — narrow the
     # trigger so unrelated PRs don't burn CI minutes on it.
+    #
+    # Every entry in SCORER_VERSION_FILES (scripts/lib/scorer-version.sh) must
+    # appear below, or an edit to one of those files won't trigger the check
+    # that exists to catch it. tests/test_scorer_version.py enforces that, for
+    # both trigger blocks — a path filter is not a place to notice drift late.
     paths:
       - 'scripts/lib/paragraph_similarity.py'
+      - 'scripts/validate-transcription.sh'
+      - 'scripts/lib/scorer-version.sh'
       - 'workflow/validation/results/**'
       - 'scripts/check-validation-staleness.sh'
       - '.github/workflows/validation-staleness.yml'
@@ -19,8 +26,11 @@ on:
       - main
     paths:
       - 'scripts/lib/paragraph_similarity.py'
+      - 'scripts/validate-transcription.sh'
+      - 'scripts/lib/scorer-version.sh'
       - 'workflow/validation/results/**'
       - 'scripts/check-validation-staleness.sh'
+      - '.github/workflows/validation-staleness.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -35,7 +45,7 @@ jobs:
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
     # No PDFs needed or used — this only compares each recorded result's
-    # scorer_version against `git hash-object` of the scorer as it exists
-    # right now. See workflow/validation/results/README.md.
-    - name: Check recorded results against current scorer
+    # scorer_version against a hash recomputed from the comparison pipeline as
+    # it exists right now. See workflow/validation/results/README.md.
+    - name: Check recorded results against current pipeline
       run: ./scripts/check-validation-staleness.sh
