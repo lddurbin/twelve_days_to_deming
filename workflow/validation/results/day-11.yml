@@ -1,8 +1,8 @@
 day: 11
-validated_at: 2026-08-25
+validated_at: 2026-08-26
 source_pdf: N.Day.11.18Jan20.pdf
 source_sha256: e2e24a83e33d2c23f6aef971af00c41b2b89ed9e7c3a5713abff3e1e72d95eed
-scorer_version: 44594d35b28d2d6fee062c8b5dadd6a14978ea4f
+scorer_version: 09bc60eb8b92626ade1c0c9690cb0de44ba01e06
 thresholds:
   missing: 0.4
   altered: 0.98
