@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts" / "lib"))
 from paragraph_similarity import (  # noqa: E402
     ALTERED_SIMILARITY_THRESHOLD as THRESHOLD,
     NEAR_MATCH_SCORE,
+    UNSOURCED_SIMILARITY_THRESHOLD as UNSOURCED_THRESHOLD,
     analyse,
     diff_window,
     find_best_sentence,
@@ -291,6 +292,89 @@ class AnalyseTests(unittest.TestCase):
     def test_identical_documents_flag_nothing(self):
         paras = ["The first paragraph. It has two sentences.", "A second paragraph here."]
         self.assertEqual(analyse(paras, paras, THRESHOLD), [])
+
+    def test_reverse_direction_flags_qmd_paragraph_with_no_pdf_source(self):
+        """#718: analyse() is direction-agnostic, so the "unsourced" pass in
+        validate-transcription.sh is the same function called with the QMD
+        paragraphs as the walk-list and the PDF paragraphs as the pool."""
+        pdf_paras = ["Dr Deming's fourteen points are a foundation for transformation."]
+        qmd_paras = [
+            "Dr Deming's fourteen points are a foundation for transformation.",
+            "Reveal the suggested answer for this activity below.",
+        ]
+        result = analyse(qmd_paras, pdf_paras, UNSOURCED_THRESHOLD)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0][0], "Reveal the suggested answer for this activity below.")
+
+
+class UnsourcedTests(unittest.TestCase):
+    """Coverage for the reverse ("unsourced") direction added by #718: QMD
+    content with no credible PDF source, which the forward Missing/Altered
+    checks cannot see because they only ever ask whether a *PDF* paragraph is
+    present in the QMD."""
+
+    def test_fabricated_sentence_scores_far_below_threshold(self):
+        """Acceptance criterion 1: content invented during transcription, with
+        no PDF counterpart at all, must score well under
+        UNSOURCED_SIMILARITY_THRESHOLD regardless of what the rest of the PDF
+        happens to be about."""
+        pdf_pool = [
+            "Dr Deming's fourteen points are a foundation for transformation of "
+            "American industry.",
+            "The system of profound knowledge has four parts: appreciation for a "
+            "system, knowledge about variation, theory of knowledge, and psychology.",
+        ]
+        fabricated = (
+            "Deming's fifteenth point, added posthumously by his estate in 2003, "
+            "calls for mandatory quarterly audits of every supplier's statistical "
+            "control charts."
+        )
+        score, _ = find_best_sentence(
+            tokenise(fabricated), [(s, tokenise(s)) for s in pdf_pool]
+        )
+        self.assertLess(score, UNSOURCED_THRESHOLD)
+
+    def test_catches_645_wrong_numbers_shape(self):
+        """Acceptance criterion 2, using #645's actual wording. That issue was
+        two defects in one paragraph: wrong finishing-position numbers, and a
+        closing sentence copied verbatim from the Rule 4 section elsewhere in
+        the same PDF. The reverse pass catches the first and, as documented in
+        the module docstring, structurally cannot catch the second — a
+        verbatim duplicate scores a perfect match against its true (but
+        wrongly relocated) origin. Both outcomes are pinned here rather than
+        left to be rediscovered.
+        """
+        # The true Rule 3 close (source page 49) and the true Rule 4 close
+        # (source page 52) the defect borrowed verbatim.
+        pdf_pool = [
+            "Carefully confirm with your track that the next finishing positions "
+            "are: marble under funnel at 29, funnel moved to 31, marble at 28, "
+            "and funnel moved to 32.",
+            "So the picture stays unchanged at the fourth stage and, at the fifth "
+            "stage, both the marble and then the funnel end up at the target of "
+            "30—the “happy accident” to which I referred on page 52.",
+        ]
+        pool = [(s, tokenise(s)) for s in pdf_pool]
+
+        # Defect 1 (caught): the numbers that shipped (29/31 correct, but
+        # 25/35 instead of the true 28/32) contradict Rule 3's own arithmetic.
+        wrong_numbers = (
+            "Carefully confirm with your track that the next finishing positions "
+            "are: marble at 29, funnel moves to 31; marble at 25, and funnel "
+            "moves to 35."
+        )
+        score, best = find_best_sentence(tokenise(wrong_numbers), pool)
+        self.assertEqual(best, pdf_pool[0])
+        self.assertLess(score, THRESHOLD)
+
+        # Defect 2 (known blind spot, not a passing UNSOURCED assertion): the
+        # borrowed sentence IS the Rule 4 text, verbatim, so it scores a
+        # perfect match against its true origin — this is exactly why it
+        # cannot be flagged by a similarity-only reverse pass.
+        borrowed = pdf_pool[1]
+        score, best = find_best_sentence(tokenise(borrowed), pool)
+        self.assertEqual(score, 1.0)
+        self.assertEqual(best, pdf_pool[1])
 
 
 if __name__ == "__main__":

@@ -7,19 +7,29 @@
 #   e.g. ./scripts/validate-transcription.sh 3
 #        ./scripts/validate-transcription.sh --appendix contributions-balaji-reddie
 #
-# Reports two distinct kinds of gap, in two separate sections:
-#   - Missing:  a PDF paragraph whose opening words don't appear anywhere
-#               in the QMD text at all.
-#   - Altered:  a PDF paragraph that IS present (its opening words matched),
-#               but that contains one or more sentences whose closest-matching
-#               QMD sentence differs from it by more than
-#               ALTERED_SIMILARITY_THRESHOLD — e.g. a swapped word, a
-#               paraphrased sentence, or dropped detail past the opening
-#               words, none of which the presence check alone can see.
-#               Scored at sentence (not paragraph) granularity: a single
-#               swapped word is diluted to near-invisibility across a whole
-#               paragraph of otherwise-unchanged text. See
-#               scripts/lib/paragraph_similarity.py and issue #677.
+# Reports three distinct kinds of gap, in three separate sections:
+#   - Missing:    a PDF paragraph whose opening words don't appear anywhere
+#                 in the QMD text at all.
+#   - Altered:    a PDF paragraph that IS present (its opening words matched),
+#                 but that contains one or more sentences whose closest-matching
+#                 QMD sentence differs from it by more than
+#                 ALTERED_SIMILARITY_THRESHOLD — e.g. a swapped word, a
+#                 paraphrased sentence, or dropped detail past the opening
+#                 words, none of which the presence check alone can see.
+#                 Scored at sentence (not paragraph) granularity: a single
+#                 swapped word is diluted to near-invisibility across a whole
+#                 paragraph of otherwise-unchanged text. See
+#                 scripts/lib/paragraph_similarity.py and issue #677.
+#   - Unsourced:  the reverse of both of the above — a QMD paragraph with a
+#                 sentence that has no credible match anywhere in the PDF at
+#                 all, at UNSOURCED_SIMILARITY_THRESHOLD. Missing/Altered can
+#                 only report on paragraphs the PDF actually contains, so
+#                 fabricated QMD content with no PDF counterpart was
+#                 previously invisible to this script by construction. See
+#                 scripts/lib/paragraph_similarity.py and issue #718. Cannot
+#                 catch content copied verbatim from elsewhere in the same
+#                 PDF — that scores a perfect match against its true,
+#                 wrongly-relocated origin (see #645).
 #
 # Requires: pdftotext (brew install poppler)
 #           ruby (YAML parsing for appendix manifests)
@@ -453,10 +463,14 @@ main() {
 
   # Step 3.5: among paragraphs already confirmed "present", score each
   # sentence against its closest QMD match to catch content that survived
-  # the presence check but was altered past its opening words.
+  # the presence check but was altered past its opening words. The same call
+  # also runs the reverse pass (#718): QMD paragraphs walking the full PDF
+  # paragraph pool, to catch QMD content with no credible PDF source at all —
+  # a shape the presence check above cannot see by construction, since it
+  # only ever asks whether a *PDF* paragraph is present in the QMD.
   local altered_report="$tmpdir/altered_report.txt"
   if ! python3 "$REPO_ROOT/scripts/lib/paragraph_similarity.py" \
-       "$matched_paras_file" "$tmpdir/qmd_paras.txt" \
+       "$matched_paras_file" "$tmpdir/qmd_paras.txt" "$tmpdir/pdf_paras.txt" \
        > "$altered_report"; then
     echo "Error: similarity scoring failed (see the Python error above)." >&2
     echo "       scripts/lib/paragraph_similarity.py" >&2
@@ -465,13 +479,16 @@ main() {
 
   # Read counts by key, not by line number, so the helper can grow new header
   # fields without silently shifting what this parses.
-  local altered flagged near_match
+  local altered flagged near_match unsourced unsourced_sentences
   altered=$(sed -n 's/^ALTERED_COUNT=//p' "$altered_report")
   flagged=$(sed -n 's/^FLAGGED_SENTENCES=//p' "$altered_report")
   near_match=$(sed -n 's/^NEAR_MATCH_SENTENCES=//p' "$altered_report")
+  unsourced=$(sed -n 's/^UNSOURCED_COUNT=//p' "$altered_report")
+  unsourced_sentences=$(sed -n 's/^UNSOURCED_SENTENCES=//p' "$altered_report")
   # A non-numeric count here would corrupt the arithmetic below into a silently
   # wrong "Matched cleanly" figure, so fail loudly instead.
-  if ! [[ "$altered" =~ ^[0-9]+$ && "$flagged" =~ ^[0-9]+$ && "$near_match" =~ ^[0-9]+$ ]]; then
+  if ! [[ "$altered" =~ ^[0-9]+$ && "$flagged" =~ ^[0-9]+$ && "$near_match" =~ ^[0-9]+$ \
+       && "$unsourced" =~ ^[0-9]+$ && "$unsourced_sentences" =~ ^[0-9]+$ ]]; then
     echo "Error: similarity scoring returned no usable counts." >&2
     exit 1
   fi
@@ -488,10 +505,13 @@ main() {
   echo "    - sentences flagged:             $flagged"
   echo "    - near-certain defects (>=90%):  $near_match"
   echo "  Potentially missing:         $missing"
+  echo "  Unsourced QMD content:       $unsourced"
+  echo "    - sentences flagged:             $unsourced_sentences"
   echo ""
 
-  if (( missing == 0 && altered == 0 )); then
-    echo "All PDF paragraphs appear to have clean matches in the QMD files."
+  if (( missing == 0 && altered == 0 && unsourced == 0 )); then
+    echo "All PDF paragraphs appear to have clean matches in the QMD files,"
+    echo "and no QMD content is without a credible source in the PDF."
     echo ""
   else
     local match_pct
@@ -529,9 +549,11 @@ main() {
       done
     fi
 
-    if (( altered > 0 )); then
+    if (( altered > 0 || unsourced > 0 )); then
       # Skip the KEY=VALUE header block (everything up to its trailing blank
       # line) rather than a fixed line count — see paragraph_similarity.py.
+      # The body holds both the Altered and Unsourced sections when both are
+      # non-empty; paragraph_similarity.py separates them itself.
       sed '1,/^$/d' "$altered_report"
     fi
   fi
@@ -548,6 +570,11 @@ main() {
   echo "    the closest QMD match differs from the source by more than the"
   echo "    threshold. Confirm against the actual page image before treating"
   echo "    a flag as a defect."
+  echo "  - Unsourced flags are expected for legitimate site-only content:"
+  echo "    activity prompts, button labels, figure captions. They cannot"
+  echo "    catch a sentence copied verbatim from elsewhere in the same PDF —"
+  echo "    that scores a perfect match against its true, wrongly-relocated"
+  echo "    origin. See scripts/lib/paragraph_similarity.py and issue #645."
   echo ""
 }
 
