@@ -1,0 +1,19 @@
+day: 8
+validated_at: 2026-08-25
+source_pdf: K.Day.8.11Jan20.pdf
+source_sha256: ef717bb2d860057bdd1c877ce4a8e86d930c9f66be6d38b5a35fd672e4f3b430
+scorer_version: 44594d35b28d2d6fee062c8b5dadd6a14978ea4f
+thresholds:
+  missing: 0.4
+  altered: 0.98
+  unsourced: 0.25
+counts:
+  pdf_paragraphs: 121
+  qmd_paragraphs: 107
+  matched_cleanly: 53
+  altered: 47
+  flagged_sentences: 71
+  near_certain: 30
+  missing: 21
+  unsourced: 4
+  unsourced_sentences: 6

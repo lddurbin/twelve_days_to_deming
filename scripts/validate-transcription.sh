@@ -39,6 +39,7 @@
 # Requires: pdftotext (brew install poppler)
 #           ruby (YAML parsing for appendix manifests)
 #           python3 (paragraph similarity scoring; no third-party packages)
+#           git, and shasum or sha256sum (recording validation provenance)
 #
 # Day mode uses the PDF letter-prefix mapping:
 #   D=Day1, E=Day2, F=Day3, G=Day4, H=Day5, I=Day6,
@@ -46,6 +47,10 @@
 #
 # Appendix mode reads workflow/validation/appendix-<slug>-manifest.yml
 # for `pdf_file` and `content_dir`.
+#
+# Every run overwrites a provenance record in workflow/validation/results/
+# (day-NN.yml or appendix-<slug>.yml) with what was checked, against what,
+# and what it found — see workflow/validation/results/README.md and #720.
 
 set -euo pipefail
 
@@ -58,6 +63,7 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PDF_DIR="$REPO_ROOT/12-Days-to-Deming/PDFs"
 MANIFEST_DIR="$REPO_ROOT/workflow/validation"
 TMPDIR_CLEANUP=""
+SHA256_CMD=""  # set by check_deps()
 
 # Map day numbers (1-12) to PDF letter prefixes (D-O)
 # ASCII: D=68, day 1 → offset 0 → D, day 2 → offset 1 → E, etc.
@@ -103,6 +109,26 @@ check_deps() {
     echo "Error: python3 not found (needed for paragraph similarity scoring)"
     exit 1
   fi
+  if ! command -v git &>/dev/null; then
+    echo "Error: git not found (needed to record the scorer version)"
+    exit 1
+  fi
+  # Cache the choice once here rather than re-probing PATH on every
+  # sha256_of() call — SHA256_CMD is a script-level global, same pattern as
+  # TMPDIR_CLEANUP, since check_deps() runs in the same shell as main().
+  if command -v shasum &>/dev/null; then
+    SHA256_CMD="shasum -a 256"
+  elif command -v sha256sum &>/dev/null; then
+    SHA256_CMD="sha256sum"
+  else
+    echo "Error: neither shasum nor sha256sum found (needed to hash the source PDF)"
+    exit 1
+  fi
+}
+
+# SHA-256 of a file, via whichever of shasum/sha256sum check_deps() found.
+sha256_of() {
+  $SHA256_CMD "$1" | awk '{print $1}'
 }
 
 # Read `pdf_file` and `content_dir` from an appendix manifest.
@@ -251,7 +277,7 @@ main() {
   check_deps
 
   # ── Argument parsing ──
-  local pdf_file="" qmd_dir="" label=""
+  local pdf_file="" qmd_dir="" label="" result_file="" result_identity=""
 
   if [[ "${1:-}" == "--appendix" ]]; then
     local slug="${2:-}"
@@ -285,6 +311,8 @@ main() {
     pdf_file="$PDF_DIR/$manifest_pdf"
     qmd_dir="$REPO_ROOT/$manifest_content"
     label="Appendix: $slug"
+    result_file="$MANIFEST_DIR/results/appendix-${slug}.yml"
+    result_identity="appendix: $slug"
   elif [[ -n "${1:-}" && "$1" =~ ^[0-9]+$ ]]; then
     local day_num="$1"
     if (( day_num < 1 || day_num > 12 )); then
@@ -306,6 +334,8 @@ main() {
 
     qmd_dir="$REPO_ROOT/content/days/$day_dir"
     label="Day $day_num"
+    result_file="$MANIFEST_DIR/results/day-$(printf '%02d' "$day_num").yml"
+    result_identity="day: $day_num"
   else
     usage
   fi
@@ -387,6 +417,7 @@ main() {
   # Read counts by key, not by line number, so the helper can grow new header
   # fields without silently shifting what this parses.
   local missing matched altered flagged near_match unsourced unsourced_sentences
+  local missing_threshold altered_threshold unsourced_threshold
   missing=$(sed -n 's/^MISSING_COUNT=//p' "$altered_report")
   matched=$(sed -n 's/^MATCHED_COUNT=//p' "$altered_report")
   altered=$(sed -n 's/^ALTERED_COUNT=//p' "$altered_report")
@@ -394,11 +425,20 @@ main() {
   near_match=$(sed -n 's/^NEAR_MATCH_SENTENCES=//p' "$altered_report")
   unsourced=$(sed -n 's/^UNSOURCED_COUNT=//p' "$altered_report")
   unsourced_sentences=$(sed -n 's/^UNSOURCED_SENTENCES=//p' "$altered_report")
+  missing_threshold=$(sed -n 's/^MISSING_THRESHOLD=//p' "$altered_report")
+  altered_threshold=$(sed -n 's/^ALTERED_THRESHOLD=//p' "$altered_report")
+  unsourced_threshold=$(sed -n 's/^UNSOURCED_THRESHOLD=//p' "$altered_report")
   # A non-numeric count here would corrupt the arithmetic below into a silently
-  # wrong report, so fail loudly instead.
+  # wrong report, so fail loudly instead. Thresholds get the same treatment
+  # as the counts (a real numeric-shape check, not just non-empty) — Python's
+  # float formatting always includes a decimal point, even for a whole
+  # number like 1.0, so this shape is safe for every value main() can print.
   if ! [[ "$missing" =~ ^[0-9]+$ && "$matched" =~ ^[0-9]+$ && "$altered" =~ ^[0-9]+$ \
        && "$flagged" =~ ^[0-9]+$ && "$near_match" =~ ^[0-9]+$ \
-       && "$unsourced" =~ ^[0-9]+$ && "$unsourced_sentences" =~ ^[0-9]+$ ]]; then
+       && "$unsourced" =~ ^[0-9]+$ && "$unsourced_sentences" =~ ^[0-9]+$ \
+       && "$missing_threshold" =~ ^[0-9]+\.[0-9]+$ \
+       && "$altered_threshold" =~ ^[0-9]+\.[0-9]+$ \
+       && "$unsourced_threshold" =~ ^[0-9]+\.[0-9]+$ ]]; then
     echo "Error: similarity scoring returned no usable counts." >&2
     exit 1
   fi
@@ -459,6 +499,38 @@ main() {
   echo "    that scores a perfect match against its true, wrongly-relocated"
   echo "    origin. See scripts/lib/paragraph_similarity.py and issue #645."
   echo ""
+
+  # Step 5: record provenance (#720). The script writes this itself, rather
+  # than a human transcribing numbers by hand, so it can't drift from what
+  # was actually run. One file per day/appendix (not a shared file) for the
+  # same additive-not-positional reason docs/changesets/ and
+  # docs/deviations/ already use — see workflow/validation/results/README.md.
+  mkdir -p "$MANIFEST_DIR/results"
+  local source_sha256 scorer_version
+  source_sha256=$(sha256_of "$pdf_file")
+  scorer_version=$(git -C "$REPO_ROOT" hash-object "$REPO_ROOT/scripts/lib/paragraph_similarity.py")
+  cat > "$result_file" <<EOF
+$result_identity
+validated_at: $(date +%Y-%m-%d)
+source_pdf: $(basename "$pdf_file")
+source_sha256: $source_sha256
+scorer_version: $scorer_version
+thresholds:
+  missing: $missing_threshold
+  altered: $altered_threshold
+  unsourced: $unsourced_threshold
+counts:
+  pdf_paragraphs: $total
+  qmd_paragraphs: $qmd_para_count
+  matched_cleanly: $matched
+  altered: $altered
+  flagged_sentences: $flagged
+  near_certain: $near_match
+  missing: $missing
+  unsourced: $unsourced
+  unsourced_sentences: $unsourced_sentences
+EOF
+  echo "Provenance recorded: ${result_file#"$REPO_ROOT/"}"
 }
 
 main "$@"
