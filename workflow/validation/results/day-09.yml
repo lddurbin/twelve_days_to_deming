@@ -1,5 +1,5 @@
 day: 9
-validated_at: 2026-08-25
+validated_at: 2026-08-26
 source_pdf: L.Day.9.15Feb22.pdf
 source_sha256: 9a1d7ecaab3aa8d8a3f8557b65fddd06a1d0fe1ec40a0490323022427a54567f
 scorer_version: 44594d35b28d2d6fee062c8b5dadd6a14978ea4f
@@ -10,9 +10,9 @@ thresholds:
 counts:
   pdf_paragraphs: 184
   qmd_paragraphs: 200
-  matched_cleanly: 84
-  altered: 91
-  flagged_sentences: 159
+  matched_cleanly: 85
+  altered: 90
+  flagged_sentences: 156
   near_certain: 55
   missing: 9
   unsourced: 9
