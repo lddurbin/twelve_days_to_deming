@@ -1,0 +1,48 @@
+name: Scorer Tests
+
+permissions:
+  contents: read
+
+on:
+  # Deliberately NO `paths` filter, unlike structure-check.yml and
+  # validation-staleness.yml. Those are advisory checks; this one is meant to
+  # *block* a merge, and a path-filtered required check can't. GitHub never
+  # reports a context whose paths didn't match, so requiring one would hang
+  # every unrelated PR at "Expected — waiting for status to be reported",
+  # while leaving it unrequired means `gh pr merge --auto` (the merge flow in
+  # AGENTS.md) sails past it when it's red. Running always is what makes this
+  # check safely requireable — and it's affordable precisely because the suite
+  # is stdlib-only: no npm ci, no renv::restore(), just checkout and run.
+  pull_request:
+    types: [opened, synchronize]
+  # Inert today — the merge queue is unavailable on personal-account repos
+  # (see AGENTS.md and #385) — but present for the same reason the other four
+  # workflows keep theirs: if this repo ever moves to an org, a required check
+  # that doesn't report to the queue branch stalls the queue.
+  merge_group:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scorer-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    # No PDFs needed: the end-to-end validator can't run in CI (the sources are
+    # gitignored and live only on the maintainer's machine — see #720), but the
+    # logic deciding what counts as a transcription defect has no such
+    # dependency. `python3` unpinned on purpose: the module keeps a pre-3.9
+    # floor via `from __future__ import annotations`, and deploy.yml has run
+    # the same bare invocation successfully since #677.
+    - name: Run scorer tests
+      run: python3 -m unittest discover -s tests -p 'test_*.py' -v

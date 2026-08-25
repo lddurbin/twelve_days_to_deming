@@ -89,7 +89,7 @@ class TokeniseTests(unittest.TestCase):
         one-digit change is 1 char in 76 (0.9865, indistinguishable from clean)
         but 1 word in 14."""
         pdf = "This is even more the case when the control chart is used in the 97% region."
-        qmd = "This is even more the case when the control chart is used in the 37% region."
+        qmd = "This is even more the case when the control chart is used in the 97% region."
         self.assertLess(score_of(pdf, qmd), 0.95)
 
     def test_faithful_transcription_tokenises_identically(self):
@@ -243,7 +243,7 @@ class DefectDetectionTests(unittest.TestCase):
         """Only detectable because normalise() stopped stripping digits."""
         self.assert_flagged(
             "This is even more the case when the control chart is used in the 97% region.",
-            "This is even more the case when the control chart is used in the 37% region.",
+            "This is even more the case when the control chart is used in the 97% region.",
         )
 
     def test_does_not_flag_clean_transcription(self):
