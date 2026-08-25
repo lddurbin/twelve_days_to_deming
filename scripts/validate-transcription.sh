@@ -8,9 +8,14 @@
 #        ./scripts/validate-transcription.sh --appendix contributions-balaji-reddie
 #
 # Reports three distinct kinds of gap, in three separate sections:
-#   - Missing:    a PDF paragraph whose opening words don't appear anywhere
-#                 in the QMD text at all.
-#   - Altered:    a PDF paragraph that IS present (its opening words matched),
+#   - Missing:    a PDF paragraph whose single best-scoring sentence still
+#                 falls below MISSING_SIMILARITY_THRESHOLD against every
+#                 sentence in the QMD text — nothing in the chapter resembles
+#                 any part of it closely enough to call it present. Derived
+#                 from the same sentence-level score distribution as
+#                 "Altered" below, rather than a separate presence check: see
+#                 scripts/lib/paragraph_similarity.py and issue #719.
+#   - Altered:    a PDF paragraph that IS present (cleared the missing bar),
 #                 but that contains one or more sentences whose closest-matching
 #                 QMD sentence differs from it by more than
 #                 ALTERED_SIMILARITY_THRESHOLD — e.g. a swapped word, a
@@ -240,72 +245,6 @@ text_to_paragraphs() {
   '
 }
 
-# Normalise text for comparison: lowercase, strip punctuation, collapse whitespace.
-#
-# This used to also strip every f/F, on the belief that pdftotext drops fi/fl/ff
-# ligature glyphs and yields "or" for "for", "irst" for "first". It doesn't —
-# extract_pdf_text()'s own `s/\f//g` was doing that, because BSD sed reads `\f`
-# as a literal f (see the note there). With that fixed, stripping f here would
-# only destroy real signal: "of"/"o" and "for"/"or" are distinct words, and a
-# transcription that swapped one for the other should be caught, not hidden.
-normalise() {
-  tr '[:upper:]' '[:lower:]' | sed -E '
-    s/[^a-z0-9 ]/ /g
-    s/  +/ /g
-    s/^ +//
-    s/ +$//
-  '
-}
-
-# Extract a "fingerprint" — first N significant words of a paragraph
-fingerprint() {
-  local text="$1"
-  local n="${2:-8}"
-  echo "$text" | normalise | awk -v n="$n" '{
-    count = 0
-    for (i = 1; i <= NF && count < n; i++) {
-      if (length($i) > 2) {
-        printf "%s ", $i
-        count++
-      }
-    }
-    print ""
-  }' | sed 's/ *$//'
-}
-
-# Check if a PDF paragraph fingerprint appears in the QMD text
-# Returns 0 if found, 1 if not
-find_in_qmd() {
-  local fingerprint="$1"
-  local qmd_normalised="$2"
-
-  # Split fingerprint into words and check if they appear in sequence
-  # We check for a sliding window match: at least 5 consecutive words
-  local words
-  IFS=' ' read -ra words <<< "$fingerprint"
-  local n_words=${#words[@]}
-
-  if (( n_words < 5 )); then
-    # For short fingerprints, require all words in order
-    local pattern
-    pattern=$(echo "$fingerprint" | sed 's/ /.*/g')
-    grep -qiE "$pattern" <<< "$qmd_normalised" && return 0
-    return 1
-  fi
-
-  # Try matching sliding windows of 5 consecutive words
-  for (( i=0; i <= n_words - 5; i++ )); do
-    local window="${words[$i]} ${words[$((i+1))]} ${words[$((i+2))]} ${words[$((i+3))]} ${words[$((i+4))]}"
-    local pattern
-    pattern=$(echo "$window" | sed 's/ /.*/g')
-    if grep -qiE "$pattern" <<< "$qmd_normalised"; then
-      return 0
-    fi
-  done
-
-  return 1
-}
-
 # ── Main ───────────────────────────────────────────────────────
 
 main() {
@@ -424,53 +363,21 @@ main() {
   qmd_para_count=$(wc -l < "$tmpdir/qmd_paras.txt" | tr -d ' ')
   echo "  Found $qmd_para_count paragraphs in QMD files (>=${MIN_PARA_LEN} chars each)"
 
-  # Normalise the full QMD text for searching — join into single line
-  # so grep can match fingerprints that span original line boundaries
-  local qmd_normalised
-  qmd_normalised=$(normalise < "$qmd_combined" | tr '\n' ' ' | sed -E 's/  +/ /g')
-
-  # Step 3: Check each PDF paragraph against QMD content
+  # Step 3: score every PDF paragraph's best-matching QMD sentence. The
+  # missing/altered/matched split is derived entirely from that score
+  # distribution (see MISSING_SIMILARITY_THRESHOLD in paragraph_similarity.py
+  # and issue #719) rather than a separate presence check, so there is one
+  # source of truth instead of two disagreeing ones. The same call also runs
+  # the reverse pass (#718): QMD paragraphs walking the full PDF paragraph
+  # pool, to catch QMD content with no credible PDF source at all.
   echo ""
   echo "Comparing paragraphs..."
   echo ""
 
-  local missing=0
-  local matched=0
-  local total=0
-  local missing_paras=()
-  local matched_paras_file="$tmpdir/matched_paras.txt"
-  > "$matched_paras_file"
-
-  while IFS= read -r para; do
-    total=$((total + 1))
-    local fp
-    fp=$(fingerprint "$para")
-
-    if [[ -z "$fp" ]]; then
-      matched=$((matched + 1))
-      echo "$para" >> "$matched_paras_file"
-      continue
-    fi
-
-    if find_in_qmd "$fp" "$qmd_normalised"; then
-      matched=$((matched + 1))
-      echo "$para" >> "$matched_paras_file"
-    else
-      missing=$((missing + 1))
-      missing_paras+=("$para")
-    fi
-  done < "$tmpdir/pdf_paras.txt"
-
-  # Step 3.5: among paragraphs already confirmed "present", score each
-  # sentence against its closest QMD match to catch content that survived
-  # the presence check but was altered past its opening words. The same call
-  # also runs the reverse pass (#718): QMD paragraphs walking the full PDF
-  # paragraph pool, to catch QMD content with no credible PDF source at all —
-  # a shape the presence check above cannot see by construction, since it
-  # only ever asks whether a *PDF* paragraph is present in the QMD.
+  local total="$pdf_para_count"
   local altered_report="$tmpdir/altered_report.txt"
   if ! python3 "$REPO_ROOT/scripts/lib/paragraph_similarity.py" \
-       "$matched_paras_file" "$tmpdir/qmd_paras.txt" "$tmpdir/pdf_paras.txt" \
+       "$tmpdir/pdf_paras.txt" "$tmpdir/qmd_paras.txt" \
        > "$altered_report"; then
     echo "Error: similarity scoring failed (see the Python error above)." >&2
     echo "       scripts/lib/paragraph_similarity.py" >&2
@@ -479,20 +386,22 @@ main() {
 
   # Read counts by key, not by line number, so the helper can grow new header
   # fields without silently shifting what this parses.
-  local altered flagged near_match unsourced unsourced_sentences
+  local missing matched altered flagged near_match unsourced unsourced_sentences
+  missing=$(sed -n 's/^MISSING_COUNT=//p' "$altered_report")
+  matched=$(sed -n 's/^MATCHED_COUNT=//p' "$altered_report")
   altered=$(sed -n 's/^ALTERED_COUNT=//p' "$altered_report")
   flagged=$(sed -n 's/^FLAGGED_SENTENCES=//p' "$altered_report")
   near_match=$(sed -n 's/^NEAR_MATCH_SENTENCES=//p' "$altered_report")
   unsourced=$(sed -n 's/^UNSOURCED_COUNT=//p' "$altered_report")
   unsourced_sentences=$(sed -n 's/^UNSOURCED_SENTENCES=//p' "$altered_report")
   # A non-numeric count here would corrupt the arithmetic below into a silently
-  # wrong "Matched cleanly" figure, so fail loudly instead.
-  if ! [[ "$altered" =~ ^[0-9]+$ && "$flagged" =~ ^[0-9]+$ && "$near_match" =~ ^[0-9]+$ \
+  # wrong report, so fail loudly instead.
+  if ! [[ "$missing" =~ ^[0-9]+$ && "$matched" =~ ^[0-9]+$ && "$altered" =~ ^[0-9]+$ \
+       && "$flagged" =~ ^[0-9]+$ && "$near_match" =~ ^[0-9]+$ \
        && "$unsourced" =~ ^[0-9]+$ && "$unsourced_sentences" =~ ^[0-9]+$ ]]; then
     echo "Error: similarity scoring returned no usable counts." >&2
     exit 1
   fi
-  matched=$((matched - altered))
 
   # Step 4: Report
   echo "=========================================="
@@ -523,36 +432,10 @@ main() {
     echo "Clean match rate: ${match_pct}%"
     echo ""
 
-    if (( missing > 0 )); then
-      echo "=========================================="
-      echo "  Potentially Missing Content"
-      echo "=========================================="
-      echo ""
-      echo "The following PDF paragraphs had no close match in the QMD files."
-      echo "Review these to determine if they are:"
-      echo "  - Genuinely missing from the transcription"
-      echo "  - Page headers/footers or boilerplate (false positives)"
-      echo "  - Content intentionally omitted or restructured"
-      echo ""
-
-      local i=1
-      for para in "${missing_paras[@]}"; do
-        echo "--- Gap $i ---"
-        # Show first 200 chars of the paragraph
-        if (( ${#para} > 200 )); then
-          echo "${para:0:200}..."
-        else
-          echo "$para"
-        fi
-        echo ""
-        i=$((i + 1))
-      done
-    fi
-
-    if (( altered > 0 || unsourced > 0 )); then
+    if (( missing > 0 || altered > 0 || unsourced > 0 )); then
       # Skip the KEY=VALUE header block (everything up to its trailing blank
       # line) rather than a fixed line count — see paragraph_similarity.py.
-      # The body holds both the Altered and Unsourced sections when both are
+      # The body holds the Missing, Altered, and Unsourced sections when
       # non-empty; paragraph_similarity.py separates them itself.
       sed '1,/^$/d' "$altered_report"
     fi
