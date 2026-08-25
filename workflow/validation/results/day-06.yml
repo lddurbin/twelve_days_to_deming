@@ -1,0 +1,19 @@
+day: 6
+validated_at: 2026-08-25
+source_pdf: I.Day.6.19Feb22.pdf
+source_sha256: 6624bbd47c0bd7267d06bbc9c7513d8b04dfb1430e667fb1924222b09dfa3d41
+scorer_version: 44594d35b28d2d6fee062c8b5dadd6a14978ea4f
+thresholds:
+  missing: 0.4
+  altered: 0.98
+  unsourced: 0.25
+counts:
+  pdf_paragraphs: 162
+  qmd_paragraphs: 164
+  matched_cleanly: 87
+  altered: 55
+  flagged_sentences: 107
+  near_certain: 26
+  missing: 20
+  unsourced: 11
+  unsourced_sentences: 13

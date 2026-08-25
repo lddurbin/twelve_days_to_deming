@@ -97,6 +97,15 @@ new keys can be added without breaking them.
   UNSOURCED_COUNT=<n>     QMD paragraphs with >=1 sentence with no credible
                           PDF source
   UNSOURCED_SENTENCES=<n>  such sentences in total
+  MISSING_THRESHOLD=<f>   the MISSING_SIMILARITY_THRESHOLD in effect
+  ALTERED_THRESHOLD=<f>   the altered-sentence threshold in effect (the CLI
+                          [threshold] override if given, else
+                          ALTERED_SIMILARITY_THRESHOLD)
+  UNSOURCED_THRESHOLD=<f>  the UNSOURCED_SIMILARITY_THRESHOLD in effect
+
+These three threshold lines let a caller record exactly what a run was
+scored against (see #720) without keeping its own copy of the numbers to
+drift out of sync with this module.
 """
 from __future__ import annotations  # `list[str]` annotations on Python < 3.9
 
@@ -608,6 +617,9 @@ def main(argv: list[str]) -> int:
     print(f"NEAR_MATCH_SENTENCES={sum(1 for s in scores if s >= NEAR_MATCH_SCORE)}")
     print(f"UNSOURCED_COUNT={len(unsourced_by_para)}")
     print(f"UNSOURCED_SENTENCES={sum(len(flagged) for _, flagged in unsourced_by_para)}")
+    print(f"MISSING_THRESHOLD={MISSING_SIMILARITY_THRESHOLD}")
+    print(f"ALTERED_THRESHOLD={threshold}")
+    print(f"UNSOURCED_THRESHOLD={UNSOURCED_SIMILARITY_THRESHOLD}")
     print()
 
     sections = []

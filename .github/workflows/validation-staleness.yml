@@ -1,0 +1,40 @@
+name: Validation Staleness
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    # The scorer is the only thing that can make a recorded result stale
+    # (see scripts/check-validation-staleness.sh and #720) — narrow the
+    # trigger so unrelated PRs don't burn CI minutes on it.
+    paths:
+      - 'scripts/lib/paragraph_similarity.py'
+      - 'workflow/validation/results/**'
+      - 'scripts/check-validation-staleness.sh'
+      - '.github/workflows/validation-staleness.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/lib/paragraph_similarity.py'
+      - 'workflow/validation/results/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  staleness:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    # No PDFs needed or used — this only compares each recorded result's
+    # scorer_version against `git hash-object` of the scorer as it exists
+    # right now. See workflow/validation/results/README.md.
+    - name: Check recorded results against current scorer
+      run: ./scripts/check-validation-staleness.sh
