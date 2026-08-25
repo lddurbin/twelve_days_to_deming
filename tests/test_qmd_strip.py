@@ -110,6 +110,34 @@ class BracketConstructTests(unittest.TestCase):
     def test_link_attributes_are_consumed(self):
         self.assertEqual(resolve_brackets("see [it](x.qmd){target=_blank} now"), "see it now")
 
+    def test_a_spaced_attribute_block_is_left_alone(self):
+        """Adjacency is Pandoc's rule, so it has to be this module's rule too.
+
+        Pandoc attaches an attribute block only when it directly abuts the
+        closing delimiter. Given a space, it emits the braces as literal text:
+
+            $ pandoc -f markdown -t html
+            See [page 21](x.qmd#sec-page21) {.foo} and more.
+            <p>See <a href="x.qmd#sec-page21">page 21</a> {.foo} and more.</p>
+
+        So a spaced block is not markup that leaked past this module — it is
+        prose the reader sees on the published page, and the comparison has to
+        see it too. Stripping it would make the validator blind to exactly the
+        rendering bug it should be catching: literal braces on the live site,
+        normalised away before anything could flag them as unsourced.
+
+        The corpus has no occurrences of this shape today (checked in #739),
+        which is the point — this test is what notices if one appears.
+        """
+        self.assertEqual(
+            resolve_brackets("See [page 21](x.qmd#sec-page21) {.foo} and more."),
+            "See page 21 {.foo} and more.",
+        )
+        self.assertEqual(
+            resolve_brackets("A [quoted bit]{.deming_quote} {.foo} trails."),
+            "A quoted bit {.foo} trails.",
+        )
+
 
 class EnrichedReferenceTests(unittest.TestCase):
     """#610's link text writes a descriptor the source page does not carry."""
