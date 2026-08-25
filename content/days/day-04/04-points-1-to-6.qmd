@@ -262,7 +262,7 @@ viewof p5_owq = persist(
 
 ### All One Team
 
-Without All One Team, Point 5 could in fact be rather dangerous, and I have come across examples. Such danger will be multiplied if teams are encouraged or even forced to compete with each other (in total contradiction, of course, to All One Team). I am thinking of situations where lots of local "improvements" are made which look fine in their local context but whose side-effects elsewhere in the organisation are neither known about nor cared about. (Later you will find the examples of suboptimisation on Day 9 to be particularly relevant here; the same is true of both Day 9's Major Activity and also the powerful case study on ST—my book of *Statistics Tables*—pages 79–82.)
+Without All One Team, Point 5 could in fact be rather dangerous, and I have come across examples. Such danger will be multiplied if teams are encouraged or even forced to compete with each other (in total contradiction, of course, to All One Team). I am thinking of situations where lots of local "improvements" are made which look fine in their local context but whose side-effects elsewhere in the organisation are neither known about nor cared about. (Later you will find the examples of suboptimisation on Day 9 to be particularly relevant here; the same is true of both Day 8's Major Activity and also the powerful case study on ST—my book of *Statistics Tables*—pages 79–82.)
 
 ```{ojs}
 viewof p5_aot = persist(
