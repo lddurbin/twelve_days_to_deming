@@ -117,6 +117,48 @@ class SplitSentencesTests(unittest.TestCase):
     def test_ignores_empty_fragments(self):
         self.assertEqual(split_sentences("   "), [])
 
+    def test_a_closing_quote_before_the_space_does_not_fuse_two_sentences(self):
+        """The printed page sets quotes curly, the QMD sources them straight.
+
+        A straight-only class split the QMD and left the PDF fused, which is
+        an asymmetry the comparator invented on the side nobody can proofread
+        (#741). Both conventions have to segment the same way.
+        """
+        for closing in ('"', "”"):
+            with self.subTest(quote=closing):
+                self.assertEqual(
+                    split_sentences(f"He said it again.{closing} The meeting then ended."),
+                    ["He said it again.", "The meeting then ended."],
+                )
+
+    def test_an_opening_quote_after_the_space_does_not_fuse_two_sentences(self):
+        for opening in ('"', "“"):
+            with self.subTest(quote=opening):
+                self.assertEqual(
+                    len(split_sentences(f"Worth reproducing in full. {opening}Figure 1 follows.")),
+                    2,
+                )
+
+    def test_both_quote_conventions_produce_the_same_segmentation(self):
+        straight = 'He left. "I will return," she said. The door closed.'
+        typographic = "He left. “I will return,” she said. The door closed."
+        self.assertEqual(len(split_sentences(straight)), len(split_sentences(typographic)))
+
+    def test_a_footnote_callout_on_a_lead_in_colon_is_not_a_boundary(self):
+        """`:!` is pdftotext's superscript marker: 55 in the PDFs, 0 in the QMD.
+
+        Read as punctuation it splits the PDF where the QMD stays whole, and
+        strands "Let me quote Peter" as a four-word fragment matching nothing.
+        """
+        fused = "Let me quote Peter:! “A fundamental premise of the approach."
+        self.assertEqual(split_sentences(fused), [fused])
+
+    def test_a_real_exclamation_before_a_quotation_still_is_a_boundary(self):
+        self.assertEqual(
+            len(split_sentences("Such as what! “A fundamental premise of the approach.")),
+            2,
+        )
+
 
 class TokeniseTests(unittest.TestCase):
     def test_single_word_edit_is_visible_at_word_granularity(self):

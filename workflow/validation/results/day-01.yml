@@ -2,20 +2,20 @@ day: 1
 validated_at: 2026-08-26
 source_pdf: D.Day.1.07Feb22.pdf
 source_sha256: eb37f915a5c09777e2822ff92c5ddddf0d1aced714b1bf290503e3d2f0959c47
-scorer_version: a88814d04bdd2d433c02cdf957003e671035d6fe
+scorer_version: 38dd9fcff7bb1d7b944cd0e1448f79b89b378b63
 thresholds:
   missing: 0.4
   altered: 0.98
   unsourced: 0.25
   reference: 0.85
 counts:
-  pdf_paragraphs: 315
-  qmd_paragraphs: 299
-  matched_cleanly: 237
-  altered: 68
-  flagged_sentences: 85
-  near_certain: 18
-  missing: 10
-  unsourced: 12
-  unsourced_sentences: 13
+  pdf_paragraphs: 280
+  qmd_paragraphs: 261
+  matched_cleanly: 216
+  altered: 56
+  flagged_sentences: 74
+  near_certain: 15
+  missing: 8
+  unsourced: 10
+  unsourced_sentences: 12
   reference_mismatches: 4

@@ -92,9 +92,6 @@ day_to_prefix() {
   printf "\\$(printf '%03o' $((67 + day)))"
 }
 
-# Minimum paragraph length (chars) to consider for matching
-MIN_PARA_LEN=40
-
 # Similarity ratio (0-1) below which a sentence within a "present" paragraph
 # is flagged as "altered" rather than a clean match. Scored by
 # paragraph_similarity.py, which compares one PDF sentence against every QMD
@@ -219,43 +216,22 @@ extract_pdf_text() {
 }
 
 # Split text into paragraphs (blocks separated by blank lines)
-# Output: one paragraph per line (newlines within paragraph replaced with spaces)
-# Filters: minimum length, and rejects paragraphs where <40% of chars are letters
-# (catches garbled page headers/footers from pdftotext)
+# Output: one paragraph per line, ready for paragraph_similarity.py.
+#
+# Paragraph assembly lives in scripts/lib/paragraphs.py (#741). It used to be
+# an awk function here that collapsed each block onto one line and dropped the
+# ones too short or too garbled to score. The job it could not do is the one
+# that needed adding: a blank line is not always a paragraph break, and three
+# of #732's false-positive categories are just that — a mid-sentence PDF page
+# break, a blockquote split from its lead-in, a lettered list split into one
+# block per item. Rejoining those has to happen after the readability filter
+# (the garbled page header sits between the two halves of a broken sentence)
+# and before the length floor (the list items are under it individually),
+# which is a three-stage pipeline, not a line-at-a-time awk rule.
+#
+# This script keeps orchestration only, as it does for qmd_strip.py.
 text_to_paragraphs() {
-  awk '
-    function is_readable(s,    letters, total, i, c) {
-      total = 0; letters = 0
-      for (i = 1; i <= length(s); i++) {
-        c = substr(s, i, 1)
-        if (c != " ") {
-          total++
-          if (c ~ /[a-zA-Z]/) letters++
-        }
-      }
-      return (total > 0 && (letters / total) >= 0.4)
-    }
-
-    /^[[:space:]]*$/ {
-      if (para != "") {
-        gsub(/[[:space:]]+/, " ", para)
-        gsub(/^ +| +$/, "", para)
-        if (length(para) >= '"$MIN_PARA_LEN"' && is_readable(para))
-          print para
-        para = ""
-      }
-      next
-    }
-    { para = (para == "") ? $0 : para " " $0 }
-    END {
-      if (para != "") {
-        gsub(/[[:space:]]+/, " ", para)
-        gsub(/^ +| +$/, "", para)
-        if (length(para) >= '"$MIN_PARA_LEN"' && is_readable(para))
-          print para
-      }
-    }
-  '
+  python3 "$REPO_ROOT/scripts/lib/paragraphs.py"
 }
 
 # ── Main ───────────────────────────────────────────────────────
@@ -360,11 +336,17 @@ main() {
   echo ""
 
   # Step 1: Extract and normalise PDF text
+  #
+  # The length floor is paragraphs.py's to define — the same reasoning as the
+  # similarity thresholds below, which this script also reads back rather than
+  # keeping its own copy of. Asked for once here, not per progress line.
+  local min_para_len
+  min_para_len=$(python3 "$REPO_ROOT/scripts/lib/paragraphs.py" --min-length)
   echo "Extracting PDF text..."
   extract_pdf_text "$pdf_file" | text_to_paragraphs > "$tmpdir/pdf_paras.txt"
   local pdf_para_count
   pdf_para_count=$(wc -l < "$tmpdir/pdf_paras.txt" | tr -d ' ')
-  echo "  Found $pdf_para_count paragraphs in PDF (>=${MIN_PARA_LEN} chars each)"
+  echo "  Found $pdf_para_count paragraphs in PDF (>=${min_para_len} bytes each)"
 
   # Step 2: Extract and normalise QMD text (all files concatenated)
   echo "Extracting QMD text..."
@@ -382,7 +364,7 @@ main() {
   text_to_paragraphs < "$qmd_combined" > "$tmpdir/qmd_paras.txt"
   local qmd_para_count
   qmd_para_count=$(wc -l < "$tmpdir/qmd_paras.txt" | tr -d ' ')
-  echo "  Found $qmd_para_count paragraphs in QMD files (>=${MIN_PARA_LEN} chars each)"
+  echo "  Found $qmd_para_count paragraphs in QMD files (>=${min_para_len} bytes each)"
 
   # Step 3: score every PDF paragraph's best-matching QMD sentence. The
   # missing/altered/matched split is derived entirely from that score
