@@ -503,9 +503,10 @@ function groupedHTML() {
    which has no printed number to give. */
 function pageLabel(n) {
   if (n == null) return "No single page";
-  const off = PASS.page_offset;
-  const printed = off == null ? null : n - off;
-  return `PDF p${n}` + (printed && printed > 0 ? ` · printed p${printed}` : "");
+  // Printed pagination starts after the offset, so front matter comes out at or
+  // below zero and gets the PDF page alone — there is no printed p0 to cite.
+  const printed = PASS.page_offset == null ? 0 : n - PASS.page_offset;
+  return `PDF p${n}` + (printed > 0 ? ` · printed p${printed}` : "");
 }
 
 function docOrderHTML() {

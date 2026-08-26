@@ -95,6 +95,27 @@ MINIMAL = {
 }
 
 
+def tied_positions(record):
+    """Ids of findings sharing a source position with an earlier one.
+
+    Document order falls back to record order for a tie, which is stable but
+    accidental — whoever wrote the record didn't choose it. So a pass has to give
+    `page_pos` to every finding that shares a page. Findings with no page at all
+    are exempt: they have no position in the source to be ordered by, and several
+    can sit in the trailing group without anything to distinguish them.
+    """
+    seen, tied = set(), []
+    for section in record["sections"]:
+        for item in section["items"]:
+            if item["pdf_page"] is None:
+                continue
+            key = (item["pdf_page"], item.get("page_pos", 0))
+            if key in seen:
+                tied.append(item["id"])
+            seen.add(key)
+    return tied
+
+
 class BuilderTestCase(unittest.TestCase):
     def build(self, record):
         """Build `record` to a temp file and return the page, or raise SystemExit."""
@@ -250,14 +271,19 @@ class TestDocumentOrder(BuilderTestCase):
         for path in sorted(RECORDS.glob("*.json")):
             record = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(record=path.name):
-                seen = set()
-                for section in record["sections"]:
-                    for item in section["items"]:
-                        key = (item["pdf_page"], item.get("page_pos", 0))
-                        self.assertNotIn(
-                            key, seen,
-                            f"{item['id']} shares a position with an earlier finding")
-                        seen.add(key)
+                self.assertEqual(tied_positions(record), [])
+
+    def test_findings_with_no_page_need_no_position(self):
+        """Two unlocatable findings are not a tie — there is nothing to order them by."""
+        record = copy.deepcopy(MINIMAL)
+        item = record["sections"][0]["items"][0]
+        item["pdf_page"] = None
+        item["page"] = "Site-wide"
+        twin = copy.deepcopy(item)
+        twin["id"] = "D99-02"
+        record["sections"][0]["items"].append(twin)
+        self.assertEqual(tied_positions(record), [])
+        self.assertIn("const PASS = {", self.build(record))
 
 
 class TestScriptEscaping(BuilderTestCase):
