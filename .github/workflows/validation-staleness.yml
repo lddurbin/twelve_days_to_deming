@@ -16,6 +16,7 @@ on:
     # both trigger blocks — a path filter is not a place to notice drift late.
     paths:
       - 'scripts/lib/paragraph_similarity.py'
+      - 'scripts/lib/paragraphs.py'
       - 'scripts/lib/qmd_strip.py'
       - 'scripts/validate-transcription.sh'
       - 'scripts/lib/scorer-version.sh'
@@ -27,6 +28,7 @@ on:
       - main
     paths:
       - 'scripts/lib/paragraph_similarity.py'
+      - 'scripts/lib/paragraphs.py'
       - 'scripts/lib/qmd_strip.py'
       - 'scripts/validate-transcription.sh'
       - 'scripts/lib/scorer-version.sh'

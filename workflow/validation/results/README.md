@@ -68,16 +68,19 @@ was produced by today's comparison logic, not how long ago that was.
 It covers *every* file that can change what a run reports, listed as
 `SCORER_VERSION_FILES` in
 [`scripts/lib/scorer-version.sh`](../../../scripts/lib/scorer-version.sh) —
-currently `scripts/lib/paragraph_similarity.py`, `scripts/lib/qmd_strip.py`
-and `scripts/validate-transcription.sh`. Until
+currently `scripts/lib/paragraph_similarity.py`, `scripts/lib/paragraphs.py`,
+`scripts/lib/qmd_strip.py` and `scripts/validate-transcription.sh`. Until
 [#737](https://github.com/lddurbin/twelve_days_to_deming/issues/737) it hashed
 the scorer alone, which understated the pipeline: PDF text extraction, QMD
 stripping, and the paragraph-length filters all lived in the shell script, and
 a behaviour-changing edit to any of them produced results the staleness check
 happily called fresh. `qmd_strip.py` joined the list in
 [#739](https://github.com/lddurbin/twelve_days_to_deming/issues/739), when
-markup stripping moved out of that script into tested Python — the widening
-was designed so that move cost one line here.
+markup stripping moved out of that script into tested Python, and
+`paragraphs.py` in
+[#741](https://github.com/lddurbin/twelve_days_to_deming/issues/741), when
+paragraph assembly did — the widening was designed so that each move cost one
+line here.
 
 The value is a hash of a sorted `<path> <blob-hash>` manifest, so it is
 independent of the order the files are listed in, and moves when a file joins
@@ -104,13 +107,24 @@ is in `scripts/lib/paragraph_similarity.py` beside the constant.
 `counts.pdf_paragraphs` can move without the source PDF changing, and did in
 #739: stripping the PDF's `[WB NN]` workbook citations shortens the paragraph
 that carried one, and ten short table-of-contents lines fell under
-`MIN_PARA_LEN` (40 characters) as a result and left the checked corpus. Eight
+`MIN_PARA_LEN` (40 bytes) as a result and left the checked corpus. Eight
 were contents-page entries. Two were real, if slight: Day 3's "So off you go
 to Stage 6 on page 44." and "(Move on to the table on page 54.)", both now
 36 and 34 characters. That is the honest cost of removing 176 citations'
-worth of guaranteed-unmatched text, and the 40-character floor itself is
+worth of guaranteed-unmatched text, and the 40-byte floor itself is
 [#742](https://github.com/lddurbin/twelve_days_to_deming/issues/742)'s to
 revisit.
+
+It moved again in #741, downward on both sides and for a different reason:
+paragraph assembly now rejoins blocks that a blank line split but that the
+text says are one passage — a sentence broken across a PDF page boundary, a
+blockquote separated from the lead-in that introduces it, a lettered list
+rendered one item per block. 152 PDF blocks and 144 QMD blocks stopped being
+counted as paragraphs of their own because they are part of the paragraph
+before them. Read `pdf_paragraphs` as "units compared", not "units in the
+book"; the clean-match *rate* is the comparable number across that change,
+and it went from 64% to 67% while the flagged-sentence count fell from 987 to
+879.
 
 `counts.missing` can rise while everything around it improves, and did in
 #740: joining a hyphenated word into a single token shortens *both* sides'

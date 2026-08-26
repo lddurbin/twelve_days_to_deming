@@ -83,12 +83,12 @@ rediscovered.
 
 Usage: paragraph_similarity.py <pdf_paras.txt> <qmd_paras.txt> [threshold]
 
-Input files: one paragraph per line, as produced by validate-transcription.sh's
-text_to_paragraphs(). <pdf_paras.txt> is the full, unfiltered PDF paragraph
-list — it now serves double duty as both the forward pass's walk-list (every
-PDF paragraph is classified, not a pre-filtered "matched" subset) and the
-reverse pass's search pool (a QMD paragraph's true source may be one the
-forward classification marked missing).
+Input files: one paragraph per line, as produced by scripts/lib/paragraphs.py.
+<pdf_paras.txt> is the full, unfiltered PDF paragraph list — it now serves
+double duty as both the forward pass's walk-list (every PDF paragraph is
+classified, not a pre-filtered "matched" subset) and the reverse pass's search
+pool (a QMD paragraph's true source may be one the forward classification
+marked missing).
 
 Output: `KEY=VALUE` header lines, then a blank line, then formatted report
 section(s) (absent when nothing is flagged). Callers should read the counts by
@@ -392,12 +392,30 @@ def tokenise(text: str) -> tuple[str, ...]:
 # bare `[.!?]\s+` shattered "e.g. when working on the 11th Point" into
 # fragments too short to match anything, which showed up as false positives.
 #
+# The quote characters in both classes are typographic as well as straight,
+# and that pairing is the whole point (#741). The printed page sets its quotes
+# curly and the QMD sources them straight, so a straight-only class splits the
+# QMD at `…said." Then` and leaves the PDF's `…said.” Then` as one fused
+# sentence — an asymmetry manufactured by the comparator, on the side that
+# cannot be proofread. Both sides run this one regex; it has to accept both
+# conventions or it segments them differently.
+#
+# `(?<![:;,][.!?])` is the same concern from the other direction: pdftotext
+# renders the printed page's superscript footnote callouts as a literal `!`,
+# and a callout hanging off a lead-in colon comes out as `Let me quote Peter:!
+# “A fundamental premise…`. Read as punctuation, that `!` splits a sentence
+# the QMD keeps whole, stranding a four-word fragment that matches nothing.
+# The shape is unambiguous: 55 occurrences of `[:;,][.!?]` across the twelve
+# PDFs, and none at all in the QMD text, because no real sentence ends in a
+# colon and a full stop. The marker itself is harmless once it stops being a
+# boundary — normalise() drops it with the rest of the punctuation.
+#
 # Bullet glyphs are boundaries too. pdftotext puts a whole bullet list in one
 # blank-line-delimited block, so without this a PDF "sentence" runs from the
 # tail of one bullet across the marker into the head of the next — a shape no
 # QMD sentence can match, and a steady source of mid-range false positives.
 _SENTENCE_BOUNDARY = re.compile(
-    r"""(?<=[.!?])["')\]]?\s+(?=["'(\[]?[A-Z0-9])|\s*[•‣▪]\s*"""
+    r"""(?<=[.!?])(?<![:;,][.!?])["'”’)\]]?\s+(?=["'“‘(\[]?[A-Z0-9])|\s*[•‣▪]\s*"""
 )
 
 

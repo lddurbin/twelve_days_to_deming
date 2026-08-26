@@ -2,20 +2,20 @@ day: 12
 validated_at: 2026-08-26
 source_pdf: O.Day.12.16Feb22.pdf
 source_sha256: 0367003cc56eaabc218479f42dd69cd382e174bc61d7348a65aed48608904769
-scorer_version: a88814d04bdd2d433c02cdf957003e671035d6fe
+scorer_version: d382b1338ccee911eed77af74a81970498419d4b
 thresholds:
   missing: 0.4
   altered: 0.98
   unsourced: 0.25
   reference: 0.85
 counts:
-  pdf_paragraphs: 150
-  qmd_paragraphs: 156
-  matched_cleanly: 83
-  altered: 55
-  flagged_sentences: 90
-  near_certain: 25
+  pdf_paragraphs: 144
+  qmd_paragraphs: 151
+  matched_cleanly: 82
+  altered: 50
+  flagged_sentences: 88
+  near_certain: 22
   missing: 12
   unsourced: 4
   unsourced_sentences: 5
-  reference_mismatches: 12
+  reference_mismatches: 11

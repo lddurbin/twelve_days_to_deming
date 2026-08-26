@@ -2,20 +2,20 @@ day: 7
 validated_at: 2026-08-26
 source_pdf: J.Day.7.14Feb22.pdf
 source_sha256: d41322a0bce8855f627da4a6731e0fef77026a70d2595af9131edbedafb9da2d
-scorer_version: a88814d04bdd2d433c02cdf957003e671035d6fe
+scorer_version: d382b1338ccee911eed77af74a81970498419d4b
 thresholds:
   missing: 0.4
   altered: 0.98
   unsourced: 0.25
   reference: 0.85
 counts:
-  pdf_paragraphs: 184
-  qmd_paragraphs: 236
-  matched_cleanly: 112
-  altered: 68
-  flagged_sentences: 109
-  near_certain: 28
+  pdf_paragraphs: 162
+  qmd_paragraphs: 212
+  matched_cleanly: 114
+  altered: 44
+  flagged_sentences: 89
+  near_certain: 20
   missing: 4
-  unsourced: 25
-  unsourced_sentences: 44
-  reference_mismatches: 16
+  unsourced: 18
+  unsourced_sentences: 39
+  reference_mismatches: 15
