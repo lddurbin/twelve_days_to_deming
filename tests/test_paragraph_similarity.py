@@ -951,6 +951,24 @@ class ShortBlockPoolTests(unittest.TestCase):
         self.assertLess(short_score, SHORT_EVIDENCE_FLOOR)  # but under the floor
         self.assertIsNone(evidence)
 
+    def test_the_evidence_floor_is_a_parameter_not_a_hardcoded_constant(self):
+        """The near-miss pointer clears the default floor at 0.75. Raised past
+        it, the same run reports no evidence — so the floor really is the thing
+        deciding, and it can be re-tuned against a corpus rather than by
+        argument."""
+        for floor, expect_evidence in ((SHORT_EVIDENCE_FLOOR, True), (0.9, False)):
+            with self.subTest(floor=floor):
+                _m, altered, _c, _r = classify_forward(
+                    [self.PDF_PARA],
+                    [self.QMD_PARA],
+                    MISSING_THRESHOLD,
+                    THRESHOLD,
+                    qmd_short=["(See Appendix page 27.)"],
+                    evidence_floor=floor,
+                )
+                evidence = [f[3] for _para, fs in altered for f in fs]
+                self.assertEqual(any(e is not None for e in evidence), expect_evidence)
+
     def test_the_evidence_floor_tracks_the_missing_cut(self):
         """"Is this credibly the same content?" is one question, so the module
         answers it with one number, aliased rather than copied.

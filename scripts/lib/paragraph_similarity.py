@@ -732,6 +732,7 @@ def classify_forward(
     altered_threshold: float,
     reference_threshold: float = REFERENCE_PAIR_THRESHOLD,
     qmd_short: list[str] | None = None,
+    evidence_floor: float = SHORT_EVIDENCE_FLOOR,
 ) -> tuple[
     list[str],
     list[tuple[str, list[tuple[float, str, str, tuple[float, str] | None]]]],
@@ -780,6 +781,14 @@ def classify_forward(
     population, deliberately left where it was, since widening it would move a
     recorded count.
 
+    `evidence_floor` is threaded rather than left to score_paragraph()'s
+    default for the same reason `reference_threshold` above is: a floor only
+    this module's own default can reach is one no test can vary, and the
+    fixture needed to exercise it at the default alone has to be built
+    backwards from the number. Production never passes it — like
+    `reference_threshold`, it exists so the constant can be re-tuned against
+    evidence rather than by argument.
+
     Returns (missing_paragraphs, altered_by_para, matched_count,
     reference_mismatches). altered_by_para has the same shape analyse()
     returns; reference_mismatches is (score, pdf_sentence, qmd_sentence,
@@ -796,7 +805,9 @@ def classify_forward(
     matched = 0
     for pdf_para in pdf_paras:
         scored = (
-            score_paragraph(pdf_para, qmd_pool, short_pool, altered_threshold)
+            score_paragraph(
+                pdf_para, qmd_pool, short_pool, altered_threshold, evidence_floor
+            )
             if qmd_pool or short_pool
             else []
         )
