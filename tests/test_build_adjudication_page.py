@@ -120,6 +120,28 @@ class TestValidRecord(BuilderTestCase):
         record["page"]["artifact_title"] = "Day 99 Adjudication"
         self.assertIn("<title>Day 99 Adjudication</title>", self.build(record))
 
+    def test_title_cannot_close_its_own_element(self):
+        """A "<" in a title would otherwise end <title> early and lose the name.
+
+        Assert on the title element itself rather than on the whole page: the
+        same string also appears inside the JSON blob, where `</` is escaped to
+        `<\\/` and a bare `<script>` substring is inert — the HTML tokenizer
+        only leaves a script element on `</script`.
+        """
+        record = copy.deepcopy(MINIMAL)
+        record["page"]["artifact_title"] = "Day 99 </title><script>alert(1)</script>"
+        html = self.build(record)
+        self.assertEqual(html.count("</title>"), 1)
+        inner = re.search(r"<title>(.*?)</title>", html, re.S).group(1)
+        self.assertNotIn("<", inner)
+        self.assertIn("&lt;/title&gt;", inner)
+
+    def test_title_keeps_apostrophes_readable(self):
+        """<title> is a text node, so quoting apostrophes would only add noise."""
+        record = copy.deepcopy(MINIMAL)
+        record["page"]["artifact_title"] = "Neave's manual"
+        self.assertIn("<title>Neave's manual</title>", self.build(record))
+
     def test_record_survives_the_round_trip_intact(self):
         embedded = self.embedded(self.build(MINIMAL))
         self.assertEqual(embedded, MINIMAL)

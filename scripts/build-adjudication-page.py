@@ -25,6 +25,7 @@ Usage:
 import argparse
 import json
 import sys
+from html import escape
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -100,8 +101,13 @@ def build(record_path, out_path):
         if marker not in template:
             fail(f"template has no {marker} marker: {TEMPLATE}")
 
+    # Escaped for the same reason the JSON blob below is: a record is authored,
+    # so a stray "<" in a title is a mistake rather than an attack, but an
+    # unescaped one closes <title> early and the page loses its name silently.
+    # quote=False keeps apostrophes intact — this is a text node, not an
+    # attribute, and "Neave's" should not render as "Neave&#x27;s".
     title = record["page"].get("artifact_title") or record["page"]["title"]
-    html = template.replace("__TITLE__", title)
+    html = template.replace("__TITLE__", escape(title, quote=False))
     # json.dumps escapes nothing that can close the surrounding <script>, with
     # one exception worth being explicit about: a literal "</script>" inside a
     # findings string would end the block early.

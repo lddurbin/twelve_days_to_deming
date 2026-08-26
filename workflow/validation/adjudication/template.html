@@ -1,3 +1,9 @@
+<!-- This file is a page *body*, not a whole document, and deliberately has no
+     <!DOCTYPE>, <html>, <head> or <body> of its own. It is published as a Claude
+     Artifact, and the publish step wraps it in that skeleton itself — adding one
+     here would nest a second document inside the first. Same reason `lang` is not
+     set here: the wrapper owns the <html> element. Build with
+     scripts/build-adjudication-page.py; see workflow/validation/adjudications/README.md. -->
 <title>__TITLE__</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -604,7 +610,7 @@ document.addEventListener("keydown", e => {
     vis.forEach(c => c.classList.remove("is-cursor"));
     vis[cursor].classList.add("is-cursor");
     vis[cursor].scrollIntoView({ block: "center", behavior: "smooth" });
-  } else if ("ard".includes(k) && cursor >= 0 && vis[cursor]) {
+  } else if (["a", "r", "d"].includes(k) && cursor >= 0 && vis[cursor]) {
     e.preventDefault();
     const map = { a: "accept", r: "reject", d: "discuss" };
     vis[cursor].querySelector(`.seg button[data-v="${map[k]}"]`).click();
