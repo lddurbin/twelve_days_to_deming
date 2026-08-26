@@ -2,7 +2,7 @@ day: 8
 validated_at: 2026-08-26
 source_pdf: K.Day.8.11Jan20.pdf
 source_sha256: ef717bb2d860057bdd1c877ce4a8e86d930c9f66be6d38b5a35fd672e4f3b430
-scorer_version: 8b09a65bb17dd63bab39ff2450d5e80ee4722720
+scorer_version: 38dd9fcff7bb1d7b944cd0e1448f79b89b378b63
 thresholds:
   missing: 0.4
   altered: 0.98

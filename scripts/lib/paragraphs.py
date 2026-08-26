@@ -113,6 +113,16 @@ def continues(prev: str, nxt: str) -> bool:
     in the semicolon that pulls in the next, until one finally ends in a full
     stop.
 
+    Deliberately no capitalisation check on that branch, unlike the one below.
+    What a colon introduces is usually capitalised — a quotation opens with a
+    capital, and every lettered list item here starts `A.`, `B.`, `C.` —  so
+    requiring a lower-case head would refuse exactly the joins this exists to
+    make. The cost is that a colon-terminated *heading* would swallow the prose
+    under it. No such heading survives to this point in the current corpus
+    (headings are short enough that the length floor drops them), but a future
+    long heading ending in a colon would merge, and this is the branch to
+    revisit if one appears.
+
     Anything else that isn't terminal punctuation means the block simply
     stopped mid-thought — mid-clause at a page break, or mid-word at a
     hyphenated line wrap ("Never-" / "theless,"). That is a weaker signal than

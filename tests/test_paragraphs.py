@@ -363,6 +363,7 @@ class CommandLineTests(unittest.TestCase):
             input="Let me quote Peter:\n\nA fundamental premise of the approach.\n",
             capture_output=True,
             text=True,
+            encoding="utf-8",
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(
@@ -381,10 +382,20 @@ class CommandLineTests(unittest.TestCase):
         self.assertEqual(main(["--paragraphs"]), 1)
 
     def test_utf8_survives_the_round_trip(self):
-        """The caller runs under LC_ALL=C and the text is full of curly quotes."""
+        """The caller runs under LC_ALL=C and the text is full of curly quotes.
+
+        `encoding="utf-8"` on the call, not just `text=True`: `text=True` alone
+        encodes through the *runner's* locale, which under `LC_ALL=C` would
+        mangle these quotes before the module's own UTF-8 wrapper ever saw
+        them — and the locale is the thing this test is about.
+        """
         line = "Dr Deming’s own title was “Production Viewed as a System”, universally."
         result = subprocess.run(
-            [sys.executable, str(MODULE)], input=line, capture_output=True, text=True
+            [sys.executable, str(MODULE)],
+            input=line,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
         )
         self.assertEqual(result.stdout, line + "\n")
 
