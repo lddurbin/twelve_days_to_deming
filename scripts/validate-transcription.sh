@@ -208,7 +208,7 @@ read_appendix_manifest() {
 # feature of" is byte-for-byte intact), so with the real bug fixed, both
 # f-stripping workarounds are gone too.
 extract_pdf_text() {
-  local pdf="$1"
+  local pdf="$1" qmd_text="$2"
   # Note: no rule strips inline numbers. A previous `s/ [0-9]{1,3} / /g` meant
   # to drop layout-mode page numbers, but in a course built on "the 14 Points"
   # and "Day 1 page 33" it hit content instead — 18 occurrences of "the 14
@@ -216,11 +216,19 @@ extract_pdf_text() {
   # lines are already handled by the /^[0-9]+$/d rule below. Keeping numbers
   # is also what lets similarity scoring see a mis-transcribed number at all.
   #
-  # The trailing --workbook-refs pass drops the PDF's `[WB NN]` print-workbook
+  # The --workbook-refs pass drops the PDF's `[WB NN]` print-workbook
   # citations, which the site carries none of (the #195 decision) — so every
   # one of them was a guaranteed unmatched fragment, and its bare number a
   # standing reference mismatch under #738. It runs the same implementation
   # the QMD side runs, rather than a second sed copy free to drift from it.
+  #
+  # The final pass removes the printed page's superscript footnote callouts,
+  # which `pdftotext` renders as ordinary letters glued to the word before them
+  # (#755) — the PDF-side counterpart to the `[^a]` rule qmd_strip.py already
+  # applies to the transcription. It is the one stage here that reads the QMD
+  # text as well as the PDF, and it does so only to *veto* a strip; see the
+  # bounds and their corpus counts in scripts/lib/pdf_callouts.py. That is why
+  # main() extracts the QMD side first.
   pdftotext -layout "$pdf" - \
     | python3 "$REPO_ROOT/scripts/lib/paragraphs.py" --mark-pages \
     | sed -E '
@@ -237,7 +245,8 @@ extract_pdf_text() {
     /[Pp]age intentionally/d
     # Remove garbled encoding lines (non-empty, mostly non-alphanumeric)
     /^[!"#$%&()*+,.\/:;<=>?@^_{}|~ -][!"#$%&()*+,.\/:;<=>?@^_{}|~ -]*$/d
-  ' | python3 "$REPO_ROOT/scripts/lib/qmd_strip.py" --workbook-refs
+  ' | python3 "$REPO_ROOT/scripts/lib/qmd_strip.py" --workbook-refs \
+    | python3 "$REPO_ROOT/scripts/lib/pdf_callouts.py" "$qmd_text"
 }
 
 # Split text into paragraphs (blocks separated by blank lines)
@@ -370,25 +379,18 @@ main() {
   echo "QMD files: ${#qmd_files[@]}"
   echo ""
 
-  # Step 1: Extract and normalise PDF text
+  # Step 1: Extract and normalise QMD text (all files concatenated)
+  #
+  # Before the PDF side, not after, because the footnote-callout pass in
+  # extract_pdf_text() reads this text (#755). The order is the only coupling
+  # between the two extractions, and it runs one way only: nothing about the
+  # QMD side depends on the PDF.
   #
   # The length floor is paragraphs.py's to define — the same reasoning as the
   # similarity thresholds below, which this script also reads back rather than
   # keeping its own copy of. Asked for once here, not per progress line.
   local min_para_len
   min_para_len=$(python3 "$REPO_ROOT/scripts/lib/paragraphs.py" --min-length)
-  echo "Extracting PDF text..."
-  # Kept as a file rather than piped straight through, because the
-  # short-content pass (#742) reads the same extracted text: one extraction,
-  # two consumers, so the two can't disagree about what the PDF says.
-  local pdf_text="$tmpdir/pdf_text.txt"
-  extract_pdf_text "$pdf_file" > "$pdf_text"
-  text_to_paragraphs < "$pdf_text" > "$tmpdir/pdf_paras.txt"
-  local pdf_para_count
-  pdf_para_count=$(wc -l < "$tmpdir/pdf_paras.txt" | tr -d ' ')
-  echo "  Found $pdf_para_count paragraphs in PDF (>=${min_para_len} bytes each)"
-
-  # Step 2: Extract and normalise QMD text (all files concatenated)
   echo "Extracting QMD text..."
   local qmd_combined="$tmpdir/qmd_combined.txt"
   # One process for the whole day, not one per chapter: the module writes the
@@ -405,6 +407,21 @@ main() {
   local qmd_para_count
   qmd_para_count=$(wc -l < "$tmpdir/qmd_paras.txt" | tr -d ' ')
   echo "  Found $qmd_para_count paragraphs in QMD files (>=${min_para_len} bytes each)"
+
+  # Step 2: Extract and normalise PDF text
+  echo "Extracting PDF text..."
+  # Kept as a file rather than piped straight through, because the
+  # short-content pass (#742) reads the same extracted text: one extraction,
+  # two consumers, so the two can't disagree about what the PDF says.
+  local pdf_text="$tmpdir/pdf_text.txt"
+  if ! extract_pdf_text "$pdf_file" "$qmd_combined" > "$pdf_text"; then
+    echo "Error: PDF text extraction failed (see the Python error above)." >&2
+    exit 1
+  fi
+  text_to_paragraphs < "$pdf_text" > "$tmpdir/pdf_paras.txt"
+  local pdf_para_count
+  pdf_para_count=$(wc -l < "$tmpdir/pdf_paras.txt" | tr -d ' ')
+  echo "  Found $pdf_para_count paragraphs in PDF (>=${min_para_len} bytes each)"
 
   # Step 2b: account for every block on both sides (#743). The two counts
   # above say what entered comparison; these say what was read to get there

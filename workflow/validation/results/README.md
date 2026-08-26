@@ -158,8 +158,8 @@ It covers *every* file that can change what a run reports, listed as
 `SCORER_VERSION_FILES` in
 [`scripts/lib/scorer-version.sh`](../../../scripts/lib/scorer-version.sh) —
 currently `scripts/lib/paragraph_similarity.py`, `scripts/lib/paragraphs.py`,
-`scripts/lib/qmd_strip.py`, `scripts/lib/short_content.py` and
-`scripts/validate-transcription.sh`. Until
+`scripts/lib/pdf_callouts.py`, `scripts/lib/qmd_strip.py`,
+`scripts/lib/short_content.py` and `scripts/validate-transcription.sh`. Until
 [#737](https://github.com/lddurbin/twelve_days_to_deming/issues/737) it hashed
 the scorer alone, which understated the pipeline: PDF text extraction, QMD
 stripping, and the paragraph-length filters all lived in the shell script, and
@@ -169,9 +169,12 @@ happily called fresh. `qmd_strip.py` joined the list in
 markup stripping moved out of that script into tested Python, and
 `paragraphs.py` in
 [#741](https://github.com/lddurbin/twelve_days_to_deming/issues/741), when
-paragraph assembly did, and `short_content.py` in
-[#742](https://github.com/lddurbin/twelve_days_to_deming/issues/742) — the
-widening was designed so that each move cost one line here. A file belongs on
+paragraph assembly did, `short_content.py` in
+[#742](https://github.com/lddurbin/twelve_days_to_deming/issues/742), and
+`pdf_callouts.py` in
+[#755](https://github.com/lddurbin/twelve_days_to_deming/issues/755), when the
+PDF side gained a footnote-callout rule to match the one the QMD side already
+had — the widening was designed so that each move cost one line here. A file belongs on
 that list whether it changes what gets *flagged* or only what gets *reported*:
 both change what a recorded result says.
 

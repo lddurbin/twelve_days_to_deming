@@ -2,7 +2,7 @@ day: 6
 validated_at: 2026-08-26
 source_pdf: I.Day.6.19Feb22.pdf
 source_sha256: 6624bbd47c0bd7267d06bbc9c7513d8b04dfb1430e667fb1924222b09dfa3d41
-scorer_version: e69da8da76ae5fcebb021d4aa7576f291b1ece92
+scorer_version: e1cce12de99b0c589c337ab898a5c77f8cde8fbf
 thresholds:
   missing: 0.4
   altered: 0.98

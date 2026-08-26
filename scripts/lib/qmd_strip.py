@@ -28,7 +28,7 @@ What the two sides are expected to agree on, and therefore what gets removed:
     - HTML tags, and Pandoc attribute blocks like `{#sec-page12}`
     - Images — the printed figure is not text on either side
     - Bare `[]{#sec-pageN}` anchors, the site's own cross-reference scaffolding
-    - Footnote reference markers, `[^a]`
+    - Footnote reference markers, in both shapes the site uses: `[^a]` and `^[a]^`
     - `[WB NN]` workbook citations — see strip_workbook_refs() below
 
   Kept, with the markup peeled off (the words are Neave's, the syntax is ours)
@@ -92,8 +92,19 @@ _HTML_TAG = re.compile(r"<[^>]+>")
 # The definitions are approvals and acknowledgements the printed edition
 # carries as an end-of-file section, so the prose is kept and only the marker
 # goes; the superscript callout in the body has no textual counterpart at all.
+#
+# The site writes the same callout two ways. Pandoc's own `[^a]` syntax is the
+# usual one — 17 occurrences across Days 1 and 6 and the Balaji Reddie appendix
+# — but `content/days/day-07/04-many-more-true-stories.qmd` hand-rolls its two
+# as `^[a]^`, Pandoc's superscript span around a literal letter, with the
+# definition written out as ordinary prose rather than a footnote. Until #755
+# only the first form was stripped, and the second was not merely cosmetic:
+# line 168 ends `Quoting from a BBC News report:^[a]^`, so paragraphs.py's
+# continues() saw a tail of `^` instead of `:` and refused a blockquote join
+# that #741 would otherwise have made.
 _FOOTNOTE_DEFINITION = re.compile(r"^\[\^[^\]]+\]:\s*")
 _FOOTNOTE_REFERENCE = re.compile(r"\[\^[^\]]+\]")
+_SUPERSCRIPT_MARKER = re.compile(r"\^\[[^\]]+\]\^")
 
 # `[WB 5]`, `[WB 38–39]`, `[WB 190--191]`, `[WB 105 and 106]`, `[or on WB 123]`
 # — every single-line shape the twenty source PDFs actually use, which is 171
@@ -369,6 +380,7 @@ def strip_qmd(text: str) -> str:
         line = _HTML_TAG.sub("", line)
         line = _FOOTNOTE_DEFINITION.sub("", line)
         line = _FOOTNOTE_REFERENCE.sub("", line)
+        line = _SUPERSCRIPT_MARKER.sub("", line)
         workbook_stripped = strip_workbook_refs_line(line)
         if workbook_stripped is None:
             continue

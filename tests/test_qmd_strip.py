@@ -11,12 +11,12 @@ of its 62 residual near-certain flags were that (#732).
 FalsePositiveCategoryTests below is the centrepiece: one case per category in
 that triage, each built from the real PDF and QMD text rather than an
 invented example, so a future edit that reopens one of them fails here with
-the actual sentence that used to break. Five categories are closed by this
-module and assert that the two sides now normalise identically. The other
-five are not this module's to close — they are artifacts of `pdftotext`, or
-deliberate — and assert the *residual* difference instead, naming the issue
-that owns it. A fixture asserting a difference is still a regression test: it
-fails if someone later strips the wrong thing.
+the actual sentence that used to break. Seven categories are now closed and
+assert that the two sides normalise identically. The other three are not
+closeable — they are artifacts of `pdftotext`, or deliberate — and assert the
+*residual* difference instead, naming the issue that owns it. A fixture
+asserting a difference is still a regression test: it fails if someone later
+strips the wrong thing.
 
 Run with:  python3 -m unittest discover -s tests -p 'test_*.py'
 """
@@ -30,6 +30,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "scripts" / "lib"))
 
 from paragraph_similarity import normalise  # noqa: E402
+from pdf_callouts import strip_callouts  # noqa: E402
 from qmd_strip import (  # noqa: E402
     front_matter_title,
     main,
@@ -51,6 +52,20 @@ def prose(qmd: str) -> str:
 def pdf_prose(pdf: str) -> str:
     """The PDF side of the same comparison, workbook citations removed."""
     return normalise(strip_workbook_refs(pdf))
+
+
+def pdf_callout_prose(pdf: str, qmd_text: str, *letters: str) -> str:
+    """The PDF side with its footnote callouts removed too (#755).
+
+    Separate from pdf_prose() because the callout rule needs two things that
+    module doesn't: the letters the day's own Approvals block defines, and the
+    day's transcription, which it reads only to veto a strip. See
+    scripts/lib/pdf_callouts.py and tests/test_pdf_callouts.py.
+    """
+    entries = "\n".join(f"{letter}\n(page 1) Reproduced with approval." for letter in letters)
+    approvals = f"Approvals, Acknowledgments and Information\n\n{entries}\n"
+    stripped = strip_callouts(f"{pdf}\n\n{approvals}", qmd_text)
+    return normalise(stripped.split("\n\n")[0])
 
 
 class BracketConstructTests(unittest.TestCase):
@@ -377,10 +392,11 @@ class PortedWartTests(unittest.TestCase):
 class FalsePositiveCategoryTests(unittest.TestCase):
     """One case per category in #732's Day 9 triage, from the real corpus.
 
-    Six now assert the two sides normalise identically — five closed by this
-    module, and line-wrap hyphenation closed by #740 in normalise(). The
-    remaining four are not closeable at all and assert the residual
-    difference, naming the issue that owns it.
+    Seven now assert the two sides normalise identically — five closed by this
+    module, line-wrap hyphenation closed by #740 in normalise(), and footnote
+    callouts closed by #755 across both sides at once. The remaining three are
+    not closeable at all and assert the residual difference, naming the issue
+    that owns it.
     """
 
     # ── Closed ─────────────────────────────────────────────────
@@ -461,18 +477,39 @@ class FalsePositiveCategoryTests(unittest.TestCase):
         qmd = "> DemDim: pages 264–270.\n>\n> Today's material: pages 3–14.\n"
         self.assertEqual(strip_qmd(qmd), "DemDim: pages 264–270.\n\nToday's material: pages 3–14.\n")
 
-    # ── Still open, and named to their owner ───────────────────
-
     def test_6_footnote_superscript_is_glued_to_the_word_by_pdftotext(self):
-        """The QMD marker strips cleanly; the PDF's superscript letter does not.
+        """Both sides' footnote apparatus now goes, which is what makes them agree.
 
-        `extract[^a]` becomes `extract`, but the PDF renders the callout as a
-        letter fused to the preceding word — `extractd` — which no stripping
-        rule can separate from a real word. Owned by #741/#742.
+        `extract[^a]` becomes `extract` here; the PDF renders the same callout
+        as a letter fused to the word — `extractd` — and scripts/lib/pdf_callouts.py
+        removes that, bounded by the letters Day 1's own Approvals block
+        defines. Neither half alone closes this category: stripping the QMD
+        marker without the PDF's callout leaves exactly the difference it was
+        meant to remove. See #755, and tests/test_pdf_callouts.py for the
+        bounds and the words they refuse.
         """
-        self.assertEqual(prose("a brief extract[^a] from that page"), "a brief extract from that page")
-        self.assertNotEqual(prose("a brief extract[^a] from that page"),
-                            pdf_prose("a brief extractd from that page"))
+        qmd = "a brief extract[^a] from that page"
+        pdf = "a brief extractd from that page"
+        self.assertEqual(prose(qmd), "a brief extract from that page")
+        self.assertEqual(prose(qmd), pdf_callout_prose(pdf, strip_qmd(qmd), "a", "b", "c", "d"))
+
+    def test_6b_the_sites_own_superscript_spelling_is_stripped_too(self):
+        """Day 7 hand-rolls its two callouts as `^[a]^` rather than `[^a]`.
+
+        Load-bearing beyond the token it removes: the line ends `Quoting from a
+        BBC News report:^[a]^`, so paragraphs.py's continues() saw a tail of
+        `^` and refused the blockquote join #741 exists to make.
+        """
+        self.assertEqual(
+            strip_qmd("Quoting from a BBC News report:^[a]^\n"),
+            "Quoting from a BBC News report:\n",
+        )
+        self.assertEqual(
+            strip_qmd("^[a]^ BBC News report quotation included with kind permission.\n"),
+            " BBC News report quotation included with kind permission.\n",
+        )
+
+    # ── Still open, and named to their owner ───────────────────
 
     def test_7_mid_sentence_page_break_truncates_a_word(self):
         """`Nevertheless` arrives as `theless` across a page boundary. Not recoverable."""

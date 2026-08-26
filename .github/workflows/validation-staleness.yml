@@ -17,6 +17,7 @@ on:
     paths:
       - 'scripts/lib/paragraph_similarity.py'
       - 'scripts/lib/paragraphs.py'
+      - 'scripts/lib/pdf_callouts.py'
       - 'scripts/lib/qmd_strip.py'
       - 'scripts/lib/short_content.py'
       - 'scripts/validate-transcription.sh'
@@ -30,6 +31,7 @@ on:
     paths:
       - 'scripts/lib/paragraph_similarity.py'
       - 'scripts/lib/paragraphs.py'
+      - 'scripts/lib/pdf_callouts.py'
       - 'scripts/lib/qmd_strip.py'
       - 'scripts/lib/short_content.py'
       - 'scripts/validate-transcription.sh'
