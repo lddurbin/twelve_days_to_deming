@@ -2,7 +2,7 @@ day: 4
 validated_at: 2026-08-26
 source_pdf: G.Day.4.09Jan20.pdf
 source_sha256: 923369e3dbdf50b90e2ae397e75c6568e9887375fe7c56e1e9a532997e257724
-scorer_version: 4a68d9beda77e4c609928575ba8c5eab2eee508c
+scorer_version: a88814d04bdd2d433c02cdf957003e671035d6fe
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -11,10 +11,10 @@ thresholds:
 counts:
   pdf_paragraphs: 134
   qmd_paragraphs: 130
-  matched_cleanly: 72
-  altered: 48
-  flagged_sentences: 82
-  near_certain: 7
+  matched_cleanly: 76
+  altered: 44
+  flagged_sentences: 78
+  near_certain: 3
   missing: 14
   unsourced: 5
   unsourced_sentences: 5

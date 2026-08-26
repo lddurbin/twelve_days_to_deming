@@ -331,12 +331,13 @@ class PortedWartTests(unittest.TestCase):
 class FalsePositiveCategoryTests(unittest.TestCase):
     """One case per category in #732's Day 9 triage, from the real corpus.
 
-    Five are closed here and assert the two sides normalise identically. Five
-    are not this module's to close and assert the residual difference, naming
-    the issue that owns it.
+    Six now assert the two sides normalise identically — five closed by this
+    module, and line-wrap hyphenation closed by #740 in normalise(). The
+    remaining four are not closeable at all and assert the residual
+    difference, naming the issue that owns it.
     """
 
-    # ── Closed by this module ──────────────────────────────────
+    # ── Closed ─────────────────────────────────────────────────
 
     def test_1_deming_quote_span_with_a_nested_editorial_bracket(self):
         """27 of Day 9's 55 residual flags. The largest single category."""
@@ -391,6 +392,19 @@ class FalsePositiveCategoryTests(unittest.TestCase):
             pdf_prose("BACK TO THE WESTERN ELECTRIC COMPANY"),
         )
 
+    def test_5_line_wrap_hyphenation_is_symmetric(self):
+        """Closed by #740, in normalise() rather than here.
+
+        The stripper leaves hyphens alone in both directions; what used to
+        differ was normalise(), which rejoined `informa- tion` but turned a
+        real hyphen into a space, so a wrapped word matched its solid form
+        while a wrapped word and a genuinely hyphenated one did not.
+        """
+        self.assertEqual(pdf_prose("the informa- tion at c"), prose("the information at c"))
+        self.assertEqual(
+            pdf_prose("page 259 to two- thirds down"), prose("page 259 to two-thirds down")
+        )
+
     def test_9_blockquote_separator_no_longer_fuses_quoted_paragraphs(self):
         """A bare `>` is the blank line inside a blockquote, not a line of text.
 
@@ -401,16 +415,7 @@ class FalsePositiveCategoryTests(unittest.TestCase):
         qmd = "> DemDim: pages 264–270.\n>\n> Today's material: pages 3–14.\n"
         self.assertEqual(strip_qmd(qmd), "DemDim: pages 264–270.\n\nToday's material: pages 3–14.\n")
 
-    # ── Not this module's to close ─────────────────────────────
-
-    def test_5_line_wrap_hyphenation_is_asymmetric(self):
-        """normalise() rejoins `informa- tion`, but turns a real hyphen into a space.
-
-        So the wrapped form and the solid form agree, while the wrapped form
-        and a genuinely hyphenated word do not. Owned by #740.
-        """
-        self.assertEqual(pdf_prose("the informa- tion at c"), prose("the information at c"))
-        self.assertNotEqual(pdf_prose("page 259 to two- thirds down"), prose("page 259 to two-thirds down"))
+    # ── Still open, and named to their owner ───────────────────
 
     def test_6_footnote_superscript_is_glued_to_the_word_by_pdftotext(self):
         """The QMD marker strips cleanly; the PDF's superscript letter does not.

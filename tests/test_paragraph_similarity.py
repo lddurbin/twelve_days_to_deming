@@ -48,6 +48,35 @@ class NormaliseTests(unittest.TestCase):
         # text_to_paragraphs joins the lines with a space.
         self.assertEqual(normalise("Manage- ment"), normalise("Management"))
 
+    def test_every_wrap_shape_of_a_hyphenated_word_agrees(self):
+        """The three shapes one compound word takes across PDF and QMD.
+
+        A wrapped "long- term", a no-space "indi-cated" (pdftotext emits both),
+        and the QMD's intact "long-term" all have to normalise to the same
+        word — before #740 the first became "longterm" and the third "long
+        term", so the same word on both sides scored as a difference. Four of
+        Day 9's 55 catalogued false positives were this shape (#732).
+        """
+        self.assertEqual(normalise("long- term"), "longterm")
+        self.assertEqual(normalise("long-term"), "longterm")
+        self.assertEqual(normalise("indi-cated"), "indicated")
+        self.assertEqual(normalise("Stats-level 0"), normalise("Stats- level 0"))
+
+    def test_joins_every_hyphen_of_a_multiply_hyphenated_word(self):
+        """Regression: a rule that consumed the letter after the hyphen would
+        leave the next hyphen without a left-hand letter, so where the wrap
+        fell would change the answer — "x-y-z" and "x-y- z" must not differ."""
+        self.assertEqual(normalise("state-of-the-art"), "stateoftheart")
+        self.assertEqual(normalise("x-y-z"), normalise("x-y- z"))
+
+    def test_digit_ranges_are_not_joined(self):
+        """A hyphen between digits is a range, not a wrapped word. Joining
+        "10-11" into "1011" would invent a reference token neither side of the
+        comparison contains — see reference_tokens()."""
+        self.assertEqual(normalise("pages 3-4"), "pages 3 4")
+        self.assertEqual(normalise("in 1985-86"), "in 1985 86")
+        self.assertEqual(reference_tokens("pages 10-11"), {"page 10": 1, "11": 1})
+
     def test_case_and_punctuation_insensitive(self):
         self.assertEqual(
             normalise('He said "Quality!" — twice.'), normalise("he said quality twice")
