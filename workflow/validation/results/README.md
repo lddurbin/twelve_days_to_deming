@@ -227,6 +227,29 @@ book"; the clean-match *rate* is the comparable number across that change,
 and it went from 64% to 67% while the flagged-sentence count fell from 987 to
 879.
 
+`counts.matched_cleanly` can rise without the transcription changing, and did
+in #761: the QMD's sub-floor blocks became match candidates, gated at the
+altered threshold so they compete only where they would be classified clean
+anyway. The site sets its short cross-reference pointers as standalone
+paragraphs — `*(See [Appendix page 24](...).)*` strips to 23 bytes — so
+`MIN_PARA_LEN` kept them out of the pool entirely, while the PDF's copy of the
+same words sat in a full paragraph and was duly scored against a pool the
+counterpart had been filtered out of. Day 5 carried eleven of these and lost
+37% of its flag list to the fix; corpus-wide it is 25 more paragraphs matching
+cleanly, 42 fewer flagged sentences and 4 fewer "missing" — the last of those
+being paragraphs that were reported absent from the site while being present
+on it. `pdf_paragraphs` is unchanged on all fifteen records, which is the
+check that matters: the scored population is the same one, so every delta is a
+suppressed false positive rather than a change of subject.
+
+#760 rode along in the same PR, being the other scorer change waiting on a
+window with no content pass open. It removes a chart tick numeral that fell
+between the halves of a hyphenated line wrap, which defeated #740's joiner. Its
+measured effect is much smaller than #744's triage implied — 7 flagged
+sentences corpus-wide, 5 of them near-certain — because that triage counted
+flags whose sentences carry *other* `-layout` damage as well, and removing the
+numeral alone does not clear those.
+
 `counts.missing` can rise while everything around it improves, and did in
 #740: joining a hyphenated word into a single token shortens *both* sides'
 token streams, so a paragraph already scoring near the 40% missing floor —

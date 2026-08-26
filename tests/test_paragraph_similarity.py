@@ -738,6 +738,129 @@ class KnownDefectShapeTests(unittest.TestCase):
         self.assertNotIn("day 5", reference_tokens("as you used during Day 6 (5 to 0)"))
 
 
+class TickNumeralInWrapTests(unittest.TestCase):
+    """#760: a chart tick numeral that fell inside a hyphen line wrap.
+
+    `pdftotext -layout` lifts a control chart's y-axis labels into the prose
+    beside it. Between the halves of a wrapped word, the numeral defeats
+    _LETTER_HYPHEN's letter lookahead and is then welded onto the stem by
+    _WRAPPED_HYPHEN. 27 of the Optional Extras appendix's 218 near-certain
+    flags were this one shape.
+    """
+
+    def test_a_tick_numeral_between_the_halves_of_a_wrap_is_dropped(self):
+        # The real Optional Extras line, PDF side against the site's intact copy.
+        self.assertEqual(
+            normalise("just for complete- 30 ness"), normalise("just for completeness")
+        )
+
+    def test_the_whole_sentence_scores_a_perfect_match(self):
+        pdf = "I include it here just for complete- 30 ness of the record."
+        qmd = "I include it here just for completeness of the record."
+        self.assertEqual(score_of(pdf, qmd), 1.0)
+
+    def test_a_standalone_digit_in_ordinary_prose_survives(self):
+        # normalise() must keep bare numerals: "14 Points" against "12 Points"
+        # is exactly the defect the reference-token rule (#738) exists to catch,
+        # and a general digit strip would blind it.
+        self.assertEqual(normalise("the 14 Points"), "the 14 points")
+        self.assertNotEqual(normalise("the 14 Points"), normalise("the 12 Points"))
+
+    def test_a_numeral_after_a_wrap_that_is_not_fenced_is_untouched(self):
+        # No trailing whitespace-fenced letters, so this is not the wrap shape
+        # and the numeral is content: the pre-#760 rules still apply.
+        self.assertEqual(normalise("on pages 1- 9"), "on pages 19")
+
+    def test_an_ordinary_letter_wrap_is_unaffected(self):
+        self.assertEqual(normalise("Manage- ment"), normalise("Management"))
+        self.assertEqual(normalise("long- term"), normalise("long-term"))
+
+
+class ShortBlockPoolTests(unittest.TestCase):
+    """#761: the QMD's sub-floor blocks as restricted match candidates.
+
+    The site sets its short cross-reference pointers as their own paragraphs —
+    `*(See [Appendix page 24](...).)*` strips to 23 bytes — so MIN_PARA_LEN
+    keeps them out of the match pool entirely. The PDF sets the same words as
+    the tail of a full paragraph, which does get scored, against a pool its
+    counterpart was filtered out of. Day 5 carried eleven of these, every one
+    present on the site and every one reported at the 20% floor.
+
+    The gate is what keeps this safe, and the last three tests are the ones
+    that matter: a short block competes only at a score that would classify the
+    pair *clean* anyway, so it can never win as a sentence's best match at a
+    flagging score and hide a real defect.
+    """
+
+    PDF_PARA = (
+        "Point 13 implies far more than might be noticed at first glance, and "
+        "deserves a second reading before you move on. (See Appendix page 26.)"
+    )
+    QMD_PARA = (
+        "Point 13 implies far more than might be noticed at first glance, and "
+        "deserves a second reading before you move on."
+    )
+
+    def test_without_the_short_pool_the_pointer_flags(self):
+        # The pre-#761 behaviour, pinned so the fix stays attributable.
+        _missing, altered, _matched, _refs = classify_forward(
+            [self.PDF_PARA], [self.QMD_PARA], MISSING_THRESHOLD, THRESHOLD
+        )
+        flagged = [f[1] for _para, fs in altered for f in fs]
+        self.assertIn("(See Appendix page 26.)", flagged)
+
+    def test_a_matching_short_block_clears_the_flag(self):
+        _missing, altered, matched, _refs = classify_forward(
+            [self.PDF_PARA],
+            [self.QMD_PARA],
+            MISSING_THRESHOLD,
+            THRESHOLD,
+            qmd_short=["(See Appendix page 26.)"],
+        )
+        self.assertEqual(altered, [])
+        self.assertEqual(matched, 1)
+
+    def test_a_short_block_with_a_wrong_number_does_not_clear_it(self):
+        # Four word-tokens, one of them different: 0.75, nowhere near the gate.
+        # A wrong page number in a pointer is the most consequential defect the
+        # site can carry, so this is the case that must NOT be suppressed.
+        _missing, altered, _matched, _refs = classify_forward(
+            [self.PDF_PARA],
+            [self.QMD_PARA],
+            MISSING_THRESHOLD,
+            THRESHOLD,
+            qmd_short=["(See Appendix page 27.)"],
+        )
+        flagged = [f[1] for _para, fs in altered for f in fs]
+        self.assertIn("(See Appendix page 26.)", flagged)
+
+    def test_a_short_block_cannot_win_below_the_gate(self):
+        # The reason MIN_PARA_LEN exists: a four-word heading finds a ~0.5
+        # "match" against any other four-word heading. Admitted unconditionally,
+        # this heading would become the best match for a real defect's sentence
+        # and dress a flag up as a near-match. The gate makes it inert.
+        pdf = ["The Deadly Diseases of management. A second sentence for length here."]
+        qmd = ["The Deadly Diseases of leadership. A second sentence for length here."]
+        _m, altered_plain, _c, _r = classify_forward(
+            pdf, qmd, MISSING_THRESHOLD, THRESHOLD
+        )
+        _m, altered_short, _c, _r = classify_forward(
+            pdf, qmd, MISSING_THRESHOLD, THRESHOLD, qmd_short=["The Deadly Diseases of"]
+        )
+        self.assertEqual(altered_plain, altered_short)
+
+    def test_an_absent_short_pool_changes_nothing(self):
+        # Every caller that predates #761 must score the population it did
+        # before — the re-baseline's deltas have to be attributable to the gate,
+        # not to a changed default.
+        pdf = ["The cat sat on the mat. It was a warm afternoon in late September."]
+        qmd = ["The cat sat on the rug. It was a warm afternoon in late September."]
+        self.assertEqual(
+            classify_forward(pdf, qmd, MISSING_THRESHOLD, THRESHOLD),
+            classify_forward(pdf, qmd, MISSING_THRESHOLD, THRESHOLD, qmd_short=[]),
+        )
+
+
 class ClassifyForwardReferenceTests(unittest.TestCase):
     PDF = "The chart on page 41 shows the whole of the second year's data in one place."
     QMD = "The chart on page 14 shows the whole of the second year's data in one place."
