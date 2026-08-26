@@ -566,6 +566,38 @@ class CommandLineTests(unittest.TestCase):
             ["TOTAL=2", "UNREADABLE=0", "REJOINED=0", "SHORT=1", "COMPARED=1"],
         )
 
+    def test_short_writes_the_sub_floor_blocks_one_per_line(self):
+        # #761: paragraph_similarity.py reads these as match candidates, in the
+        # same shape as the default mode's output, so the two sides of the
+        # comparison cannot end up with different ideas of what "short" means.
+        text = (
+            "A paragraph comfortably over the forty-byte floor, so that it is scored.\n"
+            "\n"
+            "(See Appendix page 24.)\n"
+        )
+        result = subprocess.run(
+            [sys.executable, str(MODULE), "--short"],
+            input=text,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout, "(See Appendix page 24.)\n")
+
+    def test_short_and_the_default_mode_partition_the_same_input(self):
+        text = "Over the floor by a comfortable margin, so this one is scored.\n\nShort.\n"
+        run = lambda *args: subprocess.run(
+            [sys.executable, str(MODULE), *args],
+            input=text,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        ).stdout.splitlines()
+        self.assertEqual(len(run() + run("--short")), 2)
+        self.assertNotIn("Short.", run())
+        self.assertIn("Short.", run("--short"))
+
     def test_an_unknown_argument_is_a_usage_error(self):
         self.assertEqual(main(["--paragraphs"]), 1)
 

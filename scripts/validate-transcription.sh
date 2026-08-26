@@ -25,6 +25,13 @@
 #                 swapped word is diluted to near-invisibility across a whole
 #                 paragraph of otherwise-unchanged text. See
 #                 scripts/lib/paragraph_similarity.py and issue #677.
+#                 Since #761 the QMD's own sub-floor blocks are offered as
+#                 additional match candidates here, but only at a score that
+#                 would classify the pair clean anyway — the site sets short
+#                 pointers like "(See Appendix page 24.)" as their own
+#                 paragraphs, and without that they were invisible as matches
+#                 while the PDF's copy, sitting in a full paragraph, was
+#                 scored against a pool they had been filtered out of.
 #   - Unsourced:  the reverse of both of the above — a QMD paragraph with a
 #                 sentence that has no credible match anywhere in the PDF at
 #                 all, at UNSOURCED_SIMILARITY_THRESHOLD. Missing/Altered can
@@ -268,6 +275,18 @@ text_to_paragraphs() {
   python3 "$REPO_ROOT/scripts/lib/paragraphs.py"
 }
 
+# The blocks the length floor rejected, one per line (#761).
+#
+# Only the QMD side needs these, and only as *match candidates*: the site sets
+# short pointers like "(See Appendix page 24.)" as their own paragraphs, while
+# the PDF sets the same words as the tail of a full one, so without this the
+# PDF sentence searches a pool its counterpart was filtered out of and flags at
+# the floor. The PDF side's short blocks are answered separately, and in the
+# other direction, by the exact-matching pass in short_content.py (#742).
+text_to_short_blocks() {
+  python3 "$REPO_ROOT/scripts/lib/paragraphs.py" --short
+}
+
 # Count what that assembly did with every block of one side's text (#743).
 # Prints five `KEY=VALUE` lines — TOTAL, UNREADABLE, REJOINED, SHORT, COMPARED
 # — which partition exactly, so the provenance record can state what a run did
@@ -404,6 +423,7 @@ main() {
   fi
 
   text_to_paragraphs < "$qmd_combined" > "$tmpdir/qmd_paras.txt"
+  text_to_short_blocks < "$qmd_combined" > "$tmpdir/qmd_short.txt"
   local qmd_para_count
   qmd_para_count=$(wc -l < "$tmpdir/qmd_paras.txt" | tr -d ' ')
   echo "  Found $qmd_para_count paragraphs in QMD files (>=${min_para_len} bytes each)"
@@ -479,6 +499,7 @@ main() {
   local altered_report="$tmpdir/altered_report.txt"
   if ! python3 "$REPO_ROOT/scripts/lib/paragraph_similarity.py" \
        "$tmpdir/pdf_paras.txt" "$tmpdir/qmd_paras.txt" \
+       --qmd-short "$tmpdir/qmd_short.txt" \
        > "$altered_report"; then
     echo "Error: similarity scoring failed (see the Python error above)." >&2
     echo "       scripts/lib/paragraph_similarity.py" >&2

@@ -2,7 +2,7 @@ appendix: optional-extras
 validated_at: 2026-08-26
 source_pdf: S.Optional.Extras.09Jul21.pdf
 source_sha256: b36a8368163ecae67c72d89936e5362e9f18a1c06c79fc95069181c05b5a5884
-scorer_version: e1cce12de99b0c589c337ab898a5c77f8cde8fbf
+scorer_version: 1ddbba6ff2b68876a8726916339089761a59b5da
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -13,8 +13,8 @@ counts:
   qmd_paragraphs: 499
   matched_cleanly: 203
   altered: 220
-  flagged_sentences: 558
-  near_certain: 218
+  flagged_sentences: 554
+  near_certain: 215
   missing: 8
   unsourced: 4
   unsourced_sentences: 4

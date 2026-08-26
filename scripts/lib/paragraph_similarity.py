@@ -353,6 +353,29 @@ _LETTER_HYPHEN = re.compile(r"(?<=[a-z])-\s*(?=[a-z])")
 # side. So digit-adjacent hyphens keep the stricter, pre-#740 requirement.
 _WRAPPED_HYPHEN = re.compile(r"(?<=\w)-\s+(?=\w)")
 
+# A chart tick numeral that landed inside a hyphen wrap, which is the one
+# arrangement the two rules above cannot handle between them (#760).
+#
+# `pdftotext -layout` lifts a control chart's y-axis tick labels off the figure
+# and into the adjacent line of prose. When one lands between the two halves of
+# a wrapped word, _LETTER_HYPHEN's `(?=[a-z])` sees the digit and declines,
+# then _WRAPPED_HYPHEN's `\w` accepts it and welds the numeral onto the first
+# half: "just for complete- 30 ness" becomes `complete30 ness` instead of
+# `completeness`, and a faithful sentence flags. 27 of the Optional Extras
+# appendix's 218 near-certain flags were this shape.
+#
+# Removing the numeral outright is safe *only* in this context, and that is why
+# the rule is written this narrowly rather than as a general digit strip —
+# normalise() deliberately keeps standalone digits, because "14 Points" against
+# "12 Points" is exactly the defect worth catching. A digit run fenced by
+# whitespace between a hyphen and the letters continuing the word it wrapped
+# cannot be part of either word, and cannot be prose: it is figure furniture
+# that fell into the line.
+#
+# Must run before both rules above — _WRAPPED_HYPHEN would otherwise consume
+# the hyphen first and leave the numeral fused to the stem.
+_TICK_IN_WRAP = re.compile(r"(?<=[a-z])-\s+\d+\s+(?=[a-z])")
+
 
 def normalise(text: str) -> str:
     """Lowercase, rejoin hyphenated words, strip punctuation, collapse
@@ -367,6 +390,7 @@ def normalise(text: str) -> str:
     "14 Points" vs "12 Points" are exactly the mistakes worth catching.
     """
     text = text.lower()  # first, so _LETTER_HYPHEN's [a-z] sees every letter
+    text = _TICK_IN_WRAP.sub("", text)
     text = _LETTER_HYPHEN.sub("", text)
     text = _WRAPPED_HYPHEN.sub("", text)
     text = re.sub(r"[^a-z0-9 ]", " ", text)
@@ -522,7 +546,10 @@ def build_pool(paras: list[str]) -> list[tuple[str, tuple[str, ...]]]:
 
 
 def score_paragraph(
-    pdf_para: str, qmd_pool: list[tuple[str, tuple[str, ...]]]
+    pdf_para: str,
+    qmd_pool: list[tuple[str, tuple[str, ...]]],
+    short_pool: list[tuple[str, tuple[str, ...]]] | None = None,
+    admit_short_at: float = ALTERED_SIMILARITY_THRESHOLD,
 ) -> list[tuple[float, str, str]]:
     """(score, pdf_sentence, best_qmd_sentence) for every scoreable sentence
     in `pdf_para`, unfiltered by any threshold.
@@ -530,13 +557,55 @@ def score_paragraph(
     Shared by analyse() (which keeps only the sentences a threshold flags)
     and classify_forward() (which needs every score, including the ones a
     threshold would discard, to find a paragraph's single best sentence).
+
+    `short_pool` is the QMD's sub-floor blocks (#761), consulted only when the
+    main pool cannot clear `admit_short_at` and admitted only when the short
+    pool itself does. Both halves of that rule matter:
+
+    - **Why they must be consulted at all.** paragraphs.py keeps everything
+      under MIN_PARA_LEN out of `qmd_pool`, so a line the site sets as its own
+      short paragraph is invisible as a match candidate — while the PDF, which
+      sets the same words as the tail of a full paragraph, offers them for
+      scoring. Day 5's eleven `(See Appendix page NN.)` pointers are all on the
+      site and all flagged at the 20% floor for exactly this reason. Corpus-
+      wide, 87 of the twelve days' flagged sentences are present verbatim on
+      the site and reported missing.
+
+    - **Why the gate is the altered threshold and not lower.** The floor exists
+      because a four-word heading scores 0.5 against any other four-word
+      heading; admitting short blocks unconditionally would buy this coverage
+      in the currency of noise, and worse, could let a spurious short match
+      become a sentence's "best" one and mask a real defect. Requiring
+      `admit_short_at` — the score at or above which a pair is classified
+      *clean* anyway — makes that impossible by construction. A short block
+      either matches closely enough that the text genuinely is on the site, or
+      it never competes. No existing score moves; the only effect a short block
+      can have is to clear a flag that should never have been raised.
+
+    Known limitation, shared with #645 and worth stating here because short
+    blocks are where it is most likely: a QMD short block that legitimately
+    appears once can clear *two* identical PDF sentences, hiding a dropped
+    duplicate. Repeated `(See Appendix page N.)` pointers are exactly that
+    shape. Spike #745 owns the general problem.
+
+    A short pointer whose number is wrong — PDF "page 26" against the site's
+    "page 27" — scores 0.75 on four word-tokens and so does not clear the gate.
+    It stays flagged, correctly, but is reported against whatever the main pool
+    offered as closest rather than against the near-miss short block. That is a
+    legibility wart on a correct verdict, not a missed defect.
     """
     scored = []
     for pdf_sent in split_sentences(pdf_para):
         sent_tokens = tokenise(pdf_sent)
         if not sent_tokens:
             continue
-        score, best_qmd = find_best_sentence(sent_tokens, qmd_pool)
+        score, best_qmd = (
+            find_best_sentence(sent_tokens, qmd_pool) if qmd_pool else (0.0, "")
+        )
+        if short_pool and score < admit_short_at:
+            short_score, short_qmd = find_best_sentence(sent_tokens, short_pool)
+            if short_score >= admit_short_at:
+                score, best_qmd = short_score, short_qmd
         scored.append((score, pdf_sent, best_qmd))
     return scored
 
@@ -571,6 +640,7 @@ def classify_forward(
     missing_threshold: float,
     altered_threshold: float,
     reference_threshold: float = REFERENCE_PAIR_THRESHOLD,
+    qmd_short: list[str] | None = None,
 ) -> tuple[
     list[str],
     list[tuple[str, list[tuple[float, str, str]]]],
@@ -603,19 +673,31 @@ def classify_forward(
     come from a "missing" paragraph, since reference_threshold is well above
     missing_threshold, so a paragraph holding a qualifying pair cannot be one.
 
+    `qmd_short` is the QMD's sub-floor blocks, offered as additional match
+    candidates under the strict gate score_paragraph() documents (#761). It is
+    optional and defaults to none, so every caller that predates it scores
+    exactly the population it did before.
+
     Returns (missing_paragraphs, altered_by_para, matched_count,
     reference_mismatches). altered_by_para has the same shape analyse()
     returns; reference_mismatches is (score, pdf_sentence, qmd_sentence,
     pdf_only_tokens, qmd_only_tokens), highest score first.
     """
     qmd_pool = build_pool(qmd_paras)
+    # Admitted at `altered_threshold` — see score_paragraph() for why the gate
+    # is that value and not a looser one.
+    short_pool = build_pool(qmd_short or [])
 
     missing_paras = []
     altered_by_para = []
     reference_mismatches = []
     matched = 0
     for pdf_para in pdf_paras:
-        scored = score_paragraph(pdf_para, qmd_pool) if qmd_pool else []
+        scored = (
+            score_paragraph(pdf_para, qmd_pool, short_pool, altered_threshold)
+            if qmd_pool or short_pool
+            else []
+        )
         for score, pdf_sent, qmd_sent in scored:
             if score < reference_threshold:
                 continue
@@ -822,9 +904,23 @@ def read_paragraphs(path: str) -> list[str]:
 
 
 def main(argv: list[str]) -> int:
+    # `--qmd-short PATH` is optional and parsed out before the positionals, so
+    # the existing three-or-four-argument shape is unchanged for every caller
+    # that does not pass it.
+    argv = list(argv)
+    qmd_short_path = None
+    if "--qmd-short" in argv:
+        i = argv.index("--qmd-short")
+        if i + 1 >= len(argv):
+            print("Error: --qmd-short needs a path", file=sys.stderr)
+            return 1
+        qmd_short_path = argv[i + 1]
+        del argv[i : i + 2]
+
     if not 3 <= len(argv) <= 4:
         print(
-            "Usage: paragraph_similarity.py <pdf_paras.txt> <qmd_paras.txt> [threshold]",
+            "Usage: paragraph_similarity.py <pdf_paras.txt> <qmd_paras.txt> "
+            "[threshold] [--qmd-short <qmd_short.txt>]",
             file=sys.stderr,
         )
         return 1
@@ -845,6 +941,7 @@ def main(argv: list[str]) -> int:
 
     pdf_paras = read_paragraphs(pdf_path)
     qmd_paras = read_paragraphs(qmd_path)
+    qmd_short = read_paragraphs(qmd_short_path) if qmd_short_path else []
 
     # Warn before scoring, not after: classify_forward()/analyse() return
     # everything-missing / [] on an empty pool, so a warning printed
@@ -855,7 +952,11 @@ def main(argv: list[str]) -> int:
         print("Warning: no PDF paragraphs to compare against", file=sys.stderr)
 
     missing_paras, altered_by_para, matched_count, reference_mismatches = classify_forward(
-        pdf_paras, qmd_paras, MISSING_SIMILARITY_THRESHOLD, threshold
+        pdf_paras,
+        qmd_paras,
+        MISSING_SIMILARITY_THRESHOLD,
+        threshold,
+        qmd_short=qmd_short,
     )
     # Reverse direction (#718): QMD paragraphs walk, the full PDF paragraph
     # pool is searched — analyse() needs no changes to run backwards. The

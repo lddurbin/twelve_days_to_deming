@@ -66,6 +66,7 @@ text is full of en dashes and curly quotes.
 Usage: paragraphs.py < text        one paragraph per line, to stdout
        paragraphs.py --mark-pages < text  form feeds -> page markers, to stdout
        paragraphs.py --counts < text      KEY=VALUE block accounting, to stdout
+       paragraphs.py --short < text       the sub-floor blocks, one per line
        paragraphs.py --min-length  print MIN_PARA_LEN and exit
 """
 
@@ -384,10 +385,11 @@ def main(argv: list[str]) -> int:
     if argv == ["--min-length"]:
         print(MIN_PARA_LEN)
         return 0
-    if argv and argv not in (["--mark-pages"], ["--counts"]):
+    if argv and argv not in (["--mark-pages"], ["--counts"], ["--short"]):
         print(f"Usage: {sys.argv[0]} < text", file=sys.stderr)
         print(f"       {sys.argv[0]} --mark-pages < text", file=sys.stderr)
         print(f"       {sys.argv[0]} --counts < text", file=sys.stderr)
+        print(f"       {sys.argv[0]} --short < text", file=sys.stderr)
         print(f"       {sys.argv[0]} --min-length", file=sys.stderr)
         return 1
 
@@ -401,6 +403,17 @@ def main(argv: list[str]) -> int:
         # rather than by position.
         for key, value in account(text)._asdict().items():
             print(f"{key.upper()}={value}", file=out)
+    elif argv == ["--short"]:
+        # The blocks the floor rejected, in the same one-per-line shape as the
+        # default mode — so a caller that already reads paragraphs can read
+        # these the same way. sift() has always computed them; until #761 the
+        # only consumer was short_content.py, which reads the raw text and
+        # re-sifts it. This mode exists because paragraph_similarity.py needs
+        # the QMD's short blocks as *match candidates*, not as a population to
+        # report on, and re-implementing the partition there would give the
+        # comparison two disagreeing ideas of what "short" means.
+        for block in sift(text).short:
+            print(block.text, file=out)
     else:
         for paragraph in to_paragraphs(text):
             print(paragraph, file=out)
