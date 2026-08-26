@@ -2,7 +2,7 @@ day: 2
 validated_at: 2026-08-26
 source_pdf: E.Day.2.12Oct21.pdf
 source_sha256: 86ff4005198a3bf2b4a34349e348113a8b347b3072769631962f686366f122e0
-scorer_version: 38dd9fcff7bb1d7b944cd0e1448f79b89b378b63
+scorer_version: 4c46314b25e6966bc3c1e5c156b717daed703601
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -19,3 +19,7 @@ counts:
   unsourced: 7
   unsourced_sentences: 17
   reference_mismatches: 18
+  short_checked: 110
+  short_matched: 28
+  short_unmatched: 3
+  short_unjudged: 79

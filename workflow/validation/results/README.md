@@ -46,6 +46,10 @@ counts:
   unsourced: 5
   unsourced_sentences: 5
   reference_mismatches: 8
+  short_checked: 52
+  short_matched: 40
+  short_unmatched: 5
+  short_unjudged: 7
 ```
 
 `reference_mismatches` ([#738](https://github.com/lddurbin/twelve_days_to_deming/issues/738))
@@ -55,6 +59,29 @@ overlaps all three. It counts sentence pairs, scoring at or above the
 disagree — most of which are *also* clean matches, because one wrong digit in
 a fifty-word sentence scores 0.98 and classifies as faithful. Track it as its
 own series: it moving is a different event from `near_certain` moving.
+
+The four `short_*` counts ([#742](https://github.com/lddurbin/twelve_days_to_deming/issues/742))
+are the other population — the blocks that never reach similarity scoring at
+all, because they fall under `paragraphs.py`'s 40-byte floor. `short_checked`
+is all of them; the other three partition it exactly, so
+`matched + unmatched + unjudged == checked` every time. `short_matched` means
+the wording was found in the QMD — as a heading, a short paragraph, a chapter
+title, or verbatim inside a longer paragraph — and nothing more than that: at
+these lengths a similarity score cannot distinguish a substituted word from a
+rewording, so this pass reports presence and never fidelity. `short_unjudged`
+is residue set aside with a stated reason (a table row `pdftotext` read twice
+across two columns, a contents-page entry, a fragment of under two words), and
+`short_unmatched` is what is left for a human: 86 lines corpus-wide when it
+was added, 63 distinct wordings of them. Read it beside `short_unjudged` — a
+day whose unmatched count jumps because a table stopped being recognised has
+not lost any content.
+
+One population is deliberately **not** here yet: the blocks the readability
+filter rejects as page furniture (`pdftotext`'s symbol-font page headers),
+which the validator's report states but this record does not carry. That is
+[#743](https://github.com/lddurbin/twelve_days_to_deming/issues/743)'s to add,
+along with the rest of the residue accounting, rather than being half-added
+here to a schema it is about to define.
 
 `source_sha256` hashes the PDF's bytes, not just its filename — Neave's
 source PDFs have been re-exported before with the same name, and a filename
@@ -69,7 +96,8 @@ It covers *every* file that can change what a run reports, listed as
 `SCORER_VERSION_FILES` in
 [`scripts/lib/scorer-version.sh`](../../../scripts/lib/scorer-version.sh) —
 currently `scripts/lib/paragraph_similarity.py`, `scripts/lib/paragraphs.py`,
-`scripts/lib/qmd_strip.py` and `scripts/validate-transcription.sh`. Until
+`scripts/lib/qmd_strip.py`, `scripts/lib/short_content.py` and
+`scripts/validate-transcription.sh`. Until
 [#737](https://github.com/lddurbin/twelve_days_to_deming/issues/737) it hashed
 the scorer alone, which understated the pipeline: PDF text extraction, QMD
 stripping, and the paragraph-length filters all lived in the shell script, and
@@ -79,8 +107,11 @@ happily called fresh. `qmd_strip.py` joined the list in
 markup stripping moved out of that script into tested Python, and
 `paragraphs.py` in
 [#741](https://github.com/lddurbin/twelve_days_to_deming/issues/741), when
-paragraph assembly did — the widening was designed so that each move cost one
-line here.
+paragraph assembly did, and `short_content.py` in
+[#742](https://github.com/lddurbin/twelve_days_to_deming/issues/742) — the
+widening was designed so that each move cost one line here. A file belongs on
+that list whether it changes what gets *flagged* or only what gets *reported*:
+both change what a recorded result says.
 
 The value is a hash of a sorted `<path> <blob-hash>` manifest, so it is
 independent of the order the files are listed in, and moves when a file joins
@@ -111,9 +142,14 @@ that carried one, and ten short table-of-contents lines fell under
 were contents-page entries. Two were real, if slight: Day 3's "So off you go
 to Stage 6 on page 44." and "(Move on to the table on page 54.)", both now
 36 and 34 characters. That is the honest cost of removing 176 citations'
-worth of guaranteed-unmatched text, and the 40-byte floor itself is
-[#742](https://github.com/lddurbin/twelve_days_to_deming/issues/742)'s to
-revisit.
+worth of guaranteed-unmatched text.
+
+#742 revisited that floor and left it where it is. It is a floor on
+*similarity scoring*, which is the one thing a four-word string cannot
+support, so lowering it would buy coverage in the currency of noise. What
+changed instead is that everything below it is now accounted for by the
+short-content pass rather than discarded — including those two Day 3
+sentences, which the pass reports as absent from the QMD by name.
 
 It moved again in #741, downward on both sides and for a different reason:
 paragraph assembly now rejoins blocks that a blank line split but that the
