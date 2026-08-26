@@ -1,0 +1,38 @@
+appendix: main
+validated_at: 2026-08-26
+source_pdf: P.Appendix.09Feb22.pdf
+source_sha256: 0ce090f5be18025dadfff9379d87163a77825a9ac772ce06f7098e6caf51f577
+scorer_version: e1cce12de99b0c589c337ab898a5c77f8cde8fbf
+thresholds:
+  missing: 0.4
+  altered: 0.98
+  unsourced: 0.25
+  reference: 0.85
+counts:
+  pdf_paragraphs: 310
+  qmd_paragraphs: 401
+  matched_cleanly: 186
+  altered: 121
+  flagged_sentences: 221
+  near_certain: 51
+  missing: 3
+  unsourced: 59
+  unsourced_sentences: 80
+  reference_mismatches: 18
+  short_checked: 109
+  short_matched: 103
+  short_unmatched: 3
+  short_unjudged: 3
+blocks:
+  pdf:
+    total: 505
+    unreadable: 61
+    rejoined: 25
+    short: 109
+    compared: 310
+  qmd:
+    total: 599
+    unreadable: 5
+    rejoined: 33
+    short: 160
+    compared: 401

@@ -1,0 +1,38 @@
+appendix: contributions-balaji-reddie
+validated_at: 2026-08-26
+source_pdf: Q.Contributions.from.Balaji.Reddie.11Sep21.pdf
+source_sha256: fa9f5a85a7585c20185c3e4acda7b623e44002d46dc8de22f95f747954aaf21c
+scorer_version: e1cce12de99b0c589c337ab898a5c77f8cde8fbf
+thresholds:
+  missing: 0.4
+  altered: 0.98
+  unsourced: 0.25
+  reference: 0.85
+counts:
+  pdf_paragraphs: 250
+  qmd_paragraphs: 250
+  matched_cleanly: 178
+  altered: 70
+  flagged_sentences: 146
+  near_certain: 35
+  missing: 2
+  unsourced: 0
+  unsourced_sentences: 0
+  reference_mismatches: 2
+  short_checked: 46
+  short_matched: 45
+  short_unmatched: 0
+  short_unjudged: 1
+blocks:
+  pdf:
+    total: 356
+    unreadable: 38
+    rejoined: 22
+    short: 46
+    compared: 250
+  qmd:
+    total: 326
+    unreadable: 3
+    rejoined: 26
+    short: 47
+    compared: 250
