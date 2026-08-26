@@ -293,11 +293,11 @@ def reference_tokens(text: str) -> collections.Counter:
     pdftotext split across a line break, as "page 1-" then "9", must not read
     as a different number here than it does there.
 
-    That inheritance cuts both ways: normalise() only rejoins a hyphen it finds
-    at a line break, so a real hyphen inside a word ("Stats-level 0") becomes a
-    space on the QMD side while the PDF's line-wrapped copy is joined up. One
-    of the corpus's 124 findings is that asymmetry rather than a defect; #740
-    is the fix, and belongs there rather than in a special case here.
+    Since #740 that inheritance is symmetric for words: a hyphen between two
+    letters is joined whether or not the PDF wrapped the line at it, so
+    "Stats-level 0" reads the same on both sides. Digit-adjacent hyphens are
+    deliberately not, since "pages 10-11" is two reference tokens and joining
+    them would invent an "1011" that neither side contains.
 
     A multiset, not a set: "pages 10-11, 22-23 and 26-27" repeats numbers, and
     dropping one of a repeated pair is a defect a set would swallow.
@@ -327,8 +327,35 @@ def reference_mismatch(pdf_sent: str, qmd_sent: str) -> tuple[list[str], list[st
     return sorted((pdf_refs - qmd_refs).elements()), sorted((qmd_refs - pdf_refs).elements())
 
 
+# A hyphen between two letters is joined however much whitespace sits after it,
+# including none: "long-term", "long- term" and "indi-cated" all normalise to
+# one word. Symmetry is the whole point (#740). `pdftotext` line-wraps a word
+# at its hyphen in all three shapes, and the QMD's intact copy has to land on
+# the same token stream as whichever shape the PDF happens to emit — under the
+# old whitespace-requiring rule, a wrapped "long- term" became "longterm" while
+# the QMD's "long-term" became "long term", and the same word on both sides
+# scored as a difference. Four of Day 9's 55 catalogued false positives were
+# this shape (#732), and it recurs wherever a line happens to break.
+#
+# Zero-width on both sides, so consecutive hyphens cannot shadow each other.
+# Consuming the following letter would make the rule's own output depend on
+# where the wrap fell: "x-y-z" would come out "xy z" (the second hyphen having
+# lost its left-hand letter to the first match) while "x-y- z" came out "xyz" —
+# reintroducing, on multiply-hyphenated words, exactly the asymmetry this
+# removes.
+_LETTER_HYPHEN = re.compile(r"(?<=[a-z])-\s*(?=[a-z])")
+
+# Every other hyphen is a line wrap only when whitespace follows it, and that
+# distinction is what keeps digit ranges intact. "page 1-\n9" is one number
+# split across a line break and must rejoin; "3-4" and "1985-86" are two
+# numbers each and must not, because the reference-token rule (#738) compares
+# those numerals and joining them would invent a "34" that appears on neither
+# side. So digit-adjacent hyphens keep the stricter, pre-#740 requirement.
+_WRAPPED_HYPHEN = re.compile(r"(?<=\w)-\s+(?=\w)")
+
+
 def normalise(text: str) -> str:
-    """Lowercase, rejoin line-wrap hyphenation, strip punctuation, collapse
+    """Lowercase, rejoin hyphenated words, strip punctuation, collapse
     whitespace.
 
     Deliberately does NOT strip the letter "f" or standalone digits, both of
@@ -339,8 +366,9 @@ def normalise(text: str) -> str:
     either here would blind the scorer to real defects: "of" vs "or" and
     "14 Points" vs "12 Points" are exactly the mistakes worth catching.
     """
-    text = re.sub(r"(\w)-\s+(\w)", r"\1\2", text)  # de-hyphenate line wraps
-    text = text.lower()
+    text = text.lower()  # first, so _LETTER_HYPHEN's [a-z] sees every letter
+    text = _LETTER_HYPHEN.sub("", text)
+    text = _WRAPPED_HYPHEN.sub("", text)
     text = re.sub(r"[^a-z0-9 ]", " ", text)
     return re.sub(r"\s+", " ", text).strip()
 

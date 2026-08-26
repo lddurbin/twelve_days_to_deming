@@ -112,6 +112,15 @@ worth of guaranteed-unmatched text, and the 40-character floor itself is
 [#742](https://github.com/lddurbin/twelve_days_to_deming/issues/742)'s to
 revisit.
 
+`counts.missing` can rise while everything around it improves, and did in
+#740: joining a hyphenated word into a single token shortens *both* sides'
+token streams, so a paragraph already scoring near the 40% missing floor —
+never a credible match to begin with — can slip under it. Two Day 3
+paragraphs did (41% and 40%, both PDF layout debris the site restructured),
+against a corpus-wide 27 more paragraphs matching cleanly and 32 fewer
+near-certain flags. Read a small `missing` rise beside `matched_cleanly` in
+the same run before treating it as a regression.
+
 There is deliberately no pass/fail verdict field. With 446 known near-certain
 findings outstanding across the corpus as of #719's baseline, every day would
 read "fail" — a permanently red signal nobody reads. Record the numbers and
