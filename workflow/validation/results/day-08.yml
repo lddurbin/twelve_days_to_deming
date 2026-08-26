@@ -2,7 +2,7 @@ day: 8
 validated_at: 2026-08-26
 source_pdf: K.Day.8.11Jan20.pdf
 source_sha256: ef717bb2d860057bdd1c877ce4a8e86d930c9f66be6d38b5a35fd672e4f3b430
-scorer_version: 4c46314b25e6966bc3c1e5c156b717daed703601
+scorer_version: e69da8da76ae5fcebb021d4aa7576f291b1ece92
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -23,3 +23,16 @@ counts:
   short_matched: 33
   short_unmatched: 10
   short_unjudged: 2
+blocks:
+  pdf:
+    total: 262
+    unreadable: 93
+    rejoined: 7
+    short: 45
+    compared: 117
+  qmd:
+    total: 130
+    unreadable: 0
+    rejoined: 6
+    short: 22
+    compared: 102

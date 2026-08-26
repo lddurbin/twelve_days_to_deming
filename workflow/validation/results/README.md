@@ -24,32 +24,48 @@ can't drift from what was actually checked. Day files are named
 matching the existing `day-NN-manifest.yml` / `appendix-<slug>-manifest.yml`
 naming one directory up.
 
+Day 4's record, as written on 2026-08-26 — a real file rather than an
+invented one, so the magnitudes are the ones a reader will actually meet:
+
 ```yaml
 day: 4                        # or `appendix: <slug>` for appendix runs
-validated_at: 2026-08-25      # local date the run completed
+validated_at: 2026-08-26      # local date the run completed
 source_pdf: G.Day.4.09Jan20.pdf
 source_sha256: <sha-256 of the source PDF>   # catches a silent re-export
 scorer_version: <content hash of the comparison pipeline — see below>
 thresholds:
-  missing: 0.40
+  missing: 0.4
   altered: 0.98
   unsourced: 0.25
   reference: 0.85
 counts:
-  pdf_paragraphs: 137
-  qmd_paragraphs: 135
-  matched_cleanly: 48
-  altered: 76
-  flagged_sentences: 130
-  near_certain: 45
-  missing: 13
-  unsourced: 5
-  unsourced_sentences: 5
-  reference_mismatches: 8
+  pdf_paragraphs: 127
+  qmd_paragraphs: 127
+  matched_cleanly: 72
+  altered: 41
+  flagged_sentences: 78
+  near_certain: 8
+  missing: 14
+  unsourced: 4
+  unsourced_sentences: 4
+  reference_mismatches: 2
   short_checked: 52
   short_matched: 40
   short_unmatched: 5
   short_unjudged: 7
+blocks:                       # where every block read ended up — see below
+  pdf:
+    total: 229                # blocks read, before any filter or rejoining
+    unreadable: 35            # rejected as page furniture
+    rejoined: 15              # merged into the block before them
+    short: 52                 # readable, still under the 40-byte floor
+    compared: 127             # what similarity scoring actually saw
+  qmd:
+    total: 178
+    unreadable: 0
+    rejoined: 17
+    short: 34
+    compared: 127
 ```
 
 `reference_mismatches` ([#738](https://github.com/lddurbin/twelve_days_to_deming/issues/738))
@@ -76,12 +92,58 @@ was added, 63 distinct wordings of them. Read it beside `short_unjudged` — a
 day whose unmatched count jumps because a table stopped being recognised has
 not lost any content.
 
-One population is deliberately **not** here yet: the blocks the readability
-filter rejects as page furniture (`pdftotext`'s symbol-font page headers),
-which the validator's report states but this record does not carry. That is
-[#743](https://github.com/lddurbin/twelve_days_to_deming/issues/743)'s to add,
-along with the rest of the residue accounting, rather than being half-added
-here to a schema it is about to define.
+`blocks` ([#743](https://github.com/lddurbin/twelve_days_to_deming/issues/743))
+is the residue accounting: what a run did **not** check, stated beside what it
+did. Every count above describes content that entered one comparison or
+another, so a reader of Day 3's `pdf_paragraphs: 288` had no way to know that
+592 blocks were read to arrive at it, nor that 181 of them were discarded
+unread. `blocks` closes that gap for both sides, and its five numbers
+partition exactly:
+
+```
+total == unreadable + rejoined + short + compared
+```
+
+- **`total`** is the count *before* assembly — blank-line-delimited blocks,
+  not paragraphs. Since #741 that distinction is real rather than pedantic:
+  `join_continuations()` merges blocks the text itself says are one passage,
+  so "how many blocks were read" and "how many units were compared" are
+  separated by more than the two filters.
+- **`unreadable`** is what the 40%-letter filter rejected — `pdftotext`'s
+  rendering of this course's symbol-font page headers, 760 blocks corpus-wide.
+  The validator prints this as "Unreadable blocks (furniture)". It is residue
+  in the strict sense: unmatchable by construction, and nothing downstream
+  looks at it. Watch it for *movement*, not for its value — a day whose
+  furniture count halves has had its extraction change underneath it.
+- **`rejoined`** is the benign one. Those blocks are not missing from the
+  comparison; they are *inside* the paragraph before them. It is the count
+  #741 made necessary and the reason `pdf_paragraphs` fell corpus-wide that
+  run without anything going unchecked.
+- **`short`** is the population the four `short_*` counts above describe, and
+  the two are measured independently — `blocks.pdf.short` from
+  `paragraphs.sift()`, `short_checked` from the pass that consumes it. They
+  agree everywhere in the current corpus. They can only diverge if a block
+  survives the readability filter and still normalises to no words at all, in
+  which case the difference is the finding.
+- **`compared`** equals `counts.pdf_paragraphs` / `counts.qmd_paragraphs` by
+  construction; the validator refuses to write a result where it doesn't,
+  since a disagreement would mean the paragraph stream and the accounting had
+  stopped describing the same run.
+
+Read the QMD side for a different question than the PDF side. There, `short`
+and `unreadable` are content of the *site* that the reverse pass (`unsourced`)
+never examined — the QMD's own filter residue — so a large `qmd.short` is a
+statement about the limits of fabrication detection, not about the source.
+`qmd.unreadable` is near-zero by nature (13 blocks across the twelve days, all
+of them accounted for: Day 2's Red Beads data rows, Day 3's LaTeX display
+maths and its two lookup strips, Day 7's five `...` continuation lines) —
+the symbol-font furniture the filter exists for is a `pdftotext` artifact, and
+the site has none of it. A day where that number climbs has had something
+change in `qmd_strip.py`, not in its content.
+
+Corpus-wide, as of the run that added this section: the PDF side read 3,526
+blocks and compared 1,992 of them — 760 furniture, 198 rejoined into the block
+before them, 576 under the floor. The QMD side read 2,779 and compared 2,110.
 
 `source_sha256` hashes the PDF's bytes, not just its filename — Neave's
 source PDFs have been re-exported before with the same name, and a filename

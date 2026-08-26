@@ -2,7 +2,7 @@ day: 12
 validated_at: 2026-08-26
 source_pdf: O.Day.12.16Feb22.pdf
 source_sha256: 0367003cc56eaabc218479f42dd69cd382e174bc61d7348a65aed48608904769
-scorer_version: 4c46314b25e6966bc3c1e5c156b717daed703601
+scorer_version: e69da8da76ae5fcebb021d4aa7576f291b1ece92
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -23,3 +23,16 @@ counts:
   short_matched: 19
   short_unmatched: 10
   short_unjudged: 2
+blocks:
+  pdf:
+    total: 244
+    unreadable: 59
+    rejoined: 10
+    short: 31
+    compared: 144
+  qmd:
+    total: 194
+    unreadable: 0
+    rejoined: 10
+    short: 33
+    compared: 151

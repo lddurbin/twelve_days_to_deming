@@ -2,7 +2,7 @@ day: 5
 validated_at: 2026-08-26
 source_pdf: H.Day.5.08Feb22.pdf
 source_sha256: 6080edb4e995aec859f4a42ee704d8601eb41afcb9d8fe33fd4bfdd5f18b21eb
-scorer_version: 4c46314b25e6966bc3c1e5c156b717daed703601
+scorer_version: e69da8da76ae5fcebb021d4aa7576f291b1ece92
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -23,3 +23,16 @@ counts:
   short_matched: 51
   short_unmatched: 2
   short_unjudged: 2
+blocks:
+  pdf:
+    total: 170
+    unreadable: 38
+    rejoined: 5
+    short: 55
+    compared: 72
+  qmd:
+    total: 150
+    unreadable: 0
+    rejoined: 8
+    short: 66
+    compared: 76

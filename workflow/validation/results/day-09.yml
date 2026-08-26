@@ -2,7 +2,7 @@ day: 9
 validated_at: 2026-08-26
 source_pdf: L.Day.9.15Feb22.pdf
 source_sha256: 9a1d7ecaab3aa8d8a3f8557b65fddd06a1d0fe1ec40a0490323022427a54567f
-scorer_version: 4c46314b25e6966bc3c1e5c156b717daed703601
+scorer_version: e69da8da76ae5fcebb021d4aa7576f291b1ece92
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -23,3 +23,16 @@ counts:
   short_matched: 22
   short_unmatched: 15
   short_unjudged: 6
+blocks:
+  pdf:
+    total: 269
+    unreadable: 40
+    rejoined: 11
+    short: 43
+    compared: 175
+  qmd:
+    total: 237
+    unreadable: 0
+    rejoined: 25
+    short: 30
+    compared: 182

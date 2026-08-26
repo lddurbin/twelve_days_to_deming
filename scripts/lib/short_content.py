@@ -80,13 +80,17 @@ header with `sed '1,/^$/d'`.
   SHORT_MATCHED=<n>    of those, found in the QMD by one of the three tiers
   SHORT_UNMATCHED=<n>  of those, not found, and not set aside below
   SHORT_UNJUDGED=<n>   of those, set aside as residue this cannot speak to
-  SHORT_GARBLED=<n>    blocks the readability filter rejected — page furniture
-                       in a symbol font, counted here so it is stated rather
-                       than silently dropped. #743 records it in provenance.
   SHORT_THRESHOLD=<f>  the SHORT_MATCH_THRESHOLD in effect
 
 CHECKED = MATCHED + UNMATCHED + UNJUDGED, a partition of every short block.
-GARBLED is a separate population and is not part of that sum.
+
+The blocks the *readability* filter rejected — `pdftotext`'s symbol-font page
+furniture — are a separate population, outside that sum. This pass counts
+them (Result.garbled) and states them in its report, because a reader needs
+to know how much text was set aside beside the amount that was checked. It no
+longer emits them as a header field: #743 made paragraphs.account() the one
+place a run's block accounting is measured for the provenance record, and the
+furniture count belongs to that partition rather than to this one.
 """
 from __future__ import annotations
 
@@ -411,7 +415,6 @@ def main(argv: list[str]) -> int:
     print(f"SHORT_MATCHED={result.matched}", file=out)
     print(f"SHORT_UNMATCHED={sum(f.occurrences for f in result.unmatched)}", file=out)
     print(f"SHORT_UNJUDGED={sum(f.occurrences for f in result.unjudged)}", file=out)
-    print(f"SHORT_GARBLED={result.garbled}", file=out)
     print(f"SHORT_THRESHOLD={SHORT_MATCH_THRESHOLD}", file=out)
     print(file=out)
     if result.unmatched or result.unjudged:
