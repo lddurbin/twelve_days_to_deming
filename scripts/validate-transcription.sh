@@ -74,6 +74,12 @@
 # and what it found — see workflow/validation/results/README.md and #720.
 # The `scorer_version` it stamps there covers every file that can change what
 # a run reports, this script included: see scripts/lib/scorer-version.sh.
+#
+# That record also states what a run did *not* check (#743). Its `blocks:`
+# section counts every block read on both sides and where each one went —
+# rejected as page furniture, rejoined into the block before it, left under
+# the length floor, or compared — because Day 3's bare `pdf_paragraphs: 288`
+# gives a reader no way to see the 592 blocks it was distilled from.
 
 set -euo pipefail
 
@@ -253,6 +259,16 @@ text_to_paragraphs() {
   python3 "$REPO_ROOT/scripts/lib/paragraphs.py"
 }
 
+# Count what that assembly did with every block of one side's text (#743).
+# Prints five `KEY=VALUE` lines — TOTAL, UNREADABLE, REJOINED, SHORT, COMPARED
+# — which partition exactly, so the provenance record can state what a run did
+# *not* check beside what it did. Before this, Day 3's results file said
+# `pdf_paragraphs: 288` and nothing about the 592 blocks that were read to
+# reach it. See Accounting in scripts/lib/paragraphs.py.
+account_blocks() {
+  python3 "$REPO_ROOT/scripts/lib/paragraphs.py" --counts < "$1"
+}
+
 # ── Main ───────────────────────────────────────────────────────
 
 main() {
@@ -390,6 +406,47 @@ main() {
   qmd_para_count=$(wc -l < "$tmpdir/qmd_paras.txt" | tr -d ' ')
   echo "  Found $qmd_para_count paragraphs in QMD files (>=${min_para_len} bytes each)"
 
+  # Step 2b: account for every block on both sides (#743). The two counts
+  # above say what entered comparison; these say what was read to get there
+  # and where the rest went, so the provenance record can state the residue
+  # instead of leaving it invisible.
+  local pdf_counts="$tmpdir/pdf_counts.txt" qmd_counts="$tmpdir/qmd_counts.txt"
+  account_blocks "$pdf_text" > "$pdf_counts"
+  account_blocks "$qmd_combined" > "$qmd_counts"
+
+  local pdf_blocks pdf_unreadable pdf_rejoined pdf_short pdf_compared
+  local qmd_blocks qmd_unreadable qmd_rejoined qmd_short qmd_compared
+  pdf_blocks=$(sed -n 's/^TOTAL=//p' "$pdf_counts")
+  pdf_unreadable=$(sed -n 's/^UNREADABLE=//p' "$pdf_counts")
+  pdf_rejoined=$(sed -n 's/^REJOINED=//p' "$pdf_counts")
+  pdf_short=$(sed -n 's/^SHORT=//p' "$pdf_counts")
+  pdf_compared=$(sed -n 's/^COMPARED=//p' "$pdf_counts")
+  qmd_blocks=$(sed -n 's/^TOTAL=//p' "$qmd_counts")
+  qmd_unreadable=$(sed -n 's/^UNREADABLE=//p' "$qmd_counts")
+  qmd_rejoined=$(sed -n 's/^REJOINED=//p' "$qmd_counts")
+  qmd_short=$(sed -n 's/^SHORT=//p' "$qmd_counts")
+  qmd_compared=$(sed -n 's/^COMPARED=//p' "$qmd_counts")
+  if ! [[ "$pdf_blocks" =~ ^[0-9]+$ && "$pdf_unreadable" =~ ^[0-9]+$ \
+       && "$pdf_rejoined" =~ ^[0-9]+$ && "$pdf_short" =~ ^[0-9]+$ \
+       && "$pdf_compared" =~ ^[0-9]+$ \
+       && "$qmd_blocks" =~ ^[0-9]+$ && "$qmd_unreadable" =~ ^[0-9]+$ \
+       && "$qmd_rejoined" =~ ^[0-9]+$ && "$qmd_short" =~ ^[0-9]+$ \
+       && "$qmd_compared" =~ ^[0-9]+$ ]]; then
+    echo "Error: block accounting returned no usable counts." >&2
+    exit 1
+  fi
+  # The one cross-check worth making here: `compared` is counted by
+  # paragraphs.py from its own partition, while the two counts above come from
+  # `wc -l` over what it wrote. They are the same population by construction,
+  # so a disagreement means the paragraph stream and the accounting have
+  # stopped describing the same run — and every residue number below would be
+  # measured against the wrong denominator.
+  if (( pdf_compared != pdf_para_count || qmd_compared != qmd_para_count )); then
+    echo "Error: block accounting disagrees with the paragraphs written" >&2
+    echo "       (PDF $pdf_compared vs $pdf_para_count, QMD $qmd_compared vs $qmd_para_count)." >&2
+    exit 1
+  fi
+
   # Step 3: score every PDF paragraph's best-matching QMD sentence. The
   # missing/altered/matched split is derived entirely from that score
   # distribution (see MISSING_SIMILARITY_THRESHOLD in paragraph_similarity.py
@@ -459,15 +516,13 @@ main() {
     exit 1
   fi
 
-  local short_checked short_matched short_unmatched short_unjudged short_garbled
+  local short_checked short_matched short_unmatched short_unjudged
   short_checked=$(sed -n 's/^SHORT_CHECKED=//p' "$short_report")
   short_matched=$(sed -n 's/^SHORT_MATCHED=//p' "$short_report")
   short_unmatched=$(sed -n 's/^SHORT_UNMATCHED=//p' "$short_report")
   short_unjudged=$(sed -n 's/^SHORT_UNJUDGED=//p' "$short_report")
-  short_garbled=$(sed -n 's/^SHORT_GARBLED=//p' "$short_report")
   if ! [[ "$short_checked" =~ ^[0-9]+$ && "$short_matched" =~ ^[0-9]+$ \
-       && "$short_unmatched" =~ ^[0-9]+$ && "$short_unjudged" =~ ^[0-9]+$ \
-       && "$short_garbled" =~ ^[0-9]+$ ]]; then
+       && "$short_unmatched" =~ ^[0-9]+$ && "$short_unjudged" =~ ^[0-9]+$ ]]; then
     echo "Error: the short-content pass returned no usable counts." >&2
     exit 1
   fi
@@ -491,9 +546,11 @@ main() {
   echo "    - not found:                     $short_unmatched"
   echo "    - set aside (tables, contents):  $short_unjudged"
   # A separate population, not part of the three above: blocks the readability
-  # filter rejected as page furniture. Stated rather than dropped in silence;
-  # #743 is what puts it in the provenance record alongside the rest.
-  echo "  Unreadable blocks (furniture): $short_garbled"
+  # filter rejected as page furniture. From the block accounting rather than
+  # the short-content pass, so the number printed here and the one recorded in
+  # provenance can only ever come from one measurement.
+  echo "  Unreadable blocks (furniture): $pdf_unreadable"
+  echo "  Rejoined into the block before: $pdf_rejoined of $pdf_blocks read"
   echo ""
 
   if (( missing == 0 && altered == 0 && unsourced == 0 && reference == 0 )); then
@@ -589,6 +646,19 @@ counts:
   short_matched: $short_matched
   short_unmatched: $short_unmatched
   short_unjudged: $short_unjudged
+blocks:
+  pdf:
+    total: $pdf_blocks
+    unreadable: $pdf_unreadable
+    rejoined: $pdf_rejoined
+    short: $pdf_short
+    compared: $pdf_compared
+  qmd:
+    total: $qmd_blocks
+    unreadable: $qmd_unreadable
+    rejoined: $qmd_rejoined
+    short: $qmd_short
+    compared: $qmd_compared
 EOF
   echo "Provenance recorded: ${result_file#"$REPO_ROOT/"}"
 }

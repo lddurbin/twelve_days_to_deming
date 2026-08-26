@@ -48,6 +48,10 @@ filter rejected — and stamps each with the PDF page it starts on, which is
 what makes the residue triageable. scripts/lib/short_content.py takes it from
 there; nothing here decides whether dropped content is a defect.
 
+account() counts that same split for the provenance record (#743), so a
+results file states what a run did *not* check alongside what it did. See
+Accounting for the partition it guarantees.
+
 Page numbers come from the form feeds `pdftotext` emits, turned into marker
 lines by mark_pages() before the caller's `sed` cleanup runs, because that
 cleanup deletes whole lines and would otherwise destroy any positional link
@@ -61,6 +65,7 @@ text is full of en dashes and curly quotes.
 
 Usage: paragraphs.py < text        one paragraph per line, to stdout
        paragraphs.py --mark-pages < text  form feeds -> page markers, to stdout
+       paragraphs.py --counts < text      KEY=VALUE block accounting, to stdout
        paragraphs.py --min-length  print MIN_PARA_LEN and exit
 """
 
@@ -218,6 +223,33 @@ class Sifted(NamedTuple):
     garbled: list[Block]  # rejected by the readability filter
 
 
+class Accounting(NamedTuple):
+    """Where every block of a text ended up, as counts rather than lists.
+
+    The provenance record's side of sift() (#743). A results file that says
+    `pdf_paragraphs: 288` gives a reader no way to know how many blocks the
+    filters dropped to get there, so the unchecked residue was invisible in
+    exactly the file that exists to say what was checked.
+
+    `total` is the count *before* assembly — blank-line-delimited blocks, not
+    paragraphs, a distinction that has mattered since join_continuations()
+    started merging blocks the text says are one passage. The four that follow
+    partition it exactly:
+
+        total == unreadable + rejoined + short + compared
+
+    and only `compared` entered similarity scoring. `rejoined` is the benign
+    one of the three residues — those blocks are inside the paragraph before
+    them, not missing from the comparison.
+    """
+
+    total: int  # blocks read, before either filter or any rejoining
+    unreadable: int  # rejected by the readability filter — page furniture
+    rejoined: int  # merged into the block before them by join_continuations()
+    short: int  # readable, assembled, and still under MIN_PARA_LEN
+    compared: int  # what to_paragraphs() returns: the scored population
+
+
 def mark_pages(text: str) -> str:
     """`text` with each form feed replaced by a page-marker line.
 
@@ -287,16 +319,20 @@ def join_continuations(items: list[Block]) -> list[Block]:
     return joined
 
 
-def sift(text: str) -> Sifted:
-    """Split `text` into what gets scored, what is too short, and what is junk.
+def _sift_blocks(items: list[Block]) -> Sifted:
+    """sift(), for a caller that has already read the blocks.
 
     Filter order is load-bearing and unchanged from #741: the readability
     filter first (a garbled page header sits between the two halves of a
     page-broken sentence), then rejoining, then the length floor (a lettered
     list's items are under it individually).
+
+    Split out from sift() so that account() can count the blocks going in as
+    well as the three lists coming out, without either re-reading the text or
+    keeping a second copy of that order to count against.
     """
     readable, garbled = [], []
-    for block in read_blocks(text):
+    for block in items:
         (readable if is_readable(block.text) else garbled).append(block)
 
     paragraphs, short = [], []
@@ -308,6 +344,37 @@ def sift(text: str) -> Sifted:
     return Sifted(paragraphs, short, garbled)
 
 
+def sift(text: str) -> Sifted:
+    """Split `text` into what gets scored, what is too short, and what is junk."""
+    return _sift_blocks(read_blocks(text))
+
+
+def account(text: str) -> Accounting:
+    """Count what assembly did with every block of `text`.
+
+    sift() answers *which* blocks; this answers *how many*, which is the shape
+    provenance needs (#743). `rejoined` is the one number the three lists
+    cannot show between them — a block merged into its predecessor leaves no
+    trace in any of them — so it is recovered by difference against the block
+    count going in, which is also what makes the partition below exact by
+    construction rather than by a second traversal that could disagree.
+    """
+    items = read_blocks(text)
+    sifted = _sift_blocks(items)
+    compared, short, unreadable = (
+        len(sifted.paragraphs),
+        len(sifted.short),
+        len(sifted.garbled),
+    )
+    return Accounting(
+        total=len(items),
+        unreadable=unreadable,
+        rejoined=len(items) - unreadable - short - compared,
+        short=short,
+        compared=compared,
+    )
+
+
 def to_paragraphs(text: str) -> list[str]:
     """The comparable paragraphs of `text`: split, de-garbled, rejoined, floored."""
     return sift(text).paragraphs
@@ -317,9 +384,10 @@ def main(argv: list[str]) -> int:
     if argv == ["--min-length"]:
         print(MIN_PARA_LEN)
         return 0
-    if argv and argv != ["--mark-pages"]:
+    if argv and argv not in (["--mark-pages"], ["--counts"]):
         print(f"Usage: {sys.argv[0]} < text", file=sys.stderr)
         print(f"       {sys.argv[0]} --mark-pages < text", file=sys.stderr)
+        print(f"       {sys.argv[0]} --counts < text", file=sys.stderr)
         print(f"       {sys.argv[0]} --min-length", file=sys.stderr)
         return 1
 
@@ -327,6 +395,12 @@ def main(argv: list[str]) -> int:
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
     if argv == ["--mark-pages"]:
         out.write(mark_pages(text))
+    elif argv == ["--counts"]:
+        # `KEY=VALUE` lines, the contract validate-transcription.sh already
+        # reads the other helpers' headers by, so it parses these by name too
+        # rather than by position.
+        for key, value in account(text)._asdict().items():
+            print(f"{key.upper()}={value}", file=out)
     else:
         for paragraph in to_paragraphs(text):
             print(paragraph, file=out)

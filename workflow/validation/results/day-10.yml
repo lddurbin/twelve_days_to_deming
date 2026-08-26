@@ -2,7 +2,7 @@ day: 10
 validated_at: 2026-08-26
 source_pdf: M.Day.10.16Feb22.pdf
 source_sha256: 8756b9262b19f256d82ff20b6158e1bfe967f4d613e4f65569eb7e1678be615a
-scorer_version: 4c46314b25e6966bc3c1e5c156b717daed703601
+scorer_version: e69da8da76ae5fcebb021d4aa7576f291b1ece92
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -23,3 +23,16 @@ counts:
   short_matched: 11
   short_unmatched: 3
   short_unjudged: 8
+blocks:
+  pdf:
+    total: 198
+    unreadable: 37
+    rejoined: 4
+    short: 22
+    compared: 135
+  qmd:
+    total: 167
+    unreadable: 0
+    rejoined: 5
+    short: 17
+    compared: 145

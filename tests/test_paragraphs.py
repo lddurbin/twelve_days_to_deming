@@ -27,6 +27,12 @@ dropping them. The marker's transparency is the load-bearing property —
 paragraph output has to be identical with markers and without, or the pages
 would have been bought with a change to every recorded result.
 
+AccountingTests covers #743's counts of that same split. The one that matters
+is the partition — every block read is unreadable, rejoined, short, or
+compared, and nothing is in two of those or in none — because a provenance
+record claiming to state what went unchecked is only worth reading if those
+five numbers close.
+
 Run with:  python3 -m unittest discover -s tests -p 'test_*.py'
 """
 import subprocess
@@ -46,6 +52,7 @@ from paragraphs import (  # noqa: E402
     FIRST_PAGE,
     MIN_PARA_LEN,
     Block,
+    account,
     blocks,
     continues,
     is_readable,
@@ -463,6 +470,54 @@ class SiftTests(unittest.TestCase):
         self.assertEqual(sift(text).paragraphs, to_paragraphs(text))
 
 
+class AccountingTests(unittest.TestCase):
+    """The counts #743 records: what a run read, and where each block went."""
+
+    # One text carrying all four outcomes: a garbled page header, a lettered
+    # list whose items rejoin into their lead-in, a heading under the floor,
+    # and two paragraphs long enough to score.
+    TEXT = mark_pages(
+        f"{GARBLED_HEADER}\n\n"
+        "SOME LIGHT RELIEF!\n\n"
+        "Deming's System of Profound Knowledge, followed by its four parts:\n\n"
+        "A. Appreciation for a system;\n\n"
+        "B. Knowledge about variation;\n\n"
+        "C. Theory of knowledge;\n\n"
+        "D. Psychology.\n\n\f"
+        "Here are some of my favourite wrong predictions, in chronological order.\n"
+    )
+
+    def test_the_four_outcomes_partition_every_block_read(self):
+        """The invariant the provenance record's honesty rests on."""
+        counted = account(self.TEXT)
+        self.assertEqual(
+            counted.total,
+            counted.unreadable + counted.rejoined + counted.short + counted.compared,
+        )
+
+    def test_total_counts_blocks_before_assembly_not_after(self):
+        """Nine blocks in, however few paragraphs come out the far end."""
+        self.assertEqual(account(self.TEXT).total, len(read_blocks(self.TEXT)))
+
+    def test_rejoined_counts_blocks_folded_into_the_one_before_them(self):
+        """The four list items, which are part of the paragraph that introduces them."""
+        self.assertEqual(account(self.TEXT).rejoined, 4)
+
+    def test_the_counts_are_the_sift_it_reports_on(self):
+        """One measurement, so a results file cannot disagree with a report."""
+        counted, sifted = account(self.TEXT), sift(self.TEXT)
+        self.assertEqual(counted.unreadable, len(sifted.garbled))
+        self.assertEqual(counted.short, len(sifted.short))
+        self.assertEqual(counted.compared, len(sifted.paragraphs))
+
+    def test_compared_is_the_population_that_gets_scored(self):
+        self.assertEqual(account(self.TEXT).compared, len(to_paragraphs(self.TEXT)))
+
+    def test_nothing_is_counted_twice_when_there_is_no_residue(self):
+        text = "A paragraph comfortably clear of the forty-byte floor, and alone.\n"
+        self.assertEqual(tuple(account(text)), (1, 0, 0, 0, 1))
+
+
 class CommandLineTests(unittest.TestCase):
     def test_reads_stdin_and_writes_one_paragraph_per_line(self):
         result = subprocess.run(
@@ -495,6 +550,21 @@ class CommandLineTests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(result.stdout, "page one\n@@pdf-page 2@@\npage two\n")
+
+    def test_counts_filters_stdin_to_key_value_lines(self):
+        """The contract validate-transcription.sh parses by name (#743)."""
+        result = subprocess.run(
+            [sys.executable, str(MODULE), "--counts"],
+            input="YOUR TURN\n\nA paragraph comfortably clear of the forty-byte floor.\n",
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(
+            result.stdout.splitlines(),
+            ["TOTAL=2", "UNREADABLE=0", "REJOINED=0", "SHORT=1", "COMPARED=1"],
+        )
 
     def test_an_unknown_argument_is_a_usage_error(self):
         self.assertEqual(main(["--paragraphs"]), 1)
