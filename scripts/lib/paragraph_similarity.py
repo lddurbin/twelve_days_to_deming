@@ -46,6 +46,17 @@ hand-checked Day 4 sentences the two classes overlapped across most of the
 range, so the report states the evidence — the score, and the closest match
 found — and leaves the judgement to the reader.
 
+That evidence has two channels, because the QMD side has two pools. The one
+every score comes from holds only paragraphs above paragraphs.py's length
+floor; blocks under it — which is how the site sets its cross-reference
+pointers, one line to a paragraph — are searched separately. A short block
+close enough to classify the pair clean anyway clears the flag outright
+(#761); one that misses that gate but still beats the pooled match is printed
+beside the surviving flag as a second, display-only line with its own score
+(#763). Nothing about the verdict, the counts or the ordering reads that
+second channel — see score_paragraph() for why it is added beside the pooled
+match rather than substituted for it.
+
 This same machinery also runs in reverse (#718): analyse()'s two paragraph
 lists are direction-agnostic — one is "walked" sentence by sentence, the
 other is flattened into the pool each of those sentences is matched against
@@ -195,7 +206,42 @@ ALTERED_SIMILARITY_THRESHOLD = 0.98
 # as its match, so the difference is near-certainly a defect rather than a
 # restructuring. Used only to count a "review these first" band in the header —
 # it does not affect what gets flagged.
+#
+# Counted from the *scored* pool's match, never from a short block's (#763):
+# the band's meaning has to stay stable across the epic's recorded tables, and
+# a short block admitted as display evidence has not passed the gate that makes
+# a high score mean "the same sentence".
 NEAR_MATCH_SCORE = 0.90
+
+# How close a QMD short block must come before it is worth printing beside a
+# flag as evidence (#763). Deliberately a reference to MISSING_SIMILARITY_THRESHOLD
+# rather than a copy of its value: the question is the same question — is this
+# credibly the same content? — and if that line ever moves, this one has to move
+# with it or the report starts calling something evidence that the classifier
+# would not call present.
+#
+# A candidate must also beat whatever the scored pool offered. Both conditions
+# matter, and dropping either one costs something measurable across the fifteen
+# records (2026-08-27, 1743 flagged sentences):
+#
+#   rule                                          findings gaining an evidence line
+#   closer than the scored pool's match                 112
+#   ... and at or above this floor                       85
+#   ... at or above 0.70 instead                         42
+#   ... at or above NEAR_MATCH_SCORE instead              2
+#
+# 0.40 rather than something tighter because the cost of the two errors is
+# wildly asymmetric here. Printing a spurious short block costs one line beside
+# a finding whose scored-pool match was, by construction, *worse* — the reader
+# was already looking at noise. Withholding a real one costs the finding: a
+# correct flag on a cross-reference pointing at the wrong page reads as
+# unmatched debris and gets skipped. The band this floor admits and 0.70 would
+# not is genuinely mixed — Day 5's mojibake'd "So what's in this lorry coming
+# in?" at 0.52 and Day 3's "Technical Aid 10" at 0.50 sit beside coincidences
+# like "Discussion 14" against the site's "Discussion" heading — and mixed is a
+# reason to show it, not to hide it, because the evidence line is additive and
+# hides nothing.
+SHORT_EVIDENCE_FLOOR = MISSING_SIMILARITY_THRESHOLD
 
 # Below this similarity, a QMD sentence has no credible PDF source and is
 # flagged as "unsourced" — the reverse pass's counterpart to
@@ -550,9 +596,16 @@ def score_paragraph(
     qmd_pool: list[tuple[str, tuple[str, ...]]],
     short_pool: list[tuple[str, tuple[str, ...]]] | None = None,
     admit_short_at: float = ALTERED_SIMILARITY_THRESHOLD,
-) -> list[tuple[float, str, str]]:
-    """(score, pdf_sentence, best_qmd_sentence) for every scoreable sentence
-    in `pdf_para`, unfiltered by any threshold.
+    evidence_floor: float = SHORT_EVIDENCE_FLOOR,
+) -> list[tuple[float, str, str, tuple[float, str] | None]]:
+    """(score, pdf_sentence, best_qmd_sentence, short_block_evidence) for every
+    scoreable sentence in `pdf_para`, unfiltered by any threshold.
+
+    The first three fields are the verdict channel and mean exactly what they
+    have always meant: `score` against `best_qmd_sentence` is what decides
+    missing/altered/matched, what the near-certain band counts, what the
+    reference-token check compares, and what the report orders by. The fourth
+    is display-only (#763) — see below.
 
     Shared by analyse() (which keeps only the sentences a threshold flags)
     and classify_forward() (which needs every score, including the ones a
@@ -590,9 +643,32 @@ def score_paragraph(
 
     A short pointer whose number is wrong — PDF "page 26" against the site's
     "page 27" — scores 0.75 on four word-tokens and so does not clear the gate.
-    It stays flagged, correctly, but is reported against whatever the main pool
-    offered as closest rather than against the near-miss short block. That is a
-    legibility wart on a correct verdict, not a missed defect.
+    It stays flagged, correctly. What #761 left behind was that it was then
+    *reported* against whatever the main pool offered, which for a four-word
+    sentence is unrelated prose, so the most consequential defect the site can
+    carry read as unmatched debris.
+
+    `short_block_evidence` is the fix, and it is a second channel rather than a
+    correction to the first: `(score, sentence)` for the closest short block
+    when one beat the scored pool's match and cleared `evidence_floor`, else
+    None. Renderers print it as an extra labelled line carrying its own score,
+    so both lines say what they mean.
+
+    **Why it is added beside the scored-pool match and never substituted for
+    it.** The masking risk the gate exists to prevent applies to the display
+    too. Take the case `test_a_short_block_cannot_win_below_the_gate` pins: the
+    PDF reads "The Deadly Diseases of management.", the site says "leadership",
+    and a bare "The Deadly Diseases of" heading sits in the short pool. The
+    scored pool holds the true counterpart at 0.80 and shows the reader the
+    swapped word; the heading scores 0.89 by being a prefix of both. Swap the
+    display for the higher number and the defect disappears from the report
+    that flagged it. Since which of the two is the real counterpart cannot be
+    told apart by score, the report shows both and hides neither.
+
+    A consequence worth stating: because the near-certain band is counted from
+    the verdict score, an evidence line can read above NEAR_MATCH_SCORE without
+    its finding being in that band. Two of the fifteen records carry one
+    (2026-08-27). That is the band keeping its meaning, not a miscount.
     """
     scored = []
     for pdf_sent in split_sentences(pdf_para):
@@ -602,23 +678,38 @@ def score_paragraph(
         score, best_qmd = (
             find_best_sentence(sent_tokens, qmd_pool) if qmd_pool else (0.0, "")
         )
+        # One search of the short pool, two possible uses of its answer: it
+        # either clears the flag outright (#761) or, failing that, is kept as
+        # display evidence (#763). Both live under the same `score <
+        # admit_short_at` guard the gate already required, so the evidence
+        # channel costs no extra scanning — it keeps a result that used to be
+        # computed and thrown away.
+        evidence = None
         if short_pool and score < admit_short_at:
             short_score, short_qmd = find_best_sentence(sent_tokens, short_pool)
             if short_score >= admit_short_at:
                 score, best_qmd = short_score, short_qmd
-        scored.append((score, pdf_sent, best_qmd))
+            elif short_score > score and short_score >= evidence_floor:
+                evidence = (short_score, short_qmd)
+        scored.append((score, pdf_sent, best_qmd, evidence))
     return scored
 
 
 def analyse(
     pdf_paras: list[str], qmd_paras: list[str], threshold: float
-) -> list[tuple[str, list[tuple[float, str, str]]]]:
+) -> list[tuple[str, list[tuple[float, str, str, tuple[float, str] | None]]]]:
     """Flag altered sentences, grouped by their source PDF paragraph.
 
-    Returns [(pdf_paragraph, [(score, pdf_sentence, best_qmd_sentence), ...]),
-    ...] for paragraphs with at least one flagged sentence. Paragraphs are
-    ordered by their highest-scoring flagged sentence, and sentences within a
-    paragraph likewise, so the near-certain defects come first.
+    Returns [(pdf_paragraph, [(score, pdf_sentence, best_qmd_sentence,
+    short_block_evidence), ...]), ...] for paragraphs with at least one flagged
+    sentence. Paragraphs are ordered by their highest-scoring flagged sentence,
+    and sentences within a paragraph likewise, so the near-certain defects come
+    first.
+
+    No short pool is offered here, so every finding's evidence field is None.
+    This is the reverse pass's entry point (QMD walking, PDF pooled), and the
+    short-block channel is a property of the QMD side being length-filtered —
+    it has no counterpart running the other way.
     """
     qmd_pool = build_pool(qmd_paras)
     if not qmd_pool:
@@ -641,9 +732,10 @@ def classify_forward(
     altered_threshold: float,
     reference_threshold: float = REFERENCE_PAIR_THRESHOLD,
     qmd_short: list[str] | None = None,
+    evidence_floor: float = SHORT_EVIDENCE_FLOOR,
 ) -> tuple[
     list[str],
-    list[tuple[str, list[tuple[float, str, str]]]],
+    list[tuple[str, list[tuple[float, str, str, tuple[float, str] | None]]]],
     int,
     list[tuple[float, str, str, list[str], list[str]]],
 ]:
@@ -674,9 +766,28 @@ def classify_forward(
     missing_threshold, so a paragraph holding a qualifying pair cannot be one.
 
     `qmd_short` is the QMD's sub-floor blocks, offered as additional match
-    candidates under the strict gate score_paragraph() documents (#761). It is
-    optional and defaults to none, so every caller that predates it scores
-    exactly the population it did before.
+    candidates under the strict gate score_paragraph() documents (#761), and —
+    where they miss that gate but still beat the scored pool — as display
+    evidence beside the flag that survives (#763). It is optional and defaults
+    to none, so every caller that predates it scores exactly the population it
+    did before.
+
+    Only the verdict channel feeds the three-way split and the reference
+    comparison below. An evidence pair changes nothing that is counted: not
+    whether a paragraph is missing, not whether a sentence is flagged, not the
+    near-certain band, and not which pairs have their reference tokens compared.
+    A short block that is the true counterpart of a "page 105 / Day 7 page 4"
+    pointer therefore still does not get its numbers checked — that is #738's
+    population, deliberately left where it was, since widening it would move a
+    recorded count.
+
+    `evidence_floor` is threaded rather than left to score_paragraph()'s
+    default for the same reason `reference_threshold` above is: a floor only
+    this module's own default can reach is one no test can vary, and the
+    fixture needed to exercise it at the default alone has to be built
+    backwards from the number. Production never passes it — like
+    `reference_threshold`, it exists so the constant can be re-tuned against
+    evidence rather than by argument.
 
     Returns (missing_paragraphs, altered_by_para, matched_count,
     reference_mismatches). altered_by_para has the same shape analyse()
@@ -694,17 +805,19 @@ def classify_forward(
     matched = 0
     for pdf_para in pdf_paras:
         scored = (
-            score_paragraph(pdf_para, qmd_pool, short_pool, altered_threshold)
+            score_paragraph(
+                pdf_para, qmd_pool, short_pool, altered_threshold, evidence_floor
+            )
             if qmd_pool or short_pool
             else []
         )
-        for score, pdf_sent, qmd_sent in scored:
+        for score, pdf_sent, qmd_sent, _evidence in scored:
             if score < reference_threshold:
                 continue
             mismatch = reference_mismatch(pdf_sent, qmd_sent)
             if mismatch:
                 reference_mismatches.append((score, pdf_sent, qmd_sent, *mismatch))
-        best_score = max((s for s, _, _ in scored), default=0.0)
+        best_score = max((s for s, _, _, _ in scored), default=0.0)
         if best_score < missing_threshold:
             missing_paras.append(pdf_para)
             continue
@@ -721,7 +834,7 @@ def classify_forward(
 
 
 def _format_findings(
-    by_para: list[tuple[str, list[tuple[float, str, str]]]],
+    by_para: list[tuple[str, list[tuple[float, str, str, tuple[float, str] | None]]]],
     item_label: str,
     para_label: str,
     walk_label: str,
@@ -734,17 +847,34 @@ def _format_findings(
     Both label pairs happen to be the same character length ("Source (PDF):"/
     "Source (QMD):", "Closest (QMD):"/"Closest (PDF):"), so a single field
     width keeps the excerpt columns aligned either way.
+
+    The short-block evidence line (#763) is not parameterised alongside them,
+    because it is structurally forward-only: it exists because the *QMD* side
+    is length-filtered out of the match pool, and the reverse direction pools
+    the PDF. analyse() is never handed a short pool, so every reverse finding's
+    evidence field is None and this line never prints there.
     """
     out = []
     for i, (para, flagged) in enumerate(by_para, start=1):
         out += [f"--- {item_label} {i} ({len(flagged)} sentence(s) flagged) ---",
                 f"{para_label}: {truncate(para)}",
                 ""]
-        for score, walk_sent, pool_sent in flagged:
+        for score, walk_sent, pool_sent, evidence in flagged:
             walk_excerpt, pool_excerpt = diff_window(walk_sent, pool_sent)
             out.append(f"  [similarity {score:.0%}]")
             out.append(f"  {walk_label:<16}{walk_excerpt}")
             out.append(f"  {pool_label:<16}{pool_excerpt}")
+            if evidence is not None:
+                # Its own score on its own line, next to the string that score
+                # was computed against. The headline above stays the verdict
+                # score against the pooled match — two numbers, each beside
+                # what it measures, rather than one number floating between
+                # two candidates.
+                evidence_score, evidence_sent = evidence
+                out.append(
+                    f"  {'Closer (short):':<16}{truncate(evidence_sent)}"
+                    f"  [{evidence_score:.0%}]"
+                )
             out.append("")
     return out
 
@@ -801,6 +931,15 @@ def render(
         "              matter that was never meant to be transcribed, or a",
         "              passage deliberately restructured for the web. The",
         "              closest match found is shown so you can tell which.",
+        "",
+        "A third line, \"Closer (short):\", appears where the genuinely closest",
+        "QMD text is a block too short to be scored against — the site sets its",
+        "cross-reference pointers as their own one-line paragraphs, and those",
+        "fall under the length floor. It carries its own similarity, and it is",
+        "evidence only: the flag, its headline score and the ordering above all",
+        "come from the pooled match on the line before it. Read the pair that",
+        "scores higher, but check both — either can be the real counterpart, and",
+        "which is which is exactly what similarity cannot tell you here.",
         "",
     ]
     out += _format_findings(

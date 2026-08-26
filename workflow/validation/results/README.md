@@ -250,6 +250,19 @@ sentences corpus-wide, 5 of them near-certain — because that triage counted
 flags whose sentences carry *other* `-layout` damage as well, and removing the
 numeral alone does not clear those.
 
+The reverse also happens: **every count can hold still while `scorer_version`
+moves**, and that is what #763 looks like in these files. It gave the altered
+report a second, display-only line — the closest QMD *short* block, where one
+beat the scored pool's match without clearing #761's gate — so that a correct
+flag on a wrong page number stops being printed against unrelated prose. 85
+findings across the fifteen records gained that line; not one number in any
+record changed, because the flag, its score, the near-certain band and the
+reference comparison all still read the verdict channel alone. A results diff
+showing `validated_at` and `scorer_version` and nothing else is the intended
+evidence for a change of that shape, not a sign the re-record was pointless —
+`scorer_version` hashes file contents, so it moves on any pipeline edit,
+including one that only changes what a human reads.
+
 `counts.missing` can rise while everything around it improves, and did in
 #740: joining a hyphenated word into a single token shortens *both* sides'
 token streams, so a paragraph already scoring near the 40% missing floor —
