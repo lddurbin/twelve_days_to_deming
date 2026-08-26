@@ -24,6 +24,7 @@ Usage:
 
 import argparse
 import json
+import re
 import sys
 from html import escape
 from pathlib import Path
@@ -38,7 +39,8 @@ VALID_DECISIONS = {"accept", "reject", "discuss", None}
 # detail below; the rest are copied into the page verbatim.
 REQUIRED_TOP = ("pass", "epic", "source_pdf", "scorer_version", "content_dir",
                 "export_filename", "page", "sections")
-REQUIRED_ITEM = ("id", "chip", "page", "flag", "source_html", "site_html", "evidence_html")
+REQUIRED_ITEM = ("id", "chip", "page", "pdf_page", "flag",
+                 "source_html", "site_html", "evidence_html")
 
 
 def fail(msg):
@@ -88,8 +90,31 @@ def validate(record):
             # location line renders as `file:None`.
             if item.get("file") and not item.get("line"):
                 fail(f"item {item['id']} names a file but no line")
+            check_position(item)
 
     return len(seen)
+
+
+def check_position(item):
+    """Check the sort key against the page string a reader actually sees.
+
+    `pdf_page` orders the page's default view; `page` is the prose the card
+    shows. They are two spellings of one fact, so they can drift — and a wrong
+    `pdf_page` is invisible, since it only shows up as a finding sitting under
+    the wrong divider. Cross-check them instead: `\b` keeps `p1` from matching
+    inside `p14`, and a page string may cite more than one page (a site-wide
+    convention seen on two of them), so only the sort key has to appear.
+    """
+    page, pdf_page = item["page"], item["pdf_page"]
+    if pdf_page is None:
+        return  # a finding with no single home in the source; it sorts last
+    if not isinstance(pdf_page, int) or isinstance(pdf_page, bool) or pdf_page < 1:
+        fail(f"item {item['id']} has a non-page pdf_page: {pdf_page!r}")
+    if not re.search(rf"\bp{pdf_page}\b", page):
+        fail(f"item {item['id']} says pdf_page {pdf_page}, but its page reads {page!r}")
+    pos = item.get("page_pos")
+    if pos is not None and (not isinstance(pos, int) or isinstance(pos, bool)):
+        fail(f"item {item['id']} has a non-integer page_pos: {pos!r}")
 
 
 def build(record_path, out_path):

@@ -12,6 +12,9 @@ crash, which is exactly what the validation in `validate()` exists to stop:
   - A `file` with no `line` renders a location of `file.qmd:None`.
   - An unrecognised `decision` matches no button, so a decided finding reopens
     as undecided.
+  - A `pdf_page` that disagrees with the `page` string files the finding under
+    the wrong divider in the page's default document-order view — and since
+    both spellings render, nothing on the page looks wrong.
 
 The last test here guards the one injection path that matters: findings text is
 Neave's prose and my commentary, embedded in a `<script>` block, and a literal
@@ -53,6 +56,7 @@ MINIMAL = {
     "scorer_version": "abc123",
     "content_dir": "content/days/day-99",
     "export_filename": "day-99-decisions.json",
+    "page_offset": 4,
     "page": {
         "eyebrow": "Epic #734 · Wave 2",
         "title": "Day 99 against Neave's manual",
@@ -75,6 +79,8 @@ MINIMAL = {
                     "file": "01-intro.qmd",
                     "line": 12,
                     "page": "PDF p5 · printed p1",
+                    "pdf_page": 5,
+                    "page_pos": 1,
                     "flag": "Altered 1 · 96%",
                     "source_html": "the <mark class='src'>source</mark> text",
                     "site_html": "the <mark class='gone'>site</mark> text",
@@ -176,6 +182,33 @@ class TestRejections(BuilderTestCase):
         record["sections"][0]["items"][0]["line"] = None
         self.assertRejects(record)
 
+    def test_missing_pdf_page(self):
+        record = copy.deepcopy(MINIMAL)
+        del record["sections"][0]["items"][0]["pdf_page"]
+        self.assertRejects(record)
+
+    def test_pdf_page_disagreeing_with_the_page_string(self):
+        record = copy.deepcopy(MINIMAL)
+        record["sections"][0]["items"][0]["pdf_page"] = 6
+        self.assertRejects(record)
+
+    def test_pdf_page_must_not_match_inside_a_longer_page_number(self):
+        """`p1` is a substring of `p14`; the check is on whole page numbers."""
+        record = copy.deepcopy(MINIMAL)
+        record["sections"][0]["items"][0]["page"] = "PDF p14 · printed p10"
+        record["sections"][0]["items"][0]["pdf_page"] = 1
+        self.assertRejects(record)
+
+    def test_pdf_page_zero(self):
+        record = copy.deepcopy(MINIMAL)
+        record["sections"][0]["items"][0]["pdf_page"] = 0
+        self.assertRejects(record)
+
+    def test_non_integer_page_pos(self):
+        record = copy.deepcopy(MINIMAL)
+        record["sections"][0]["items"][0]["page_pos"] = "first"
+        self.assertRejects(record)
+
     def test_unrecognised_decision(self):
         record = copy.deepcopy(MINIMAL)
         record["sections"][0]["items"][0]["decision"] = "maybe"
@@ -195,6 +228,36 @@ class TestRejections(BuilderTestCase):
         record = copy.deepcopy(MINIMAL)
         record["sections"] = []
         self.assertRejects(record)
+
+
+class TestDocumentOrder(BuilderTestCase):
+    """The sort key is optional in one direction only: no page, but never a wrong one."""
+
+    def test_pdf_page_may_be_null_for_a_finding_with_no_single_page(self):
+        record = copy.deepcopy(MINIMAL)
+        item = record["sections"][0]["items"][0]
+        item["pdf_page"] = None
+        item["page"] = "Site-wide"
+        self.assertIn("const PASS = {", self.build(record))
+
+    def test_a_page_string_citing_two_pages_only_has_to_carry_the_sort_key(self):
+        record = copy.deepcopy(MINIMAL)
+        record["sections"][0]["items"][0]["page"] = "PDF p5, p22 · printed p1, p18"
+        self.assertIn("const PASS = {", self.build(record))
+
+    def test_committed_records_order_every_finding(self):
+        """A record that reaches the page with holes in its order sorts arbitrarily."""
+        for path in sorted(RECORDS.glob("*.json")):
+            record = json.loads(path.read_text(encoding="utf-8"))
+            with self.subTest(record=path.name):
+                seen = set()
+                for section in record["sections"]:
+                    for item in section["items"]:
+                        key = (item["pdf_page"], item.get("page_pos", 0))
+                        self.assertNotIn(
+                            key, seen,
+                            f"{item['id']} shares a position with an earlier finding")
+                        seen.add(key)
 
 
 class TestScriptEscaping(BuilderTestCase):

@@ -56,7 +56,8 @@ magick 12-Days-to-Deming/PNGs/<PREFIX>_page_0NN.png -crop 2550x1900+0+0 -resize 
 ```
 
 Note the offset between PDF file page and printed page (it is fixed per day, and
-the footer gives it to you) — findings cite both.
+the footer gives it to you) — findings cite both, and it goes in the record as
+`page_offset`.
 
 Every flag lands in exactly one bucket: **fix**, **emphasis** (invisible to the
 comparator by construction), **confirmed non-defect**, or **out of scope for a
@@ -72,7 +73,10 @@ false-positive class by substring presence; it overestimates by ~3x.
 ### 3. Write the record and publish the page
 
 Write `workflow/validation/adjudications/<pass>.json` — format in that
-directory's README. Then:
+directory's README. Give every finding a `pdf_page`, and a `page_pos` where two
+share a page: the page opens in the source's reading order, so a finding without
+a position sorts by accident. The build cross-checks `pdf_page` against the
+`page` string and refuses a record where they disagree. Then:
 
 ```
 python3 scripts/build-adjudication-page.py workflow/validation/adjudications/<pass>.json
