@@ -31,7 +31,13 @@
 #                 pointers like "(See Appendix page 24.)" as their own
 #                 paragraphs, and without that they were invisible as matches
 #                 while the PDF's copy, sitting in a full paragraph, was
-#                 scored against a pool they had been filtered out of.
+#                 scored against a pool they had been filtered out of. A short
+#                 block that misses that gate but still beats the pooled match
+#                 is printed beside the surviving flag on a "Closer (short):"
+#                 line with its own score (#763), so a pointer flagged for a
+#                 wrong page number names the pointer rather than whatever
+#                 unrelated prose the pool offered. Display only: it moves no
+#                 count in workflow/validation/results/.
 #   - Unsourced:  the reverse of both of the above — a QMD paragraph with a
 #                 sentence that has no credible match anywhere in the PDF at
 #                 all, at UNSOURCED_SIMILARITY_THRESHOLD. Missing/Altered can
@@ -647,6 +653,10 @@ main() {
   echo "  - Short content is matched exactly, not scored: a line of four words"
   echo "    cannot support a similarity judgement, so that section says only"
   echo "    whether the wording is present on the site, never whether it drifted."
+  echo "  - A \"Closer (short):\" line inside an altered finding is the other"
+  echo "    use of the same short blocks, and it does carry a score — but only"
+  echo "    to say how close it came. It never decides the flag, and for the"
+  echo "    same reason as above a high one on a few words proves little."
   echo ""
 
   # Step 5: record provenance (#720). The script writes this itself, rather

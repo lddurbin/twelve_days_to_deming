@@ -21,6 +21,7 @@ from paragraph_similarity import (  # noqa: E402
     MISSING_SIMILARITY_THRESHOLD as MISSING_THRESHOLD,
     NEAR_MATCH_SCORE,
     REFERENCE_PAIR_THRESHOLD,
+    SHORT_EVIDENCE_FLOOR,
     UNSOURCED_SIMILARITY_THRESHOLD as UNSOURCED_THRESHOLD,
     analyse,
     classify_forward,
@@ -29,10 +30,23 @@ from paragraph_similarity import (  # noqa: E402
     normalise,
     reference_mismatch,
     reference_tokens,
+    render,
     render_reference_mismatches,
     split_sentences,
     tokenise,
 )
+
+
+def verdicts(altered):
+    """The verdict channel of an altered-by-paragraph result, evidence dropped.
+
+    #763 widened each finding to (score, walk_sentence, pool_sentence,
+    short_block_evidence). The first three decide everything that is counted;
+    the fourth is display-only. Tests asserting that some change left the
+    *verdicts* alone compare through this, so they keep saying what they were
+    written to say rather than accidentally also pinning the display.
+    """
+    return [(para, [f[:3] for f in flagged]) for para, flagged in altered]
 
 
 def score_of(pdf_sentence: str, qmd_sentence: str) -> float:
@@ -834,20 +848,121 @@ class ShortBlockPoolTests(unittest.TestCase):
         flagged = [f[1] for _para, fs in altered for f in fs]
         self.assertIn("(See Appendix page 26.)", flagged)
 
+    # The reason MIN_PARA_LEN exists: a bare heading finds a high "match"
+    # against any sentence it is a prefix of. Admitted unconditionally, this
+    # heading would become the best match for a real defect's sentence and
+    # dress a flag up as a near-match. The gate makes it inert.
+    #
+    # It is also the counterexample that decided #763's shape, so the three
+    # tests below take it apart: the site's "leadership" for the source's
+    # "management" is a real defect, the *pooled* match is the one that shows
+    # it, and the heading outscores that pooled match by being a prefix of
+    # both. A display channel that replaced the closest match would delete the
+    # defect from the report that flagged it.
+    MASKING_PDF = ["The Deadly Diseases of management. A second sentence for length here."]
+    MASKING_QMD = ["The Deadly Diseases of leadership. A second sentence for length here."]
+    MASKING_SHORT = ["The Deadly Diseases of"]
+
     def test_a_short_block_cannot_win_below_the_gate(self):
-        # The reason MIN_PARA_LEN exists: a four-word heading finds a ~0.5
-        # "match" against any other four-word heading. Admitted unconditionally,
-        # this heading would become the best match for a real defect's sentence
-        # and dress a flag up as a near-match. The gate makes it inert.
-        pdf = ["The Deadly Diseases of management. A second sentence for length here."]
-        qmd = ["The Deadly Diseases of leadership. A second sentence for length here."]
         _m, altered_plain, _c, _r = classify_forward(
-            pdf, qmd, MISSING_THRESHOLD, THRESHOLD
+            self.MASKING_PDF, self.MASKING_QMD, MISSING_THRESHOLD, THRESHOLD
         )
         _m, altered_short, _c, _r = classify_forward(
-            pdf, qmd, MISSING_THRESHOLD, THRESHOLD, qmd_short=["The Deadly Diseases of"]
+            self.MASKING_PDF, self.MASKING_QMD, MISSING_THRESHOLD, THRESHOLD,
+            qmd_short=self.MASKING_SHORT,
         )
-        self.assertEqual(altered_plain, altered_short)
+        self.assertEqual(verdicts(altered_plain), verdicts(altered_short))
+
+    def test_the_masking_candidate_really_does_outscore_the_true_match(self):
+        """Without this the two tests around it prove nothing — they would pass
+        just as well if the heading were a poor match nobody would show."""
+        _m, altered, _c, _r = classify_forward(
+            self.MASKING_PDF, self.MASKING_QMD, MISSING_THRESHOLD, THRESHOLD,
+            qmd_short=self.MASKING_SHORT,
+        )
+        (score, _pdf_sent, _qmd_sent, evidence) = altered[0][1][0]
+        self.assertIsNotNone(evidence)
+        self.assertGreater(evidence[0], score)
+
+    def test_a_masking_short_block_is_shown_beside_the_defect_not_instead(self):
+        """#763's display channel is additive for exactly this reason: the
+        pooled match is the line carrying "management" against "leadership",
+        and swapping it for the higher-scoring heading would hide the defect."""
+        _m, altered, _c, _r = classify_forward(
+            self.MASKING_PDF, self.MASKING_QMD, MISSING_THRESHOLD, THRESHOLD,
+            qmd_short=self.MASKING_SHORT,
+        )
+        report = "\n".join(render(altered, THRESHOLD))
+        self.assertIn("The Deadly Diseases of leadership.", report)
+        self.assertIn("Closer (short):", report)
+
+    def test_a_near_miss_short_block_is_reported_beside_its_flag(self):
+        """The finding #763 was raised about: the pointer is on the site with
+        the wrong number, so it stays flagged — but the report used to name
+        whatever unrelated prose the scored pool offered, which is the shape a
+        tired auditor skips."""
+        _m, altered, _c, _r = classify_forward(
+            [self.PDF_PARA],
+            [self.QMD_PARA],
+            MISSING_THRESHOLD,
+            THRESHOLD,
+            qmd_short=["(See Appendix page 27.)"],
+        )
+        report = "\n".join(render(altered, THRESHOLD))
+        self.assertIn("Closer (short):", report)
+        self.assertIn("(See Appendix page 27.)", report)
+
+    def test_a_short_block_no_closer_than_the_pool_is_not_shown(self):
+        """The evidence line must earn its place. A short block the scored pool
+        already beats adds a line and no information."""
+        _m, altered, _c, _r = classify_forward(
+            [self.PDF_PARA],
+            [self.QMD_PARA],
+            MISSING_THRESHOLD,
+            THRESHOLD,
+            qmd_short=["Bibliography"],
+        )
+        evidence = [f[3] for _para, fs in altered for f in fs]
+        self.assertTrue(altered)
+        self.assertEqual(set(evidence), {None})
+
+    def test_a_short_block_below_the_evidence_floor_is_not_shown(self):
+        """Closer than the pool is not enough on its own — below the line at
+        which this module is willing to call content present, a candidate is
+        not evidence of anything.
+
+        Two sentences, because the floor can only bite on a sentence whose
+        pooled score is lower still, and a paragraph with only such a sentence
+        would classify missing before it could ever be flagged. The first
+        sentence keeps the paragraph present; the second is the one under test.
+        """
+        carrier = "Ownership of the process belongs with the people who run it."
+        orphan = "Zebra quagga okapi tapir dugong."
+        _m, altered, _c, _r = classify_forward(
+            [f"{carrier} {orphan}"], [carrier],
+            MISSING_THRESHOLD, THRESHOLD, qmd_short=["Zebra"],
+        )
+        findings = {f[1]: f for _para, flagged in altered for f in flagged}
+        (score, _p, _q, evidence) = findings[orphan]
+        short_score = find_best_sentence(
+            tokenise(orphan), [("Zebra", tokenise("Zebra"))]
+        )[0]
+        self.assertGreater(short_score, score)          # closer than the pool
+        self.assertLess(short_score, SHORT_EVIDENCE_FLOOR)  # but under the floor
+        self.assertIsNone(evidence)
+
+    def test_the_evidence_floor_tracks_the_missing_cut(self):
+        """"Is this credibly the same content?" is one question, so the module
+        answers it with one number, aliased rather than copied.
+
+        Equality, not identity: CPython folds equal float literals in a module
+        into one object, so `assertIs` would pass just as happily on a pasted
+        `0.40` and prove nothing. What this does catch is the failure that
+        matters — MISSING_SIMILARITY_THRESHOLD being re-tuned while a copied
+        evidence floor stays behind, so the report starts calling something
+        evidence that the classifier would not call present.
+        """
+        self.assertEqual(SHORT_EVIDENCE_FLOOR, MISSING_THRESHOLD)
 
     def test_an_absent_short_pool_changes_nothing(self):
         # Every caller that predates #761 must score the population it did
@@ -858,6 +973,17 @@ class ShortBlockPoolTests(unittest.TestCase):
         self.assertEqual(
             classify_forward(pdf, qmd, MISSING_THRESHOLD, THRESHOLD),
             classify_forward(pdf, qmd, MISSING_THRESHOLD, THRESHOLD, qmd_short=[]),
+        )
+
+    def test_the_reverse_direction_never_carries_evidence(self):
+        """analyse() is handed no short pool, so the field it grew in #763 is
+        None on every reverse finding and the extra line never prints there."""
+        qmd = ["A site-only activity prompt that nothing in the source resembles."]
+        pdf = ["Red beads and white beads are drawn with a paddle from a bowl of 4000."]
+        unsourced = analyse(qmd, pdf, UNSOURCED_THRESHOLD)
+        self.assertTrue(unsourced)
+        self.assertEqual(
+            {f[3] for _para, flagged in unsourced for f in flagged}, {None}
         )
 
 

@@ -1,8 +1,8 @@
 appendix: optional-extras
-validated_at: 2026-08-26
+validated_at: 2026-08-27
 source_pdf: S.Optional.Extras.09Jul21.pdf
 source_sha256: b36a8368163ecae67c72d89936e5362e9f18a1c06c79fc95069181c05b5a5884
-scorer_version: 1ddbba6ff2b68876a8726916339089761a59b5da
+scorer_version: 834f02aa6dce94df623a6702eae480b7a2748a12
 thresholds:
   missing: 0.4
   altered: 0.98
