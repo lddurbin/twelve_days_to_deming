@@ -20,10 +20,11 @@
 # Every file whose content can change what a comparison run reports. Paths are
 # repo-relative. This is the one line to edit when comparator behaviour moves
 # into a new module — as the strip_qmd() port in #739 did, adding qmd_strip.py,
-# the paragraph-assembly port in #741 did, adding paragraphs.py, and the
-# short-content pass in #742 did, adding short_content.py. A file belongs here
-# whether it decides what gets *flagged* or only what gets *reported*: both
-# change what a recorded result says.
+# the paragraph-assembly port in #741 did, adding paragraphs.py, the
+# short-content pass in #742 did, adding short_content.py, and the
+# footnote-callout suppression in #755 did, adding pdf_callouts.py. A file
+# belongs here whether it decides what gets *flagged* or only what gets
+# *reported*: both change what a recorded result says.
 #
 # Deliberately NOT self-referential: this file computes the version, so any
 # edit here that could change the value already changes it (adding or removing
@@ -36,6 +37,7 @@
 SCORER_VERSION_FILES=(
   scripts/lib/paragraph_similarity.py
   scripts/lib/paragraphs.py
+  scripts/lib/pdf_callouts.py
   scripts/lib/qmd_strip.py
   scripts/lib/short_content.py
   scripts/validate-transcription.sh
