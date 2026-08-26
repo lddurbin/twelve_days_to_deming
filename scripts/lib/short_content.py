@@ -26,7 +26,7 @@ Three tiers of match, in order, all of them exact or near enough to be:
      paragraph. This is 343 of the 576, and it is what the pass is mostly for.
   2. **Verbatim** — the line normalises to a run of words inside a longer QMD
      paragraph, which is what a printed page's standalone line looks like when
-     the site folds it into the prose around it. 30 more. Needs two words at
+     the site folds it into the prose around it. 28 more. Needs two words at
      minimum: a single word is not evidence of anything, since "PROJECT"
      appears in any chapter about projects.
   3. **Near-exact** — SHORT_MATCH_THRESHOLD or better against the same pool.
@@ -55,7 +55,7 @@ cannot speak to:
   - **fragment** — under two words, usually a heading `-layout` split across
     lines, or a stray letter from a rotated caption. 13 lines.
 
-That leaves 84 lines, in 62 distinct wordings, for a human — the number this
+That leaves 86 lines, in 63 distinct wordings, for a human — the number this
 issue existed to make visible, where before it was 576 lines of nothing.
 
 #742 suggested digit-heavy lines as the table heuristic. Measured over the
@@ -270,8 +270,14 @@ def compare(pdf_text: str, qmd_text: str, titles: list[str]) -> Result:
     # Joined per paragraph, never into one chapter-wide string, so a verbatim
     # match cannot be manufactured across a paragraph boundary out of the tail
     # of one and the head of the next.
-    haystacks = [" ".join(tokenise(text)) for text in qmd.paragraphs]
-    haystacks += [" ".join(words) for _, words in pool]
+    #
+    # Padded with a space at each end — as the needle is in _appears_in() — so
+    # that a match has to land on whole words. Without the padding a line is
+    # found inside any token it is a prefix or suffix of, which in this corpus
+    # is not theoretical: "DAY 1" reads as present in a chapter that merely
+    # mentions Day 12, and "Rule 1" in one that mentions Rule 10.
+    haystacks = [f" {' '.join(tokenise(text))} " for text in qmd.paragraphs]
+    haystacks += [f" {' '.join(words)} " for _, words in pool]
 
     scores: dict[tuple[str, ...], tuple[float, str]] = {}
     matched, reported = 0, []
@@ -299,10 +305,15 @@ def compare(pdf_text: str, qmd_text: str, titles: list[str]) -> Result:
 
 
 def _appears_in(words: tuple[str, ...], haystacks: list[str]) -> bool:
-    """Is `words` a run of consecutive words in any of `haystacks`?"""
+    """Is `words` a run of consecutive words in any of `haystacks`?
+
+    `haystacks` are the space-padded strings compare() builds; the needle is
+    padded here to match, which is what makes this a word-run test rather than
+    a substring test. See the comment there for what goes wrong without it.
+    """
     if len(words) < MIN_VERBATIM_WORDS:
         return False
-    needle = " ".join(words)
+    needle = f" {' '.join(words)} "
     return any(needle in hay for hay in haystacks)
 
 

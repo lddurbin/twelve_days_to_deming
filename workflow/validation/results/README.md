@@ -71,10 +71,17 @@ these lengths a similarity score cannot distinguish a substituted word from a
 rewording, so this pass reports presence and never fidelity. `short_unjudged`
 is residue set aside with a stated reason (a table row `pdftotext` read twice
 across two columns, a contents-page entry, a fragment of under two words), and
-`short_unmatched` is what is left for a human: 84 lines corpus-wide when it
-was added, 62 distinct wordings of them. Read it beside `short_unjudged` — a
+`short_unmatched` is what is left for a human: 86 lines corpus-wide when it
+was added, 63 distinct wordings of them. Read it beside `short_unjudged` — a
 day whose unmatched count jumps because a table stopped being recognised has
 not lost any content.
+
+One population is deliberately **not** here yet: the blocks the readability
+filter rejects as page furniture (`pdftotext`'s symbol-font page headers),
+which the validator's report states but this record does not carry. That is
+[#743](https://github.com/lddurbin/twelve_days_to_deming/issues/743)'s to add,
+along with the rest of the residue accounting, rather than being half-added
+here to a schema it is about to define.
 
 `source_sha256` hashes the PDF's bytes, not just its filename — Neave's
 source PDFs have been re-exported before with the same name, and a filename

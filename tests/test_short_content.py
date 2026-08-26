@@ -132,6 +132,20 @@ class MatchingTests(unittest.TestCase):
         qmd = f"Nobody is tampering.\n\nWith the funnel, at all, ever, in any way.\n\n{PROSE}"
         self.assertEqual(result_for(pdf, qmd).matched, 0)
 
+    def test_a_verbatim_match_lands_on_whole_words(self):
+        """"DAY 1" is not present in a chapter that merely mentions Day 12.
+
+        The two sides are joined into strings to test for a run of words, so
+        without space padding at both ends the run is found inside any longer
+        token it prefixes or suffixes — and this corpus is full of "Day 1"
+        beside "Day 12" and "Rule 1" beside "Rule 10".
+        """
+        pdf = f"DAY 1\n\n{PROSE}"
+        qmd = f"We will come back to all of this on Day 12, at the very end.\n\n{PROSE}"
+        result = result_for(pdf, qmd)
+        self.assertEqual(result.matched, 0)
+        self.assertEqual(len(result.unmatched), 1)
+
     def test_a_single_word_is_never_evidence_of_presence(self):
         pdf = f"PROJECT\n\n{PROSE}"
         qmd = f"Your Second Project begins in earnest this afternoon, in the workbook.\n\n{PROSE}"
