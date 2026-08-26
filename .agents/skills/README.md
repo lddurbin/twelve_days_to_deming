@@ -16,9 +16,10 @@ A skill that would work unchanged in any repo — commit, push, open a PR, sync 
 branch — belongs at the personal layer, `~/.agents/skills/`. `ship-it`,
 `merge-pr` and `sync-main` used to be duplicated in both places, and the two
 copies drifted in opposite directions; which one a bare invocation resolved to
-was not predictable, and it bit us twice
-([#605](https://github.com/lddurbin/twelve_days_to_deming/issues/605),
-[#767](https://github.com/lddurbin/twelve_days_to_deming/issues/767)). agentcanon
+was not predictable. It bit us twice: first in
+[#605](https://github.com/lddurbin/twelve_days_to_deming/issues/605), and again
+while shipping [#766](https://github.com/lddurbin/twelve_days_to_deming/pull/766),
+where `/ship-it` silently resolved to the global copy. agentcanon
 is silent on precedence, but its principle is one real copy — so the fix is to
 not have two, rather than to work out which wins.
 
