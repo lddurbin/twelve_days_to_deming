@@ -143,7 +143,14 @@ same shape already used for the deviations log (`docs/deviations/`), for
 the same reason: see [#384](https://github.com/lddurbin/twelve_days_to_deming/issues/384).
 
 The `ship-it` skill adds this entry as part of shipping a PR — skip it for
-internal-only changes (CI, refactors, dependency bumps). When it's time to
+internal-only changes (CI, refactors, dependency bumps). That skill is a
+personal one and lives at `~/.agents/skills/`, not in this repo: it is
+repo-agnostic, and the [agentcanon convention](https://buildermethods.com/agentcanon)
+this repo follows keeps one real copy of a skill at the layer it belongs to.
+It discovers this convention from `docs/changesets/README.md`, so that file —
+not the skill — is what makes the rule binding here. `.agents/skills/` holds
+only skills specific to this project. See
+[#767](https://github.com/lddurbin/twelve_days_to_deming/issues/767). When it's time to
 cut a release, `./scripts/cut-release.sh <version>` rolls up every pending
 entry into a new `CHANGELOG.md` section and stages the consumed entry files
 for removal; it deliberately stops short of committing, tagging, pushing, or
