@@ -61,3 +61,9 @@ __pycache__/
 # Vercel CLI project link + local Build Output API payloads (deploy.yml's
 # staging job assembles this fresh in CI each run — see #536)
 .vercel/
+
+# Adjudication review pages are built from workflow/validation/adjudications/*.json
+# by scripts/build-adjudication-page.py. The record is the source of truth and is
+# tracked; the page it generates is not. See issue #765.
+workflow/validation/adjudication/*.html
+!workflow/validation/adjudication/template.html
