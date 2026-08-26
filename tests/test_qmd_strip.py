@@ -31,6 +31,7 @@ sys.path.insert(0, str(REPO_ROOT / "scripts" / "lib"))
 
 from paragraph_similarity import normalise  # noqa: E402
 from qmd_strip import (  # noqa: E402
+    front_matter_title,
     main,
     resolve_brackets,
     strip_qmd,
@@ -312,6 +313,51 @@ class StructureTests(unittest.TestCase):
     def test_trailing_newline_does_not_add_a_line(self):
         """The caller sizes its chapter separator on this."""
         self.assertEqual(strip_qmd("One line\n"), "One line\n")
+
+
+class FrontMatterTitleTests(unittest.TestCase):
+    """The one front-matter field that is Neave's text rather than the site's.
+
+    strip_qmd() drops front matter wholesale and must keep doing so — but the
+    site renders each chapter's printed heading as its `title`, not as body
+    text, so the short-content pass (#742) would otherwise report all 88 of
+    them as headings the transcription lost.
+    """
+
+    def test_reads_a_double_quoted_title(self):
+        self.assertEqual(
+            front_matter_title('---\ntitle: "SOME LIGHT RELIEF"\n---\nBody.\n'),
+            "SOME LIGHT RELIEF",
+        )
+
+    def test_reads_a_single_quoted_title_carrying_its_own_quotes(self):
+        """Real: day-05's `title: \'"OUT-OF-HOURS" NOTE\'`."""
+        self.assertEqual(
+            front_matter_title('''---\ntitle: \'"OUT-OF-HOURS" NOTE\'\n---\n'''),
+            '"OUT-OF-HOURS" NOTE',
+        )
+
+    def test_ignores_the_site_s_own_metadata(self):
+        """`pagetitle` and `description` are SEO copy (#497), not the printed page."""
+        source = (
+            '---\ntitle: "A SYSTEM ..."\n'
+            'pagetitle: "Day 9: A system of profound knowledge"\n'
+            'description: "Deming\'s flow diagram."\n---\n'
+        )
+        self.assertEqual(front_matter_title(source), "A SYSTEM ...")
+
+    def test_a_title_line_in_the_body_is_not_front_matter(self):
+        self.assertIsNone(front_matter_title('Body.\ntitle: "not metadata"\n'))
+
+    def test_a_file_with_no_front_matter_has_no_title(self):
+        self.assertIsNone(front_matter_title("Just prose.\n"))
+
+    def test_a_file_with_no_title_field_has_none(self):
+        self.assertIsNone(front_matter_title("---\nexecute:\n  echo: false\n---\nBody.\n"))
+
+    def test_the_title_stays_out_of_the_stripped_text(self):
+        """Putting it in would move every recorded result for an unrelated reason."""
+        self.assertEqual(strip_qmd('---\ntitle: "SOME LIGHT RELIEF"\n---\nBody.\n'), "Body.\n")
 
 
 class PortedWartTests(unittest.TestCase):

@@ -20,6 +20,13 @@ change. The port had to be measurable as only the rejoining it exists for, so
 both floors still count bytes the way awk under `LC_ALL=C` did, down to the
 blocks that sit a byte either side of them.
 
+PageMarkerTests and SiftTests cover what #742 added: page boundaries carried
+through the caller's cleanup as marker lines, and the three-way split that
+hands the filters' leavings to scripts/lib/short_content.py instead of
+dropping them. The marker's transparency is the load-bearing property —
+paragraph output has to be identical with markers and without, or the pages
+would have been bought with a change to every recorded result.
+
 Run with:  python3 -m unittest discover -s tests -p 'test_*.py'
 """
 import subprocess
@@ -36,12 +43,17 @@ from paragraph_similarity import (  # noqa: E402
     tokenise,
 )
 from paragraphs import (  # noqa: E402
+    FIRST_PAGE,
     MIN_PARA_LEN,
+    Block,
     blocks,
     continues,
     is_readable,
     join_continuations,
     main,
+    mark_pages,
+    read_blocks,
+    sift,
     to_paragraphs,
 )
 
@@ -144,35 +156,53 @@ class ContinuesTests(unittest.TestCase):
         self.assertFalse(continues("anything", ""))
 
 
+def on_page(page, *texts):
+    """Blocks the way read_blocks() hands them to join_continuations()."""
+    return [Block(text, page) for text in texts]
+
+
 class JoinContinuationsTests(unittest.TestCase):
     def test_leaves_unrelated_paragraphs_alone(self):
-        paras = ["A finished sentence.", "Another finished sentence."]
+        paras = on_page(1, "A finished sentence.", "Another finished sentence.")
         self.assertEqual(join_continuations(paras), paras)
 
     def test_chains_a_whole_lettered_list_in_one_pass(self):
         """Each rejoined item ends in the semicolon that pulls in the next."""
         joined = join_continuations(
-            [
+            on_page(
+                7,
                 "followed by its four parts:",
                 "A. Appreciation for a system;",
                 "B. Some knowledge of theory of variation;",
                 "C. Theory of knowledge;",
                 "D. Knowledge of psychology.",
                 "The five half-days from here follow the same structure.",
-            ]
+            )
         )
         self.assertEqual(
             joined,
-            [
+            on_page(
+                7,
                 "followed by its four parts: A. Appreciation for a system; "
                 "B. Some knowledge of theory of variation; C. Theory of knowledge; "
                 "D. Knowledge of psychology.",
                 "The five half-days from here follow the same structure.",
-            ],
+            ),
         )
 
     def test_an_empty_list_joins_to_nothing(self):
         self.assertEqual(join_continuations([]), [])
+
+    def test_a_rejoined_block_keeps_the_page_it_started_on(self):
+        """A sentence broken across a page break is found on the earlier page."""
+        joined = join_continuations(
+            [
+                Block("surely an implication is that this was a poor system in dire", 21),
+                Block("need of improvement anyway.", 22),
+            ]
+        )
+        self.assertEqual(len(joined), 1)
+        self.assertEqual(joined[0].page, 21)
 
 
 class FilterOrderTests(unittest.TestCase):
@@ -356,6 +386,83 @@ class ParagraphAssemblyAgreementTests(unittest.TestCase):
         self.assertLess(scores[0], 1.0, "the damaged sentence must still be scored apart")
 
 
+class PageMarkerTests(unittest.TestCase):
+    def test_a_form_feed_becomes_a_marker_line(self):
+        marked = mark_pages("last line of one\n\fDAY 9: A SYSTEM\n")
+        self.assertEqual(
+            marked.splitlines(),
+            ["last line of one", "@@pdf-page 2@@", "DAY 9: A SYSTEM"],
+        )
+
+    def test_text_without_form_feeds_is_untouched(self):
+        text = "no pages here\n\nat all\n"
+        self.assertEqual(mark_pages(text), text)
+
+    def test_pages_number_from_one_upward(self):
+        marked = mark_pages("one\n\ftwo\n\fthree\n")
+        self.assertEqual(
+            [line for line in marked.splitlines() if line.startswith("@@")],
+            ["@@pdf-page 2@@", "@@pdf-page 3@@"],
+        )
+
+    def test_a_mid_line_form_feed_does_not_corrupt_the_line(self):
+        """Every form feed in the twelve PDFs starts a line; this is the guard."""
+        marked = mark_pages("prose runs on\fPAGE HEADER")
+        self.assertEqual(
+            marked.splitlines(), ["prose runs on", "@@pdf-page 2@@", "PAGE HEADER"]
+        )
+
+    def test_markers_are_transparent_to_block_assembly(self):
+        """The whole point: paragraphs must not move because pages are tracked.
+
+        A marker is neither content nor a paragraph break, so a block that
+        pdftotext ran across a page boundary stays the single block it was
+        when the boundary was deleted outright.
+        """
+        without = "tail of one page\nhead of the next\n\nA second block.\n"
+        with_marker = "tail of one page\n@@pdf-page 12@@\nhead of the next\n\nA second block.\n"
+        self.assertEqual(blocks(with_marker), blocks(without))
+        self.assertEqual(to_paragraphs(with_marker), to_paragraphs(without))
+
+    def test_a_block_is_stamped_with_the_page_it_starts_on(self):
+        text = mark_pages("first page block\n\n\fsecond page block\n\n\fthird page block\n")
+        self.assertEqual([block.page for block in read_blocks(text)], [1, 2, 3])
+
+    def test_a_block_spanning_a_boundary_belongs_to_the_earlier_page(self):
+        text = mark_pages("opening words\fclosing words\n")
+        self.assertEqual(read_blocks(text), [Block("opening words closing words", 1)])
+
+    def test_unmarked_text_reads_as_the_first_page(self):
+        """The QMD side has no pages at all, and must still assemble."""
+        self.assertEqual(read_blocks("a block"), [Block("a block", FIRST_PAGE)])
+
+
+class SiftTests(unittest.TestCase):
+    """The three-way split #742 needs: scored, too short, too garbled."""
+
+    def test_partitions_every_block(self):
+        text = mark_pages(
+            "SOME LIGHT RELIEF!\n\n"
+            "Here are some of my favourite wrong predictions, in chronological order.\n"
+            "\n\f"
+            f"{GARBLED_HEADER}\n\n"
+            "Nothing about this block is short enough to be dropped by the floor.\n"
+        )
+        sifted = sift(text)
+        self.assertEqual(len(sifted.paragraphs), 2)
+        self.assertEqual([block.text for block in sifted.short], ["SOME LIGHT RELIEF!"])
+        self.assertEqual([block.page for block in sifted.garbled], [2])
+
+    def test_short_blocks_carry_their_page(self):
+        text = mark_pages("A long enough paragraph to clear the floor easily.\n\n\fYOUR TURN\n")
+        self.assertEqual([(b.text, b.page) for b in sift(text).short], [("YOUR TURN", 2)])
+
+    def test_paragraphs_are_what_to_paragraphs_returns(self):
+        """One implementation, so the scored population cannot drift from the split."""
+        text = "YOUR TURN\n\nA paragraph comfortably clear of the forty-byte floor.\n"
+        self.assertEqual(sift(text).paragraphs, to_paragraphs(text))
+
+
 class CommandLineTests(unittest.TestCase):
     def test_reads_stdin_and_writes_one_paragraph_per_line(self):
         result = subprocess.run(
@@ -377,6 +484,17 @@ class CommandLineTests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(result.stdout.strip(), str(MIN_PARA_LEN))
+
+    def test_mark_pages_filters_stdin_to_stdout(self):
+        result = subprocess.run(
+            [sys.executable, str(MODULE), "--mark-pages"],
+            input="page one\n\fpage two\n",
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout, "page one\n@@pdf-page 2@@\npage two\n")
 
     def test_an_unknown_argument_is_a_usage_error(self):
         self.assertEqual(main(["--paragraphs"]), 1)

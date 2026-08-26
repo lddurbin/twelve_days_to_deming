@@ -41,28 +41,80 @@ to drop them.
 Both sides run the same assembly, as they must. A join rule applied to one
 side only would manufacture exactly the mismatch it was written to remove.
 
+What assembly *discards* is now returned rather than dropped on the floor
+(#742). sift() splits every block three ways — the paragraphs that go on to be
+scored, the readable ones under the length floor, and the ones the readability
+filter rejected — and stamps each with the PDF page it starts on, which is
+what makes the residue triageable. scripts/lib/short_content.py takes it from
+there; nothing here decides whether dropped content is a defect.
+
+Page numbers come from the form feeds `pdftotext` emits, turned into marker
+lines by mark_pages() before the caller's `sed` cleanup runs, because that
+cleanup deletes whole lines and would otherwise destroy any positional link
+back to a page. A marker is transparent to assembly: it sets the current page
+and is neither content nor a paragraph break, so the paragraphs this module
+produces are byte-for-byte what it produced before markers existed.
+
 I/O is explicitly UTF-8 in both directions, for the reason given at the same
 point in qmd_strip.py: the calling script runs under `LC_ALL=C` and the course
 text is full of en dashes and curly quotes.
 
 Usage: paragraphs.py < text        one paragraph per line, to stdout
+       paragraphs.py --mark-pages < text  form feeds -> page markers, to stdout
        paragraphs.py --min-length  print MIN_PARA_LEN and exit
 """
 
 from __future__ import annotations
 
 import io
+import re
 import sys
+from typing import NamedTuple
 
 # Minimum paragraph length, in bytes (see _measured), to enter comparison at all.
 #
 # Short strings cannot support similarity scoring — a four-word heading finds
 # a 0.5 "match" against any other four-word heading — so scoring them would
-# produce noise, not findings. What that costs is that a mis-transcribed
-# heading or a dropped one-line exclamation is invisible to the whole system;
-# the secondary near-exact pass that answers for the dropped content is
-# #742's, and #743 records how much of it there was.
+# produce noise, not findings.
+#
+# #742 asked whether the floor itself should move, and the answer is no: what
+# was wrong was never its height but that everything under it disappeared. It
+# is a floor on *similarity scoring*, which is the one thing short strings
+# cannot support, so lowering it would buy coverage in the currency of noise.
+# The content below it is answered for instead, by the exact-matching pass in
+# scripts/lib/short_content.py that sift() now feeds. Keeping the floor where
+# it is also keeps that change measurable: the paragraphs scored under this
+# module are the same ones scored before it.
 MIN_PARA_LEN = 40
+
+# How a page boundary is carried through the caller's cleanup pipeline.
+#
+# `pdftotext` marks one with a form feed at the start of a line, which
+# validate-transcription.sh used to delete outright — so by the time text
+# reached this module there was nothing left to say which page a block came
+# from, and the short-content residue #742 reports could only be described by
+# its wording. The form feed cannot simply be left in place: the `sed` pass
+# between there and here deletes bare page-number lines with `/^[0-9]+$/`, and
+# a leading form feed would hide the digits from that rule.
+#
+# So it becomes a line of its own, before `sed` runs, in a shape that pass
+# leaves alone: it has letters, so the garbled-line rule ignores it; it has no
+# double spaces and no leading or trailing space, so the whitespace rules are
+# no-ops on it.
+#
+# It is read back as a whole line and only in this exact shape, which is what
+# makes it safe to put a sentinel in a stream of arbitrary text. No line in
+# any of the twenty-four source PDFs matches it. Three lines of Day 7 do
+# contain `@@`, inside `pdftotext`'s rendering of a symbol-font page in
+# gibberish (`@@@$`) — they match nothing here, and the garbled-line rule in
+# validate-transcription.sh deletes them long before this module runs.
+_PAGE_MARKER_FORMAT = "@@pdf-page {}@@"
+_PAGE_MARKER = re.compile(r"^@@pdf-page (\d+)@@$")
+
+# The page a block is attributed to when nothing has said otherwise: the first.
+# The QMD side carries no markers at all (it has no pages), so every QMD block
+# reads as page 1 — meaningless there, and never reported.
+FIRST_PAGE = 1
 
 # Fraction of a block's non-space bytes that must be ASCII letters for it to be
 # treated as prose. pdftotext renders this course's page headers in a symbol
@@ -83,9 +135,9 @@ def _measured(block: str) -> bytes:
     ratio is 0.4000 by character and 0.3925 by byte).
 
     A port is the wrong place to move a threshold. Keeping the byte count
-    keeps this change measurable as *only* the rejoining it exists for, and
-    leaves what the floors should be to #742, which owns the short-content
-    question outright.
+    kept #741 measurable as *only* the rejoining it existed for — and #742,
+    which owned the short-content question, left both floors alone as well,
+    for the reason recorded beside MIN_PARA_LEN.
     """
     return block.encode("utf-8")
 
@@ -141,55 +193,143 @@ def continues(prev: str, nxt: str) -> bool:
     return False
 
 
-def blocks(text: str) -> list[str]:
-    """Blank-line-delimited blocks, each collapsed onto a single line."""
-    out, current = [], []
+class Block(NamedTuple):
+    """One blank-line-delimited block, and the page it starts on.
+
+    Where it *starts*, not where it ends: a block rejoined across a page break
+    belongs to the page a reader would turn to first to find it.
+    """
+
+    text: str
+    page: int
+
+
+class Sifted(NamedTuple):
+    """Every block of a text, split by what assembly did with it.
+
+    The three lists partition the input, which is the point (#742): before
+    this, `paragraphs` was the whole return value and the other two were
+    discarded inside a comprehension, so a mis-transcribed heading or a
+    dropped one-line exclamation left no trace anywhere in the system.
+    """
+
+    paragraphs: list[str]  # long and readable enough to be scored
+    short: list[Block]  # readable prose under MIN_PARA_LEN
+    garbled: list[Block]  # rejected by the readability filter
+
+
+def mark_pages(text: str) -> str:
+    """`text` with each form feed replaced by a page-marker line.
+
+    Run this on `pdftotext` output before any other cleanup — see
+    _PAGE_MARKER_FORMAT for why the boundary cannot survive as a form feed.
+
+    Every form feed in the twelve source PDFs sits at the start of a line, so
+    the marker slots cleanly between two lines; the newline guard below is for
+    a stream where one doesn't, where appending the marker to a line of prose
+    would corrupt content in order to record where it was.
+    """
+    pages = text.split("\f")
+    marked = [pages[0]]
+    for number, page in enumerate(pages[1:], start=FIRST_PAGE + 1):
+        if marked[-1] and not marked[-1].endswith("\n"):
+            marked.append("\n")
+        marked.append(_PAGE_MARKER_FORMAT.format(number) + "\n" + page)
+    return "".join(marked)
+
+
+def read_blocks(text: str) -> list[Block]:
+    """Blank-line-delimited blocks, each collapsed onto a single line.
+
+    A page marker is transparent here: it moves the page counter on and is
+    neither content nor a paragraph break. That transparency is what keeps
+    page numbering free — the block list is identical with markers and
+    without, so nothing downstream of it can tell that pages are being
+    tracked at all.
+    """
+    out: list[Block] = []
+    current: list[str] = []
+    page = start = FIRST_PAGE
     for line in text.splitlines():
-        if line.strip():
+        marker = _PAGE_MARKER.match(line)
+        if marker:
+            page = int(marker.group(1))
+        elif line.strip():
+            if not current:
+                start = page
             current.append(line)
         elif current:
-            out.append(" ".join(" ".join(current).split()))
+            out.append(Block(" ".join(" ".join(current).split()), start))
             current = []
     if current:
-        out.append(" ".join(" ".join(current).split()))
+        out.append(Block(" ".join(" ".join(current).split()), start))
     return out
 
 
-def join_continuations(items: list[str]) -> list[str]:
+def blocks(text: str) -> list[str]:
+    """read_blocks() for a caller that has no use for the page numbers."""
+    return [block.text for block in read_blocks(text)]
+
+
+def join_continuations(items: list[Block]) -> list[Block]:
     """Rejoin every block that continues the one before it.
 
     Tests the *accumulated* text's tail rather than the original block's, so a
     run of list items joins in one pass: "…four parts:" pulls in "A. …system;",
     whose semicolon then pulls in "B. …", and so on.
     """
-    joined: list[str] = []
+    joined: list[Block] = []
     for item in items:
-        if joined and continues(joined[-1], item):
-            joined[-1] = f"{joined[-1]} {item}"
+        if joined and continues(joined[-1].text, item.text):
+            joined[-1] = Block(f"{joined[-1].text} {item.text}", joined[-1].page)
         else:
             joined.append(item)
     return joined
 
 
+def sift(text: str) -> Sifted:
+    """Split `text` into what gets scored, what is too short, and what is junk.
+
+    Filter order is load-bearing and unchanged from #741: the readability
+    filter first (a garbled page header sits between the two halves of a
+    page-broken sentence), then rejoining, then the length floor (a lettered
+    list's items are under it individually).
+    """
+    readable, garbled = [], []
+    for block in read_blocks(text):
+        (readable if is_readable(block.text) else garbled).append(block)
+
+    paragraphs, short = [], []
+    for block in join_continuations(readable):
+        if len(_measured(block.text)) >= MIN_PARA_LEN:
+            paragraphs.append(block.text)
+        else:
+            short.append(block)
+    return Sifted(paragraphs, short, garbled)
+
+
 def to_paragraphs(text: str) -> list[str]:
     """The comparable paragraphs of `text`: split, de-garbled, rejoined, floored."""
-    readable = [b for b in blocks(text) if is_readable(b)]
-    return [p for p in join_continuations(readable) if len(_measured(p)) >= MIN_PARA_LEN]
+    return sift(text).paragraphs
 
 
 def main(argv: list[str]) -> int:
     if argv == ["--min-length"]:
         print(MIN_PARA_LEN)
         return 0
-    if argv:
+    if argv and argv != ["--mark-pages"]:
         print(f"Usage: {sys.argv[0]} < text", file=sys.stderr)
+        print(f"       {sys.argv[0]} --mark-pages < text", file=sys.stderr)
         print(f"       {sys.argv[0]} --min-length", file=sys.stderr)
         return 1
 
     text = io.TextIOWrapper(sys.stdin.buffer, encoding="utf-8").read()
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
-    for paragraph in to_paragraphs(text):
-        print(paragraph, file=out)
+    if argv == ["--mark-pages"]:
+        out.write(mark_pages(text))
+    else:
+        for paragraph in to_paragraphs(text):
+            print(paragraph, file=out)
     out.flush()
     return 0
 

@@ -2,7 +2,7 @@ day: 8
 validated_at: 2026-08-26
 source_pdf: K.Day.8.11Jan20.pdf
 source_sha256: ef717bb2d860057bdd1c877ce4a8e86d930c9f66be6d38b5a35fd672e4f3b430
-scorer_version: 38dd9fcff7bb1d7b944cd0e1448f79b89b378b63
+scorer_version: 99e7d7bb525fdde2bd94f713447bb2b5c96ac28b
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -19,3 +19,7 @@ counts:
   unsourced: 4
   unsourced_sentences: 6
   reference_mismatches: 5
+  short_checked: 45
+  short_matched: 33
+  short_unmatched: 10
+  short_unjudged: 2

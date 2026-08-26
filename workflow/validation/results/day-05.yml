@@ -2,7 +2,7 @@ day: 5
 validated_at: 2026-08-26
 source_pdf: H.Day.5.08Feb22.pdf
 source_sha256: 6080edb4e995aec859f4a42ee704d8601eb41afcb9d8fe33fd4bfdd5f18b21eb
-scorer_version: 38dd9fcff7bb1d7b944cd0e1448f79b89b378b63
+scorer_version: 99e7d7bb525fdde2bd94f713447bb2b5c96ac28b
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -19,3 +19,7 @@ counts:
   unsourced: 1
   unsourced_sentences: 1
   reference_mismatches: 2
+  short_checked: 55
+  short_matched: 51
+  short_unmatched: 2
+  short_unjudged: 2

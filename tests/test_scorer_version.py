@@ -68,15 +68,18 @@ class FileListTests(unittest.TestCase):
         """The two files #737 exists to cover, plus what later PRs moved out of them.
 
         qmd_strip.py joined the list in #739, when QMD stripping left the
-        shell script, and paragraphs.py in #741, when paragraph assembly did.
-        Pinned by name rather than left to the existence check above:
-        dropping one would not break anything visibly, it would just stop
-        stale results being caught after a change to that stage.
+        shell script, paragraphs.py in #741, when paragraph assembly did, and
+        short_content.py in #742, which added a section to the report and four
+        counts to every result file. Pinned by name rather than left to the
+        existence check above: dropping one would not break anything visibly,
+        it would just stop stale results being caught after a change to that
+        stage.
         """
         for rel in (
             "scripts/lib/paragraph_similarity.py",
             "scripts/lib/paragraphs.py",
             "scripts/lib/qmd_strip.py",
+            "scripts/lib/short_content.py",
             "scripts/validate-transcription.sh",
         ):
             self.assertIn(rel, SCORER_VERSION_FILES)

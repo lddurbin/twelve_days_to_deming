@@ -42,6 +42,15 @@ What the two sides are expected to agree on, and therefore what gets removed:
       of these in the source too, so removing them here would manufacture a
       difference rather than remove one.
 
+One field of the front matter this removes is not metadata at all: `title` is
+Neave's section heading, which the site renders as the chapter's h1 instead of
+repeating it in the body. front_matter_title() hands it back for the callers
+that need the headings — today the short-content pass in
+scripts/lib/short_content.py (#742). It stays out of strip_qmd()'s output,
+because putting it in would add a paragraph to the QMD side that #741's
+assembly would then have to reason about, and would move every recorded
+result for a reason unrelated to what this module is for.
+
 Usage: qmd_strip.py <file.qmd> [<file.qmd> ...]
        qmd_strip.py --workbook-refs < text
 
@@ -71,6 +80,7 @@ import sys
 # ── Line-level filters, applied before anything else ───────────
 
 _FRONT_MATTER_FENCE = re.compile(r"^---$")
+_FRONT_MATTER_TITLE = re.compile(r"^title:\s*(.*)$")
 _CODE_FENCE = re.compile(r"^```")
 _LAYOUT_DIRECTIVE = re.compile(r"^:{2,}")
 
@@ -150,6 +160,41 @@ _ENRICHED_REFERENCE = re.compile(
         \s*,\s+\S""",
     re.IGNORECASE | re.VERBOSE,
 )
+
+
+def front_matter_title(text: str) -> str | None:
+    """The `title:` a .qmd declares in its front matter, or None.
+
+    strip_qmd() deletes front matter wholesale, and rightly — `pagetitle` and
+    `description` are the site's own SEO metadata (#497), with no counterpart
+    on the printed page. But `title` is different: it is Neave's section
+    heading, and the site renders it as the chapter's h1 rather than repeating
+    it in the body. So for all 88 chapters the printed heading has no
+    comparable text anywhere in the stripped QMD, and the short-content pass
+    (#742) would report every one of them as unmatched — "SOME LIGHT RELIEF!"
+    is on the site, as the title of `day-01/10-relief.qmd`.
+
+    Read as a line, not as YAML: every title in the corpus is a single
+    quoted scalar on one line, and the alternative is a ruby YAML shell-out
+    (as the appendix manifests use) for one field. Both quoting styles appear
+    — `title: "A SYSTEM ..."` and `title: '"OUT-OF-HOURS" NOTE'` — so the
+    outer quotes come off whichever they are, and a title carrying neither is
+    taken as it stands. Returns the title only from the front matter block,
+    never from a `title:` line appearing later in the body.
+    """
+    lines = text.split("\n")
+    if not lines or not _FRONT_MATTER_FENCE.match(lines[0]):
+        return None
+    for line in lines[1:]:
+        if _FRONT_MATTER_FENCE.match(line):
+            return None
+        match = _FRONT_MATTER_TITLE.match(line)
+        if match:
+            value = match.group(1).strip()
+            if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+                value = value[1:-1]
+            return value or None
+    return None
 
 
 def strip_workbook_refs(text: str) -> str:

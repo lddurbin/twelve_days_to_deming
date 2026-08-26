@@ -2,7 +2,7 @@ day: 11
 validated_at: 2026-08-26
 source_pdf: N.Day.11.18Jan20.pdf
 source_sha256: e2e24a83e33d2c23f6aef971af00c41b2b89ed9e7c3a5713abff3e1e72d95eed
-scorer_version: 38dd9fcff7bb1d7b944cd0e1448f79b89b378b63
+scorer_version: 99e7d7bb525fdde2bd94f713447bb2b5c96ac28b
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -19,3 +19,7 @@ counts:
   unsourced: 1
   unsourced_sentences: 2
   reference_mismatches: 7
+  short_checked: 30
+  short_matched: 24
+  short_unmatched: 1
+  short_unjudged: 5

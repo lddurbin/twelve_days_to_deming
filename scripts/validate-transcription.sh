@@ -7,7 +7,7 @@
 #   e.g. ./scripts/validate-transcription.sh 3
 #        ./scripts/validate-transcription.sh --appendix contributions-balaji-reddie
 #
-# Reports four distinct kinds of gap, in four separate sections:
+# Reports five distinct kinds of gap, in five separate sections:
 #   - Missing:    a PDF paragraph whose single best-scoring sentence still
 #                 falls below MISSING_SIMILARITY_THRESHOLD against every
 #                 sentence in the QMD text — nothing in the chapter resembles
@@ -35,6 +35,16 @@
 #                 catch content copied verbatim from elsewhere in the same
 #                 PDF — that scores a perfect match against its true,
 #                 wrongly-relocated origin (see #645).
+#   - Short:      a PDF block too short to score at all. The two filters in
+#                 scripts/lib/paragraphs.py keep 40-byte, 40%-letter minimums
+#                 on what enters similarity scoring, because a four-word
+#                 heading finds a 0.5 "match" against any other four-word
+#                 heading — but until #742 what they rejected simply vanished,
+#                 576 blocks of it across the twelve days. Each one is now
+#                 matched against the QMD's own short content and chapter
+#                 headings, exactly rather than fuzzily, and whatever is not
+#                 found is reported grouped by wording and stamped with its
+#                 PDF page. See scripts/lib/short_content.py and issue #742.
 #   - Reference:  a sentence pair that scores at or above
 #                 REFERENCE_PAIR_THRESHOLD — credibly the same sentence —
 #                 whose page/day/chapter numbers or bare numerals disagree.
@@ -175,15 +185,22 @@ read_appendix_manifest() {
 
 # Extract text from PDF, normalise whitespace, filter boilerplate
 #
-# Form feeds are stripped with `tr`, not sed. BSD sed (macOS, the only
-# platform this script runs on) does not understand the `\f` escape and reads
-# it as a literal `f`, so the `s/\f//g` this used to open with silently
-# deleted every letter "f" from the PDF side of every comparison — "of far
-# off" came out as "o ar o". That corruption was long misread as pdftotext
-# mangling fi/fl/ff ligatures, and was "fixed" by stripping `f` from BOTH
-# sides in normalise() so the two agreed. pdftotext in fact emits ligatures
-# as plain ASCII here ("essential feature of" is byte-for-byte intact), so
-# with the real bug fixed, both f-stripping workarounds are gone too.
+# Form feeds become page-marker lines, and that stage runs first, before the
+# `sed` below deletes anything (see mark_pages() in scripts/lib/paragraphs.py
+# for the marker's shape and why the boundary cannot survive as a form feed).
+# They used to be deleted outright by `tr`, which cost every downstream stage
+# any way of saying which page a line came from — the page numbers #742's
+# short-content report is triaged by.
+#
+# Never sed, either way. BSD sed (macOS, the only platform this script runs
+# on) does not understand the `\f` escape and reads it as a literal `f`, so
+# the `s/\f//g` this used to open with silently deleted every letter "f" from
+# the PDF side of every comparison — "of far off" came out as "o ar o". That
+# corruption was long misread as pdftotext mangling fi/fl/ff ligatures, and
+# was "fixed" by stripping `f` from BOTH sides in normalise() so the two
+# agreed. pdftotext in fact emits ligatures as plain ASCII here ("essential
+# feature of" is byte-for-byte intact), so with the real bug fixed, both
+# f-stripping workarounds are gone too.
 extract_pdf_text() {
   local pdf="$1"
   # Note: no rule strips inline numbers. A previous `s/ [0-9]{1,3} / /g` meant
@@ -198,7 +215,9 @@ extract_pdf_text() {
   # one of them was a guaranteed unmatched fragment, and its bare number a
   # standing reference mismatch under #738. It runs the same implementation
   # the QMD side runs, rather than a second sed copy free to drift from it.
-  pdftotext -layout "$pdf" - | tr -d '\014' | sed -E '
+  pdftotext -layout "$pdf" - \
+    | python3 "$REPO_ROOT/scripts/lib/paragraphs.py" --mark-pages \
+    | sed -E '
     # Collapse runs of spaces
     s/  +/ /g
     # Trim leading/trailing whitespace
@@ -343,7 +362,12 @@ main() {
   local min_para_len
   min_para_len=$(python3 "$REPO_ROOT/scripts/lib/paragraphs.py" --min-length)
   echo "Extracting PDF text..."
-  extract_pdf_text "$pdf_file" | text_to_paragraphs > "$tmpdir/pdf_paras.txt"
+  # Kept as a file rather than piped straight through, because the
+  # short-content pass (#742) reads the same extracted text: one extraction,
+  # two consumers, so the two can't disagree about what the PDF says.
+  local pdf_text="$tmpdir/pdf_text.txt"
+  extract_pdf_text "$pdf_file" > "$pdf_text"
+  text_to_paragraphs < "$pdf_text" > "$tmpdir/pdf_paras.txt"
   local pdf_para_count
   pdf_para_count=$(wc -l < "$tmpdir/pdf_paras.txt" | tr -d ' ')
   echo "  Found $pdf_para_count paragraphs in PDF (>=${min_para_len} bytes each)"
@@ -421,6 +445,33 @@ main() {
     exit 1
   fi
 
+  # Step 3b: account for what the paragraph filters dropped (#742). Everything
+  # under the length floor is too short for the scoring above to say anything
+  # useful about, so it is matched exactly instead — against the QMD's own
+  # short content and its chapter headings — and whatever isn't found is
+  # reported rather than silently discarded, as it was until now.
+  local short_report="$tmpdir/short_report.txt"
+  if ! python3 "$REPO_ROOT/scripts/lib/short_content.py" \
+       "$pdf_text" "$qmd_combined" "${qmd_files[@]}" \
+       > "$short_report"; then
+    echo "Error: the short-content pass failed (see the Python error above)." >&2
+    echo "       scripts/lib/short_content.py" >&2
+    exit 1
+  fi
+
+  local short_checked short_matched short_unmatched short_unjudged short_garbled
+  short_checked=$(sed -n 's/^SHORT_CHECKED=//p' "$short_report")
+  short_matched=$(sed -n 's/^SHORT_MATCHED=//p' "$short_report")
+  short_unmatched=$(sed -n 's/^SHORT_UNMATCHED=//p' "$short_report")
+  short_unjudged=$(sed -n 's/^SHORT_UNJUDGED=//p' "$short_report")
+  short_garbled=$(sed -n 's/^SHORT_GARBLED=//p' "$short_report")
+  if ! [[ "$short_checked" =~ ^[0-9]+$ && "$short_matched" =~ ^[0-9]+$ \
+       && "$short_unmatched" =~ ^[0-9]+$ && "$short_unjudged" =~ ^[0-9]+$ \
+       && "$short_garbled" =~ ^[0-9]+$ ]]; then
+    echo "Error: the short-content pass returned no usable counts." >&2
+    exit 1
+  fi
+
   # Step 4: Report
   echo "=========================================="
   echo "  Results"
@@ -435,6 +486,14 @@ main() {
   echo "  Unsourced QMD content:       $unsourced"
   echo "    - sentences flagged:             $unsourced_sentences"
   echo "  Reference mismatches:        $reference"
+  echo "  Short content (below floor): $short_checked"
+  echo "    - matched in the QMD:            $short_matched"
+  echo "    - not found:                     $short_unmatched"
+  echo "    - set aside (tables, contents):  $short_unjudged"
+  # A separate population, not part of the three above: blocks the readability
+  # filter rejected as page furniture. Stated rather than dropped in silence;
+  # #743 is what puts it in the provenance record alongside the rest.
+  echo "  Unreadable blocks (furniture): $short_garbled"
   echo ""
 
   if (( missing == 0 && altered == 0 && unsourced == 0 && reference == 0 )); then
@@ -462,6 +521,13 @@ main() {
     fi
   fi
 
+  # Printed outside the split above, not inside either branch of it: these
+  # findings are about content the similarity pass never scored, so a day can
+  # be clean by every count above and still be missing a heading.
+  if (( short_unmatched > 0 || short_unjudged > 0 )); then
+    sed '1,/^$/d' "$short_report"
+  fi
+
   echo "=========================================="
   echo "  Notes"
   echo "=========================================="
@@ -483,6 +549,9 @@ main() {
   echo "    and mostly overlap it: a pair can be a clean match and still point"
   echo "    at the wrong page. Read that section first — it is the shortest"
   echo "    and the one similarity scoring cannot see for you."
+  echo "  - Short content is matched exactly, not scored: a line of four words"
+  echo "    cannot support a similarity judgement, so that section says only"
+  echo "    whether the wording is present on the site, never whether it drifted."
   echo ""
 
   # Step 5: record provenance (#720). The script writes this itself, rather
@@ -516,6 +585,10 @@ counts:
   unsourced: $unsourced
   unsourced_sentences: $unsourced_sentences
   reference_mismatches: $reference
+  short_checked: $short_checked
+  short_matched: $short_matched
+  short_unmatched: $short_unmatched
+  short_unjudged: $short_unjudged
 EOF
   echo "Provenance recorded: ${result_file#"$REPO_ROOT/"}"
 }
