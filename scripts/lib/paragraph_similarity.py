@@ -548,7 +548,7 @@ def build_pool(paras: list[str]) -> list[tuple[str, tuple[str, ...]]]:
 def score_paragraph(
     pdf_para: str,
     qmd_pool: list[tuple[str, tuple[str, ...]]],
-    short_pool: list[tuple[str, tuple[str, ...]]] = (),
+    short_pool: list[tuple[str, tuple[str, ...]]] | None = None,
     admit_short_at: float = ALTERED_SIMILARITY_THRESHOLD,
 ) -> list[tuple[float, str, str]]:
     """(score, pdf_sentence, best_qmd_sentence) for every scoreable sentence

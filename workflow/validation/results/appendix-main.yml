@@ -2,7 +2,7 @@ appendix: main
 validated_at: 2026-08-26
 source_pdf: P.Appendix.09Feb22.pdf
 source_sha256: 0ce090f5be18025dadfff9379d87163a77825a9ac772ce06f7098e6caf51f577
-scorer_version: 22b8b61ccc90b16b798c713a0554b93e5aa99369
+scorer_version: 1ddbba6ff2b68876a8726916339089761a59b5da
 thresholds:
   missing: 0.4
   altered: 0.98

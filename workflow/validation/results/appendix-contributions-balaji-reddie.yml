@@ -2,7 +2,7 @@ appendix: contributions-balaji-reddie
 validated_at: 2026-08-26
 source_pdf: Q.Contributions.from.Balaji.Reddie.11Sep21.pdf
 source_sha256: fa9f5a85a7585c20185c3e4acda7b623e44002d46dc8de22f95f747954aaf21c
-scorer_version: 22b8b61ccc90b16b798c713a0554b93e5aa99369
+scorer_version: 1ddbba6ff2b68876a8726916339089761a59b5da
 thresholds:
   missing: 0.4
   altered: 0.98
