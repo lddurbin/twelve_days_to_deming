@@ -134,7 +134,8 @@ backwards; in document order, nine times, all forwards.
 | `proposal` | exact replacement text, shown as code. Omit for a finding with nothing to apply |
 | `evidence_html` | why the verdict goes this way. This is the part that has to survive without the conversation around it |
 | `decision` | `null` until decided, then `accept` / `reject` / `discuss` |
-| `decision_note` | Lee's note, if any |
+| `decision_note` | Lee's note, if any — his words, left as he wrote them |
+| `outcome` | what the pass did with the decision. Optional, and worth setting where a `discuss` had to go somewhere: the issue, PR or commit that resolved it. Without it a `discuss` reads as unanswered forever, which is the one gap this record exists to close |
 
 A finding may be listed separately from one in the same sentence when the two
 can be accepted independently — Day 5's `D5-11` and `D5-12` share a sentence and

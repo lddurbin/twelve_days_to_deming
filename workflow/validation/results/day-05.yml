@@ -11,14 +11,14 @@ thresholds:
 counts:
   pdf_paragraphs: 72
   qmd_paragraphs: 76
-  matched_cleanly: 57
-  altered: 12
-  flagged_sentences: 20
-  near_certain: 8
+  matched_cleanly: 64
+  altered: 5
+  flagged_sentences: 9
+  near_certain: 1
   missing: 3
-  unsourced: 1
-  unsourced_sentences: 1
-  reference_mismatches: 2
+  unsourced: 0
+  unsourced_sentences: 0
+  reference_mismatches: 1
   short_checked: 55
   short_matched: 51
   short_unmatched: 2

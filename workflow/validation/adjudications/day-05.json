@@ -1,13 +1,13 @@
 {
   "pass": "day-05",
   "epic": 734,
-  "issue": null,
+  "issue": 771,
   "source_pdf": "H.Day.5.08Feb22.pdf",
   "scorer_version": "d78c7454b94cd1f0c5595344e173f07fc49a8f27",
   "content_dir": "content/days/day-05",
   "export_filename": "day-05-decisions.json",
   "adjudicated_at": "2026-08-27",
-  "decided_at": null,
+  "decided_at": "2026-08-27",
   "report": {
     "flagged_sentences": 20,
     "near_certain": 8,
@@ -55,7 +55,7 @@
           "site_html": "Remember also from Point 8 (in my comments on the Scientific Approach): \"Where there is fear, there will be wrong figures\".",
           "proposal": "Remember also from Point 8 (in my comments on [Appendix page 24](../../appendix/05-day-5.qmd#sec-page24) relating to the Scientific Approach): \"Where there is fear, there will be wrong figures\".",
           "evidence_html": "The one finding the reference-token rule caught on its own — a pointer the site simply drops. <code>[]{#sec-page24}</code> exists at <code>content/appendix/05-day-5.qmd:9</code>, so the enriched link resolves; the form matches the file-qualified convention already used twice on this page.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -72,7 +72,7 @@
           "site_html": "The definition of an \"unemployed person\" … changes <mark class='gone'>perhaps</mark> three times a year (<em>Dem-Dim</em> page 111).",
           "proposal": "…changes maybe three times a year…",
           "evidence_html": "Confirmed on the page image. No shade of meaning at stake — but the pass is word-for-word, and \"perhaps\" is not what he wrote.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -89,7 +89,7 @@
           "site_html": "(I refer ahead to [Day 6 pages 25–26](…)).",
           "proposal": "(I refer ahead here to [Day 6 pages 25–26](../day-06/04-more-true-stories.qmd#sec-page22)).",
           "evidence_html": "Scored 98% — right on the altered threshold, the band the epic flagged as the escape route for one-word losses. The link target is untouched.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -106,7 +106,7 @@
           "site_html": "…three times a year (<em><mark class='gone'>Dem-Dim</mark></em> page 111).",
           "proposal": "(*DemDim* page 111)",
           "evidence_html": "The source breaks <em>DemDim</em> across a line as “Dem-&nbsp;/&nbsp;Dim” and the hyphen was transcribed as real. <b>Corpus-wide this is 246 “DemDim” against exactly 1 “Dem-Dim” — this one.</b> Six words earlier on the same line the site gets it right.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -123,7 +123,7 @@
           "site_html": "…simply Dr Deming's own handwriting <mark class='gone'>on</mark> a typewriter!…",
           "proposal": "(Don't focus your attention on the technology—simply Dr Deming's own handwriting and a typewriter!—but on the wisdom.) That list provides many clear links with the Joiner Triangle.",
           "evidence_html": "Neave is naming two humble technologies — handwriting <em>and</em> a typewriter. \"on a typewriter\" makes the handwriting happen on the typewriter, which is not a thing. Same sentence as D5-06; one edit covers both.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -140,7 +140,7 @@
           "site_html": "…a typewriter!—<mark class='gone'>but that list provides</mark> many clear links with the Joiner Triangle<mark class='gone'>.)</mark>",
           "proposal": "(Don't focus your attention on the technology—simply Dr Deming's own handwriting and a typewriter!—but on the wisdom.) That list provides many clear links with the Joiner Triangle.",
           "evidence_html": "<b>The instruction is lost.</b> \"but on the wisdom\" is the whole point of the parenthesis — don't look at the technology, look at the wisdom. The site drops it and pulls the next sentence inside the brackets. Verified against the page image.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -157,7 +157,7 @@
           "site_html": "<em>(Beckoning Marks over to the window, and watching a large truck leaving the factory<mark class='gone'>.</mark>)</em> Come here.",
           "proposal": "*(Beckoning Marks over to the window, and watching a large truck leaving the factory:)* Come here. Is that what you mean?",
           "evidence_html": "The colon is doing work — the stage direction runs straight into what Holmes then says. The rest of this dialogue is faithful; I read it off the page image because <code>pdftotext</code> returns Marks's lines as symbol-font garbage. The lowest-confidence item here: one character, and you may read the full stop as a fair rendering.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -174,7 +174,7 @@
           "site_html": "The crippling disease is lack of constancy of purpose by planning to provide product and service in the future…",
           "proposal": "**The crippling disease is lack of constancy of purpose to stay in business by planning to provide product and service in the future that will help man to live better materially, and which will have a market, and provide jobs.**",
           "evidence_html": "<b>This one is Deming's own wording, inside a principle callout.</b> The page image confirms it, and the footnote directly under it is Neave explaining precisely which words he did and did not alter in this quotation — so a silent extra omission sits badly.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -191,7 +191,7 @@
           "site_html": "Basically, it was <mark class='gone'>that judging</mark> individual performance with the implication…",
           "proposal": "Basically, it was anything that judges individual performance with the implication that it is primarily the individual's *fault* if there are any supposed shortcomings.",
           "evidence_html": "The site's version is also ungrammatical after \"it was\". Neave is answering \"what exactly was Deming against?\" — the answer is <em>anything</em> of that kind, and the breadth is the point.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -208,7 +208,7 @@
           "site_html": "…it encourages superficiality rather than depth; it encourages <mark class='gone'>those actions</mark> without understanding.",
           "proposal": "…it encourages superficiality rather than depth; it encourages action without understanding.",
           "evidence_html": "A three-beat parallel — ability at short-term impact, superficiality rather than depth, action without understanding. \"those actions\" breaks the parallel and points at nothing.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -225,7 +225,7 @@
           "site_html": "However, I have placed <mark class='gone'>my own suggestions about this</mark> in the Appendix rather than here in the main text.",
           "proposal": "However, I have placed all today's such suggestions in the Appendix rather than here in the main text.",
           "evidence_html": "\"all today's\" is the load-bearing part: it announces the change of format for the whole of Day 5, which is what the paragraph opened by promising (\"There is one important change from yesterday\"). The site's wording loses the scope.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -242,7 +242,7 @@
           "site_html": "Then, if you wish, <mark class='gone'>have</mark> a look in the Appendix to see what I have written there.",
           "proposal": "Then, if you wish, take a look in the Appendix to see what I have written there.",
           "evidence_html": "Same sentence pair as D5-11, same paragraph. Listed separately so you can take one and not the other.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         }
       ]
@@ -270,8 +270,8 @@
           "site_html": "Now it's time to take a break to watch the video <em>Management's Five Deadly Diseases</em> (see the link on page 1). Delegates used to appreciate my description…",
           "proposal": "**Now it's time to take a break to watch the video *Management's Five Deadly Diseases* (see the link on [page 1, in the Introduction](01-introduction.qmd#sec-page1)).** Delegates used to appreciate my description of this video as featuring a rather elderly \"Angry Young Man\"! I think you'll soon see why.",
           "evidence_html": "Neave sets this instruction in bold serif — it is a \"stop and do this now\" marker, not prose. Day 10 keeps that convention (<code>03-activity-10a.qmd:13</code> bolds its instruction); Day 5 does not. <b>Judgment call:</b> where the bold run ends is my reading of the page — it appears to close after \"page 1)\".",
-          "decision": null,
-          "decision_note": null
+          "decision": "accept",
+          "decision_note": "The bold run closes after \"Diseases\""
         },
         {
           "id": "D5-14",
@@ -287,7 +287,7 @@
           "site_html": "…people who do not know the business <em>[i.e. this business]</em> and thus blindly use experience…",
           "proposal": "*[i.e. **this** business]*",
           "evidence_html": "Neave's editorial insert bolds \"this\" — the whole point of the gloss is the contrast between business-in-general and <em>this</em> business. The site keeps the italic bracket but flattens the emphasis inside it.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         }
       ]
@@ -314,7 +314,7 @@
           "source_html": "H<br>DAY 5:<br>THE JOINER TRIANGLE,<br>THE 14 POINTS (part 2)<br>and<br>THE DEADLY DISEASES",
           "site_html": "DAY 5: THE JOINER TRIANGLE, THE 14 POINTS (part 2), AND THE DEADLY DISEASES",
           "evidence_html": "The flag compares the site's H1 against the PDF's <em>cover page</em>, which sets the title over six lines with the binder letter \"H\" above it. The site's heading matches the running title on printed page 1 exactly. Nothing to fix.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -330,7 +330,7 @@
           "source_html": "“… from elimination of work standards [see the important note at the top of the next page], from better training, better supervision; from a team composed of…”",
           "site_html": "\"… from elimination of work standards <em>[see the important note at the top of the next page]</em>, from better training, better supervision; from a team composed of…\"",
           "evidence_html": "I read the whole blockquote against the page and it is <b>word-for-word identical</b>. The flag comes from the line-wrap \"train-&nbsp;/&nbsp;ing\" landing at a sentence boundary and pushing the two sides out of alignment; the \"missing\" numbers 103/105/121/123 are all present, one sentence earlier. A false positive worth knowing about — the joiner fix in #740 does not reach a wrap that coincides with a split.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -346,7 +346,7 @@
           "source_html": "Point 11: Eliminate arbitrary numerical targets (p 10 [WB 78]) …………… — see Appendix page 26",
           "site_html": "(the site has no contents page; navigation does this job)",
           "evidence_html": "Six flags, all rows of the PDF's contents-and-itinerary spread. The site reproduces the destinations — each Point carries its own <em>(See Appendix page N.)</em> line — but not the listing itself, which is print navigation. Matches the triage already recorded in the epic.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -362,7 +362,7 @@
           "source_html": "@#8;*A *+,-!()-!-.)!(//0,!/+-!/1!-.)!1#2-/3$!(#-),4…",
           "site_html": "<em>Marks:</em> Just get the goods out of the factory gates—that's what I always say.",
           "evidence_html": "Marks's lines are set in a font <code>pdftotext</code> cannot decode, so four flags are scored against gibberish. Read off <code>H.Day.5.08Feb22_page_010.png</code>, the dialogue is faithful line for line, speaker labels included. The only real difference in it is D5-07 above.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         },
         {
@@ -378,8 +378,9 @@
           "source_html": "FIRST PROJECT / CONTINUED",
           "site_html": "![First Project Continued](/assets/images/day-05/first-project-continued.png)",
           "evidence_html": "The words sit inside the orange title plate on printed page 1, which the site reproduces as an image with that alt text. Not prose the site failed to transcribe. Figure fidelity is spike #725's question, not this pass's.",
-          "decision": null,
-          "decision_note": null
+          "decision": "discuss",
+          "decision_note": "It probably makes more sense just to transcribe this as text. The image is unnecessary, and I don't think it looks particularly good on the site.",
+          "outcome": "Raised as #773 — the same title plate appears four times across Days 4, 5 and 11 and the appendix, so it is normalised as a set rather than in this pass."
         },
         {
           "id": "N-06",
@@ -394,7 +395,7 @@
           "source_html": "Points 7–12 (pages 2–13) are also on Workbook pages 70–81.",
           "site_html": "(omitted, as everywhere)",
           "evidence_html": "Two yellow banner strips pointing at the printed workbook, plus the inline <code>[WB NN]</code> markers. <b>Zero occurrences of \"Workbook page\" exist anywhere under <code>content/</code></b> — the site has no workbook, so these have been dropped consistently across all twelve days. Noting it here so Day 5's record says so explicitly.",
-          "decision": null,
+          "decision": "accept",
           "decision_note": null
         }
       ]
@@ -421,8 +422,9 @@
           "source_html": "…the third part of Activity 4<mark class='src'>–</mark>a (Day 4 page 5).",
           "site_html": "…the third part of Activity 4<mark class='gone'>-</mark>a ([Day 4 page 5](…)).",
           "evidence_html": "Neave uses an en dash in activity labels. The site uses <b>both forms, inconsistently, across all twelve days</b> — 4-a here, 12–b elsewhere, in no pattern. Fixing this single instance would make Day 5 internally right and the corpus no more consistent. My recommendation is a separate normalisation issue that sweeps every day at once.",
-          "decision": null,
-          "decision_note": null
+          "decision": "discuss",
+          "decision_note": "I agree. Let's create a separate issue for this normalisation work.",
+          "outcome": "Raised as #772 — normalises all 70 activity-label dashes corpus-wide."
         }
       ]
     }

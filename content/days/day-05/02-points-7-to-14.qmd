@@ -10,7 +10,7 @@ execute:
 
 <div class="principle_callout" role="note" aria-label="Principle">**Adopt and institute leadership aimed at helping people to do a better job.** The responsibility of managers and supervisors must be changed from sheer numbers to quality. Improvement of quality will automatically improve productivity. Management must ensure that immediate action is taken on reports of inherited defects, maintenance requirements, poor tools, fuzzy operational definitions *[operational definitions will be studied on Day 11]*, and other conditions detrimental to quality.</div>
 
-Rather than my attempting to contrive introductory comments in this case, it will be far more useful for you to **turn to *DemDim* page 335 and read through the list of "Attributes of a Leader"** which Dr Deming used in his four-day seminars around 1990. (Don't focus your attention on the technology—simply Dr Deming's own handwriting on a typewriter!—but that list provides many clear links with the Joiner Triangle.)
+Rather than my attempting to contrive introductory comments in this case, it will be far more useful for you to **turn to *DemDim* page 335 and read through the list of "Attributes of a Leader"** which Dr Deming used in his four-day seminars around 1990. (Don't focus your attention on the technology—simply Dr Deming's own handwriting and a typewriter!—but on the wisdom.) That list provides many clear links with the Joiner Triangle.
 
 There is considerably more on Day 12 concerning Deming's specific guidance on leadership. However, you should find *DemDim* page 335 more than ample in the current context or, if you're particularly interested in this topic, you might like to read the whole chapter (*DemDim* Chapter 25 pages 333–339).
 
@@ -126,7 +126,7 @@ Holmes was speaking to the Sales Director, Peter Marks.
 
 *Marks:* Just get the goods out of the factory gates—that's what I always say.
 
-*Holmes:* Do you indeed? *(Beckoning Marks over to the window, and watching a large truck leaving the factory.)* Come here. Is that what you mean?
+*Holmes:* Do you indeed? *(Beckoning Marks over to the window, and watching a large truck leaving the factory:)* Come here. Is that what you mean?
 
 *M:* Yes.
 
@@ -246,9 +246,9 @@ viewof p10_sa = persist(
 
 Here we have the topic that used to be regarded as probably the most controversial of all of the 14 Points (other than Point 12 if that is incorrectly regarded as being primarily about performance appraisal). Nowadays, repeated failures of the "target culture" have raised some awareness of the truth in what Deming was getting at so long ago. Yet managers and governments still *love* targets. They are easy to set, and then those who set them can sit back and wait for the results to arrive—as they will (or will appear to) if the threats and promises are sufficiently impressive. But at what cost?
 
-An obvious trouble then is that it is the *number* which becomes the aim—as opposed to (a) *quality* being the aim and (b) the number (amongst many others) being an indicator of a possibly rather questionable aspect of "quality". What is the consequence? Using some of Dr Deming's own words: fudging figures, creative accounting, suboptimisation. Remember also from Point 8 (in my comments on the Scientific Approach): "Where there is fear, there will be wrong figures".
+An obvious trouble then is that it is the *number* which becomes the aim—as opposed to (a) *quality* being the aim and (b) the number (amongst many others) being an indicator of a possibly rather questionable aspect of "quality". What is the consequence? Using some of Dr Deming's own words: fudging figures, creative accounting, suboptimisation. Remember also from Point 8 (in my comments on [Appendix page 24](../../appendix/05-day-5.qmd#sec-page24) relating to the Scientific Approach): "Where there is fear, there will be wrong figures".
 
-Resources are channelled into reaching that number, irrespective of the harm caused elsewhere. Methods of measuring or counting are changed. Definitions are changed. "Punctual" is revised from being 5 minutes late to being 10 minutes late (*DemDim* page 113). The definition of an "unemployed person" (or whatever term is used for those who contribute to the monthly figures) changes perhaps three times a year (*Dem-Dim* page 111). With crime figures, certain types of offences are surreptitiously dropped from the count (I refer ahead to [Day 6 pages 25–26](../day-06/04-more-true-stories.qmd#sec-page22)).
+Resources are channelled into reaching that number, irrespective of the harm caused elsewhere. Methods of measuring or counting are changed. Definitions are changed. "Punctual" is revised from being 5 minutes late to being 10 minutes late (*DemDim* page 113). The definition of an "unemployed person" (or whatever term is used for those who contribute to the monthly figures) changes maybe three times a year (*DemDim* page 111). With crime figures, certain types of offences are surreptitiously dropped from the count (I refer ahead here to [Day 6 pages 25–26](../day-06/04-more-true-stories.qmd#sec-page22)).
 
 *(See [Appendix page 26](../../appendix/05-day-5.qmd#sec-page26).)*
 

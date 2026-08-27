@@ -6,7 +6,7 @@ session_minutes: 150
 execute:
   echo: false
 ---
-Now it's time to take a break to watch the video *Management's Five Deadly Diseases* (see the link on [page 1, in the Introduction](01-introduction.qmd#sec-page1)). Delegates used to appreciate my description of this video as featuring a rather elderly "Angry Young Man"! I think you'll soon see why.
+**Now it's time to take a break to watch the video *Management's Five Deadly Diseases*** (see the link on [page 1, in the Introduction](01-introduction.qmd#sec-page1)). Delegates used to appreciate my description of this video as featuring a rather elderly "Angry Young Man"! I think you'll soon see why.
 
 <div class="return_callout" role="note" aria-label="Study resource">Watch *Management's Five Deadly Diseases* at [www.youtube.com/watch?v=ehMAwIHGN0Y](https://www.youtube.com/watch?v=ehMAwIHGN0Y) (note: the penultimate character is a zero; the sixth character from the end is a capital letter I).</div>
 
@@ -14,7 +14,7 @@ Now it's time to take a break to watch the video *Management's Five Deadly Disea
 
 ## Disease 1. Lack of constancy {#sec-page18}
 
-<div class="principle_callout" role="note" aria-label="Principle">**The crippling disease is lack of constancy of purpose by planning to provide product and service in the future that will help man to live better materially, and which will have a market, and provide jobs.**</div>
+<div class="principle_callout" role="note" aria-label="Principle">**The crippling disease is lack of constancy of purpose to stay in business by planning to provide product and service in the future that will help man to live better materially, and which will have a market, and provide jobs.**</div>
 
 In fact, Dr Deming began this statement with "The crippling disease in America…". I have omitted the two extra words for the obvious reason that this Disease is far more widespread.
 
@@ -130,7 +130,7 @@ viewof d2_sa = persist(
 
 As you can see from *DemDim* pages 50–51, Dr Deming's opinion of performance appraisal was unambiguously damning. But the term "performance appraisal" means different things to different people. So what exactly was Deming so heavily against, and why?
 
-Basically, it was that judging individual performance with the implication that it is primarily the individual's *fault* if there are any supposed shortcomings. From Deming's viewpoint, one big reason is immediately and patently obvious: yet again, the vast majority of performance, behaviour, results, quality, productivity, etc comes from the system, not the individual. In particular, if appraisal means that a person will be rated or ranked—and, worse still, if this results in some kind of reward or punishment, be it financial and/or other—then that is what Deming was talking about and saw as so harmful.
+Basically, it was anything that judges individual performance with the implication that it is primarily the individual's *fault* if there are any supposed shortcomings. From Deming's viewpoint, one big reason is immediately and patently obvious: yet again, the vast majority of performance, behaviour, results, quality, productivity, etc comes from the system, not the individual. In particular, if appraisal means that a person will be rated or ranked—and, worse still, if this results in some kind of reward or punishment, be it financial and/or other—then that is what Deming was talking about and saw as so harmful.
 
 As a personal observation, I can honestly say that I have never heard anybody who is involved with performance appraisal talking about it with any enthusiasm. From what people have so often told me, my impressions are these. For those to be appraised it is a matter of apprehension at least, even for those who usually escape pretty lightly from it—they might not be so lucky next time. For the appraisers it is an irritating chore. For all it is an unpleasant interruption to their "proper job".
 
@@ -183,11 +183,11 @@ viewof d3_sa = persist(
 
 ## Disease 4. Management job-hopping {#sec-page24}
 
-<div class="principle_callout" role="note" aria-label="Principle">**Mobility of management causes instability, results in decisions being made by people who do not know the business** *[i.e. this business]* **and thus blindly use experience gained elsewhere which may be totally irrelevant.**</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Mobility of management causes instability, results in decisions being made by people who do not know the business** *[i.e. **this** business]* **and thus blindly use experience gained elsewhere which may be totally irrelevant.**</div>
 
 This fourth Deadly Disease needs some clarification in order to avoid misinterpretation. Dr Deming is not suggesting that one should necessarily be stuck in the same place in the same organisation for life! But, as we are viewing an organisation as a system, broad knowledge across the organisation as a whole as well as substantial knowledge of part of it is *necessary*. How does the organisation work? How does what happens in one part of it affect what happens in other parts? And how is what happens in one part *affected by* what happens in other parts?
 
-Moving around the organisation in order to acquire that broader understanding is clearly good. So what is the fourth Deadly Disease? What Dr Deming is warning us against here is the culture of flitting from one location to another, one job to another, one company to another, not for better understanding but for attempted self-advancement. In some environments you can be regarded as a "stick-in-the-mud" if you don't move on within a few months from wherever you are now. This encourages development of ability at short-term impact without concern for long-term effects (for you'll no longer be there); it encourages superficiality rather than depth; it encourages those actions without understanding. As so often the case, Dr Deming summed it up superbly in few words (*Out of the Crisis* page 103[121]):
+Moving around the organisation in order to acquire that broader understanding is clearly good. So what is the fourth Deadly Disease? What Dr Deming is warning us against here is the culture of flitting from one location to another, one job to another, one company to another, not for better understanding but for attempted self-advancement. In some environments you can be regarded as a "stick-in-the-mud" if you don't move on within a few months from wherever you are now. This encourages development of ability at short-term impact without concern for long-term effects (for you'll no longer be there); it encourages superficiality rather than depth; it encourages action without understanding. As so often the case, Dr Deming summed it up superbly in few words (*Out of the Crisis* page 103[121]):
 
 "Mobility from one company to another creates prima donnas for quick results."
 
