@@ -100,6 +100,15 @@ is the evidence it was considered.
 
 - Re-run the validator and commit the refreshed `workflow/validation/results/<pass>.yml`
   **in the same PR** — the staleness check couples them.
+- Run `Rscript scripts/build-interday-audit.R` and commit the refreshed
+  `workflow/inter-day-refs.csv` and `workflow/bare-page-refs.csv`. Both are
+  derived from the QMD text, so *any* content edit restales them and
+  `interday-audit.yml` goes red — it is the one check the validator's own
+  staleness check does not cover. Read its diff rather than committing it
+  blind: fixing Day 5's `Dem-Dim` reclassified a nearby page reference from
+  `anchor-needed` to `external-work-candidate`, because the book-title matcher
+  looks for the literal `DemDim` and the corrupted title had been hiding a
+  reference to Neave's own book inside #610's anchor backlog.
 - Add a `docs/changesets/` entry. Content fixes are user-facing.
 - Add a `docs/deviations/` entry for any material departure from Neave's text.
 - `/ship-it`, then `/pr-feedback`, then `/merge-pr`.
