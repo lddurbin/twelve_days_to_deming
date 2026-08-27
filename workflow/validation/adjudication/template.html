@@ -149,6 +149,18 @@ h1 {
 }
 .filter .n { font-family: "IBM Plex Mono", monospace; font-size: 11px; opacity: .7; margin-left: 5px; }
 
+.order {
+  display: flex; flex: 0 0 auto; border: 1px solid var(--rule-strong);
+  border-radius: 99px; overflow: hidden;
+}
+.order button {
+  font: inherit; font-size: 12.5px; padding: 5px 13px; border: 0;
+  background: transparent; color: var(--muted); cursor: pointer;
+}
+.order button + button { border-left: 1px solid var(--rule); }
+.order button:hover { color: var(--ink); background: var(--surface-2); }
+.order button[aria-pressed="true"] { background: var(--surface); color: var(--ink); font-weight: 500; }
+
 .btn {
   font: inherit; font-size: 13px; font-weight: 500; padding: 7px 15px; border-radius: 7px;
   border: 1px solid var(--rule-strong); background: var(--surface); color: var(--ink); cursor: pointer;
@@ -173,6 +185,41 @@ h1 {
   font-variant-numeric: tabular-nums;
 }
 .section-note { margin: 0 0 20px; color: var(--muted); font-size: 14px; max-width: 68ch; }
+
+/* Document order flattens the verdict groups into one list, so two things the
+   grouped view got for free from its headings have to be carried by the cards
+   themselves: which group a finding belongs to, and which source page you need
+   to be turned to. */
+.legend { display: grid; gap: 13px; margin: 0 0 26px; }
+.legend-row {
+  display: grid; grid-template-columns: auto auto 1fr; gap: 3px 10px; align-items: baseline;
+  padding-left: 13px; border-left: 3px solid var(--stripe, var(--rule-strong));
+}
+.legend-row.k-fix { --stripe: var(--critical); }
+.legend-row.k-emph { --stripe: var(--warn); }
+.legend-row.k-clear { --stripe: var(--ok); }
+.legend-row.k-scope { --stripe: var(--muted); }
+.legend-row b { font-weight: 500; font-size: 14px; color: var(--ink); }
+.legend-row .n {
+  font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.legend-row p { grid-column: 1 / -1; margin: 0; font-size: 13.5px; color: var(--muted); max-width: 68ch; }
+
+.page-break {
+  display: flex; align-items: center; gap: 12px; margin: 32px 0 13px;
+  font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+  letter-spacing: .05em; text-transform: uppercase; color: var(--muted);
+  scroll-margin-top: 76px;
+}
+.page-break::after { content: ""; flex: 1 1 auto; height: 1px; background: var(--rule); }
+.page-break[data-hidden="1"] { display: none; }
+
+.kind-tag {
+  font-size: 11px; letter-spacing: .03em; color: var(--muted);
+  border: 1px solid var(--rule); border-radius: 5px; padding: 2px 7px;
+}
+[data-view="section"] .kind-tag { display: none; }
 
 /* ---------- finding card ---------- */
 
@@ -329,6 +376,10 @@ mark.gone { background: var(--critical-soft); color: var(--critical); text-decor
       <button class="filter" data-f="reject" aria-pressed="false">Declined<span class="n" data-c="reject"></span></button>
       <button class="filter" data-f="discuss" aria-pressed="false">Discuss<span class="n" data-c="discuss"></span></button>
     </div>
+    <div class="order" id="order" role="group" aria-label="Order findings">
+      <button type="button" data-o="doc" aria-pressed="true">Document order</button>
+      <button type="button" data-o="section" aria-pressed="false">By verdict</button>
+    </div>
     <button class="btn btn-primary" id="exportTop">Export decisions</button>
   </div>
 </div>
@@ -372,9 +423,35 @@ PASS.sections.forEach(sec => sec.items.forEach(it => {
   }
 }));
 
-const allItems = PASS.sections.flatMap(s => s.items.map(i => ({ ...i, section: s.key, labels: s.labels })));
+const allItems = PASS.sections.flatMap(s => s.items.map(i => ({ ...i, section: s.key, labels: s.labels, sec: s })));
+
+/* Document order is Neave's reading order, which is the order someone with the
+   manual open in front of them is working through. The verdict groups cut
+   across it — Day 5's 21 findings walk its pages 14, 6, 10, 22, 26, 28, 5, …
+   grouped, against 9 forward steps in document order. `pdf_page` is recorded
+   per finding for this; `page_pos` orders two findings on the same page; a
+   finding with no single page sorts last. */
+const docOrder = allItems
+  .map((it, i) => ({ it, i }))
+  .sort((a, b) => {
+    const pa = a.it.pdf_page, pb = b.it.pdf_page;
+    if (pa !== pb) {
+      if (pa == null) return 1;
+      if (pb == null) return -1;
+      return pa - pb;
+    }
+    return (a.it.page_pos || 0) - (b.it.page_pos || 0) || a.i - b.i;
+  })
+  .map(x => x.it);
+
+const VIEW_STORE = "td:adjudication:view:v1";
 let cursor = -1;
 let filter = "all";
+let view = "doc";
+try {
+  const stored = localStorage.getItem(VIEW_STORE);
+  if (stored === "doc" || stored === "section") view = stored;
+} catch (e) { /* private window: the default view stands */ }
 
 function save() {
   try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) { /* private window: decisions live for this visit only */ }
@@ -401,7 +478,14 @@ function renderMasthead() {
 
 function render() {
   const host = document.getElementById("sections");
-  host.innerHTML = PASS.sections.map(sec => `
+  host.dataset.view = view;
+  host.innerHTML = view === "doc" ? docOrderHTML() : groupedHTML();
+  cursor = -1;
+  syncAll();
+}
+
+function groupedHTML() {
+  return PASS.sections.map(sec => `
     <section class="section" data-sec="${esc(sec.key)}">
       <div class="section-head">
         <h2>${esc(sec.title)}</h2>
@@ -411,9 +495,49 @@ function render() {
       ${sec.items.map(it => card(it, sec)).join("")}
     </section>
   `).join("");
-  host.addEventListener("click", onClick);
-  host.addEventListener("input", onInput);
-  syncAll();
+}
+
+/* One divider per source page, so the list says where to turn to rather than
+   leaving it to be read off each card. Printed page numbers come from the
+   record's fixed PDF-to-printed offset, and are dropped for front matter,
+   which has no printed number to give. */
+function pageLabel(n) {
+  if (n == null) return "No single page";
+  // Printed pagination starts after the offset, so front matter comes out at or
+  // below zero and gets the PDF page alone — there is no printed p0 to cite.
+  const printed = PASS.page_offset == null ? 0 : n - PASS.page_offset;
+  return `PDF p${n}` + (printed > 0 ? ` · printed p${printed}` : "");
+}
+
+function docOrderHTML() {
+  let seen = null;
+  const list = docOrder.map((it, i) => {
+    let divider = "";
+    if (i === 0 || it.pdf_page !== seen) {
+      seen = it.pdf_page;
+      divider = `<div class="page-break" data-pagegroup="${esc(pageGroup(it))}">${esc(pageLabel(seen))}</div>`;
+    }
+    return divider + card(it, it.sec);
+  }).join("");
+  return `
+    <section class="section" data-sec="doc">
+      <div class="section-head">
+        <h2>In document order</h2>
+        <span class="section-count">${docOrder.length} findings</span>
+      </div>
+      <div class="legend">
+        ${PASS.sections.map(sec => `
+          <div class="legend-row ${esc(sec.kind)}">
+            <b>${esc(sec.tag || sec.title)}</b><span class="n">${esc(sec.count)}</span>
+            <p>${sec.note_html}</p>
+          </div>`).join("")}
+      </div>
+      ${list}
+    </section>`;
+}
+
+function pageGroup(it) {
+  return it.pdf_page == null ? "none" : String(it.pdf_page);
 }
 
 function card(it, sec) {
@@ -421,10 +545,11 @@ function card(it, sec) {
     ? `<span class="loc"><b>${esc(it.file)}:${it.line}</b><br>${esc(it.page)}</span>`
     : `<span class="loc">${esc(it.page)}</span>`;
   return `
-  <article class="card ${esc(sec.kind)}" id="c-${esc(it.id)}" data-id="${esc(it.id)}">
+  <article class="card ${esc(sec.kind)}" id="c-${esc(it.id)}" data-id="${esc(it.id)}" data-pagegroup="${esc(pageGroup(it))}">
     <div class="card-head">
       <span class="id">${esc(it.id)}</span>
       <span class="chip ${esc(it.chip_class || "")}">${esc(it.chip)}</span>
+      <span class="kind-tag">${esc(sec.tag || sec.title)}</span>
       ${loc}
     </div>
     <div class="card-body">
@@ -527,6 +652,11 @@ function syncBar() {
   });
   const none = decided === 0;
   ["exportTop", "exportBottom", "copyBtn"].forEach(x => { document.getElementById(x).disabled = none; });
+  document.querySelectorAll(".page-break").forEach(pb => {
+    const group = pb.dataset.pagegroup;
+    const live = document.querySelector(`.card[data-pagegroup="${group}"][data-hidden="0"]`);
+    pb.dataset.hidden = live ? "0" : "1";
+  });
   document.querySelectorAll(".section").forEach(sec => {
     sec.style.display = sec.querySelectorAll('.card[data-hidden="0"]').length ? "" : "none";
   });
@@ -620,6 +750,28 @@ document.addEventListener("keydown", e => {
   }
 });
 
+document.getElementById("order").addEventListener("click", e => {
+  const b = e.target.closest("button");
+  if (!b || b.dataset.o === view) return;
+  view = b.dataset.o;
+  try { localStorage.setItem(VIEW_STORE, view); } catch (e) { /* private window */ }
+  syncOrderToggle();
+  render();
+});
+
+function syncOrderToggle() {
+  document.querySelectorAll("#order button").forEach(b => {
+    b.setAttribute("aria-pressed", String(b.dataset.o === view));
+  });
+}
+
+/* Delegated once, not inside render(): the view toggle replaces the list's
+   markup, and re-binding there would double-fire every decision. */
+const listHost = document.getElementById("sections");
+listHost.addEventListener("click", onClick);
+listHost.addEventListener("input", onInput);
+
 renderMasthead();
+syncOrderToggle();
 render();
 </script>
