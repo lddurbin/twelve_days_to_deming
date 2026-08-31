@@ -1,5 +1,5 @@
 day: 6
-validated_at: 2026-08-27
+validated_at: 2026-08-31
 source_pdf: I.Day.6.19Feb22.pdf
 source_sha256: 6624bbd47c0bd7267d06bbc9c7513d8b04dfb1430e667fb1924222b09dfa3d41
 scorer_version: d78c7454b94cd1f0c5595344e173f07fc49a8f27
@@ -10,18 +10,18 @@ thresholds:
   reference: 0.85
 counts:
   pdf_paragraphs: 154
-  qmd_paragraphs: 170
-  matched_cleanly: 98
-  altered: 41
-  flagged_sentences: 76
-  near_certain: 18
-  missing: 15
+  qmd_paragraphs: 171
+  matched_cleanly: 111
+  altered: 29
+  flagged_sentences: 60
+  near_certain: 6
+  missing: 14
   unsourced: 11
   unsourced_sentences: 14
-  reference_mismatches: 5
+  reference_mismatches: 4
   short_checked: 51
-  short_matched: 37
-  short_unmatched: 13
+  short_matched: 38
+  short_unmatched: 12
   short_unjudged: 1
 blocks:
   pdf:
@@ -31,8 +31,8 @@ blocks:
     short: 51
     compared: 154
   qmd:
-    total: 226
+    total: 227
     unreadable: 0
     rejoined: 11
     short: 45
-    compared: 170
+    compared: 171
