@@ -5,4 +5,4 @@
 - **Source reference** — `N.Day.11.18Jan20.pdf`, printed page 22 (PDF page 26).
 - **Why** — Epic #734's Wave 2 pass over Day 11 (#780) surfaced this as a flagged sentence. Neave's intent is unambiguous, so this is the kind of correction the deviations-log README classifies as mechanical — but it predates the log's existence with no record of the decision anywhere, and Lee asked for it to be logged retroactively rather than left unrecorded a second time, same as Day 7's "religious"/"religiously" precedent.
 - **Decided in** — Wave 2 Day 11 adjudication pass, #780 (2026-09-01): Lee's decision was "keep the correction and log it retroactively as a sanctioned typo fix."
-- **Landed in** — *Pending — tracked in [#780](https://github.com/lddurbin/twelve_days_to_deming/issues/780).*
+- **Landed in** — PR [#781](https://github.com/lddurbin/twelve_days_to_deming/pull/781).
