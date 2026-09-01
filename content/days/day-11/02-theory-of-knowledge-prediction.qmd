@@ -51,7 +51,7 @@ Relevant reading:
 (As on Day 10, in the first two items here and on the next page I will start by suggesting how you might explain these items to your interested friend. But then also keep an eye on your summary of the four-step procedure to guide you in making further notes on these topics.)
 
 <div class="neave_note">
-Part C starts out more straightforwardly than did Parts A and B. Any plan is surely resting on thin ice if it <em>isn't</em> founded on wise predictions! And this is clearly very pertinent to management. In fact, elsewhere (<em>DemDim</em> page 184) Deming stated more pointedly that <strong>"Management ... is action based on prediction"</strong>. It certainly is! But how do people in management make their predictions? For a start, do they know anything about stable and unstable processes, common and special causes, interpreting a control chart? To put it mildly, that's all pretty relevant for figuring out what's predictable and what isn't! Or do they just depend on "experience" or citing examples of where "it worked before"? (See also Items 4 and 5 in Area 2.) Say I tossed a coin yesterday and it came down Heads. I now have some experience, I now have an example. Does it predict anything about what will happen if I toss the coin today?
+Part C starts out more straightforwardly than did Parts A and B. Any plan is surely resting on thin ice if it <em>isn't</em> founded on wise predictions! And this is clearly very pertinent to management. In fact, elsewhere (<em>DemDim</em> page 264) Deming stated more pointedly that <strong>"Management ... is action based on prediction"</strong>. I'd certainly hope so! But how do people in management make their predictions? For a start, do they know anything about stable and unstable processes, common and special causes, interpreting a control chart? To put it mildly, that's all pretty relevant for figuring out what's predictable and what isn't! Or do they just depend on "experience" or citing examples of where "it worked before"? (See also Items 4 and 5 in Area 2.) Say I tossed a coin yesterday and it came down Heads. I now have some experience, I now have an example. Does it predict anything about what will happen if I toss the coin today?
 
 So yes, of course, managers along with others need to predict successfully. But what do they know about how to do it? Deming's work can help them---a lot.
 </div>
@@ -82,7 +82,7 @@ Dr Deming was instead presumably referring to the kind of explanation that <em>d
 
 which is closer to the version you have already seen on Prelude C page 15.
 
-An important emphasis in the Theory of Knowledge part of <em>The New Economics</em> Chapter 4 page 72 [105] is that "information is not knowledge". Indeed, a considerable part of Theory of Knowledge concerns how to use information to create and develop knowledge. Again you had a good introduction to this in Prelude C.]
+An important emphasis in the Theory of Knowledge part of <em>The New Economics</em> Chapter 4 (page 72 [106]) is that "information is not knowledge". Indeed, a considerable part of Theory of Knowledge concerns how to <em>use</em> information to create and develop knowledge. Again you have had a good introduction to this in Prelude C.]
 </div>
 
 <div class="neave_note">

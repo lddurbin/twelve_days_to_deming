@@ -20,7 +20,7 @@ Relevant reading:
 
 The other chapter for your additional reading is Chapter 7, which has the same title as above. Before turning to that chapter, I'll summarise the main features of operational definitions and the important ways in which they differ from what are more ordinarily regarded simply as "definitions". As with Area 2, this introduction will ask you to take an initial look at a couple of points within the chapter before going back to the beginning. It will not be necessary for you to ponder over every detail of this chapter: it mainly consists of a host of illustrations and you'll only need to get a broad idea of what those illustrations are telling you.
 
-So what's the difference between an ordinary definition and an <dfn id="operational-definition">*operational* definition</dfn>? Attempting single-word answers, I'd say that it's the difference between *what* and *how*. Whereas a definition is concerned with ideas and concepts, an operational definition is concerned with how something is to be observed, measured, counted, recorded, decided, etc. In Dr Deming's own words (*Out of the Crisis* page 231[276]):
+So what's the difference between an ordinary definition and an <dfn id="operational-definition">*operational* definition</dfn>? Attempting single-word answers, I'd say that it's the difference between *what* and *how*. Whereas a definition is concerned with ideas and concepts, an operational definition is concerned with how something is to be observed, measured, counted, recorded, decided, etc. In Dr Deming's own words (*Out of the Crisis* page 237[276]):
 
 > **"An operational definition puts communicable meaning into a concept."**
 
@@ -31,7 +31,7 @@ There are two prime aspects of an operational definition:
 
 Easy enough? Well, maybe not. I'll illustrate with three examples: "punctual", "unemployed" and "clean":
 
-1. **punctual:** I guess none of us would have much difficulty in defining the word "punctual", say in relation to the arrival time of a train at a station. However, recalling what we saw on [Day 7 page 11](../day-07/04-many-more-true-stories.qmd#sec-page11), our definition would probably differ from the "official" one! Re-read the top of *DemDim* page 113. You will notice that the brief extract from the newspaper article there also suggests a purpose for the change of (operational) definition!
+1. **punctual:** I guess none of us would have much difficulty in defining the word "punctual", say in relation to the arrival time of a train at a station. However, recalling what we saw on [Day 7 page 11](../day-07/04-many-more-true-stories.qmd#sec-page11), your definition would probably differ from the "official" one! Re-read the top of *DemDim* page 113. You will notice that the brief extract from the newspaper article there also suggests a purpose for the change of (operational) definition!
 
 2. **unemployed:** Similarly, presumably we all know what is meant by "unemployed"; some readers may be all too familiar with the concept. But look at the bottom paragraph of *DemDim* page 111. Apparently the British Government was having some difficulties with the "fitness for purpose" aspect of its operational definition!
 
@@ -86,7 +86,7 @@ However, Deming's second sentence indicates that he is thinking in much broader 
 
 Many news bulletins report empirical observations on matters such as unemployment, inflation, growth, the stock market, the structural deficit, national debt, and so on. Yet what happens in interpretations by politicians? It often seems that an empirical observation provides ammunition for both those in government and those in opposition---because of entirely different "facts" concerning that observation! It is also very likely that the two parties may indeed <em>"have different ideas about what is important to know about"</em> the observation.
 
-It is worth pointing out that, at a trivial level, Deming's first sentence is not literally true. "We have just recorded the value 1.23" and "The value we have just obtained lies between 1.00 and 2.00" are facts---but such facts are more information rather than knowledge (see Item 2). Deming was surely referring here to facts that might yield knowledge and aid better practice. An empirical observation cannot e.g. indicate whether the process from which it came is in or out of statistical control. So should we not question how important are our particular "empirical observations"? Further, a process can be in control with respect to some features but not others. So the choice of quantity to record and chart is also of consequence.
+It is worth pointing out that, at a trivial level, Deming's first sentence is not literally true. "We have just recorded the value 1.23" and "The value we have just obtained lies between 1.00 and 2.00" are facts---but such facts are mere information rather than knowledge (see Item 2). Deming was surely referring here to facts that might yield knowledge and aid better practice. An empirical observation cannot e.g. indicate whether the process from which it came is in or out of statistical control. So should we not question how important are our particular "empirical observations"? Further, a process can be in control with respect to some features but not others. So the choice of quantity to record and chart is also of consequence.
 
 Would you trust apparently important "facts" deduced from unimportant or inappropriate data? I fear that many do.]
 </div>
@@ -123,7 +123,7 @@ viewof note_11_demdim_partc_complete = persist(
 ```
 
 <div class="neave_note">
-For your future reference, the section of Chapter 4 in <em>The New Economics</em> which relates to Part C runs from the middle of page 69[bottom of page 101] to page 72[107].
+For your future reference, the section of Chapter 4 in <em>The New Economics</em> which relates to Part C runs from the middle of page 69[bottom of page 101] to page 73[107].
 </div>
 
 ```{ojs download_all_11_area3}
