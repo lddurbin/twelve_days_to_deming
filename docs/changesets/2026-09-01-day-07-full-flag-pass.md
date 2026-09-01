@@ -1,0 +1,5 @@
+## 2026-09-01 — Day 7's full transcription flag list
+
+- **Section**: Fixed
+- **What**: Twelve corrections bring Day 7 into word-for-word agreement with `J.Day.7.14Feb22.pdf`. The largest restores a substantially rewritten paragraph: the Major Activity's introduction was missing two whole source paragraphs (a manufacturing analogy and Neave's seminar-stories anecdote), had an invented bulleted list standing in for the source's own sentences, substituted a claim about education for one about American manufacturing, and cited the wrong source in its NB callout ("Appendix page 31" instead of *DemDim* page 10). The rest correct single words that change the fact stated (an Upper Control Limit of 92.4%, not 92.1%; £8,907 booked, not £8,597; "fake" calls, not "false"; "popular" not "populate" demand in a quoted Robert Reich passage), a page range of 128–129 not 128–128, a sentence merge that left a clause with no subject, a duplicated "I nodded again." that flattened a deliberate escalation, and three emphasis runs visible only in the page images. (#778)
+- **PR**: #779

@@ -1,0 +1,8 @@
+## 2026-09-01 — Day 7 "religious"/"religiously" typo sanctioned retroactively
+
+- **What** — `content/days/day-07/04-many-more-true-stories.qmd:40` reads "...submit my report as usual (religiously), but the lady was not there." Neave's own PDF prints "(religious)" — almost certainly his own slip, since the storyteller uses the correct adverb two sentences earlier ("I *religiously* submitted this report"). The site had already silently corrected this at some undetermined point, with no deviations-log entry recording it. Decision: keep the corrected "(religiously)" rather than reverting to the literal source typo. No `[sic]` marker was added, since the site is not reproducing the original error verbatim — `[sic]` denotes "thus in the original" and only applies when quoting the literal (erroneous) source text.
+- **Where** — `content/days/day-07/04-many-more-true-stories.qmd:40`.
+- **Source reference** — `J.Day.7.14Feb22.pdf`, printed page 10 (PDF page 14).
+- **Why** — Epic #734's Wave 2 pass over Day 7 (#778) surfaced this as a flagged sentence. Neave's intent is unambiguous from the surrounding text, so this is the kind of correction the deviations-log README classifies as mechanical — but it predates the log's existence with no record of the decision anywhere, and Lee asked for it to be logged retroactively rather than left unrecorded a second time.
+- **Decided in** — Wave 2 Day 7 adjudication pass, #778 (2026-09-01): Lee's decision was "keep the correction and log it retroactively as a sanctioned typo fix."
+- **Landed in** — *Pending — tracked in [#778](https://github.com/lddurbin/twelve_days_to_deming/issues/778).*
