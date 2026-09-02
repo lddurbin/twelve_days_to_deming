@@ -5,4 +5,4 @@
 - **Source reference** — `K.Day.8.11Jan20.pdf`, printed page 7 (PDF page 11).
 - **Why** — Epic #734's Wave 2 pass over Day 8 (#783) surfaced this as a flagged sentence. Neave's intent is unambiguous, so this is the kind of correction the deviations-log README classifies as mechanical — but it predates the log's existence with no record of the decision anywhere, and Lee asked for it to be logged retroactively rather than left unrecorded a second time, same as Day 7's "religious"/"religiously" and Day 11's "syppose"/"Mazlow's" precedents.
 - **Decided in** — Wave 2 Day 8 adjudication pass, #783 (2026-09-02): Lee's decision was "keep the correction and log it retroactively."
-- **Landed in** — *Pending — tracked in [#783](https://github.com/lddurbin/twelve_days_to_deming/issues/783).*
+- **Landed in** — PR [#785](https://github.com/lddurbin/twelve_days_to_deming/pull/785).
