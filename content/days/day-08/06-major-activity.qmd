@@ -72,7 +72,7 @@ viewof tableOne = createTableOne(areas, [3, 3, 3])
 
 You could of course simply represent these net results of the counts by writing e.g. something like +4 rather than + + + +; however, to write + + + + has a greater visual impact! That is especially the case when comparing the entries at the bottom right that you get when progressing through the three phases—as you already saw while working through [pages 14 to 17, in the Introduction to the Major Activity](05-introduction-to-the-major-activity.qmd#sec-page14).
 
-It is worth noting that, as a check on your arithmetic, the total number of + signs and − signs in the bottom row should, of course, be exactly the same as in the final column. *Both* counts represent the total net number of + and − signs in the body of the table, i.e. to the overall net effect on the organisation of the choice of options now being adopted.
+It is worth noting that, as a check on your arithmetic, the total number of + signs and − signs in the bottom row should, of course, be exactly the same as in the final column. *Both* counts represent the total net number of + and − signs in the body of the table to be indicated in the bottom right box, i.e. to the overall net effect on the organisation of the choice of options now being adopted.
 
 ::: {.column-margin}
 ![Table Two — DemDim example](/assets/images/day-08/table-two-inset.png){.lightbox}
