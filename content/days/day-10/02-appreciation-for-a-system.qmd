@@ -31,13 +31,13 @@ A system is a network of functions or activities (sub-processes, stages---herein
 <div class="neave_note">
 No messing about! We're straight in here with what I think may be the most important idea in all of Dr Deming's teaching. And it's not difficult---it's just *different* from the way that most people in management, or in government, or in any kind of authority, seem to think. The reason why I believe it's so important is that, when you come to some other things in Deming's teaching that you might initially think are kind of crazy, referring back to this concept soon starts helping you to see what he's driving at, and why. And all of a sudden it starts making a lot more sense. At least, that's what's been happening with me.
 
-So this is about what Dr Deming (amongst others) refers to as a "system" and describes as a "network". To illustrate this, William W Scherkenbach (a Director of Ford of America) drew the diagram on [Day 9 page 2](../day-09/02-a-system.qmd#sec-page2) and simply said: "This is what my organisation is!". Let's look at that page now. What do we see? Two things. Firstly, lots of boxes---representing the "components" of the system. Secondly, lots of lines joining the boxes---indicating that the components are somehow linked up with each other. Considering Deming's car and vacuum-cleaner illustrations, if any component fails or, at least, doesn't work as well as it should, that obstructs or even wholly prevents other components from doing what they're supposed to do---never mind how good they are. Thus the whole system either underperforms or stops working altogether. So that's simple enough.
+So this is about what Dr Deming (amongst others) refers to as a "system" and describes as a "network". To illustrate this, William W Scherkenbach (a Director in Ford of America) drew the picture on [Day 9 page 9](../day-09/03-activity-9c-and-organisation-charts.qmd#sec-page9) and simply said: "This is what any organisation is!". Let's look at that page now. What do we see? Two things. Firstly, lots of boxes---representing the "components" of the system. Secondly, lots of lines joining the boxes---indicating that the components are somehow linked up with each other. Considering Deming's car and vacuum-cleaner illustrations, if any component fails or, at least, doesn't work as well as it should, that obstructs or even wholly prevents other components from doing what they're supposed to do---never mind how good they are. Thus the whole system either underperforms or stops working altogether. So that's simple enough.
 
 I'd sum it up like this. "Conventional" management focuses on the *boxes* in that picture "in their own right". By contrast, Deming-guided management focuses on how the boxes are helped or hindered by each other---and that's the *lines* in the picture. As I said, it's not difficult---just *different*. But what a difference it makes!
 </div>
 
 <div class="deming_quote">
-There is almost always some interdependence between the components thereof. The greater the interdependence between components, the greater will be the need for communication and cooperation between them. [*Here and elsewhere, note the implicit comparison between the vertical and horizontal concepts of an "organisation chart".*]
+There is in almost any system interdependence between the components thereof. The greater the interdependence between components, the greater be the need for communication and cooperation between them. [*Here and elsewhere, note the implicit comparison between the vertical and horizontal concepts of an "organisation chart".*]
 </div>
 
 <div class="neave_note">
@@ -66,7 +66,7 @@ viewof note_10_components = persist(
 []{#sec-page5}
 
 <div class="deming_quote">
-The aim of the system must be clear to everyone in the system. [*What is the system for? What should it be attempting to do? For, without clarity on such matters, on what could decisions be sensibly based?*] Without an aim, there is no system. [*There couldn't be a system if neither management nor their staff really understand what they are supposed to be trying to do. On what could they "work together"?*] The aim is a value-judgment. [*i.e. the aim of the system is not a theorem: you don't derive it from axioms and corollaries.*] See *Deming Speaks to European Executives*, BDA Booklet A10 page 8 and *DemDim* page 265.
+The aim of the system must be clear to everyone in the system. [*What is the system for? What should it be attempting to do? For, without clarity on such matters, on what could decisions be sensibly based?*] Without an aim, there is no system. [*There couldn't be a system if neither management nor their staff really understand what they are supposed to be trying to do, nor why! On what could they "work together"?*] The aim is a value-judgment. [*I.e. the aim or purpose of the system is subjective. As Deming said at the 1990 presentation to senior executives:* ["The aim of a system is not a theorem: you don't derive it from axioms and corollaries."]{.deming_quote} *See* Deming Speaks to European Executives*, BDA Booklet A10 page 8 and* DemDim *page 265.*]
 </div>
 
 <div class="neave_note">
@@ -99,7 +99,7 @@ For optimisation, a system must be managed. Management's responsibility is to st
 </div>
 
 <div class="deming_quote">
-If the aim, size, or boundary of the organisation changes, then the functions of the components will for optimisation of the new system need to change. Time will bring changes that must be managed to achieve optimisation. [*Two important points in one here which I'd combine by saying that optimisation cannot be static---it's dynamic.*]
+If the aim, size, or boundary of the organisation changes, then the functions of the components will for optimisation of the new system [*need to*] change. Time will bring changes that must be managed to achieve optimisation. [*Two important points in one here which I'd combine by saying that optimisation cannot be static---it's dynamic.*]
 </div>
 
 <div class="deming_quote">
@@ -114,7 +114,7 @@ viewof note_10_optimisation = persist(
 ```
 
 <div class="deming_quote">
-The components of a system could in principle, under stable conditions, manage themselves to accomplish their aim. [*Clearly so if the components are human, but also more broadly in any well-designed system.*] A possible example is a string quartet. Each of the four members supports the other three. None of them is there to attract individual attention. Four simultaneous solos do not make a string quartet. They practise singly and together, to accomplish their aim. Their aim is to challenge for self-satisfaction, and to provide pleasure to listeners. [*This was one of Deming's favourite illustrations---and indeed, who could argue against it? A larger version of the same idea appears at the top of [page 10, with the bowling-team/orchestra/business diagram](02-appreciation-for-a-system.qmd#sec-page10).*]
+The components of a system could in principle, under stable conditions, manage themselves to accomplish their aim. [*Clearly so if the components are human, but also more broadly in other well-designed systems.*] A possible example is a string quartet. Each of the four members supports the other three. None of them is there to attract individual attention. Four simultaneous solos do not make a string quartet. They practise singly and together, to accomplish their aim. Their aim is challenge for self-satisfaction, and to provide pleasure to listeners. [*This was one of Deming's favourite illustrations---and indeed, who could argue against it? A larger version of the same idea appears at the top of [page 10, with the bowling-team/orchestra/business diagram](02-appreciation-for-a-system.qmd#sec-page10).*]
 </div>
 
 <div class="deming_quote">
@@ -124,7 +124,7 @@ Any system needs guidance from outside. The string quartet mentioned above may w
 []{#sec-page9}
 
 <div class="deming_quote">
-A large organisation will require someone in the position of aide to the president to teach and facilitate Profound Knowledge. [*This was Bill Scherkenbach's role in the Ford Motor Company (remember, his was the "boxes and lines" diagram we discussed on [Day 9 page 2](../day-09/02-a-system.qmd#sec-page2)). Lloyd Nelson's role at Nashua was similar. In both cases, the "president" was the CEO: Don Petersen in Ford and Bill Conway in Nashua. Chapter 16 in* Out of the Crisis *is particularly helpful on this issue.*]
+A large organisation will require someone in the position of aide to the president to teach and facilitate Profound Knowledge. [*This was Bill Scherkenbach's role in the Ford Motor Company (remember, his was the "boxes and lines" diagram we discussed on [page 3](02-appreciation-for-a-system.qmd#sec-page3)). Lloyd Nelson's role at Nashua was similar. In both cases, the "president" was the CEO: Don Petersen in Ford and Bill Conway in Nashua. Chapter 16 in* Out of the Crisis *is particularly helpful on this issue.*]
 </div>
 
 <div class="deming_quote">
@@ -238,7 +238,7 @@ Fortunately, precise optimisation is not necessary. One need only come close to 
 </div>
 
 <div class="neave_note">
-[It is interesting that the Taguchi loss function is introduced here in the "Appreciation for a System" part of the System of Profound Knowledge in this early version rather than in Part B: "Some Knowledge of Theory of Variation", which is where you will find it in the 1990 version as used in *DemDim* Chapter 18. (See however Item 10 in Part B later today.) Placing it here in Part A to help in the interpretation of "optimisation of the system" strikes me as particularly appropriate. In *The New Economics* it is one of the topics that has been moved away from the main writing on the System of Profound Knowledge, in fact to Dr Deming's final chapter: "Some Lessons in Variation". This is an illustration of how Deming's earlier writing that is being used here has some advantage in the way it is organised.
+[It is interesting that the Taguchi loss function is introduced here in the "Appreciation for a System" part of the System of Profound Knowledge in this early version rather than in Part B: "Some Knowledge of Theory of Variation", which is where you will find it in the 1992 version as used in *DemDim* Chapter 18. (See however Item 10 in Part B later today.) Placing it here in Part A to help in the interpretation of "optimisation of the system" strikes me as particularly appropriate. In *The New Economics* it is one of the topics that has been moved away from the main writing on the System of Profound Knowledge, in fact to Dr Deming's final chapter: "Some Lessons in Variation". This is an illustration of how Deming's earlier writing that is being used here has some advantage in the way it is organised.
 
 There is, of course, no need to include in your comments the technical details of the Taguchi loss function: concentrate instead on what it teaches us.]
 </div>

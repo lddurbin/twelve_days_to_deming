@@ -1,5 +1,5 @@
 day: 10
-validated_at: 2026-08-27
+validated_at: 2026-09-02
 source_pdf: M.Day.10.16Feb22.pdf
 source_sha256: 8756b9262b19f256d82ff20b6158e1bfe967f4d613e4f65569eb7e1678be615a
 scorer_version: d78c7454b94cd1f0c5595344e173f07fc49a8f27
@@ -11,14 +11,14 @@ thresholds:
 counts:
   pdf_paragraphs: 135
   qmd_paragraphs: 145
-  matched_cleanly: 106
-  altered: 27
-  flagged_sentences: 54
-  near_certain: 11
+  matched_cleanly: 117
+  altered: 16
+  flagged_sentences: 34
+  near_certain: 3
   missing: 2
   unsourced: 1
   unsourced_sentences: 2
-  reference_mismatches: 4
+  reference_mismatches: 1
   short_checked: 22
   short_matched: 11
   short_unmatched: 3
