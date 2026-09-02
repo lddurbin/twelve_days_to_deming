@@ -1,0 +1,8 @@
+## 2026-09-02 — Day 8 "echos"/"echoes" typo sanctioned retroactively
+
+- **What** — `content/days/day-08/05-introduction-to-the-major-activity.qmd:43` reads "I think you may already have realised how this description contains clear echoes of Gallery Furniture as it was during the 1980s!" Neave's own PDF prints "echos" — almost certainly his own slip. The site had already silently corrected this at some undetermined point, with no deviations-log entry recording it. Decision: keep the corrected "echoes" rather than reverting to the literal source typo. No `[sic]` marker was added, since the site is not reproducing the original error verbatim — `[sic]` denotes "thus in the original" and only applies when quoting the literal (erroneous) source text.
+- **Where** — `content/days/day-08/05-introduction-to-the-major-activity.qmd:43`.
+- **Source reference** — `K.Day.8.11Jan20.pdf`, printed page 11 (PDF page 15).
+- **Why** — Epic #734's Wave 2 pass over Day 8 (#783) surfaced this as a flagged sentence. Neave's intent is unambiguous, so this is the kind of correction the deviations-log README classifies as mechanical — but it predates the log's existence with no record of the decision anywhere, and Lee asked for it to be logged retroactively rather than left unrecorded a second time, same as Day 7's "religious"/"religiously" and Day 11's "syppose"/"Mazlow's" precedents.
+- **Decided in** — Wave 2 Day 8 adjudication pass, #783 (2026-09-02): Lee's decision was "keep the correction and log it retroactively as a sanctioned typo fix."
+- **Landed in** — *Pending — tracked in [#783](https://github.com/lddurbin/twelve_days_to_deming/issues/783).*

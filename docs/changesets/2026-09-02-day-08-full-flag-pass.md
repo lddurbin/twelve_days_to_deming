@@ -1,0 +1,5 @@
+## 2026-09-02 — Day 8's full transcription flag list
+
+- **Section**: Fixed
+- **What**: Three corrections bring Day 8 into word-for-word agreement with `K.Day.8.11Jan20.pdf`, headlined by restoring three whole source paragraphs missing from the Major Activity introduction (the "basic version" caveat, the "darkness" phase description, and the second-phase flow-diagram paragraph) and repairing the one paragraph that did survive: a wrong cross-reference (Day 1 page 27 read as page 37), a Deming quotation replaced with nonsense ("transformation of Western style of management" became "This formation of a System was of management"), a fabricated closing sentence with no source at all, two word substitutions, and a dropped numbered list item. The other two fixes restore a deliberate echo ("Mack did what he did because he learned from Dr Deming", mirroring the next sentence) and a dropped clause naming where a table total is recorded. Two of Neave's own PDF typos ("echos", "innovaton") were already silently corrected on the site at some earlier point and are kept, logged retroactively rather than reverted. (#783)
+- **PR**: TBD
