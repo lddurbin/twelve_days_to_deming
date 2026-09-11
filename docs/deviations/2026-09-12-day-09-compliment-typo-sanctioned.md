@@ -1,0 +1,8 @@
+## 2026-09-12 — Day 9 "compliment"/"complement" typo sanctioned retroactively
+
+- **What** — `content/days/day-09/05-of-profound-knowledge.qmd:66` reads "the danger that you would largely miss the way that the four parts *are interdependent and complement each other*." Neave's own PDF prints "compliment" — the wrong word, not merely a spelling slip, and plainly not what he meant: the sentence is about the four parts of the System of Profound Knowledge completing one another. The site had already silently corrected this at some undetermined point, with no deviations-log entry recording it. Decision: keep the corrected "complement" rather than reverting to the literal source word. No `[sic]` marker was added, since the site is not reproducing the original error verbatim.
+- **Where** — `content/days/day-09/05-of-profound-knowledge.qmd:66`.
+- **Source reference** — `L.Day.9.15Feb22.pdf`, printed page 18 (PDF page 22).
+- **Why** — Epic #734's Wave 2 pass over Day 9 ([#795](https://github.com/lddurbin/twelve_days_to_deming/issues/795)) surfaced this as finding D9-37, alongside D9-17 which corrected the italic run in the same sentence. Neave's intent is unambiguous, so this is the kind of correction the deviations-log README classifies as mechanical — but it predates the log's existence with no record of the decision anywhere, so it is logged retroactively rather than left unrecorded a second time.
+- **Decided in** — Wave 2 Day 9 adjudication pass, [#795](https://github.com/lddurbin/twelve_days_to_deming/issues/795) (2026-09-11): Lee accepted D9-37, "keep the correction and log it retroactively as a sanctioned typo fix".
+- **Landed in** — Pending.

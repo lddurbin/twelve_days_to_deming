@@ -5,19 +5,19 @@ description: "A five-stage activity building a macro flow diagram of your own or
 execute:
   echo: false
 ---
-[]{#sec-page12}
-
 <div class="major_activity_title"><h2>MAJOR ACTIVITY 9–e</h2></div>
 
 With what you have learned this morning fresh in mind, it is now time for you to try to develop a "macro" flow diagram of your organisation. To prepare the ground for that, I will quote in advance an extract in Dr Deming's own words from Day 10:
 
-> ["A system of schools (public schools, private schools, parochial schools, trade schools, for example) is not merely pupils, teachers, school boards, and parents. It should be, instead, a component in a system of education in which pupils from toddlers on up take joy in learning, free from fear of grades and gold stars, and in which teachers take joy in their work, free from fear of ranking. It would be a system that recognises *and appreciates* differences between pupils and differences between teachers. The reader, after study of the rest of this paper, might wish to try to construct a system of medical care."]{.deming_quote}
+> ["A system of schools (public schools, private schools, parochial schools, trade schools, for example) is not merely pupils, teachers, school boards, and parents. It should be, instead, a component in a system of education in which pupils from toddlers on up take joy in learning, free from fear of grades and gold stars, and in which teachers take joy in their work, free from fear of ranking. It would be a system that recognises *[and appreciates]* differences between pupils and differences between teachers. The reader, after study of the rest of this paper, might wish to try to construct a system of medical care."]{.deming_quote}
 
-The reason for Dr Deming beginning this extract by discussing a "system of schools" is that a "system of medical care" is of a similar order of magnitude---i.e. countrywide or larger! Thus the components to be included in the diagram will also generally be large. Notice further that his system of schools is clearly a good system.
+The reason for Dr Deming beginning this extract by discussing a "system of schools" is that a "system of medical care" is of a similar order of magnitude---i.e. countrywide or larger! Thus the components to be included in the diagram will also generally be large. Notice further that his system of schools is clearly a *good* system.
 
 By "this paper" Deming was referring to the May 1990 version of the System of Profound Knowledge whose full text is reproduced between the final pages of today's material and the end of Day 11. That full text is also contained in *A System of Profound Knowledge*, BDA Booklet A9 pages 3–20 (see the information on page 31).
 
 The procedure in this Major Activity is divided into five stages. The first stage gives you some initial practice at constructing a flow diagram by attempting to follow Dr Deming's suggestion above. Clearly, some of the detail in any such attempt will depend on local circumstances, such as the country in which you are living, and maybe which region of the country. The fine detail does not matter: but the concept does.
+
+[]{#sec-page12}
 
 **Stage 1.** Therefore first spend a little time beginning to try to construct a system of medical care in the space below, of similar layout to Dr Deming's famous flow diagram and repeatedly referring back to it on [page 2, Deming's flow diagram](02-a-system.qmd#sec-page2) or *DemDim* page 133. But remember to keep it "macro": do not try to make it detailed or complicated---be guided by the nature of what is in his diagram. Also, don't expect to complete this task right now, as there is some help for you in the Appendix. However, as usual, do what you can first before turning to the Appendix, for that is Stage 2 below. Then at Stage 3 I shall give you some suggestions about how to tackle the flow diagram of your organisation. You might like to look ahead at those thoughts in Stage 3 right now (on the next page) and then also use them to help you with this initial practice diagram.
 
