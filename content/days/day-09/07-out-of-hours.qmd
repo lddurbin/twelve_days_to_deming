@@ -127,4 +127,4 @@ When you begin your out-of-hours preparation work, start at [page 26, the start 
 
 ^b^ ([page 9, the Scherkenbach "boxes and lines" diagram](03-activity-9c-and-organisation-charts.qmd#sec-page9)) This diagram from *Deming's Road to Continual Improvement* has been reproduced with the approval of Bill Scherkenbach and SPC Press Inc.
 
-^c^ ([page 11, the May 1990 System of Profound Knowledge extract](04-major-activity.qmd#sec-page12)) The May 1990 version of Dr Deming's System of Profound Knowledge which is used during Days 9--11 is fully transcribed in the Deming A5 Booklet A9 (formally BDA Booklet A9): *A System of Profound Knowledge*, available from the Deming Transformation Forum: [www.deming.org.uk](https://www.deming.org.uk).
+^c^ ([page 11, the May 1990 System of Profound Knowledge extract](04-major-activity.qmd#sec-page11)) The May 1990 version of Dr Deming's System of Profound Knowledge which is used during Days 9--11 is fully transcribed in the Deming A5 Booklet A9 (formally BDA Booklet A9): *A System of Profound Knowledge*, available from the Deming Transformation Forum: [www.deming.org.uk](https://www.deming.org.uk).
