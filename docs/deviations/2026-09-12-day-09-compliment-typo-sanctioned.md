@@ -5,4 +5,4 @@
 - **Source reference** — `L.Day.9.15Feb22.pdf`, printed page 18 (PDF page 22).
 - **Why** — Epic #734's Wave 2 pass over Day 9 ([#795](https://github.com/lddurbin/twelve_days_to_deming/issues/795)) surfaced this as finding D9-37, alongside D9-17 which corrected the italic run in the same sentence. Neave's intent is unambiguous, so this is the kind of correction the deviations-log README classifies as mechanical — but it predates the log's existence with no record of the decision anywhere, so it is logged retroactively rather than left unrecorded a second time.
 - **Decided in** — Wave 2 Day 9 adjudication pass, [#795](https://github.com/lddurbin/twelve_days_to_deming/issues/795) (2026-09-11): Lee accepted D9-37, "keep the correction and log it retroactively as a sanctioned typo fix".
-- **Landed in** — Pending.
+- **Landed in** — PR [#800](https://github.com/lddurbin/twelve_days_to_deming/pull/800).

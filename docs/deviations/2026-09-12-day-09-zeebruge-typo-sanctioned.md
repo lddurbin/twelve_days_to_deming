@@ -5,4 +5,4 @@
 - **Source reference** — `L.Day.9.15Feb22.pdf`, printed page 10 (PDF page 14).
 - **Why** — Epic #734's Wave 2 pass over Day 9 ([#795](https://github.com/lddurbin/twelve_days_to_deming/issues/795)) surfaced this as finding D9-36. A proper noun with an unambiguous correct spelling is the kind of correction the deviations-log README classifies as mechanical — but it predates the log's existence with no record of the decision anywhere, so it is logged retroactively rather than left unrecorded a second time, same as Day 7's "religious"/"religiously", Day 8's "echos"/"innovaton" and Day 11's "syppose"/"Mazlow's" precedents.
 - **Decided in** — Wave 2 Day 9 adjudication pass, [#795](https://github.com/lddurbin/twelve_days_to_deming/issues/795) (2026-09-11): Lee accepted D9-36, "keep the correction and log it retroactively as a sanctioned typo fix".
-- **Landed in** — Pending.
+- **Landed in** — PR [#800](https://github.com/lddurbin/twelve_days_to_deming/pull/800).
