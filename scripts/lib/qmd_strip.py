@@ -114,9 +114,11 @@ _AUTOLINK = re.compile(
     re.VERBOSE,
 )
 # Kept as its own rule only so that tightening _HTML_TAG cannot silently stop
-# removing a comment. No .qmd currently carries a single-line one — the two
-# `<!-- FOOTNOTES -->` banners are written across three lines, and a
-# line-oriented pass never matched those either way.
+# removing a comment. It matches a single-line comment and nothing else, and
+# that is structural rather than a gap: strip_qmd() applies every rule here a
+# line at a time, so no pattern in this module can span the three lines the
+# corpus's two `<!-- FOOTNOTES -->` banners are written across. The old
+# `<[^>]+>` never reached those either, for the same reason.
 _HTML_COMMENT = re.compile(r"<!--.*?-->")
 _HTML_TAG = re.compile(r"</?[A-Za-z][A-Za-z0-9]*(?:\s[^<>]*?)?/?>")
 
