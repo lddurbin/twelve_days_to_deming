@@ -1,5 +1,5 @@
 ---
-title: "QUALITY, THEORY, PHILOSOPHY, MANAGEMENT,..."
+title: "QUALITY, THEORY, PHILOSOPHY, MANAGEMENT, …"
 pagetitle: "Day 1: Why Deming's work is a theory of management, not 'quality'"
 description: "A word-count from The Deming of America shows Deming said 'management' and 'theory' far more than 'quality' — his real subject was a theory of management."
 session_minutes: 35
@@ -17,7 +17,7 @@ was the word “quality” that concerned me, for it occurred to me that, to my 
 Deming refer to “quality” very much during the final few years of his life.
 
 However, rather than just depending on memory, I thought I should attempt to find some evidence. So
-I tried watching and listening carefully to ! *The Deming of America*—and carrying out some word-counts.
+I tried watching and listening carefully to *The Deming of America*—and carrying out some word-counts.
 Would you believe, throughout that hour-long video, Dr Deming only mentioned “quality” three times! The
 first mention was:
 

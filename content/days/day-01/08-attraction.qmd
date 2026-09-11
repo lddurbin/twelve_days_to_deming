@@ -92,7 +92,7 @@ is, I suggest, a rather dubious judgment mechanism. After all, that means you’
 
 Naturally, we would not expect everyone to get *exactly* 10 dissatisfied callers and 40 satisfied callers
 every week (something to do with understanding variation!). Sometimes the result of the count will be
-better than average, sometimes worse. But ! *how much* better or worse would it be reasonable for us to
+better than average, sometimes worse. But *how much* better or worse would it be reasonable for us to
 expect “just by chance”?
 
 So, to repeat the above question, how much worse than the average of 10 dissatisfied callers would the

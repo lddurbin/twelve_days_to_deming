@@ -6,14 +6,14 @@ execute:
   echo: false
 ---
   
-Let’s return to that <span class=deming_quote>“theory of a system”</span> which Dr Deming was teaching the Japanese in 1950.
+[]{#sec-page41}Let’s return to that <span class=deming_quote>“theory of a system”</span> which Dr Deming was teaching the Japanese in 1950.
 
 It’s not surprising that there should have been such a change or development of emphasis in Dr Deming’s
 teaching in the late 1980s. An inevitable consequence of Shewhart’s understanding of the two types of
 variation is that the vast majority of problems (or, if we think positively, of opportunities for improvement) lie
 in the *common* causes—the *system*, as Deming called it. When things go wrong, the fault rarely lies in individuals. The fault lies wholly or primarily in the system: the environment, the circumstances, the working
 conditions, the “company culture” within which individuals live, work, try to succeed, try to *survive*—yet so
-often a culture which repeatedly and consistently sabotages those aims and desires.! ! There is a pertinent
+often a culture which repeatedly and consistently sabotages those aims and desires. There is a pertinent
 change of detail in *Out of the Crisis* from Deming’s earlier teaching. In *If Japan Can, Why Can’t We?*, the
 narrator Lloyd Dobyns states: “But one part of Deming’s programme is not likely to please them [management]. He insists that management causes 85% of all the problems.” This relates to an observation from
 Dr Joseph Juran many years earlier concerning the relative prevalence of the two types of variation. But by
