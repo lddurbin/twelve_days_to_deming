@@ -32,9 +32,9 @@ than half a century later, to problems which, as I understand it, were primarily
 Japanese picture with which Deming had little contact even that long while ago, and claim that consequently “Deming doesn’t work”, does seem to me to be a trifle unreasonable.
 </div>
 
-* He was concerned not with mere change but with transformation of <span class=deming_quote>Western style of management</span>
+* He was concerned not with mere change but with <span class=deming_quote>*transformation* of Western style of management</span>
 (his own term for it).
-* He was working toward the very best imaginable way of managing, working, governing, *living*
+* He was working toward the very best imaginable way of managing, working, governing, *living*.
 * His aim was to develop a management style, management environment, management system for
 the benefit, the *best* benefit and gain, of everyone concerned: employers, employees, suppliers,
 customers, shareholders, the environment—in the longer term, yes: you obviously can’t do all that

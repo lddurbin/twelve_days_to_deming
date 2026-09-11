@@ -15,7 +15,7 @@ described at least some of his work as “statistical studies”. You know that 
 chart is a statistical tool. And, perhaps worst of all, you know that I used to teach Mathematical Statistics!
 
 I can heap yet more coals onto the fire by quoting the way that Dr Deming was introduced midway through
-*If Japan Can, Why Can’t We?*. These are the words of the programme’s
+*If Japan Can, Why Can’t We?* (see near the bottom of [page 4](02-rediscovered.qmd#sec-page4)). These are the words of the programme’s
 narrator, Lloyd Dobyns:
 
 >We have said several times that much of what the Japanese are doing [is what] we taught them to
@@ -53,7 +53,7 @@ and “out of statistical control” although, in the former case, Deming also o
 
 The point I want to emphasise here is that what I am expressing as “understanding variation” is *different*
 from the material usually taught in introductory (and, indeed, later) conventional Statistics courses. If you
-have ever had an introductory course in Statistics then I doubt very much whether you ever heard of either Walter Shewhart or the control chart during that course. Indeed, it is sadly true that some people who have
+have ever had an introductory course in Statistics then I doubt very much whether you ever heard of either []{#sec-page6}Walter Shewhart or the control chart during that course. Indeed, it is sadly true that some people who have
 university degrees in Statistics haven’t heard of them either! In this course (apart from the Optional Extras
 section which is included purely for the benefit of people who might be interested in more technical matters) we shall *not* be involved with such things as probabilities or the normal distribution or the binomial distribution or any other probability distribution, nor with tests of significance, *p*-values or confidence intervals,
 nor with techniques to do with regression and correlation, etc, etc. We do not need them. The large majority of what is normally taught in traditional Statistics courses is irrelevant for “understanding variation” in
