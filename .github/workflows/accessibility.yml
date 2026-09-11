@@ -170,7 +170,14 @@ jobs:
   # produced via the Build Output API v3 "prebuilt" path.
   preview:
     needs: build
-    if: github.event_name == 'pull_request'
+    # Dependabot-actor runs can't read repo or Environment secrets — those
+    # live in a separate Dependabot secrets store — so VERCEL_TOKEN
+    # interpolates empty and the Vercel CLI exits 1 on `--token` before it
+    # deploys anything. That's a guaranteed red X on every bump PR which says
+    # nothing about the bump itself, while `build` and `render-fr` (the jobs
+    # that actually exercise the bumped action) still run and still gate.
+    # `preview` isn't a required check, so skipping it costs no coverage.
+    if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     environment: preview
     permissions:
