@@ -224,6 +224,151 @@ class EnrichedReferenceTests(unittest.TestCase):
             "page 3, of the report",
         )
 
+    # ── The four reference shapes #784 added ───────────────────
+
+    def test_a_comma_separated_list_keeps_every_page_number(self):
+        """#784, from `content/days/day-08/01-introduction.qmd:61`.
+
+        The bug this closes was not a leak but a *loss*: the old pattern
+        consumed one number, then required a comma, and the comma after "19"
+        supplied it — so four page numbers left the sentence and #738's
+        reference check reported a mismatch against a site that is correct.
+        """
+        self.assertEqual(
+            resolve_brackets(
+                "[pages 19, 21, 23, 25 and 27, in the Major Activity]"
+                "(06-major-activity.qmd#sec-page19)"
+            ),
+            "pages 19, 21, 23, 25 and 27",
+        )
+
+    def test_a_word_range_is_a_reference(self):
+        """`content/days/day-04/01-introduction.qmd:47` — ten of these are on Day 3."""
+        self.assertEqual(
+            resolve_brackets(
+                "[pages 4 to 13, starting in the Joiner Triangle chapter below]"
+                "(02-the-joiner-triangle.qmd#sec-page4)"
+            ),
+            "pages 4 to 13",
+        )
+
+    def test_an_and_pair_is_a_reference_when_a_descriptor_follows(self):
+        """`content/days/day-02/06-your-turn.qmd:10`.
+
+        The pair against `pages 6 and 7 in Part A` above is the whole rule:
+        the comma is what marks the tail as ours, and without one this shape
+        is still left alone.
+        """
+        self.assertEqual(
+            resolve_brackets(
+                "[pages 12 and 13, starting in A Brief Overview]"
+                "(03-a-brief-overview.qmd#sec-page12)"
+            ),
+            "pages 12 and 13",
+        )
+
+    def test_a_double_hyphen_range_is_a_reference(self):
+        """`content/days/day-11/02-theory-of-knowledge-prediction.qmd:39`.
+
+        `--` is how a .qmd spells an en dash. The old single-character dash
+        class could not match it, so all four of Day 11's cross-references to
+        the May 1990 text leaked their descriptors.
+        """
+        self.assertEqual(
+            resolve_brackets(
+                "[pages 4--6, where Area 1: Prediction begins]"
+                "(02-theory-of-knowledge-prediction.qmd#sec-page4)"
+            ),
+            "pages 4--6",
+        )
+
+    def test_page_numbers_are_kept_exactly_as_the_site_writes_them(self):
+        """Canonicalising drops the descriptor and nothing else.
+
+        `pages 5 to 6` must not be tidied into `pages 5–6`: the source reads
+        `pages 05–6` there, and that difference is the site's wording, not
+        this module's artifact. Two of the 23 reference substitutions in #750
+        are these Day 3 links, and normalising here would hide both.
+        """
+        self.assertEqual(
+            resolve_brackets(
+                "[pages 5 to 6, at the Ford Motor Company]"
+                "(02-at-the-ford-motor-company.qmd#sec-page5)"
+            ),
+            "pages 5 to 6",
+        )
+
+
+class AutolinkTests(unittest.TestCase):
+    """#793 — `<...>` is not always a tag, and the difference is visible text.
+
+    Pandoc renders an autolink with the URI itself as its visible text, so a
+    rule that deleted every angle-bracket construct deleted words the reader
+    can see. Verified against the pandoc Quarto ships rather than assumed:
+    `<https://x>` and `<a@b.c>` render as their contents, `<www.deming.org>`
+    renders literally, brackets included, because it is neither a scheme nor
+    an address.
+    """
+
+    def test_url_autolink_survives_as_its_uri(self):
+        self.assertEqual(
+            strip_qmd("See <https://mitpress.mit.edu/contributors/w-edwards-deming>."),
+            "See https://mitpress.mit.edu/contributors/w-edwards-deming.\n",
+        )
+
+    def test_email_autolink_survives(self):
+        self.assertEqual(
+            strip_qmd("e-mail Tony Miller at <tony@jmiller.co.uk> who can add you"),
+            "e-mail Tony Miller at tony@jmiller.co.uk who can add you\n",
+        )
+
+    def test_a_schemeless_host_is_not_an_autolink_and_is_kept_whole(self):
+        """`content/days/day-10/04-theory-of-variation.qmd:138`, printed p6.
+
+        Pandoc leaves this one exactly as typed, angle brackets and all, so
+        the reader sees `<www.deming.org>` and the comparison has to as well.
+        """
+        self.assertEqual(
+            strip_qmd("The Deming Institute---<www.deming.org>---should be able to help"),
+            "The Deming Institute---<www.deming.org>---should be able to help\n",
+        )
+
+    def test_html_tags_are_still_removed(self):
+        for line, want in (
+            ('A <span class="deming_quote">quote</span>.', "A quote."),
+            ("X <span class=deming_quote>y</span>.", "X y."),
+            ("<details>a</details>", "a"),
+            ("one<br/>two", "onetwo"),
+            ("Before <!-- a note --> after.", "Before  after."),
+        ):
+            with self.subTest(line=line):
+                self.assertEqual(strip_qmd(line), want + "\n")
+
+    def test_the_residual_difference_is_the_scheme_the_site_adds(self):
+        """Day 1's `C-01`, from `D.Day.1.07Feb22.pdf` printed p11.
+
+        Nine flags were this, and the URL is now in the comparison where it
+        used to vanish entirely. It does not follow that all nine clear:
+        Neave prints `www.demingalliance.org` and the site writes
+        `<https://www.demingalliance.org>`, so a scheme the source does not
+        carry is still on the site and still scores. That is the right
+        outcome — it is the site's own wording, and hiding it here would be
+        the same mistake as canonicalising Neave's prose into a page number.
+        """
+        pdf = (
+            "The Alliance’s website is www.demingalliance.org and their meetings "
+            "are held in the Midlands."
+        )
+        qmd = (
+            "The Alliance's website is <https://www.demingalliance.org> and their "
+            "meetings are held in the Midlands."
+        )
+        self.assertIn("www demingalliance org", prose(qmd))
+        self.assertNotEqual(prose(qmd), pdf_prose(pdf))
+        # normalise() has already reduced `https://` to a bare `https` token,
+        # so what is left over is exactly one word and it is the scheme.
+        self.assertEqual(prose(qmd).replace("https ", "", 1), pdf_prose(pdf))
+
 
 class WorkbookRefTests(unittest.TestCase):
     """`[WB NN]` — the one rule that has to run on both sides of the comparison."""

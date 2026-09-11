@@ -86,7 +86,41 @@ _LAYOUT_DIRECTIVE = re.compile(r"^:{2,}")
 
 # ── Inline rules ───────────────────────────────────────────────
 
-_HTML_TAG = re.compile(r"<[^>]+>")
+# Markdown autolinks — `<https://www.deming.org>`, `<tony@jmiller.co.uk>` —
+# and the near neighbour that is not one.
+#
+# Pandoc renders an autolink as a link whose visible text is the URI exactly
+# as written between the brackets, so the printed page and the site both show
+# the address and the comparison has to see it. It did not: `<[^>]+>` matched
+# anything between two angle brackets and took the whole construct out,
+# leaving "See ." where the source reads
+# "See https://mitpress.mit.edu/contributors/w-edwards-deming". Nine of Day
+# 1's 71 flagged sentences were that one cause, cleared as `C-01` in its
+# adjudication rather than fixed, because the fix belongs here (#793).
+#
+# The same over-broad pattern also removed `<www.deming.org>` on Day 10
+# printed p6, which is *not* an autolink — no scheme, no `@` — so Pandoc
+# emits it literally, angle brackets and all, and the reader sees it. So
+# _HTML_TAG below is now an HTML tag rather than "anything in angle
+# brackets": a tag name, then optional attributes. Classified against the
+# corpus, that pattern matches all 1800 tags the .qmd files carry and neither
+# of the two constructs that are not tags.
+_AUTOLINK = re.compile(
+    r"""<(
+          [A-Za-z][A-Za-z0-9+.-]*:[^<>\s]+   # scheme:rest — https://…, mailto:…
+          |
+          [^<>\s@]+@[^<>\s@]+\.[^<>\s@]+    # bare email autolink
+        )>""",
+    re.VERBOSE,
+)
+# Kept as its own rule only so that tightening _HTML_TAG cannot silently stop
+# removing a comment. It matches a single-line comment and nothing else, and
+# that is structural rather than a gap: strip_qmd() applies every rule here a
+# line at a time, so no pattern in this module can span the three lines the
+# corpus's two `<!-- FOOTNOTES -->` banners are written across. The old
+# `<[^>]+>` never reached those either, for the same reason.
+_HTML_COMMENT = re.compile(r"<!--.*?-->")
+_HTML_TAG = re.compile(r"</?[A-Za-z][A-Za-z0-9]*(?:\s[^<>]*?)?/?>")
 
 # `[^a]: text` (definition, keep the text) and `[^a]` (reference, drop it).
 # The definitions are approvals and acknowledgements the printed edition
@@ -163,10 +197,40 @@ _TRAILING_ATTRIBUTES = re.compile(r"\s*\{[#.][^{}]*\}\s*$")
 # number into the sentence's own words — `[the table on page 4](...)` — and
 # there the descriptor is Neave's prose, not ours; canonicalising that one to
 # "page 4" would delete source text and manufacture a difference.
+#
+# The reference itself is one or more page numbers, in every shape the
+# convention writes them: a single page, a range (`19–21`, the `--` a .qmd
+# spells an en dash with, and the site's own `5 to 6`), or a list
+# (`12 and 13`, `19, 21, 23, 25 and 27`). Only the first two were here before,
+# and with a single-character dash class, so the other three failed in two
+# different directions:
+#
+#   - a list truncated at its first comma. `pages 19, 21, 23, 25 and 27, in
+#     the Major Activity` canonicalised to `pages 19`, dropping four page
+#     numbers from the sentence and manufacturing a reference mismatch
+#     against a correct site (#784, raised out of Day 8's pass as `N-09`).
+#   - `to`, `and` and `--` matched nothing at all, so the descriptor was
+#     never peeled off and four to eight words of the site's own prose went
+#     into the comparison against Neave's sentence. 20 links corpus-wide were
+#     leaking that way, ten of them on Day 3.
+#
+# The numbers are captured as written, never normalised — `pages 5 to 6`
+# stays `pages 5 to 6` and does not become `pages 5–6`. Where the source
+# reads `pages 05–6` that difference is the site's wording, not this
+# module's, and #738's reference-token check must keep seeing it: two of the
+# 23 substitutions in #750 are exactly these Day 3 links.
+_PAGE_LIST = r"""
+    \d+
+    (?:
+        (?: \s*(?:--|[–—-])\s* | \s+to\s+ | \s*,\s* | \s+and\s+ )
+        \d+
+    )*
+"""
+
 _ENRICHED_REFERENCE = re.compile(
-    r"""^(
+    rf"""^(
           (?:Day\s+\d+\s+|Appendix\s+)?
-          pages?\s+\d+(?:\s*[–—-]\s*\d+)?
+          pages?\s+{_PAGE_LIST}
         )
         \s*,\s+\S""",
     re.IGNORECASE | re.VERBOSE,
@@ -377,6 +441,11 @@ def strip_qmd(text: str) -> str:
         if in_code or _LAYOUT_DIRECTIVE.match(line):
             continue
 
+        # Autolinks first: they are the one angle-bracket construct whose
+        # contents survive into the rendered page, so they have to be
+        # rewritten before anything else goes looking for tags to delete.
+        line = _AUTOLINK.sub(r"\1", line)
+        line = _HTML_COMMENT.sub("", line)
         line = _HTML_TAG.sub("", line)
         line = _FOOTNOTE_DEFINITION.sub("", line)
         line = _FOOTNOTE_REFERENCE.sub("", line)
