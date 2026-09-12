@@ -392,7 +392,9 @@ main() {
     # pdf_file — day mode finds its PDF by letter prefix. Say so here rather
     # than letting it fall through to the generic "must declare pdf_file".
     if [[ "$manifest_name" =~ ^day-[0-9]+$ ]]; then
-      echo "Error: $manifest_name is a structural manifest only. Use: $0 ${manifest_name#day-0}"
+      # 10# forces base 10: day-08 and day-09 are not valid octal, and the
+      # bare arithmetic would fail on exactly those two.
+      echo "Error: $manifest_name is a structural manifest only. Use: $0 $((10#${manifest_name#day-}))"
       exit 1
     fi
     local manifest="$MANIFEST_DIR/${manifest_name}-manifest.yml"

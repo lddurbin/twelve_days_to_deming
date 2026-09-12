@@ -46,16 +46,28 @@ PDF_DIR = REPO_ROOT / "12-Days-to-Deming" / "PDFs"
 def book_pages():
     """Every .qmd `_quarto-en.yml` lists, in book order.
 
-    Matches both a plain chapter entry and the `part:` form that opens a
-    section with a real page (`- part: content/appendix/optional-extras/…`).
+    Two shapes appear in the file today: a plain chapter entry, and the `part:`
+    form that opens a section with a real page
+    (`- part: content/appendix/optional-extras/00-introduction.qmd`). A `part:`
+    carrying a bare title string instead would list its chapters under a nested
+    `chapters:` key, which the same pattern picks up as plain entries.
+
+    Rather than trust that, the count is checked against every `.qmd` mentioned
+    anywhere in the file. A shape this pattern cannot read would otherwise
+    return *some* pages and silently drop the rest, and a partial list still
+    satisfies every assertion below — the failure would look like coverage.
     """
-    pages = re.findall(
-        r"^\s*-\s*(?:part:\s*)?(\S+\.qmd)\s*$",
-        BOOK.read_text(encoding="utf-8"),
-        re.MULTILINE,
-    )
+    text = BOOK.read_text(encoding="utf-8")
+    pages = re.findall(r"^\s*-\s*(?:part:\s*)?(\S+\.qmd)\s*$", text, re.MULTILINE)
+    mentioned = re.findall(r"(\S+\.qmd)", text)
     if not pages:
         raise AssertionError(f"no chapters found in {BOOK} — has its shape changed?")
+    missed = sorted(set(mentioned) - set(pages))
+    if missed:
+        raise AssertionError(
+            f"{BOOK.name} mentions .qmd files this reader did not parse as chapters: "
+            f"{missed}. Update the pattern — a partial list would pass every test here."
+        )
     return pages
 
 
@@ -90,15 +102,33 @@ def manifest_pages():
 
 
 def no_source_pages():
-    """Pages declared to have no source PDF, mapped to their stated reason."""
+    """Pages declared to have no source PDF, mapped to their stated reason.
+
+    The reasons are written as folded block scalars (`>-`), so the text is on
+    the *following* indented lines rather than after the colon. Reading only
+    what follows the colon would capture the literal `>-` — which is always
+    non-empty, and would have made the reason check below incapable of failing.
+    """
     text = NO_SOURCE.read_text(encoding="utf-8")
     body = text.split("\npages:\n", 1)
     if len(body) != 2:
         raise AssertionError(f"{NO_SOURCE.name} has no `pages:` block")
-    entries = re.findall(r"^  (\S+\.qmd):\s*(.*?)$", body[1], re.MULTILINE)
-    if not entries:
+
+    reasons, page = {}, None
+    for line in body[1].splitlines():
+        entry = re.match(r"^  (\S+\.qmd):[ \t]*(.*)$", line)
+        if entry:
+            page, inline = entry.group(1), entry.group(2).strip()
+            # A block-scalar indicator introduces the reason; it is not the reason.
+            reasons[page] = "" if inline in ("", ">", ">-", "|", "|-") else inline
+        elif page and line.startswith("    "):
+            reasons[page] = (reasons[page] + " " + line.strip()).strip()
+        elif line.strip() and not line.startswith(" "):
+            page = None
+
+    if not reasons:
         raise AssertionError(f"{NO_SOURCE.name} declares no pages — has its shape changed?")
-    return dict(entries)
+    return reasons
 
 
 class BookPagesAreAccountedFor(unittest.TestCase):
@@ -165,12 +195,20 @@ class BookPagesAreAccountedFor(unittest.TestCase):
                 )
 
     def test_declared_sourceless_pages_carry_a_reason(self):
-        """An entry with no reason is the absence this file exists to replace."""
+        """An entry with no reason is the absence this file exists to replace.
+
+        A path alone says only that somebody excluded the page; the reason is
+        what distinguishes "written for this edition" from "we could not get
+        this to validate". Four words is not a quality bar — several of these
+        reasons are one short sentence, and padding them would be worse — it
+        only rules out an empty entry or a bare `TODO`.
+        """
         for page, reason in sorted(self.sourceless.items()):
             with self.subTest(page=page):
-                self.assertTrue(
-                    reason.strip(),
-                    f"{page} is declared sourceless with no reason given",
+                self.assertGreaterEqual(
+                    len(reason.split()),
+                    4,
+                    f"{page} is declared sourceless without a usable reason: {reason!r}",
                 )
 
     def test_every_declared_page_exists(self):
