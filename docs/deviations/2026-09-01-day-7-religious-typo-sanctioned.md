@@ -5,4 +5,4 @@
 - **Source reference** — `J.Day.7.14Feb22.pdf`, printed page 10 (PDF page 14).
 - **Why** — Epic #734's Wave 2 pass over Day 7 (#778) surfaced this as a flagged sentence. Neave's intent is unambiguous from the surrounding text, so this is the kind of correction the deviations-log README classifies as mechanical — but it predates the log's existence with no record of the decision anywhere, and Lee asked for it to be logged retroactively rather than left unrecorded a second time.
 - **Decided in** — Wave 2 Day 7 adjudication pass, #778 (2026-09-01): Lee's decision was "keep the correction and log it retroactively as a sanctioned typo fix."
-- **Landed in** — *Pending — tracked in [#778](https://github.com/lddurbin/twelve_days_to_deming/issues/778).*
+- **Landed in** — PR [#779](https://github.com/lddurbin/twelve_days_to_deming/pull/779) (commit `0182bc0`).

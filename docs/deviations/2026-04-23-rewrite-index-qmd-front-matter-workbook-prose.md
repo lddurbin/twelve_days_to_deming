@@ -8,5 +8,5 @@
 - **Source reference** — Neave's "A. PLEASE START HERE" file, pp. 8–13.
 - **Why** — Same rationale as [#196](https://github.com/lddurbin/twelve_days_to_deming/pull/196), [#202](https://github.com/lddurbin/twelve_days_to_deming/pull/202), and [#214](https://github.com/lddurbin/twelve_days_to_deming/pull/214): the printed Workbook no longer exists as a separate artefact in this delivery, the "A. PLEASE START HERE" / B1–B4 file-structure vocabulary doesn't correspond to anything on the site, and Adobe Acrobat / duplex-printer guidance doesn't apply to the Quarto HTML rendering. The site captures reader responses through embedded text inputs and a per-activity notes-download button, so the printed writing-surface framing was actively misleading.
 - **Decided in** — Conversation on #212 (2026-04-23): user approved the three-decision set (compress ¶1, rename Section B, delete Section C entirely, combined deviations-log entry).
-- **Landed in** — *Pending — tracked in [#212](https://github.com/lddurbin/twelve_days_to_deming/issues/212).*
+- **Landed in** — PR [#245](https://github.com/lddurbin/twelve_days_to_deming/pull/245) (commit `b2a86f2`).
 - **Related** — [#213](https://github.com/lddurbin/twelve_days_to_deming/issues/213) still tracks the pending decision on inline `[WB NNN]` cross-reference suffixes; that question is deferred out of this PR.

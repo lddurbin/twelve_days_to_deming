@@ -7,4 +7,4 @@
 - **Source reference** — Neave's text treats both domains as live resources: the UK Deming Transformation Forum's Learning Store (bookshop/materials) and the NZOQ PDF-hosting mirror.
 - **Why** — `deming.org.uk` no longer resolves and has only one Wayback capture (2012); the Forum appears to have wound down. `rqoq.org.nz` no longer resolves and was never archived. The two book-ordering footnote contexts (`welcome.qmd:109`, `index.qmd:568`) were split: `welcome.qmd:109` was fully de-linked because pointing readers at a 2012 snapshot to "order the book" is actively misleading; `index.qmd:568` retained the Wayback link with a clear archival note because its surrounding prose is informational rather than transactional.
 - **Decided in** — Conversation on #239 (2026-04-23): user approved Wayback-where-available / editorial-note-where-not, with the welcome.qmd ordering footnote treated as "no longer trading".
-- **Landed in** — *Pending — tracked in [#239](https://github.com/lddurbin/twelve_days_to_deming/issues/239).*
+- **Landed in** — PR [#242](https://github.com/lddurbin/twelve_days_to_deming/pull/242) (commit `53bc003`).

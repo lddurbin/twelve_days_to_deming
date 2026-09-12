@@ -22,6 +22,9 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CHANGESETS_DIR="$REPO_ROOT/docs/changesets"
 CHANGELOG="$REPO_ROOT/CHANGELOG.md"
 
+# shellcheck source-path=SCRIPTDIR source=lib/landed-placeholder.sh
+. "$REPO_ROOT/scripts/lib/landed-placeholder.sh"
+
 VERSION=""
 DRY_RUN=0
 for arg in "$@"; do
@@ -71,6 +74,32 @@ field() {
   local key="$1" file="$2"
   sed -n -E "s/^- \*\*${key}\*\*:[[:space:]]*//p" "$file" | head -n1
 }
+
+# ── Refuse to consume an entry with an unfilled PR field ─────
+# The PR value is interpolated into CHANGELOG.md verbatim and the entry file
+# is then deleted, so an unfilled "TBD" becomes a permanent changelog line
+# with no way back to the real number. Two entries were primed to do exactly
+# that when #777 found this. scripts/check-landed-fields.sh enforces the same
+# rule continuously; this is the last gate before the one-way door. Both read
+# the same definition of "unfilled" from scripts/lib/landed-placeholder.sh.
+UNFILLED=()
+for f in "${ENTRY_FILES[@]}"; do
+  pr="$(field "PR" "$f")"
+  if is_landed_placeholder "$pr"; then
+    UNFILLED+=("${f#"$REPO_ROOT/"} — PR: ${pr:-<missing>}")
+  fi
+done
+
+if ((${#UNFILLED[@]} > 0)); then
+  {
+    echo "Refusing to cut a release: these entries have no usable PR reference,"
+    echo "and cutting would write the placeholder into CHANGELOG.md permanently."
+    for u in "${UNFILLED[@]}"; do
+      echo "  - $u"
+    done
+  } >&2
+  exit 1
+fi
 
 # ── Work out section order ───────────────────────────────────
 # 1. Every distinct Section value that actually appears, in file order.
