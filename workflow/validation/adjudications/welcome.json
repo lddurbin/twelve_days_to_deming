@@ -91,7 +91,7 @@
           "line": 81,
           "page": "PDF p3 · printed p3",
           "pdf_page": 3,
-          "page_pos": 2,
+          "page_pos": 4,
           "flag": "Altered 21 — 25% (the paragraph's closest match was unrelated prose)",
           "source_html": "…a conversation he had about prison riots in 1947. <mark class='src'>This conversation is recalled in his 1986 book <em>Out of the Crisis</em> where there is also more than a hint of what the terms mean: “A riot occurs in a certain prison.</mark> Officials and sociologists turn out a detailed report about this prison… the riot could have happened anywhere.”",
           "site_html": "…a conversation he had about prison riots in 1947. Officials and sociologists turn out a detailed report about <mark class='gone'>this prison</mark>… the riot could have happened anywhere.",
