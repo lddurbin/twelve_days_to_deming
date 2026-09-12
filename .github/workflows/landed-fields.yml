@@ -4,6 +4,15 @@ permissions:
   contents: read
   issues: read
 
+# Deliberately NOT a required status check on main, and it can't become one
+# while it is path-filtered: a required check that a path filter suppresses
+# never reports, and main's protection is `strict: true`, so the PR would wait
+# on it forever. Every path-filtered workflow here (structure-check,
+# validation-staleness, interday-audit, build) is advisory for the same
+# reason; the three required checks — pa11y, claude-review, scorer-tests — all
+# run unconditionally. A failing run still shows red on the PR, and the
+# scheduled run below can't be a required check at all, since it isn't
+# attached to a PR.
 on:
   pull_request:
     types: [opened, synchronize]
