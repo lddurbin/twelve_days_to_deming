@@ -12,14 +12,14 @@ thresholds:
   reference: 0.85
 counts:
   pdf_paragraphs: 127
-  qmd_paragraphs: 127
-  matched_cleanly: 73
-  altered: 40
-  flagged_sentences: 76
-  near_certain: 9
-  missing: 14
-  unsourced: 4
-  unsourced_sentences: 4
+  qmd_paragraphs: 136
+  matched_cleanly: 101
+  altered: 17
+  flagged_sentences: 23
+  near_certain: 6
+  missing: 9
+  unsourced: 3
+  unsourced_sentences: 3
   reference_mismatches: 2
   short_checked: 52
   short_matched: 40
@@ -33,8 +33,8 @@ blocks:
     short: 52
     compared: 127
   qmd:
-    total: 178
+    total: 188
     unreadable: 0
-    rejoined: 17
+    rejoined: 18
     short: 34
-    compared: 127
+    compared: 136
