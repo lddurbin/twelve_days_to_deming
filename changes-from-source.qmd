@@ -38,10 +38,11 @@ Where a reader response originally prompted "write your answer in the Workbook o
 
 ## Dead external links
 
-The course text links out to several external sites. Two domains that Dr Neave's materials treat as live resources are no longer online:
+The course text links out to several external sites. One domain that Dr Neave's materials treat as a live resource is no longer online:
 
 - **`deming.org.uk`** — the UK Deming Transformation Forum's Learning Store, which sold books and course materials. The domain no longer resolves; the Forum appears to have wound down. Links to this domain now point at the [2012 Wayback Machine snapshot](https://web.archive.org/web/20120105232234/http://deming.org.uk/) with an inline note that the live site is offline. One book-ordering footnote was de-linked entirely, because pointing readers at a 2012 snapshot to "order the book" would be actively misleading.
-- **`rqoq.org.nz`** — a PDF-hosting mirror site, the Royal Quality Organisation of Queensland. The domain no longer resolves and was never archived by the Wayback Machine. References have been de-linked with an editorial note that the site is no longer available.
+
+A second domain was listed here in error until 2026-09-12. Neave names the **New Zealand Organisation for Quality** (`nzoq.org.nz`) as one of four sites hosting the course PDFs, and this edition had transcribed that address as `rqoq.org.nz`. A dead-link audit then checked the mistranscribed domain, found nothing — because it had never existed — and recorded the mirror as gone, with an editorial note on the Welcome page and an entry here that explained the unfamiliar acronym by naming an organisation that does not exist. [www.nzoq.org.nz](https://www.nzoq.org.nz) is live and still hosts the material. The address, the note and this entry were all corrected in the Welcome page's transcription pass.
 
 All other external links in the course — to Deming-related organisations, YouTube videos, books, and academic resources — were verified and remain live at the time of writing.
 

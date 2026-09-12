@@ -1,0 +1,11 @@
+## 2026-04-23 — Dead external links to deming.org.uk
+
+- **What** — Five external hyperlinks to `deming.org.uk` retired because the domain no longer resolves. Two treatments were applied:
+  1. **Wayback substitution (4 sites)** — references in `content/days/day-01/02-rediscovered.qmd`, `content/days/day-01/06-outline.qmd`, `content/appendix/11-references-and-sources.qmd`, and `index.qmd` now link to the 2012-01-05 archived snapshot (`web.archive.org/web/20120105232234/…`) with an inline annotation that the live site is no longer online. The Feb 2022 "being upgraded" note in `11-references-and-sources.qmd` was rewritten accordingly.
+  2. **De-linked with editorial note (1 site)** — `welcome.qmd`'s book-ordering footnote de-linked and annotated "no longer trading".
+- **Where** — `welcome.qmd`, `index.qmd`, `content/days/day-01/02-rediscovered.qmd`, `content/days/day-01/06-outline.qmd`, `content/appendix/11-references-and-sources.qmd`.
+- **Source reference** — Neave's text treats the domain as a live resource: the UK Deming Transformation Forum's Learning Store (bookshop/materials).
+- **Why** — `deming.org.uk` no longer resolves and has only one Wayback capture (2012); the Forum appears to have wound down. The two book-ordering footnote contexts were split: `welcome.qmd`'s was fully de-linked because pointing readers at a 2012 snapshot to "order the book" is actively misleading; `index.qmd`'s retained the Wayback link with a clear archival note because its surrounding prose is informational rather than transactional.
+- **Decided in** — Conversation on #239 (2026-04-23): user approved Wayback-where-available / editorial-note-where-not, with the welcome.qmd ordering footnote treated as "no longer trading".
+- **Landed in** — PR [#242](https://github.com/lddurbin/twelve_days_to_deming/pull/242) (commit `53bc003`).
+- **Amended** — This entry originally covered a sixth link, `rqoq.org.nz`, described as a dead PDF-hosting mirror. That domain never existed: it was a mistranscription of Neave's `nzoq.org.nz`, which is live. The claim and its editorial note were withdrawn on 2026-09-12 — see `2026-09-12-nzoq-host-url-mistranscribed.md`. The `deming.org.uk` treatment recorded above is unaffected and still stands.
