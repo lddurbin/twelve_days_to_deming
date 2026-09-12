@@ -1,0 +1,389 @@
+{
+  "pass": "appendix-references",
+  "epic": 734,
+  "issue": 804,
+  "source_pdf": "R.References.and.Sources.09Feb22.pdf",
+  "scorer_version": "bdea1acba6424634eaf74948a9c171bfbb7b729f",
+  "content_dir": "content/appendix",
+  "export_filename": "appendix-references-decisions.json",
+  "adjudicated_at": "2026-09-12",
+  "decided_at": "2026-09-12",
+  "report": {
+    "flagged_sentences": 24,
+    "near_certain": 5,
+    "reference_mismatches": 4,
+    "missing": 1,
+    "unsourced": 1,
+    "short_unmatched": 1,
+    "short_unjudged": 1
+  },
+  "pages_read": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "page_offset": 4,
+  "page": {
+    "eyebrow": "Epic #734 · Wave 2 · Pass 9 of 18",
+    "title": "References and Sources against Neave's bibliography",
+    "artifact_title": "References Adjudication",
+    "standfirst_html": "Every flag the comparator raised for <code>content/appendix/11-references-and-sources.qmd</code>, adjudicated against <strong>R.References.and.Sources.09Feb22.pdf</strong> — the extracted text for wording, and all four content page images for emphasis and for the glyphs <code>pdftotext</code> cannot be trusted on. <strong>The headline finding was never flagged at all.</strong> Neave's own note on printed p4 warns that <q>0 and 1 are digits and O and I are capital letters</q>, and the transcription still misread a digit in a YouTube playlist ID — the site's link has been dead since the page was created, and neither the comparator nor the weekly link-check could see it.",
+    "provenance": [
+      {
+        "label": "Source",
+        "value": "R.References.and.Sources.09Feb22.pdf · 8 pages"
+      },
+      {
+        "label": "Scorer",
+        "value": "bdea1ac"
+      },
+      {
+        "label": "Flags",
+        "value": "24 sentences · 4 refs · 1 gap · 1 unsourced · 2 short"
+      },
+      {
+        "label": "Adjudicated",
+        "value": "2026-09-12"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "fix",
+      "kind": "k-fix",
+      "title": "Fix proposed",
+      "tag": "Fix proposed",
+      "count": "4 findings",
+      "note_html": "<strong>R-01 is the one that matters</strong> — a dead external link, verified dead. <strong>R-02</strong> is one of Neave's own typos the site silently corrected with nothing logged: same shape as Day 7's <q>religious</q> and Day 11's <q>syppose</q>, so it is keep-and-log versus revert. <strong>R-03</strong> and <strong>R-04</strong> are the weakest proposals in this pass and may well be rejected — Neave's own contents page spells the section in lower case, so the site is echoing him rather than contradicting him.",
+      "labels": {
+        "accept": "Apply fix",
+        "reject": "Leave as-is",
+        "discuss": "Discuss"
+      },
+      "items": [
+        {
+          "id": "R-01",
+          "chip": "Dead link · wrong digit",
+          "chip_class": "crit",
+          "file": "11-references-and-sources.qmd",
+          "line": 134,
+          "page": "PDF p8 · printed p4",
+          "pdf_page": 8,
+          "page_pos": 2,
+          "flag": "Never flagged — swallowed inside Gap 1, the one “missing” block",
+          "source_html": "<em>A Prophet Unheard</em>: www.youtube.com/playlist?list=PLCADAD<mark class='src'>3</mark>F2F91BD570",
+          "site_html": "<em>A Prophet Unheard</em>: &lt;https://www.youtube.com/playlist?list=PLCADAD<mark class='gone'>0</mark>F2F91BD570&gt;",
+          "proposal": "*A Prophet Unheard*: <https://www.youtube.com/playlist?list=PLCADAD3F2F91BD570>",
+          "evidence_html": "Read off the page image twice at different crops: the seventh character of the playlist ID is a <strong>3</strong>, and the site has a <strong>0</strong>. Verified against YouTube's oEmbed endpoint, the same check #420 used: Neave's <code>…AD3F2…</code> returns <strong>HTTP 200</strong> and resolves to <q>W. Edwards Deming - Prophet Unheard</q>, which is exactly the title of this entry; the site's <code>…AD0F2…</code> returns <strong>HTTP 404</strong>. <code>git log -S PLCADAD</code> shows the ID has never been edited since the page was first added in <code>51b88bf</code>, so this is an original transcription slip and not a correction someone made deliberately. It is the same failure mode as <a href='https://github.com/lddurbin/twelve_days_to_deming/issues/420'>#420</a>, which found this page's other YouTube ID mistranscribed (<code>I</code> read as <code>8</code>) — and the irony is that it sits three lines under Neave's own warning that these glyphs are easy to confuse.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-02",
+          "chip": "Neave's typo, silently fixed",
+          "chip_class": "crit",
+          "file": "11-references-and-sources.qmd",
+          "line": 132,
+          "page": "PDF p8 · printed p4",
+          "pdf_page": 8,
+          "page_pos": 1,
+          "flag": "Altered 7 · 74%",
+          "source_html": "(Note that <mark class='src'>and</mark> 0 and 1 are digits and O and I are capital letters.)",
+          "site_html": "(Note that 0 and 1 are digits and O and I are capital letters.)",
+          "proposal": "(Note that and [0]{.underline} and [1]{.underline} are digits and [O]{.underline} and [I]{.underline} are capital letters.)",
+          "evidence_html": "Confirmed on the page image: Neave really does write <q>Note that and 0 and 1 are digits</q> — a stray <q>and</q>, almost certainly a half-finished edit. The site drops it silently, with no <code>docs/deviations/</code> entry. Two options, and this is a judgement call rather than a defect: restore the typo and log the decision to keep it, or keep the correction and write the deviations entry that should have accompanied it. The underlining of <code>0 1 O I</code> is correct as it stands — the source underlines and colours those four glyphs, and the site's <code>.underline</code> spans carry the part that matters.",
+          "decision": "reject",
+          "decision_note": "Reversed on review. Keep the site's correction and log it retroactively as a sanctioned typo, matching the Day 7, 8, 9 and 11 precedents.",
+          "outcome": "Site wording left as it stands. Logged in docs/deviations/2026-09-12-appendix-references-note-that-and-typo-sanctioned.md."
+        },
+        {
+          "id": "R-03",
+          "chip": "Quoted section name recased",
+          "chip_class": "",
+          "file": "11-references-and-sources.qmd",
+          "line": 90,
+          "page": "PDF p7 · printed p3",
+          "pdf_page": 7,
+          "page_pos": 1,
+          "flag": "Reference mismatch 1 · Altered 2 · 94%",
+          "source_html": "… obtainable from the UK Deming Transformation Forum—see the “Internet <mark class='src'>C</mark>ontacts” section …",
+          "site_html": "… obtainable from the UK Deming Transformation Forum—see the \"Internet <mark class='gone'>c</mark>ontacts\" section …",
+          "proposal": "BDA BOOKLETS (now known as the Deming A5 Booklets and obtainable from the UK Deming Transformation Forum—see the \"[Internet Contacts](#internet-contacts-and-addresses)\" section).",
+          "evidence_html": "The source, confirmed on the page image, writes <q>Internet Contacts</q> with a capital C inside quotation marks, because it is naming a section. The site lower-cases it. Weak on its own: Neave's <em>contents</em> page (PDF p3) spells the same section <q>Internet contacts and addresses</q> in lower case, and the section's own heading is full caps, so he is inconsistent across three spellings and the site has picked one of his. Raised because it sits inside quote marks, where the site is quoting him; reject it and the inconsistency is Neave's rather than ours. The line's other two changes — the <code>Transforma-&nbsp;tion</code> hyphen wrap rejoined, and <q>on page 4</q> replaced by an anchor — are both correct and are cleared separately as R-08.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-04",
+          "chip": "Quoted section name recased",
+          "chip_class": "",
+          "file": "11-references-and-sources.qmd",
+          "line": 102,
+          "page": "PDF p7 · printed p3",
+          "pdf_page": 7,
+          "page_pos": 5,
+          "flag": "Reference mismatch 2 · Altered 3 · 91%",
+          "source_html": "… please see the “Internet <mark class='src'>C</mark>ontacts and <mark class='src'>A</mark>ddresses” section …",
+          "site_html": "… please see the \"Internet <mark class='gone'>c</mark>ontacts and <mark class='gone'>a</mark>ddresses\" section …",
+          "proposal": "*For information on accessing items in this list, please see the \"[Internet Contacts and Addresses](#internet-contacts-and-addresses)\" section.*",
+          "evidence_html": "The same change as R-03, in the Videos/DVDs standfirst, and it stands or falls with it — decide the two together. Source has <q>Internet Contacts and Addresses</q>, capitalised, confirmed on the page image; the site lower-cases both words. The italics on this sentence are correct: it is set italic and centred in the source, and the site keeps the italics.",
+          "decision": "accept",
+          "decision_note": null
+        }
+      ]
+    },
+    {
+      "key": "emph",
+      "kind": "k-emph",
+      "title": "Emphasis restoration",
+      "tag": "Emphasis",
+      "count": "2 findings",
+      "note_html": "Neither was flagged and neither could be: <code>pdftotext</code> discards italic and bold entirely, so both come from reading the page image. Both go the same way — the site has added italics the source does not carry — and in both the site is arguably <em>more</em> correct than Neave. That is the decision: fidelity to the page, or a tidier bibliography.",
+      "labels": {
+        "accept": "Match the source",
+        "reject": "Keep the site's emphasis",
+        "discuss": "Discuss"
+      },
+      "items": [
+        {
+          "id": "R-05",
+          "chip": "Italics the source doesn't set",
+          "chip_class": "emph",
+          "file": "11-references-and-sources.qmd",
+          "line": 118,
+          "page": "PDF p7 · printed p3",
+          "pdf_page": 7,
+          "page_pos": 7,
+          "flag": "Never flagged — pdftotext discards emphasis",
+          "source_html": "Volume 1.&nbsp;&nbsp;&nbsp;The New Economic Age.<br>Volume 2.&nbsp;&nbsp;&nbsp;The 14 Points.<br>Volume 7.&nbsp;&nbsp;&nbsp;The Red Bead Experiment and Life.<br>Volume 8.&nbsp;&nbsp;&nbsp;Lessons of the Red Bead Experiment.<br>Volume 21.&nbsp;&nbsp;A Theory of a System for Educators and Managers. <mark class='src'>— all five set upright</mark>",
+          "site_html": "- Volume 1.&nbsp;&nbsp;<em>The New Economic Age</em>.<br>- Volume 2.&nbsp;&nbsp;<em>The 14 Points</em>.<br>- Volume 7.&nbsp;&nbsp;<em>The Red Bead Experiment and Life</em>.<br>- Volume 8.&nbsp;&nbsp;<em>Lessons of the Red Bead Experiment</em>.<br>- Volume 21.&nbsp;&nbsp;<em>A Theory of a System for Educators and Managers</em>. <mark class='gone'>— all five italicised</mark>",
+          "evidence_html": "On the page image the five Deming Library volume titles are set <strong>upright</strong>, and they are the only titles in the Videos/DVDs list that are — every other entry on that page (<em>A Prophet Unheard</em>, <em>Analysis of the Red Beads Experiment</em>, <em>Doctor's Orders</em>, <em>If Japan Can, Why Can't We?</em>, <em>Management's Five Deadly Diseases</em>, <em>The Deming Library</em>, <em>The Deming of America</em>) is italic, and the site matches all of those correctly. So the site has normalised exactly the five Neave left roman. Defensible as a consistency fix — they are titles of works — but it is a departure from the page. Reverting means dropping the asterisks on lines 118–122.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-06",
+          "chip": "Italic run extended",
+          "chip_class": "emph",
+          "file": "11-references-and-sources.qmd",
+          "line": 50,
+          "page": "PDF p5 · printed p1 (repeated PDF p7 · printed p3)",
+          "pdf_page": 5,
+          "page_pos": 2,
+          "flag": "Never flagged — pdftotext discards emphasis",
+          "source_html": "KOYANAGI&nbsp;&nbsp;Ken-Ichi, <em>The Deming</em> <mark class='src'>Prize</mark>.&nbsp;&nbsp;See under “Booklets”.",
+          "site_html": "KOYANAGI Ken-Ichi, <em>The Deming <mark class='gone'>Prize</mark></em>.&nbsp;&nbsp;See under \"Booklets\".",
+          "evidence_html": "Neave's italic run stops after <q>Deming</q>, leaving <q>Prize</q> upright — his own typesetting slip, and he makes it <strong>twice</strong>: once here under BOOKS (PDF p5) and again in the BOOKLETS entry on PDF p7, line 98. Both confirmed on the page images. The site italicises the whole title in both places, which is what the title actually is. Because the slip is repeated it is a settled habit rather than a stray keystroke, which cuts both ways: it is more clearly Neave's intent to record, and more clearly wrong. Accepting means splitting the emphasis on lines 50 and 98 to match.",
+          "decision": "accept",
+          "decision_note": null
+        }
+      ]
+    },
+    {
+      "key": "clear",
+      "kind": "k-clear",
+      "title": "Checked and cleared",
+      "tag": "Non-defect",
+      "count": "10 findings",
+      "note_html": "This is where most of the report went. Twenty of the 24 flagged sentences are one artifact — the sentence splitter cutting Neave's two-column reference lists between the label and the title, then pairing them off by one — and the rest are documented web adaptations, two of which already have a <code>docs/deviations/</code> entry. Every entry in both lists was checked against the page image individually rather than dismissed as a class.",
+      "labels": {
+        "accept": "Agree — no defect",
+        "reject": "Disagree, look again",
+        "discuss": "Discuss"
+      },
+      "items": [
+        {
+          "id": "R-16",
+          "chip": "Print page numbers dropped",
+          "chip_class": "clear",
+          "file": "11-references-and-sources.qmd",
+          "line": 9,
+          "page": "PDF p3 · contents",
+          "pdf_page": 3,
+          "page_pos": 1,
+          "flag": "Not flagged — contents page below the readability filter",
+          "source_html": "Books …………… 1<br>Booklets …………… 3<br>Videos/DVDs …………… 3<br>Internet contacts and addresses …………… <mark class='src'>4</mark>",
+          "site_html": "- [Books](#books)<br>- [Booklets](#booklets)<br>- [Videos / DVDs](#videos-dvds)<br>- [Internet contacts and addresses](#internet-contacts-and-addresses) <mark class='gone'>— no page numbers</mark>",
+          "evidence_html": "The source's contents page is a leader-dotted list against printed page numbers 1/3/3/4. The site renders it as four in-page anchor links with the numbers dropped, which is the only thing they can be on a page that has no printed pagination. All four section names survive verbatim, and all four anchors resolve. Standard web adaptation, same treatment as every other contents page in the corpus.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-14",
+          "chip": "Header/column-label join",
+          "chip_class": "clear",
+          "file": null,
+          "line": null,
+          "page": "PDF p3 · contents",
+          "pdf_page": 3,
+          "page_pos": 2,
+          "flag": "Short content · not found in the QMD · 86%",
+          "source_html": "REFERENCES AND SOURCES <mark class='src'>page</mark>",
+          "site_html": "REFERENCES AND SOURCES <mark class='gone'>(title)</mark>",
+          "evidence_html": "A <code>pdftotext</code> join, not a wording difference: on the contents page the heading <q>REFERENCES AND SOURCES</q> sits above a right-aligned column label <q>page</q>, and the layout extractor read them as one short line. The heading itself is present as the page's <code>title</code>. Nothing to carry over — the column label belongs to a table of contents the site does not reproduce.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-15",
+          "chip": "Binder letter",
+          "chip_class": "clear",
+          "file": null,
+          "line": null,
+          "page": "PDF p1 · cover",
+          "pdf_page": 1,
+          "flag": "Short content · set aside · fragment",
+          "source_html": "<mark class='src'>R</mark>",
+          "site_html": "<mark class='gone'>(not transcribed)</mark>",
+          "evidence_html": "The single letter <q>R</q> printed large on the cover page — Neave's binder/file letter for this PDF, the same scheme as <code>A.PLEASE.START.HERE</code> and <code>P.Appendix</code>. Page furniture with no prose counterpart; the validator already set it aside as a sub-two-word fragment. Correctly not transcribed.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-09",
+          "chip": "Page-relative pointer rewritten",
+          "chip_class": "clear",
+          "file": "11-references-and-sources.qmd",
+          "line": 38,
+          "page": "PDF p5 · printed p1 (and PDF p6 · printed p2)",
+          "pdf_page": 5,
+          "page_pos": 1,
+          "flag": "Altered 6 · 74% · and Altered 5 · 75%",
+          "source_html": "<em>EST</em>. Abbreviation for my <em>Elementary Statistics Tables</em> <mark class='src'>(see top of next page)</mark>.<br><em>ST</em>. Abbreviation for my <em>Statistics Tables for Mathematicians, Engineers</em> … <mark class='src'>(see near top of this page)</mark>.",
+          "site_html": "<em>EST</em>.  Abbreviation for my <em>Elementary Statistics Tables</em> <mark class='gone'>(see below)</mark>.<br><em>ST</em>.  Abbreviation for my <em>Statistics Tables for Mathematicians, Engineers</em> … <mark class='gone'>(see above)</mark>.",
+          "evidence_html": "Two pointers that cannot survive losing pagination, and both were re-aimed correctly — which is worth stating, because the easy error here is to swap them. In the source, EST sits on printed p1 and points to <q>NEAVE, H R, <em>Elementary Statistics Tables</em></q> at the top of printed p2, so <q>next page</q>; ST sits on printed p2 pointing at <q>NEAVE, H R, <em>Statistics Tables…</em></q> near the top of the <em>same</em> page, so <q>this page</q>. On the site the whole bibliography is one continuous list: EST is at line 38 and its target at line 54 (<q>below</q> ✓), ST at line 74 and its target at line 56 (<q>above</q> ✓). Both verified against the page images on PDF p5 and p6.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-08",
+          "chip": "“on page 4” → anchor",
+          "chip_class": "clear",
+          "file": "11-references-and-sources.qmd",
+          "line": 90,
+          "page": "PDF p7 · printed p3",
+          "pdf_page": 7,
+          "page_pos": 2,
+          "flag": "Reference mismatch 1 · 94% · and Reference mismatch 2 · 91%",
+          "source_html": "…see the “Internet Contacts” section <mark class='src'>on page 4</mark>.<br>…please see the “Internet Contacts and Addresses” section <mark class='src'>on page 4</mark>.",
+          "site_html": "…see the \"<a href='#internet-contacts-and-addresses'>Internet contacts</a>\" section.<br>…please see the \"<a href='#internet-contacts-and-addresses'>Internet contacts and addresses</a>\" section.",
+          "evidence_html": "Both reference mismatches report the same thing — a <code>page 4</code> token in the source with no counterpart on the site — and both are the intended behaviour. Printed p4 is this PDF's Internet Contacts page; on the site it is a section of the same document, so the pointer became an in-page anchor and the now-meaningless page number was dropped. The anchor resolves to the right section in both cases. This is #784's enriched-cross-reference shape. Listed apart from R-03/R-04 because the recasing and the page-number removal are independent decisions on the same two sentences.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-12",
+          "chip": "Sentence-splitter artifact",
+          "chip_class": "clear",
+          "file": "11-references-and-sources.qmd",
+          "line": 92,
+          "page": "PDF p7 · printed p3",
+          "pdf_page": 7,
+          "page_pos": 3,
+          "flag": "Altered 2 (8 of 9 sentences) · Altered 4 (all 8) · Reference mismatches 3 and 4",
+          "source_html": "A6.&nbsp;&nbsp;&nbsp;BDA, Profound Knowledge (1990).<br>A8.&nbsp;&nbsp;&nbsp;BDA, Performance Appraisal and All That! (1991).<br>… <mark class='src'>label and title in two columns</mark>",
+          "site_html": "<mark class='gone'>“A8.” ↔ “BDA, Profound Knowledge (1990). - A8.”  [33%]</mark><br><mark class='gone'>“Volume 2.” ↔ “- Volume 1.”  [50%]</mark><br>… <mark class='gone'>paired off by one</mark>",
+          "evidence_html": "<strong>Twenty of this pass's 24 flagged sentences are this one artifact</strong>, which is why the flag count overstates the work. Neave sets both the booklets list and the Deming Library list as two columns — a label (<code>A8.</code>, <code>Volume 2.</code>) and then the title — and the splitter treats each label as its own sentence. It then matches each label against the <em>previous</em> entry's title, producing the 22–67% scores and the two <q>volume 8</q> / <q>volume 21</q> reference mismatches, which are labels landing one row out rather than numbers disagreeing. All ten entries were checked individually against the page images: A6, A8, A9, A10 and W2 all carry the right title, year and BDA/TRIBUS attribution, and Volumes 1, 2, 7, 8 and 21 all carry the right title. Nothing is wrong in either list. (The five volume titles' <em>italics</em> are a separate, real finding — R-05.)",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-07",
+          "chip": "URLs given a scheme",
+          "chip_class": "clear",
+          "file": "11-references-and-sources.qmd",
+          "line": 138,
+          "page": "PDF p8 · printed p4",
+          "pdf_page": 8,
+          "page_pos": 3,
+          "flag": "Altered 1 · 95% · Altered 8 · 64% · Unsourced 1 · 20%",
+          "source_html": "WEDI (The W Edwards Deming Institute) (USA): <mark class='src'>www.deming.org</mark>",
+          "site_html": "WEDI (The W Edwards Deming Institute) (USA): &lt;<mark class='gone'>https://</mark>www.deming.org&gt;",
+          "evidence_html": "Nine bare <code>www.</code> addresses were given an <code>https://</code> scheme so they resolve as links. Established corpus convention: <code>&lt;https://…&gt;</code> autolinks outnumber bare <code>&lt;www.…&gt;</code> ones <strong>26 to 1</strong> across the whole book, and the single exception is Day 10 printed p6, which <a href='https://github.com/lddurbin/twelve_days_to_deming/issues/793'>#793</a> deliberately pinned with a fixture because Pandoc emits it literally. <strong>Every URL on this page was diffed character by character against the PDF</strong>, and apart from the scheme they are byte-identical — including <code>ehMAwIHGN0Y</code>, the ID #420 had to repair. The one exception is R-01, which is why that finding exists. <code>Altered 8</code> and <code>Unsourced 1</code> are both the same list read as one block by <code>pdftotext</code> and as separate lines on the site; <code>Gallery Furniture</code> scoring 20% <q>unsourced</q> is that split, not absent content.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-11",
+          "chip": "Dead domain → Wayback",
+          "chip_class": "clear",
+          "file": "11-references-and-sources.qmd",
+          "line": 142,
+          "page": "PDF p8 · printed p4",
+          "pdf_page": 8,
+          "page_pos": 4,
+          "flag": "Altered 9 · 46% (with R-10)",
+          "source_html": "Deming Transformation Forum (UK): <mark class='src'>www.deming.org.uk</mark>",
+          "site_html": "Deming Transformation Forum (UK): [www.deming.org.uk](<mark class='gone'>https://web.archive.org/web/20120105232234/http://www.deming.org.uk/</mark>)",
+          "evidence_html": "Already adjudicated and logged. <code>deming.org.uk</code> no longer resolves; the href points at the 2012-01-05 Wayback capture while <strong>the visible link text is still Neave's own <code>www.deming.org.uk</code></strong>, so the page reads as printed. Covered by <code>docs/deviations/2026-04-23-dead-external-links-to-deming-org-uk-and-rqoq-org-nz.md</code>, decided on #239. No action.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-10",
+          "chip": "Factual note rewritten",
+          "chip_class": "clear",
+          "file": "11-references-and-sources.qmd",
+          "line": 144,
+          "page": "PDF p8 · printed p4",
+          "pdf_page": 8,
+          "page_pos": 5,
+          "flag": "Altered 9 · 46%",
+          "source_html": "<em>NB</em>&nbsp; At the time of the current revision of this file (February 2022) this website is ”being upgraded”.  The Booklets etc are however still obtainable via the website's “Learning Store”.",
+          "site_html": "<em>NB</em>&nbsp; The Deming Transformation Forum's website is no longer online. The linked 2012 archived snapshot is preserved here as a historical reference; the Booklets referenced throughout this course are no longer available via its former \"Learning Store\".",
+          "evidence_html": "The largest single wording departure on the page, and the reason <code>Altered 9</code> scores only 46%. It is a deliberate factual update, not a transcription error: Neave's February 2022 note told readers the site was temporarily <q>being upgraded</q> and the Booklets were <q>still obtainable</q>, and both statements are now false — following them would send a reader to a domain that does not resolve. Covered by the same <code>docs/deviations/</code> entry as R-11, which names this rewrite explicitly (<q>The Feb 2022 'being upgraded' note … was rewritten accordingly</q>). No action.",
+          "decision": "accept",
+          "decision_note": null
+        },
+        {
+          "id": "R-13",
+          "chip": "Restructured, not missing",
+          "chip_class": "clear",
+          "file": "11-references-and-sources.qmd",
+          "line": 134,
+          "page": "PDF p8 · printed p4",
+          "pdf_page": 8,
+          "page_pos": 6,
+          "flag": "Gap 1 — the pass's only “potentially missing” paragraph",
+          "source_html": "A Prophet Unheard: … Balaji Reddie …: … Chartered Quality Institute (UK): … Deming Alliance (UK): … <mark class='src'>(read as one 14-entry block)</mark>",
+          "site_html": "Fourteen separate lines, lines 134–162 <mark class='gone'>(one paragraph each)</mark>",
+          "evidence_html": "The report's single missing gap, and it is a formatting difference: <code>pdftotext</code> read the whole Internet Contacts list as one run-on paragraph, which then matched nothing because the site sets each contact as its own paragraph. All fourteen entries are present and were checked one by one against the page image — every name, every address. Worth recording that this finding is <em>not</em> harmless in general, though: R-01 was hiding inside this block, invisible to the comparator precisely because the block as a whole was written off as a layout artifact.",
+          "decision": "accept",
+          "decision_note": null
+        }
+      ]
+    },
+    {
+      "key": "scope",
+      "kind": "k-scope",
+      "title": "Out of scope for this pass",
+      "tag": "Out of scope",
+      "count": "1 finding",
+      "note_html": "One finding that a content pass is the wrong instrument for, raised here because this pass is what surfaced it.",
+      "labels": {
+        "accept": "Raise as an issue",
+        "reject": "Drop it",
+        "discuss": "Discuss"
+      },
+      "items": [
+        {
+          "id": "R-17",
+          "chip": "link-check blind spot",
+          "chip_class": "",
+          "file": null,
+          "line": null,
+          "page": "raised from PDF p8 · printed p4",
+          "pdf_page": null,
+          "flag": "Not a transcription finding — infrastructure, surfaced by R-01",
+          "source_html": "<mark class='src'>n/a</mark>",
+          "site_html": "<mark class='gone'>n/a</mark>",
+          "evidence_html": "R-01's link has been dead since the page was created and the weekly link-check (<a href='https://github.com/lddurbin/twelve_days_to_deming/issues/340'>#340</a>) has never reported it. The reason is structural, and I verified it: <strong>YouTube returns HTTP 200 for a playlist ID that does not exist</strong> — both <code>…AD3F2…</code> (real) and <code>…AD0F2…</code> (fabricated) return 200 on <code>youtube.com/playlist?list=…</code>, because the server renders a <q>playlist does not exist</q> page rather than a 404. Only the oEmbed endpoint distinguishes them. So every YouTube link in the corpus is currently unchecked in practice, whatever the link-check reports — and #420 found a second mistranscribed YouTube ID on this same page, so the failure class is not hypothetical. Fixing it means teaching <code>link-check</code> to resolve YouTube URLs via oEmbed instead of a plain fetch. That is a workflow change, not a content one, and belongs in its own issue.",
+          "decision": "accept",
+          "decision_note": null,
+          "outcome": "Raised as #805."
+        }
+      ]
+    }
+  ]
+}
