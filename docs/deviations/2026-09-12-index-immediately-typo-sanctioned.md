@@ -1,0 +1,8 @@
+## 2026-09-12 — index.qmd "Immediately" capitalisation typo sanctioned
+
+- **What** — `index.qmd:219` now reads "This outline has already been mentioned **immediately** beneath The "Overture" on the previous page." Neave's own PDF prints "Immediately" with a stray mid-sentence capital. The site had transcribed the capital faithfully. Decision: correct it to lower case. No `[sic]` marker was added.
+- **Where** — `index.qmd:219` ("The "Overture"" section, under *Outline of the course*).
+- **Source reference** — `A.PLEASE.START.HERE.08Feb22.pdf`, PDF page 14 (printed Welcome page 6). Confirmed on the page image.
+- **Why** — Epic [#734](https://github.com/lddurbin/twelve_days_to_deming/issues/734)'s Wave 2 pass over `index.qmd` ([#811](https://github.com/lddurbin/twelve_days_to_deming/issues/811)) originally adjudicated this as `I-15`, *confirmed non-defect* — correctly transcribed, and deliberately not corrected, on the reasoning that preserving Neave's own capitalisation is the safer default. **Lee overturned that verdict**, noting that fix-and-log is the established convention elsewhere in this epic. That is right: a stray capital with one unambiguous correction is the same mechanical class as Day 7's "religious", Day 8's "echos"/"innovaton", Day 9's "Zeebruge"/"compliment" and Day 11's "syppose"/"Mazlow's", each of which was corrected and logged rather than preserved. Preserving it here would have made this file the inconsistent one.
+- **Decided in** — Wave 2 `index` adjudication pass, [#811](https://github.com/lddurbin/twelve_days_to_deming/issues/811) (2026-09-12): Lee rejected the *confirmed non-defect* verdict on `I-15` — "Fix and log - isn't that the convention elsewhere?"
+- **Landed in** — pending.
