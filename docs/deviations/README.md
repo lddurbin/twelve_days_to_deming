@@ -40,7 +40,7 @@ the moment `gh pr create` returns, and the field is then correct from the first
 commit that renders it. Write:
 
 ```markdown
-- **Landed in** — PR [#806](https://github.com/lddurbin/twelve_days_to_deming/pull/806).
+- **Landed in** — PR [#NNN](https://github.com/lddurbin/twelve_days_to_deming/pull/NNN).
 ```
 
 Use `Pending — tracked in #NNN` **only** when the deviation is decided here but

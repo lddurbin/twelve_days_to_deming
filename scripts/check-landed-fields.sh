@@ -19,7 +19,9 @@
 #
 #   1. Placeholders. "TBD", "<!-- filled at merge -->", "to be added", or a
 #      bare "pending" with no issue behind it. Never legitimate — the format
-#      in docs/deviations/README.md is "Pending — tracked in #NNN".
+#      in docs/deviations/README.md is "Pending — tracked in #NNN". The list
+#      lives in scripts/lib/landed-placeholder.sh, shared with the release
+#      gate so the two cannot drift.
 #
 #   2. "Pending — tracked in #NNN" where #NNN is CLOSED. Pending is correct
 #      while the work is genuinely outstanding, so the tracking issue's own
@@ -33,6 +35,11 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DEVIATIONS_DIR="$REPO_ROOT/docs/deviations"
 CHANGESETS_DIR="$REPO_ROOT/docs/changesets"
+
+# What counts as an unfilled placeholder is defined once and shared with
+# scripts/cut-release.sh, which gates the same field at release time.
+# shellcheck source-path=SCRIPTDIR source=lib/landed-placeholder.sh
+. "$REPO_ROOT/scripts/lib/landed-placeholder.sh"
 
 problems=()
 
@@ -57,25 +64,6 @@ field_value() {
   sed -n "s/^- \*\*${name}\*\*[[:space:]]*[—:-][[:space:]]*//p" "$file" | head -1
 }
 
-is_placeholder() {
-  local v="$1"
-  [[ -z "$v" ]] && return 0
-  shopt -s nocasematch
-  local hit=1
-  if [[ "$v" == *TBD* \
-     || "$v" == *"filled at merge"* \
-     || "$v" == *"to be added"* \
-     || "$v" == *"to be filled"* ]]; then
-    hit=0
-  # A bare "pending" with no issue reference. "Pending — tracked in #NNN" is
-  # the documented, legitimate form and is judged by tracker state instead.
-  elif [[ "$v" == *pending* && "$v" != *"#"* ]]; then
-    hit=0
-  fi
-  shopt -u nocasematch
-  return "$hit"
-}
-
 # ── Deviations: **Landed in** ────────────────────────────────
 pending_trackers=()   # "file<TAB>issue"
 
@@ -88,7 +76,7 @@ while IFS= read -r f; do
     continue
   fi
 
-  if is_placeholder "$value"; then
+  if is_landed_placeholder "$value"; then
     problems+=("$rel — **Landed in** is an unfilled placeholder: $value")
     continue
   fi
@@ -111,7 +99,7 @@ while IFS= read -r f; do
 
   if [[ -z "$value" ]]; then
     problems+=("$rel — no **PR** field (cut-release.sh would drop the reference)")
-  elif is_placeholder "$value"; then
+  elif is_landed_placeholder "$value"; then
     problems+=("$rel — **PR** is an unfilled placeholder: $value (cut-release.sh would bake this into CHANGELOG.md)")
   fi
 done < <(entry_files "$CHANGESETS_DIR")

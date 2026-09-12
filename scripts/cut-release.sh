@@ -22,6 +22,9 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CHANGESETS_DIR="$REPO_ROOT/docs/changesets"
 CHANGELOG="$REPO_ROOT/CHANGELOG.md"
 
+# shellcheck source-path=SCRIPTDIR source=lib/landed-placeholder.sh
+. "$REPO_ROOT/scripts/lib/landed-placeholder.sh"
+
 VERSION=""
 DRY_RUN=0
 for arg in "$@"; do
@@ -77,15 +80,14 @@ field() {
 # is then deleted, so an unfilled "TBD" becomes a permanent changelog line
 # with no way back to the real number. Two entries were primed to do exactly
 # that when #777 found this. scripts/check-landed-fields.sh enforces the same
-# rule continuously; this is the last gate before the one-way door.
+# rule continuously; this is the last gate before the one-way door. Both read
+# the same definition of "unfilled" from scripts/lib/landed-placeholder.sh.
 UNFILLED=()
 for f in "${ENTRY_FILES[@]}"; do
   pr="$(field "PR" "$f")"
-  case "${pr}" in
-    "" | *TBD* | *tbd* | *"to be added"* | *"filled at merge"*)
-      UNFILLED+=("${f#"$REPO_ROOT/"} — PR: ${pr:-<missing>}")
-      ;;
-  esac
+  if is_landed_placeholder "$pr"; then
+    UNFILLED+=("${f#"$REPO_ROOT/"} — PR: ${pr:-<missing>}")
+  fi
 done
 
 if ((${#UNFILLED[@]} > 0)); then
