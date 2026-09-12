@@ -47,7 +47,7 @@ KOHN Alfie, *No Contest: The Case Against Competition*.  Houghton Mifflin (1986)
 
 KOHN Alfie, *Punished by Rewards—the Trouble with Gold Stars, Incentive Plans, A's, Praise and Other Bribes*.  Houghton Mifflin (1993, 2000)
 
-KOYANAGI Ken-Ichi, *The Deming Prize*.  See under "Booklets".
+KOYANAGI Ken-Ichi, *The Deming* Prize.  See under "Booklets".
 
 MANN Nancy R, *The Keys to Excellence*.  Prestwick Books, Los Angeles (1985); Mercury Books, London (1989).
 
@@ -87,7 +87,7 @@ WHEELER D J and CHAMBERS D S, *Understanding Statistical Process Control*.  SPC 
 
 ## BOOKLETS
 
-BDA BOOKLETS (now known as the Deming A5 Booklets and obtainable from the UK Deming Transformation Forum—see the "[Internet contacts](#internet-contacts-and-addresses)" section).
+BDA BOOKLETS (now known as the Deming A5 Booklets and obtainable from the UK Deming Transformation Forum—see the "[Internet Contacts](#internet-contacts-and-addresses)" section).
 
 - A6.  BDA, *Profound Knowledge* (1990).
 - A8.  BDA, *Performance Appraisal and All That!* (1991).
@@ -95,11 +95,11 @@ BDA BOOKLETS (now known as the Deming A5 Booklets and obtainable from the UK Dem
 - A10.  BDA, *Deming Speaks to European Executives* (1991).
 - W2.  TRIBUS M, *The Germ Theory of Management* (1993).
 
-KOYANAGI Ken-Ichi, *The Deming Prize*.  Union of Japanese Scientists and Engineers (JUSE), 1960.
+KOYANAGI Ken-Ichi, *The Deming* Prize.  Union of Japanese Scientists and Engineers (JUSE), 1960.
 
 ## VIDEOS / DVDs
 
-*For information on accessing items in this list, please see the "[Internet contacts and addresses](#internet-contacts-and-addresses)" section.*
+*For information on accessing items in this list, please see the "[Internet Contacts and Addresses](#internet-contacts-and-addresses)" section.*
 
 *A Japanese Control Chart*.  SPC Press Inc (1990).
 
@@ -115,11 +115,11 @@ KOYANAGI Ken-Ichi, *The Deming Prize*.  Union of Japanese Scientists and Enginee
 
 *The Deming Library*.  Films Inc, Chicago.  (Contact WEDI or the UK Deming Transformation Forum.)
 
-- Volume 1.  *The New Economic Age*.
-- Volume 2.  *The 14 Points*.
-- Volume 7.  *The Red Bead Experiment and Life*.
-- Volume 8.  *Lessons of the Red Bead Experiment*.
-- Volume 21.  *A Theory of a System for Educators and Managers*.
+- Volume 1.  The New Economic Age.
+- Volume 2.  The 14 Points.
+- Volume 7.  The Red Bead Experiment and Life.
+- Volume 8.  Lessons of the Red Bead Experiment.
+- Volume 21.  A Theory of a System for Educators and Managers.
 
 *The Deming of America*.  Petty Consulting Productions, Cincinnati.
 
@@ -129,9 +129,9 @@ KOYANAGI Ken-Ichi, *The Deming Prize*.  Union of Japanese Scientists and Enginee
 
 *(checked correct in January 2022)*
 
-(Note that [0]{.underline} and [1]{.underline} are digits and [O]{.underline} and [I]{.underline} are capital letters.)
+(Note that and [0]{.underline} and [1]{.underline} are digits and [O]{.underline} and [I]{.underline} are capital letters.)
 
-*A Prophet Unheard*: <https://www.youtube.com/playlist?list=PLCADAD0F2F91BD570>
+*A Prophet Unheard*: <https://www.youtube.com/playlist?list=PLCADAD3F2F91BD570>
 
 Balaji Reddie at the Deming Forum of India: <balaji@deming.org.in>
 

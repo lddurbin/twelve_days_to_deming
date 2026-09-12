@@ -1,0 +1,5 @@
+## 2026-09-12 — The References and Sources appendix's full transcription flag list
+
+- **Section**: Fixed
+- **What**: Repairs a dead link and six smaller departures in the References and Sources appendix, the first time that page has been checked against its own source PDF. The site's link to the *A Prophet Unheard* video playlist has been broken since the page was created — one digit of the YouTube playlist ID was mistranscribed (`PLCADAD0F2F91BD570` for Neave's `PLCADAD3F2F91BD570`), three lines below his own warning that "0 and 1 are digits and O and I are capital letters"; it now resolves again. Also restores Neave's wording in the two cross-references that name the "Internet Contacts and Addresses" section, restores a stray "and" in that same warning that the transcription had silently tidied away, and matches the source's emphasis in six places — the five Deming Library volume titles, which Neave sets upright while italicising every other title in that list, and the two *The Deming* Prize entries, where his italics stop one word short. (#804)
+- **PR**: #TBD
