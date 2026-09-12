@@ -3,13 +3,15 @@
 # check-structure.sh — Structural inventory checker for QMD chapter completeness
 #
 # Usage: ./scripts/check-structure.sh <day-number>
-#        ./scripts/check-structure.sh --appendix <slug>
+#        ./scripts/check-structure.sh --manifest <name>
+#        ./scripts/check-structure.sh --appendix <slug>   (alias)
 #   e.g. ./scripts/check-structure.sh 3
+#        ./scripts/check-structure.sh --manifest welcome
 #        ./scripts/check-structure.sh --appendix contributions-balaji-reddie
 #
 # Compares each QMD chapter against a manifest and reports PASS/FAIL per check
 # per chapter. Day manifests cover viewof count, figures, headings, and
-# download button. Appendix manifests can opt out of interactive checks for
+# download button. Other manifests can opt out of interactive checks for
 # prose-only content (set `interactive_checks: false`).
 #
 # Requires: ruby (for YAML parsing — ships with macOS).
@@ -35,10 +37,12 @@ fi
 
 usage() {
   echo "Usage: $0 <day-number>"
+  echo "       $0 --manifest <name>"
   echo "       $0 --appendix <slug>"
   echo ""
   echo "  day-number:       1-12 (uses workflow/validation/day-NN-manifest.yml)"
-  echo "  --appendix <slug>: uses workflow/validation/appendix-<slug>-manifest.yml"
+  echo "  --manifest <name>: uses workflow/validation/<name>-manifest.yml"
+  echo "  --appendix <slug>: alias for --manifest appendix-<slug>"
   echo ""
   echo "Checks QMD chapters against a structural manifest and reports"
   echo "PASS/FAIL per check per chapter."
@@ -110,19 +114,37 @@ main() {
   # ── Argument parsing ──
   local mode="" target="" label="" manifest="" qmd_dir=""
 
-  if [[ "${1:-}" == "--appendix" ]]; then
-    mode="appendix"
-    target="${2:-}"
-    if [[ -z "$target" ]]; then
-      echo "Error: --appendix requires a slug (e.g. contributions-balaji-reddie)"
-      usage
+  if [[ "${1:-}" == "--appendix" || "${1:-}" == "--manifest" ]]; then
+    # Two spellings of one mode. `--appendix <slug>` reaches
+    # appendix-<slug>-manifest.yml and is what the existing callers use;
+    # `--manifest <name>` reaches <name>-manifest.yml directly, added by #802
+    # for source PDFs whose transcriptions are not appendices — index.qmd is
+    # the book's front door and welcome.qmd its introduction.
+    mode="manifest"
+    if [[ "$1" == "--appendix" ]]; then
+      local slug="${2:-}"
+      if [[ -z "$slug" ]]; then
+        echo "Error: --appendix requires a slug (e.g. contributions-balaji-reddie)"
+        usage
+      fi
+      target="appendix-$slug"
+    else
+      target="${2:-}"
+      if [[ -z "$target" ]]; then
+        echo "Error: --manifest requires a name (e.g. appendix-main, welcome)"
+        usage
+      fi
     fi
     if [[ ! "$target" =~ ^[a-zA-Z0-9_-]+$ ]]; then
-      echo "Error: slug must contain only letters, digits, hyphens, and underscores"
+      echo "Error: manifest name must contain only letters, digits, hyphens, and underscores"
       exit 1
     fi
-    manifest="$MANIFEST_DIR/appendix-${target}-manifest.yml"
-    label="Appendix: $target"
+    manifest="$MANIFEST_DIR/${target}-manifest.yml"
+    if [[ "$target" == appendix-* ]]; then
+      label="Appendix: ${target#appendix-}"
+    else
+      label="$target"
+    fi
   elif [[ -n "${1:-}" && "$1" =~ ^[0-9]+$ ]]; then
     mode="day"
     target="$1"
@@ -160,11 +182,11 @@ main() {
     esac
   done < "$tmpdir/meta"
 
-  # Appendix manifests MUST declare content_dir; day manifests use the
+  # Manifest-mode manifests MUST declare content_dir; day manifests use the
   # convention-derived path unless they override.
-  if [[ "$mode" == "appendix" ]]; then
+  if [[ "$mode" == "manifest" ]]; then
     if [[ -z "$manifest_content_dir" ]]; then
-      echo "Error: appendix manifest must declare content_dir"
+      echo "Error: manifest must declare content_dir"
       exit 1
     fi
     qmd_dir="$REPO_ROOT/$manifest_content_dir"

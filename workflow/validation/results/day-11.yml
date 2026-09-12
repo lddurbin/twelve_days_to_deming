@@ -2,7 +2,9 @@ day: 11
 validated_at: 2026-09-12
 source_pdf: N.Day.11.18Jan20.pdf
 source_sha256: e2e24a83e33d2c23f6aef971af00c41b2b89ed9e7c3a5713abff3e1e72d95eed
-scorer_version: 785211c2121c71962f2fb032eeb23ca5fb523b53
+scorer_version: 044f140644891f5a11685fb47fff36a0e215bbe6
+files:
+  compared: 8
 thresholds:
   missing: 0.4
   altered: 0.98

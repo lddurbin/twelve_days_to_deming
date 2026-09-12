@@ -12,6 +12,10 @@ on:
     # outside content/, etc.) don't burn CI minutes on it.
     paths:
       - 'content/**'
+      # The book's front matter sits at the repository root, not under
+      # content/ — index.qmd and welcome.qmd have had manifests since #802,
+      # and without this an edit to either would skip the check that reads it.
+      - '*.qmd'
       - 'workflow/validation/**'
       - 'assets/images/**'
       - 'scripts/check-structure.sh'
@@ -54,11 +58,16 @@ jobs:
           echo "::endgroup::"
         done
 
+        # Every manifest that is not a day's. Globbed rather than listed so a
+        # new one is checked the moment it exists — which is how #802's three
+        # new manifests arrived. The glob used to be `appendix-*`, and would
+        # have skipped index-manifest.yml and welcome-manifest.yml in silence.
         shopt -s nullglob
-        for manifest in workflow/validation/appendix-*-manifest.yml; do
-          slug=$(basename "$manifest" | sed -E 's/^appendix-(.+)-manifest\.yml$/\1/')
-          echo "::group::Appendix $slug"
-          ./scripts/check-structure.sh --appendix "$slug" || overall_fail=1
+        for manifest in workflow/validation/*-manifest.yml; do
+          name=$(basename "$manifest" -manifest.yml)
+          case "$name" in day-*) continue ;; esac
+          echo "::group::Manifest $name"
+          ./scripts/check-structure.sh --manifest "$name" || overall_fail=1
           echo "::endgroup::"
         done
 

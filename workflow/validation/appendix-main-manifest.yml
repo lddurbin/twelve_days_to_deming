@@ -1,10 +1,21 @@
 # Appendix structural manifest: main Appendix (Discussions and Information)
 # Source PDF: P.Appendix.09Feb22.pdf
 #
-# Covers the Glossary plus the 12 main appendix files (00-welcome through
-# 11-references-and-sources). All chapters are prose-only — no `viewof`
-# inputs, no download buttons — so interactive_checks is false and only
-# heading and figure-reference checks run.
+# Covers the Glossary plus the 11 main appendix files (00-welcome through
+# 10-optional-extras). All chapters are prose-only — no `viewof` inputs, no
+# download buttons — so interactive_checks is false and only heading and
+# figure-reference checks run.
+#
+# Two chapters in content/appendix/ are deliberately not listed here, because
+# this manifest's `pdf_file` is not where their text comes from and #802
+# stopped the validator globbing the directory as though it were:
+#   - 11-references-and-sources.qmd — its source is
+#     R.References.and.Sources.09Feb22.pdf; see
+#     workflow/validation/appendix-references-manifest.yml
+#   - glossary.qmd — a site original with no source PDF at all; see
+#     workflow/validation/no-source.yml
+# Between them, those two accounted for 69 of the 70 paragraphs this run used
+# to report as unsourced.
 #
 # Per-chapter figures lists are intentionally empty: the script also walks
 # every ![](path) ref in each QMD and verifies it on disk, so the manifest
@@ -122,11 +133,3 @@ chapters:
       - 'An Alternative "Truth"'
       - "Superstitions"
       - "Approvals, Acknowledgments and Information"
-
-  - file: "11-references-and-sources.qmd"
-    figures: []
-    headings:
-      - "BOOKS"
-      - "BOOKLETS"
-      - "VIDEOS / DVDs"
-      - "INTERNET CONTACTS AND ADDRESSES"

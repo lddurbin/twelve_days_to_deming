@@ -1,0 +1,40 @@
+manifest: index
+validated_at: 2026-09-12
+source_pdf: A.PLEASE.START.HERE.08Feb22.pdf
+source_sha256: 2e6226b87cdc56f92607140707b6cdc044db92485f54578f757afbb13193a8d6
+scorer_version: 044f140644891f5a11685fb47fff36a0e215bbe6
+files:
+  compared: 1
+thresholds:
+  missing: 0.4
+  altered: 0.98
+  unsourced: 0.25
+  reference: 0.85
+counts:
+  pdf_paragraphs: 109
+  qmd_paragraphs: 80
+  matched_cleanly: 66
+  altered: 13
+  flagged_sentences: 66
+  near_certain: 4
+  missing: 30
+  unsourced: 4
+  unsourced_sentences: 5
+  reference_mismatches: 1
+  short_checked: 17
+  short_matched: 12
+  short_unmatched: 4
+  short_unjudged: 1
+blocks:
+  pdf:
+    total: 166
+    unreadable: 26
+    rejoined: 14
+    short: 17
+    compared: 109
+  qmd:
+    total: 96
+    unreadable: 0
+    rejoined: 1
+    short: 15
+    compared: 80

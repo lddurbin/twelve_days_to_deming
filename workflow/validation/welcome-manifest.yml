@@ -1,0 +1,31 @@
+# Structural manifest: "Welcome" — the course's introduction to Deming.
+# Source PDF: WELCOME-BOOKLET-(Aug21b).pdf
+#
+# Created by #802, and the one source PDF that issue did not know about: it
+# named A.PLEASE.START.HERE and R.References.and.Sources as the transcribed
+# files no run opened, on the reading that A's contents page lists a "Welcome to
+# 12 Days to Deming" section. It does, but that section's text is not in file A.
+# `welcome.qmd` transcribes the separate Welcome booklet instead — 107 of its
+# 110 on-site sentences appear in that booklet and in no PDF any run opened.
+#
+# `content_dir: "."` for the same reason as index-manifest.yml, and with the
+# same consequence: the chapter list is what gets compared, so the root's site
+# originals stay out of it and are declared in
+# workflow/validation/no-source.yml.
+#
+# Prose-only: no `viewof` inputs, no download buttons.
+
+slug: welcome
+pdf_file: WELCOME-BOOKLET-(Aug21b).pdf
+content_dir: "."
+interactive_checks: false
+
+chapters:
+  - file: "welcome.qmd"
+    figures: []
+    headings:
+      - "A BRIEF INTRODUCTION TO THE LIFE AND WORK OF W EDWARDS DEMING"
+      - "*12 Days to Deming*: SOME BACKGROUND"
+      - "*12 Days to Deming*: 12 MAIN FEATURES"
+      - '*12 Days to Deming* "HOSTS"'
+      - "ENDORSEMENTS"

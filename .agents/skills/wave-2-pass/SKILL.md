@@ -29,7 +29,7 @@ Extras genuinely last.
 ### 1. Get the flag list
 
 ```
-./scripts/validate-transcription.sh <n>            # ~0.5s; --appendix <slug> for an appendix
+./scripts/validate-transcription.sh <n>            # ~0.5s; --manifest <name> for anything not a day
 ./scripts/check-validation-staleness.sh            # must be green before you trust the report
 ```
 
