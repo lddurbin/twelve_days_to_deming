@@ -5,4 +5,4 @@
 - **Source reference** — `A.PLEASE.START.HERE.08Feb22.pdf`, PDF page 8 (printed Preface page 2). Confirmed on the page image, not from `pdftotext` alone.
 - **Why** — Epic [#734](https://github.com/lddurbin/twelve_days_to_deming/issues/734)'s Wave 2 pass over `index.qmd` ([#811](https://github.com/lddurbin/twelve_days_to_deming/issues/811)) surfaced this as finding `I-02`. A grammatical slip with one unambiguous correction is the kind the deviations-log README classifies as mechanical, but it predates the log with no record of the decision anywhere, so it is logged retroactively rather than left unrecorded a second time — same as Day 7's "religious"/"religiously", Day 8's "echos"/"innovaton", Day 9's "Zeebruge"/"compliment" and Day 11's "syppose"/"Mazlow's" precedents.
 - **Decided in** — Wave 2 `index` adjudication pass, [#811](https://github.com/lddurbin/twelve_days_to_deming/issues/811) (2026-09-12): Lee accepted `I-02`, "keep the correction and log it".
-- **Landed in** — pending.
+- **Landed in** — PR [#814](https://github.com/lddurbin/twelve_days_to_deming/pull/814).
