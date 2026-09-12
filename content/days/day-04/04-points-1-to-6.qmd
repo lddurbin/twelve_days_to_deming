@@ -11,11 +11,20 @@ execute:
 
 <div class="principle_callout" role="note" aria-label="Principle">**Create constancy of purpose for continual improvement of products and service,** allocating resources to provide for long-range needs rather than only short-term profitability, with a plan to become competitive, to stay in business, and to provide jobs.</div>
 
-Notice the nice link with the Deming Chain Reaction, finishing up (as in both versions of the Chain Reaction—see the bottom of page 3) with "provide jobs". We have already commented ([Day 1 page 23](../day-01/08-attraction.qmd#sec-page23)) upon Dr Deming's unhappiness because of its huge waste of human potential. Deming clearly saw the "plan to become competitive, to stay in business, and to provide jobs" as requiring an Obsession With Quality. It is already well worth reflecting ahead to two of the "Deadly Diseases" which you will study tomorrow afternoon: (i) Lack of constancy of purpose, and (ii) Emphasis on short-term profits.
+Notice the nice link with the Deming Chain Reaction, finishing up (as in both versions of the Chain Reaction—see the bottom of page 3) with <span class="deming_quote">"provide jobs"</span>. We have already remarked ([Day 1 page 23](../day-01/08-attraction.qmd#sec-page23)) upon Dr Deming's hate of unemployment because of its huge waste of human potential. Deming clearly saw the <span class="deming_quote">"plan to ... provide jobs"</span> as an *obligation* on the part of those people (management, especially senior management, and government) who have the power so to do.
+
+It is already well worth referring ahead to two of the "Deadly Diseases" which you will study tomorrow afternoon:
+
+- As indicated on [page 14, in The First Project](03-the-first-project.qmd#sec-page14), the first Deadly Disease can be expressed simply as the *non*-adoption of this first Point, i.e. *lack* of constancy of purpose. The fact that <span class="deming_quote">"constancy of purpose"</span> thus heads both lists surely confirms how crucial Dr Deming saw it to be. Indeed, even in the 1982 book he describes lack of constancy of purpose as <span class="deming_quote">"the big obstacle"</span>.
+- The emphasis on <span class="deming_quote">"long-range"</span> provides a close link with the second of the Deadly Diseases.
+
+It is well worth noting that, although "innovation" is not included in the above statement of Point 1, there is in fact much specific focus on innovation in Deming's description of Point 1 on *Out of the Crisis* pages 23–24[24–26]. Indeed, his discussion begins with the observation that <span class="deming_quote">"There are two problems: (i) problems of today; (ii) problems of tomorrow"</span>—improvement and innovation respectively.
 
 ### Obsession With Quality
 
-An Obsession With Quality will surely result in quality being improved way beyond that which needs mass inspection to verify it. Notice again the words "the need for". Deming isn't simply saying "Stop doing it". He is telling us to improve things so that mass inspection becomes redundant.
+This is a very obvious and strong link with which to begin our work. The use of <span class="deming_quote">"*continual* improvement"</span> (as compared with improvement only in areas of obvious trouble) is wholly in line with Joiner's *Obsession With Quality*—as compared e.g. with improvement merely in order to meet specifications or legal requirements, as discussed earlier. Improving quality can all too easily slide down the agenda in favour of "more pressing" matters whenever they arise; and, without *obsession* with quality, it will be very difficult to get it back up to its rightful place.
+
+<div class="neave_note" role="note" aria-label="Author's note">If you are used to reading material from other sources on quality, you may have become a little puzzled by Deming's, Brian Joiner's and my use of <span class="deming_quote">"continual improvement"</span> rather than the much more common phrase "continuous improvement". If so, take a quick look at the top half of [Appendix page 23](../../appendix/04-day-4.qmd#sec-page23).</div>
 
 ```{ojs}
 import { persist } from "../../../assets/scripts/workbook.js"
@@ -64,7 +73,7 @@ viewof p1_sa = persist(
 
 ## Point 2. The new philosophy
 
-<div class="principle_callout" role="note" aria-label="Principle">**Adopt the new philosophy. We are in a new economic age,** created in Japan. We can no longer live with commonly accepted levels of delays, mistakes, defective materials, and defective workmanship. Transformation of Western management style is necessary to halt the continued decline of industry.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Adopt the new philosophy. We are in a new economic age,** created in Japan. We can no longer live with commonly-accepted levels of delays, mistakes, defective materials, and defective workmanship. Transformation of Western management style is necessary to halt the continued decline of industry.</div>
 
 This is a whole new philosophy. It's not just optional add-ons to what we are already doing; it's not the use of a few new tools. At the beginning of the course I interpreted the word "philosophy" as a "way of thinking". So this is indeed a whole new way of thinking. And, as I also said at the beginning, what and how we think so greatly affects what we do and how we do it.
 
@@ -180,15 +189,17 @@ viewof p3_sa = persist(
 
 ## Point 4. End lowest-tender contracts
 
-<div class="principle_callout" role="note" aria-label="Principle">**End the practice of awarding business solely on the basis of price tag.** Instead, require meaningful measures of quality along with price. Reduce the number of suppliers for the same item by eliminating those that do not qualify with statistical evidence of quality. Move toward a single supplier for any one item, on a long-term relationship of loyalty and trust. The aim is to minimise total cost, not merely initial cost. Purchasing managers have a new job, and must learn it.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**End the practice of awarding business solely on the basis of price tag.** Instead, require meaningful measures of quality along with price. Reduce the number of suppliers for the same item by eliminating those that do not qualify with statistical evidence of quality. Move toward a single supplier for any one item, on a long-term relationship of loyalty and trust. The aim is to minimise *total* cost, not merely initial cost. Purchasing managers have a new job, and must learn it.</div>
 
-But doesn't everybody know that is not the case? Simply ask yourself how, when you wish to acquire something, you reach the decision on which of the competing products/services you will buy. Do you really decide on exact specifications of what you want and then simply select the cheapest from amongst those that satisfy the criteria? Do you? Surely the answer is only "yes" if either (a) you are poverty-stricken or (b) you are buying something very elementary—perhaps a basic foodstuff like granulated sugar which may seem to be the same wherever you get it. But, even then, does not e.g. convenience enter your thoughts? Will you travel ten miles to buy sugar one penny cheaper? With other purchases, how about the reputation of the maker, the reputation and civility and helpfulness of the supplier, and all the other non-specifiable aspects of quality: "looks", feel, trust, confidence, etc?
+As with Point 3, the awarding of business on the basis of price alone is, or rather should be, a practice for a bygone age (NB "price *alone*", which of course does not imply that price is unimportant). What is the logic of lowest-tender contracting? Surely that the required quality is either obvious or can be specified, so that then the only variable quantity to consider is the price.
+
+But doesn't everybody *know* that is not the case? Simply ask yourself how, when you wish to acquire something, you reach the decision on which of the competing products/services you will buy. Do you really decide on exact specifications of what you want and then simply select the cheapest from amongst those that satisfy the criteria? Do you? Surely the answer is only "yes" if either (a) you are poverty-stricken or (b) you are buying something very elementary—perhaps a basic foodstuff like granulated sugar which may seem to be the same wherever you get it. But, even then, does not e.g. *convenience* enter your thoughts? Will you travel ten miles to buy sugar one penny cheaper? With other purchases, how about the reputation of the maker, the reputation and civility and helpfulness of the supplier, and all the other *non-specifiable* aspects of quality: "looks", feel, trust, confidence, etc?
 
 And if all these, and more, enter decision-making about purchasing for yourself and your loved ones, why shouldn't they enter the purchasing decisions of your company?
 
 ### Obsession With Quality
 
-All that I have just mentioned contributes to quality. Price does not. Obsession With Quality implies purchasing best value in the broadest sense of that term, including matters both quantifiable and non-quantifiable, and not only at the time of purchase but subsequently.
+All that I have just mentioned contributes to quality. Price does not. Obsession With Quality implies purchasing *best value* in the broadest sense of that term, including matters both quantifiable and non-quantifiable, and not only at the time of purchase but subsequently.
 
 ```{ojs}
 viewof p4_owq = persist(
@@ -237,17 +248,17 @@ viewof p4_sa = persist(
 
 ---
 
-## Point 5. Improve every process {#sec-page25}
+## Point 5. Improve every process {#sec-page24}
 
 <div class="principle_callout" role="note" aria-label="Principle">**Improve constantly and forever the system** of planning, production, and service, in order to improve every process and activity in the company, to improve quality and productivity, and thus to constantly decrease costs. It is management's job to work continually on the system (design, incoming supplies, maintenance, improvement of equipment, supervision, training, retraining, etc).</div>
 
-Here we have a direct contradiction to a familiar saying—and maybe a familiar attitude: "If it ain't broke, don't fix it". This is instead: "If it's broke, fix it; if it ain't broke…*improve* it".
+Here we have a direct contradiction to a familiar saying—and maybe a familiar attitude: "If it ain't broke, don't fix it". This is instead: "If it's broke, fix it; if it ain't broke, *improve* it".
 
 ### Obsession With Quality
 
 We have already pointed out that Deming was talking about quality "across the board"—quality of the end-product or service, of course, but also quality of all that contributes to delivering that product or service. This link is therefore particularly strong.
 
-<div class="neave_note" role="note" aria-label="Author's note">An objection to Point 5 sometimes heard from those who are not yet in tune with what Deming was teaching is that "we can't afford to keep improving". It comes from those who think that improvement can only be achieved expensively by bringing in more consultants, etc, etc. But, to put it mildly, these were not Deming's focus on improvement. His emphasis was instead on reducing costs, particularly through improvement of processes and reducing variation—such improvements are frequently very inexpensive yet can produce considerable rewards. For confirmation, again refer back to his Chain Reaction (*DemDim* page 33).</div>
+<div class="neave_note" role="note" aria-label="Author's note">An objection to Point 5 sometimes heard from those who are not yet in tune with what Deming was teaching is that we can't *afford* to keep improving! It comes from those who think that improvement can only be achieved expensively by buying dearer materials, buying new machines, carrying out more inspection, hiring more consultants, etc, etc. But, to put it mildly, these were not Deming's focus on improvement. His emphasis was instead on reducing costs, particularly through improvement of processes and reducing variation—such improvements are frequently very inexpensive yet can produce considerable rewards. For confirmation, again refer back to his Chain Reaction (*DemDim* page 33).</div>
 
 ```{ojs}
 viewof p5_owq = persist(
@@ -259,6 +270,8 @@ viewof p5_owq = persist(
 })
 )
 ```
+
+[]{#sec-page25}
 
 ### All One Team
 
@@ -306,7 +319,7 @@ Training budgets in many organisations are absurdly small. So how do people lear
 
 Clearly, a prerequisite for people to do quality work is that they have received appropriate training for that work and can understand it. Notice that here Deming is at pains to emphasise the particular relevance of this to management. He quite clearly considered, and often said, that potential managers do not learn it in most MBA courses.
 
-<div class="neave_note" role="note" aria-label="Author's note">As a personal viewpoint regarding training, I think it may be insufficient to simply pick off some to some external consultants' training course, however excellent it may appear to be. I have seen both of these happen to be true of training—whether it is good or bad. I think, perhaps, the first of these is usually more true of training external than internal: "People learn in different ways". Person A may respond better than Person B to a particular method of training. This is equally true with another method of training: again this is likely to be far better catered for in-house than externally.</div>
+<div class="neave_note" role="note" aria-label="Author's note">As a personal viewpoint regarding training, I think it may be insufficient to simply pack people off to some external consultants' training course, however expensive. Note the above words: <span class="deming_quote">"to make better use of every employee"</span>. Far better if the training can be arranged in-house, whether or not using external trainers: there is then a much better chance of *everyone* receiving training that is relevant to their particular needs. Further, as Deming often emphasised, <span class="deming_quote">"people learn in different ways"</span>. Person A may respond better than Person B to a particular kind of training, yet the reverse may be true with another method of training: again this is likely to be far better catered for in-house than externally.</div>
 
 ```{ojs}
 viewof p6_owq = persist(
