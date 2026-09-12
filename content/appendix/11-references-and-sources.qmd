@@ -129,7 +129,7 @@ KOYANAGI Ken-Ichi, *The Deming* Prize.  Union of Japanese Scientists and Enginee
 
 *(checked correct in January 2022)*
 
-(Note that and [0]{.underline} and [1]{.underline} are digits and [O]{.underline} and [I]{.underline} are capital letters.)
+(Note that [0]{.underline} and [1]{.underline} are digits and [O]{.underline} and [I]{.underline} are capital letters.)
 
 *A Prophet Unheard*: <https://www.youtube.com/playlist?list=PLCADAD3F2F91BD570>
 

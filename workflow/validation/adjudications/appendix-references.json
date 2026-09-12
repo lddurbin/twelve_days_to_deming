@@ -93,8 +93,9 @@
           "site_html": "(Note that 0 and 1 are digits and O and I are capital letters.)",
           "proposal": "(Note that and [0]{.underline} and [1]{.underline} are digits and [O]{.underline} and [I]{.underline} are capital letters.)",
           "evidence_html": "Confirmed on the page image: Neave really does write <q>Note that and 0 and 1 are digits</q> — a stray <q>and</q>, almost certainly a half-finished edit. The site drops it silently, with no <code>docs/deviations/</code> entry. Two options, and this is a judgement call rather than a defect: restore the typo and log the decision to keep it, or keep the correction and write the deviations entry that should have accompanied it. The underlining of <code>0 1 O I</code> is correct as it stands — the source underlines and colours those four glyphs, and the site's <code>.underline</code> spans carry the part that matters.",
-          "decision": "accept",
-          "decision_note": null
+          "decision": "reject",
+          "decision_note": "Reversed on review. Keep the site's correction and log it retroactively as a sanctioned typo, matching the Day 7, 8, 9 and 11 precedents.",
+          "outcome": "Site wording left as it stands. Logged in docs/deviations/2026-09-12-appendix-references-note-that-and-typo-sanctioned.md."
         },
         {
           "id": "R-03",
