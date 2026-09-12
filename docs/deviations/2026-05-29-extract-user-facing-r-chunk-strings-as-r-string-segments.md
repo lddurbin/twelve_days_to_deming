@@ -5,4 +5,4 @@
 - **Source reference** — n/a. Translation-infrastructure work; nothing in Neave's source materials is affected. The literals extracted are the same chart/axis labels Neave's figures already display.
 - **Why** — Issue #324: the French edition must be able to translate the words shown ON charts/tables, not just prose. Those words live in R code, so the extractor had to learn to reach into R chunks (and the helper defaults) without ever rewriting code logic. The whitelist is conservative by design — a false positive that rewrote a data key or colour would corrupt logic, which is far worse than a missed label (addable in a follow-up). The new sub-line (character-offset) addressing and generalized intra-line reinjection are factored so issue #325 can reuse them for OJS/JS chunks.
 - **Decided in** — Issue [#324](https://github.com/lddurbin/twelve_days_to_deming/issues/324).
-- **Landed in** — PR <!-- filled at merge -->.
+- **Landed in** — PR [#410](https://github.com/lddurbin/twelve_days_to_deming/pull/410) (commit `0c4f016`).

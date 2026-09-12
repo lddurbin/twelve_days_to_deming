@@ -12,4 +12,4 @@
 - **Source reference** — n/a. Translation-infrastructure work; nothing in Neave's source materials is affected. The strings extracted are the same input labels, button captions, and accessibility text the interactive widgets already display.
 - **Why** — Issue #325: the French edition must be able to translate the interface (input labels, button text, screen-reader announcements, ARIA labels), not just prose and chart labels. Those strings live in OJS chunks, JS assets, and raw-HTML attributes. The whitelist is conservative by design — a false positive that rewrote an element id, a CSS class, an ARIA role token, or a selector would corrupt the UI, which is far worse than a missed label (addable in a follow-up). The new kinds plus the optional `context` hint give a translator the interface context required by the issue's AC #1.
 - **Decided in** — Issue [#325](https://github.com/lddurbin/twelve_days_to_deming/issues/325).
-- **Landed in** — PR <!-- filled at merge -->.
+- **Landed in** — PR [#411](https://github.com/lddurbin/twelve_days_to_deming/pull/411) (commit `6e4153e`).

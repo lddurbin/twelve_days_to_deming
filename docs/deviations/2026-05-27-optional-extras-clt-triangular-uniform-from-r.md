@@ -13,4 +13,4 @@
 - **Reviewer-feedback compliance (PR [#377](https://github.com/lddurbin/twelve_days_to_deming/pull/377))** — The PDF chunks are fully deterministic and carry no seed. Random-draw chunks use `runif`, `rnorm`, `rexp` without the `stats::` prefix to match the rest of `R/functions/main-functions.R`. No `apply()` in the helper — `rowMeans()` is used for the row-wise mean, the only reduction needed.
 - **Colour deviations** — None. Histogram bars use `CHART_LINE_COLOUR` (red) and the *N*(0, 1) overlay uses `CONTROL_LIMIT_COLOUR` (blue), both already documented dark-mode-safe tokens in the conventions block at the top of `R/functions/main-functions.R`. No new colour tokens introduced.
 - **Decided in** — Issue [#356](https://github.com/lddurbin/twelve_days_to_deming/issues/356) under the [#315](https://github.com/lddurbin/twelve_days_to_deming/issues/315) sub-epic / [#309](https://github.com/lddurbin/twelve_days_to_deming/issues/309) epic.
-- **Landed in** — _pending_.
+- **Landed in** — PR [#379](https://github.com/lddurbin/twelve_days_to_deming/pull/379) (commit `e4345de`).

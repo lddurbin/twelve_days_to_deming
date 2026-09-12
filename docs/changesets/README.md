@@ -49,6 +49,16 @@ removals.
    loses everything after the first line. If it doesn't fit on one line,
    shorten it.
 
+   `PR` must be a real number before the PR merges — fill it in as soon as
+   `gh pr create` returns it. `cut-release.sh` interpolates this field into
+   `CHANGELOG.md` verbatim and then deletes the entry file, so a placeholder
+   like `TBD` becomes a permanent changelog line with no way back to the real
+   number. Two entries were primed to do exactly that when
+   [#777](https://github.com/lddurbin/twelve_days_to_deming/issues/777) found
+   it; `cut-release.sh` now refuses to cut while any entry has an unfilled
+   `PR`, and [`scripts/check-landed-fields.sh`](../../scripts/check-landed-fields.sh)
+   catches it on the PR that introduces it.
+
    `Section` is free text and controls grouping in the rolled-up changelog.
    Prefer one of the sections already used in [`CHANGELOG.md`](../../CHANGELOG.md)
    (`Course Content`, `Accessibility`, `Reader Experience`,

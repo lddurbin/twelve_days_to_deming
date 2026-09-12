@@ -33,8 +33,41 @@ the stitched artifact even though their per-entry source files merged cleanly.
 2. Commit the new entry file. Nothing else needs to change — the next site
    render pulls all per-entry files in and emits them into the page.
 
-When a Pending entry lands, bump its "Landed in" field to the merge commit /
-PR number in the per-entry file. No regeneration step.
+## Filling in "Landed in"
+
+**Fill it in when you open the PR, not when you merge it.** The number exists
+the moment `gh pr create` returns, and the field is then correct from the first
+commit that renders it. Write:
+
+```markdown
+- **Landed in** — PR [#806](https://github.com/lddurbin/twelve_days_to_deming/pull/806).
+```
+
+Use `Pending — tracked in #NNN` **only** when the deviation is decided here but
+implemented somewhere else — a figure this PR specifies and a later PR draws.
+It means "not shipped yet", and this log renders onto a public page
+([`changes-from-source.qmd`](../../changes-from-source.qmd)), so a stale
+`Pending` tells readers a change hasn't happened when it has. When that
+tracking issue closes, bump the field to the PR that closed it.
+
+Never leave a placeholder — `TBD`, `<!-- filled at merge -->`, a bare
+`_pending_` with no issue behind it. Those are not "pending"; they are
+unfilled, and nothing downstream can tell what they were meant to say.
+
+[`scripts/check-landed-fields.sh`](../../scripts/check-landed-fields.sh)
+enforces both rules, and `landed-fields.yml` runs it on every PR touching this
+directory and weekly thereafter — the weekly run is the one that catches a
+`Pending` whose tracking issue has since closed, since the entry file itself
+doesn't change at that moment.
+
+This used to be a step that only a README asked for, and
+[#777](https://github.com/lddurbin/twelve_days_to_deming/issues/777) measured
+the result: 24 of 52 entries never got one, the oldest stale since 2026-04-23.
+Note that the field cannot simply be derived from git history instead — the
+per-entry files were bulk-created by the
+[#372](https://github.com/lddurbin/twelve_days_to_deming/pull/372) refactor, so
+for every entry predating it the commit that *added* the file is the migration,
+not the PR that shipped the change.
 
 ### Cross-references between entry files
 

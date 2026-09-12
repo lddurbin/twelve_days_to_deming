@@ -1,0 +1,57 @@
+name: Landed Fields
+
+permissions:
+  contents: read
+  issues: read
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    # Fast feedback on the class this can gate: a placeholder that is never
+    # legitimate ("TBD", "<!-- filled at merge -->"). Narrow to the two logs
+    # and the check itself so unrelated PRs don't burn CI minutes.
+    paths:
+      - 'docs/deviations/**'
+      - 'docs/changesets/**'
+      - 'scripts/check-landed-fields.sh'
+      - '.github/workflows/landed-fields.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/deviations/**'
+      - 'docs/changesets/**'
+      - 'scripts/check-landed-fields.sh'
+      - '.github/workflows/landed-fields.yml'
+  # The other class — "Pending — tracked in #NNN" where #NNN has since been
+  # closed — cannot be caught by a path filter. The entry file doesn't change
+  # when its tracking issue closes; a PR that touches no docs at all is what
+  # makes it stale. So this also runs on a schedule, which is what actually
+  # catches the #777 failure mode. A failing scheduled run on the default
+  # branch emails the repository owner, so it is a real signal rather than
+  # something only visible to whoever opens the Actions tab.
+  schedule:
+    # Monday 06:00 UTC = Monday 18:00 NZT, the same slot as link-check and
+    # release-cadence so every weekly nudge lands together.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  landed-fields:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    - name: Check deviation and changeset landed references
+      env:
+        # The script reads tracking-issue state via gh. Without a token it
+        # skips that class and says so rather than guessing, which would turn
+        # the scheduled run into a silent pass.
+        GH_TOKEN: ${{ github.token }}
+      run: ./scripts/check-landed-fields.sh
