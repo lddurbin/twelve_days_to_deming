@@ -1,0 +1,40 @@
+appendix: references
+validated_at: 2026-09-12
+source_pdf: R.References.and.Sources.09Feb22.pdf
+source_sha256: 32bf9da9ecedbd20890c3254c2c6c27e379f7334281cd4288447273c72cd22e2
+scorer_version: bdea1acba6424634eaf74948a9c171bfbb7b729f
+files:
+  compared: 1
+thresholds:
+  missing: 0.4
+  altered: 0.98
+  unsourced: 0.25
+  reference: 0.85
+counts:
+  pdf_paragraphs: 55
+  qmd_paragraphs: 70
+  matched_cleanly: 45
+  altered: 9
+  flagged_sentences: 24
+  near_certain: 5
+  missing: 1
+  unsourced: 1
+  unsourced_sentences: 1
+  reference_mismatches: 4
+  short_checked: 7
+  short_matched: 5
+  short_unmatched: 1
+  short_unjudged: 1
+blocks:
+  pdf:
+    total: 69
+    unreadable: 6
+    rejoined: 1
+    short: 7
+    compared: 55
+  qmd:
+    total: 75
+    unreadable: 0
+    rejoined: 0
+    short: 5
+    compared: 70

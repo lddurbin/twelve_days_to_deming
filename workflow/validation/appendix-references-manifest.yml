@@ -1,0 +1,31 @@
+# Structural manifest: the appendix's References and Sources chapter.
+# Source PDF: R.References.and.Sources.09Feb22.pdf
+#
+# Split out of appendix-main-manifest.yml by #802. The chapter lives in
+# content/appendix/ beside eleven chapters that do come from
+# P.Appendix.09Feb22.pdf, and while the validator globbed that directory it was
+# compared against P.Appendix — which does not contain a word of it. Its own
+# source PDF was in no run at all, so all 62 of its paragraphs were reported
+# unsourced against the wrong book, and the single real unsourced finding in
+# that run sat among them, indistinguishable.
+#
+# It keeps `content_dir: content/appendix` and takes only its own chapter, so
+# appendix-main and this manifest partition that directory between them rather
+# than overlapping on it — tests/test_validation_coverage.py checks that every
+# page is claimed exactly once.
+#
+# Prose-only: no `viewof` inputs, no download buttons.
+
+slug: references
+pdf_file: R.References.and.Sources.09Feb22.pdf
+content_dir: content/appendix
+interactive_checks: false
+
+chapters:
+  - file: "11-references-and-sources.qmd"
+    figures: []
+    headings:
+      - "BOOKS"
+      - "BOOKLETS"
+      - "VIDEOS / DVDs"
+      - "INTERNET CONTACTS AND ADDRESSES"

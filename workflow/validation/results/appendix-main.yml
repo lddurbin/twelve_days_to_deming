@@ -2,7 +2,11 @@ appendix: main
 validated_at: 2026-09-12
 source_pdf: P.Appendix.09Feb22.pdf
 source_sha256: 0ce090f5be18025dadfff9379d87163a77825a9ac772ce06f7098e6caf51f577
-scorer_version: 785211c2121c71962f2fb032eeb23ca5fb523b53
+scorer_version: bdea1acba6424634eaf74948a9c171bfbb7b729f
+files:
+  compared: 11
+  not_compared:
+    - content/appendix/glossary.qmd
 thresholds:
   missing: 0.4
   altered: 0.98
@@ -10,14 +14,14 @@ thresholds:
   reference: 0.85
 counts:
   pdf_paragraphs: 310
-  qmd_paragraphs: 415
+  qmd_paragraphs: 329
   matched_cleanly: 189
   altered: 118
   flagged_sentences: 215
   near_certain: 50
   missing: 3
-  unsourced: 70
-  unsourced_sentences: 91
+  unsourced: 1
+  unsourced_sentences: 2
   reference_mismatches: 18
   short_checked: 109
   short_matched: 103
@@ -31,8 +35,8 @@ blocks:
     short: 109
     compared: 310
   qmd:
-    total: 599
+    total: 501
     unreadable: 5
     rejoined: 20
-    short: 159
-    compared: 415
+    short: 147
+    compared: 329

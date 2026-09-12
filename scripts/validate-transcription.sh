@@ -3,8 +3,10 @@
 # validate-transcription.sh — Compare source PDF text against QMD transcriptions
 #
 # Usage: ./scripts/validate-transcription.sh <day-number>
-#        ./scripts/validate-transcription.sh --appendix <slug>
+#        ./scripts/validate-transcription.sh --manifest <name>
+#        ./scripts/validate-transcription.sh --appendix <slug>   (alias)
 #   e.g. ./scripts/validate-transcription.sh 3
+#        ./scripts/validate-transcription.sh --manifest welcome
 #        ./scripts/validate-transcription.sh --appendix contributions-balaji-reddie
 #
 # Reports five distinct kinds of gap, in five separate sections:
@@ -79,8 +81,16 @@
 #   D=Day1, E=Day2, F=Day3, G=Day4, H=Day5, I=Day6,
 #   J=Day7, K=Day8, L=Day9, M=Day10, N=Day11, O=Day12
 #
-# Appendix mode reads workflow/validation/appendix-<slug>-manifest.yml
-# for `pdf_file` and `content_dir`.
+# Manifest mode reads workflow/validation/<name>-manifest.yml for `pdf_file`,
+# `content_dir` and the chapter list it compares. `--appendix <slug>` is the
+# older spelling of `--manifest appendix-<slug>`.
+#
+# Every page the book serves is either compared by one of these runs or declared
+# in workflow/validation/no-source.yml as having no source PDF at all;
+# tests/test_validation_coverage.py fails if any page is in neither. Before #802
+# a page in neither was invisible: index.qmd, welcome.qmd and the appendix's
+# References and Sources chapter were each transcribed from a PDF that no run
+# ever opened, and nothing said so.
 #
 # Every run overwrites a provenance record in workflow/validation/results/
 # (day-NN.yml or appendix-<slug>.yml) with what was checked, against what,
@@ -136,10 +146,12 @@ day_to_prefix() {
 
 usage() {
   echo "Usage: $0 <day-number>"
+  echo "       $0 --manifest <name>"
   echo "       $0 --appendix <slug>"
   echo ""
   echo "  day-number:        1-12"
-  echo "  --appendix <slug>: uses workflow/validation/appendix-<slug>-manifest.yml"
+  echo "  --manifest <name>: uses workflow/validation/<name>-manifest.yml"
+  echo "  --appendix <slug>: alias for --manifest appendix-<slug>"
   echo ""
   echo "Compares source PDF text against QMD transcriptions and reports"
   echo "potential gaps — paragraphs in the PDF with no close match in the QMD files."
@@ -177,9 +189,20 @@ sha256_of() {
   $SHA256_CMD "$1" | awk '{print $1}'
 }
 
-# Read `pdf_file` and `content_dir` from an appendix manifest.
-# Prints two lines: PDF_FILE=... then CONTENT_DIR=...
-read_appendix_manifest() {
+# Read a manifest's identity and its chapter list.
+# Prints PDF_FILE=..., CONTENT_DIR=..., then one CHAPTER=... per chapter.
+#
+# The chapter list is why this reads more than two keys since #802. It used to
+# be ignored here and the content directory globbed instead, which quietly made
+# "every .qmd sitting in this folder" the definition of what a source PDF is
+# answerable for. Two chapters in content/appendix/ do not come from
+# P.Appendix.09Feb22.pdf at all, so every paragraph of both was reported
+# unsourced against it — 69 of that run's 70 unsourced findings, indistinguishable
+# from the one real one. The manifest already enumerated its chapters for
+# check-structure.sh; taking the list from there rather than from the filesystem
+# means a chapter is compared against a PDF because someone said it came from
+# that PDF, not because of where it happens to sit on disk.
+read_manifest() {
   local manifest="$1"
   if ! command -v ruby &>/dev/null; then
     echo "Error: ruby not found (needed for YAML parsing)" >&2
@@ -194,7 +217,32 @@ read_appendix_manifest() {
     end
     puts "PDF_FILE=#{data["pdf_file"] || ""}"
     puts "CONTENT_DIR=#{data["content_dir"] || ""}"
+    (data["chapters"] || []).each { |ch| puts "CHAPTER=#{ch["file"]}" }
   ' "$manifest"
+}
+
+# Print the repo-relative path of every page declared to have no source PDF.
+#
+# These are site originals — pages written for this edition rather than
+# transcribed from Neave — and they are declared in one file rather than simply
+# left out of every manifest, because "nobody wrote down where this came from"
+# and "someone checked and the answer is nowhere" are indistinguishable from
+# absence alone. See workflow/validation/no-source.yml and #802.
+read_no_source() {
+  local register="$REPO_ROOT/workflow/validation/no-source.yml"
+  if [[ ! -f "$register" ]]; then
+    echo "Error: no-source register not found at ${register#"$REPO_ROOT/"}" >&2
+    exit 1
+  fi
+  ruby -ryaml -e '
+    begin
+      data = YAML.safe_load(File.read(ARGV[0]))
+    rescue => e
+      $stderr.puts "Error parsing #{ARGV[0]}: #{e.message}"
+      exit 1
+    end
+    (data["pages"] || {}).each_key { |path| puts path }
+  ' "$register"
 }
 
 # QMD markup stripping lives in scripts/lib/qmd_strip.py (#739). It used to be
@@ -311,17 +359,45 @@ main() {
   # ── Argument parsing ──
   local pdf_file="" qmd_dir="" label="" result_file="" result_identity=""
 
-  if [[ "${1:-}" == "--appendix" ]]; then
-    local slug="${2:-}"
-    if [[ -z "$slug" ]]; then
-      echo "Error: --appendix requires a slug (e.g. contributions-balaji-reddie)"
-      usage
+  # Declared chapters, in manifest mode only — see the file-list assembly below.
+  local -a manifest_chapters=()
+  local manifest_name=""
+
+  if [[ "${1:-}" == "--appendix" || "${1:-}" == "--manifest" ]]; then
+    # `--appendix <slug>` is the older spelling of `--manifest appendix-<slug>`,
+    # kept because it is what AGENTS.md, the skills and three years of shell
+    # history all say. `--manifest` exists because #802 added source PDFs whose
+    # transcriptions are not appendices at all — index.qmd is the book's front
+    # door and welcome.qmd its introduction — and naming their manifests
+    # `appendix-*` to fit the flag would have put a lie in three filenames.
+    if [[ "$1" == "--appendix" ]]; then
+      local slug="${2:-}"
+      if [[ -z "$slug" ]]; then
+        echo "Error: --appendix requires a slug (e.g. contributions-balaji-reddie)"
+        usage
+      fi
+      manifest_name="appendix-$slug"
+    else
+      manifest_name="${2:-}"
+      if [[ -z "$manifest_name" ]]; then
+        echo "Error: --manifest requires a name (e.g. appendix-main, welcome)"
+        usage
+      fi
     fi
-    if [[ ! "$slug" =~ ^[a-zA-Z0-9_-]+$ ]]; then
-      echo "Error: slug must contain only letters, digits, hyphens, and underscores"
+    if [[ ! "$manifest_name" =~ ^[a-zA-Z0-9_-]+$ ]]; then
+      echo "Error: manifest name must contain only letters, digits, hyphens, and underscores"
       exit 1
     fi
-    local manifest="$MANIFEST_DIR/appendix-${slug}-manifest.yml"
+    # Day manifests share the `<name>-manifest.yml` spelling but carry no
+    # pdf_file — day mode finds its PDF by letter prefix. Say so here rather
+    # than letting it fall through to the generic "must declare pdf_file".
+    if [[ "$manifest_name" =~ ^day-[0-9]+$ ]]; then
+      # 10# forces base 10: day-08 and day-09 are not valid octal, and the
+      # bare arithmetic would fail on exactly those two.
+      echo "Error: $manifest_name is a structural manifest only. Use: $0 $((10#${manifest_name#day-}))"
+      exit 1
+    fi
+    local manifest="$MANIFEST_DIR/${manifest_name}-manifest.yml"
     if [[ ! -f "$manifest" ]]; then
       echo "Error: No manifest found at $manifest"
       exit 1
@@ -332,19 +408,31 @@ main() {
       case "$key" in
         PDF_FILE)    manifest_pdf="$value" ;;
         CONTENT_DIR) manifest_content="$value" ;;
+        CHAPTER)     manifest_chapters+=("$value") ;;
       esac
-    done < <(read_appendix_manifest "$manifest")
+    done < <(read_manifest "$manifest")
 
     if [[ -z "$manifest_pdf" || -z "$manifest_content" ]]; then
-      echo "Error: appendix manifest must declare pdf_file and content_dir"
+      echo "Error: manifest must declare pdf_file and content_dir"
+      exit 1
+    fi
+    if [[ "${#manifest_chapters[@]}" -eq 0 ]]; then
+      echo "Error: manifest declares no chapters, so there is nothing to compare"
       exit 1
     fi
 
     pdf_file="$PDF_DIR/$manifest_pdf"
     qmd_dir="$REPO_ROOT/$manifest_content"
-    label="Appendix: $slug"
-    result_file="$MANIFEST_DIR/results/appendix-${slug}.yml"
-    result_identity="appendix: $slug"
+    result_file="$MANIFEST_DIR/results/${manifest_name}.yml"
+    # Appendix manifests keep the identity line they have always written, so
+    # that re-recording this change shows only what it actually changed.
+    if [[ "$manifest_name" == appendix-* ]]; then
+      label="Appendix: ${manifest_name#appendix-}"
+      result_identity="appendix: ${manifest_name#appendix-}"
+    else
+      label="$manifest_name"
+      result_identity="manifest: $manifest_name"
+    fi
   elif [[ -n "${1:-}" && "$1" =~ ^[0-9]+$ ]]; then
     local day_num="$1"
     if (( day_num < 1 || day_num > 12 )); then
@@ -382,11 +470,71 @@ main() {
     exit 1
   fi
 
-  local qmd_files=( "$qmd_dir"/*.qmd )
-  if [[ ! -e "${qmd_files[0]}" ]]; then
-    echo "Error: No QMD files found in $qmd_dir"
+  # ── Which files this run compares ──
+  #
+  # In manifest mode the answer is the manifest's own chapter list; in day mode
+  # it is still the directory, because a day directory holds exactly one day's
+  # transcription and nothing else. Either way, pages declared to have no source
+  # PDF are removed and named in the record, so a reader can tell a page that was
+  # deliberately not compared from one nobody thought about (#802).
+  #
+  # Sorted, because the glob this replaced was sorted and the paragraph pool is
+  # built by concatenation: keeping the order identical means re-recording after
+  # this change moves a count only where a file actually entered or left.
+  local -a no_source=()
+  while IFS= read -r line; do
+    [[ -n "$line" ]] && no_source+=("$line")
+  done < <(read_no_source)
+
+  local -a qmd_rel=() skipped=()
+  if [[ -n "$manifest_name" ]]; then
+    local ch
+    for ch in "${manifest_chapters[@]}"; do
+      if [[ "$manifest_content" == "." ]]; then
+        qmd_rel+=("$ch")
+      else
+        qmd_rel+=("$manifest_content/$ch")
+      fi
+    done
+  else
+    local f
+    for f in "$qmd_dir"/*.qmd; do
+      [[ -e "$f" ]] && qmd_rel+=("${f#"$REPO_ROOT/"}")
+    done
+  fi
+
+  if [[ "${#qmd_rel[@]}" -eq 0 ]]; then
+    echo "Error: No QMD files found for $label"
     exit 1
   fi
+
+  local -a kept=()
+  local rel skip
+  while IFS= read -r rel; do
+    skip=""
+    for f in ${no_source[@]+"${no_source[@]}"}; do
+      [[ "$rel" == "$f" ]] && skip=1 && break
+    done
+    if [[ -n "$skip" ]]; then
+      skipped+=("$rel")
+    else
+      kept+=("$rel")
+    fi
+  done < <(printf '%s\n' "${qmd_rel[@]}" | LC_ALL=C sort)
+
+  if [[ "${#kept[@]}" -eq 0 ]]; then
+    echo "Error: no QMD files left to compare for $label"
+    exit 1
+  fi
+
+  local -a qmd_files=()
+  for rel in "${kept[@]}"; do
+    if [[ ! -f "$REPO_ROOT/$rel" ]]; then
+      echo "Error: declared chapter does not exist: $rel"
+      exit 1
+    fi
+    qmd_files+=("$REPO_ROOT/$rel")
+  done
 
   # TMPDIR_CLEANUP is a script-level global so the EXIT trap can still see
   # it after main() returns (under set -u, a local would be unbound).
@@ -402,6 +550,12 @@ main() {
   echo "Source PDF: $(basename "$pdf_file")"
   echo "QMD dir:   ${qmd_dir#"$REPO_ROOT/"}/"
   echo "QMD files: ${#qmd_files[@]}"
+  if [[ "${#skipped[@]}" -gt 0 ]]; then
+    echo "Not compared (declared to have no source PDF — workflow/validation/no-source.yml):"
+    for rel in ${skipped[@]+"${skipped[@]}"}; do
+      echo "  - $rel"
+    done
+  fi
   echo ""
 
   # Step 1: Extract and normalise QMD text (all files concatenated)
@@ -674,6 +828,15 @@ validated_at: $(date +%Y-%m-%d)
 source_pdf: $(basename "$pdf_file")
 source_sha256: $source_sha256
 scorer_version: $scorer_version
+files:
+  compared: ${#qmd_files[@]}$(
+    if [[ "${#skipped[@]}" -gt 0 ]]; then
+      printf '\n  not_compared:'
+      for rel in ${skipped[@]+"${skipped[@]}"}; do
+        printf '\n    - %s' "$rel"
+      done
+    fi
+  )
 thresholds:
   missing: $missing_threshold
   altered: $altered_threshold

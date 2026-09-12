@@ -2,7 +2,9 @@ day: 5
 validated_at: 2026-09-12
 source_pdf: H.Day.5.08Feb22.pdf
 source_sha256: 6080edb4e995aec859f4a42ee704d8601eb41afcb9d8fe33fd4bfdd5f18b21eb
-scorer_version: 785211c2121c71962f2fb032eeb23ca5fb523b53
+scorer_version: bdea1acba6424634eaf74948a9c171bfbb7b729f
+files:
+  compared: 3
 thresholds:
   missing: 0.4
   altered: 0.98

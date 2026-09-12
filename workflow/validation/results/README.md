@@ -19,20 +19,43 @@ running the validator for Day 4 only ever touches `day-04.yml`.
 
 `scripts/validate-transcription.sh` writes this file itself at the end of
 every run — a human never hand-transcribes these numbers, so the record
-can't drift from what was actually checked. Day files are named
-`day-NN.yml` (zero-padded); appendix files are named `appendix-<slug>.yml`,
-matching the existing `day-NN-manifest.yml` / `appendix-<slug>-manifest.yml`
-naming one directory up.
+can't drift from what was actually checked. Day files are named `day-NN.yml`
+(zero-padded); every other run is named for its manifest, so
+`<name>-manifest.yml` one directory up writes `<name>.yml` here.
+
+There are eighteen records: the twelve days, the three appendices, and the
+three added by [#802](https://github.com/lddurbin/twelve_days_to_deming/issues/802)
+— `appendix-references.yml`, `index.yml` and `welcome.yml`. Those three cover
+source PDFs that no run had ever opened. `index.qmd` transcribes
+`A.PLEASE.START.HERE`, `welcome.qmd` the Welcome booklet, and
+`content/appendix/11-references-and-sources.qmd` its own References and Sources
+PDF; each was compared against nothing, or — in the last case — against
+`P.Appendix.09Feb22.pdf`, which contains none of it. What the absence of a
+record means is therefore worth stating plainly: **a page with no record behind
+it has not been checked, and the comparator cannot report a paragraph missing
+unless the PDF it came from is on the PDF side of some run.**
+
+That is the property
+[`tests/test_validation_coverage.py`](../../../tests/test_validation_coverage.py)
+now pins. Every page in `_quarto-en.yml` must be claimed by exactly one
+manifest or declared in
+[`../no-source.yml`](../no-source.yml) as having no source PDF at all, so
+"nobody wired this up" can no longer look identical to "there is nothing to
+wire up".
 
 Day 4's record, as written on 2026-08-26 — a real file rather than an
 invented one, so the magnitudes are the ones a reader will actually meet:
 
 ```yaml
-day: 4                        # or `appendix: <slug>` for appendix runs
+day: 4                        # `appendix: <slug>`, or `manifest: <name>`, for the rest
 validated_at: 2026-08-26      # local date the run completed
 source_pdf: G.Day.4.09Jan20.pdf
 source_sha256: <sha-256 of the source PDF>   # catches a silent re-export
 scorer_version: <content hash of the comparison pipeline — see below>
+files:
+  compared: 4                 # how many .qmd files went into this run
+  not_compared:               # present only when something was held out
+    - content/appendix/glossary.qmd     # declared in ../no-source.yml
 thresholds:
   missing: 0.4
   altered: 0.98

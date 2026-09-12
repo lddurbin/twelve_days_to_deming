@@ -1,0 +1,36 @@
+# Structural manifest: "PLEASE START HERE" — the book's front door.
+# Source PDF: A.PLEASE.START.HERE.08Feb22.pdf
+#
+# Created by #802. `index.qmd` transcribes Neave's file A — his preface, the
+# guidance on active learning and time management, the "Overture", and the
+# practical matters section — and until this manifest existed it was compared
+# against nothing at all: 225 of its sentences appear verbatim in that PDF and
+# in no PDF any validation run opened. A dropped page here would have been
+# invisible to every check in the repo.
+#
+# `content_dir: "."` because the book's front matter sits at the repository
+# root rather than under content/. The chapter list, not the directory, is what
+# this run compares — see read_manifest() in scripts/validate-transcription.sh —
+# so the root's other pages are not swept in. They are site originals, and
+# workflow/validation/no-source.yml is where they are declared as such.
+#
+# Prose-only: no `viewof` inputs, no download buttons.
+
+slug: index
+pdf_file: A.PLEASE.START.HERE.08Feb22.pdf
+content_dir: "."
+interactive_checks: false
+
+chapters:
+  - file: "index.qmd"
+    figures: []
+    headings:
+      - "Preface"
+      - "Active learning"
+      - "Time management"
+      - "Self-study or group-learning"
+      - 'The "Overture"'
+      - 'Serving both the "Technophobes" *and* the "Technophiles"—'
+      - "Some important practical matters"
+      - "*Twelve* Days?"
+      - "The prescribed text: *The Deming Dimension*"

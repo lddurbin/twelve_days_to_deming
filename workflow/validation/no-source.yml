@@ -1,0 +1,67 @@
+# Pages the site serves that no source PDF backs.
+#
+# Read by scripts/validate-transcription.sh, which excludes every path below
+# from comparison and names them in the run's record. Checked by
+# tests/test_validation_coverage.py, which asserts that this register plus the
+# manifests' chapter lists together account for every page in _quarto-en.yml.
+#
+# ── Why this file exists (#802) ──
+#
+# Before it, a page with no declared source and a page whose source nobody had
+# wired up looked exactly alike: both were simply absent from the validation
+# system, and absence carried no information. Two of the three things that can
+# be true of a page were therefore indistinguishable:
+#
+#   1. transcribed from a PDF, and compared against it        → a manifest
+#   2. transcribed from a PDF that no run ever opens          → a bug
+#   3. written for this edition, so there is nothing to compare → this file
+#
+# All three showed up as silence. `content/appendix/glossary.qmd` was case 3
+# and `content/appendix/11-references-and-sources.qmd` was case 2, and because
+# both sat in a directory whose manifest globbed `*.qmd`, the comparator read
+# them against `P.Appendix.09Feb22.pdf` — which contains neither — and reported
+# all 69 of their paragraphs as unsourced, beside the one real unsourced
+# finding in that run. `index.qmd` and `welcome.qmd` were case 2 in a purer
+# form: transcribed from `A.PLEASE.START.HERE` and the Welcome booklet, sitting
+# in no manifest at all, so nothing in the repo would have noticed if half of
+# either had gone missing.
+#
+# A path belongs here only when the answer to "which of Neave's PDFs is this
+# transcribed from?" is genuinely "none". If the answer is "one that nobody has
+# wired up", the fix is a manifest, not an entry here — that is the mistake this
+# file exists to make hard to repeat.
+
+pages:
+  content/appendix/glossary.qmd: >-
+    Site original. A glossary compiled for this edition; every definition
+    paraphrases day chapters that are themselves validated, so the source of
+    record for its content is those chapters rather than a PDF of its own.
+
+  about-this-edition.qmd: >-
+    Site original. Lee Durbin's account of why and how the web adaptation was
+    built, including Neave's blessing for it.
+
+  what-this-course-covers.qmd: >-
+    Site original. A day-by-day summary written as an entry point for the web
+    edition; Neave's own course has no equivalent page.
+
+  accessibility.qmd: >-
+    Site original. The accessibility statement for this website.
+
+  privacy.qmd: >-
+    Site original. The privacy notice for this website.
+
+  share-your-experience.qmd: >-
+    Site original. A feedback surface belonging to the web edition.
+
+  concepts.qmd: >-
+    Site original. A concept index across the twelve days, generated for web
+    navigation.
+
+  changes-from-source.qmd: >-
+    Site original. The reader-facing summary of docs/deviations/ — a record of
+    where this edition departs from Neave's text, so by construction it has no
+    counterpart in it.
+
+  faq.qmd: >-
+    Site original. Questions about the web edition itself.
