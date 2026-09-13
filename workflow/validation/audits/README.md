@@ -1,0 +1,161 @@
+# Audits — what a sample of the clean text turned out to be
+
+`results/` records what the validator found. `adjudications/` records what a
+person decided about every flag it raised. Neither says anything about the text
+the validator matched **cleanly**: about 2,200 paragraphs across the eighteen
+records that no pass has flagged, so nobody has read them against the source
+since the original conversion. This directory holds the measurement of that
+population. See [#746](https://github.com/lddurbin/twelve_days_to_deming/issues/746),
+Wave 3 of epic [#734](https://github.com/lddurbin/twelve_days_to_deming/issues/734).
+
+"Matched cleanly" is a similarity score, not a verdict. A single wrong word
+in a fifty-word sentence scores exactly the 0.98 threshold and classifies clean,
+and emphasis is invisible to the comparator entirely. Wave 2 has found defects
+of both kinds in text a person had already verified. So the claim this directory
+supports has to be measured: **of the text the comparator calls clean, at most
+this share is wrong, at 95% confidence.**
+
+One file per record, `day-NN.yml` or `<manifest>.yml`, named to match
+`results/`. Written by `scripts/sample-audit.py reveal`, never by hand.
+
+## The protocol
+
+Decided in #734 on 2026-09-13: **Lee audits**, because a Claude session auditing
+text Claude sessions transcribed would reproduce the same errors and report
+agreement, not fidelity. The caveat that shapes everything below is that Lee is
+independent of Claude but not of the process — he verified the original
+conversion too. Two requirements follow, and the tool implements both.
+
+1. **Source first, then the site, clause by clause.** The page image before the
+   card, because that is the only way emphasis is in scope at all.
+2. **Planted defects, blind.** Some cards display a changed version of the site
+   text. The share of those the auditor catches is their measured sensitivity,
+   and the bound is divided by it rather than assuming perfect detection.
+
+### 1. Draw
+
+```
+python3 scripts/sample-audit.py draw day-05
+```
+
+This refuses unless four things are true, and says which one isn't:
+
+- **The record's Wave 2 pass is decided** (`adjudications/<record>.json` has
+  `decided_at`). An audit measures what a finished pass missed. Drawing from a
+  record whose flags are still open would count defects Wave 2 is about to fix.
+- **Its `results/` file is current.** Same `scorer_version` as the pipeline, same
+  source PDF hash, and the classification re-derived now reproduces the recorded
+  counts exactly. The population is re-derived rather than read, because a
+  results file holds counts, never a list.
+- **Its content and results are committed.** The record pins the commit it drew
+  from.
+- **It has not been audited before.** A record is drawn once. Re-drawing with a
+  new seed after seeing a sample is how a sample gets chosen.
+
+**The seed is the record's Wave 2 pass issue number**, read from its
+adjudication record — Day 5's is 771. It is fixed before anyone has seen a
+sample, which is the property a seed needs. `--seed` exists for a record with no
+pass issue, and should be recorded somewhere public before the draw if used.
+
+Twenty cards by default. The draw writes three files into
+`workflow/validation/audit/`, which is gitignored:
+
+| file | what | who may open it |
+|---|---|---|
+| `<record>.html` | the review page, built from the Wave 2 adjudication template | publish it as an Artifact |
+| `<record>.sample.json` | the page's data, and what `reveal` scores against | anyone |
+| `<record>.key.json` | which cards carry a plant, and what was changed | **not the auditor, until reveal** |
+
+Nothing the draw prints, and nothing on the page, says how many cards are
+planted or which.
+
+### 2. Audit
+
+For each card: open the page image at the cited page, find the paragraph by its
+opening and closing words, read the source, then read the card's site text.
+
+| verdict | means |
+|---|---|
+| **Exact** | the site says what the source says — words, numbers, punctuation, emphasis |
+| **Trivial** | a difference the site's own conventions account for: a heading's case, an enriched cross-reference, curly quotes |
+| **Defect** | anything else, with a note quoting both sides |
+
+Judge the card, not the live site or the `.qmd`: the planted cards differ from
+both, and looking would reveal them.
+
+The card's site text is rendered by pandoc from the source lines the comparator
+matched, trimmed to the lines those sentences touch. It can run a clause past the
+paragraph where the site sets two of Neave's paragraphs on one line — measured at
+under 1% of the population. Where one sentence of a paragraph matched somewhere
+else on the site entirely, the card names where, since that is the #645 shape
+worth checking by eye.
+
+### 3. Reveal
+
+```
+python3 scripts/sample-audit.py reveal day-05 --verdicts ~/Downloads/audit-day-05-verdicts.json
+```
+
+Scores the export against the key and writes `audits/<record>.yml`. Every card
+needs a verdict, and the export must come from this draw — the page's pass name
+carries a fingerprint of it.
+
+Reveal prints each planted card marked Defect beside its note. If a note names
+something other than the plant, that card found a real defect and missed its
+plant: re-run with `--other-defect <id>`. **Every entry in `findings` is a real
+transcription defect** and goes through the Wave 2 fix path — a cited issue and
+PR, like any other.
+
+## The record
+
+| field | notes |
+|---|---|
+| `record`, `source_pdf`, `scorer_version`, `commit` | what was sampled, by which comparator, at which commit |
+| `seed`, `drawn_at`, `revealed_at`, `auditor` | who and when; the seed makes the draw reproducible |
+| `population` | matched-cleanly paragraphs in the record at `commit` |
+| `sample` | `cards` shown, `planted` among them, `audited` = cards − planted |
+| `verdicts` | how many of each |
+| `plants` | `planted`, and `caught` — a Defect verdict on a planted card whose note names the plant |
+| `bound` | see below |
+| `findings` | real defects found, for the fix path |
+| `paragraphs` | every card: page, file and lines, verdict, note, and `planted` — the key, `null` for an unplanted card |
+
+**Reproducing a draw.** Check out `commit` and run the same draw into another
+directory with `--output-dir`. Same seed, same content, same `scorer_version`
+gives the same cards and the same plants: every choice ranks candidates by a
+SHA-256 digest of the seed and the candidate's own text, never by `random`,
+whose `sample()` and `choice()` Python does not promise to keep stable.
+
+## The statistics
+
+A planted card's text was altered on the page, so its verdict says nothing about
+the corpus. Plants are excluded from the sample the rate is measured over:
+**n = cards − planted**, 16 to 18 for a twenty-card draw.
+
+**The raw bound** (`bound.upper`) is the exact one-sided 95% upper limit on the
+defect rate, from `real_defects` in n (Clopper–Pearson). With no defects it is
+1 − 0.05^(1/n), which the rule of three approximates as 3/n: 16.2% for n = 17.
+
+**The adjusted bound** (`bound.adjusted_upper`) divides that by the auditor's
+measured sensitivity, p̂ = caught / planted. With no defects found it is about
+3/(n·p̂). A defect the auditor would have missed is not in the count, so the raw
+bound silently assumes p̂ = 1.
+
+**One record says little.** Seventeen paragraphs can only show that a record's
+clean text is not badly wrong — a bound near 16% — and two to four plants make
+p̂ a coarse estimate. The adjustment is a point correction: it does not carry the
+uncertainty in p̂ itself.
+
+**The headline is corpus-wide.** Pooled over all eighteen records, roughly 300
+audited paragraphs with none found defective bound the escape rate at about 1%
+at 95% confidence if detection were perfect, and the 30–60 plants pooled with
+them estimate p̂ well enough to divide by. The published claim is the pooled
+3/(n·p̂), stated with that caveat and with what it does not cover:
+
+- **Flagged text** is not in this population; its evidence is the adjudication
+  records.
+- **Figures and tables as images** are out of scope, owned by #725.
+- **Plants approximate real defects**, drawn from the classes Wave 2 found — word
+  substitutions, dropped and inserted words, one wrong digit, a dropped or added
+  `!`, lost emphasis — but a planted change may be easier or harder to see than
+  a natural one.

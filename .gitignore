@@ -67,3 +67,9 @@ __pycache__/
 # tracked; the page it generates is not. See issue #765.
 workflow/validation/adjudication/*.html
 !workflow/validation/adjudication/template.html
+
+# Sampling-audit working files: the review page, the drawn sample, and the
+# planted-defect key, which must stay out of sight until the verdicts are
+# exported. scripts/sample-audit.py reveal folds all three into the committed
+# record under workflow/validation/audits/. See #746.
+workflow/validation/audit/

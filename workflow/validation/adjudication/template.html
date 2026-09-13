@@ -272,6 +272,15 @@ h1 {
   padding: 12px 15px; color: var(--ink); background: var(--surface);
 }
 .side-text em { font-style: italic; }
+/* Site text a pass renders from markdown (a sampling audit's cards) arrives as
+   block elements; keep them at the card's own scale. */
+.side-text p, .side-text ul, .side-text ol, .side-text blockquote { margin: 0 0 .65em; }
+.side-text > :last-child { margin-bottom: 0; }
+.side-text h1, .side-text h2, .side-text h3, .side-text h4, .side-text h5, .side-text h6 {
+  font: inherit; font-weight: 600; margin: 0 0 .5em;
+}
+.side-text blockquote { padding-left: 14px; border-left: 3px solid var(--rule-strong); }
+.side-text .link { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule-strong); }
 mark { background: none; padding: 1px 0; border-radius: 2px; font-weight: 500; }
 mark.src { background: var(--accent-soft); color: var(--accent); box-shadow: inset 0 -1px 0 var(--accent); }
 mark.gone { background: var(--critical-soft); color: var(--critical); text-decoration: line-through; text-decoration-thickness: 1px; }
@@ -314,6 +323,7 @@ mark.gone { background: var(--critical-soft); color: var(--critical); text-decor
 .seg button[data-v="accept"][aria-pressed="true"] { background: var(--ok); }
 .seg button[data-v="reject"][aria-pressed="true"] { background: var(--muted); }
 .seg button[data-v="discuss"][aria-pressed="true"] { background: var(--warn); }
+[data-reject-tone="critical"] .seg button[data-v="reject"][aria-pressed="true"] { background: var(--critical); }
 
 .note-toggle {
   font: inherit; font-size: 12.5px; background: none; border: 0; color: var(--muted);
@@ -398,9 +408,9 @@ mark.gone { background: var(--critical-soft); color: var(--critical); text-decor
     </div>
     <div class="keys">
       <span><kbd>J</kbd> / <kbd>K</kbd> move</span>
-      <span><kbd>A</kbd> accept</span>
-      <span><kbd>R</kbd> decline</span>
-      <span><kbd>D</kbd> discuss</span>
+      <span><kbd>A</kbd> <span data-key="accept">accept</span></span>
+      <span><kbd>R</kbd> <span data-key="reject">decline</span></span>
+      <span><kbd>D</kbd> <span data-key="discuss">discuss</span></span>
       <span><kbd>N</kbd> note</span>
     </div>
   </div>
@@ -412,6 +422,19 @@ mark.gone { background: var(--critical-soft); color: var(--critical); text-decor
 const PASS = __PASS_JSON__;
 
 const STORE = "td:adjudication:" + PASS.pass + ":v1";
+
+/* Optional wording a record can override. Wave 2 records carry none and get the
+   defaults below; a sampling audit (scripts/sample-audit.py, #746) reuses this
+   page with its own verdicts, which are still keyed accept / reject / discuss
+   underneath so the export shape stays the same. */
+const UI = Object.assign({
+  noun: "findings",
+  filters: { accept: "Accepted", reject: "Declined", discuss: "Discuss" },
+  keys: { accept: "accept", reject: "decline", discuss: "discuss" },
+  note_placeholder: "Anything I should know before making this edit…",
+  reject_tone: null,
+  outro_html: null
+}, PASS.ui || {});
 let state = {};
 try { state = JSON.parse(localStorage.getItem(STORE) || "{}"); } catch (e) { state = {}; }
 
@@ -470,7 +493,7 @@ function renderMasthead() {
     <div class="provenance">
       ${p.provenance.map(x => `<span><b>${esc(x.label)}</b> ${esc(x.value)}</span>`).join("")}
     </div>`;
-  document.getElementById("outroText").innerHTML =
+  document.getElementById("outroText").innerHTML = UI.outro_html ||
     `Export writes <code>${esc(PASS.export_filename)}</code> to your downloads folder. Tell me it's there and ` +
     `I'll read it, make exactly the accepted edits, re-run the validator, and open the PR. Nothing is applied ` +
     `until then. Your decisions are also kept in this browser, so you can close the page and come back.`;
@@ -523,7 +546,7 @@ function docOrderHTML() {
     <section class="section" data-sec="doc">
       <div class="section-head">
         <h2>In document order</h2>
-        <span class="section-count">${docOrder.length} findings</span>
+        <span class="section-count">${docOrder.length} ${esc(UI.noun)}</span>
       </div>
       <div class="legend">
         ${PASS.sections.map(sec => `
@@ -577,7 +600,7 @@ function card(it, sec) {
       <span class="status">undecided</span>
     </div>
     <div class="note-wrap" hidden>
-      <textarea placeholder="Anything I should know before making this edit…" aria-label="Note for ${esc(it.id)}"></textarea>
+      <textarea placeholder="${esc(UI.note_placeholder)}" aria-label="Note for ${esc(it.id)}"></textarea>
     </div>
   </article>`;
 }
@@ -771,6 +794,16 @@ const listHost = document.getElementById("sections");
 listHost.addEventListener("click", onClick);
 listHost.addEventListener("input", onInput);
 
+function applyUI() {
+  ["accept", "reject", "discuss"].forEach(v => {
+    const filterButton = document.querySelector(`.filter[data-f="${v}"]`);
+    filterButton.firstChild.textContent = UI.filters[v];
+    document.querySelector(`[data-key="${v}"]`).textContent = UI.keys[v];
+  });
+  if (UI.reject_tone) listHost.dataset.rejectTone = UI.reject_tone;
+}
+
+applyUI();
 renderMasthead();
 syncOrderToggle();
 render();
