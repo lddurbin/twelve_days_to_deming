@@ -247,6 +247,8 @@ A left-to-right chain of five linked boxes showing Deming's Chain Reaction. **Im
 
 I think you will see some common themes running through that list. And it’s hardly just Statistics! The importance of the complete content of Deming’s list, as opposed to “just Statistics”, cannot be overemphasised. There is a great flavour of <span class=deming_quote>“the theory of a system, and cooperation”</span> throughout. And, in contrast to a widespread misconception about Deming’s work, it’s hardly just for manufacturing companies!
 
+[]{#sec-page36}
+
 So what were some of the consequences of Deming’s teaching to the Japanese in the summer of 1950? Let’s take the short term first. I’ll move to Chapter 7: “What Happened in Japan?” in Mrs Kilian’s *The World of W Edwards Deming*. This is from page 77 of her book:
 
 ><span class=deming_quote>“Japanese manufacturers took those arguments seriously to the point of doing something about them with concerted effort. A little fire here, and a little there, would be too slow. Concerted effort meant cooperation amongst competitors, assistance to vendors, and—probably for the first time in Japan—immediate attention to the demands of the consumer, and need for consumer research on a continuing basis, with feedback for redesign. Results were spectacular, even after only one year, especially in productivity per man-hour, with little new machinery.”</span>
@@ -262,7 +264,7 @@ industrial rebirth and its worldwide success to W Edwards Deming.”
 Some of the matters raised in Deming’s <span class=deming_quote>“Summary of Teachings”</span> will be seen to have parallels in the Major
 Activity at the end of this afternoon. Before that, let’s continue with the story. But to where?
 
-## The 1970s: The wasted years {#sec-page36}
+## The 1970s: The wasted years
 
 I well remember the occasion when I was one of a group of some 50 people enjoying a study weekend with
 Dr Deming at the Ashridge Management College in the UK, immediately following his London four-day
