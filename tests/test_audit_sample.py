@@ -293,6 +293,9 @@ class TestLocate(unittest.TestCase):
             "The purpose of the next stage is to look closer. Why?\n",
             encoding="utf-8",
         )
+        self.setUp_pool()
+
+    def setUp_pool(self):
         files = [self.a, self.b]
         combined = ap.qmd_combined(files)
         self.pop = ap.Population(
@@ -323,6 +326,42 @@ class TestLocate(unittest.TestCase):
                             "A later chapter says something else entirely, at length.", 2, 0)
         excerpt = ap.locate(para, self.pop, self.blocks)
         self.assertEqual(len(excerpt.elsewhere), 1)
+        self.assertEqual(excerpt.elsewhere[0][1:], (self.b, 1))
+
+    def test_a_sentence_no_run_of_blocks_holds_gets_no_line_number(self):
+        """Pointing at the chosen run's first line instead would send the auditor somewhere unrelated."""
+        self.b.write_text(
+            "Introductory text about the prize, which runs long enough.\n\n"
+            "Here are the data that were used for the computation:\n\n"
+            "the first of the many subgroups, in time order.\n",
+            encoding="utf-8",
+        )
+        self.setUp_pool()
+        para = ap.Paragraph("Introductory text about the prize, which runs long enough. Here are the data "
+                            "that were used for the computation: the first of the many subgroups, in time order.", 2, 0)
+        original = ap._MAX_JOIN
+        ap._MAX_JOIN = 1  # the colon join now needs a wider run than any window allows
+        try:
+            excerpt = ap.locate(para, self.pop, self.blocks)
+        finally:
+            ap._MAX_JOIN = original
+        self.assertEqual([(w, n) for _, w, n in excerpt.elsewhere], [(None, None)])
+
+
+class TestLiftFunction(unittest.TestCase):
+    def test_lifts_the_real_extraction_function_whole(self):
+        definition = ap.lift_function(ap.VALIDATOR.read_text(encoding="utf-8"), "extract_pdf_text")
+        self.assertTrue(definition.rstrip().endswith("}"))
+        self.assertIn("pdf_callouts.py", definition)  # the pipeline's last stage
+
+    def test_a_column_zero_brace_inside_the_body_is_refused_by_name(self):
+        source = "f() {\n  a\n}\n  echo still inside\n}\n\n# next\n"
+        with self.assertRaisesRegex(ap.PopulationError, "did not lift cleanly"):
+            ap.lift_function(source, "f")
+
+    def test_a_whole_function_followed_by_the_next_is_accepted(self):
+        source = "f() {\n  a\n}\n\ng() {\n  b\n}\n"
+        self.assertEqual(ap.lift_function(source, "f"), "f() {\n  a\n}\n")
 
 
 class TestReadResults(unittest.TestCase):

@@ -33,6 +33,7 @@ import collections
 import hashlib
 import re
 import subprocess
+import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -201,15 +202,12 @@ def extract_pdf_text(pdf: Path, qmd_text: str) -> str:
     and a second copy of it is the drift #737 exists to prevent. If the
     function is renamed or reshaped so the lift fails, this fails with it.
     """
-    source = VALIDATOR.read_text(encoding="utf-8")
-    match = re.search(r"^extract_pdf_text\(\) \{\n.*?^\}\n", source, re.S | re.M)
-    if not match:
-        raise PopulationError("could not find extract_pdf_text() in validate-transcription.sh")
+    definition = lift_function(VALIDATOR.read_text(encoding="utf-8"), "extract_pdf_text")
     qmd_path = _scratch(qmd_text)
     try:
         script = (
             "set -euo pipefail\nexport LC_ALL=C\n"
-            f'REPO_ROOT="{REPO_ROOT}"\n{match.group(0)}\n'
+            f'REPO_ROOT="{REPO_ROOT}"\n{definition}\n'
             'extract_pdf_text "$1" "$2"\n'
         )
         return _run(["bash", "-c", script, "extract", str(pdf), str(qmd_path)])
@@ -217,9 +215,27 @@ def extract_pdf_text(pdf: Path, qmd_text: str) -> str:
         qmd_path.unlink(missing_ok=True)
 
 
-def _scratch(text: str) -> Path:
-    import tempfile
+def lift_function(source: str, name: str) -> str:
+    """The definition of shell function `name` in `source`, verbatim."""
+    match = re.search(rf"^{re.escape(name)}\(\) \{{\n.*?^\}}\n", source, re.S | re.M)
+    if not match:
+        raise PopulationError(f"could not find {name}() in validate-transcription.sh")
+    # The lift ends at the first `}` in column 0. The script indents every
+    # function body, so that is the function's own closing brace — but if a
+    # later edit puts a column-0 `}` inside the body, the lift would be cut
+    # short. What follows a whole function is top-level code: a blank line, a
+    # comment, or the next definition. Anything else means a truncated lift,
+    # and it is named here rather than surfacing as a count mismatch in derive().
+    rest = source[match.end():].lstrip("\n")
+    if rest and not re.match(r"#|[A-Za-z_]\w*\(\) \{|main ", rest):
+        raise PopulationError(
+            f"{name}() did not lift cleanly out of validate-transcription.sh "
+            "(a column-0 `}` inside its body?)"
+        )
+    return match.group(0)
 
+
+def _scratch(text: str) -> Path:
     handle = tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".txt", delete=False)
     with handle:
         handle.write(text)
@@ -411,7 +427,9 @@ class Excerpt:
     lines: list[tuple[int, int]]  # (block index within the run, 1-based source line)
     text: str  # those lines' stripped text, joined as join_continuations() joins
     spans: list[tuple[int, int]]  # [start, end) of each sentence found in `text`
-    elsewhere: list[tuple[str, Path, int]]  # (sentence, file, line) matched outside it
+    # (sentence, file, line) matched outside it; file and line are None when no
+    # run of blocks holds the sentence at all, so there is no line to point to.
+    elsewhere: list[tuple[str, Path | None, int | None]]
 
 
 def locate(para: Paragraph, pop: Population, blocks: dict[Path, list[Block]]) -> Excerpt:
@@ -478,8 +496,11 @@ def locate(para: Paragraph, pop: Population, blocks: dict[Path, list[Block]]) ->
     spans, elsewhere, cursor = [], [], 0
     for sentence, window, options in zip(sentences, chosen, candidates):
         if window is None:
-            other_file, i, _ = options[0] if options else (f, lo, None)
-            elsewhere.append((sentence, other_file, readable[other_file][i].first))
+            if options:
+                other_file, i, _ = options[0]
+                elsewhere.append((sentence, other_file, readable[other_file][i].first))
+            else:
+                elsewhere.append((sentence, None, None))
             continue
         at = text.find(sentence, cursor)
         if at < 0:

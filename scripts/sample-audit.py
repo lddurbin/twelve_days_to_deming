@@ -304,10 +304,13 @@ def draw(args):
         first, last = excerpt.lines[0][1], excerpt.lines[-1][1]
         notes = [f"Site text from source line{'s' if last > first else ''} {first}{f'–{last}' if last > first else ''}."]
         for sentence, where, line in excerpt.elsewhere:
+            place = (
+                f"at <code>{html.escape(str(where.relative_to(REPO_ROOT)))}:{line}</code>"
+                if where else "somewhere this tool could not pin to a line"
+            )
             notes.append(
-                f"One sentence of this paragraph matched elsewhere on the site, at "
-                f"<code>{html.escape(str(where.relative_to(REPO_ROOT)))}:{line}</code>, not in the text shown: "
-                f"<q>{html.escape(sentence)}</q> — check it is where the source puts it."
+                f"One sentence of this paragraph matched elsewhere on the site, {place}, not in the "
+                f"text shown: <q>{html.escape(sentence)}</q> — check it is where the source puts it."
             )
         items.append({
             "id": card["id"],
