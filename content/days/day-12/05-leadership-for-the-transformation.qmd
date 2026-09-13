@@ -8,7 +8,7 @@ execute:
 
 ## Section 4: LEADERSHIP FOR THE TRANSFORMATION {#sec-page22}
 
-Early on Day 5 we looked at the page of "Attributes of a Leader" (*DemDim* page 335) which Dr Deming started to use in some four-day seminars around 1989. That page showed the first version he produced. Over the next few months the list grew and developed. Further, going back to *Out of the Crisis* pages 99--101(116--118), there is a fine section called "Modern principles of leadership". That section commences with two incredibly powerful paragraphs (see near the top of the next page) that unambiguously demonstrate how Dr Deming considered the usual judgmental type of performance appraisal as being utterly incompatible with genuine leadership. In contrast, that introduction is then followed by a list of innocently-termed "suggestions" for genuine leadership.
+Early on Day 5 we looked at the page of "Attributes of a Leader" (*DemDim* page 335) which Dr Deming started to use in some four-day seminars around 1989. That page showed the first version he produced. Over the next few months the list grew and developed. Further, going back to *Out of the Crisis* pages 99--101[116--118], there is a fine section called "Modern principles of leadership". That section commences with two incredibly powerful paragraphs (see near the top of the next page) that unambiguously demonstrate how Dr Deming considered the usual judgmental type of performance appraisal as being utterly incompatible with genuine leadership. In contrast, that introduction is then followed by a list of innocently-termed ["suggestions"]{.deming_quote} for genuine leadership.
 
 Following those two introductory paragraphs, I present here an expanded list of such suggestions derived both from what is contained in *Out of the Crisis* along with later versions of the "Attributes of a Leader". I have made no attempt to exclude topics that we saw in the first "Attributes" list---they bear repetition!
 
@@ -20,11 +20,11 @@ So, over to Dr Deming:
 
 ### Modern principles of leadership {#sec-page23}
 
+<div class="deming_blue">
+
 > “Modern principles of leadership ... will replace the annual performance review. The first step in a company will be to provide education in leadership. The annual performance review may then be abolished. Leadership will take its place. This is what Western management should have been doing all along.
 >
-> The annual performance review sneaked in and became popular because it does not require anyone to face the problems of people. It is easier to rate them; focus on the outcome. What Western industry needs is methods that will improve the outcome. *Suggestions follow.*”
-
-<div class=”deming_blue”>
+> The annual performance review sneaked in and became popular because it does not require anyone to face the problems of people. It is easier to rate them; focus on the outcome. What Western industry needs is methods that will improve the outcome. Suggestions follow.”
 
 **1.** Institute education in leadership: obligations, principles, and methods.
 
@@ -55,15 +55,15 @@ So, over to Dr Deming:
 - He listens and learns without passing judgment on him that he listens to.
 - He does not expect perfection.
 
-**8.** A leader will discover who if any of his people is (a) outside the system on the good side, (b) outside the system on the poor side, (c) belonging to the system. If numbers are used for measures of performance, the calculations required (i.e. of control limits) are fairly simple.
+**8.** A leader will discover who if any of his people is (a) outside the system on the good side, (b) outside the system on the poor side, (c) belonging to the system. If numbers are used for measures of performance, the calculations required <span class="neave_note">*[i.e. of control limits]*</span> are fairly simple.
 
 - Monetary reward for outstanding performance outside the system, without other more satisfactory recognition, may be counterproductive.
-- People that are on the poor side of the system may require special help. Simple rearrangement of the work might be the answer.
+- People that are on the poor side of the system will require special help. Simple rearrangement of the work might be the answer.
 
 **9.** Ranking of people (outstanding down to unsatisfactory) that belong to the system violates scientific logic and is ruinous as a policy.
 
 - The people of a group that form a system will all be subject to the company's formula for raises in pay. This formula may involve (e.g.) seniority. It will not depend on rank within the group, as the people within the system will not be ranked No. 1, No. 2, ... No. last. (In bad times, there may be no raise for anybody.)
-- The day is here when anybody deprived of a raise or of any privilege through misuse of figures for performance (as by ranking the people in a group) may with justice file a grievance. *[I certainly wish that our legal system encouraged this.]*
+- The day is here when anybody deprived of a raise or of any privilege through misuse of figures for performance (as by ranking the people in a group) may with justice file a grievance. <span class="neave_note">*[I certainly wish that our legal system encouraged this.]*</span>
 
 **10.** Figures on performance should be used not to rank the people in a group that fall within the system, but to assist the leader to accomplish improvement of the system.
 
@@ -92,8 +92,8 @@ A successful leader develops (2) and (3); does not rely on (1). He has neverthel
 
 </div>
 
-<div class=”separator”>
-  <div class=”separator_white”>
-  <div class=”separator_blue”></div>
+<div class="separator">
+  <div class="separator_white">
+  <div class="separator_blue"></div>
   </div>
 </div>

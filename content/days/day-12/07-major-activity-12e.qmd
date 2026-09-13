@@ -26,9 +26,9 @@ During this course you have read a great deal of both Deming's writing and his s
 
 Let us imagine that Dr Deming has accepted an invitation to spend time in your organisation. He has permission to go anywhere, to look at anything, and to speak with anybody that he wishes, from all levels in the company, in order to learn how the organisation is managed. (He would not have accepted the invitation otherwise.)
 
-And now imagine that you are Dr Deming. Draft his subsequent report, addressed to the organisation's Chief Executive (or whoever is the "top box" in the vertical organisation chart). You do not have to try to imitate Dr Deming's unique style of writing (although you may do so if you wish). But you are, of course, welcome to use his terminology and phraseology with which you have become familiar. In practice, you would, of course, need to make yourself available to explain any language with which the addressee might be unfamiliar.
+And now imagine that *you* are Dr Deming. Draft his subsequent report, addressed to the organisation's Chief Executive (or whoever is the "top box" in the vertical organisation chart). You do not have to try to imitate Dr Deming's unique style of writing (although you may do so if you wish!). But you are, of course, welcome to use his terminology and phraseology with which you have become familiar. In practice, you would, of course, need to make yourself available to explain any language with which the addressee might be unfamiliar.
 
-Dr Deming's reports to management were often written in note form, the notes being numbered 1, 2, 3, ... and subdivided into a, b, c, ..., when appropriate. The individual notes were often quite short.
+Dr Deming's reports to management were often written in note form, the notes being numbered 1, 2, 3, ... and subdivided into a, b, c, ... when appropriate. The individual notes were often quite short.
 
 If you would like to see a couple of examples of such reports, and have available a copy of *Out of the Crisis*, turn to Chapter 14: "Two Reports to Management" beginning on page 339[397].
 
@@ -49,15 +49,15 @@ Your choice of option here largely depends on your position in your organisation
 
 ### Option 1
 
-Formulate your plans for change in your organisation in order to implement the points raised in Dr Deming's report. You will need both a short-term and a longer-term plan. The short-term plan needs to contain some detailed proposals of what to do in the next 8 to 12 months, and the longer-term plan needs to paint the general picture of change in your organisation over at least the next five years. As emphasised both by Dr Deming and by Dave Young in his "Guidance for Middle Managers", one of the earliest priorities will surely be to develop appropriate education for your people: indicate some of its main content.
+Formulate your plans for change in your organisation in order to implement the points raised in Dr Deming's report. You will need both a short-term and a longer-term plan. The short-term plan needs to contain some detailed proposals of what to do during the next 6 to 12 months, and the longer-term plan needs to paint the general picture of change in your organisation over at least the next five years. As emphasised both by Dr Deming and by Dave Young in his "Guidance for Middle Managers", one of the earliest priorities will surely be to develop appropriate education for your people: indicate some of its main content.
 
-**OR**
+***OR***
 
 ### Option 2
 
 Since you have now nearly completed this course, assume you have been promoted to the position referred to by Dr Deming on [Day 10 page 9](../day-10/02-appreciation-for-a-system.qmd#sec-page9) as [aide to the president]{.deming_quote}, "the president" being interpreted as your Chief Executive along with the most senior management team. Members of the senior management team have not embarked upon this course (yet!), and thus the first task in your new role will be to work through Dr Deming's report, point by point, with them. Explain where necessary the points and recommendations that he has made, and then help them to formulate their plans to implement appropriate change. During the Second Project you have had plenty of practice at interpreting Dr Deming's guidance in the System of Profound Knowledge for your interested friend, and so the experience gained there should be helpful for this current task.
 
-*(The following three pages have been left blank for your thoughts and ideas.)*
+*(The next three pages have been left blank for your thoughts and ideas.)*
 
 ```{ojs}
 viewof activity_12e_part2 = persist(

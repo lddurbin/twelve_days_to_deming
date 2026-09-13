@@ -28,15 +28,15 @@ How will you be able to distinguish the 19 shapes from each other? I *could* hav
 
 ## ACTIVITY 12–a, Part 2
 
-So now choose your 19 combinations of colours and line styles and indicate them in [the KEY column on page 4](02-your-radar-diagram.qmd#sec-page4), one against each of the 14 Points and each of the five Deadly Diseases. For example, if you've decided that your four-line shape for Point 1 (Create Constancy of Purpose) is to be drawn with broken green lines: −−−−−− as in [the diagram on page 3](02-your-radar-diagram.qmd#sec-page3), indicate that as I've shown in [the KEY column on page 4](02-your-radar-diagram.qmd#sec-page4).
+So now choose your 19 combinations of colours and line styles and indicate them in [the KEY column on page 4](02-your-radar-diagram.qmd#sec-page4), one against each of the 14 Points and each of the five Deadly Diseases. For example, if you've decided that your four-line shape for Point 1 (Create Constancy of Purpose) is to be drawn with broken green lines: [– – – – – –]{style="color: #008000;"} as in [the diagram on page 3](02-your-radar-diagram.qmd#sec-page3), indicate that as I've shown in [the KEY column on page 4](02-your-radar-diagram.qmd#sec-page4).
 
 </div>
 
+Having completed the KEY column, you're now ready to construct your radar diagram. Take a look at [the diagram on page 3](02-your-radar-diagram.qmd#sec-page3). You'll immediately guess what I'm going to ask you to do. In this illustration, remember I'm supposing Point 1 will be represented by a shape consisting of four broken green lines: [– – – – – –]{style="color: #008000;"} .
+
 []{#sec-page3}
 
-Having completed the KEY column, you're now ready to construct your radar diagram. Take a look at the diagram below. You'll immediately guess what I'm going to ask you to do. In this illustration, remember I'm supposing Point 1 will be represented by a shape consisting of four broken green lines: −−−−−− .
-
-Let's suppose you've scored the strength of connection of Point 1 with both Understanding Variation and Knowledge of Psychology by 5, with Theory of Knowledge by 3, and with Appreciation for a System by 4. (I'm not saying that these are the "right" answers---there are no right answers except for the honest representation of what's in your head!) Then you simply mark the relevant points on the diagram's four "arms" (PSYCHOLOGY, SYSTEM, etc), and join them up with the chosen KEY: broken green lines.
+Let's suppose you've scored the strength of connection of Point 1 with both Understanding Variation and Knowledge of Psychology by 5, with Theory of Knowledge by 3, and with Appreciation for a System by 4. (I'm not saying that these are the "right" answers---there are no right answers except for the honest representation of what's in your head!) Then you simply mark the relevant points on the diagram's four "arms" (PSYCHOLOGY, SYSTEM, etc), and join them up using the chosen KEY: broken green lines.
 
 ![Example radar diagram with Point 1 plotted](/assets/images/day-12/radar-diagram-small.png){fig-align="center" width="65%" .lightbox}
 
@@ -51,15 +51,15 @@ A four-armed radar (or "kite") chart used as the worked example for Activity 12�
 
 ## ACTIVITY 12–a, Part 3
 
-Ready, go! Using your chosen KEYs in turn, carry out this procedure on the large radar diagram below, illustrating your scores that you've recorded in the table for all the 14 Points and five Deadly Diseases.
+Ready, go! Using your chosen KEYs in turn, carry out this procedure on [page 5](02-your-radar-diagram.qmd#sec-page5), illustrating your scores that you've recorded in [the table on page 4](02-your-radar-diagram.qmd#sec-page4) for all the 14 Points and five Deadly Diseases.
 
 </div>
 
-### The 14 Points + Deadly Diseases KEY table {#sec-page4}
+[]{#sec-page4}
 
 ![14 Points and Deadly Diseases KEY table for Activity 12–a](/assets/images/day-12/radar-diagram-key-table.png){fig-align="center" width="90%" .lightbox}
 
-### Your radar diagram
+[]{#sec-page5}
 
 ```{r}
 #| label: fig-radar-diagram-large
@@ -73,19 +73,19 @@ radar_diagram_plot()
 
 ### Interpretation of your radar diagram
 
-So, how to interpret the radar diagram once you've completed it? Again, no deep thought is required---although there may be some as a result of your interpretation!
+So, how to interpret the radar diagram once you've completed it? Again, no deep thought is required---although there may be some as a *result* of your interpretation!
 
-Do you recall [The 14 Points ... follow naturally ...]{.deming_quote} ([Day 8 page 16](../day-08/05-introduction-to-the-major-activity.qmd#sec-page16))? So let's see! Now, it would be unrealistic to think that you---or anybody else, including myself!---would have scored 5 everywhere throughout the Second Project, in which case all 19 shapes would have been one simple, small diamond connecting the four 5s. But you should feel pleased if the majority of your scores have genuinely been, say, 3s, 4s or 5s, thus leaving plenty of white space outside the bigger diamond that you'd get by joining up the four 3s. If that's true then it will indicate you've made a really good start on understanding the Deming philosophy.
+Do you recall [The 14 Points ... follow naturally ...]{.deming_quote} ([Day 9 page 16](../day-09/05-of-profound-knowledge.qmd#sec-page16))? So let's see! Now, it would be unrealistic to think that you---or anybody else, including myself---would have scored 5 *everywhere* throughout the Second Project, in which case all 19 shapes would have been one simple, small diamond connecting the four 5s. But you should feel pleased if the majority of your scores have genuinely been, say, 3s, 4s or 5s, thus leaving plenty of white space outside the bigger diamond that you'd get by joining up the four 3s. If that's true then it will indicate you've made a really good start on understanding the Deming philosophy.
 
-You could also investigate the diagram for some more detailed information. There may, for example, be a small number of the 19 four-sided shapes that immediately strike you as being rather more spread out than the others. This would indicate that it might be worthwhile for you, when you have the opportunity, to spend more time reading and thinking about the particular Points and/or Diseases corresponding to those spread-out shapes. So we shall remind you of some of the sources I recommended to you back on Days 4 and 5.
+You could also investigate the diagram for some more detailed information. There may, for example, be a small number of the 19 four-sided shapes that immediately strike you as being rather more spread out than the others. This would indicate that it might be worthwhile for you, when you have the opportunity, to spend more time reading and thinking about the particular Points and/or Diseases corresponding to those spread-out shapes. So let me remind you of some of the sources I recommended to you back on Days 4 and 5.
 
 If the radar diagram indicates that one or two of the Points need some further attention, you could browse through the relevant chapter(s) in *DemDim* Part 5 (where there is a separate chapter on each of the 14 Points). Some of the earlier books on Dr Deming's work also have a chapter on each Point, particularly the first of both Mary Walton's and Bill Scherkenbach's books (respectively *The Deming Management Method* and *The Deming Route to Quality and Productivity*). And then, of course, there is the hefty Chapter 2 in *Out of the Crisis*. If the radar diagram shows that you need to spend some more time studying one or more of the Deadly Diseases then *Out of the Crisis* Chapter 3 is definitely your best source. And (assuming it is still available---see [Day 5 page 1](../day-05/01-introduction.qmd#sec-page1)) the video *Management's Five Deadly Diseases* will always be well worth a further viewing.
 
 Another effect which might be seen on your radar diagram is that the shapes move rather further out along one of the four arms than along the others. Again the interpretation is clear---you'll need to spend more time studying that particular part of the System of Profound Knowledge. If and when the time comes that you start working with *The New Economics*, I've given you the main page references during the Second Project; but, as I've mentioned before, material relevant to some of the topics in the May 1990 version (which we used throughout the Second Project) will be found elsewhere in the book. Help with several of the topics will also be found in *Out of the Crisis*, even though it predates the System of Profound Knowledge by a few years.
 
-There really is no substitute for going back to the true source! *DemDim*, of course, gives you a start---I hope a good start, and that it will stay as a constant companion in the future. But I also hope very much that, if it hasn't been already, it will soon be joined by both *Out of the Crisis* and *The New Economics*---and, maybe later, *The Essential Deming* (see [Day 1 pages 12–13](../day-01/04-resources.qmd#sec-page13)).
+There really is no substitute for going back to the true source! *DemDim* has, of course, given you a start---I hope a *good* start, and that it will stay as a constant companion in the future. But I also hope very much that, if it hasn't been already, it will soon be joined by both *Out of the Crisis* and *The New Economics*---and, maybe later, *The Essential Deming* (see [Day 1 pages 12–13](../day-01/04-resources.qmd#sec-page12)).
 
-However, in addition, if at some time in the future you would like to study a rather different---though highly compatible---approach to the System of Profound Knowledge, I'll refer you again to Bill Scherkenbach's second book: *Deming's Road to Continual Improvement* (from which we got "Theory of Knowledge in Seven Words" on [Day 11 page 9](../day-11/03-theory-of-knowledge-theory-and-learning.qmd#sec-page9)). Chapter 5, appropriately headed "Logical Change", is a substantial and deep study of the System of Profound Knowledge itself and of its "operationalisation", Bill's word for "putting it into practice". And he certainly had had plenty of experience at putting the theory into practice by then. Through most of the 1980s he was responsible for leading the learning and "operationalisation" of the Deming management philosophy throughout the Ford Motor Company worldwide. By the time he wrote his second book he had, with Dr Deming's approval, moved over to General Motors as Group Director for Statistical and Process Improvement Methods at the Buick–Oldsmobile–Cadillac division of the company. Deming was pleased for him to have the opportunity to spread his good work more widely.
+However, in addition, if at some time in the future you would like to study a rather different---though highly compatible---approach to the System of Profound Knowledge, I'll refer you again to Bill Scherkenbach's second book: *Deming's Road to Continual Improvement* (from which we saw the "Theory of Knowledge in Seven Words" on [Day 11 page 9](../day-11/03-theory-of-knowledge-theory-and-learning.qmd#sec-page9)). Chapter 5, appropriately headed "Logical Change", is a substantial and deep study of the System of Profound Knowledge itself and of its "operationalisation", Bill's word for "putting it into practice". And he certainly had had plenty of experience at putting the theory into practice by the time he wrote that book. Through most of the 1980s he was responsible for leading the learning and "operationalisation" of the Deming management philosophy throughout the Ford Motor Company worldwide. By the time he wrote his second book he had, with Dr Deming's approval, moved over to General Motors as Group Director for Statistical and Process Improvement Methods at the Buick-Oldsmobile-Cadillac division of the company. Deming was pleased for him to have the opportunity to spread his good work more widely.
 
 However, Bill's second book (unlike his first) is not for the beginner. I would say that, if we regard our *12 Days* course as being at undergraduate level, *Deming's Road to Continual Improvement* is highly recommended reading for the postgraduate student.
 
