@@ -406,9 +406,10 @@ def severity_bounds(real: dict, audited: int, plants: list, confidence: float = 
 
     `real` counts unplanted cards by verdict, and `plants` holds one
     `{"severity", "caught"}` dict per planted card, as sample-audit.py's
-    score() builds them. Both bounds run over the same n — every unplanted card was read against the source, whatever it
-    turned out to say — and differ only in what counts as a defect and which
-    plants measure the detection of it.
+    score() builds them. Both bounds run over the same n — every unplanted
+    card was read against the source, whatever it turned out to say — and
+    differ only in what counts as a defect and which plants measure the
+    detection of it.
 
     Reported apart because they answer different questions. "At most this share
     of clean text has a wrong word" is the claim the epic set out to make; "at
