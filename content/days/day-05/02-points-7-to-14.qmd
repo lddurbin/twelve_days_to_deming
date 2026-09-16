@@ -185,7 +185,7 @@ viewof p9_sa = persist(
 
 ## Point 10. Eliminate exhortations {#sec-page8}
 
-<div class="principle_callout" role="note" aria-label="Principle">**Eliminate the use of slogans, posters, and exhortations** for the workforce, demanding Zero Defects and new levels of productivity without providing methods. Such exhortations only create adversarial relationships: the bulk of the causes of low quality and low productivity belong to the system, and thus lie beyond the power of the workforce.</div>
+<div class="principle_callout" role="note" aria-label="Principle">**Eliminate the use of slogans, posters, and exhortations** for the workforce, demanding Zero Defects and new levels of productivity without providing methods. Such exhortations only create adversarial relationships; the bulk of the causes of low quality and low productivity belong to the system, and thus lie beyond the power of the workforce.</div>
 
 This Point in particular needs reading beyond the first few words—including to the very end of the first sentence! Dr Deming was pretty scornful of mere "slogans" and "exhortations" as ways to improve quality. But, of course, not all "posters" are bad. E.g., on *Out of the Crisis* page 59 [pages 68–69] he writes:
 

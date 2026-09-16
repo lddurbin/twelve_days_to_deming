@@ -221,8 +221,14 @@ def draw(args):
     except ap.PopulationError as error:
         fail(str(error))
     name = record.name
-    if (AUDITS / f"{name}.yml").exists():
-        fail(f"{name} has already been audited: {AUDITS / f'{name}.yml'}. "
+    # Sandboxed with --output-dir rather than fixed at AUDITS, so a draw into a
+    # temp directory is genuinely self-contained. Pointing the guard at the real
+    # audits/ regardless would make the determinism test unrunnable the moment
+    # day-05's own record landed there — and then one more record at a time as
+    # the epic worked through them.
+    audits = args.audits_dir or AUDITS
+    if (audits / f"{name}.yml").exists():
+        fail(f"{name} has already been audited: {audits / f'{name}.yml'}. "
              "An audit is drawn once; re-drawing with another seed after seeing a sample is how a sample gets chosen.")
 
     adj = adjudication(name)
@@ -368,15 +374,16 @@ def draw(args):
         },
         "ui": {
             "noun": "paragraphs",
-            "filters": {"accept": "Exact", "reject": "Defect", "discuss": "Trivial"},
-            "keys": {"accept": "exact", "reject": "defect", "discuss": "trivial"},
+            "filters": {"accept": "Exact", "reject": "Substantive", "discuss": "Minor"},
+            "keys": {"accept": "exact", "reject": "substantive", "discuss": "minor"},
             "reject_tone": "critical",
             "note_placeholder": "What differs from the source? Quote both sides.",
             "outro_html": (
                 f"Export writes <code>audit-{html.escape(name)}-verdicts.json</code> to your downloads folder. "
                 "Tell me it's there and I'll run the reveal: which cards carried a plant, which of those you "
-                "caught, and every defect you found on a card that carried none — those are real, and go "
-                "through the Wave 2 fix path. Your verdicts are also kept in this browser."
+                "caught, and every difference you found on a card that carried none — those are real, Minor "
+                "as much as Substantive, and go through the Wave 2 fix path. Your verdicts are also kept in "
+                "this browser."
             ),
         },
         "sections": [{
@@ -386,12 +393,16 @@ def draw(args):
             "tag": "Sample",
             "count": f"{cards} paragraphs",
             "note_html": (
-                "Page image first, then the card. <b>Exact</b>: the site says what the source says — words, "
-                "numbers, punctuation and emphasis. <b>Trivial</b>: a difference the site's own conventions "
-                "account for, such as a heading's case or an enriched cross-reference. <b>Defect</b>: "
-                "anything else, with a note saying what."
+                "Page image first, then the card. <b>Exact</b>: the site says what the source says. A "
+                "difference the site's own conventions account for — a heading's case, an enriched "
+                "cross-reference, curly quotes — is Exact too, because the site is not departing from Neave. "
+                "<b>Minor</b>: a real difference that does not change the meaning, which in practice means "
+                "punctuation, or emphasis the source has and the site has lost. <b>Substantive</b>: a real "
+                "difference that does change it — a wrong word or number, a dropped or an added one. Minor "
+                "and Substantive are both real and both get fixed; they are split only so the two can be "
+                "counted apart. Quote both sides in the note."
             ),
-            "labels": {"accept": "Exact", "reject": "Defect", "discuss": "Trivial"},
+            "labels": {"accept": "Exact", "reject": "Substantive", "discuss": "Minor"},
             "items": items,
         }],
     }
@@ -442,6 +453,7 @@ def reveal(args):
             page, key, verdicts,
             auditor=args.auditor or git("config", "user.name"),
             other_defects=set(args.other_defect),
+            also_defects=set(args.also_defect),
         )
     except ValueError as error:
         fail(str(error))
@@ -454,35 +466,51 @@ def reveal(args):
     )
     path.write_text(header + sample.to_yaml(result), encoding="utf-8")
 
-    bound = result["bound"]
-    print(f"{name}: {result['sample']['audited']} audited, {result['plants']['planted']} planted")
-    print(f"  plants caught:  {result['plants']['caught']} of {result['plants']['planted']}")
-    print(f"  real defects:   {bound['real_defects']}")
-    print(f"  95% bound:      {bound['upper']:.1%} raw, {bound['adjusted_upper']:.1%} adjusted for sensitivity")
+    bound, plants, tally = result["bound"], result["plants"], result["verdicts"]
+    print(f"{name}: {result['sample']['audited']} audited, {plants['planted']} planted")
+    print(f"  plants caught:  {plants['caught']} of {plants['planted']} "
+          f"({plants['severity_matched']} filed at the right severity)")
+    print(f"  deviations:     {tally['substantive']} substantive, {tally['minor']} minor")
+    for scope, label in (("substantive", "substantive"), ("any_deviation", "any deviation")):
+        b = bound[scope]
+        seen = "no plants of this severity" if b["sensitivity"] is None \
+            else f"p̂ {b['sensitivity']:.0%} on {b['planted']}"
+        print(f"  95% bound, {label}: {b['upper']:.1%} raw → {b['adjusted_upper']:.1%} adjusted ({seen})")
+    severities = {f["id"]: f["severity"] for f in result["findings"]}
     for entry in result["paragraphs"]:
         plant = entry["planted"]
-        if plant and entry["verdict"] == "defect":
-            print(f"  {entry['id']} planted {plant['kind']} ({plant['from']!r} → {plant['to']!r}); note: {entry['note']!r}")
-            print("         confirm the note names the plant; if it names something else, re-run with "
-                  f"--other-defect {entry['id']}")
+        if plant and plant["caught"]:
+            filed = "" if plant["severity_match"] else f", filed {entry['verdict']} not {plant['severity']}"
+            print(f"  {entry['id']} caught {plant['kind']} ({plant['from']!r} → {plant['to']!r}){filed}; "
+                  f"note: {entry['note']!r}")
+            print("         confirm the note names the plant; if it names something else entirely, re-run "
+                  f"with --other-defect {entry['id']}; if it names the plant and a real defect beside it, "
+                  f"--also-defect {entry['id']}")
         elif plant:
-            print(f"  {entry['id']} MISSED {plant['kind']} ({plant['from']!r} → {plant['to']!r}), verdict {entry['verdict']}")
-        if entry["id"] in {f["id"] for f in result["findings"]}:
-            print(f"  {entry['id']} REAL DEFECT at {entry['file']}:{entry['lines']} — {entry['note']!r}")
+            print(f"  {entry['id']} MISSED {plant['kind']} / {plant['severity']} "
+                  f"({plant['from']!r} → {plant['to']!r}), verdict {entry['verdict']}")
+        if entry["id"] in severities:
+            print(f"  {entry['id']} REAL DEFECT ({severities[entry['id']]}) at "
+                  f"{entry['file']}:{entry['lines']} — {entry['note']!r}")
     print(f"Record written: {path.relative_to(REPO_ROOT)}")
 
 
 def score(
     page: dict, key: dict, verdicts: dict, auditor: str,
-    other_defects: set[str] = frozenset(), today: str | None = None,
+    other_defects: set[str] = frozenset(), also_defects: set[str] = frozenset(),
+    today: str | None = None,
 ) -> dict:
     """The committed audit record, from the draw, its key and the exported verdicts.
 
-    `other_defects` names planted cards whose Defect note turned out to describe
+    `other_defects` names planted cards whose note turned out to describe
     something other than the plant. That is a real finding — it goes in
-    `findings` for the fix path — and the plant itself was missed. It stays out
-    of the bound all the same: a planted card's text was altered on the page,
-    so it was never part of the audited sample the rate is measured over.
+    `findings` for the fix path — and the plant itself was missed.
+    `also_defects` names cards whose note describes the plant *and* a real
+    deviation beside it, which Day 5's A-14 did: the plant counts as caught and
+    the finding is still recorded, so a defect the auditor actually found does
+    not vanish because it shared a card with a plant. Neither enters the bound:
+    a planted card's text was altered on the page, so it was never part of the
+    audited sample the rate is measured over.
     """
     if verdicts.get("pass") != page["pass"] or key.get("pass") != page["pass"]:
         raise ValueError(
@@ -497,12 +525,25 @@ def score(
     if open_cards:
         raise ValueError(f"undecided cards: {', '.join(sorted(open_cards))} — every card needs a verdict")
     plants = {p["id"]: p for p in key["planted"]}
-    stray = {i for i in other_defects if i not in plants or sample.VERDICTS[decided[i]["decision"]] != "defect"}
-    if stray:
-        raise ValueError(f"--other-defect names cards that are not planted Defect verdicts: {', '.join(sorted(stray))}")
+    for flag, ids in (("--other-defect", other_defects), ("--also-defect", also_defects)):
+        stray = {
+            i for i in ids
+            if i not in plants or sample.VERDICTS[decided[i]["decision"]] not in sample.DEVIATIONS
+        }
+        if stray:
+            raise ValueError(
+                f"{flag} names cards that are not planted cards carrying a Minor or Substantive "
+                f"verdict: {', '.join(sorted(stray))}"
+            )
+    if other_defects & also_defects:
+        raise ValueError(
+            f"--other-defect and --also-defect both name {', '.join(sorted(other_defects & also_defects))}: "
+            "a note either names the plant or it does not"
+        )
 
-    tally = {"exact": 0, "trivial": 0, "defect": 0}
-    paragraphs, findings, caught, real = [], [], 0, 0
+    tally = {"exact": 0, "minor": 0, "substantive": 0}
+    real = {"minor": 0, "substantive": 0}
+    paragraphs, findings, scored = [], [], []
     for item in items:
         verdict = sample.VERDICTS[decided[item["id"]]["decision"]]
         tally[verdict] += 1
@@ -517,13 +558,28 @@ def score(
             "planted": None,
         }
         if plant:
-            hit = verdict == "defect" and item["id"] not in other_defects
-            entry["planted"] = {k: plant[k] for k in ("kind", "line", "from", "to")} | {"caught": hit}
-            caught += hit
-        elif verdict == "defect":
-            real += 1
-        if verdict == "defect" and (not plant or item["id"] in other_defects):
-            findings.append({k: entry[k] for k in ("id", "pdf_page", "file", "lines", "note")})
+            # Detection and classification are scored apart. Catching the change
+            # is what sensitivity measures; filing it under the right severity is
+            # a separate skill, and Day 5 showed the two can come apart — the `!`
+            # was spotted and described exactly, then filed as if it did not count.
+            severity = sample.SEVERITY[plant["kind"]]
+            hit = verdict in sample.DEVIATIONS and item["id"] not in other_defects
+            entry["planted"] = {k: plant[k] for k in ("kind", "line", "from", "to")} | {
+                "severity": severity,
+                "caught": hit,
+                "severity_match": hit and verdict == severity,
+            }
+            scored.append({"severity": severity, "caught": hit})
+        elif verdict in sample.DEVIATIONS:
+            real[verdict] += 1
+        # A planted card contributes a finding only when its note describes
+        # something the plant does not account for: the whole note (--other-defect)
+        # or the rest of it (--also-defect). Its text was altered on the page, so
+        # it never enters the bound either way.
+        if verdict in sample.DEVIATIONS and (not plant or item["id"] in other_defects | also_defects):
+            findings.append(
+                {k: entry[k] for k in ("id", "pdf_page", "file", "lines", "note")} | {"severity": verdict}
+            )
         paragraphs.append(entry)
 
     audit = page["audit"]
@@ -533,6 +589,10 @@ def score(
         "epic": 734,
         "source_pdf": page["source_pdf"],
         "scorer_version": page["scorer_version"],
+        # Which verdict vocabulary the auditor was given. Day 5 was audited under
+        # the original exact/trivial/defect rubric and re-scored under this one,
+        # so a record's numbers cannot be read without knowing which applied.
+        "rubric": "/".join(sample.VERDICTS[k] for k in ("accept", "discuss", "reject")),
         "commit": audit["commit"],
         "seed": audit["seed"],
         "drawn_at": audit["drawn_at"],
@@ -541,8 +601,14 @@ def score(
         "population": audit["population"],
         "sample": {"cards": len(items), "audited": audited, "planted": len(plants)},
         "verdicts": tally,
-        "plants": {"planted": len(plants), "caught": caught},
-        "bound": sample.adjusted_bound(real, audited, len(plants), caught),
+        "plants": {
+            "planted": len(plants),
+            "caught": sum(p["caught"] for p in scored),
+            "severity_matched": sum(
+                1 for p in paragraphs if p["planted"] and p["planted"]["severity_match"]
+            ),
+        },
+        "bound": sample.severity_bounds(real, audited, scored),
         "findings": findings,
         "paragraphs": paragraphs,
     }
@@ -562,13 +628,16 @@ def main():
     d.add_argument("--allow-unadjudicated", action="store_true", help="draw before the record's Wave 2 pass is decided")
     d.add_argument("--allow-dirty", action="store_true", help="draw from uncommitted content (testing only)")
     d.add_argument("--output-dir", type=Path, default=WORK_DIR)
+    d.add_argument("--audits-dir", type=Path, help="where to look for a prior audit of this record (testing only)")
 
     r = sub.add_parser("reveal", help="score exported verdicts and write the audit record")
     r.add_argument("record")
     r.add_argument("--verdicts", type=Path, required=True, help="the JSON file the page exported")
     r.add_argument("--auditor", help="who audited (default: git config user.name)")
     r.add_argument("--other-defect", action="append", default=[], metavar="ID",
-                   help="a planted card whose Defect note names something other than the plant (repeatable)")
+                   help="a planted card whose note names something other than the plant (repeatable)")
+    r.add_argument("--also-defect", action="append", default=[], metavar="ID",
+                   help="a planted card whose note names the plant and a real defect beside it (repeatable)")
     r.add_argument("--output-dir", type=Path, default=WORK_DIR)
 
     args = parser.parse_args()

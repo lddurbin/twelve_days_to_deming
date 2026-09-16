@@ -12,8 +12,19 @@ Wave 3 of epic [#734](https://github.com/lddurbin/twelve_days_to_deming/issues/7
 in a fifty-word sentence scores exactly the 0.98 threshold and classifies clean,
 and emphasis is invisible to the comparator entirely. Wave 2 has found defects
 of both kinds in text a person had already verified. So the claim this directory
-supports has to be measured: **of the text the comparator calls clean, at most
-this share is wrong, at 95% confidence.**
+supports has to be measured — and it is two claims, not one, because a lost
+italic and a wrong word are both departures from Neave but support very
+different statements about fidelity:
+
+> Of the text the comparator calls clean, at most this share **changes what
+> Neave said**, and at most this larger share **differs from him in any way**,
+> each at 95% confidence.
+
+Day 5 is why they are stated apart. Its seventeen audited paragraphs held four
+real deviations — two swapped punctuation marks, two lost emphases — and not one
+of them changed a word. A single rate would have published that as "at most 40%
+of clean text is wrong", which is true, useless, and hides the part anyone
+actually wants to know: the substantive rate was zero in seventeen.
 
 One file per record, `day-NN.yml` or `<manifest>.yml`, named to match
 `results/`. Written by `scripts/sample-audit.py reveal`, never by hand.
@@ -76,9 +87,24 @@ opening and closing words, read the source, then read the card's site text.
 
 | verdict | means |
 |---|---|
-| **Exact** | the site says what the source says — words, numbers, punctuation, emphasis |
-| **Trivial** | a difference the site's own conventions account for: a heading's case, an enriched cross-reference, curly quotes |
-| **Defect** | anything else, with a note quoting both sides |
+| **Exact** | the site says what the source says. A difference the site's own conventions account for — a heading's case, an enriched cross-reference, curly quotes — is Exact too: the site is not departing from Neave |
+| **Minor** | a real difference that does not change the meaning. In practice: punctuation, or emphasis the source has and the site has lost |
+| **Substantive** | a real difference that does change it — a wrong word or number, a dropped or an added one |
+
+Minor and Substantive are both real and both get fixed. They are split only so
+the two can be counted apart, and every one of either needs a note quoting both
+sides.
+
+**This rubric replaced a three-way Exact / Trivial / Defect one after Day 5,
+whose middle bucket was the reason.** Labelled "Trivial" and defined as "a
+difference the site's conventions account for", it read in use as "small but
+real" — and took four genuine deviations *and* a planted defect that the auditor
+had described correctly in the notes beside them. The old scorer counted a plant
+as caught only on a Defect verdict, so a record whose auditor had found four real
+problems and spotted a plant scored zero sensitivity and a bound of 1.0. A
+record's `rubric:` field says which vocabulary it was audited under; Day 5 is
+`exact/minor/substantive`, re-scored from the verdicts as exported, since under
+the new mapping every one of them was already filed where it belonged.
 
 Judge the card, not the live site or the `.qmd`: the planted cards differ from
 both, and looking would reveal them.
@@ -100,24 +126,42 @@ Scores the export against the key and writes `audits/<record>.yml`. Every card
 needs a verdict, and the export must come from this draw — the page's pass name
 carries a fingerprint of it.
 
-Reveal prints each planted card marked Defect beside its note. If a note names
-something other than the plant, that card found a real defect and missed its
-plant: re-run with `--other-defect <id>`. **Every entry in `findings` is a real
-transcription defect** and goes through the Wave 2 fix path — a cited issue and
-PR, like any other.
+Reveal prints each planted card whose verdict was a deviation, beside its note,
+for confirmation that the note names the plant. Two flags handle the cards where
+it does not, and both keep the card out of the bound either way:
+
+| the note… | flag | effect |
+|---|---|---|
+| names something else entirely | `--other-defect <id>` | the plant was missed, and a real finding is recorded |
+| names the plant **and** a real defect beside it | `--also-defect <id>` | the plant was caught, and a real finding is recorded |
+
+`--also-defect` exists because Day 5's A-14 was both: the auditor named the
+planted `!` exactly and, in the same note, a lost italic three clauses earlier.
+Without it a real defect disappears for having shared a card with a plant.
+
+A plant counts as **caught** on either deviation verdict — detection is what
+sensitivity measures — while `severity_matched` records how often the auditor
+also filed it at the right severity. The two come apart: Day 5 caught its `!`
+and filed it correctly, but had the old rubric's middle bucket still meant
+"Trivial" that same verdict would have scored as a miss.
+
+**Every entry in `findings` is a real transcription defect**, Minor as much as
+Substantive, and goes through the Wave 2 fix path — a cited issue and PR, like
+any other.
 
 ## The record
 
 | field | notes |
 |---|---|
 | `record`, `source_pdf`, `scorer_version`, `commit` | what was sampled, by which comparator, at which commit |
+| `rubric` | the verdict vocabulary the auditor worked under, `exact/minor/substantive` |
 | `seed`, `drawn_at`, `revealed_at`, `auditor` | who and when; the seed makes the draw reproducible |
 | `population` | matched-cleanly paragraphs in the record at `commit` |
 | `sample` | `cards` shown, `planted` among them, `audited` = cards − planted |
 | `verdicts` | how many of each |
-| `plants` | `planted`, and `caught` — a Defect verdict on a planted card whose note names the plant |
-| `bound` | see below |
-| `findings` | real defects found, for the fix path |
+| `plants` | `planted`; `caught` — a deviation verdict on a planted card whose note names the plant; and `severity_matched`, how many of those were also filed at the plant's own severity |
+| `bound` | two of them, `substantive` and `any_deviation` — see below |
+| `findings` | real defects found, each with its `severity`, for the fix path |
 | `paragraphs` | every card: page, file and lines, verdict, note, and `planted` — the key, `null` for an unplanted card |
 
 **Reproducing a draw.** Check out `commit` and run the same draw into another
@@ -132,19 +176,35 @@ A planted card's text was altered on the page, so its verdict says nothing about
 the corpus. Plants are excluded from the sample the rate is measured over:
 **n = cards − planted**, 16 to 18 for a twenty-card draw.
 
-**The raw bound** (`bound.upper`) is the exact one-sided 95% upper limit on the
-defect rate, from `real_defects` in n (Clopper–Pearson). With no defects it is
+**Two bounds over the same n.** `bound.substantive` counts only the verdicts
+that change meaning; `bound.any_deviation` counts those and the Minor ones
+together. Every unplanted card was read against the source whatever it turned
+out to say, so both run over the same seventeen-odd paragraphs and differ only
+in what counts as a defect — and in which plants measure the detection of it.
+
+**The raw bound** (`upper`) is the exact one-sided 95% upper limit on that
+rate, from `real_defects` in n (Clopper–Pearson). With no defects it is
 1 − 0.05^(1/n), which the rule of three approximates as 3/n: 16.2% for n = 17.
 
-**The adjusted bound** (`bound.adjusted_upper`) divides that by the auditor's
-measured sensitivity, p̂ = caught / planted. With no defects found it is about
-3/(n·p̂). A defect the auditor would have missed is not in the count, so the raw
-bound silently assumes p̂ = 1.
+**The adjusted bound** (`adjusted_upper`) divides that by the auditor's measured
+sensitivity, p̂ = caught / planted — counted within that severity, since catching
+a swapped word and catching a lost italic are different skills at different
+rates. With no defects found it is about 3/(n·p̂). A defect the auditor would
+have missed is not in the count, so the raw bound silently assumes p̂ = 1.
+
+**A severity with no plants supports no claim.** Two to four plants per record
+cannot cover both severities, so one of them routinely has zero, its sensitivity
+is `null`, and its adjusted bound is 1.0. Day 5 drew one substantive plant and
+missed it, which is why its substantive bound reads 16.2% raw and 100% adjusted:
+seventeen paragraphs with no meaning-changing deviation found, and no evidence
+the auditor would have seen one. Both halves of that are worth recording, and
+neither is a result on its own.
 
 **One record says little.** Seventeen paragraphs can only show that a record's
 clean text is not badly wrong — a bound near 16% — and two to four plants make
 p̂ a coarse estimate. The adjustment is a point correction: it does not carry the
-uncertainty in p̂ itself.
+uncertainty in p̂ itself. Day 5 on its own establishes almost nothing; what it
+establishes about the *instrument* is most of what it was worth.
 
 **The headline is corpus-wide.** Pooled over all eighteen records, roughly 300
 audited paragraphs with none found defective bound the escape rate at about 1%
@@ -159,3 +219,6 @@ them estimate p̂ well enough to divide by. The published claim is the pooled
   substitutions, dropped and inserted words, one wrong digit, a dropped or added
   `!`, lost emphasis — but a planted change may be easier or harder to see than
   a natural one.
+- **Minor is a floor, not a census.** An auditor reading for meaning will catch
+  every wrong word but skim past some punctuation, so the any-deviation rate is
+  the more under-measured of the two, and its p̂ is what corrects for that.
