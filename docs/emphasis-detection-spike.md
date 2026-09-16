@@ -142,6 +142,11 @@ Examples: `dissatisfied`/`satisfied`/`delighted` ×3, `capable`, `compete`,
 hand gives a ground truth that doesn't depend on the tool. Running the script
 on each pass's *parent* commit (Days 1, 4–12, plus #823):
 
+This is recall on the emphasis *people found*, not corpus-wide recall.
+Emphasis that both Wave 2 and the tool missed can't appear in it, and is
+likely to sit in the same places the tool is blind (see [below](#blind-spots)),
+so the true figure is probably lower than 95%.
+
 | | Words | Flagged | Missed |
 |---|---|---|---|
 | Emphasis a human restored | 344 | 328 | Day 11 underlines in Comic Sans (`big`, `natural`, `effort`, `rating`), a handful of Day 4 words (including heading text), one Day 8 word |
