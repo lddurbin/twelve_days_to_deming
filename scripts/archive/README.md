@@ -9,6 +9,7 @@ These scripts were part of earlier conversion approaches during the project's ev
 - **Quarto config tools** (`update-quarto-config.py`, `update-quarto-example.sh`, `new_day_from_file.sh`) — scaffolding generators
 - **Deployment** (`upload.sh`) — manual scp deploy, replaced by GitHub Actions CI/CD
 - **Support files** (`requirements.txt`, `day-2-chapters.txt`) — dependencies and data for archived tools
+- **Spike scripts** (`emphasis-spike-825.py`) — throwaway measurement behind `docs/emphasis-detection-spike.md` (#825); not a production checker
 - **Documentation** (`README_analysis_tools.md`, `README_figure_extraction.md`, `README_interactive_elements.md`) — docs for the above tools
 
 ## Current workflow
