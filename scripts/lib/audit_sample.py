@@ -320,7 +320,38 @@ def choose_plant(
 # The review page is the Wave 2 adjudication template, whose three decision
 # buttons are keyed accept / reject / discuss. An audit relabels them; this is
 # the one place those keys are read back as audit verdicts.
-VERDICTS = {"accept": "exact", "discuss": "trivial", "reject": "defect"}
+#
+# Day 5's audit found the middle bucket was the problem. Labelled "Trivial", it
+# read as "small but real", and swallowed four genuine deviations and one
+# planted defect that the auditor had described correctly in the notes beside
+# them — scoring the record at zero sensitivity and a bound of 1.0. So the
+# middle button carries severity instead. A difference the site's own
+# conventions account for (a heading's case, an enriched cross-reference, curly
+# quotes) is not a deviation at all and belongs under Exact, which frees three
+# buttons to say: none, one that does not change meaning, one that does.
+VERDICTS = {"accept": "exact", "discuss": "minor", "reject": "substantive"}
+
+# The two verdicts that say the site departs from Neave. Both are real, and both
+# go through the Wave 2 fix path. They are counted apart because one bounds the
+# rate of *wrong words* and the other the rate of *wrong anything*, and those
+# support very different published claims: lumping them, as the binary rubric
+# did, degrades the headline to the weaker of the two while hiding whether any
+# substantive error escaped at all.
+DEVIATIONS = ("minor", "substantive")
+
+# Which severity each plant kind stands in for, so sensitivity is measured
+# against the kind of defect it approximates. An auditor who reliably catches a
+# swapped word but never a lost italic has two very different detection rates,
+# and one pooled p̂ would hide that — Day 5 caught its `!` and missed both its
+# word-level plants, which a single figure reports as "1 of 3".
+SEVERITY = {
+    "substitution": "substantive",
+    "dropped-word": "substantive",
+    "inserted-word": "substantive",
+    "number": "substantive",
+    "exclamation": "minor",
+    "emphasis": "minor",
+}
 
 
 def upper_bound(defects: int, n: int, confidence: float = 0.95) -> float:
@@ -368,6 +399,45 @@ def adjusted_bound(defects: int, n: int, planted: int, caught: int, confidence: 
         "sensitivity": None if sensitivity is None else round(sensitivity, 4),
         "adjusted_upper": round(adjusted, 4),
     }
+
+
+def severity_bounds(real: dict, audited: int, plants: list, confidence: float = 0.95) -> dict:
+    """Two bounds over one sample: substantive-only, and any deviation at all.
+
+    `real` counts unplanted cards by verdict, and `plants` is the key's entries
+    each carrying a `severity` and whether it was `caught`. Both bounds run over
+    the same n — every unplanted card was read against the source, whatever it
+    turned out to say — and differ only in what counts as a defect and which
+    plants measure the detection of it.
+
+    Reported apart because they answer different questions. "At most this share
+    of clean text has a wrong word" is the claim the epic set out to make; "at
+    most this share differs from Neave in any way, punctuation and emphasis
+    included" is true, weaker, and the only claim a binary rubric can support.
+    Publishing one without the other either overstates fidelity or buries it.
+
+    On one record a severity often has no plants at all — two to four plants
+    cannot cover both — so its sensitivity is None and its adjusted bound 1.0.
+    That is honest rather than useful, and is why the headline pools records.
+    """
+    counts = {
+        "substantive": (real.get("substantive", 0),
+                        [p for p in plants if p["severity"] == "substantive"]),
+        "any_deviation": (sum(real.get(v, 0) for v in DEVIATIONS), list(plants)),
+    }
+    out = {"confidence": confidence, "audited": audited}
+    for scope, (defects, group) in counts.items():
+        bound = adjusted_bound(defects, audited, len(group),
+                               sum(1 for p in group if p["caught"]), confidence)
+        out[scope] = {
+            "real_defects": defects,
+            "planted": len(group),
+            "caught": sum(1 for p in group if p["caught"]),
+            "upper": bound["upper"],
+            "sensitivity": bound["sensitivity"],
+            "adjusted_upper": bound["adjusted_upper"],
+        }
+    return out
 
 
 # ── The committed record ───────────────────────────────────────────────────

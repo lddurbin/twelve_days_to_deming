@@ -16,11 +16,11 @@ execute:
 
 <div class="principle_callout" role="note" aria-label="Principle">**The crippling disease is lack of constancy of purpose to stay in business by planning to provide product and service in the future that will help man to live better materially, and which will have a market, and provide jobs.**</div>
 
-In fact, Dr Deming began this statement with "The crippling disease in America…". I have omitted the two extra words for the obvious reason that this Disease is far more widespread.
+In fact, Dr Deming began this statement with "The crippling disease **in America**…". I have omitted the two extra words for the obvious reason that this Disease is far more widespread.
 
 We already know that "constancy of purpose" heads both the list of 14 Points and the list of Deadly Diseases, and how Dr Deming has thus focused upon its crucial importance—that's if his description: "the crippling disease" doesn't already have sufficient impact!
 
-It is relevant here to point out the error in a phrase glibly trotted out by many speakers: "If you always do what you've always done, you'll always get what you've always got". *Wrong!* The world is ever-changing. Even the same products and services need to be produced more efficiently and cost-effectively: in other words, the *processes* involved still need to be improved—for, if you don't do it, others will. Secondly, of course, those same products and services may sooner or later have no market, because better products and services will have become available—and if not from you then from elsewhere. The market for even the best horse-drawn carriages soon plummeted once people were able to switch to cars. So it should be no surprise that Dr Deming's wording here is focused on *innovation*.
+It is relevant here to point out the error in a phrase glibly trotted out by many speakers: "If you always do what you've always done, you'll always get what you've always got". *Wrong!* The world is ever-changing. Even the *same* products and services need to be produced more efficiently and cost-effectively: in other words, the *processes* involved still need to be improved—for, if you don't do it, others will. Secondly, of course, those same products and services may sooner or later have no market, because better products and services will have become available—and if not from you then from elsewhere. The market for even the best horse-drawn carriages soon plummeted once people were able to switch to cars. So it should be no surprise that Dr Deming's wording here is focused on *innovation*.
 
 *(See [Appendix page 28](../../appendix/05-day-5.qmd#sec-page28).)*
 

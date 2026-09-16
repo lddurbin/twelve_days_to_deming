@@ -199,6 +199,37 @@ class TestBound(unittest.TestCase):
         self.assertEqual(sample.adjusted_bound(0, 17, planted=0, caught=0)["adjusted_upper"], 1.0)
 
 
+class TestSeverityBounds(unittest.TestCase):
+    PLANTS = [
+        {"severity": "substantive", "caught": True},
+        {"severity": "substantive", "caught": False},
+        {"severity": "minor", "caught": True},
+    ]
+
+    def test_both_bounds_run_over_the_same_n(self):
+        out = sample.severity_bounds({"minor": 2, "substantive": 1}, 17, self.PLANTS)
+        self.assertEqual(out["audited"], 17)
+        self.assertEqual(out["substantive"]["real_defects"], 1)
+        self.assertEqual(out["any_deviation"]["real_defects"], 3)
+
+    def test_a_minor_only_record_still_bounds_substantive_at_the_no_defect_rate(self):
+        out = sample.severity_bounds({"minor": 4, "substantive": 0}, 17, self.PLANTS)
+        self.assertAlmostEqual(out["substantive"]["upper"], sample.upper_bound(0, 17), places=3)
+        self.assertGreater(out["any_deviation"]["upper"], out["substantive"]["upper"])
+
+    def test_sensitivity_is_measured_against_plants_of_that_severity(self):
+        out = sample.severity_bounds({"minor": 0, "substantive": 0}, 17, self.PLANTS)
+        self.assertAlmostEqual(out["substantive"]["sensitivity"], 0.5)
+        self.assertAlmostEqual(out["any_deviation"]["sensitivity"], 2 / 3, places=3)
+
+    def test_a_severity_with_no_plants_supports_no_claim(self):
+        plants = [{"severity": "minor", "caught": True}]
+        out = sample.severity_bounds({"minor": 0, "substantive": 0}, 17, plants)
+        self.assertIsNone(out["substantive"]["sensitivity"])
+        self.assertEqual(out["substantive"]["adjusted_upper"], 1.0)
+        self.assertAlmostEqual(out["any_deviation"]["adjusted_upper"], out["any_deviation"]["upper"])
+
+
 @unittest.skipUnless(shutil.which("ruby"), "ruby not installed")
 class TestYaml(unittest.TestCase):
     def test_round_trips_through_a_real_yaml_parser(self):
@@ -415,14 +446,43 @@ class TestScore(unittest.TestCase):
             {"A-01": "reject", "A-02": "reject", "A-03": "accept", "A-04": "discuss", "A-05": "accept"}
         ), auditor="Lee", today="2026-09-20")
         self.assertEqual(result["sample"], {"cards": 5, "audited": 3, "planted": 2})
-        self.assertEqual(result["plants"], {"planted": 2, "caught": 1})
-        self.assertEqual(result["bound"]["real_defects"], 1)
+        self.assertEqual(result["plants"], {"planted": 2, "caught": 2, "severity_matched": 2})
+        self.assertEqual(result["bound"]["any_deviation"]["real_defects"], 1)
         self.assertEqual([f["id"] for f in result["findings"]], ["A-01"])
-        self.assertEqual(result["verdicts"], {"exact": 2, "trivial": 1, "defect": 2})
-        planted = {p["id"]: p["planted"] for p in result["paragraphs"]}
-        self.assertTrue(planted["A-02"]["caught"])
-        self.assertFalse(planted["A-04"]["caught"])  # trivial is not a catch
+        self.assertEqual(result["verdicts"], {"exact": 2, "minor": 1, "substantive": 2})
         self.assertEqual(result["paragraphs"][0]["file"], "content/days/day-99/01-a.qmd")
+
+    def test_a_deviation_of_either_severity_catches_the_plant(self):
+        # Day 5's failure: the `!` was described exactly and filed in the middle
+        # bucket, and the old scorer read that as a miss.
+        page, key = page_and_key()
+        result = cli.score(page, key, verdicts(
+            {"A-01": "accept", "A-02": "discuss", "A-03": "accept", "A-04": "discuss", "A-05": "accept"}
+        ), auditor="Lee")
+        planted = {p["id"]: p["planted"] for p in result["paragraphs"]}
+        self.assertTrue(planted["A-02"]["caught"])  # a number, filed Minor
+        self.assertFalse(planted["A-02"]["severity_match"])
+        self.assertTrue(planted["A-04"]["caught"])  # emphasis, filed Minor
+        self.assertTrue(planted["A-04"]["severity_match"])
+        self.assertEqual(result["plants"], {"planted": 2, "caught": 2, "severity_matched": 1})
+
+    def test_exact_on_a_planted_card_is_still_a_miss(self):
+        page, key = page_and_key()
+        result = cli.score(page, key, verdicts(
+            {f"A-0{i}": "accept" for i in range(1, 6)}
+        ), auditor="Lee")
+        self.assertEqual(result["plants"], {"planted": 2, "caught": 0, "severity_matched": 0})
+        self.assertEqual(result["bound"]["substantive"]["adjusted_upper"], 1.0)
+
+    def test_severity_splits_the_findings_and_the_bounds(self):
+        page, key = page_and_key()
+        result = cli.score(page, key, verdicts(
+            {"A-01": "reject", "A-02": "accept", "A-03": "discuss", "A-04": "accept", "A-05": "discuss"}
+        ), auditor="Lee")
+        self.assertEqual({f["id"]: f["severity"] for f in result["findings"]},
+                         {"A-01": "substantive", "A-03": "minor", "A-05": "minor"})
+        self.assertEqual(result["bound"]["substantive"]["real_defects"], 1)
+        self.assertEqual(result["bound"]["any_deviation"]["real_defects"], 3)
 
     def test_other_defect_is_a_finding_and_a_missed_plant(self):
         page, key = page_and_key()
@@ -431,7 +491,28 @@ class TestScore(unittest.TestCase):
         ), auditor="Lee", other_defects={"A-02"})
         self.assertEqual(result["plants"]["caught"], 0)
         self.assertEqual([f["id"] for f in result["findings"]], ["A-02"])
-        self.assertEqual(result["bound"]["real_defects"], 0)  # outside n
+        self.assertEqual(result["bound"]["any_deviation"]["real_defects"], 0)  # outside n
+
+    def test_also_defect_is_a_finding_and_a_caught_plant(self):
+        page, key = page_and_key()
+        result = cli.score(page, key, verdicts(
+            {"A-01": "accept", "A-02": "reject", "A-03": "accept", "A-04": "accept", "A-05": "accept"}
+        ), auditor="Lee", also_defects={"A-02"})
+        self.assertEqual(result["plants"]["caught"], 1)
+        self.assertEqual([f["id"] for f in result["findings"]], ["A-02"])
+        self.assertEqual(result["bound"]["any_deviation"]["real_defects"], 0)  # still outside n
+
+    def test_refuses_a_card_named_as_both_other_and_also(self):
+        page, key = page_and_key()
+        with self.assertRaisesRegex(ValueError, "either names the plant or it does not"):
+            cli.score(page, key, verdicts({f"A-0{i}": "reject" for i in range(1, 6)}), "Lee",
+                      other_defects={"A-02"}, also_defects={"A-02"})
+
+    def test_refuses_also_defect_on_a_card_marked_exact(self):
+        page, key = page_and_key()
+        with self.assertRaisesRegex(ValueError, "Minor or Substantive"):
+            cli.score(page, key, verdicts({f"A-0{i}": "accept" for i in range(1, 6)}), "Lee",
+                      also_defects={"A-02"})
 
     def test_refuses_verdicts_from_another_draw(self):
         page, key = page_and_key()
@@ -479,7 +560,8 @@ class TestDrawEndToEnd(unittest.TestCase):
     def draw(self, out, seed):
         done = subprocess.run(
             [sys.executable, str(REPO_ROOT / "scripts" / "sample-audit.py"), "draw", "day-05",
-             "--seed", str(seed), "--allow-dirty", "--output-dir", str(out)],
+             "--seed", str(seed), "--allow-dirty", "--output-dir", str(out),
+             "--audits-dir", str(out)],
             capture_output=True, text=True,
         )
         self.assertEqual(done.returncode, 0, done.stderr)

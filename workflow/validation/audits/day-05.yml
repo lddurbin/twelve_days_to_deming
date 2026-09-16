@@ -1,0 +1,229 @@
+# Wave 3 sampling audit of day-05 (epic #734, #746). Written by
+# scripts/sample-audit.py reveal — see workflow/validation/audits/README.md.
+record: "day-05"
+epic: 734
+source_pdf: "H.Day.5.08Feb22.pdf"
+scorer_version: "bdea1acba6424634eaf74948a9c171bfbb7b729f"
+rubric: "exact/minor/substantive"
+commit: "a12c977f8c92d4baf3f4fe3d3e28204f8a67e44a"
+seed: 771
+drawn_at: "2026-09-13"
+revealed_at: "2026-09-16"
+auditor: "lddurbin"
+population: 64
+sample:
+  cards: 20
+  audited: 17
+  planted: 3
+verdicts:
+  exact: 16
+  minor: 4
+  substantive: 0
+plants:
+  planted: 3
+  caught: 1
+  severity_matched: 1
+bound:
+  confidence: 0.95
+  audited: 17
+  substantive:
+    real_defects: 0
+    planted: 1
+    caught: 0
+    upper: 0.1616
+    sensitivity: 0.0
+    adjusted_upper: 1.0
+  any_deviation:
+    real_defects: 3
+    planted: 3
+    caught: 1
+    upper: 0.3956
+    sensitivity: 0.3333
+    adjusted_upper: 1.0
+findings:
+  - id: "A-01"
+    pdf_page: 5
+    file: "content/days/day-05/01-introduction.qmd"
+    lines: "19"
+    note: "\"It seems odd that I did not mention the video in DemDim; presumably\" - a colon is used in the source text instead of a semi-colon"
+    severity: "minor"
+  - id: "A-05"
+    pdf_page: 12
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "188"
+    note: "\"adversarial relationships;\" in source PDF (colon instead of apostrophe)"
+    severity: "minor"
+  - id: "A-13"
+    pdf_page: 22
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "17–19"
+    note: "\"in America\" is in bold in the PDF"
+    severity: "minor"
+  - id: "A-14"
+    pdf_page: 22
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "23–25"
+    note: "\"Even the same products and services\" - \"same\" should be italicised.\n\"switch to cars.\" - no exclamation mark in the PDF"
+    severity: "minor"
+paragraphs:
+  - id: "A-01"
+    pdf_page: 5
+    file: "content/days/day-05/01-introduction.qmd"
+    lines: "19"
+    verdict: "minor"
+    note: "\"It seems odd that I did not mention the video in DemDim; presumably\" - a colon is used in the source text instead of a semi-colon"
+    planted: null
+  - id: "A-02"
+    pdf_page: 5
+    file: "content/days/day-05/01-introduction.qmd"
+    lines: "21"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-03"
+    pdf_page: 8
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "68"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-04"
+    pdf_page: 10
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "119"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-05"
+    pdf_page: 12
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "188"
+    verdict: "minor"
+    note: "\"adversarial relationships;\" in source PDF (colon instead of apostrophe)"
+    planted: null
+  - id: "A-06"
+    pdf_page: 12
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "190–192"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-07"
+    pdf_page: 14
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "245"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-08"
+    pdf_page: 16
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "302–304"
+    verdict: "exact"
+    note: null
+    planted:
+      kind: "emphasis"
+      line: 304
+      from: "*(See [Appendix page 26](../../appendix/05-day-5.qmd#sec-page26).)*"
+      to: "(See [Appendix page 26](../../appendix/05-day-5.qmd#sec-page26).)"
+      severity: "minor"
+      caught: false
+      severity_match: false
+  - id: "A-09"
+    pdf_page: 18
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "349"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-10"
+    pdf_page: 18
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "365"
+    verdict: "exact"
+    note: null
+    planted:
+      kind: "inserted-word"
+      line: 365
+      from: ""
+      to: " just"
+      severity: "substantive"
+      caught: false
+      severity_match: false
+  - id: "A-11"
+    pdf_page: 18
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "367–369"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-12"
+    pdf_page: 20
+    file: "content/days/day-05/02-points-7-to-14.qmd"
+    lines: "414"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-13"
+    pdf_page: 22
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "17–19"
+    verdict: "minor"
+    note: "\"in America\" is in bold in the PDF"
+    planted: null
+  - id: "A-14"
+    pdf_page: 22
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "23–25"
+    verdict: "minor"
+    note: "\"Even the same products and services\" - \"same\" should be italicised.\n\"switch to cars.\" - no exclamation mark in the PDF"
+    planted:
+      kind: "exclamation"
+      line: 23
+      from: "."
+      to: "!"
+      severity: "minor"
+      caught: true
+      severity_match: true
+  - id: "A-15"
+    pdf_page: 24
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "74"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-16"
+    pdf_page: 26
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "135"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-17"
+    pdf_page: 26
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "139–141"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-18"
+    pdf_page: 30
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "247–251"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-19"
+    pdf_page: 32
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "324"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-20"
+    pdf_page: 32
+    file: "content/days/day-05/03-the-deadly-diseases.qmd"
+    lines: "326–328"
+    verdict: "exact"
+    note: null
+    planted: null
