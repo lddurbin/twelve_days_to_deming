@@ -200,6 +200,12 @@ class TestBound(unittest.TestCase):
 
 
 class TestSeverityBounds(unittest.TestCase):
+    def test_every_plant_kind_has_a_severity(self):
+        # Scoring looks each plant's kind up in SEVERITY at reveal time, after the
+        # audit is done; a kind added without an entry must fail here instead.
+        raw = "Will it help? Day 5 is devoted to the *rest* of 28 years. It works."
+        self.assertEqual({p.kind for p in sample.candidates(1, raw)}, set(sample.SEVERITY))
+
     PLANTS = [
         {"severity": "substantive", "caught": True},
         {"severity": "substantive", "caught": False},

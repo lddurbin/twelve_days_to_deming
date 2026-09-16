@@ -404,9 +404,9 @@ def adjusted_bound(defects: int, n: int, planted: int, caught: int, confidence: 
 def severity_bounds(real: dict, audited: int, plants: list, confidence: float = 0.95) -> dict:
     """Two bounds over one sample: substantive-only, and any deviation at all.
 
-    `real` counts unplanted cards by verdict, and `plants` is the key's entries
-    each carrying a `severity` and whether it was `caught`. Both bounds run over
-    the same n — every unplanted card was read against the source, whatever it
+    `real` counts unplanted cards by verdict, and `plants` holds one
+    `{"severity", "caught"}` dict per planted card, as sample-audit.py's
+    score() builds them. Both bounds run over the same n — every unplanted card was read against the source, whatever it
     turned out to say — and differ only in what counts as a defect and which
     plants measure the detection of it.
 
