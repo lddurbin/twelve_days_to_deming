@@ -43,7 +43,7 @@ Two histograms of *the same* 24 values, drawn two ways. On the left, each value 
 
 Here is another sequence of 24 numbers. Please sketch a histogram of these data. I suggest you use separate boxes as on the left above. What do you conclude?
 
-<p class="text-center">18&ensp;19&ensp;17&ensp;17&ensp;16&ensp;17&ensp;16&ensp;15&ensp;14&ensp;15&ensp;15&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13&ensp;13&ensp;13&ensp;11&ensp;12&ensp;11&ensp;11&ensp;10&ensp;11</p>
+<p class="text-center">18&ensp;19&ensp;17&ensp;17&ensp;16&ensp;17&ensp;16&ensp;15&ensp;14&ensp;15&ensp;15&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13&ensp;13&ensp;13&ensp;11&ensp;11&ensp;12&ensp;11&ensp;10&ensp;11</p>
 
 <div class="aside_callout" role="note" aria-label="Author's note">This is a drawing activity. Please sketch your histogram on paper, then note your conclusions below.</div>
 
@@ -87,11 +87,11 @@ A run chart of the same 24 values from the first process, plotted in time order.
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## ACTIVITY 3–e {#sec-page9}
+## ACTIVITY 3–e
 
 Here again are the data from the second process (to save you from having to look back):
 
-<p class="text-center">18&ensp;19&ensp;17&ensp;17&ensp;16&ensp;17&ensp;16&ensp;15&ensp;14&ensp;15&ensp;15&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13&ensp;13&ensp;13&ensp;11&ensp;12&ensp;11&ensp;11&ensp;10&ensp;11</p>
+<p class="text-center">18&ensp;19&ensp;17&ensp;17&ensp;16&ensp;17&ensp;16&ensp;15&ensp;14&ensp;15&ensp;15&ensp;13&ensp;14&ensp;13&ensp;14&ensp;13&ensp;13&ensp;13&ensp;11&ensp;11&ensp;12&ensp;11&ensp;10&ensp;11</p>
 
 Please draw a run chart for this second process.
 
@@ -114,6 +114,8 @@ Reveal suggested answer for Activity 3-e
 Clearly, the first process was trending upward over time; the second was trending down. Very different behaviours. Yet we found exactly the same histogram in both cases. The two collections of numbers were exactly the same; they just occurred in a different order. But the *order* of the numbers is all-important for describing and understanding the behaviour of a process—it is foolish to ignore it.
 </div>
 </div>
+
+[]{#sec-page9}
 
 <div class="callout-emphasis" role="note" aria-label="Key insight">
 Histograms totally ignore the order in which the numbers come out of a process. Yet that order is very likely to hold the most important information of all about the process's behaviour.

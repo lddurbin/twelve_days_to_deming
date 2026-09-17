@@ -194,7 +194,7 @@ aside,
 /* ===== DESIGN TOKENS ===== */
 :root {
   --color-funnel: #3366cc;
-  --color-marble: #a64c1f;
+  --color-dice: #a64c1f;
   --color-outcome: #cc0000;
   --color-bg-light: #f9f9f9;
   --color-border-gray: #999;
@@ -849,13 +849,19 @@ button:focus,
   font-weight: bold;
 }
 
-/* Funnel / marble icons in text */
+/* Funnel / dice-score / marble in text — Neave's own colour key, printed p39:
+   the funnel in blue, the dice-score in brown, the marble (and thus the
+   outcome or result) in red. */
 .fe-funnel {
   color: var(--color-funnel);
   font-weight: bold;
 }
 .fe-marble {
-  color: var(--color-marble);
+  color: var(--color-outcome);
+  font-weight: bold;
+}
+.fe-dice {
+  color: var(--color-dice);
   font-weight: bold;
 }
 /* Status bar value colors (replaces inline styles) */
@@ -1589,7 +1595,7 @@ body.quarto-dark {
   --color-callout-emphasis: #4a1e1e;
   --color-outcome: #ff6666;
   --color-funnel: #6699ff;
-  --color-marble: #e08858;
+  --color-dice: #e08858;
   --color-highlight-green: #2d5c2d;
   --color-border-gray: #666;
 }

@@ -11,7 +11,7 @@ As has been obvious for a while (if not from the very start!), you know that, as
 
 But putting the funnel at 30 and leaving it there, i.e. Rule 1, is not what many managers (amongst others) are keen on doing. A more familiar scenario is that each result is compared with the target and some apparently appropriate action is taken according to the difference. Specifically, if a result is above the target then an action is taken to try to lower the next value to try to "get it right"; or, if the result is below the target, an action is taken to try to raise the next value. As Dr Deming described it—see [page 2, in the Back to the Western Electric Company section](01-variation-the-enemy-of-quality.qmd#sec-page2)—this was indeed *"a noble aim"*. But recall he then also pointed out that *"There was only one little trouble"*. Doubtless you can recall what that "little trouble" was! This is precisely what Rule 2 did. As pointed out earlier, a very attractive argument for Rule 2 is that, if only the funnel had already been where Rule 2 now puts it, we would have just hit the target spot on. That's a supreme example of "being wise after the event". Have you heard of JIT (Just In Time)? This is JTL (Just Too Late)!
 
-Since Rule 2 was seen not to do the trick, Rule 3 was tried: Rule 3 is an alternative and simpler version of the same idea. It turned out to be disastrous! Do people then conclude that it would have been better not to do anything at all but to have stuck with Rule 1!? Somehow it doesn't seem to be very politically acceptable in management meetings or committee meetings and the like to say that all of our ideas so far have been wrong and it would have been better if we had just done nothing. So a completely different kind of attempt is then tried: Rule 4. For a while it may look as if things are going well: as we have seen, it concentrates on reducing short-term variation as much as possible. It succeeds in doing that. The consequence is that it may actually look better than Rule 1 in the short term! But not for long ... . Actually you may have been suspicious that trouble might lie ahead from the simple fact that (except for initially placing the funnel at 30) the operation of Rule 4 totally ignores the target!
+Since Rule 2 was seen not to do the trick, Rule 3 was tried: Rule 3 is an alternative and simpler version of the same idea. It turned out to be disastrous! Do people then conclude that it would have been better not to do anything at all but to have stuck with Rule 1? Somehow it doesn't seem to be very politically acceptable in management meetings or committee meetings and the like to say that all of our ideas so far have been wrong and it would have been better if we had just done nothing. So a completely different kind of attempt is then tried: Rule 4. For a while it may look as if things are going well: as we have seen, it concentrates on reducing short-term variation as much as possible. It succeeds in doing that. The consequence is that it may actually look better than Rule 1 in the short term! But not for long ... . Actually you may have been suspicious that trouble might lie ahead from the simple fact that (except for initially placing the funnel at 30) the operation of Rule 4 totally ignores the target!
 
 What do Rules 2, 3 and 4 *do*? They show how, in Dr Deming's terms, people (especially management) spend so much of their time *tampering* with the system (= thinking they may be doing something useful but, in fact, making performance worse) rather than *improving* the system (= making performance better). I think that, having carried out this Major Activity, that word "tampering" may also mean more to you now than it used to!
 
@@ -21,7 +21,7 @@ Finally in this Major Activity, please take a brief look at a couple of runs of 
 
 In Part A of the Optional Extras section we shall examine in detail what happens to control charts when presented with the data from the two simulations of the Funnel Experiment studied in the Appendix. However, particularly in case you decide that that optional material is not for you, Activities 3–i and 3–j consider some general effects of putting data from the four Rules of the Funnel onto control charts.
 
-## Four-Rule Comparison {#sec-page57}
+## Four-Rule Comparison
 
 The charts below compare the outcomes from all four Rules using the same dice sequence. This is the key advantage of the digital version: you can see all four behaviours side by side.
 
@@ -114,7 +114,7 @@ summaryR4 = runAllStages(4, diceSeqSummary)
 }
 ```
 
-## Summary Statistics {#sec-page58}
+## Summary Statistics
 
 ```{ojs}
 {
@@ -156,13 +156,13 @@ summaryR4 = runAllStages(4, diceSeqSummary)
 
 <div class="thought" role="note" aria-label="Thought">
 
-## ACTIVITY 3–i
+## ACTIVITY 3–i {#sec-page57}
 
 Having spent much of this morning on beginning to get used to control charts and now this afternoon on the Funnel Experiment, this is a useful Activity which involves both of them. However, if you are a Stats-level 0 student then this possibly isn't for you.
 
-Let's first précis the "How Do We Compute Those Control Limits—and Why?" section on [pages 13 to 15](05-how-do-we-compute-control-limits.qmd#sec-page13) as follows:
+Let's first précis the "How Do We Compute Those Control Limits—and Why?" section on [pages 13–15](05-how-do-we-compute-control-limits.qmd#sec-page13) as follows:
 
-> "Control limits need to indicate the range over which the data will vary when the process is in statistical control: so that, if and when data go outside those limits, we have evidence that the process may well be out of statistical control. But suppose the process is out of statistical control when we collect those data. The method we use is based on 'moving ranges'. Obviously, if many of these moving ranges are large then high variation is indicated; whereas if the moving ranges are mostly small then low variation is indicated. Using moving ranges works pretty well in mitigating the contamination effects of many kinds of special causes. Two important exceptions that one needs to be able to recognise are illustrated with data generated in the Funnel Experiment, and so we shall see those this afternoon."
+> "Control limits need to indicate the range over which the data will vary when the process is in statistical control: so that, if and when data go outside those limits, we have evidence that the process may well be out of statistical control. But suppose the process is out of statistical control when we collect those data. The method we use is based on 'moving ranges'. Obviously, if many of these moving ranges are large then high variation is indicated; whereas if the moving ranges are mostly small then low variation is indicated. Using moving ranges works pretty well in mitigating the contamination effects of many kinds of special causes. There are a few exceptions. Two important exceptions that one needs to be able to recognise are illustrated with data generated in the Funnel Experiment, and so we shall see those this afternoon."
 
 With these thoughts in mind, imagine that you are computing control limits (using moving ranges) from data that are being generated from each of the four Rules of the Funnel in turn. How do you think those data will affect the control limits, and what would happen if you extended those limits into the future during which the same Rule is in operation?
 
@@ -197,13 +197,17 @@ Reveal suggested answer for Activity 3-i
 </div>
 </div>
 
+[]{#sec-page58}
+
+*DemDim* Chapter 5 describes the original version of the Funnel Experiment and shows some typical results from it. The chapter is quite short: less than 12 pages, and you should now find it to be a very quick and easy read. So, for completeness, do now please read it—you will soon see the analogies with what you have produced during your experiment. In the second half of the chapter you will find some real-life illustrations of the messages coming from the Funnel Experiment—they are but a few of many.
+
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## ACTIVITY 3–j
 
 Now that you have completed the Major Activity and after reading *DemDim* Chapter 5, it would be good if you could spend the final few minutes summarising some illustrations of your own. You will find further suggestions in the relevant discussion in the Appendix—but don't look at it just yet!
 
-It is often not possible to differentiate between Rules 2 and 3 when suggesting examples. As we have seen, in effect the difference between them depends on whether the tampering is done comparatively sensibly or completely stupidly! Also, the performances of some practical illustrations are worse than Rule 2 but not as berserk as Rule 3! I would recommend therefore that, in addition to a list of possible illustrations of Rule 1 and of Rule 4, you construct a *combined* list of illustrations for Rules 2 and 3, i.e. for any kind of "zig-zag" or "swinging the pendulum" compensation effect. Further, the Rule 4 list does not need to be restricted to a strict version of Rule 4. For example, a photocopy of a photocopy of a photocopy of ... is similar to Rule 4 except that it continually moves away from the target (the original copy) rather than being able to temporarily move back toward it.
+It is often not possible to differentiate between Rules 2 and 3 when suggesting examples. As we have seen, in effect the difference between them depends on whether the tampering is done comparatively sensibly or completely stupidly! Also, the performances of some practical illustrations are worse than Rule 2 but not as berserk as Rule 3! I would recommend therefore that, in addition to a list of possibilities for Rule 4, you simply compile one other list to cover both Rules 2 and 3 to thus include any kind of "zig-zag" or "swinging the pendulum" compensation effect. Further, the Rule 4 list does not need to be restricted to a strict version of Rule 4. For example, a photocopy of a photocopy of a photocopy of ... is similar to Rule 4 except that it continually moves away from the target (the original copy) rather than being able to temporarily move back toward it.
 
 ```{ojs}
 viewof activity_3j = persist(
@@ -249,3 +253,9 @@ import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
 createDownloadButton([viewof activity_3i, viewof activity_3j], "activities_3i_3j.txt")
 ```
+
+### Approvals, Acknowledgments and Information {#sec-page62}
+
+^a^ ([page 5, the Ford Motor Company example](02-at-the-ford-motor-company.qmd#sec-page5)) The Ford Motor Company example and diagrams are included with the approval of Bill Scherkenbach.
+
+^b^ ([page 32, the quotations from *Understanding Statistical Process Control*](09-the-six-processes-revisited.qmd#sec-page32)) This and all other quotations from *Understanding Statistical Process Control* have been reproduced with the approval of SPC Press Inc.
