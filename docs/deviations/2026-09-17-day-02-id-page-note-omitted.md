@@ -5,4 +5,4 @@
 - **Source reference** — `E.Day.2.12Oct21.pdf`: the note is on printed page 9 (PDF page 13); the comment it refers to is on the reverse of the ID page (PDF page 2, unnumbered).
 - **Why** — The NB is about viewing PDF scans in Adobe Acrobat Reader, which does not apply to the site's re-created and re-extracted images, so reproducing it would add a page of advice about a problem the reader does not have. Rewording Neave's note to remove the reference would be a larger departure than recording the gap.
 - **Decided in** — Wave 2 Day 2 adjudication, [#822](https://github.com/lddurbin/twelve_days_to_deming/issues/822) (2026-09-17): Lee's note on `S-02` in `workflow/validation/adjudications/day-02.json` was "a deviation entry recording that the ID-page note is omitted".
-- **Landed in** — PR [#NNN](https://github.com/lddurbin/twelve_days_to_deming/pull/NNN).
+- **Landed in** — PR [#828](https://github.com/lddurbin/twelve_days_to_deming/pull/828).
