@@ -237,16 +237,16 @@
           "chip_class": "",
           "file": "05-how-do-we-compute-control-limits.qmd",
           "line": 25,
-          "page": "PDF p21 · printed p17",
-          "pdf_page": 21,
+          "page": "PDF p17 · printed p13",
+          "pdf_page": 17,
           "flag": "Altered 15 · 96%",
           "source_html": "“So that is surely <mark class='src'>true</mark> for the control limits shown on page 11: the data there have nothing to do with ‘batch inspection’.”",
           "site_html": "“So that is surely <mark class='gone'>so</mark> for the control limits shown on page 11…”",
-          "evidence_html": "Read off the printed p17 page image. “Surely so” is not idiomatic here and weakens a sentence that is doing load-bearing work — Neave is concluding that the batch-inspection method <em>cannot</em> apply to the page-11 data.",
+          "evidence_html": "Read off the printed p13 page image. “Surely so” is not idiomatic here and weakens a sentence that is doing load-bearing work — Neave is concluding that the batch-inspection method <em>cannot</em> apply to the page-11 data.",
           "decision": "accept",
           "decision_note": null,
           "proposal": "So that is surely true for the control limits shown on [page 11]",
-          "page_pos": 1
+          "page_pos": 3
         },
         {
           "id": "D3-11",
@@ -254,8 +254,8 @@
           "chip_class": "",
           "file": "05-how-do-we-compute-control-limits.qmd",
           "line": 33,
-          "page": "PDF p21 · printed p17",
-          "pdf_page": 21,
+          "page": "PDF p18 · printed p14",
+          "pdf_page": 18,
           "flag": "Altered 11 · 97%",
           "source_html": "“So the approach that we use instead measures variation <mark class='src'>is</mark> a completely different way…”",
           "site_html": "“…measures variation <mark class='gone'>in</mark> a completely different way…”",
@@ -288,8 +288,8 @@
           "chip_class": "",
           "file": "05-how-do-we-compute-control-limits.qmd",
           "line": 103,
-          "page": "PDF p20 · printed p16",
-          "pdf_page": 20,
+          "page": "PDF p19 · printed p15",
+          "pdf_page": 19,
           "flag": "Altered 10 · 97%",
           "source_html": "“By contrast, pages 19–34 <mark class='src'>here</mark> are focused on helping you to interpret control charts…”",
           "site_html": "“By contrast, pages 19 to 34<mark class='gone'>,</mark> are focused on helping you to interpret control charts…”",
@@ -314,7 +314,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "…and thus are not optional!",
-          "page_pos": 3
+          "page_pos": 2
         },
         {
           "id": "D3-15",
@@ -322,8 +322,8 @@
           "chip_class": "crit",
           "file": "05-how-do-we-compute-control-limits.qmd",
           "line": 41,
-          "page": "PDF p21 · printed p17",
-          "pdf_page": 21,
+          "page": "PDF p18 · printed p14",
+          "pdf_page": 18,
           "flag": "Altered 26 · 86%",
           "source_html": "“So this is certainly a sensible alternative method of measuring variation. But that is a relatively minor <mark class='src'>point.</mark>”",
           "site_html": "“But that is a relatively minor <mark class='gone'>virtue!</mark>”",
@@ -348,7 +348,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "## Technical Aid 5\n\n(and a bare []{#sec-page13} moved to the section opening on printed p13)",
-          "page_pos": 2
+          "page_pos": 3
         },
         {
           "id": "D3-17",
@@ -365,7 +365,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "## Technical Aid 8",
-          "page_pos": 3
+          "page_pos": 1
         },
         {
           "id": "D3-18",
@@ -450,7 +450,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "## 4. Subject-matter knowledge",
-          "page_pos": 2
+          "page_pos": 1
         },
         {
           "id": "D3-23",
@@ -458,8 +458,8 @@
           "chip_class": "crit",
           "file": "08-control-chart-and-brain.qmd",
           "line": 46,
-          "page": "PDF p30 · printed p26",
-          "pdf_page": 30,
+          "page": "PDF p31 · printed p27",
+          "pdf_page": 31,
           "flag": "Altered 33 · 79% — scored below the near-certain band, and a real defect",
           "source_html": "“Deming was careful to pay due respect to ‘subject-matter experts’. <mark class='src'>In contrast,</mark> I've known teachers of Statistics who seem keen on ignoring subject-matter knowledge lest it ‘bias’ the conclusions available from the data.”",
           "site_html": "“Deming was careful to pay due respect to ‘subject-matter experts’: <mark class='gone'>in context,</mark> I've known teachers of Statistics who seem keen on ignoring subject-matter knowledge…”",
@@ -467,7 +467,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "Deming was careful to pay due respect to \"subject-matter experts\". In contrast, I've known teachers of Statistics who seem keen on ignoring subject-matter knowledge lest it \"bias\" the conclusions available from the data.",
-          "page_pos": 1
+          "page_pos": 2
         },
         {
           "id": "D3-24",
@@ -491,8 +491,8 @@
           "chip_class": "crit",
           "file": "05-how-do-we-compute-control-limits.qmd",
           "line": 31,
-          "page": "PDF p21 · printed p17",
-          "pdf_page": 21,
+          "page": "PDF p18 · printed p14",
+          "pdf_page": 18,
           "flag": "Reference mismatch 9 · 90% · Altered 20",
           "source_html": "“It harks back to a previous section: ‘The Importance of Time’ on pages <mark class='src'>7–9</mark>.”",
           "site_html": "“…on pages 7 to <mark class='gone'>8</mark>.”",
@@ -500,7 +500,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "\"The Importance of Time\" on [pages 7–9](03-the-importance-of-time.qmd#sec-page7)",
-          "page_pos": 2
+          "page_pos": 1
         },
         {
           "id": "D3-26",
@@ -551,7 +551,7 @@
           "decision": "discuss",
           "decision_note": null,
           "proposal": "(no change — the site is right; log the deviation)",
-          "page_pos": 1,
+          "page_pos": 2,
           "outcome": "Carried to issue #831 — decided together with D3-11, D3-12 and D3-27, which were all rejected in the same pass, so the \"fix and log\" precedent this finding rested on now needs restating."
         },
         {
@@ -824,7 +824,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "…which were 10, 8, 6, 7 and 4, these corresponded respectively to … So, with the funnel stuck at 30, you can immediately see that the marble finishes up at 33, 31, 29, 30 and 27 respectively:",
-          "page_pos": 1
+          "page_pos": 2
         },
         {
           "id": "D3-45",
@@ -927,7 +927,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "They have failed dismally: instead they have considerably increased variation. Therefore they now try something completely different. Since it is good to reduce variation, they strive to minimise variation *at least in the short term*.",
-          "page_pos": 1
+          "page_pos": 2
         },
         {
           "id": "D3-51",
@@ -995,7 +995,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "Using moving ranges works pretty well in mitigating the contamination effects of many kinds of special causes. There are a few exceptions. Two important exceptions that one needs to be able to recognise are illustrated with data generated in the Funnel Experiment, and so we shall see those this afternoon.",
-          "page_pos": 1
+          "page_pos": 2
         },
         {
           "id": "D3-55",
@@ -1012,7 +1012,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "I would recommend therefore that, in addition to a list of possibilities for Rule 4, you simply compile one other list to cover both Rules 2 and 3 to thus include any kind of \"zig-zag\" or \"swinging the pendulum\" compensation effect.",
-          "page_pos": 1
+          "page_pos": 2
         },
         {
           "id": "D3-56",
@@ -1099,14 +1099,15 @@
           "chip_class": "clear",
           "file": "05-how-do-we-compute-control-limits.qmd",
           "line": 50,
-          "page": "PDF p24 · printed p20",
-          "pdf_page": 24,
+          "page": "PDF p19 · printed p15",
+          "pdf_page": 19,
           "flag": "Altered 9 · 97% · Altered 17 · 93% — two of the 22 near-certain flags",
           "source_html": "Neave writes “those <mark class='src'>purple</mark> limits on this Chart A1” and “The control limits (coloured <mark class='src'>purple</mark>) on the charts that follow”.",
           "site_html": "The site says <strong>magenta</strong> in both the prose and the figure descriptions.",
           "evidence_html": "Checked and cleared: a documented deviation, <code>docs/deviations/2026-05-26-replace-day-3-charts-a1-a2-purple-limits-png-with-an-r-gener.md</code>, “Data decision B”. The R chunk uses pure magenta <code>#ff00ff</code> because it is the one hue that survives the dark-mode <code>invert + hue-rotate(180deg)</code> filter from #310 intact, and the prose was changed to match what the reader actually sees. Neave's contrast with the blue moving-range limits is unaffected. Two of the near-certain band accounted for.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 1
         },
         {
           "id": "N-04",
@@ -1196,7 +1197,8 @@
           "site_html": "The site sets them as <code>$\\bar{X}$</code> and <code>$\\overline{MR}$</code> and the sums as display maths.",
           "evidence_html": "A comparator artifact: <code>qmd_strip.py</code> leaves LaTeX in place, so every sentence containing the symbols scores low. The arithmetic itself was checked — 146 ÷ 12 = 12.167, 10 ÷ 11 = 0.909, 2.66 × 0.909 = 2.418, limits at 9.749 and 14.585 — and is right, against the printed p16 and p18 page images. Same class as #793's autolink finding on Day 1: a scorer blind spot, not a defect.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 4
         },
         {
           "id": "N-10",
