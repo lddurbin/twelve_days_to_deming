@@ -9,12 +9,12 @@ execute:
 
 []{#sec-page9}
 
-Let's now move on to a more comprehensive description of the Experiment on Red Beads. I will try to make it come alive for you as much as possible as the day progresses. First, I'll introduce the experiment as I used to carry it out, which differs in only minor detail from Dr Deming's original. (You will soon appreciate, I think, that some of my description here might be described as rather "tongue-in-cheek!") For illustration I shall use a set of results obtained by the Willing Workers in a company on the West coast of Ireland where I had been invited to present a seminar. Later today I will show you some other sets of results.
+Let's now move on to a more comprehensive description of the Experiment on Red Beads. I will try to make it come alive for you as much as possible as the day progresses. First, I'll introduce the experiment as I used to carry it out, which differs in only minor detail from Dr Deming's original. (You will soon appreciate, I think, that some of my description here might be described as rather "tongue-in-cheek"!) For illustration I shall use a set of results obtained by the Willing Workers in a company on the West coast of Ireland where I had been invited to present a seminar. Later today I will show you some other sets of results.
 
 <div class="float-box">
 <div class="float-box-content">
   <strong>10 VACANCIES</strong> <br>
-  <em>(educational requirements minimal)</em><br><br>
+  <strong>(educational requirements minimal)</strong><br><br>
   <strong>1 RECORDER</strong> — able to write neatly and to perform simple arithmetic<br>
   <strong>1 CHIEF INSPECTOR</strong> — able to compare figures and to speak in a loud, clear voice<br>
   <strong>2 JUNIOR INSPECTORS</strong> — able to count (perhaps up to 20) and to write clearly<br>
@@ -23,13 +23,13 @@ Let's now move on to a more comprehensive description of the Experiment on Red B
 </div>
 </div>
 
-After we have worked through the experiment as it happened in Ireland, I shall need to give you some practice! One way for you to get some practice would be to acquire the equipment for the experiment from a supplier such as SPC Press in Knoxville, Tennessee; and then find ten friends to work through the experiment with you. But that might be asking rather a lot! So instead, what I shall do at that stage will be to develop the set of results described in DemDim Chapter 6, and give you the opportunity to respond to those results in the role of the Foreman. You can then compare your reactions to those described in the book. (So don't look at DemDim Chapter 6 right now or else you'll spoil my carefully-laid plan!)
+After we have worked through the experiment as it happened in Ireland, I shall need to give you some practice! One way for you to get some practice would be to acquire the equipment for the experiment from a supplier such as SPC Press in Knoxville, Tennessee; and then find ten friends to work through the experiment with you. But that might be asking rather a lot! So instead, what I shall do at that stage will be to develop the set of results described in *DemDim* Chapter 6, and give you the opportunity to respond to those results in the role of the Foreman. You can then compare your reactions to those described in the book. (So don't look at *DemDim* Chapter 6 right now or else you'll spoil my carefully-laid plan!)
 
 First, a brief overview. As we've seen, the seminar leader (me) plays the role of Foreman, and my first task is to recruit the ten volunteers. On the left is a copy of my recruitment advertisement which was displayed on-screen to that audience in Ireland.
 
 <span class=neave_note>Referring back to my comment on the reverse of today's ID page, the distortion was particularly bad on this recruitment advertisement. Indeed in this case even the printed copy was virtually unreadable. I have therefore needed to re-create the image. There are very minor differences between the original and what appears above but they are merely cosmetic.</span>
 
-The second of the two sentences in the qualifications for Willing Workers in my recruitment advertisement would sometimes elicit mutterings from delegates such as "Sounds like our place!"
+The second of the two sentences in the qualifications for Willing Workers in my recruitment advertisement would sometimes elicit mutterings from delegates such as "Sounds like our place"!
 
 The volunteering Willing Workers are to be employed in the finishing stages of a complex and time-consuming manufacturing operation. Their task is well-defined, and I shall give them some training before letting them loose on the job. Some aspects of the job are described and demonstrated in fine detail during the training. After all, the better that people are trained, the more similarity there will be in the way they carry out their work, and thus the more consistent will be their finished product. And consistency of the finished product, i.e. low variation, is of course an essential contribution to good quality.
 
@@ -49,12 +49,12 @@ The results produced when the experiment was performed at that company in Irelan
 
 Take a careful look through these results. What main feature occurs to you when comparing the six Willing Workers with each other?
 
-![Handwritten results table for six Willing Workers (Ernie, Iggy, Richard, Martin, Andrew, Pat) showing red bead counts across four weeks, with weekly totals declining from 62 to 60 and individual averages near 10](/assets/images/day-02/image-2.png){.lightbox}
+![Handwritten results table for six Willing Workers (Ernie, Iggy, Richard, Martin, Andrew, Pat) over four weeks, with weekly totals of 62, 65, 48 and 60 and a grand total of 235](/assets/images/day-02/image-2.png){.lightbox}
 
 <details>
 <summary>Describe this table</summary>
 
-A handwritten transparency from the Recorder, Declan, showing six Willing Workers (Ernie, Iggy, Richard, Martin, Andrew, Pat) as columns and four weeks as rows. Most weekly counts sit between 9 and 14 red beads. Two figures stand out: Ernie's 3 in Week 3 (the lowest) and Pat's 19 in Week 2 (the highest). Weekly totals run 62, 64, 47, 60 — Week 3's drop coincides with the announced appraisal, but the difference between any *individual* worker's weeks is no larger than the difference between two random workers in the same week. The "pattern" the Foreman reads into the data is not really there.
+A handwritten transparency from the Recorder, Declan. The six Willing Workers are listed down the side, each with a three-week total beside the name, and the weeks run across the top. Week 1: Ernie 7, Iggy 10, Richard 11, Martin 11, Andrew 12, Pat 11. Week 2: Ernie 11, Iggy 8, Richard 10, Martin 9, Andrew 12, Pat 15. Week 3: Ernie 3, Iggy 10, Richard 10, Martin 10, Andrew 9, Pat 6. Week 4 has two columns, one per shift, for the three workers kept on: Ernie 6 and 6, Iggy 13 and 14, Martin 10 and 11. The weekly totals are 62, 65, 48 and 60; the totals so far 62, 127, 175 and 235; and the averages so far 10.3, 10.6, 9.7 and 9.8.
 
 </details>
 
@@ -67,12 +67,13 @@ viewof thought_2d = persist(
 )
 ```
 
+[]{#sec-page12}
+
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_2d" aria-expanded="false" aria-controls="collapse_2d">
 Reveal analysis of the Willing Workers results
 </button>
 
 <div class="collapse" id="collapse_2d">
-[]{#sec-page12}
 <span class="analysis_box_title">"ANALYSIS" OF THE RESULTS</span>
 The most obvious phenomenon is surely Ernie's remarkably good performance compared with everybody else. His second week was rather disappointing (although that's not difficult to explain—see
 below). Otherwise, his superiority is plain for all to see. Ernie was the only person in single figures during the first week, when both he and everybody else was carrying out the work for the first time. And,
@@ -84,25 +85,25 @@ had managed to hold on to their jobs after their appraisals) were into double fi
 </div>
 </div>
 
-But small wonder that Ernie was so good. The truth is that he was the Plant Manager—the most senior of all those present. He had, of course, decided to set a good example by volunteering to play the role of a Willing Worker. Maybe, as it turned out, it wasn't that good for morale for him to show up the others with such dramatically superior results!
+But small wonder that Ernie was so good. The truth is that he was the Plant Manager—the most senior of all those present. He had, of course, decided to set a good example by volunteering to play the role of a mere Willing Worker. Maybe, as it turned out, it wasn't that good for morale for him to show up the others with such dramatically superior results!
 
 <div class="float-box-right">
   <img src="/assets/images/day-02/image-2.png" alt="Willing Workers results" style="width:100%; height:auto;" />
 </div>
 
-Let's now take the whole set of results from this run of the experiment and summarise some of the Foreman's reactions and comments. Knowing something of the kinds of performances to be expected in the experiment, the Foreman was naturally immediately impressed by Ernie's first attempt. But, during the rest of Week 1, he became a little irritated by everybody else's double-figure performances. However, he kept reminding himself (and the audience) that this was only the first week, and obviously mistakes would be made by the workers while they were getting used to the job. He pointed out several technical errors in the way they were carrying out their work, hoping they would remedy those faults during future weeks.
+Let's now take the whole set of results from this run of the experiment and summarise some of the Foreman's reactions and comments. Knowing something of the kinds of performances to be expected in the experiment, the Foreman was naturally immediately impressed by Ernie's first attempt. But, during the rest of Week 1, he became a little irritated by everybody else's double-figure performances. However, he kept reminding himself (and the audience) that this *was* only the first week, and obviously mistakes would be made by the workers while they were getting used to the job. He pointed out several technical errors in the way they were carrying out their work, hoping they would remedy those faults during future weeks.
 
-As we have seen, Week 2 began with that disappointing performance by Ernie. In retrospect, the explanation was clear. Ernie had shown up all of his workmates during the first week by his exceptionally good start. When there is a "creep" on the line it is not unusual for him to be "got at" by the others. Ernie therefore obligingly produced 11 defectives in the second week, the same performance level as had been produced—almost exactly—by all the others during the first week. After that disappointment, the Foreman was pleased to see signs of improvement. Iggi, Richard and Martin all bettered their first week's figures. But then came first a minor, and then a major, disappointment. Andrew repeated the poor score of 12 defectives that he had delivered in the first week—obviously a slow learner compared with the others. And then Pat produced what turned out to be the worst score in the whole experiment. But let us remember that he was standing at the end of the line, with only Andrew for company—and clearly (looking at the results so far, i.e. the first two weeks) he was being no good influence!
+As we have seen, Week 2 began with that disappointing performance by Ernie. In retrospect, the explanation was clear. Ernie had shown up all of his workmates during the first week by his exceptionally good start. When there is a "creep" on the line it is not unusual for him to be "got at" by the others. Ernie therefore obligingly produced 11 defectives in the second week, the same performance level as had been produced—almost exactly—by all the others during the first week. After that disappointment, the Foreman was pleased to see signs of improvement. Iggi, Richard and Martin all bettered their first week's figures. But then came first a minor, and then a major, disappointment. Andrew repeated the poor score of 12 defectives that he had delivered in the first week—obviously a slow learner compared with the others. And then Pat produced what turned out to be the worst score in the whole experiment. But let us remember that he was standing at the end of the line, with only Andrew for company—and clearly (looking at the results so far, i.e. the first two weeks) *he* was being no good influence!
 
-Thanks to that awful result of Pat's and the "join the club" result from Ernie, total performance in the second week was actually worse than in the first week. The time had arrived for stern action by management.
+Thanks to that awful result of Pat's and the "join the club" result from Ernie, total performance in the second week was actually *worse* than in the first week. The time had arrived for stern action by management.
 
-The forthcoming appraisals of performance were announced: people's futures—or otherwise—in this company would be decided on the basis of the total number of defectives they produced over the first three weeks. The impressive effect on Ernie has already been remarked upon—no way was he going to lose his job. But we shouldn't have been too surprised—the Foreman had, of course, already marked him out during the very first week as someone with special potential. The Foreman expressed some regret that Iggi, Richard, and Martin, who (remember) had all shown minor improvement previously, did not improve any further—in fact, if anything, they regressed a little. On the other hand, Andrew and Pat who, as we also know, were previously the two worst performers, at long last "got their skates on". They knew that considerable improvement would be necessary if they were to hold on to their jobs. And they both produced it. Unfortunately, in neither case was their improvement quite good enough to get them into the top three.
+The forthcoming appraisals of performance were announced: people's futures—or otherwise—in this company would be decided on the basis of the total number of defectives they produced over the first three weeks. The impressive effect on Ernie has already been remarked upon—no way was he going to lose *his* job. But we shouldn't have been too surprised—the Foreman had, of course, already marked him out during the very first week as someone with special potential. The Foreman expressed some regret that Iggi, Richard, and Martin, who (remember) had all shown minor improvement previously, did not improve any further—in fact, if anything, they regressed a little. On the other hand, Andrew and Pat who, as we also know, were previously the two worst performers, at long last "got their skates on". They knew that considerable improvement would be necessary if they were to hold on to their jobs. And they both produced it. Unfortunately, in neither case was their improvement quite good enough to get them into the top three.
 
 The Foreman felt very pleased by the results of his strategy and his ability to motivate his people. Look how the total number of defectives decreased in Week 3 as people approached their appraisals. No longer were there over 60 defectives during the week. Now there were less than 50.
 
 The double-time working produced mixed success. Ernie settled down to that commendably steady performance of six defectives in both shifts. Martin carried on with the same kind of performance as previously. Unfortunately, Iggi immediately started producing large numbers of defectives. Maybe he just didn't have the stamina for two-shift working.
 
-At this stage, the experiment was abruptly terminated. Despite everybody's hard work, and the Foreman's efforts to get improved performance out of his people, too many defectives had been produced overall. Manufacture of good product had not been sufficient to keep up with the customer's requirements. The customer had therefore cancelled the contract, and ... "Sorry folks—we're out of business!"
+At this stage, the experiment was abruptly terminated. Despite everybody's hard work, and the Foreman's efforts to get improved performance out of his people, too many defectives had been produced overall. Manufacture of good product had not been sufficient to keep up with the customer's requirements. The customer had therefore cancelled the contract, and ... "Sorry folks—we're out of business!".
 
 And so the experiment came to an abrupt and unhappy end.
 

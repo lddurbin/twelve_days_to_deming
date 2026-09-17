@@ -33,6 +33,8 @@ A run chart of all 24 red-bead counts in time order, with no control limits yet.
 
 The second of the two stages which then completes the control chart is to place a couple of horizontal lines on the run chart: the *control limits*. The Foreman gave Dec a card on which he had written the method for finding out where these control limits should be drawn. After pressing a few keys on his calculator, Dec came up with the values 1.4 for the Lower Control Limit (LCL) and 18.2 for the Upper Control Limit (UCL). So here is the resulting control chart:
 
+[]{#sec-page15}
+
 ```{r}
 red_beads_control_chart(c(7, 10, 11, 11, 12, 11, 11, 8, 10, 9, 12, 15, 3, 10, 10, 10, 9, 6, 6, 13, 10, 6, 14, 11), LCL = 1.4, UCL = 18.2)
 ```
@@ -40,7 +42,7 @@ red_beads_control_chart(c(7, 10, 11, 11, 12, 11, 11, 8, 10, 9, 12, 15, 3, 10, 10
 <details>
 <summary>Describe this chart</summary>
 
-The same run chart as above, now with two horizontal lines added: the Lower Control Limit at 1.4 and the Upper Control Limit at 18.2. **Every one of the 24 points lies between the two limits** — including the 15 and the 3 that looked striking on the bare run chart. By the simplest interpretation rule (all points inside the limits → process is in statistical control), the Foreman's whole performance-appraisal exercise is operating on common-cause variation. There is no Ernie effect, no Pat effect, no appraisal effect; the differences between workers and weeks are just noise around a stable system.
+The same run chart as above, now with two horizontal lines added: the Lower Control Limit at 1.4 and the Upper Control Limit at 18.2. All 24 points, including the 15 and the 3, lie between the two lines.
 
 </details>
 
@@ -48,15 +50,15 @@ The same run chart as above, now with two horizontal lines added: the Lower Cont
 If you have classified yourself at Stats-level 1 or above then there will soon be a couple of Technical Aids which will enable you to compute the control limits shown above. If you are at Stats-level 0 then please don't bother with those Technical Aids: just concentrate on what is <em>really</em> important, namely how to <em>interpret</em> the chart and what to deduce from it once it has been drawn. That is what follows here.
 </div>
 
-[]{#sec-page15}Let's recall a couple of short extracts from Day 1. Firstly from [Day 1 page 5](../day-01/03-statistics.qmd#sec-page5), when discussing what is meant by "understanding variation", we had:
+Let's recall a couple of short extracts from Day 1. Firstly from [Day 1 page 5](../day-01/03-statistics.qmd#sec-page5), when discussing what is meant by "understanding variation", we had:
 
-> "In a nutshell, understanding variation is to do with being able to justifiably describe the behaviour over time of processes or systems of any kind by words such as 'stable' and 'predictable' or, on the other hand, 'unstable' and 'unpredictable' ... the control chart is the invaluable tool which best enables us to discriminate between those two states. The 'official' terms for the two states that you will find both Drs Shewhart and Deming using are respectively 'in statistical control' and 'out of statistical control' although, in the former case, Deming also often refers to a 'stable system'."
+> "In a nutshell, understanding variation is to do with being able to justifiably describe the behaviour over time of processes or systems of any kind by words such as 'stable' and 'predictable' or, on the other hand, 'unstable' and 'unpredictable' ... the control chart is *the* invaluable tool which best enables us to discriminate between those two states. The 'official' terms for the two states that you will find both Drs Shewhart and Deming using are respectively 'in statistical control' and 'out of statistical control' although, in the former case, Deming also often refers to a 'stable system'."
 
 And then on [Day 1 page 33](../day-01/11-deming-story.qmd#sec-page33), to emphasise the point, the ninth of the ten Shewhart "bare bones" was:
 
 > "The purpose of Shewhart's control chart is to help us to discriminate between the two states: is the process in or out of statistical control? Without it, it's often not as easy as it might sound."
 
-Having now seen our first control chart, it won't be difficult for you to guess how it helps us to discriminate between the two states. The simplest guidance (which was pretty much all that Dr Deming gave in his seminars) is that if all the points lie between the two control limits then he would judge the process to be in statistical control (stable). Otherwise the indication is that the process may well be out of statistical control, and so then it could be worthwhile to try to identify special causes: the situations where points go outside the control limits will be good places to start looking.
+Having now seen our first control chart, it won't be difficult for you to guess *how* it helps us to discriminate between the two states. The simplest guidance (which was pretty much all that Dr Deming gave in his seminars) is that if all the points lie between the two control limits then he would judge the process to be in statistical control (stable). Otherwise the indication is that the process may well be out of statistical control, and so then it could be worthwhile to try to identify special causes: the situations where points go outside the control limits will be good places to start looking.
 
 <div class="neave_note" role="note" aria-label="Author's note">
 Now, I rather liken this basic guidance on interpreting a control chart to how you are taught to drive a car in order to pass the official driving test. You obey the speed limits, and you give all the proper signals (whether or not there is anybody behind to see them). However, having passed the test, it is a rare driver who continues to obey all such rules to the letter—indeed, it can be rather annoying for others to be stuck
@@ -72,7 +74,7 @@ As a new user of the control chart, here is your obvious Pause for Thought:
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
 ## PAUSE FOR THOUGHT 2–e {#sec-page16}
-What does the above control chart tell you?
+What does the control chart on [page 15, above](04-our-first-control-chart.qmd#sec-page15) tell you?
 
 ```{ojs}
 import { persist } from "../../../assets/scripts/workbook.js"

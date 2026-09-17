@@ -23,8 +23,8 @@ do. And the man who did most of the teaching is W Edwards Deming, statistical an
 Japan’s highest industrial award for quality and productivity is named. But in this country he is not
 widely recognised. That may be changing.
 
-“W Edwards Deming, statistical analyst”? Well, if so, be sure that that was but a single string on a many-
-stringed bow!
+“W Edwards Deming, statistical analyst”? Well, if so, be sure that that was but a single string on a many-stringed
+bow!
 
 <span class=neave_note>As you may already have noticed, I am using British spellings and punctuation conventions even when
 quoting Americans. Since, obviously, I quote Americans a great deal in this course, I thought it appeared
@@ -140,8 +140,8 @@ in Point 13, ‘education’ is the opposite: very non-specific, very broadly de
 
 Thus, in Deming’s terms, teaching and learning details about how to *construct* control charts is *training*.
 Teaching and learning how to interpret the charts once they are drawn, and then how to proceed intelligently on the basis of such interpretation, is *education*. His seminars were most definitely *education*; what
-he regarded as the simpler matter of training could be left to someone else. A couple of sentences from his diary entry for Monday 10 July 1950, regarding some lectures to the Japan Medical Association, will con-
-firm the point:
+he regarded as the simpler matter of training could be left to someone else. A couple of sentences from his diary entry for Monday 10 July 1950, regarding some lectures to the Japan Medical Association, will confirm
+the point:
 
 ><span class=deming_quote>Professor Masuyama and assistants will teach the statistical control of quality in the afternoon.
 I shall teach during the forenoon the theory of a system, and cooperation.</span>
@@ -153,8 +153,8 @@ charts do not. Please be warned that much of what is currently taught and practi
 charts is *not* wholly consistent with Shewhart’s teaching. For example, control charts are often regarded as
 primarily relevant to manufacturing processes and requiring data that satisfy certain statistical conditions,
 in particular that they are “normally distributed”. As previously, don’t worry if you do not know what that
-means, for the fact is that Shewhart’s teaching was *not* dependent on such restrictions (though some statisticians seem to wish—or even believe—that it was). Quite the opposite. Indeed, Dr Shewhart was speci-
-fic about the need to have statistical techniques which really work in practical situations rather than just
+means, for the fact is that Shewhart’s teaching was *not* dependent on such restrictions (though some statisticians seem to wish—or even believe—that it was). Quite the opposite. Indeed, Dr Shewhart was specific
+about the need to have statistical techniques which really work in practical situations rather than just
 depend on what he referred to as “a fine ancestry of highbrow statistical theorems”! (This quotation comes
 from page 18 of Shewhart’s 1931 book which, early this afternoon, you will see described in glowing terms
 by Dr Deming.) A good way of expressing this is that Shewhart saw the need for statistical techniques that

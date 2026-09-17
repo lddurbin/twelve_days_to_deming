@@ -23,13 +23,13 @@ A further recollection comes from one of my seminars later that same year. A del
 
 Two particular runs of the Red Beads Experiment stick in my memory despite the fact that they both took place around 30 years ago. They were the experiments which produced the very best total score and the very worst total score that were obtained over approximately 150 experiments carried out with exactly the same Red Beads equipment as I used at the Ireland seminar.
 
-If you were still in the Un-Knowing state, you would probably not be at all surprised to learn where these two sets of results originated. Very the best score (a total of just 203 red beads) was obtained by the most elite set of workers I was ever privileged to have participating in the Red Beads Experiment: five departmental heads in the British Government's Central Statistical Office plus one University Professor of Statistics. At the other extreme, the very worst score of 270 red beads was produced on the first of two occasions that I performed the experiment in Madrid, and some people might have doubts about the abilities of Spanish workers. Hold on—*don't take offence at that remark!* The point of this suggestion—and yet a further important message that comes from the Red Beads Experiment—is how easy it is to find data that appear to provide "evidence" to support personal prejudices. Let's take a look at both sets of data.
+If you were still in the Un-Knowing state, you would probably not be at all surprised to learn where these two sets of results originated. The very best score (a total of just 203 red beads) was obtained by the most elite set of workers I was ever privileged to have participating in the Red Beads Experiment: five departmental heads in the British Government's Central Statistical Office plus one University Professor of Statistics. At the other extreme, the very worst score of 270 red beads was produced on the first of two occasions that I performed the experiment in Madrid, and some people might have doubts about the abilities of Spanish workers. *Hold on—don't take offence at that remark!* The point of this suggestion—and yet a further important message that comes from the Red Beads Experiment—is how easy it is to find data that appear to provide "evidence" to support personal prejudices. Let's take a look at both sets of data.
 
 <div class="neave_note" role="note" aria-label="Author's note">
 As with the experiment in Ireland described on [pages 9–16, starting in A Brief Overview](03-a-brief-overview.qmd#sec-page9), a "performance appraisal" takes place at the end of the third week; the three "worst" workers are then fired and the "best" workers have to work double time during the fourth week—they will need to produce **two** paddles of 50 beads, not just one!
 </div>
 
-[]{#sec-page34}
+[]{#sec-page29}
 
 Here are the professional statisticians' results:
 
@@ -42,7 +42,7 @@ Recorder as well as Foreman. Further, the inspection process had to be carried o
 the usual team of three inspectors but just by my colleague Brian Read. I suppose I also acted as Chief
 Inspector, for I did check extremely carefully Brian's counts of the red beads!
 
-didn't quite understand the job.  I therefore gave them a brief additional training session before the start of the second week—and observe the vast improvement that resulted (except, that is, for Neil who clearly never got the hang of it!). 
+As always, there was plenty for the Foreman to talk about. David W. got off to a rather poor start—nearly twice the permitted quota of 5 red beads. But the second Willing Worker, the late Professor David Kerridge (a great friend and colleague), immediately got down to just one above the quota. However, now look at those steadily deteriorating results in the rest of that first week. Maybe they were slow learners and still didn't quite understand the job.  I therefore gave them a brief additional training session before the start of the second week—and observe the vast improvement that resulted (except, that is, for Neil who clearly *never* got the hang of it!). 
  
 So then came my announcement of the forthcoming performance appraisal and the fact that the worst three workers would be fired at the end of the third week.  This frightened them so much that, mostly, they just couldn't concentrate properly on the job during that third week.  The worst performance of all came from Professor Kerridge—but perhaps he'd already decided to seek work elsewhere! 
  
@@ -62,7 +62,7 @@ There will then remain just two further items on today's agenda. First comes the
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## PAUSE FOR THOUGHT 2–e
+## ACTIVITY 2–g
 
 As you will see, I have reproduced for you below and on the next page the statisticians' data week by
 week. There is space on the right of the data for your Foreman-like comments on every count of red
@@ -147,6 +147,7 @@ viewof thought_2e_iv = persist(
 :::
 ::::
 
+[]{#sec-page34}
 Next, as I had to do when running the experiment for the statisticians, it's time for you to multi-task!
 You now take over as the Recorder and draw a run chart of the data. If you need reminding about how
 to draw a run chart, check back with the run chart of Dec's data on [page 14, in Our First Control Chart](04-our-first-control-chart.qmd#sec-page14). Also as on that page, so
@@ -154,8 +155,8 @@ that you don't have to keep looking back, here are the statisticians' counts of 
 
 > 9 6 7 8 9 11 8 8 5 4 3 13 10 12 10 9 8 10 13 7 8 10 7 8
 
-Finally, insert the two control limits to turn the run chart into a control chart, and then state your conclu-
-sions. If you’re on Stats-level 0 then simply look up the control limits on [Appendix page 8](../../appendix/02-day-2.qmd#sec-page8). If you are
+Finally, insert the two control limits to turn the run chart into a control chart, and then state your conclusions.
+If you’re on Stats-level 0 then simply look up the control limits on [Appendix page 8](../../appendix/02-day-2.qmd#sec-page8). If you are
 on Stats-level 1 or higher then compute them in the space below. (If you need reminding about the
 details, Technical Aid 1 is on [page 20, in The Truth, The Whole Truth, And Nothing But](05-the-truth-the-whole-truth-and-nothing-but.qmd#sec-page20).)
 
@@ -231,7 +232,7 @@ countsArray1.length > 0 ? Plot.plot({
 
 *(You can check your computations in Technical Aid 4 on [Appendix page 9](../../appendix/02-day-2.qmd#sec-page9). But try it yourself first!)*
 
-[]{#sec-page37}
+[]{#sec-page35}
 
 Now it’s time for you to resume the Foreman’s role. Here are the Spaniards’ very different data. So
 please work through them as you did with the statisticians’ data. (Remember that these are extracts
@@ -306,6 +307,7 @@ viewof thought_2e_viii = persist(
 :::
 ::::
 
+[]{#sec-page37}
 Finally, return to the Recorder’s task of drawing the run chart and then upgrade it to a control chart. Here are the Spaniards’ counts of red beads in time order:
 
 > 16 9 9 11 15 11 10 10 12 12 9 9 10 15 8 7 11 10 11 13 13 17 13 9

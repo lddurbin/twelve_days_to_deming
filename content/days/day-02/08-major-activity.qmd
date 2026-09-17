@@ -1,5 +1,5 @@
 ---
-title: "MAJOR ACTIVITY"
+title: "MAJOR ACTIVITY 2–h"
 pagetitle: "Day 2: Major Activity — writing up the Red Beads Experiment's lessons"
 description: "Day 2's Major Activity: summarise the lessons from the Red Beads Experiment, then reflect on times you've been the Willing Worker or the Foreman."
 session_minutes: 60
@@ -12,8 +12,8 @@ execute:
 Hopefully, you now have quite a long list of notes on learning-points from today’s Red Beads Experiments, including some from Chapter 6 of *DemDim*.
 
 > At this early stage of the course, you probably do not have access to other sources. But if you do, or will be doing so before long, you may find plenty more messages to write up. Chapter 4 of Mary Walton’s *The Deming Management Method* is excellent. Other sources are, of course, Dr Deming’s own two books. In *Out of the Crisis* the most relevant pages are 295–302[346–354], although there are several more learning-points from the Red Beads Experiment further on in the book. Chapter 7 of *The New Economics* also describes and studies the Red Beads Experiment and ends with a list of no less than 14 “Lessons from the Red Beads”. Deming ends that chapter by innocently remarking: <span class="deming_quote">“The reader may perceive Red Beads in his own company and in his own work.”</span> Finally, as previously mentioned, my recommended video material is Volumes 7 and 8 of *The Deming Library*.
-
-However, even if you do not have any of these at present, you should by now still be able to produce a quite substantial summary of messages from the Red Beads Experiment.
+>
+> However, even if you do not have any of these at present, you should by now still be able to produce a quite substantial summary of messages from the Red Beads Experiment.
 
 So first review your notes on all that has happened today. If there were any gaps when you forgot to keep up your note-taking then have a look through the relevant sections and update your notes accordingly.
 
@@ -40,7 +40,7 @@ viewof activity_2h_i = persist(
 
 In conclusion, now armed with your account, can you think of instances within your work-situation or elsewhere when you have been treated similarly to the way that the Willing Workers have been treated by the Foreman?
 
-Even more importantly, if you are any kind of manager or in any role where you have supervisory responsibilities over others, can you identify situations where you have acted like the Foreman?
+Even more importantly, if you are any kind of manager or in any role where you have supervisory responsibilities over others, can you identify situations where *you* have acted like the Foreman?
 
 And, if so, how will your behaviour change from now on?
 
@@ -60,6 +60,11 @@ As I often heard Dr Deming say,
 > <span class="deming_quote">“You could write a book on what can be learned from the Experiment on Red Beads.”</span>
 
 Maybe now you’ve already made a start!
+
+::: {style="text-align: center; font-weight: bold;"}
+Yes, in some respects the Experiment on Red Beads is indeed <span class="deming_quote">"stupidly simple"</span>.<br>
+But the lessons to be learned from it are not.
+:::
 
 ```{ojs download_2h}
 import { createDownloadButton } from "../../../assets/scripts/functions.js"

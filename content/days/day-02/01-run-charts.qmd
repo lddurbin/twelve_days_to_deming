@@ -24,12 +24,12 @@ Drawing a run chart is straightforward. Of course, with a very large number of d
   
 ::: {.column width="25%"}
 
-![Run chart showing a line graph of values declining from around 1000 in August to approximately 400 by December, with sharp drops in October and November](/assets/images/day-02/Picture%201.jpg){.lightbox}
+![Run chart of a value tracked daily from August to December: a steep fall through September, a sharp recovery at the start of October, a jump at the start of November, and an abrupt drop at the start of December](/assets/images/day-02/Picture%201.jpg){.lightbox}
 
 <details>
 <summary>Describe this chart</summary>
 
-A run chart with months along the x-axis (August through December) and a value on the y-axis. The line starts near 1000 in August, dips slightly through September, then drops sharply in October and again in November, ending close to 400 by December. The visual point is that *trends and step-changes leap out of a run chart* — a reader scanning the same numbers in a column would have to work much harder to see them.
+A line chart with months along the horizontal axis (August to December) and a vertical scale marked from 400 to 1000. The line starts high in August, falls steeply through September, recovers sharply at the start of October and then holds fairly steady, jumps again at the start of November, and drops abruptly at the start of December, staying low to the end. The visual point is that *trends and step-changes leap out of a run chart* — a reader scanning the same numbers in a column would have to work much harder to see them.
 
 </details>
 :::
@@ -38,7 +38,7 @@ A run chart with months along the x-axis (August through December) and a value o
 
 For illustration, imagine we have just launched a new product on the market, and consider how its monthly sales figures might develop and how the management might interpret those figures.
 
-<span class=neave_note>Despite what can be gained by using pictures rather than lists or tables of numbers, such monthly management data are often interpreted without using run charts. One common method uses pairwise comparisons, the most obvious being the comparison of the current month's figure with the previous month's figure. This comparison is usually expressed on the management report by + or – the actual numerical difference and/or the percentage difference—or both—between the two figures. Percentage differences are often the more popular since, obviously, they express the monthly changes in everything that is being reported *on the same scale* — so, for instance, it is then particularly easy to pick out the largest relative changes without having to do any further arithmetic. Other popular types of comparison relate the current month's figure to the same month in the previous year, or alternatively the YTD (Year-To-Date) figure, i.e. the total for the year so far, compared with the YTD figure as recorded in the same month last year—the comparisons again possibly being expressed as percentages. Obviously, in the case of a new product, there are no figures for last year against which to compare. You may be pleased to know that, during this course, we shall not be using any of the devices just described (other than in this artificial example).</span>
+<span class=neave_note>Despite what can be gained by using pictures rather than lists or tables of numbers, such monthly management data are often interpreted without using run charts. One common method uses pairwise comparisons, the most obvious being the comparison of the current month's figure with the previous month's figure. This comparison is usually expressed on the management report by + or – the actual numerical difference and/or the percentage difference—or both—between the two figures. Percentage differences are often the more popular since, obviously, they express the monthly changes in everything that is being reported *on the same scale*—so, for instance, it is then particularly easy to pick out the largest relative changes without having to do any further arithmetic. Other popular types of comparison relate the current month's figure to the same month in the previous year, or alternatively the YTD (Year-To-Date) figure, i.e. the total for the year so far, compared with the YTD figure as recorded in the same month last year—the comparisons again possibly being expressed as percentages. Obviously, in the case of a new product, there are no figures for last year against which to compare. You may be pleased to know that, during this course, we shall not be using any of the devices just described (other than in this artificial example).</span>
 
 To keep things easy, I'll present the supposed monthly sales figures as simple whole numbers. For example, we might be rounding to the nearest 1,000 sales so that, in the data now to be seen, "13" represents between 12,500 and 13,499 sales of the product during the month. Let's say that the sales figure reported in this way at the end of the first month after the launch is indeed 13. At the monthly management meeting, everybody seems quite happy with this figure, but they are expecting higher sales in Month 2 since the introductory promotional effort will still be continuing throughout that month.
 
@@ -142,12 +142,12 @@ run_chart_plot(c(13, 19, 18, 14, 16, 12, 21, 18, 17))
 
 :::: {.columns}
 ::: {.column width="70%"}
-And it's worked again! Thanks to the renewed, although admittedly expensive, publicity effort, Month 10 has produced the *record* sales figure for this product: 22 (+5, +29%). It really is so important to keep a watchful eye on the monthly figure and to act accordingly. Even those who are not just using the month-to-month pairwise comparisons but also checking the run chart can hardly escape a very positive conclusion: after the introductory promotion, the sales of this product had fallen alarmingly but, thanks to management's diligence over recent months, we can now see an impressive upward movement overall.
+And it's worked again! Thanks to the renewed, although admittedly expensive, publicity effort, Month 10 has produced the *record* sales figure for this product: 22 (+5, +29%). It really is *so* important to keep a watchful eye on the monthly figure and to act accordingly. Even those who are not just using the month-to-month pairwise comparisons but also checking the run chart can hardly escape a very positive conclusion: after the introductory promotion, the sales of this product had fallen alarmingly but, thanks to management's diligence over recent months, we can now see an impressive upward movement overall.
 :::
 ::: {.column width="30%"}
 
 ```{r run-chart-month-10, echo=FALSE, message=FALSE, warning=FALSE, fig.width=5, fig.height=5, dpi=300}
-run_chart_plot(c(13, 19, 18, 14, 16, 12, 21, 18, 22)) 
+run_chart_plot(c(13, 19, 18, 14, 16, 12, 21, 18, 17, 22)) 
 ```
 :::
 ::::
@@ -174,7 +174,7 @@ Reveal suggested answer for Pause for Thought 2-a
 </button>
 
 <div class="collapse" id="collapse_2a">
-All I can say is that, in my experience, the answer is **Yes!** I might comment that the management are going to be awfully busy if they keep acting one way whenever a figure goes up, and another way whenever it goes down—for, except on the odd occasions when the figure stays the same, it *will* always either go up or go down! We'll return to this illustration tomorrow.
+All I can say is that, in my experience, the answer is Yes! I might comment that the management are going to be awfully busy if they keep acting one way whenever a figure goes up, and another way whenever it goes down—for, except on the odd occasions when the figure stays the same, it *will* always either go up or go down! We'll return to this illustration tomorrow.
 </div>
 </div>
 
