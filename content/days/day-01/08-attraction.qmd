@@ -125,8 +125,8 @@ Let me briefly comment on the matter of averages. For in the case of people who 
 averages, we shall have to work very hard to help them to understand variation!
 
 Careless thought about the concept of “average” can have various peculiar consequences, either serious
-or humorous depending upon circumstances. I relate a few near the end of *DemDim* Chapter 10: “Failures with Figures”. For example, Dr Deming was once told of the occasion when the Trades Union Con-
-gress in Britain voted on the motion that no wage in the country should be below average. Apparently it
+or humorous depending upon circumstances. I relate a few near the end of *DemDim* Chapter 10: “Failures with Figures”. For example, Dr Deming was once told of the occasion when the Trades Union Congress
+in Britain voted on the motion that no wage in the country should be below average. Apparently it
 failed by just three votes. Deming wryly commented: <span class=deming_quote>“How I wish it had succeeded!”</span>. The TUC may have
 been following the example of the Australian Minister of Labour who was quoted as having said in 1973
 that “We look forward to the day when everybody will receive more than the average wage”. Even Jim

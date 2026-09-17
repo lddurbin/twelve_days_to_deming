@@ -5,7 +5,7 @@ description: "Now you play the Foreman: react to each Red Beads result as it com
 execute:
   echo: false
 ---
-[]{#sec-page22}I well remember that, the first few times I was preparing to run the Red Beads Experiment in public, I felt rather nervous. Wouldn't you—knowing that you (as the Foreman) were going to be spending an hour or more just talking about 24 as-yet-unknown *random numbers* (or as near random as makes no difference)? But I soon found out that it could hardly be easier! Whatever numbers turn up, it's so simple to find "reasons" for them. Of course it is: we are well-practised at the art. We do it every week, month, quarter, half-year, year, in our management reports, with production figures, sales figures, financial figures. Financial commentators do it every day—or even every hour or less, e.g. regarding the movements of stock market indices and exchange rates. I'm not saying that all the reasons reported are wrong. I am pointing out that, *whatever* are the results, we and they come up with reasons—whether there actually are any or not! Even on a day when, say, the stock market index hardly moves, a reason is given for that! Few bosses or customers are yet ready to hear explanations just served in terms of *common-cause* variation. Therefore they are given special-cause explanations all the time, for every result. What clearer contradiction in terms could there be? *Yes*, of course the Foreman praises a lower number of defectives. *Of course* he criticises a larger number. Of course he remarks on consistent performance. *Of course* he makes remarks on erratic performance. *Of course* he complains if the target isn't being met. *Of course!*
+[]{#sec-page22}I well remember that, the first few times I was preparing to run the Red Beads Experiment in public, I felt rather nervous. Wouldn't you—knowing that you (as the Foreman) were going to be spending an hour or more just talking about 24 as-yet-unknown *random numbers* (or as near random as makes no difference)? But I soon found out that it could hardly be easier! Whatever numbers turn up, it's so simple to find "reasons" for them. Of course it is: we are well-practised at the art. We do it every week, month, quarter, half-year, year, in our management reports, with production figures, sales figures, financial figures. Financial commentators do it every day—or even every hour or less, e.g. regarding the movements of stock market indices and exchange rates. I'm not saying that all the reasons reported are wrong. I am pointing out that, *whatever* are the results, we and they come up with reasons—whether there actually are any or not! Even on a day when, say, the stock market index hardly moves, a reason is given for that! Few bosses or customers are yet ready to hear explanations just versed in terms of *common*-cause variation. Therefore they are given *special*-cause explanations all the time, for every result. What clearer contradiction in terms could there be? Yes, *of course* the Foreman praises a lower number of defectives. *Of course* he criticises a larger number. *Of course* he remarks on consistent performance. *Of course* he remarks on erratic performance. *Of course* he complains if the target isn't being met. *Of course!*
 
 Now comes the time for you to get some practice at playing the role of the Foreman! Remember that the Foreman (pretends that he) is in the Un-Knowing state—typified by all the discussion in the so-called "Analysis" of the results on [pages 12 and 13, starting in A Brief Overview](03-a-brief-overview.qmd#sec-page12). So, **to help you get ready to perform in that role, I recommend that you now go back and re-read that page and a half before continuing here.**
 
@@ -15,9 +15,9 @@ Now comes the time for you to get some practice at playing the role of the Forem
 
 The next four pages show you, one at a time, the results from the Red Beads Experiment illustrated in *DemDim* Chapter 6.
 
-There is space for you to insert indications of your reaction to the number of red beads obtained at each stage. Naturally, you could say even more if the experiment were "live": you could see things to congratulate or criticise about the way the Willing Workers are carrying out their task (wrong angle, or too fast, or too slow, or too unsteady ... ). But there's still plenty that can be said in response to the figures alone!
+There is space for you to insert indications of your reaction to the number of red beads obtained at each stage. Naturally, you could say even more if the experiment were "live": you could *see* things to congratulate or criticise about the way the Willing Workers are carrying out their task (wrong angle, or too fast, or too slow, or too unsteady ... ). But there's still plenty that can be said in response to the figures alone!
 
-To get you started, I have included my suggestions of reactions to the first four figures—they are very much the kind of comments that you might have heard from Dr Deming himself. See how you get on with the rest of the experiment. If, after some thought, you need extra help then I've given a few further suggestions on [page 27, in the Foreman's Transcript below](06-your-turn.qmd#sec-page27).
+To get you started, I have included my suggestions of reactions to the first four figures—they are very much the kind of comments that you might have heard from Dr Deming himself. See how you get on with the rest of the experiment. If, after some thought, you need extra help then I've given a few further suggestions on [page 27, below](06-your-turn.qmd#sec-page27).
 
 <span class="neave_note">
 <p>NB The version of the experiment in *DemDim* Chapter 6 is Dr Deming's. I should therefore mention three minor differences between his version here and my version which is otherwise being illustrated today:</p>
@@ -457,11 +457,12 @@ viewof activity_2f_xx = persist(
 )
 ```
 
+[]{#sec-page27}
 Here are a few more suggestions:
 
 - On Day 2 for Al: <span class="foreman-remark">“You were yesterday’s top performer—must have let it go to your head.”</span>
 - On Day 2 after Ben’s 17: <span class="foreman-remark">“Hold it—stop the line!”</span>
-- At the end of Day 2: <span class="foreman-remark">“65? That’s a lot worse than the first week! Quite dreadful.”</span>
+- At the end of Day 2: <span class="foreman-remark">“[**65?**]{.underline} That’s a lot worse than the [first]{.underline} week! Quite dreadful.”</span>
 - On Day 3 for Al: <span class="foreman-remark">“From bad to worse.”</span>
 - On Day 3 for Ben: <span class="foreman-remark">“I’m glad you learned your lesson.”</span>
 - On Day 4 for Audrey: <span class="foreman-remark">“You’re a slow learner. But I’m proud of you.”</span>
@@ -471,7 +472,7 @@ Now, if you haven’t done so already, go back and try to complete your remarks 
 
 <span class="neave_note">*(Then, finally, take a look at my complete set of remarks on [Appendix page 8](../../appendix/02-day-2.qmd#sec-page8).)*</span>
 
-### The Foreman’s Transcript {#sec-page27}
+### The Foreman’s Transcript
 
 Here is every reaction you gave—to pure, random variation. Read them back and let the absurdity sink in.
 

@@ -1,0 +1,8 @@
+## 2026-09-17 — Day 2's reference to the note on the reverse of its ID page has nothing to point at
+
+- **What** — Neave's small-print note in "A brief overview" opens *"Referring back to my comment on the reverse of today's ID page, the distortion was particularly bad on this recruitment advertisement."* The note is kept word for word, but the page it refers back to is not on the site: Day 2's ID page and the NB on its reverse (about older scanned images looking distorted on some screens) are PDF front matter, which the web edition does not reproduce. A reader therefore meets a reference to a comment they have not seen. No editorial bracket is added.
+- **Where** — `content/days/day-02/03-a-brief-overview.qmd:30` (A Brief Overview, below the recruitment advertisement).
+- **Source reference** — `E.Day.2.12Oct21.pdf`: the note is on printed page 9 (PDF page 13); the comment it refers to is on the reverse of the ID page (PDF page 2, unnumbered).
+- **Why** — The NB is about viewing PDF scans in Adobe Acrobat Reader, which does not apply to the site's re-created and re-extracted images, so reproducing it would add a page of advice about a problem the reader does not have. Rewording Neave's note to remove the reference would be a larger departure than recording the gap.
+- **Decided in** — Wave 2 Day 2 adjudication, [#822](https://github.com/lddurbin/twelve_days_to_deming/issues/822) (2026-09-17): Lee's note on `S-02` in `workflow/validation/adjudications/day-02.json` was "a deviation entry recording that the ID-page note is omitted".
+- **Landed in** — PR [#828](https://github.com/lddurbin/twelve_days_to_deming/pull/828).
