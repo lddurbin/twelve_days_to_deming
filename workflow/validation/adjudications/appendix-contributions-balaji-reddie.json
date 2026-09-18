@@ -95,7 +95,7 @@
           "evidence_html": "Verified on the page image for PDF p6, whose footer reads &ldquo;Contributions from Balaji Reddie : page 2&rdquo;. This is the ladder that carries Reddie's argument out from the body to industry, the market and the world, and then to the family. <strong>The site later refers back to it.</strong> Line 67 reads &ldquo;We have seen that, since a family is a system, it is silly to talk of the &lsquo;most important&rsquo; member of the family&rdquo; &mdash; a back-reference to a passage the reader was never shown. That is what makes this an accidental omission rather than an editorial cut.",
           "decision": "accept",
           "decision_note": null,
-          "page_pos": 1
+          "page_pos": 3
         },
         {
           "id": "Q-02",
@@ -161,7 +161,8 @@
           "evidence_html": "The source asks a question; the site makes it an exclamation. The rhetorical shape of the paragraph is a chain of questions, so the mark matters a little more than usual.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "how much more senseless is ranking or rating (unless you're thinking *negatively*)?"
+          "proposal": "how much more senseless is ranking or rating (unless you're thinking *negatively*)?",
+          "page_pos": 1
         },
         {
           "id": "Q-06",
@@ -177,7 +178,8 @@
           "evidence_html": "The site drops the opening bracket but keeps the closing one, so the sentence carries an unmatched <code>)</code> as published. Marked critical because it is a visible typographic error on the live page, not just a fidelity question.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "Its optimum value is said to be 98.4°F (or 98.6°F, depending on the country in which you live)."
+          "proposal": "Its optimum value is said to be 98.4°F (or 98.6°F, depending on the country in which you live).",
+          "page_pos": 3
         },
         {
           "id": "Q-07",
@@ -193,7 +195,8 @@
           "evidence_html": "The source names the antecedent &mdash; the processes whose fluctuations are easily seen. The site's &lsquo;these&rsquo; is vaguer and could be read as pointing at the fluctuations instead.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "Those are the processes that we are interested in studying and working to improve if at all possible."
+          "proposal": "Those are the processes that we are interested in studying and working to improve if at all possible.",
+          "page_pos": 4
         },
         {
           "id": "Q-08",
@@ -210,7 +213,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "irrespective of any harm thus caused elsewhere.",
-          "page_pos": 1
+          "page_pos": 2
         },
         {
           "id": "Q-09",
@@ -227,7 +230,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "Recall the section in Prelude A headed \"Optimise or maximise?\".",
-          "page_pos": 2
+          "page_pos": 1
         },
         {
           "id": "Q-10",
@@ -243,7 +246,8 @@
           "evidence_html": "Verified on the page image for PDF p12. The colon introduces the explanation; the semicolon merely joins.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "But one day I didn't get to work until 9.10 am—it took me 40 minutes to get there: the traffic was awful!"
+          "proposal": "But one day I didn't get to work until 9.10 am—it took me 40 minutes to get there: the traffic was awful!",
+          "page_pos": 4
         },
         {
           "id": "Q-11",
@@ -259,7 +263,8 @@
           "evidence_html": "The substitution makes the sentence contradict itself: something &lsquo;fairly possible&rsquo; is not &lsquo;highly unlikely&rsquo;. &lsquo;faintly possible&rsquo; is exactly the reading the lower process limit supports.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "although it is still faintly possible that I could just get to work by 9.00 am, it's highly unlikely."
+          "proposal": "although it is still faintly possible that I could just get to work by 9.00 am, it's highly unlikely.",
+          "page_pos": 5
         },
         {
           "id": "Q-12",
@@ -276,7 +281,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "I've found that, on average, it takes me 20 minutes to drive to work, and that the lower and upper process limits, i.e. the anticipated minimum and maximum times, are 15 and 25 minutes respectively.",
-          "page_pos": 1
+          "page_pos": 2
         },
         {
           "id": "Q-13",
@@ -293,7 +298,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "time to snatch a coffee!",
-          "page_pos": 2
+          "page_pos": 3
         },
         {
           "id": "Q-14",
@@ -309,7 +314,8 @@
           "evidence_html": "Verified on the page image for PDF p13. The source is a backward reference to a method the reader has already met. The site turns it into a forward-looking instruction, which then contradicts the next sentence and the one after it (&ldquo;you will not need to do any such calculations&rdquo;). Read on the live site, a reader on Day 12 is told they may still have Day 3's calculations ahead of them.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "You saw how to do it on Day 3."
+          "proposal": "You saw how to do it on Day 3.",
+          "page_pos": 1
         },
         {
           "id": "Q-15",
@@ -325,7 +331,8 @@
           "evidence_html": "Two substitutions in one sentence. &lsquo;These are a collection&rsquo; has no antecedent and disagrees in number; &lsquo;often varying by many of them&rsquo; is not a meaningful phrase. The source's point is simply that a process has many common causes.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "There is a collection of common causes, often very many of them, for the behaviour of any process, and no value within its process limits can be regarded as unusual."
+          "proposal": "There is a collection of common causes, often very many of them, for the behaviour of any process, and no value within its process limits can be regarded as unusual.",
+          "page_pos": 4
         },
         {
           "id": "Q-16",
@@ -341,7 +348,8 @@
           "evidence_html": "Two changes in one sentence. Dropping &lsquo;than average&rsquo; loses the comparison the whole table is built on &mdash; &lsquo;produced more&rsquo; alone invites the reading &lsquo;more than the first three&rsquo;, which is not what the averages show.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "The HR Manager calculated the average: 9.38. Ah: we see that the first three workers all produced less than the average number of rejects, the second three produced more than average."
+          "proposal": "The HR Manager calculated the average: 9.38. Ah: we see that the first three workers all produced less than the average number of rejects, the second three produced more than average.",
+          "page_pos": 1
         },
         {
           "id": "Q-17",
@@ -357,7 +365,8 @@
           "evidence_html": "The dropped noun leaves &lsquo;only one&rsquo; dangling against &lsquo;all their cars&rsquo; earlier in the sentence.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "The organisation should surely have investigated to see if the problem was occurring with *all* their cars (a system fault, i.e. common causes) or with only one car (a fault external to the system, i.e. a special cause)."
+          "proposal": "The organisation should surely have investigated to see if the problem was occurring with *all* their cars (a system fault, i.e. common causes) or with only one car (a fault external to the system, i.e. a special cause).",
+          "page_pos": 1
         },
         {
           "id": "Q-18",
@@ -373,7 +382,8 @@
           "evidence_html": "Caught at 98% &mdash; the kind the eye skips. &lsquo;investigate&rsquo; is the act a knee-jerk reaction skips; &lsquo;analyse&rsquo; narrows it to a desk exercise and weakens the contrast Reddie is drawing.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "With knee-jerk reactions one does not stop to investigate whether that occurrence is one of the many feasible consequences of the system or process while it is behaving normally"
+          "proposal": "With knee-jerk reactions one does not stop to investigate whether that occurrence is one of the many feasible consequences of the system or process while it is behaving normally",
+          "page_pos": 2
         },
         {
           "id": "Q-19",
@@ -389,7 +399,8 @@
           "evidence_html": "Dropped conjunction. Trivial, and included only for completeness of the record.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "However, suppose that Ravi had been working for a different manager"
+          "proposal": "However, suppose that Ravi had been working for a different manager",
+          "page_pos": 1
         },
         {
           "id": "Q-20",
@@ -405,7 +416,8 @@
           "evidence_html": "The dropped qualifier is the claim. Without &lsquo;in effect simply&rsquo; the sentence asserts that the process literally produces the numbers; with it, Reddie is saying the numbers are <em>attributable</em> to the process rather than the person, which is the section's entire argument.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "But it just isn't logical to make comparisons between two numbers and judge people accordingly when those numbers are in effect simply being produced by the *process* or the *system* within which they are working."
+          "proposal": "But it just isn't logical to make comparisons between two numbers and judge people accordingly when those numbers are in effect simply being produced by the *process* or the *system* within which they are working.",
+          "page_pos": 2
         },
         {
           "id": "Q-21",
@@ -422,7 +434,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "and processes keep on fluctuating. The system's overall output depends in some way on all of these very numerous fluctuations. So it must follow that the system's output, i.e. its \"performance\", is also never constant but keeps changing.",
-          "page_pos": 1
+          "page_pos": 2
         },
         {
           "id": "Q-22",
@@ -439,7 +451,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "We have seen that systems are generally composed of several interlinked parts, maybe very many, which combine to produce the system's output. But we have also learned that the performance of each part of the system is never constant but subject to variation",
-          "page_pos": 2
+          "page_pos": 1
         },
         {
           "id": "Q-23",
@@ -455,7 +467,8 @@
           "evidence_html": "Confirmed from the PDF's own font data, which puts the italic run at &ldquo;own: only when related to theory&rdquo; &mdash; so the colon sits inside the emphasis, exactly as the site has the semicolon.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "Deming agreed that these are important—*but not on their own: only when related to theory*."
+          "proposal": "Deming agreed that these are important—*but not on their own: only when related to theory*.",
+          "page_pos": 1
         },
         {
           "id": "Q-24",
@@ -471,7 +484,8 @@
           "evidence_html": "Same colon-for-semicolon substitution as the finding above, two paragraphs later.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "Theory does not provide exact solutions to those problems: nothing could—again, this is not an exact science."
+          "proposal": "Theory does not provide exact solutions to those problems: nothing could—again, this is not an exact science.",
+          "page_pos": 2
         },
         {
           "id": "Q-25",
@@ -487,7 +501,8 @@
           "evidence_html": "One rides a scooter. The whole story then turns on kicking a lever and running alongside it, so &lsquo;drives&rsquo; is wrong about the vehicle as well as the idiom. Opening sentence of the chapter's central illustration.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "A man rides to work every day on his Bajaj scooter."
+          "proposal": "A man rides to work every day on his Bajaj scooter.",
+          "page_pos": 1
         },
         {
           "id": "Q-26",
@@ -503,7 +518,8 @@
           "evidence_html": "Verified on the page image for PDF p19. &lsquo;He wants to do&mdash;he has the theory&rsquo; is not a sentence. The source's point is the boy's <em>confidence</em>, which is what makes the failure two sentences later land.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "He knows what to do—he has the theory: \"Kick ⇒ Start\"."
+          "proposal": "He knows what to do—he has the theory: \"Kick ⇒ Start\".",
+          "page_pos": 3
         },
         {
           "id": "Q-27",
@@ -519,7 +535,8 @@
           "evidence_html": "This is the hinge of the information/knowledge distinction, and the next line of the page states it outright: &ldquo;There is a difference between information and knowledge&rdquo;. &lsquo;mere information&rsquo; is the contrast with &lsquo;knowledge&rsquo;. &lsquo;more information&rsquo; says the opposite of what the passage means and leaves the following line unsupported.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "this was mere information for every other child in that class."
+          "proposal": "this was mere information for every other child in that class.",
+          "page_pos": 1
         },
         {
           "id": "Q-28",
@@ -535,7 +552,8 @@
           "evidence_html": "The paragraph runs through three cases in parallel &mdash; the boy's theory, the girl's theory, our hunch &mdash; and the pronoun has to match. &lsquo;my&rsquo; attributes the girl's theory to the narrator and breaks the parallel.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "Without her initial theory, the little girl would not have learned that \"A ⇒ B\" does *not* imply that \"B ⇒ A\""
+          "proposal": "Without her initial theory, the little girl would not have learned that \"A ⇒ B\" does *not* imply that \"B ⇒ A\"",
+          "page_pos": 2
         },
         {
           "id": "Q-29",
@@ -551,7 +569,8 @@
           "evidence_html": "Verified on the page image for PDF p23. Two whole sentences are gone and the surviving halves have been spliced into one. <strong>What is lost is the definition of &lsquo;intrinsic motivator&rsquo; itself</strong> &mdash; the term is introduced nowhere else in the Preludes, yet Prelude D goes on to use it repeatedly (&ldquo;fostering and building upon people's <em>intrinsic</em> motivation&rdquo;) and to contrast it with the extrinsic motivators defined two sentences earlier. The spliced result is also simply false about children: they are not &lsquo;intrinsically connected with the questions&rsquo;; the <em>motivators</em> are.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "Children ask questions simply because they want to know, they are curious, they want to learn, they enjoy learning. These are \"intrinsic motivators\". Unlike extrinsic motivators, intrinsic motivators are intimately connected with the questions and the learning."
+          "proposal": "Children ask questions simply because they want to know, they are curious, they want to learn, they enjoy learning. These are \"intrinsic motivators\". Unlike extrinsic motivators, intrinsic motivators are intimately connected with the questions and the learning.",
+          "page_pos": 1
         },
         {
           "id": "Q-30",
@@ -567,7 +586,8 @@
           "evidence_html": "Single-letter typo that makes the question ungrammatical on the live page.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "For example, is the quick learner \"better\" than the slow learner?"
+          "proposal": "For example, is the quick learner \"better\" than the slow learner?",
+          "page_pos": 1
         },
         {
           "id": "Q-31",
@@ -583,7 +603,8 @@
           "evidence_html": "The site's version is ungrammatical &mdash; &lsquo;Watch what they do and what makes that child get excited&rsquo; has no verb for the second clause. It also answers the &lsquo;How?&rsquo; less directly than the source does.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "How? Watch and find out what makes that child get excited, what makes that student's eyes light up, what makes that person at your place of work go the extra mile to get the job done."
+          "proposal": "How? Watch and find out what makes that child get excited, what makes that student's eyes light up, what makes that person at your place of work go the extra mile to get the job done.",
+          "page_pos": 3
         },
         {
           "id": "Q-32",
@@ -599,7 +620,8 @@
           "evidence_html": "Verified on the page image for PDF p26. The site's clause is not in the source at all. It also does not support the sentence it is attached to: being &lsquo;too busy doing the right things wrong&rsquo; is not a reason not to take risks. Fear of going wrong is exactly the consequence of extrinsic motivation the paragraph is building to, and it sets up the contrast in the next sentence.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "In such circumstances, people will not take risks since they will be too fearful of going wrong."
+          "proposal": "In such circumstances, people will not take risks since they will be too fearful of going wrong.",
+          "page_pos": 1
         },
         {
           "id": "Q-33",
@@ -615,7 +637,8 @@
           "evidence_html": "Verified on the page image. The source pairs two distinct rewards &mdash; the doer's satisfaction and the pleasure given to others. The site collapses both to &lsquo;pleasure&rsquo;, which reads as a repetition and loses the distinction.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "They will no longer behave well, do their homework, or finish their chores for the satisfaction of doing good things or for the pleasure given to others for their so doing."
+          "proposal": "They will no longer behave well, do their homework, or finish their chores for the satisfaction of doing good things or for the pleasure given to others for their so doing.",
+          "page_pos": 2
         },
         {
           "id": "Q-34",
@@ -631,7 +654,8 @@
           "evidence_html": "Caught at 96%.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "with prizes awarded to \"Number 1\", the \"winner\"."
+          "proposal": "with prizes awarded to \"Number 1\", the \"winner\".",
+          "page_pos": 3
         },
         {
           "id": "Q-35",
@@ -647,7 +671,8 @@
           "evidence_html": "The site's version is a sentence fragment with no main verb, published as the opening line of the section. The source sentence introduces a <em>category</em>, which is what the Amritraj story then illustrates.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "There are other types of beneficial competing *with*—including competing with oneself!"
+          "proposal": "There are other types of beneficial competing *with*—including competing with oneself!",
+          "page_pos": 1
         },
         {
           "id": "Q-36",
@@ -697,7 +722,8 @@
           "evidence_html": "&ldquo;or the equivalent thereof&rdquo; only parses if what precedes it is a concrete thing that could have an equivalent &mdash; the cheese. &lsquo;coerced, or the equivalent thereof&rsquo; is meaningless, and it also loses the joke the next paragraph depends on, where Kohn retells the experiment from the rat's point of view.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "This led the psychologist to believe, and make others believe, that nobody would do anything without being shown some cheese, or the equivalent thereof."
+          "proposal": "This led the psychologist to believe, and make others believe, that nobody would do anything without being shown some cheese, or the equivalent thereof.",
+          "page_pos": 1
         },
         {
           "id": "Q-39",
@@ -713,7 +739,8 @@
           "evidence_html": "The section is about <em>why</em> an improvement is made &mdash; for its own sake, not for a visible figure. &lsquo;motive&rsquo; is the word that carries that; &lsquo;consideration&rsquo; shifts it to a question of what was taken into account.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "The difference with the genuine approach is that this beneficial change is done *purely* for the sake of making a beneficial change *without* any other motive."
+          "proposal": "The difference with the genuine approach is that this beneficial change is done *purely* for the sake of making a beneficial change *without* any other motive.",
+          "page_pos": 1
         },
         {
           "id": "Q-40",
@@ -729,7 +756,8 @@
           "evidence_html": "A semicolon before a quotation is a straightforward typographic error, visible on the live page.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "So he asked the Japanese what they did. They answered: \"We have Quality Circles"
+          "proposal": "So he asked the Japanese what they did. They answered: \"We have Quality Circles",
+          "page_pos": 1
         },
         {
           "id": "Q-41",
@@ -745,7 +773,8 @@
           "evidence_html": "&lsquo;their&rsquo; attaches the discussions to the Quality Circle he has just been introduced to.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "He was told that he would be welcome to join in their discussions if he so wished."
+          "proposal": "He was told that he would be welcome to join in their discussions if he so wished.",
+          "page_pos": 2
         },
         {
           "id": "Q-42",
@@ -761,7 +790,8 @@
           "evidence_html": "&lsquo;molten solder metal&rsquo; is the source's phrase and is technically right. &lsquo;molten solder liquid&rsquo; is redundant and is not what solder is called.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "All he had to do was to take a board with components on it and immerse it in a vessel containing the molten solder metal."
+          "proposal": "All he had to do was to take a board with components on it and immerse it in a vessel containing the molten solder metal.",
+          "page_pos": 1
         },
         {
           "id": "Q-43",
@@ -777,7 +807,8 @@
           "evidence_html": "&lsquo;But&rsquo; marks the turn from anger to self-examination, which is the point of the story and the origin of Just In Time. The site's &lsquo;So&rsquo; makes the realisation follow <em>from</em> the anger, and produces &lsquo;So&hellip; So&hellip;&rsquo; in consecutive sentences.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "She said to him: \"I was angry that you were wasting food. But I realised that the fault was mine since nobody likes to eat cold food. So I decided to wait and prepare your meal after you got home\"."
+          "proposal": "She said to him: \"I was angry that you were wasting food. But I realised that the fault was mine since nobody likes to eat cold food. So I decided to wait and prepare your meal after you got home\".",
+          "page_pos": 1
         },
         {
           "id": "Q-44",
@@ -793,7 +824,8 @@
           "evidence_html": "The site's version repeats &lsquo;about&rsquo; twice in eight words and drops the sense of contemporaneity the source has.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "I so much wanted to know about everything happening in the world of Quality."
+          "proposal": "I so much wanted to know about everything happening in the world of Quality.",
+          "page_pos": 3
         },
         {
           "id": "Q-45",
@@ -809,7 +841,8 @@
           "evidence_html": "The dash makes the repetition a challenge thrown at the class in one breath, which is the anecdote's tone. The full stop breaks it into two flat statements.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "He then stopped and said: \"I hope you know what I'm talking about—Six Sigma? Six Sigma?\"."
+          "proposal": "He then stopped and said: \"I hope you know what I'm talking about—Six Sigma? Six Sigma?\".",
+          "page_pos": 4
         },
         {
           "id": "Q-46",
@@ -825,7 +858,8 @@
           "evidence_html": "Two problems. &lsquo;or why&rsquo; is dropped, and it is half of what Reddie says the copiers do not know. And &lsquo;one can somehow both become as efficient and effective as them&rsquo; is ungrammatical &mdash; &lsquo;both&rsquo; has nothing to pair.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "It is such a trite error to imagine that, by merely copying a few Japanese words and trying to copy a few of their concepts (excluding Six Sigma—this was a Western invention) without knowledge of where they came from or why, others could become as efficient and effective as them."
+          "proposal": "It is such a trite error to imagine that, by merely copying a few Japanese words and trying to copy a few of their concepts (excluding Six Sigma—this was a Western invention) without knowledge of where they came from or why, others could become as efficient and effective as them.",
+          "page_pos": 2
         },
         {
           "id": "Q-47",
@@ -841,7 +875,8 @@
           "evidence_html": "The referent is the plural practices (KAIZEN, Quality Circles, Just In Time) named throughout the section.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "That learning has mostly been lacking by those who have supposedly adopted them in the West and in India—so it is small wonder that they have often made such a mess of them."
+          "proposal": "That learning has mostly been lacking by those who have supposedly adopted them in the West and in India—so it is small wonder that they have often made such a mess of them.",
+          "page_pos": 3
         },
         {
           "id": "Q-48",
@@ -857,7 +892,8 @@
           "evidence_html": "The other eleven bullets in this four-part summary all read &lsquo;Understanding that&hellip;&rsquo; or &lsquo;Understanding the&hellip;&rsquo;. &lsquo;how&rsquo; changes the claim from <em>that</em> they destroy people to <em>the mechanism by which</em> they do.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "- Understanding that ranking and competition destroy people."
+          "proposal": "- Understanding that ranking and competition destroy people.",
+          "page_pos": 2
         },
         {
           "id": "Q-49",
@@ -873,7 +909,8 @@
           "evidence_html": "&lsquo;never ceased to continue&rsquo; is a double negative wrapped round a continuative verb and reads awkwardly. The source's phrasing is about Deming's appetite, which is the contrast with &lsquo;knew it all&rsquo;.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "Quite the opposite: he was always keen to continue learning."
+          "proposal": "Quite the opposite: he was always keen to continue learning.",
+          "page_pos": 3
         },
         {
           "id": "Q-50",
@@ -890,7 +927,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "Deming told Japan's leadership that industry, government, education and healthcare must come together as a system and work toward getting Japan out of their crisis.",
-          "page_pos": 1
+          "page_pos": 4
         },
         {
           "id": "Q-51",
@@ -907,7 +944,7 @@
           "decision": "accept",
           "decision_note": null,
           "proposal": "They applied his thinking to these sectors and brought them together with stunning effect.",
-          "page_pos": 2
+          "page_pos": 5
         },
         {
           "id": "Q-52",
@@ -923,7 +960,8 @@
           "evidence_html": "Two spaces where the other three bullets in the Mission Statement list have one. Invisible in rendered HTML, but it is a difference from the source and cheap to clear while the file is open.",
           "decision": "accept",
           "decision_note": null,
-          "proposal": "- Discipline without Fear; and"
+          "proposal": "- Discipline without Fear; and",
+          "page_pos": 1
         }
       ]
     },
@@ -954,7 +992,8 @@
           "evidence_html": "Both italics lost. This is the sentence that sets up the distinction the whole Preludes sequence rests on &mdash; seeing versus observing &mdash; and without the emphasis the two verbs read as synonyms.",
           "proposal": "He pointed out that, although people *see* the same event, they may nonetheless *observe* different things.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 1
         },
         {
           "id": "E-02",
@@ -970,7 +1009,8 @@
           "evidence_html": "Two italics lost in one sentence.",
           "proposal": "Underground they seem to *share* everything—that's surely *real* togetherness!",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 1
         },
         {
           "id": "E-03",
@@ -986,7 +1026,8 @@
           "evidence_html": "Read from the page image for PDF p6. The paragraph's other four italics (<em>negative</em>, <em>positive</em>, <em>best possible way</em>, <em>any</em>) survive on the site; these two do not. Both carry argumentative weight &mdash; &lsquo;could&rsquo; concedes the point before overturning it, &lsquo;is&rsquo; is the overturning.",
           "proposal": "In one sense, of course, the heart or the boss *could* be regarded as the most important. … And, in that positive sense, no one component of the system *is* more important than any other: they are interconnected.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 2
         },
         {
           "id": "E-04",
@@ -1002,7 +1043,8 @@
           "evidence_html": "The emphasis sets up the Deming quotation in the very next sentence, &ldquo;Theory leads to questions&rdquo;. Without it the echo is lost.",
           "proposal": "But, nevertheless, that hunch soon *led to* questions, just as in the other two cases.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 1
         },
         {
           "id": "E-05",
@@ -1018,7 +1060,8 @@
           "evidence_html": "The site keeps <em>natural</em> earlier in the same paragraph but loses this one.",
           "proposal": "And imagine the despondency all around if you *still* do not finish top.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 2
         },
         {
           "id": "E-06",
@@ -1034,7 +1077,8 @@
           "evidence_html": "Lost italic on the word the sentence turns on.",
           "proposal": "it often becomes hard to *stop* them working!",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 1
         },
         {
           "id": "E-07",
@@ -1050,7 +1094,8 @@
           "evidence_html": "The site keeps <em>not</em> earlier in the same sentence-pair but loses this one.",
           "proposal": "even if you do not understand right now *why* he said something.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 2
         },
         {
           "id": "E-08",
@@ -1066,7 +1111,8 @@
           "evidence_html": "The emphasis is what turns Norb Keller's General Motors anecdote into a question addressed to the reader.",
           "proposal": "So if *your* salary were doubled, starting tomorrow, will your work improve?",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 3
         },
         {
           "id": "E-09",
@@ -1082,7 +1128,8 @@
           "evidence_html": "The italic is the correction being made &mdash; Zero Stock is a consequence, not the system itself. The sentence before it reads &ldquo;That is not what it is&rdquo;.",
           "proposal": "Zero Stock is the *effect* of the Toyota Production System.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 2
         }
       ]
     },
@@ -1112,7 +1159,8 @@
           "site_html": "- [Prelude A: Understanding a System](01-prelude-a-system.qmd)<br>- [Prelude B &hellip;](02-prelude-b-statistical-thinking.qmd)<br>&hellip;",
           "evidence_html": "Reference mismatch 2 in the report, and Altered 34/44. The contents page's leader dots and printed page numbers are replaced by working links, on both this page and the Lessons from History contents. That is the established site treatment for a contents list and is not a fidelity defect.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 2
         },
         {
           "id": "N-02",
@@ -1127,7 +1175,8 @@
           "site_html": "… the average moving range is $\\overline{MR}$ = 18 ÷ 9 = 2 minutes … as 2.66 × $\\overline{MR}$ = 2.66 × 2 = 5.32.",
           "evidence_html": "Reference mismatch 1 and several of Altered 6's flags. <code>pdftotext</code> floats the source's overbars onto their own lines and reads the multiplication sign as <code>!</code>, so the comparator sees &ldquo;2.66 !&rdquo; and a stray &ldquo;5, 32, 2, 66&rdquo; token list. The site's MathJax markup renders exactly what the source prints.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 3
         },
         {
           "id": "N-03",
@@ -1142,7 +1191,8 @@
           "site_html": "Markdown tables with the moving ranges as *3* *2* *0* … in italics, matching the source's own italics.",
           "evidence_html": "The single entry in the report's &ldquo;Potentially Missing&rdquo; section is the raw row <code>Mon 11 Tue 12 &hellip; 21 18 20 20 22 23 19 21 19 17</code>, which <code>pdftotext</code> reads as a paragraph and the site sets as a table. Not missing.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 2
         },
         {
           "id": "N-04",
@@ -1157,7 +1207,8 @@
           "site_html": "So he has a theory: \"Kick ⇒ Start\" (where the symbol \"⇒\" means \"implies\").",
           "evidence_html": "Read from the page image for PDF p19: the source glyph is a double arrow, set in a symbol font that <code>pdftotext</code> renders as <code>!</code>. That is why the report shows &ldquo;Kick ! Start&rdquo; and splits the sentence in two. <strong>The site is correct and the comparator is wrong.</strong> This single artifact accounts for roughly a dozen flags across Prelude C, including several of its lowest-scoring ones.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 2
         },
         {
           "id": "N-05",
@@ -1172,7 +1223,8 @@
           "site_html": "… it begins in the [Optional Extras](../10-optional-extras.qmd#sec-page43) section of the Appendix.",
           "evidence_html": "Altered 40, at 79%. The printed page pointer is rewritten as an enriched link to where that material actually lives on the site. The <code>#sec-page43</code> anchor preserves the page number, so nothing is lost. Same convention as the finding above.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 1
         },
         {
           "id": "N-06",
@@ -1187,7 +1239,8 @@
           "site_html": "… when you reach Activity 12–b on [Day 12 page 9](../../days/day-12/03-wisdom-from-peter-scholtes.qmd#sec-page9).",
           "evidence_html": "The bare <code>[WB NNN]</code> workbook reference is stripped and the page reference is enriched into a link. Both are settled site-wide policy &mdash; the workbook refs under #213, the link enrichment under #610.",
           "decision": "accept",
-          "decision_note": null
+          "decision_note": null,
+          "page_pos": 1
         },
         {
           "id": "N-07",
@@ -1233,7 +1286,8 @@
           "evidence_html": "A bare intra-document page reference that the site carries over verbatim. On the site the tree passage is in the same scrolling chapter, so &lsquo;the previous page&rsquo; points at nothing. This is exactly the #582/#610 population &mdash; same-document bare page mentions &mdash; and the enriched-link-text treatment that epic settled on is what should apply. Flagging it here so it is on the record, not fixing it in a fidelity pass.",
           "decision": "accept",
           "decision_note": null,
-          "outcome": "Deferred to #610 — logged as part of that epic's same-document bare page-reference population."
+          "outcome": "Deferred to #610 — logged as part of that epic's same-document bare page-reference population.",
+          "page_pos": 2
         },
         {
           "id": "S-02",
@@ -1249,7 +1303,8 @@
           "evidence_html": "<strong>The site is right and the source has a typo.</strong> Neave's sentence is missing &lsquo;be&rsquo;; the site silently supplies it. That is the sanctioned-typo class, and it is exactly what #831 is still open to settle: whether a silent correction of a source typo needs a <code>docs/deviations/</code> entry. Day 3 rejected three such findings (D3-11, D3-12, D3-27) and left D3-28 undecided. No text change is proposed either way &mdash; the only question is whether this gets a deviation entry, and the answer should match whatever #831 decides so all five are consistent.",
           "decision": "accept",
           "decision_note": null,
-          "outcome": "Deferred to #831 — no text change either way until the sanctioned-typo policy is settled."
+          "outcome": "Deferred to #831 — no text change either way until the sanctioned-typo policy is settled.",
+          "page_pos": 1
         },
         {
           "id": "S-03",
@@ -1265,7 +1320,8 @@
           "evidence_html": "Two of Reddie's own small-print asides (this one, and &ldquo;There is a difference between information and knowledge&rdquo; at <code>03-prelude-c-learning.qmd:54</code>) are marked up with <code>.deming_quote</code>. They are not Deming quotations &mdash; they are Reddie's authorial asides, set smaller and indented in the source. The class attributes them to Deming. #798 is already open on Day 9's eight small-print insets rendering as ordinary body text; this is the same missing distinction, failing the other way. Worth folding into that issue rather than inventing a treatment here.",
           "decision": "accept",
           "decision_note": null,
-          "outcome": "Deferred to #798 — the two .deming_quote asides here join that issue's small-print inset population."
+          "outcome": "Deferred to #798 — the two .deming_quote asides here join that issue's small-print inset population.",
+          "page_pos": 1
         },
         {
           "id": "S-04",
@@ -1281,7 +1337,8 @@
           "evidence_html": "Altered 59, at 57%. The site rewrites the approvals note rather than transcribing it, replacing the source's &ldquo;(page 35)&rdquo; pointer with a prose description, because the site has no printed page 35 to point at. The rewrite is sound and the rights acknowledgment survives intact, which is what matters legally. But whether these pages get transcribed or adapted, and in what house style, is #796's question across the whole corpus &mdash; it should not be settled one page at a time.",
           "decision": "accept",
           "decision_note": null,
-          "outcome": "Deferred to #796 — the approvals page's treatment is that issue's to decide."
+          "outcome": "Deferred to #796 — the approvals page's treatment is that issue's to decide.",
+          "page_pos": 1
         },
         {
           "id": "S-05",
