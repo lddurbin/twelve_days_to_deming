@@ -15,12 +15,12 @@ Record an entry when the change is **material**. Don't record mechanical changes
 - Pedagogical elements (activities, cross-references, call-outs) omitted or restructured.
 - Interactive affordances substituted for static text in a way that changes what the reader does.
 - Reorganisation that moves content across chapter or day boundaries.
+- Corrections of typos in the source, even where the intended word is unambiguous. The correction stands, with no `[sic]`, but it gets an entry: a reader comparing the site against the PDF should find every word that differs accounted for here.
 
 **Mechanical** (don't record):
 - Typography, whitespace, punctuation normalisation.
 - Minor reflowing of paragraphs for web layout.
 - Image extraction from scans.
-- Clear typo corrections where Neave's intent is unambiguous.
 - Hyperlinking existing cross-references (e.g. "see page 42" → an in-page anchor) without altering wording.
 
 When in doubt, record it — readers and future contributors are better served by over-inclusion than by silent omission.
