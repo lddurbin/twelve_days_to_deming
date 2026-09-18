@@ -260,10 +260,11 @@
           "source_html": "“So the approach that we use instead measures variation <mark class='src'>is</mark> a completely different way…”",
           "site_html": "“…measures variation <mark class='gone'>in</mark> a completely different way…”",
           "evidence_html": "The source has a typo (<em>is</em> for <em>in</em>) and the site silently fixed it. The fix is correct and should stand — the convention this epic has followed five times (Days 7, 8, 9 ×2, 11, and again on Day 2) is <strong>fix and log</strong>. What is missing is the log entry. Grouped with <code>D3-12</code> and <code>D3-13</code> into one deviations file.",
-          "decision": "reject",
-          "decision_note": null,
+          "decision": "accept",
+          "decision_note": "#831 (2026-09-19): every silent typo correction gets a deviations-log entry. This supersedes the earlier decision.",
           "proposal": "(no change — the site is right; log the deviation)",
-          "page_pos": 2
+          "page_pos": 2,
+          "outcome": "Logged in docs/deviations/2026-09-19-day-03-four-typos-sanctioned.md. No text change: the site's correction stands."
         },
         {
           "id": "D3-12",
@@ -277,10 +278,11 @@
           "source_html": "“Please do not expect to take it all in straightaway today—there's a lot <mark class='src'>if</mark> it!”",
           "site_html": "“…there's a lot <mark class='gone'>of</mark> it!”",
           "evidence_html": "Confirmed on the printed p16 page image: the source really does read “a lot <em>if</em> it”, in bold italic. The site's correction is right; it just is not written down anywhere.",
-          "decision": "reject",
-          "decision_note": null,
+          "decision": "accept",
+          "decision_note": "#831 (2026-09-19): every silent typo correction gets a deviations-log entry. This supersedes the earlier decision.",
           "proposal": "(no change — the site is right; log the deviation)",
-          "page_pos": 1
+          "page_pos": 1,
+          "outcome": "Logged in docs/deviations/2026-09-19-day-03-four-typos-sanctioned.md. No text change: the site's correction stands."
         },
         {
           "id": "D3-13",
@@ -531,10 +533,11 @@
           "source_html": "“That would be, to put <mark class='src'>in</mark> mildly, rather more difficult with two-dimensional data!”",
           "site_html": "“…to put <mark class='gone'>it</mark> mildly…”",
           "evidence_html": "Source typo, correctly fixed on the site, not logged. Goes in the same deviations file as <code>D3-11</code>, <code>D3-12</code> and <code>D3-28</code>.",
-          "decision": "reject",
-          "decision_note": null,
+          "decision": "accept",
+          "decision_note": "#831 (2026-09-19): every silent typo correction gets a deviations-log entry. This supersedes the earlier decision.",
           "proposal": "(no change — the site is right; log the deviation)",
-          "page_pos": 1
+          "page_pos": 1,
+          "outcome": "Logged in docs/deviations/2026-09-19-day-03-four-typos-sanctioned.md. No text change: the site's correction stands."
         },
         {
           "id": "D3-28",
@@ -548,11 +551,11 @@
           "source_html": "“NB Just <mark class='src'>In</mark> case you really cannot find any dice to use…”",
           "site_html": "“NB Just <mark class='gone'>in</mark> case…”",
           "evidence_html": "A stray mid-sentence capital, exactly the class <code>I-15</code> raised on <code>index</code> — where the first verdict was “preserve Neave's own error” and you rejected it, on the grounds that fix-and-log is what this epic has done every other time. Applying that decision here.",
-          "decision": "discuss",
-          "decision_note": null,
+          "decision": "accept",
+          "decision_note": "#831 (2026-09-19): every silent typo correction gets a deviations-log entry. This supersedes the earlier decision.",
           "proposal": "(no change — the site is right; log the deviation)",
           "page_pos": 2,
-          "outcome": "Carried to issue #831 — decided together with D3-11, D3-12 and D3-27, which were all rejected in the same pass, so the \"fix and log\" precedent this finding rested on now needs restating."
+          "outcome": "Logged in docs/deviations/2026-09-19-day-03-four-typos-sanctioned.md. No text change: the site's correction stands."
         },
         {
           "id": "D3-29",

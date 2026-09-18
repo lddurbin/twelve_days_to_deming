@@ -1302,8 +1302,8 @@
           "site_html": "This implied that the low-density lipoprotein needed to <mark class='gone'>be regulated</mark>, not *destroyed*.",
           "evidence_html": "<strong>The site is right and the source has a typo.</strong> Neave's sentence is missing &lsquo;be&rsquo;; the site silently supplies it. That is the sanctioned-typo class, and it is exactly what #831 is still open to settle: whether a silent correction of a source typo needs a <code>docs/deviations/</code> entry. Day 3 rejected three such findings (D3-11, D3-12, D3-27) and left D3-28 undecided. No text change is proposed either way &mdash; the only question is whether this gets a deviation entry, and the answer should match whatever #831 decides so all five are consistent.",
           "decision": "accept",
-          "decision_note": null,
-          "outcome": "Deferred to #831 — no text change either way until the sanctioned-typo policy is settled.",
+          "decision_note": "#831 (2026-09-19): every silent typo correction gets a deviations-log entry. This supersedes the earlier decision.",
+          "outcome": "Logged in docs/deviations/2026-09-19-balaji-reddie-regulated-typo-sanctioned.md under #831. No text change: the site's correction stands.",
           "page_pos": 1
         },
         {
