@@ -18,7 +18,7 @@ Let's illustrate some of this with the aid of an example.
 
 ## What makes the scooter start? {#sec-page15}
 
-A man drives to work every day on his Bajaj scooter. Most mornings, his young son watches him leave. The son is curious to know how the scooter starts. He notices a lot of things that always happen, one after the other:
+A man rides to work every day on his Bajaj scooter. Most mornings, his young son watches him leave. The son is curious to know how the scooter starts. He notices a lot of things that always happen, one after the other:
 
 - His father puts his bag on the scooter's handle;
 - then he moves the scooter off its stand;
@@ -31,7 +31,7 @@ After observing for a long time, the boy realises something. It is only after hi
 
 Is the theory true? One morning he is lying down on his bed, and so isn't watching his father. But he hears his father kicking the lever. Because of his theory he tells himself: "Now the scooter will start". Indeed, the scooter starts. His theory is correct! Or is it?
 
-At the weekend, when nobody else is around, he decides it would be fun to start the scooter himself. He wants to do—he has the theory: "Kick ⇒ Start". So he goes to the scooter and starts to kick the lever. But, to his horror, the scooter does not start. How can this be? His theory is wrong! Obviously he has not observed properly.
+At the weekend, when nobody else is around, he decides it would be fun to start the scooter himself. He knows what to do—he has the theory: "Kick ⇒ Start". So he goes to the scooter and starts to kick the lever. But, to his horror, the scooter does not start. How can this be? His theory is wrong! Obviously he has not observed properly.
 
 So the next Monday morning he starts watching even more keenly. Does his father do anything that he hadn't noticed before? After a week or so he spots something. His father does not start kicking the lever until he has inserted and turned a key in a slot on the scooter. Could this be the missing step? His observations confirm this. So now he revises his theory; it becomes: "Key + Kick ⇒ Start".
 
@@ -49,7 +49,7 @@ Now, after some years, the son reached the eighth standard. His question of "How
 
 > Rate of Change of Momentum = Force,
 
-this was more information for every other child in that class. But, for the boy, this statement became *knowledge*.
+this was mere information for every other child in that class. But, for the boy, this statement became *knowledge*.
 
 > *There is a difference between information and knowledge.*
 
@@ -83,13 +83,13 @@ Theory is the ground upon which knowledge and practice are founded. There can ne
 
 So how do we create theory? How do we start? We have seen some different ways. First, the young boy observed the scooter starting and wondered: "What makes it start?". Then the little girl knew that the Sun was so bright that it was dangerous for her to look at it—and wondered: "Why is it so bright?". In the case of our five-factor process we had the hunch that two of the factors were positively correlated. And we wondered: "Is that really true and, if so, why?".
 
-[]{#sec-page18}These were the starting-points in the three cases. Then what? In the case of the young boy, he began to observe carefully and eventually came up with his initial theory: "Kick ⇒ Start". The little girl came and asked you a question. She didn't quite understand the answer because, as we can see from what happened next, she came up with a theory which was not correct: "Bright ⇒ Very Hot". But remember, the young boy's initial theory wasn't correct either. In the case of that five-factor process, our initial theory was just a hunch—again arising from observation. But, nevertheless, that hunch soon led to questions, just as in the other two cases. That's exactly as Dr Deming often simply stated: ["Theory leads to questions"]{.deming_quote} (*DemDim* page 275). In the case of the five-factor process, the hunch resulted in some experimentation to find out whether that initial theory (the hunch) was in fact correct and generally to learn more about the process.
+[]{#sec-page18}These were the starting-points in the three cases. Then what? In the case of the young boy, he began to observe carefully and eventually came up with his initial theory: "Kick ⇒ Start". The little girl came and asked you a question. She didn't quite understand the answer because, as we can see from what happened next, she came up with a theory which was not correct: "Bright ⇒ Very Hot". But remember, the young boy's initial theory wasn't correct either. In the case of that five-factor process, our initial theory was just a hunch—again arising from observation. But, nevertheless, that hunch soon *led to* questions, just as in the other two cases. That's exactly as Dr Deming often simply stated: ["Theory leads to questions"]{.deming_quote} (*DemDim* page 275). In the case of the five-factor process, the hunch resulted in some experimentation to find out whether that initial theory (the hunch) was in fact correct and generally to learn more about the process.
 
 Notice that, without the initial theory, there would have been no learning! If he hadn't started with his theory: "Kick ⇒ Start", the young boy would not have observed more and more keenly, would not have asked questions, and almost surely would *not* have eventually finished up by understanding that:
 
 > "When I kick the lever, or run with the scooter, there is a rate of change of momentum which results in a force. This force gives rise to a spark, and it is this spark that ignites the petrol which in turn makes the scooter start".
 
-The young boy's simple and wrong initial theory eventually led to some considerable knowledge which many people do not have. Without my initial theory, the little girl would not have learned that "A ⇒ B" does *not* imply that "B ⇒ A"—a mistake which many adults (including some politicians and managers) continue to make. Without our initial hunch, we wouldn't have learned what we subsequently learned about that five-factor process.
+The young boy's simple and wrong initial theory eventually led to some considerable knowledge which many people do not have. Without her initial theory, the little girl would not have learned that "A ⇒ B" does *not* imply that "B ⇒ A"—a mistake which many adults (including some politicians and managers) continue to make. Without our initial hunch, we wouldn't have learned what we subsequently learned about that five-factor process.
 
 So this summarises the sequence of learning, of acquiring knowledge. Actually, we could even have begun the sequence one step earlier. Why did the little boy—or the little girl, or we ourselves—observe what was seen in the first place? The answer must surely have been interest and curiosity. Children have both of them "in spades", as the expression has it. Hopefully, so do we.
 
@@ -106,7 +106,7 @@ Without doubt, you can think of many more good examples.
 
 Let's summarise more generally what we have covered. We have seen how theory is the basis of all learning and development of knowledge. We have seen that theory begins by observing or asking questions or, more usually, both. When we, because of our interest, inquisitiveness and curiosity, observe and/or ask questions, we lay the foundations of a theory that we can then test, confirm, expand upon, or indeed abandon. In every case, we learn. In every case, we need theory. A beautifully concise way in which Dr Deming said all this was: ["Experience teaches nothing without theory"]{.deming_quote}. Similarly, he often stated that ["Examples teach nothing without theory"]{.deming_quote}.
 
-We have also emphasised that all of us are born with a natural desire to learn—it's a normal characteristic of human beings and, indeed, of other animal life. We see children, from a very young age, asking questions. Why are they asking questions? It is not for a prize, it is not to be top of the class, it is not for an increase in their pocket-money. Those are all what psychologists call "extrinsic motivators"—motivators that are nothing to do with the questions and the learning themselves. Children ask questions simply because they want to know, they are curious, they are intrinsically connected with the questions and the learning. It is so important that this learning be encouraged. It is sadly common that we, as their elders, crush this learning by unsympathetic and inappropriate reactions to their questions.
+We have also emphasised that all of us are born with a natural desire to learn—it's a normal characteristic of human beings and, indeed, of other animal life. We see children, from a very young age, asking questions. Why are they asking questions? It is not for a prize, it is not to be top of the class, it is not for an increase in their pocket-money. Those are all what psychologists call "extrinsic motivators"—motivators that are nothing to do with the questions and the learning themselves. Children ask questions simply because they want to know, they are curious, they want to learn, they enjoy learning. These are "intrinsic motivators". Unlike extrinsic motivators, intrinsic motivators are intimately connected with the questions and the learning. It is so important that this learning be encouraged. It is sadly common that we, as their elders, crush this learning by unsympathetic and inappropriate reactions to their questions.
 
 Where are we now? We have just mentioned matters to do with psychology. "Knowledge of Psychology" is the fourth and final part of the System of Profound Knowledge. Yet again, while discussing one part of the System of Profound Knowledge, we have effortlessly glided into another part! That is the very nature of Dr Deming's System of Profound Knowledge. Do you remember the opening words of his introduction on Day 9? They were simply: ["The System of Profound Knowledge appears here in four parts, *all related to each other*"]{.deming_quote}.
 
