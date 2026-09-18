@@ -7,7 +7,7 @@ execute:
   echo: false
 ---
 
-[]{#sec-page21}
+[]{#sec-page24}
 
 Through our study of the "Six Processes" we have already ventured well beyond the mere basics of interpreting control charts. So let's continue the good work a little while longer.
 

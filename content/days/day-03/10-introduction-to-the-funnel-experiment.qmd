@@ -40,7 +40,7 @@ A horizontal track of 21 numbered squares, running from 20 on the left to 40 on 
 
 </details>
 
-[]{#sec-page36}with one track suspended some distance directly above the other. (You will notice that the central number 30 is coloured differently from the others: 30 is the "target-point" in our silly game.) The funnel's track is the higher one: it has a hole in the middle of each square so that the funnel can be suspended at any numbered position. The marble's track is the lower one: the sides of the numbered squares are rigid but the insides of the squares are made of some elastic material. So the general set-up is that (a) the funnel can be placed at any position on the higher track and (b) the marble can then be dropped through it onto the lower track where it will briefly bounce around and then finish up in one of its squares—possibly directly under the funnel or, more usually, displaced by one or more squares to the left or right. To complete the image we should join the two sides of the top and bottom tracks by vertical sheets of glass or transparent plastic to prevent the marble bouncing off its track but so that we can still observe what's happening!
+with one track suspended some distance directly above the other. (You will notice that the central number 30 is coloured differently from the others: 30 is the "target-point" in our silly game.) The funnel's track is the higher one: it has a hole in the middle of each square so that the funnel can be suspended at any []{#sec-page36}numbered position. The marble's track is the lower one: the sides of the numbered squares are rigid but the insides of the squares are made of some elastic material. So the general set-up is that (a) the funnel can be placed at any position on the higher track and (b) the marble can then be dropped through it onto the lower track where it will briefly bounce around and then finish up in one of its squares—possibly directly under the funnel or, more usually, displaced by one or more squares to the left or right. To complete the image we should join the two sides of the top and bottom tracks by vertical sheets of glass or transparent plastic to prevent the marble bouncing off its track but so that we can still observe what's happening!
 
 However, you don't have to build that whole model! During the description I shall show the positions of the funnel and marble along their tracks by little icons on a single track. So, for example, if the funnel is at position 31 and, after being dropped through the funnel, the marble bounces around and finishes up at position 33 then I shall show this as:
 
@@ -57,11 +57,9 @@ The same 20–40 track, now with two icons placed above it: the **funnel sits ab
 
 So how exactly will you be able to carry this out with your less extravagant set-up (of which details follow)?
 
-[]{#sec-page37}
+In our timing schedule we are now coming up to the lunchtime break. If you have not already done so, you will now need to prepare your own track like the one illustrated in order for you to be able to carry out our version of the Funnel Experiment, ready to use when we resume this afternoon. On [page 59, below](10-introduction-to-the-funnel-experiment.qmd#sec-page59) you will find a larger copy of the track in two parts, one part going from 20 to 30 and the other from 30 to 40. Preferably (but only if convenient) I suggest that you copy or paste these (either electronically or using glue!) onto some card. Then join them together into a single strip as shown above by attaching the two 30s one on top of the other. I've also included on [page 59, below](10-introduction-to-the-funnel-experiment.qmd#sec-page59) larger images of both the funnel and the marble: you could similarly put the image of each that you choose onto small pieces of card to use in the experiment. Alternatively, you could e.g. use a large silver coin to represent the funnel and a small copper/bronze coin to represent the marble.
 
-In our timing schedule we are now coming up to the lunchtime break. If you have not already done so, you will now need to prepare your own track like the one illustrated in order for you to be able to carry out our version of the Funnel Experiment, ready to use when we resume this afternoon. On [page 59, below](10-introduction-to-the-funnel-experiment.qmd#sec-page59) you will find a larger copy of the track in two parts, one part going from 20 to 30 and the other from 30 to 40. Preferably (but only if convenient) I suggest that you copy or paste these (either electronically or using glue) onto some card. Then join them together into a single strip as shown above by attaching the two 30s one on top of the other. I've also included on [page 59, below](10-introduction-to-the-funnel-experiment.qmd#sec-page59) larger images of both the funnel and the marble: you could similarly put the image of each that you choose onto small pieces of card to use in the experiment. Alternatively, you could e.g. use a large silver coin to represent the funnel and a small copper/bronze coin to represent the marble.
-
-Finally, as previously warned (on [Day 2 page 44](../day-02/09-postscript.qmd#sec-page44)), you will also need two standard dice (and a shaker if you so wish).
+Finally, as previously warned (on [Day 2 page 44](../day-02/09-postscript.qmd#sec-page44)), you will also need two standard dice (and a shaker if you so wish!).
 
 Then, fully equipped, you will be ready to carry out our version of the Funnel Experiment. When you begin, I recommend that you work through the first few pages of the Major Activity quite slowly and carefully since they will lay the foundations of how you will be spending most of the time this afternoon.
 
@@ -69,9 +67,9 @@ Then, fully equipped, you will be ready to carry out our version of the Funnel E
 
 If you are particularly numerically inclined, you could conceivably carry out this experiment without using the track: you might instead be able to visualise what is happening on the track by just interpreting the numbers which will develop. However, I believe most people will find it easier to actually see what is going on, at least in the early stages of operating the various strategies to be studied during the experiment.
 
-But once you have become familiar with any particular strategy then you may soon find you can carry on without continuing to use the track. Use it for as long as you personally find it useful to do so and then, if you prefer, don't bother with it any more. However, since I have worked through this entire Major Activity many times, you may find my own experience to be useful here. I soon found that it was definitely safer to use my track throughout every stage of the first strategy, since it is actually the trickiest of the four to carry out. I also worked with the track throughout the third strategy before realising that there was a useful and simple short-cut (which I'll show you). I used the track for a little while with the fourth strategy but soon found that I didn't need it any more. The second strategy is the simplest of all, and there I hardly needed the track at all. I shall reflect the relative ease or difficulty of the various strategies in my timing guidance.
+But once you have become familiar with any particular strategy then you may soon find you can carry on without continuing to use the track. Use it for as long as you personally find it useful to do so and then, if you prefer, don't bother with it any more. However, since I have worked through this entire Major Activity many times, you may find my own experience to be useful here. I soon found that it was definitely safer to use my track throughout every stage of the first strategy, since it is actually the trickiest of the four to carry out. I also worked with the track throughout the third strategy before realising that there was a useful and simple short-cut (which I'll show you). I used the track for a little while with the fourth strategy []{#sec-page37}but soon found that I didn't need it any more. The second strategy is the simplest of all, and there I hardly needed the track at all. I shall reflect the relative ease or difficulty of the various strategies in my timing guidance.
 
-Your version of the track going from 20 to 40 will be sufficient for much of the afternoon. However, especially later on, you may occasionally need extensions outside that range. If so then you will find them on [page 60, near the track cutout below](10-introduction-to-the-funnel-experiment.qmd#sec-page59).
+Your version of the track going from 20 to 40 will be sufficient for much of the afternoon. However, especially later on, you may occasionally need extensions outside that range. If so then you will find them on [page 61, below](10-introduction-to-the-funnel-experiment.qmd#sec-page61).
 
 **NB** Just in case you really cannot find any dice to use then I have provided below a couple of sample sequences of dice-throws for you to choose between and use instead. Note that both of these sequences begin at Stage 6: I'll be providing the first five stages for you this afternoon when I shall use them for demonstration purposes.
 
@@ -87,11 +85,21 @@ Two pre-recorded sequences of dice-throw outcomes (Seq. A and Seq. B), provided 
 </details>
 
 []{#sec-page59}
-![Colourful track for cutting out](/assets/images/day-03/funnel-track-colourful.png){fig-align="center" width="85%" .lightbox}
+![Print-ready track for cutting out, together with the funnel and marble images](/assets/images/day-03/funnel-track-colourful.png){fig-align="center" width="60%" .lightbox}
 
 <details>
 <summary>Describe this diagram</summary>
 
-A print-ready, colourful version of the same 20–40 track described above, sized larger so it can be copied or pasted onto card and cut out for use in the Funnel Experiment. The squares from 20 to 40 are laid out in two halves to fit the page, ready to be joined together at the central square (30).
+The 20–40 track at print size, in two vertical strips ready to be copied onto card and cut out: one running from 20 to 30, the other from 30 to 40. The squares alternate green and yellow with red borders, and the target-point 30 is marked with a bullseye at the end of each strip. Joining the two 30s one on top of the other makes the single 20–40 track. To the right of the strips are three funnel icons and three marble images, each at a different size, so you can choose whichever pair suits the track you build.
+
+</details>
+
+[]{#sec-page61}
+![Print-ready extension strips for the track](/assets/images/day-03/funnel-track-extensions.png){fig-align="center" width="55%" .lightbox}
+
+<details>
+<summary>Describe this diagram</summary>
+
+Four further strips in the same style, for the occasions when the funnel or the marble goes outside the 20–40 range: 0 to 10, 10 to 20, 40 to 50 and 50 to 60. Each strip repeats the square it shares with its neighbour — 10, 20, 40 and 50 — so it can be attached to the main track in the same way, one square on top of the other.
 
 </details>
