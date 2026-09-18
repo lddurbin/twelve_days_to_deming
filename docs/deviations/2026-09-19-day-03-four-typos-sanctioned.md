@@ -9,4 +9,4 @@
 - **Source reference** — `F.Day.3.13Jan20.pdf`, printed pages 14, 16, 35 and 37 (PDF pages 18, 20, 39 and 41).
 - **Why** — Each slip has only one plausible intended reading. Earlier versions of this log's rules called corrections like these mechanical and exempted them, but in practice the typo corrections found since Day 7 were logged anyway. [#831](https://github.com/lddurbin/twelve_days_to_deming/issues/831) makes that practice the rule: every typo correction gets an entry, so that anyone checking the site against the PDF finds each changed word accounted for. These four were first adjudicated before that decision (three were rejected for logging and one was left for discussion), so they are logged here under the settled rule.
 - **Decided in** — [#831](https://github.com/lddurbin/twelve_days_to_deming/issues/831) (2026-09-19), which settles Wave 2 Day 3 findings `D3-11`, `D3-12`, `D3-27` and `D3-28` from [#830](https://github.com/lddurbin/twelve_days_to_deming/issues/830).
-- **Landed in** — PR [#PRNUM](https://github.com/lddurbin/twelve_days_to_deming/pull/PRNUM).
+- **Landed in** — PR [#838](https://github.com/lddurbin/twelve_days_to_deming/pull/838).
