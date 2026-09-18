@@ -12,15 +12,15 @@ thresholds:
   reference: 0.85
 counts:
   pdf_paragraphs: 288
-  qmd_paragraphs: 322
-  matched_cleanly: 177
-  altered: 64
-  flagged_sentences: 121
-  near_certain: 22
-  missing: 47
-  unsourced: 23
-  unsourced_sentences: 29
-  reference_mismatches: 12
+  qmd_paragraphs: 336
+  matched_cleanly: 195
+  altered: 53
+  flagged_sentences: 105
+  near_certain: 12
+  missing: 40
+  unsourced: 25
+  unsourced_sentences: 31
+  reference_mismatches: 10
   short_checked: 73
   short_matched: 45
   short_unmatched: 21
@@ -33,8 +33,8 @@ blocks:
     short: 73
     compared: 288
   qmd:
-    total: 426
+    total: 445
     unreadable: 5
-    rejoined: 43
-    short: 56
-    compared: 322
+    rejoined: 45
+    short: 59
+    compared: 336
