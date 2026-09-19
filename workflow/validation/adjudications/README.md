@@ -145,6 +145,7 @@ backwards; in document order, nine times, all forwards.
 | `evidence_html` | why the verdict goes this way. This is the part that has to survive without the conversation around it |
 | `decision` | `null` until decided, then `accept` / `reject` / `discuss` |
 | `decision_note` | Lee's note, if any — his words, left as he wrote them |
+| `decision_preset` | the export's `preset` flag, renamed on merge the way `note` becomes `decision_note`. `true` means the decision is the section's preset, never touched; `false` means Lee clicked it. Absent on records from before presets existed |
 | `outcome` | what the pass did with the decision. Optional, and worth setting where a `discuss` had to go somewhere: the issue, PR or commit that resolved it. Without it a `discuss` reads as unanswered forever, which is the one gap this record exists to close |
 
 A finding may be listed separately from one in the same sentence when the two
