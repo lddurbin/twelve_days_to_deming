@@ -102,6 +102,16 @@ Four are conventional, and `kind` picks the card's colour stripe:
 | `clear` | `k-clear` | checked and cleared: comparator artifacts, documented site-wide conventions |
 | `scope` | `k-scope` | a genuine difference a per-day pass is the wrong instrument for |
 
+`preset` (optional: `"accept"`, `"reject"` or `"discuss"`) opens every card in
+that section already decided, marked *pre-set*, with a filter to list just
+those. It exists for large passes — the main Appendix raised 222 findings, 135
+of them emphasis, cleared or out of scope — so attention goes to the fixes and
+the rest is skimmed for exceptions. Any click on a pre-set card replaces the
+preset. The export carries `"preset": true` on every decision that was never
+touched, so the merged record still distinguishes *affirmed* from *left at the
+default*. The builder refuses a preset on `fix`: each proposed fix is a
+word-for-word claim Lee decides on its own.
+
 `labels` sets the wording on that section's three decision buttons, because
 "Apply fix / Leave as-is" reads wrong on a finding whose verdict is already
 *no defect here*. `tag` is the short form shown on each card in document order,

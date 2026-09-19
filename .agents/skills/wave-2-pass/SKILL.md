@@ -82,6 +82,12 @@ a position sorts by accident. The build cross-checks `pdf_page` against the
 python3 scripts/build-adjudication-page.py workflow/validation/adjudications/<pass>.json
 ```
 
+If the pass runs past roughly 100 findings, give the `emph`, `clear` and
+`scope` sections `"preset": "accept"` (see the adjudications README) so Lee
+decides the fixes one by one and skims the rest for exceptions. Never preset
+`fix`. When merging decisions back in step 4, keep the export's `preset` flag
+on each item as `decision_preset`.
+
 Publish the built HTML as an Artifact (favicon 📖🔍, `capabilities: {"downloads": true}`),
 and give Lee the link. Do not write a findings table into the terminal instead —
 the page is the deliverable of this step, and it is what makes 20-plus
