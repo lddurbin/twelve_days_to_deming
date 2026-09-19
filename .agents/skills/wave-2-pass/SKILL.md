@@ -82,6 +82,11 @@ a position sorts by accident. The build cross-checks `pdf_page` against the
 python3 scripts/build-adjudication-page.py workflow/validation/adjudications/<pass>.json
 ```
 
+If the pass runs past roughly 100 findings, give the `emph`, `clear` and
+`scope` sections `"preset": "accept"` (see the adjudications README) so Lee
+decides the fixes one by one and skims the rest for exceptions. Never preset
+`fix`.
+
 Publish the built HTML as an Artifact (favicon 📖🔍, `capabilities: {"downloads": true}`),
 and give Lee the link. Do not write a findings table into the terminal instead —
 the page is the deliverable of this step, and it is what makes 20-plus
@@ -91,10 +96,17 @@ word-for-word judgements reviewable.
 
 ### 4. Apply what came back
 
-Merge the exported decisions into the record's `decision` / `decision_note`
-fields and set `decided_at`, so the record is complete. Then apply **only** the
+Merge the exported decisions into the record's `decision` / `decision_note` /
+`decision_preset` fields (the export calls the last two `note` and `preset`)
+and set `decided_at`, so the record is complete. Then apply **only** the
 accepted findings — a declined one stays exactly as it is, and its record entry
 is the evidence it was considered.
+
+A `proposal` is a snippet, and its extent rarely matches the `site_html`
+excerpt beside it, so never replace one with the other wholesale: on the main
+Appendix that silently deleted whole clauses. Replace an exact old string that
+you have located in the QMD, check it occurs exactly once, and read the word
+diff of every edit before committing.
 
 ### 5. Close the pass
 

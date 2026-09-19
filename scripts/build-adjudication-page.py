@@ -75,6 +75,15 @@ def validate(record):
         for verdict in ("accept", "reject", "discuss"):
             if verdict not in section["labels"]:
                 fail(f"section '{section['key']}' has no label for '{verdict}'")
+        # A preset opens every card in the section already decided. Fine for
+        # verdicts where agreeing changes nothing or is near-mechanical; never
+        # for proposed fixes, each of which is a word-for-word claim Lee
+        # decides on its own (AGENTS.md: "User will always verify").
+        preset = section.get("preset")
+        if preset not in VALID_DECISIONS:
+            fail(f"section '{section['key']}' has an unrecognised preset: {preset!r}")
+        if preset and section["key"] == "fix":
+            fail("the 'fix' section cannot carry a preset — every fix is decided individually")
 
         for item in section["items"]:
             for key in REQUIRED_ITEM:

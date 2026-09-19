@@ -10,7 +10,7 @@ execute:
 
 ## ACTIVITY 7–a
 
-Just a few comments here that I hope may be helpful. Regarding Category 1—"facts of life", i.e. matters that are unarguable and not a matter of opinion, remember that in Point 11 Deming used the word "arbitrary": ["Eliminate arbitrary numerical targets."]{.deming_quote} So that rules out "facts of life" since, by definition, facts are not arbitrary and therefore, most certainly, cannot be eliminated. Regarding Categories 2 and 3, I will just re-emphasise that many suggestions which can arise in this Activity *could* go into either category—it all depends on how they are used. Will the number be used for guidance and help, or will it be used for judgment and possibly punishment or reward?
+Just a few comments here that I hope may be helpful. Regarding Category 1—"facts of life", i.e. matters that are unarguable and not a matter of opinion, remember that in Point 11 Deming used the word "arbitrary": ["Eliminate *arbitrary* numerical targets."]{.deming_quote} So that rules out "facts of life" since, by definition, facts are not arbitrary and therefore, most certainly, cannot be eliminated. Regarding Categories 2 and 3, I will just re-emphasise that many suggestions which can arise in this Activity *could* go into either category—it all depends on how they are used. Will the number be used for guidance and help, or will it be used for judgment and possibly punishment or reward?
 
 On [Day 7 pages 7–8](../days/day-07/03-performance-indicators.qmd#sec-page8), I include what I trust are some wise words on putting theory into practice. I advise doing things gradually rather than precipitously and I spend a little time there on performance appraisal in particular. But, regarding numerical targets, I suggest that the little I have just said provides some useful clues. As part of the move toward better management, those who set targets should consider well their "arbitrariness" and also shift the balance in how they are treated and used from Category 3 to Category 2.
 
@@ -32,7 +32,7 @@ On [Day 7 pages 7–8](../days/day-07/03-performance-indicators.qmd#sec-page8), 
 
 In connection with what is often referred to as the UK Government's "hostile immigration environment", Home Secretary Amber Rudd told the Home Affairs Select Committee on 25 April 2018: "We don't have targets for removals". A little later, she said: "If you're asking me: 'Are there numbers of people we expect to be removed?', that's not how we operate." The next day, evidence of regional removal targets came to light: Ms Rudd apologised, saying that she had not been aware of their existence. On 28 April the *Guardian* revealed a six-page memo dated 21 June 2017 that was sent to Ms Rudd and others. It referred to the Home Office's "target of achieving 12,800 enforced removals in 2017–18"; it also said that: "We have exceeded our target of assisted returns". Ms Rudd insisted she had never seen it. On 29 April a letter, sent to Prime Minister Theresa May in January 2017, was leaked in which Ms Rudd outlined her plans to increase removals by 10%. In the evening of 29 April she resigned from her post as Home Secretary.
 
-**PS**   On 16 November 2018 she returned to the Government as Secretary of State for Work and Pensions (!)
+**PS**   On 16 November 2018 she returned to the Government as Secretary of State for Work and Pensions (!!)
 
 *(Return to [Day 7 page 18](../days/day-07/04-many-more-true-stories.qmd#sec-page18).)*
 
@@ -42,7 +42,7 @@ In connection with what is often referred to as the UK Government's "hostile imm
 
 Letters and telephone calls received by this author disclose prevalence of the supposition that one or two consultations with a competent statistician will set the company on the road to quality and productivity—instant pudding. "Come, spend a day with us, and do for us what you did for Japan; we too wish to be saved." And they hang up in sorrow. It is not so simple: it will be necessary to study and to go to work. One man actually wrote to me for my formula, and the bill therefore.
 
-An example of expectation of quick results without effort and without sufficient education for the job is exemplified in a letter received by Dr Lloyd Nelson, statistician with the Nashua Corporation, which reads as follows:
+An example of expectation of quick results without effort and without sufficient education to the job is exemplified in a letter received by Dr Lloyd Nelson, statistician with the Nashua Corporation, which reads as follows:
 
 > "The President of my company has appointed me to the same position that you hold in your company. He has given me full authority to proceed, and he wishes me to carry on my new job without bothering him. What ought I to do? How do I go about my new job?"
 
@@ -64,19 +64,19 @@ A man just called on the telephone from Johannesburg with the proposal that he c
 
 Too often this is the story. The management of a company, seized with a desire to improve quality and productivity, knowing not how to go about it, having not guidance from principles, seeking enlightenment, embark on excursions to other companies that are ostensibly doing well. They are received with open arms, and the exchange of ideas commences. They (visitors) learn what the host is doing, some of which may by accident be in accordance with the 14 Points. Devoid of guiding principles, they are both adrift. Neither company knows whether or why any procedure is right, nor whether or why another is wrong. The []{#sec-page33} question is not whether a business is successful, but why? And why was it not more successful? One can only hope the visitors enjoy the ride. They are more to be pitied than censured.
 
-It was related to me during a seminar that the management of a company that makes furniture, doing well, took it into their heads to expand their line into pianos. Why not make pianos? They bought a Steinway piano, took it apart, made or bought the parts, and put a piano together exactly like the Steinway, only to discover that they could only get thuds out of their product. So they put the Steinway piano back together with the intention to get their money back on it, only to discover that it too would now only make thuds.
+It was related to me during a seminar that the management of a company that makes furniture, doing well, took it into their heads to expand their line into pianos. Why not make pianos? They bought a Steinway piano, took it apart, made or bought parts, and put a piano together exactly like the Steinway, only to discover that they could only get thuds out of their product. So they put the Steinway piano back together with the intention to get their money back on it, only to discover that it too would now only make thuds.
 
 *(Return to [Day 7 page 29](../days/day-07/07-major-activity.qmd#sec-page29).)*
 
 ### 4. "Our problems are different."
 
-A common disease that afflicts management and government administration the world over is the impression that "Our problems are different". They are different, to be sure, but the principles that will help to improve quality of product and of service are universal in nature.
+A common disease that afflicts management and government administration the world over is the impression that "Our problems are different." They are different, to be sure, but the principles that will help to improve quality of product and of service are universal in nature.
 
 And that is all Dr Deming wrote on this one.
 
 *(Return to [Day 7 page 29](../days/day-07/07-major-activity.qmd#sec-page29).)*
 
-### 5. Obsolescence in Schools *(of Business).*
+### 5. Obsolescence in Schools *[of Business]*.
 
 Most students in Schools of Business in America have had no experience in production or in sales. To work on the factory floor with pay equal to half what he hoped to get upon receipt of the MBA, just to get experience, is a horrible thought to an MBA, not the American way of life. As a consequence, he struggles on, unaware of his limitations, or unable to face the need to fill in the gaps. The results are obvious.
 
@@ -90,13 +90,15 @@ Faults in education were stated well by Edward A Reynolds in *Standardization Ne
 
 ### 6. Poor teaching of statistical methods in industry.
 
-Awakening to the need for quality, and with no idea what quality means nor how to achieve it, American management have resorted to mass assemblies for crash courses in statistical methods, employing hacks for teachers, being unable to discriminate between competence and ignorance. The result is that hundreds of people are learning what is wrong. []{#sec-page34} People with Master's degrees in statistical theory accept jobs in industry and government to work with computers. Most if not all computer packages for analysis of data, as they are called, provide flagrant examples of inefficiency. It is a vicious cycle. Statisticians do not know what statistical work is, and are satisfied to work with computers. People that hire statisticians likewise have no knowledge about statistical work, and somehow suppose that computers are the answer. Statisticians and management thus misguide each other and keep the vicious cycle rolling.
+Awakening to the need for quality, and with no idea what quality means nor how to achieve it, American management have resorted to mass assemblies for crash courses in statistical methods, employing hacks for teachers, being unable to discriminate between competence and ignorance. The result is that hundreds of people are learning what is wrong.
+
+[]{#sec-page34}People with Master's degrees in statistical theory accept jobs in industry and government to work with computers. Most if not all computer packages for analysis of data, as they are called, provide flagrant examples of inefficiency. It is a vicious cycle. Statisticians do not know what statistical work is, and are satisfied to work with computers. People that hire statisticians likewise have no knowledge about statistical work, and somehow suppose that computers are the answer. Statisticians and management thus misguide each other and keep the vicious cycle rolling.
 
 *(Return to [Day 7 page 30](../days/day-07/07-major-activity.qmd#sec-page30).)*
 
-### 7. Use of *[Military Standard 105D and other]* tables for acceptance.
+### 7. Use of *[*Military Standard 105D and other*]* tables for acceptance.
 
-Many thousands of dollars worth of product changes hands hourly, lots *[i.e. batches]* subjected to acceptance or rejection, depending on tests of samples drawn from the lots. Such plans can only increase costs, as will be clear from Chapter 15 *[in Out of the Crisis]*. If used for quality audit of final product as it goes out the door, they guarantee that some customers will get defective product. *[Recall I have just pointed out that "an essential requirement for deciding on the details of such a plan is the specification of an acceptable proportion of defectives".]* The day of such plans is finished. American industry can not afford the losses that they cause.
+Many thousands of dollars worth of product changes hands hourly, lots *[i.e. batches]* subjected to acceptance or rejection, depending on tests of samples drawn from the lots. Such plans can only increase costs, as will be clear from Chapter 15 *[in* Out of the Crisis*]*. If used for quality audit of final product as it goes out the door, they guarantee that some customers will get defective product. *[Recall I have just pointed out that "an essential requirement for deciding on the details of such a plan is the specification of an acceptable proportion of defectives".]* The day of such plans is finished. American industry can not afford the losses that they cause.
 
 Incredibly, courses and books in statistical methods still devote time and pages to acceptance sampling.
 
@@ -114,7 +116,7 @@ The function of quality assurance in many companies is too often to provide hind
 
 The supposition is prevalent the world over that there would be no problems in production or in service if only our workers would do their jobs in the way that they were taught. Pleasant dreams.
 
-Only recently, the entire management of a large manufacturing concern supposed, by their own declaration, that if all 2,700 operations in the plant were carried off without blemish, there would be no problems. I listened for three hours to their exciting achievements with statistical methods on the shop floor. Their engineers, I found, were treating every problem as a special cause—find it and remove it—not working on the system itself. At the same time, costs of warranty were soaring upward, and business was on the decline. The management seemed to be totally unaware of the need for better design of their main prod []{#sec-page35}uct, and more attention to incoming materials. Why did they put so much faith in statistical methods on the shop floor? Answer: What else is there? Quality is for other people, not for us.
+Only recently, the entire management of a large manufacturing concern supposed, by their own declaration, that if all 2,700 operations in the plant were carried off without blemish, there would be no problems. I listened for three hours to their exciting achievements with statistical methods on the shop floor. Their engineers, I found, were treating every problem as a special cause—find it and remove it—not working on the system itself. At the same time, costs of warranty were soaring upward, and business was on the decline. The management seemed to be totally unaware of the need for better design of their main []{#sec-page35}product, and more attention to incoming materials. Why did they put so much faith in statistical methods on the shop floor? Answer: What else is there? Quality is for other people, not for us.
 
 Presumably the "statistical methods" alluded to here were those relating to Obstacle 6.
 
@@ -144,7 +146,7 @@ As with Obstacle 4, this is all that Deming wrote here: brief but very much to t
 
 Some people make good use of computers. Few people are aware, however, of the negative input of computers. Time and time again, in my experience, when I ask for data on inspection, to learn whether they indicate that the process is in control, or out of control, and at what time of day it went out, and why, or ask about differences between inspectors and between production workers, or between production workers and inspectors, in an attempt to find sources of trouble and to improve efficiency, the answer is "The data are in the computer". And there they sit.
 
-People are intimidated by the computer. They can not tell it what data or charts they need; instead, they take whatever the computer turns out.
+People are intimidated by the computer. They can not tell it what data or charts they need: instead, they take whatever the computer turns out.
 
 A computer can be a blessing. It can also be a curse.
 
@@ -152,7 +154,7 @@ A computer can be a blessing. It can also be a curse.
 
 ### 13. The supposition that it is only necessary to meet specifications. {#sec-page36}
 
-Specifications can not tell the whole story. The supplier must know what the material is to be used for. If the supplier knows that the steel will be used for the inside door panel of an automobile, he may be able to supply steel that will do the job. Steel that merely meets the specifications can cause a lot of trouble. A vice-president in charge of manufacturing told me that half his problems arise from materials that meet the specifications.
+Specifications can not tell the whole story. The supplier must know what the material is to be used for. If the supplier knows that the steel will be used for the inside door panel of an automobile, he may be able to supply steel that will do the job. Steel that merely meets the specifications can cause a lot of trouble. A vice-president in charge of manufacturing told me that half his problems arise from materials that met the specifications.
 
 A programmer has a similar problem. She learns, after she finishes the job, that she has programmed very well the specifications as delivered to her, but that they were deficient. If she had only known the purpose of the program, she could have done it right for the purpose, even though the specifications were deficient.
 
@@ -166,7 +168,7 @@ There is obviously something wrong when a measured characteristic barely inside 
 
 Yes, Dr Deming did write this under Obstacle 14, not Obstacle 13.
 
-It will not suffice to have customers that are merely satisfied. As unhappy customer will switch. Unfortunately, a satisfied customer may also switch, on the theory that he could not lose much, and might gain. Profit in business comes from repeat customers, customers that boast about your product and service, and that bring friends with them. Fully allocated costs may well show that the profit in a transaction with a customer that comes back voluntarily may be 10 times the profit realised from a customer that responds to advertising and other persuasion.
+It will not suffice to have customers that are merely satisfied. An unhappy customer will switch. Unfortunately, a satisfied customer may also switch, on the theory that he could not lose much, and might gain. Profit in business comes from repeat customers, customers that boast about your product and service, and that bring friends with them. Fully allocated costs may well show that the profit in a transaction with a customer that comes back voluntarily may be 10 times the profit realised from a customer that responds to advertising and other persuasion.
 
 *(Return to [Day 7 page 34](../days/day-07/07-major-activity.qmd#sec-page34).)*
 
@@ -180,7 +182,7 @@ Anyone engaged in testing should ask himself the following questions:
 2. Will they refer to tomorrow's run or to next year's crop?
 3. Under what conditions will these results predict results of tomorrow's run or of next year's crop? []{#sec-page37}
 
-Failure to understand variation in tests delayed some years the science of genetics. Ratios of (e.g.) tall and dwarf peas varied wildly below and above nature's average value 1 : 4. This variation bothered everyone, including Gregor Mendel, discoverer of the simple dominant gene.
+Failure to understand variation in tests delayed some years the science of genetics. Ratios of (e.g.) tall and dwarf peas varied wildly below and above nature's average value 1:4. This variation bothered everyone, including Gregor Mendel, discoverer of the simple dominant gene.
 
 *(Return to [Day 7 page 35](../days/day-07/07-major-activity.qmd#sec-page35).)*
 
@@ -190,6 +192,6 @@ All evidence points to the fallacy of this supposition. Competent men in every p
 
 > And for the third time, here I have quoted all that Dr Deming wrote for a particular Obstacle.
 >
-> This Obstacle struck a loud chord for me. In my very early days of trying to help a company learn about the Deming philosophy, I would spend much time before my visit trying to learn as much as I could about that company: I did not want to seem ignorant about what they did or how they did it. It was an utter waste of effort. However much time I spent on this fruitless task, I would still only know the merest fraction of what was known to everybody I spoke to—and that would be painfully obvious to them! When I changed tack, told the truth upfront that I knew nothing about what they did and knew about—but that perhaps I knew something that they knew nothing about and thought it might be helpful to them, the reception I received was much more positive. What is needed is the combination, indeed the coalescing, of the two volumes of knowledge. Clearly I did not have the time or ability for that: but they did, with my help.
+> This Obstacle struck a loud chord for me. In my very early days of trying to help a company learn about the Deming philosophy, I would spend much time before my visit trying to learn as much as I could about that company: I did not want to seem ignorant about what they did or how they did it. It was an utter waste of effort. However much time I spent on this fruitless task, I would still only know the merest fraction of what was known to everybody I spoke to—and that would be painfully obvious to them! When I changed tack, told the truth upfront that I knew nothing about what they all knew about—but that perhaps I knew something that *they* knew nothing about and thought it might be helpful to them, the reception I received was much more positive. What is needed is the combination, indeed the coalescing, of the two volumes of knowledge. Clearly I did not have the time or ability for that: but they did, with my help.
 
 *(Return to [Day 7 page 35](../days/day-07/07-major-activity.qmd#sec-page35).)*

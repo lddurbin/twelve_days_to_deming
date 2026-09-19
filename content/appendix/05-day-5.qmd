@@ -12,7 +12,7 @@ execute:
 
 ### Obsession With Quality
 
-This is leadership aimed at doing everything possible to genuinely improve the quality of what an organisation does and how it does it—as opposed to such prevalent approaches as trying to bribe or scare people into "doing their job properly". If you want to get the best out of people, I suggest that Dr Deming's "Attributes of a Leader" are likely to be rather more successful at achieving that aim.
+This is leadership aimed at doing everything possible to *genuinely* improve the quality of what an organisation does and how it does it—as opposed to such prevalent approaches as trying to bribe or scare people into "doing their job properly". If you want to get the best out of people, I suggest that Dr Deming's "Attributes of a Leader" are likely to be rather more successful at achieving that aim.
 
 ### All One Team
 
@@ -20,13 +20,13 @@ It is difficult to pick out anything very specific to say here: every item in th
 
 ### Scientific Approach
 
-A very strong emphasis on viewing an organisation as a system is obvious throughout the Attributes of a Leader. The relevance of the Scientific Approach to understanding people and how to manage them is particularly evident in Attribute 5. The use of understanding variation in this Attribute is a supreme example of how Shewhart's theory is applicable to far more than just shop-floor and manufacturing processes.
+A very strong emphasis on viewing an organisation as a *system* is obvious throughout the Attributes of a Leader. The relevance of the Scientific Approach to understanding people and how to manage them is particularly evident in Attribute 5. The use of understanding variation in this Attribute is a supreme example of how Shewhart's theory is applicable to far more than just shop-floor and manufacturing processes.
 
 ## Point 8. Drive out fear *([Day 5 pages 4–5](../days/day-05/02-points-7-to-14.qmd#sec-page4))*
 
 ### Obsession With Quality
 
-This is a case where what relates to the other two corners of the Triangle is also immediately relevant here. Regarding All One Team: although quality depends in part on individual effort, real quality is much more a joint effort, both across and up and down the organisation. People in fear do not work together: they are more concerned with personal survival—"What's in it for me?". Can you blame them? And, regarding the Scientific Approach: improvement and indeed innovation need valid, truthful information. Fear inhibits honesty. Also, we need to learn from mistakes. Understandably, those in fear do not even admit mistakes.
+This is a case where what relates to the other two corners of the Triangle is also immediately relevant here. Regarding All One Team: although quality depends in part on individual effort, real quality is much more a joint effort, both across and up and down the organisation. People in fear do not work together: they are more concerned with personal survival—"What's in it for me?". Can you blame them? And, regarding the Scientific Approach: improvement and indeed innovation *need* valid, truthful information. Fear inhibits honesty. Also, we need to learn from mistakes. Understandably, those in fear do not even admit mistakes.
 
 ### All One Team
 
@@ -34,7 +34,7 @@ All One Team implies working together for the benefit of all. But fear results i
 
 ### Scientific Approach
 
-Fear increases variation in so many obvious ways. People or groups "doing their own thing" for personal survival clearly increases variation. Another frequent observation from Dr Deming was: "… [where there is fear, there will be wrong figures]{.deming_quote}" *[Out of the Crisis* page 228*[266]*): people report what they can get away with and / or what they think management would like to see. Do you doubt it? Again, can you blame them? Where lies the fault?
+Fear *increases* variation in so many obvious ways. People or groups "doing their own thing" for personal survival clearly increases variation. Another frequent observation from Dr Deming was: "… [where there is fear, there will be wrong figures]{.deming_quote}" (*Out of the Crisis* page 228[266]): people report what they can get away with and/or what they think management would *like* to see. Do you doubt it? Again, can you blame them? Where lies the fault?
 
 ## Point 9. Break down barriers *([Day 5 pages 6–7](../days/day-05/02-points-7-to-14.qmd#sec-page6))* {#sec-page25}
 
@@ -46,25 +46,25 @@ As we have seen several times, the "Quality" being referred to at the top of the
 
 ### All One Team
 
-The strong link here is wholly obvious. But note the implications concerning management style. Anything (and there is often much) that management does to erect or strengthen ["barriers between departments or staff areas"]{.deming_quote} harms and can indeed destroy any chance of All One Team. An obvious example is the setting of departmental numerical targets, particularly if reward and punishment are involved. It is often easy to improve your own figures by harming what goes on elsewhere (yes, more suboptimisation).
+The strong link here is wholly obvious. But note the implications concerning management style. Anything (and there is often much) that management does to *erect* or *strengthen* ["barriers between departments or staff areas"]{.deming_quote} harms and can indeed destroy any chance of All One Team. An obvious example is the setting of departmental numerical targets, particularly if reward and punishment are involved. It is often easy to improve your own figures by harming what goes on elsewhere (yes, more suboptimisation).
 
 ### Scientific Approach
 
-In addition to the emphasis yet again on improvement of the system, think of the additional variation that is caused if this Point is *not* put into effect. The different parts of the organisation pull in different directions to protect and advance what they see as their own local interests (suboptimisation again): all adding extra variation to overall performance. If the barriers have been erected, why should they even try anything else?
+In addition to the emphasis yet again on improvement of the system, think of the additional variation that is caused if this Point is *not* put into effect. The different parts of the organisation pull in different directions to protect and advance what they see as their own local interests (suboptimisation again): all adding extra variation to overall performance. If the barriers have been erected, why should they even *try* anything else?
 
 ## Point 10. Eliminate exhortations *([Day 5 pages 8–9](../days/day-05/02-points-7-to-14.qmd#sec-page8))*
 
 ### Obsession With Quality
 
-The kind of poster suggested in that extract from *Out of the Crisis* would demonstrate that management is actively creating the environment and opportunity for improvement. Except for such an imaginary poster, use of posters, exhortations, slogans is surely relegating thoughts of quality to something entirely trivial—the direct opposite of Obsession With Quality.
+The kind of poster suggested in that extract from *Out of the Crisis* would demonstrate that management is actively creating the environment and opportunity for improvement. Except for such an imaginary poster, use of posters, exhortations, slogans is surely relegating thoughts of quality to something entirely trivial—the direct opposite of *Obsession* With Quality.
 
 ### All One Team
 
-One of the slogans Dr Deming cites on *Out of the Crisis* page 57*[66]* is "Getting Better Together". He comments: ["… workers have told me that this slogan makes them furious. Together! What is that when no one will listen to our problems and suggestions?"]{.deming_quote}.
+One of the slogans Dr Deming cites on *Out of the Crisis* page 57[66] is "Getting Better Together". He comments: ["… workers have told me that this slogan makes them furious. Together! What is that when no one will listen to our problems and suggestions?"]{.deming_quote}.
 
 ### Scientific Approach
 
-Yet again, the thrust of this Point is that the lack of quality, productivity, behaviour, performance—just about everything—comes from the system (common causes) not the individual (which might perhaps relate to some special causes). Yet at what or whom are the slogans, posters and exhortations that are referred to in this Point aimed? As my friend Mitch Beedie astutely pointed out to me: "Exhortations suggest that managers know what is wrong before they look".
+Yet again, the thrust of this Point is that the bulk of quality, productivity, behaviour, performance—just about everything—comes from the *system* (common causes) not the *individual* (which might perhaps relate to some special causes). Yet at what or whom are the slogans, posters and exhortations that are referred to in this Point aimed? As my friend Mitch Beedie astutely pointed out to me: "Exhortations suggest that managers know what is wrong before they look".
 
 ## Point 11. Eliminate arbitrary numerical targets *([Day 5 pages 10–11](../days/day-05/02-points-7-to-14.qmd#sec-page10))* {#sec-page26}
 
@@ -78,7 +78,7 @@ Such targets (especially if associated with reward and punishment) that are set 
 
 ### Scientific Approach
 
-Except for cheating, our understanding of variation teaches us that a number will be largely what the system provides. So, to reach a numerical target, one has to either (a) improve the system, or (b) bend the system in favour of that number (causing harm elsewhere), or (c) cheat. Come to think of it, doesn't that imply that cheating is also a product of such a system? So I guess I could have omitted the first three words of this paragraph …
+Except for cheating, our understanding of variation teaches us that a number will be largely what the *system* provides. So, to reach a numerical target, one has to either (a) improve the system, or (b) bend the system in favour of that number (causing harm elsewhere), or (c) cheat. Come to think of it, doesn't that imply that cheating is also a product of such a system? So I guess I could have omitted the first three words of this paragraph …
 
 ## Point 12. Permit pride of workmanship *([Day 5 pages 12–13](../days/day-05/02-points-7-to-14.qmd#sec-page12))*
 
@@ -88,7 +88,7 @@ Anything which is a barrier to people taking pride in their work must surely, as
 
 ### All One Team
 
-Most (if not all) of us know people who have particular skills, abilities, imagination and inspiration that provide invaluable contributions to what we and others can do. But do they not still need the help and cooperation of others to allow them the time and resources and environment to enable them to use their particular abilities to the full? *[The bottom half of [Day 6 page 13](../days/day-06/02-gallery-furniture.qmd#sec-page13) is worth reading on this.]* So don't the rest of us?
+Most (if not all) of us know people who have particular skills, abilities, imagination and inspiration that provide invaluable contributions to what we and others can do. But do they not still need the help and cooperation of others to allow them the time and resources and environment to enable them to use their particular skills, etc effectively? *[The bottom half of [Day 6 page 13](../days/day-06/02-gallery-furniture.qmd#sec-page13) is worth reading on this.]* So don't the rest of us?
 
 ### Scientific Approach
 
@@ -98,7 +98,7 @@ The Scientific Approach, and all the understanding and useful aids for improveme
 
 ### Obsession With Quality
 
-First, whereas training is very focused, "education" implies breadth—learning about other areas—and this often provides inspiration about what could be helpful for improvement in our own area. Further, an []{#sec-page27} Obsession With Quality is involved with innovation as well as improvement. Dr Deming's interpretation of "education" is therefore instrumental in encouraging and developing—not destroying—the creativity needed for innovation. Indeed, [self-improvement]{.deming_quote} (which is mentioned in the first sentence of the statement of this Point) is itself encouraged and stimulated by education. And who benefits? Win-Win.
+First, whereas training is very focused, "education" implies *breadth*—learning about other areas—and this often provides inspiration about what could be helpful for improvement in our own area. Further, an []{#sec-page27} Obsession With Quality is involved with innovation as well as improvement. Dr Deming's interpretation of "education" is therefore instrumental in encouraging and developing—not destroying—the creativity needed for innovation. Indeed, [self-improvement]{.deming_quote} (which is mentioned in the first sentence of the statement of this Point) is itself encouraged and stimulated by education. And who benefits? Win-Win.
 
 ### All One Team
 
@@ -118,7 +118,7 @@ Remember Dr Deming's familiar observation: ["Quality is made at the top"]{.demin
 
 ### All One Team
 
-All One Team means what it says. Many approaches to quality improvement involve formation of teams, maybe lots of them—but, as previously observed (during Point 5 on [Day 4 page 25](../days/day-04/04-points-1-to-6.qmd#sec-page25)), the teams are sometimes set into competition with each other! So much of conventional management *obstructs* All One Team by doing precisely that: creating internal competition and, indeed, fear (of not winning). So, again—what chance is there without Point 14?
+All *One* Team means what it says. Many approaches to quality improvement involve formation of teams, maybe lots of them—but, as previously observed (during Point 5 on [Day 4 page 25](../days/day-04/04-points-1-to-6.qmd#sec-page25)), the teams are sometimes set into competition with each other! So much of conventional management *obstructs* All One Team by doing precisely that: creating internal competition and, indeed, fear (of not winning). So, again—what chance is there without Point 14?
 
 ### Scientific Approach
 
@@ -128,7 +128,7 @@ Here we go again! With the Scientific Approach's emphasis on the system (common 
 
 ### Obsession With Quality
 
-Recall the emphasis on *innovation* in the discussion of Point 1 in *Out of the Crisis*. There (on page 24*[25]* of his book) Dr Deming states unambiguously that ["Innovation, the foundation of the future, can not thrive unless the top management have declared unshakable commitment to quality and productivity"]{.deming_quote}. I could equally well have included this in the discussion on Point 14. Yet again, ["Quality is made at the top"]{.deming_quote}.
+Recall the emphasis on *innovation* in the discussion of Point 1 in *Out of the Crisis*. There (on page 24[25] of his book) Dr Deming states unambiguously that ["Innovation, the foundation of the future, can not thrive unless the top management have declared unshakable commitment to quality and productivity"]{.deming_quote}. I could equally well have included this in the discussion on Point 14. Yet again, ["Quality is made at the top"]{.deming_quote}.
 
 ### All One Team
 
@@ -136,7 +136,7 @@ There can only be All One Team if the team knows what it is working on and is al
 
 ### Scientific Approach
 
-Constancy of purpose automatically reduces variation. The opposite is also true: *lack* of constancy of purpose automatically *increases* variation. Also, as we know, the thinking and the methods of the Scientific Approach are there to aid the learning of how to do something better. All well and good. However, that's of but limited value if that "something" is regarded as important today but no longer so regarded tomorrow. Research and experimentation aimed at innovation is considerably enhanced by reduced variation: it thins the "fog" which otherwise obstructs the view and hence the understanding of what innovation may be able to produce.
+Constancy of purpose automatically reduces variation. The opposite is also true: *lack of* constancy of purpose automatically *increases* variation. Also, as we know, the thinking and the methods of the Scientific Approach are there to aid the learning of how to do something better. All well and good. However, that's of but limited value if that "something" is regarded as important today but no longer so regarded tomorrow. Research and experimentation aimed at innovation is considerably enhanced by reduced variation: it thins the "fog" which otherwise obstructs the view and hence the understanding of what innovation may be able to produce.
 
 ## Disease 2. Short-termism *([Day 5 pages 20–21](../days/day-05/03-the-deadly-diseases.qmd#sec-page20))*
 
@@ -148,7 +148,7 @@ When you think of the many contributors needed to develop real quality in whatev
 
 All One Team includes development of personal relationships, learning to work together, learning to help each other for mutual benefit and the benefit of the company and its customers. A short-termism culture forces you to "look out for yourself" rather than contributing to the whole. After all, a straightforward way for management to increase short-term profits is to let some people go.
 
-> Maybe what a dishonest term that is—it sounds as if they *want* to go and you're just giving them permission.
+> And what a dishonest term that is—it sounds as if they *want* to go and you're just giving them permission.
 
 ### Scientific Approach
 
@@ -160,7 +160,7 @@ The destructive nature of short-termism on the Scientific Approach is compactly 
 
 ### Obsession With Quality
 
-Obsession With Quality has to imply obsession with improving the system which produces the quality—*not* imagining that quality can merely be obtained by "doing things" to people, especially of a "motivational" kind. It does not work. It will not work.
+Obsession With Quality *has* to imply obsession with improving the *system* which produces the quality—*not* imagining that quality can merely be obtained by "doing things" to people, especially of a "motivational" kind. It does not work. It will not work.
 
 ### All One Team
 
@@ -176,11 +176,11 @@ As covered in my discussion, the whole concept of judgmental performance apprais
 
 ### Obsession With Quality
 
-Obsession With Quality implies having the time to learn how to genuinely improve quality in the specific organisation and environment rather than e.g. just changing some figures which may well have only tenuous relevance to real quality.
+Obsession With Quality implies having the *time* to learn how to genuinely improve quality in the specific organisation and environment rather than e.g. just changing some figures which may well have only tenuous relevance to real quality.
 
 ### All One Team
 
-This is where Dr Deming saw this Deadly Disease as being its most damaging (*Out of the Crisis* page 103 *[121]*):
+This is where Dr Deming saw this Deadly Disease as being its most damaging (*Out of the Crisis* page 103 [121]):
 
 > ["Mobility annihilates teamwork, so vital for continued existence. A new manager comes in. Everyone wonders what will happen. Unrest becomes rampant when the board of directors go outside the company to bring someone in for a rescue operation. Everyone takes to his life preserver."]{.deming_quote}
 
@@ -192,18 +192,18 @@ It is evident that mobility of management increases variation; how could it do o
 
 ### Obsession With Quality
 
-With that summary of invisible figures in mind, the obstructive effect to real quality of dependence on only visible figures becomes immediately evident—frighteningly so when realising how universal is this fifth Disease, even in those organisations that are making progress in curing the others.
+With that summary of invisible figures in mind, the obstructive effect to real quality of dependence on *only* visible figures becomes immediately evident—frighteningly so when realising how universal is this fifth Disease, even in those organisations that are making progress in curing the others.
 
 ### All One Team
 
-The summary already includes the value of a specific team as amongst the important invisible figures. How much more massive and yet invisible (regarding actual numbers) is the value of All One Team? The truth is that just about every activity of All One Team which one can identify (and surely there are many) has literally unmeasurable value.
+The summary already includes the value of a specific team as amongst the important invisible figures. How much more massive and yet invisible (regarding actual numbers) is the value of *All One* Team? The truth is that just about every advantage of All One Team which one can identify (and surely there are many) has literally unmeasurable value.
 
 ### Scientific Approach
 
-A delegate at a four-day seminar ventured to quote the well-known saying: "If you can't measure it, you can't manage it". Deming's typically brief and pointed response was: ["You'd darn well better manage it"]{.deming_quote}.
+A delegate at a four-day seminar ventured to quote the well-known saying: "If you can't measure it, you can't manage it". Deming's typically brief and pointed response was: ["You'd darn well *better* manage it"]{.deming_quote}.
 
-With regard to that response I have often noticed how, once people have become familiar with control charts and how to interpret them—particularly in terms of changing focus onto the system rather than scratching around for possible special causes—they would similarly change their behaviour even without visible figures.
+With regard to that response I have often noticed how, once people have become familiar with control charts and how to interpret them—particularly in terms of changing focus onto the system rather than scratching around for possible special causes—they would similarly change their behaviour even *without* visible figures.
 
-When visible figures are available then, of course, we need to learn how to use them appropriately. The appeal of the proliferation of tools and techniques, and the enthusiasm of consultants to sell them, is apparent. But they do not teach many tools and techniques suitable for analysing unknown and unknowable figures.
+When relevant visible figures are available then, of course, we need to learn how to use them appropriately. The appeal of the proliferation of tools and techniques, and the enthusiasm of consultants to sell them, is apparent. But they do not teach many tools and techniques suitable for analysing unknown and unknowable figures.
 
 There is considerable wisdom in understanding the *limitations* of figures as a vital part of maturity in the Scientific Approach—or indeed of a statistician—but it is rare. For some exceptions, the quotations from wise statisticians at the start of *DemDim* Chapter 10 (pages 151–152) are worth much reflection.

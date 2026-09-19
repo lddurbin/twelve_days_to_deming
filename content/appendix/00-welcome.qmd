@@ -22,7 +22,7 @@ As mentioned near the end of the “Welcome” section, this is the reference li
 
 **Before Day 9.** For just a little extra printing, mostly to aid you in Day 9’s Major Activity: see [Day 8 page 28](../days/day-08/06-major-activity.qmd#sec-page28).
 
-**Before Day 10.** For details of your preparation for the Second Project: see [Day 9 pages 26–30](../days/day-09/07-out-of-hours.qmd#sec-page27).
+**Before Day 10.** For details of your preparation for the Second Project: see [Day 9 pages 26–30](../days/day-09/07-out-of-hours.qmd#sec-page26).
 
 **Before Day 11.** For details of preparation for the second half of the Second Project: see [Day 10 page 33](../days/day-10/06-out-of-hours-note.qmd#sec-page33).
 

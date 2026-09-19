@@ -331,6 +331,7 @@ mark.gone { background: var(--critical-soft); color: var(--critical); text-decor
 }
 .note-toggle:hover { color: var(--accent); }
 .note-toggle[data-has="1"] { color: var(--accent); font-weight: 500; }
+.status[data-preset="1"] { color: var(--ok); }
 .status { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--muted); }
 .note-wrap { padding: 0 17px 14px; background: var(--surface-2); }
 .note-wrap[hidden] { display: none; }
@@ -385,6 +386,7 @@ mark.gone { background: var(--critical-soft); color: var(--critical); text-decor
       <button class="filter" data-f="accept" aria-pressed="false">Accepted<span class="n" data-c="accept"></span></button>
       <button class="filter" data-f="reject" aria-pressed="false">Declined<span class="n" data-c="reject"></span></button>
       <button class="filter" data-f="discuss" aria-pressed="false">Discuss<span class="n" data-c="discuss"></span></button>
+      <button class="filter" data-f="preset" aria-pressed="false" hidden>Pre-set<span class="n" data-c="preset"></span></button>
     </div>
     <div class="order" id="order" role="group" aria-label="Order findings">
       <button type="button" data-o="doc" aria-pressed="true">Document order</button>
@@ -447,6 +449,21 @@ PASS.sections.forEach(sec => sec.items.forEach(it => {
 }));
 
 const allItems = PASS.sections.flatMap(s => s.items.map(i => ({ ...i, section: s.key, labels: s.labels, sec: s })));
+const byId = Object.fromEntries(allItems.map(i => [i.id, i]));
+
+/* A section may carry a `preset` decision — used for the verdicts where
+   agreeing changes nothing or is near-mechanical (cleared, out of scope,
+   emphasis), so a large pass spends its attention on the fixes. A pre-set card
+   counts as decided until touched; any click replaces the preset, including
+   clicking it off, which leaves the card genuinely undecided. The export marks
+   which decisions were never touched, so the record can tell "affirmed" apart
+   from "left at the default". The builder refuses a preset on `fix`. */
+function effective(id) {
+  const st = state[id] || {};
+  if ("decision" in st) return { decision: st.decision || null, preset: false };
+  const p = byId[id].sec.preset || null;
+  return { decision: p, preset: !!p };
+}
 
 /* Document order is Neave's reading order, which is the order someone with the
    manual open in front of them is working through. The verdict groups cut
@@ -614,7 +631,7 @@ function onClick(e) {
   if (btn.dataset.act === "set") {
     const v = btn.dataset.v;
     const cur = state[id] || {};
-    cur.decision = cur.decision === v ? null : v;
+    cur.decision = effective(id).decision === v ? null : v;
     state[id] = cur;
     save();
     syncCard(card);
@@ -639,19 +656,25 @@ function onInput(e) {
 function syncCard(card) {
   const id = card.dataset.id;
   const st = state[id] || {};
+  const eff = effective(id);
   card.querySelectorAll(".seg button").forEach(b => {
-    b.setAttribute("aria-pressed", String(b.dataset.v === st.decision));
+    b.setAttribute("aria-pressed", String(b.dataset.v === eff.decision));
   });
-  const item = allItems.find(i => i.id === id);
-  card.querySelector(".status").textContent = st.decision ? item.labels[st.decision].toLowerCase() : "undecided";
+  const item = byId[id];
+  const status = card.querySelector(".status");
+  status.textContent = eff.decision
+    ? item.labels[eff.decision].toLowerCase() + (eff.preset ? " (pre-set)" : "")
+    : "undecided";
+  status.dataset.preset = eff.preset ? "1" : "0";
   const nt = card.querySelector(".note-toggle");
   const has = st.note && st.note.trim().length;
   nt.textContent = has ? "Note added" : "Add a note";
   nt.dataset.has = has ? "1" : "0";
   const ta = card.querySelector("textarea");
   if (st.note && ta.value !== st.note) ta.value = st.note;
-  const d = st.decision || null;
-  card.dataset.hidden = (filter === "all" || (filter === "open" ? !d : d === filter)) ? "0" : "1";
+  const d = eff.decision;
+  const show = filter === "all" || (filter === "open" ? !d : filter === "preset" ? eff.preset : d === filter);
+  card.dataset.hidden = show ? "0" : "1";
 }
 
 function syncAll() {
@@ -661,14 +684,16 @@ function syncAll() {
 
 function syncBar() {
   const total = allItems.length;
-  const counts = { all: total, open: 0, accept: 0, reject: 0, discuss: 0 };
+  const counts = { all: total, open: 0, accept: 0, reject: 0, discuss: 0, preset: 0 };
   allItems.forEach(i => {
-    const d = (state[i.id] || {}).decision;
-    if (!d) counts.open++; else counts[d]++;
+    const eff = effective(i.id);
+    if (!eff.decision) counts.open++; else counts[eff.decision]++;
+    if (eff.preset) counts.preset++;
   });
   const decided = total - counts.open;
   document.getElementById("meterFill").style.width = (decided / total * 100) + "%";
-  document.getElementById("meterText").textContent = `${decided} / ${total} decided`;
+  document.getElementById("meterText").textContent = `${decided} / ${total} decided` +
+    (counts.preset ? ` · ${counts.preset} pre-set` : "");
   Object.keys(counts).forEach(k => {
     const el = document.querySelector(`[data-c="${k}"]`);
     if (el) el.textContent = counts[k];
@@ -700,14 +725,18 @@ function payload() {
     source_pdf: PASS.source_pdf,
     scorer_version: PASS.scorer_version,
     decided_at: new Date().toISOString().slice(0, 10),
-    decisions: allItems.map(i => ({
-      id: i.id,
-      section: i.section,
-      file: i.file ? PASS.content_dir + "/" + i.file : null,
-      line: i.line || null,
-      decision: (state[i.id] || {}).decision || "undecided",
-      note: ((state[i.id] || {}).note || "").trim() || null
-    }))
+    decisions: allItems.map(i => {
+      const eff = effective(i.id);
+      return {
+        id: i.id,
+        section: i.section,
+        file: i.file ? PASS.content_dir + "/" + i.file : null,
+        line: i.line || null,
+        decision: eff.decision || "undecided",
+        preset: eff.preset,
+        note: ((state[i.id] || {}).note || "").trim() || null
+      };
+    })
   };
 }
 
@@ -801,6 +830,7 @@ function applyUI() {
     document.querySelector(`[data-key="${v}"]`).textContent = UI.keys[v];
   });
   if (UI.reject_tone) listHost.dataset.rejectTone = UI.reject_tone;
+  if (PASS.sections.some(s => s.preset)) document.querySelector('.filter[data-f="preset"]').hidden = false;
 }
 
 applyUI();
