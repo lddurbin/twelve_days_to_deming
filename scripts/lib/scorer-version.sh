@@ -22,7 +22,8 @@
 # into a new module — as the strip_qmd() port in #739 did, adding qmd_strip.py,
 # the paragraph-assembly port in #741 did, adding paragraphs.py, the
 # short-content pass in #742 did, adding short_content.py, and the
-# footnote-callout suppression in #755 did, adding pdf_callouts.py. A file
+# footnote-callout suppression in #755 did, adding pdf_callouts.py, and the
+# undecodable-font filter in #852 did, adding undecodable_fonts.py. A file
 # belongs here whether it decides what gets *flagged* or only what gets
 # *reported*: both change what a recorded result says.
 #
@@ -40,6 +41,7 @@ SCORER_VERSION_FILES=(
   scripts/lib/pdf_callouts.py
   scripts/lib/qmd_strip.py
   scripts/lib/short_content.py
+  scripts/lib/undecodable_fonts.py
   scripts/validate-transcription.sh
 )
 

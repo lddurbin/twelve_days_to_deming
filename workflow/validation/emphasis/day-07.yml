@@ -4,13 +4,13 @@ record: day-07
 checked_at: 2026-09-23
 source_pdf: J.Day.7.14Feb22.pdf
 source_sha256: d41322a0bce8855f627da4a6731e0fef77026a70d2595af9131edbedafb9da2d
-emphasis_version: f1fb00314679fd0a7fd0312bd70578b295d2cf6c
+emphasis_version: e3f220e61dfa89e91721fedb1e53c95fe03bd3ad
 files:
   compared: 7
 words:
-  pdf: 15384
+  pdf: 14928
   qmd: 15636
-  aligned: 14346
+  aligned: 14345
 runs:
   total: 130
   explained: 40

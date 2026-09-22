@@ -180,11 +180,12 @@ What remains in scope for a human auditor, because no tool can see it:
 3. **Emphasis by colour alone** — available mechanically, but what the site's
    equivalent of one of Neave's colours should be is an editorial call, not a
    mechanical one. Deliberately left here.
-4. **Unaligned text** — 7% of PDF words corpus-wide, 14% on Day 3, 32% on
+4. **Unaligned text** — 6% of PDF words corpus-wide, 14% on Day 3, 31% on
    `index`. The emphasis checker does not reach it.
+5. **Undecodable text** — see the next section. Neither checker reads it.
 
 So a Minor verdict for lost emphasis is still correct when the auditor sees
-one: it will be in one of those four classes, which is exactly why they are
+one: it will be in one of those five classes, which is exactly why they are
 worth a human's eye. What changed is that the *rate* it contributes no longer
 stands for emphasis generally.
 
@@ -275,6 +276,8 @@ them estimate p̂ well enough to divide by. The published claim is the pooled
   blind spots listed under *Emphasis is no longer sampled*. Its evidence is
   `workflow/validation/emphasis/`.
 - **Figures and tables as images** are out of scope, owned by #725.
+- **Undecodable text** is not in this population, or in any tool's. See
+  *Text no tool reads* below.
 - **Plants approximate real defects**, drawn from the classes Wave 2 found — word
   substitutions, dropped and inserted words, one wrong digit, a dropped or added
   `!`, lost emphasis — but a planted change may be easier or harder to see than
@@ -282,3 +285,38 @@ them estimate p̂ well enough to divide by. The published claim is the pooled
 - **Minor is a floor, not a census.** An auditor reading for meaning will catch
   every wrong word but skim past some punctuation, so the any-deviation rate is
   the more under-measured of the two, and its p̂ is what corrects for that.
+
+## Text no tool reads
+
+Some of Neave's PDFs set text in subset fonts that poppler cannot map back to
+Unicode, so both `pdftotext` and `pdftohtml` return a substitution cipher —
+`1"20,+*3$4552".*"6*3$…` is Day 7's running banner. Since
+[#852](https://github.com/lddurbin/twelve_days_to_deming/issues/852),
+`scripts/lib/undecodable_fonts.py` takes it out of both the paragraph
+comparator and the emphasis checker, so it is counted as unread rather than as
+words that failed to match. Before that it was just as unread, but the counts
+did not say so.
+
+Most of it is page furniture: running banners, page footers, and the repeated
+*Activity … is also on WorkBook page …* pointer lines. But not all of it.
+These PDF pages carry at least 150 characters of it in the body of the page
+(measured 2026-09-23; `undecodable_fonts.py --report <pdf>` lists every page's
+count):
+
+| record | PDF pages |
+|---|---|
+| `index` | 18 |
+| `day-01` | 33 (Neave's sentences introducing each *Some Light Relief!* quotation) |
+| `day-02` | 13 |
+| `day-05` | 10 |
+| `day-06` | 5, 6, 29, 30 (the interviewer's side of transcribed exchanges) |
+| `day-07` | 20, 21, 22 (the Hansard transcript — p21 is almost the whole page) |
+| `day-12` | 46 |
+| `appendix-main` | 24, 25 |
+
+Nothing has compared these passages against the source. The site transcribes
+them from the page images, and only a human reading them against those images
+can check them — including their emphasis, which on Day 7's Hansard page means
+every italic speaker attribution and the italic *Guardian*. They are worth
+drawing into any audit of those records by hand, since no sample drawn from the
+comparator's population can ever land on them.

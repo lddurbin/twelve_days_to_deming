@@ -24,7 +24,9 @@
 
 # Every file whose content can change what an emphasis run reports. Paths are
 # repo-relative. This is the one line to edit when checker behaviour moves
-# into a new module.
+# into a new module. undecodable_fonts.py is shared with scorer-version.sh
+# (#852): it decides what text both pipelines read, so an edit to it
+# restales both directories, as it should.
 #
 # .github/workflows/validation-staleness.yml must have a `paths:` entry for
 # every file below, or an edit to one won't trigger the check that catches it.
@@ -35,6 +37,7 @@
 EMPHASIS_VERSION_FILES=(
   scripts/check-emphasis.py
   scripts/lib/emphasis.py
+  scripts/lib/undecodable_fonts.py
 )
 
 # Print a single content hash covering every file in EMPHASIS_VERSION_FILES.

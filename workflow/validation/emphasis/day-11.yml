@@ -4,11 +4,11 @@ record: day-11
 checked_at: 2026-09-23
 source_pdf: N.Day.11.18Jan20.pdf
 source_sha256: e2e24a83e33d2c23f6aef971af00c41b2b89ed9e7c3a5713abff3e1e72d95eed
-emphasis_version: f1fb00314679fd0a7fd0312bd70578b295d2cf6c
+emphasis_version: e3f220e61dfa89e91721fedb1e53c95fe03bd3ad
 files:
   compared: 8
 words:
-  pdf: 8538
+  pdf: 8490
   qmd: 8391
   aligned: 8235
 runs:

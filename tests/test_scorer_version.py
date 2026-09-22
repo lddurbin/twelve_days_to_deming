@@ -260,12 +260,21 @@ class WorkflowPathFilterTests(unittest.TestCase):
             self.assertIn("scripts/lib/emphasis-version.sh", block)
             self.assertIn("workflow/validation/emphasis/**", block)
 
-    def test_the_two_pipelines_do_not_share_a_file(self):
-        """Overlap would couple the two versions back together by the back
-        door: an edit to a shared file would restale both directories, which
-        is the cost keeping them apart exists to avoid."""
+    # Files that genuinely decide what *both* pipelines read, and so must
+    # restale both directories when they change. undecodable_fonts.py (#852)
+    # removes the same undecodable text from the `pdftotext` side and the
+    # `pdftohtml` side; leaving it out of either list would let that
+    # pipeline's records call themselves fresh after a behaviour change.
+    SHARED_FILES = {"scripts/lib/undecodable_fonts.py"}
+
+    def test_the_two_pipelines_share_only_what_they_must(self):
+        """Overlap couples the two versions back together: an edit to a
+        shared file restales both directories, which is the cost keeping
+        them apart exists to avoid. So any overlap has to be named in
+        SHARED_FILES, with its reason, rather than arrive by accident."""
         self.assertEqual(
-            set(SCORER_VERSION_FILES) & set(EMPHASIS_VERSION_FILES), set())
+            set(SCORER_VERSION_FILES) & set(EMPHASIS_VERSION_FILES),
+            self.SHARED_FILES)
 
 
 if __name__ == "__main__":
