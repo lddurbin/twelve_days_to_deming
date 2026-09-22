@@ -9,15 +9,15 @@ files:
   compared: 13
 words:
   pdf: 25766
-  qmd: 25961
-  aligned: 22035
+  qmd: 25967
+  aligned: 22029
 runs:
-  total: 275
-  explained: 70
+  total: 74
+  explained: 71
 counts:
-  lost: 183
-  lost_words: 321
-  added: 18
-  added_words: 153
-  swapped: 4
-  swapped_words: 21
+  lost: 1
+  lost_words: 1
+  added: 0
+  added_words: 0
+  swapped: 2
+  swapped_words: 6

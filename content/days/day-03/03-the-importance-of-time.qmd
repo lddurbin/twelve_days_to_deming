@@ -111,7 +111,7 @@ Reveal suggested answer for Activity 3-e
 </button>
 
 <div class="collapse" id="collapse_3e">
-Clearly, the first process was trending upward over time; the second was trending down. Very different behaviours. Yet we found exactly the same histogram in both cases. The two collections of numbers were exactly the same; they just occurred in a different order. But the *order* of the numbers is all-important for describing and understanding the behaviour of a process—it is foolish to ignore it.
+Clearly, the first process was trending upward over time; the second was trending down. Very different behaviours. Yet we found exactly the same histogram in both cases. The two *collections* of numbers were exactly the same; they just occurred in a different order. But the *order* of the numbers is all-important for describing and understanding the behaviour of a process—it is foolish to ignore it.
 </div>
 </div>
 
@@ -121,7 +121,7 @@ Clearly, the first process was trending upward over time; the second was trendin
 Histograms totally ignore the order in which the numbers come out of a process. Yet that order is very likely to hold the most important information of all about the process's behaviour.
 </div>
 
-However, that's not to imply we should dispense with the histogram altogether. The top priority is to learn whether or not a process is in statistical control. But the histogram can sometimes indicate important features which may be less clear on a control chart. For example, we have already seen how loudly the Ford histograms shout the important message that the automatic compensation device was increasing the variation in the shaft diameters. That *could* also be seen from control charts, but I'd say the histograms demonstrate the contrast much more obviously and straightforwardly.
+However, that's not to imply we should dispense with the histogram altogether. The top priority is to learn whether or not a process is in statistical control. But the histogram can sometimes indicate important features which may be less clear on a control chart. For example, we have already seen how loudly the Ford histograms shout the important message that the automatic compensation device was *increasing* the variation in the shaft diameters. That *could* also be seen from control charts, but I'd say the histograms demonstrate the contrast much more obviously and straightforwardly.
 
 Dr Deming included a few histograms in *Out of the Crisis*. I particularly like his commentary on the following histogram which I have redrawn from page 229[267] of his book:
 
