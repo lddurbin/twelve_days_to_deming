@@ -42,7 +42,7 @@ $$
 \end{aligned}
 $$
 
-A typical way of verifying this (if you need one) is as follows. Suppose we label the coins A and B. Then there are *four* possible outcomes, all equally likely. They are:
+A typical way of verifying this (if you need one) is as follows. Suppose we label the coins as A and B. Then there are *four* possible outcomes, all equally likely. They are:
 
 |           |      |      |      |      |
 |-----------|------|------|------|------|
@@ -151,7 +151,7 @@ i.e. it's the sum of the values multiplied by the *probabilities* that those val
 
 Let's develop the same theme to find the *standard deviation* σ or the *variance* σ² of this simple binomial distribution. So now we want to find the long-term value of $s$ or of $s^2$ as $n \to \infty$. I suggest we copy the mathematicians here and focus on the variance: it will avoid having square root signs all over the place. We can compute the variance first and then simply take its square root to immediately get the standard deviation.
 
-If we think of this in terms of tossing the coins thousands or millions of times, it all looks rather messy! E.g., suppose we look at the situation where we have drawn some results from tossing the two coins 1,000 times. Recall what $s^2$ is: look back at Steps (b) and (c) of the [four-step procedure on pages 18–19](02-part-b-subgrouped.qmd#sec-optional-extras-page-18). At that stage our value of $\bar{X}$ is 0.986, and so "the sum of the 'squared gaps'" $\div (n-1)$ would be:
+If we think of this in terms of tossing the coins thousands or millions of times, it all looks rather messy! E.g., suppose we look at the situation where we have the above results from tossing the two coins 1,000 times. Recall what $s^2$ is: look back at Steps (b) and (c) of the [four-step procedure on pages 18–19](02-part-b-subgrouped.qmd#sec-optional-extras-page-18). At that stage our value of $\bar{X}$ is 0.986, and so "the sum of the 'squared gaps'" $\div (n-1)$ would be:
 
 $$
 s^2 = \tfrac{1}{999}\Big\{(0 - 0.986)^2 \times 256 \;+\; (1 - 0.986)^2 \times 502 \;+\; (2 - 0.986)^2 \times 242\Big\}
@@ -210,7 +210,7 @@ However, it is more usual to read body temperatures to one place of decimals. So
 
 On the other hand, although this demonstrates what we *can't* do in the continuous case, it also shows us what we *can* do. That is to consider probabilities of the measurement *lying in any specified interval*. And indeed, that is what is essentially always done when we have a continuous probability distribution.
 
-This is therefore all quite opposite to the discrete case in which the probability distribution actually *consists* of evaluating the probabilities of each and every possible value (or showing a picture of those probabilities). So what form does the "probability distribution" take in the continuous case? What happens if we collect data and form histograms as we did before? One thing I will warn you about in advance: you would need to collect a lot more data than in the discrete case. That takes it rather outside the range of what you could envisage doing manually. If you had had the time and the patience, you *could* have tossed those two coins 1,000 times to get results like you saw on [pages 38–39](04-part-d-crash-course.qmd#sec-optional-extras-page-38). With similar time and patience you could similarly collect the dice 1,000 times and counted the number of sixes.
+This is therefore all quite opposite to the discrete case in which the probability distribution actually *consists* of evaluating the probabilities of each and every possible value (or showing a picture of those probabilities). So what form does the "probability distribution" take in the continuous case? What happens if we collect data and form histograms as we did before? One thing I will warn you about in advance: you would need to collect a lot more data than in the discrete case. That takes it rather outside the range of what you could envisage doing manually. If you had had the time and the patience, you *could* have tossed those two coins 1,000 times to get results like you saw on [pages 38–39](04-part-d-crash-course.qmd#sec-optional-extras-page-38). With similar time and patience you could similarly have thrown three dice 1,000 times and counted the number of sixes.
 
 Going by the results for tossing the two coins, it looked as if a sample size of 1,000 was quite sufficient to get a fairly accurate picture of the probability distribution. You'd have probably found the same had you thrown three dice 1,000 times. But, as you'll soon see, the amount of data needed in the continuous case to get a close approximation to the probability distribution is of a different order of magnitude. However, we can get there eventually.
 
@@ -369,11 +369,11 @@ Because of its appealing symmetrical shape, the normal distribution is often ref
 - In practice, data from many sources are mainly clustered around their average (mean) and occur less frequently further away from their mean—which is nicely illustrated by this bell shape; and
 - there turn out to be a whole host of pleasant mathematical theorems and results relevant to normal distributions, but to no others. We shall see one of the most famous creations in the next section: the Central Limit Theorem.
 
-However, before moving on to that section, let's get into just a little detail about probabilities when we have a normal distribution. So far we have established the fact that (as is the case with all continuous distributions) there is no point in trying to consider probabilities of getting individual values (because all such probabilities are zero!), but that instead we can concentrate on finding the probability that a normally distributed random variable lies within any specified interval. (Incidentally, in that respect, we must slightly extend the idea of an "interval" here to include "one-sided" intervals, i.e. the probability that the observed value is *at least* some number or the value is *at most* some number.) But how can we do all this?
+However, before moving on to that section, let's get into just a little detail about finding probabilities when we have a normal distribution. So far we have established the fact that (as is the case with all continuous distributions) there is no point in trying to consider probabilities of getting individual values (because all such probabilities are zero!), so that instead we must concentrate on finding the probability that a normally distributed random variable lies within any specified interval. (Incidentally, in that respect, we must slightly extend the idea of an "interval" here to include "one-sided" intervals, i.e. the probability that the observed value is *at least* some number or the value is *at most* some number.) But how can we do all this?
 
-We know how we could do it *approximately* by the method we have already demonstrated in this and the previous section: get lots of data from that normal distribution and find the *proportion* of those data that lie within any desired interval. But how can we do it without all the simulation? The answer is to refer back to one of [Dr Deming's quotations that we saw on page 30](03-part-c-ne-er-twain.qmd#sec-optional-extras-part-c). He spoke of a "graph of the normal curve and proportions of area thereunder". We have already noted that any pictures of probability distributions or of the approximating pictures of histograms with *proportions* in the boxes (rather than *frequencies* of occurrence) contain a total area of 1. So the "proportions of area thereunder" are, in fact, *probabilities*. In this sense, the normal distribution has an extremely appealing and convenient feature (a feature which is not wholly unique amongst probability distributions but is nevertheless pretty rare): those "proportions of area thereunder" apply *irrespective of the particular values of μ and σ*.
+We know how we could do it *approximately* by the method we have already demonstrated in this and the previous section: get lots of data from that normal distribution and find the *proportion* of those data that lie within any desired interval. But how can we do it without going through all that? The answer actually lies in one of [Dr Deming's quotations that we saw on page 30](03-part-c-ne-er-twain.qmd#sec-optional-extras-part-c). He spoke of a "graph of the normal curve and proportions of area thereunder". We have already noted that any pictures of probability distributions or of the approximating pictures of histograms with *proportions* in the boxes (rather than *frequencies* of occurrence) contain a total area of 1. So the "proportions of area thereunder" are, in fact, *probabilities*. In this sense, the normal distribution has an extremely appealing and convenient feature (a feature which is not wholly unique amongst probability distributions but is nevertheless pretty rare): those "proportions of area thereunder" apply *irrespective of the particular values of μ and σ*.
 
-On the next page there are the same three "graphs of the normal curve" as above but now with some "proportions of area thereunder" inserted. So, as an example, you can immediately read off that, for *any* values of μ and σ, the probability of the normal random variable lying in the interval between μ − 2σ and μ + 2σ (often expressed as "lying within two standard deviations of the mean") is:
+On the next page there are the same three "graphs of the normal curve" as on page 47 but now with some "proportions of area thereunder" inserted. So, as an example, you can immediately read off that, for *any* values of μ and σ, the probability of the normal random variable lying in the interval between μ − 2σ and μ + 2σ (often expressed as "lying within two standard deviations of the mean") is:
 
 $$2 \times (34.1\% + 13.6\%) = 2 \times 47.7\% = 95.4\%.$$
 
@@ -508,7 +508,7 @@ The Central Limit Theorem is a truly remarkable result which, within the context
 
 > Irrespective of *which* probability distribution is being sampled, for sufficiently large samples the sample mean $\bar{X}$ is almost exactly normally distributed. (In theory, there are *some* probability distributions that are exceptions to this statement but, in practice, they are rare.)
 
-There is one respect in which this statement can be confusing. Let's suppose the data are being drawn from a distribution having mean μ and standard deviation σ. As the sample size increases, the distribution of $\bar{X}$ keeps changing. In particular, since we know that $\bar{X}$ gets closer and closer to μ as the sample size increases, the distribution of $\bar{X}$ must keep getting narrower and narrower and therefore taller and taller (since, as always, the total area under the histogram has to be equal to 1). So eventually it will get difficult to see *what* kind of shape the distribution has other than that it is very tall and very thin! To overcome this problem, the Central Limit Theorem is often expressed as follows:
+There is one respect in which this statement can be confusing. Let's suppose the data are being drawn from a distribution having mean μ and standard deviation σ. As the sample size increases, the distribution of $\bar{X}$ keeps changing. In particular, since we know that $\bar{X}$ gets closer and closer to μ as the sample size increases, the distribution of $\bar{X}$ must keep getting narrower and narrower and therefore taller and taller (since, as always, the total area under the histogram has to be equal to 1). So eventually it will get pretty difficult to see *what* kind of shape the distribution has other than that it is very tall and very thin! To overcome this problem, the Central Limit Theorem is often expressed as follows:
 
 > If $\bar{X}$ is the mean of a random sample of size *n* taken from a population having mean μ and variance σ² (i.e. standard deviation σ) then
 >
@@ -522,7 +522,7 @@ The expression in the denominator of *Z* is the *standard deviation* of $\bar{X}
 
 As you might expect from the fact that σ is a measure of variability, *dividing* a random variable by its standard deviation always changes its standard deviation to 1. So the facts that the mean and variance of *Z* are respectively 0 and 1 are *bound* to be true. The new and remarkable information from the Central Limit Theorem is that the distribution of *Z* almost always becomes closer and closer to the standard *normal* distribution as the sample size increases (irrespective of what kind of distribution the sample is being drawn from—either discrete or continuous), rather than to any other distribution which has mean zero and standard deviation 1. I implied above that there exist some rare and rather peculiar distributions for which this is not true, but I think that you're unlikely to ever meet one in the "real world"!
 
-Of course, usually our sample sizes *n* are rather small compared with "$n \to \infty$"!  But what makes the Central Limit Theorem even more attractive is that, almost always, the movement toward normality of $\bar{X}$'s distribution already becomes apparent with very reasonable sample sizes: the distribution is usually effectively indistinguishable from normal for *n* no larger than 30 or 20 or 30 at most, and is often close to normal for much smaller *n*. As evidence for this, it's time for some more computer simulations! As a remarkable fact, even Shewhart showed the results of some simulations to verify this attractive feature. You notice that I do not say "*computer* simulations" there: Shewhart published the results in his 1931 book—and that was rather a long while before computers were around. If you are interested in how Shewhart carried out his simulations without a computer, I refer you to pages 182–183 of his book.
+Of course, usually our sample sizes *n* are rather small compared with "$n \to \infty$"!  But what makes the Central Limit Theorem even more attractive is that, almost always, the movement toward normality of $\bar{X}$'s distribution already becomes apparent with very reasonable sample sizes: the distribution is usually effectively indistinguishable from normal for *n* no larger than 30 or 20 or 30 at most, and is often close to normal for much smaller *n*. As evidence for this, it's time for some more computer simulations! As a rather remarkable fact, even Shewhart showed the results of some simulations to verify this attractive feature. You notice that I do not say "*computer* simulations" there: Shewhart published the results in his 1931 book—and that was rather a long while before computers were around. If you are interested in how Shewhart carried out his simulations without a computer, I refer you to pages 182–183 of his book.
 
 For the results of the computer simulations shown here, I generated samples of various sizes from three continuous probability distributions. The first was one of the two that Shewhart used: a uniform distribution whose pdf is illustrated alongside. The reason for the name is obvious: the probability is spread uniformly over an interval. As a good example, the values you get by pressing the "RAND" key on your calculator have a uniform distribution over the interval from 0 to 1.
 
@@ -564,7 +564,7 @@ ggplot(df, aes(x = .data$x, y = .data$y)) +
         plot.margin      = margin(8, 12, 8, 12))
 ```
 
-Firstly, I generated samples of size just *n* = 2 from a uniform distribution: here is the histogram of values of the "standardised" version of $\bar{X}$ (i.e. the "*Z*" in the formal statement of the Central Limit Theorem). In this and all the simulations that follow, the samples were generated 10,000,000 times. This is in contrast to Shewhart's 4,000 times—but even those few must have taken him quite a while!
+Firstly, I generated samples of size just *n* = 2 from a uniform distribution: here is the interesting histogram of values of the "standardised" version of $\bar{X}$ (i.e. the "*Z*" in the formal statement of the Central Limit Theorem). In this and all the simulations that follow, the samples were generated 10,000,000 times. This is in contrast to Shewhart's 4,000 times—but even those few must have taken him quite a while!
 
 ```{r}
 #| label: fig-uniform-n2
@@ -582,7 +582,7 @@ clt_demo_plot(
 )
 ```
 
-I then moved on to samples of size just *n* = 4. Here is the histogram that was obtained. I confess that this one surprised even me—it's incredibly like N(0, 1) already:
+I then moved on to samples of size *n* = 4. Here is the histogram that was obtained. I confess that this one surprised even me—it's incredibly like N(0, 1) already:
 
 ```{r}
 #| label: fig-uniform-n4
@@ -689,7 +689,7 @@ So let's try *n* = 4:
 ```{r}
 #| label: fig-tri-n4
 #| fig-cap: "Histogram of standardised $\\bar{X}$ from a triangular distribution, *n* = 4"
-#| fig-alt: "Histogram of the standardised sample mean Z from 100,000 samples of size n = 4 drawn from the unsymmetric triangular distribution. The histogram is much closer to the overlaid standard normal density than at n = 2, though a slight right-skew remains — Neave's 'still slightly top-sided' observation — reflecting the lingering effect of the non-symmetric parent. The blue N(0, 1) curve sits almost on top of the bars across the bulk of the distribution."
+#| fig-alt: "Histogram of the standardised sample mean Z from 100,000 samples of size n = 4 drawn from the unsymmetric triangular distribution. The histogram is much closer to the overlaid standard normal density than at n = 2, though a slight right-skew remains — Neave's 'still slightly lop-sided' observation — reflecting the lingering effect of the non-symmetric parent. The blue N(0, 1) curve sits almost on top of the bars across the bulk of the distribution."
 #| fig-width: 7
 #| fig-height: 4.5
 #| lightbox: true
@@ -708,7 +708,7 @@ clt_demo_plot(
 )
 ```
 
-If you look closely, you will see that this is still slightly top-sided, thus still showing the effect of the non-symmetry of the triangular distribution with which we started. But the Central Limit Theorem effect is remarkably evident already.
+If you look closely, you will see that this is still slightly lop-sided, thus still showing the effect of the non-symmetry of the triangular distribution with which we started. But the Central Limit Theorem effect is remarkably evident already.
 
 And so we move on to *n* = 10. Still not perfect, but it's almost there.
 
@@ -734,7 +734,7 @@ clt_demo_plot(
 )
 ```
 
-Some similar simulation work is reported in Chapter 4 of Wheeler and Chambers' *Understanding Statistical Process Control*. Three further distributions are illustrated there. I'll use just one of them here: this is the exponential distribution, whose pdf is shown alongside. This is a distribution which is used as a model in many situations including failure analysis and queuing theory, but its main interest here is as one of the most *un*symmetric distributions imaginable.
+Some similar simulation work is reported in Chapter 4 of Wheeler and Chambers' *Understanding Statistical Process Control*. Three further distributions are illustrated there. I'll use just one of them here: this is the exponential distribution, whose pdf is shown alongside. It's a distribution which is used as a model in many situations including failure analysis and queuing theory, but its main interest here is as one of the most *un*symmetric distributions imaginable.
 
 ```{r}
 #| label: fig-exp-pdf
@@ -788,7 +788,7 @@ clt_demo_plot(
 )
 ```
 
-In this histogram it is fairly easy to see the combined influence of both the original exponential distribution and of an early stage of the Central Limit Theorem. But there's a long way to go.
+In this histogram it is fairly easy to see the combined influence of both the original shape of the exponential distribution and of an early stage of the Central Limit Theorem. But there's a long way to go.
 
 With *n* = 4 we have:
 
@@ -813,7 +813,7 @@ And with *n* = 10 we have:
 ```{r}
 #| label: fig-exp-n10
 #| fig-cap: "Histogram of standardised $\\bar{X}$ from an exponential distribution, *n* = 10"
-#| fig-alt: "Histogram of the standardised sample mean Z from 100,000 samples of size n = 10 drawn from an exponential distribution with rate 1. The histogram is much closer to symmetric than at n = 4 — the right-skew is now subtle — and the overlaid blue N(0, 1) density tracks the bar tops well across most of the range. Some residual top-sided asymmetry remains, reflecting the lingering effect of the highly non-symmetric parent."
+#| fig-alt: "Histogram of the standardised sample mean Z from 100,000 samples of size n = 10 drawn from an exponential distribution with rate 1. The histogram is much closer to symmetric than at n = 4 — the right-skew is now subtle — and the overlaid blue N(0, 1) density tracks the bar tops well across most of the range. Some residual lop-sided asymmetry remains, reflecting the lingering effect of the highly non-symmetric parent."
 #| fig-width: 7
 #| fig-height: 4.5
 #| lightbox: true
@@ -826,7 +826,7 @@ clt_demo_plot(
 )
 ```
 
-Well, it *is* getting there but, unsurprisingly, not very quickly. So, in this case, let's give the computer some real work to do and go right up to *n* = 100. Yes, the Central Limit Theorem even works with something as unfriendly as the exponential distribution!
+Well, it *is* getting there but, unsurprisingly, not very quickly. So, in this case, let's give the computer some real work to do and go right up to *n* = 100: I think that just about does it. Yes, the Central Limit Theorem even works with something as unfriendly as the exponential distribution!
 
 []{#sec-optional-extras-page-54}
 
@@ -880,8 +880,8 @@ $$Z = \frac{\bar{X} - 37}{\sigma / \sqrt{n}}$$
 
 has the standard normal distribution, at least approximately, under the same conditions as previously. Also as before, it is unlikely that the value of σ is known and so the sample standard deviation *s* is usually substituted instead, especially if the sample size *n* is large. It is easy to see how the resulting test statistic *Z* behaves. If the assumption that H₀ is true holds then $\bar{X}$ will be reasonably close to 37 so that *Z* will be relatively small (positive or negative). But if H₀ is not true, particularly if it is *seriously* untrue—i.e. μ is *very* different from 37—then $\bar{X}$ will reflect that very different value of μ, leading to a relatively large (positive or negative) value of *Z*.
 
-But how large is "relatively large"? The same figures as before provide the answer. For example, if H₀ is true then we know (exactly or approximately) 95% probability that *Z* lies between −1.96 and +1.96. This interval is therefore often referred to as the "acceptance region", thus leading to formally accepting H₀ if *Z* falls within it. All other values, i.e. all values outside the interval −1.96 to +1.96, thus form a corresponding "rejection region" such that if *Z* is found to have any such value then the formal decision is to "reject H₀". The rejection region is usually referred to as the "5% *critical region*", and the expression is referred to as carrying out the test at the "5% *significance level*". Thus the "significance level" is defined as the probability that the test *wrongly* rejects H₀, i.e. rejects H₀ when H₀ is in fact true. Note that the *smaller* the significance level at which H₀ can be rejected, the *stronger* is the evidence for so doing.
+But how large is "relatively large"? The same figures as before provide the answer. For example, if H₀ is true then we know there is (exactly or approximately) 95% probability that *Z* lies between −1.96 and +1.96. This interval is therefore often referred to as the "acceptance region", thus leading to formally accepting H₀ if *Z* falls within it. All other values, i.e. all values outside the interval −1.96 to +1.96, thus form a corresponding "rejection region" such that if *Z* is found to have any such value then the formal decision is to "reject H₀". This "rejection region" is usually referred to as the "5% *critical region*", and the operation is referred to as carrying out the test at the "5% *significance level*". Thus the "significance level" is defined as the probability that the test *wrongly* rejects H₀, i.e. rejects H₀ when H₀ is in fact true. Note that the *smaller* the significance level at which H₀ can be rejected, the *stronger* is the evidence for so doing.
 
-It should also be noted that there is a considerable non-symmetry in such a testing procedure. If we consider continuous distributions in particular then, while strong evidence may be found for rejecting H₀, we can *never* find evidence of any kind for believing that H₀ is actually *precisely* true: all one can truthfully do is to *not reject* H₀. As I realised this long ago, I never subsequently used phrases like "accept H₀" or "acceptance region" since I regard them to be misleading because of their sounding more positive than is appropriate. I guess it's rather like a person in a law-court being judged as either "guilty" or "not guilty": the latter verdict does *not* imply that innocence has been proved. The difference with this analogy is that it is nevertheless *possible* for innocence to be proved in a law-court, whereas in a hypothesis test involving a continuous distribution, it can *never* be proved that H₀ is true.
+It should also be noted that there is a considerable non-symmetry in such a testing procedure. If we consider continuous distributions in particular then, while strong evidence may be found for rejecting H₀, one can *never* find evidence of any kind for believing that H₀ is actually *precisely* true: all one can truthfully do is to *not reject* H₀. As soon as I realised this long ago, I never subsequently used phrases like "accept H₀" or "acceptance region" since I regard them to be misleading because of their sounding more positive than is appropriate. I guess it's rather like a person in a law-court being judged as either "guilty" or "not guilty": the latter verdict does *not* imply that innocence has been proved. The difference with this analogy is that it is nevertheless *possible* for innocence to be proved in a law-court, whereas in a hypothesis test involving a continuous distribution, it can *never* be proved that H₀ is true.
 
 There are two further aspects of confidence intervals that can also be carried over into hypothesis testing. First, if *n* is small but normality is assumed then a replacement figure for 1.96 can be found from tables of the Student *t* distribution. And secondly, the above hypothesis test can be carried out at the 1% significance level by replacing 1.96 by 2.58 throughout.
