@@ -23,6 +23,12 @@ on:
       - 'scripts/validate-transcription.sh'
       - 'scripts/lib/scorer-version.sh'
       - 'workflow/validation/results/**'
+      # The emphasis checker (#846) is a second pipeline over a second
+      # directory with its own version — see scripts/lib/emphasis-version.sh.
+      - 'scripts/lib/emphasis.py'
+      - 'scripts/check-emphasis.py'
+      - 'scripts/lib/emphasis-version.sh'
+      - 'workflow/validation/emphasis/**'
       - 'scripts/check-validation-staleness.sh'
       - '.github/workflows/validation-staleness.yml'
   push:
@@ -37,6 +43,12 @@ on:
       - 'scripts/validate-transcription.sh'
       - 'scripts/lib/scorer-version.sh'
       - 'workflow/validation/results/**'
+      # The emphasis checker (#846) is a second pipeline over a second
+      # directory with its own version — see scripts/lib/emphasis-version.sh.
+      - 'scripts/lib/emphasis.py'
+      - 'scripts/check-emphasis.py'
+      - 'scripts/lib/emphasis-version.sh'
+      - 'workflow/validation/emphasis/**'
       - 'scripts/check-validation-staleness.sh'
       - '.github/workflows/validation-staleness.yml'
 
@@ -53,7 +65,9 @@ jobs:
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
     # No PDFs needed or used — this only compares each recorded result's
-    # scorer_version against a hash recomputed from the comparison pipeline as
-    # it exists right now. See workflow/validation/results/README.md.
-    - name: Check recorded results against current pipeline
+    # recorded version against a hash recomputed from the pipeline that wrote
+    # it, as that pipeline exists right now. Two directories, two versions:
+    # results/ (scorer_version) and emphasis/ (emphasis_version). See
+    # workflow/validation/results/README.md and .../emphasis/README.md.
+    - name: Check recorded results against current pipelines
       run: ./scripts/check-validation-staleness.sh

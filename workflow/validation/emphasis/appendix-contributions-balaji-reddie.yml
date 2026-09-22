@@ -1,0 +1,23 @@
+# Emphasis check for appendix-contributions-balaji-reddie. Written by scripts/check-emphasis.py —
+# see workflow/validation/emphasis/README.md and issue #846.
+record: appendix-contributions-balaji-reddie
+checked_at: 2026-09-22
+source_pdf: Q.Contributions.from.Balaji.Reddie.11Sep21.pdf
+source_sha256: fa9f5a85a7585c20185c3e4acda7b623e44002d46dc8de22f95f747954aaf21c
+emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+files:
+  compared: 8
+words:
+  pdf: 22350
+  qmd: 22235
+  aligned: 22169
+runs:
+  total: 68
+  explained: 47
+counts:
+  lost: 10
+  lost_words: 13
+  added: 8
+  added_words: 10
+  swapped: 3
+  swapped_words: 8

@@ -1,0 +1,23 @@
+# Emphasis check for welcome. Written by scripts/check-emphasis.py —
+# see workflow/validation/emphasis/README.md and issue #846.
+record: welcome
+checked_at: 2026-09-22
+source_pdf: WELCOME-BOOKLET-(Aug21b).pdf
+source_sha256: b9bce5bbbb463c4dc27a2a0d30cf832193d618737c7992eda4152efb4bd9b884
+emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+files:
+  compared: 1
+words:
+  pdf: 4482
+  qmd: 4106
+  aligned: 3761
+runs:
+  total: 16
+  explained: 8
+counts:
+  lost: 7
+  lost_words: 20
+  added: 1
+  added_words: 1
+  swapped: 0
+  swapped_words: 0

@@ -1,0 +1,23 @@
+# Emphasis check for appendix-references. Written by scripts/check-emphasis.py —
+# see workflow/validation/emphasis/README.md and issue #846.
+record: appendix-references
+checked_at: 2026-09-22
+source_pdf: R.References.and.Sources.09Feb22.pdf
+source_sha256: 32bf9da9ecedbd20890c3254c2c6c27e379f7334281cd4288447273c72cd22e2
+emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+files:
+  compared: 1
+words:
+  pdf: 1054
+  qmd: 1029
+  aligned: 989
+runs:
+  total: 11
+  explained: 5
+counts:
+  lost: 6
+  lost_words: 9
+  added: 0
+  added_words: 0
+  swapped: 0
+  swapped_words: 0

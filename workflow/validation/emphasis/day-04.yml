@@ -1,0 +1,23 @@
+# Emphasis check for day-04. Written by scripts/check-emphasis.py —
+# see workflow/validation/emphasis/README.md and issue #846.
+record: day-04
+checked_at: 2026-09-22
+source_pdf: G.Day.4.09Jan20.pdf
+source_sha256: 923369e3dbdf50b90e2ae397e75c6568e9887375fe7c56e1e9a532997e257724
+emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+files:
+  compared: 4
+words:
+  pdf: 9689
+  qmd: 9635
+  aligned: 9135
+runs:
+  total: 88
+  explained: 40
+counts:
+  lost: 39
+  lost_words: 61
+  added: 5
+  added_words: 6
+  swapped: 4
+  swapped_words: 4
