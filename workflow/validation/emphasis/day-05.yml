@@ -1,10 +1,10 @@
 # Emphasis check for day-05. Written by scripts/check-emphasis.py —
 # see workflow/validation/emphasis/README.md and issue #846.
 record: day-05
-checked_at: 2026-09-22
+checked_at: 2026-09-23
 source_pdf: H.Day.5.08Feb22.pdf
 source_sha256: 6080edb4e995aec859f4a42ee704d8601eb41afcb9d8fe33fd4bfdd5f18b21eb
-emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
+emphasis_version: f1fb00314679fd0a7fd0312bd70578b295d2cf6c
 files:
   compared: 3
 words:

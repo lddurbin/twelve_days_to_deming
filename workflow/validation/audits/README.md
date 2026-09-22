@@ -188,6 +188,19 @@ one: it will be in one of those four classes, which is exactly why they are
 worth a human's eye. What changed is that the *rate* it contributes no longer
 stands for emphasis generally.
 
+**There was a fifth, and it is now covered.** Adjudicating Day 3 (#849) turned
+up emphasis Neave set on *part* of a word — `outcome` bold inside the printed
+word `outcomes,`, the bold-italic `S` in `PDSA`. The checker styled a word by
+the majority of its letters, so a minority emphasis was reported as upright,
+matched the site's upright word and never reached the report at all; it could
+only be found by reading mixed-style words by hand.
+[#850](https://github.com/lddurbin/twelve_days_to_deming/issues/850) closed
+that by giving every word a per-letter profile, and those findings now arrive
+flagged `partial-word`. 27 of them are open corpus-wide. An auditor no longer
+has to look for this class — but note that the checker reports the source's
+own off-by-one italic spans (`bus-shelte«r»`) in it too, which are artefacts
+rather than site defects.
+
 **Day 5 is scored under the old scope.** Two of its four deviations were lost
 emphases, both of a kind the checker now finds. Its `bound.any_deviation`
 therefore measures a population this directory no longer samples, and it

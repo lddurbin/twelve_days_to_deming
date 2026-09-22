@@ -31,6 +31,65 @@ emphasis disagrees is grouped into a run. The calibration problem #825 was
 opened to solve turned out not to exist — poppler reads the style from the font
 itself, so no per-PDF mapping of subset tags to weights is needed.
 
+## The alignment unit, and the profile
+
+Both sides are read **per character** and cut into words at **whitespace
+only**, and each word carries a *profile*: one `(bold, italic)` pair per letter
+of its folded form. Punctuation folds away, so it holds no position and cannot
+style anything.
+
+This is what makes the comparison independent of markup, and
+[#850](https://github.com/lddurbin/twelve_days_to_deming/issues/850) is why it
+has to be. Neave emphasises part of a word — `outcome` bold inside the printed
+word `outcomes,` — and pandoc hands `*two*-minute` over as an `Emph` and a
+`Str` with nothing between them. The checker originally styled a word by the
+majority of its letters and cut the site's side at every inline boundary, and
+so the two streams disagreed about what a word *was*:
+
+| | site tokens | PDF tokens |
+|---|---:|---:|
+| site **has** the emphasis (`*two*-minute`) | 2 | 1 |
+| site **lost** it (plain `outcomes,`) | 1 | 1 |
+
+One PDF token faced two site tokens wherever the site's markup was *correct*,
+which is how correct markup came to punch a hole in the comparison. And a
+partial emphasis was rounded to whichever half was longer, so a minority
+italic — `*two*-minute`, 3 letters of 9 — was reported as upright, matched the
+site's upright word, and never surfaced at all.
+
+**Splitting the PDF word at the style boundary instead was built and measured,
+and regresses.** It fixes the first row and breaks the second: `difflib` then
+matches neither `outcome` nor `s` against the site's `outcomes`, and the word
+leaves the comparison entirely. That trades the blind spot for its mirror
+image. The measurement is on #850.
+
+A profile leaves both token streams alone and makes a partial emphasis a
+mismatch on the letters it actually covers.
+
+## Partial findings
+
+A finding whose disagreement covers only part of a word is flagged `partial`,
+noted `partial-word`, and carries a `marked` field naming the letters:
+
+```
+p 57 12-rules-3-and-4-of-the-funnel  pdf=b   qmd=-   partial-word     | «outcome»s,
+p 12 03-theory-of-knowledge          pdf=bi  qmd=-   partial-word     | PD«S»A
+```
+
+`pdf_style` and `qmd_style` describe **the letters that disagree**, not the
+whole word — for a minority italic the word is mostly upright, and reporting
+`pdf=-` on a `lost` run would contradict itself. `marked` equals the plain text
+unless the finding is partial, so the marks appear only where they carry
+information. Guillemets rather than brackets because 59 of the corpus's finding
+texts contain a square bracket of Neave's own (`[law-]suits`, `[my italics]`).
+
+Most partials are Neave pointing emphasis at a prefix or one element of a
+compound — `«dis»incentives`, `«non»-existence`, `«left»-hand`, `«un»learn` —
+and `PD«S»A`, where the bold-italic `S` is the whole point Deming was making
+about *Study*. A few are the source's italic span stopping a glyph early
+(`bus-shelte«r»!)`); they are reported honestly rather than suppressed, because
+any rule short enough to remove them also removes `PD«S»A`.
+
 Three kinds of run, **counted separately**:
 
 | kind | means | standing |
@@ -125,6 +184,64 @@ Reading the table:
   because it is the mathematics appendix and 285 of those were `math`. That is
   the same root cause #744's triage found dominating its near-certain band on
   the similarity side (93 of 221).
+
+## After the profile refactor (2026-09-23, `emphasis_version` f1fb003)
+
+Re-recorded when #850 made the alignment unit markup-independent. **Bold is a
+record whose count moved.** `partial` counts the open findings that cover only
+part of a word — the class that was invisible before.
+
+| record | aligned | lost | added | swapped | partial |
+|---|---:|---:|---:|---:|---:|
+| `day-01` | 97% | 36 → 36 | 2 → 2 | 0 → 0 |  |
+| `day-02` | 90% | 3 → 3 | 2 → 2 | 0 → 0 |  |
+| `day-03` | 86% | 1 → 1 | 0 → **1** | 2 → 2 | 2 |
+| `day-04` | 94% | 39 → **41** | 5 → 5 | 4 → 4 | 2 |
+| `day-05` | 94% | 7 → 7 | 0 → 0 | 0 → 0 |  |
+| `day-06` | 93% | 8 → 8 | 1 → 1 | 0 → 0 |  |
+| `day-07` | 93% | 79 → **83** | 5 → 5 | 2 → 2 | 7 |
+| `day-08` | 92% | 59 → **64** | 7 → 7 | 2 → 2 | 7 |
+| `day-09` | 96% | 20 → 20 | 7 → 7 | 1 → 1 |  |
+| `day-10` | 96% | 7 → 7 | 2 → 2 | 4 → 4 |  |
+| `day-11` | 96% | 20 → **21** | 8 → 8 | 11 → **10** | 1 |
+| `day-12` | 94% | 3 → 3 | 1 → 1 | 0 → 0 |  |
+| `appendix-main` | 98% | 11 → 11 | 13 → 13 | 1 → 1 |  |
+| `appendix-optional-extras` | 95% | 88 → **93** | 33 → **35** | 7 → 7 | 7 |
+| `appendix-contributions-balaji-reddie` | 99% | 10 → 10 | 8 → 8 | 3 → 3 |  |
+| `appendix-references` | 94% | 6 → 6 | 0 → 0 | 0 → 0 |  |
+| `index` | 68% | 43 → 43 | 1 → 1 | 1 → 1 |  |
+| `welcome` | 84% | 7 → **8** | 1 → 1 | 0 → 0 | 1 |
+| **all 18** | **93%** | 447 → **465** | 96 → **99** | 38 → **37** | **27** |
+
+Reading the table:
+
+- **One finding disappeared corpus-wide, and 21 arrived.** The one that went is
+  `day-11` p12 `Study`, swapped — an artefact of the old tokenisation. The site
+  writes `Plan-Do-*Study*-Act`, which used to split into three site tokens
+  against the PDF's one; it now joins, aligns, and agrees. The same page's real
+  finding surfaced in its place: `PD«S»A`, where Neave sets the `S` bold-italic
+  and the site has it plain.
+- **Every one of the 21 is `partial`** — `«dis»incentives`, `«non»-existence`,
+  `«un»learn`, `«A»’s`. That is the class #850 was opened for, and it is the
+  check that the refactor did what it was for.
+- **Five findings that were already reported now have the right extent**, and
+  they are the same five the abandoned option-1 split removed: `day-03` p57
+  `«outcome»s,`, `day-07` p30 `one-«seventieth»)` and `«right»-hand`, `day-08`
+  p7 `«single»-sided` and p16 `dis«advantageous»`. The first is card `E3-F19`
+  from #849, adjudicated by hand and kept deliberately
+  ([`docs/deviations/2026-09-22-day-03-emphasis-differences-kept.md`](../../../docs/deviations/2026-09-22-day-03-emphasis-differences-kept.md),
+  item 2). Splitting the PDF word stopped reporting all five; the profile
+  reports them and says which letters they are about.
+- **PDF tokenisation is byte-identical on all 18 records** — the site's side is
+  the only one that changed, by joining what has no space between it.
+- **Corpus alignment is flat** (92.98% → 92.97%, 22 words). It rises slightly on
+  eleven records and falls on `appendix-optional-extras` by 39 words, where the
+  site's `$\bar{X}$-chart` now correctly joins into one token but poppler
+  splits the printed `X̄-chart` into two. That is a PDF-side tokenisation
+  question, untouched here, and those words are `math`-explained anyway.
+- #850's own estimate of **179 invisible losses was a generous upper bound**, as
+  the abandoned option-1 measurement already suggested. The real number, with
+  both sides agreeing on what a word is, is 27 open partial findings.
 
 ## Staleness
 

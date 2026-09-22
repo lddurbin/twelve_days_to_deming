@@ -37,13 +37,47 @@ import emphasis  # noqa: E402
 
 
 def pdf_word(n, bold=False, italic=False, page=1, coloured=False, raw=None):
-    return dict(n=n, raw=raw or n, page=page, bold=bold, italic=italic,
+    return dict(n=n, raw=raw or n, page=page, styles=((bold, italic),) * len(n),
                 font="1", size=10, coloured=coloured, large=False)
 
 
 def qmd_word(n, bold=False, italic=False, ctx=(), raw=None):
-    return dict(n=n, raw=raw or n, bold=bold, italic=italic, ctx=tuple(ctx),
-                file="01-test.qmd")
+    return dict(n=n, raw=raw or n, styles=((bold, italic),) * len(n),
+                ctx=tuple(ctx), file="01-test.qmd")
+
+
+def mixed(n, styles, raw=None, page=1, ctx=()):
+    """A word whose letters do not all agree, which is what #850 is about.
+
+    `styles` is one character per letter of `n`: `b` bold, `i` italic, `.`
+    plain. `outcomes` with `outcome` bold is `mixed("outcomes", "bbbbbbb.")`.
+    The dict carries both sides' keys so one helper serves both streams.
+    """
+    code = {"b": (True, False), "i": (False, True), ".": (False, False)}
+    assert len(styles) == len(n), (n, styles)
+    return dict(n=n, raw=raw or n, page=page,
+                styles=tuple(code[s] for s in styles),
+                font="1", size=10, coloured=False, large=False,
+                ctx=tuple(ctx), file="01-test.qmd")
+
+
+def walk_qmd(blocks):
+    stream = emphasis.WordStream()
+    emphasis.walk_blocks(blocks, dict(bold=False, italic=False, ctx=()),
+                         stream, "01-test.qmd")
+    return stream.words
+
+
+def style_of(word):
+    """The one (bold, italic) every letter of `word` carries.
+
+    A convenience for the fixtures above and for tests about something other
+    than partial emphasis; it deliberately refuses a mixed word, so a test
+    that means to build one has to say so.
+    """
+    distinct = set(word["styles"])
+    assert len(distinct) == 1, f"{word['n']} is mixed: {word['styles']}"
+    return distinct.pop()
 
 
 class NormaliseTests(unittest.TestCase):
@@ -104,8 +138,8 @@ class PdfWordTests(unittest.TestCase):
         self.by_name = {w["n"]: w for w in self.words}
 
     def test_italic_font_marks_its_word(self):
-        self.assertTrue(self.by_name["disease"]["italic"])
-        self.assertFalse(self.by_name["the"]["italic"])
+        self.assertEqual(style_of(self.by_name["disease"]), (False, True))
+        self.assertEqual(style_of(self.by_name["the"]), (False, False))
 
     def test_end_of_line_hyphenation_is_joined(self):
         """`compari- son` across a line break is one word, as #740 made it on
@@ -120,27 +154,23 @@ class PdfWordTests(unittest.TestCase):
     def test_colour_is_recorded_but_is_not_emphasis(self):
         said = self.by_name["said"]
         self.assertTrue(said["coloured"])
-        self.assertFalse(said["bold"])
-        self.assertFalse(said["italic"])
+        self.assertEqual(style_of(said), (False, False))
 
 
 class PandocWalkTests(unittest.TestCase):
     """The QMD side, driven from hand-written ASTs so `quarto` is not needed."""
 
-    @staticmethod
-    def walk(blocks):
-        out = []
-        emphasis.walk_blocks(blocks, dict(bold=False, italic=False, ctx=()),
-                             out, "01-test.qmd")
-        return out
+    walk = staticmethod(walk_qmd)
 
     def test_emph_and_strong(self):
         words = self.walk([{"t": "Para", "c": [
             {"t": "Str", "c": "plain"},
+            {"t": "Space"},
             {"t": "Emph", "c": [{"t": "Str", "c": "italic"}]},
+            {"t": "Space"},
             {"t": "Strong", "c": [{"t": "Str", "c": "bold"}]},
         ]}])
-        self.assertEqual([(w["n"], w["bold"], w["italic"]) for w in words],
+        self.assertEqual([(w["n"],) + style_of(w) for w in words],
                          [("plain", False, False), ("italic", False, True),
                           ("bold", True, False)])
 
@@ -162,10 +192,11 @@ class PandocWalkTests(unittest.TestCase):
             {"t": "RawInline", "c": ["html", "<em>"]},
             {"t": "Str", "c": "stressed"},
             {"t": "RawInline", "c": ["html", "</em>"]},
+            {"t": "Space"},
             {"t": "Str", "c": "after"},
         ]}])
-        self.assertTrue(words[0]["italic"])
-        self.assertFalse(words[1]["italic"])
+        self.assertEqual(style_of(words[0]), (False, True))
+        self.assertEqual(style_of(words[1]), (False, False))
 
     def test_an_unclosed_raw_tag_does_not_bleed_past_its_paragraph(self):
         """An unclosed <em> runs to the end of its inline list and no further.
@@ -181,16 +212,17 @@ class PandocWalkTests(unittest.TestCase):
             {"t": "Para", "c": [
                 {"t": "RawInline", "c": ["html", "<em>"]},
                 {"t": "Str", "c": "unclosed"},
+                {"t": "Space"},
                 {"t": "Str", "c": "sibling"},
             ]},
             {"t": "Para", "c": [{"t": "Str", "c": "after"}]},
         ])
         by_name = {w["n"]: w for w in words}
-        self.assertTrue(by_name["unclosed"]["italic"])
-        self.assertTrue(by_name["sibling"]["italic"],
-                        "an open tag must carry to later siblings — that is "
-                        "how <em>…</em> works at all")
-        self.assertFalse(by_name["after"]["italic"],
+        self.assertEqual(style_of(by_name["unclosed"]), (False, True))
+        self.assertEqual(style_of(by_name["sibling"]), (False, True),
+                         "an open tag must carry to later siblings — that is "
+                         "how <em>…</em> works at all")
+        self.assertEqual(style_of(by_name["after"]), (False, False),
                          "but it must not escape the paragraph")
 
     def test_math_is_marked_as_math(self):
@@ -240,15 +272,16 @@ class AlignAndGroupTests(unittest.TestCase):
         self.assertEqual(len(runs), 2)
 
     def test_kinds(self):
-        self.assertEqual(emphasis._kind(pdf_word("x", italic=True), qmd_word("x")),
-                         "lost")
-        self.assertEqual(emphasis._kind(pdf_word("x"), qmd_word("x", italic=True)),
-                         "added")
+        def kind(pdf, qmd):
+            found = emphasis._disagreement(pdf, qmd)
+            return found[0] if found else None
+
+        self.assertEqual(kind(pdf_word("x", italic=True), qmd_word("x")), "lost")
+        self.assertEqual(kind(pdf_word("x"), qmd_word("x", italic=True)), "added")
         self.assertEqual(
-            emphasis._kind(pdf_word("x", italic=True), qmd_word("x", bold=True)),
-            "swapped")
+            kind(pdf_word("x", italic=True), qmd_word("x", bold=True)), "swapped")
         self.assertIsNone(
-            emphasis._kind(pdf_word("x", italic=True), qmd_word("x", italic=True)))
+            kind(pdf_word("x", italic=True), qmd_word("x", italic=True)))
 
     def test_unaligned_words_produce_no_runs(self):
         """8% of PDF words don't align corpus-wide. They are a blind spot, not
@@ -335,8 +368,8 @@ class ExplainTests(unittest.TestCase):
         """Colour-only emphasis is out of scope and stays a human-auditor
         blind spot: a coloured but unstyled word matching an unstyled word is
         not a disagreement at all."""
-        self.assertIsNone(
-            emphasis._kind(pdf_word("results", coloured=True), qmd_word("results")))
+        self.assertIsNone(emphasis._disagreement(
+            pdf_word("results", coloured=True), qmd_word("results")))
 
 
 class CompareTests(unittest.TestCase):
@@ -362,6 +395,188 @@ class CompareTests(unittest.TestCase):
         stats, _ = emphasis.compare(record, pdf_stream=pdf, qmd_stream=qmd)
         self.assertEqual((stats["swapped"], stats["lost"], stats["added"]),
                          (1, 0, 0))
+
+
+MIXED_XML = """<?xml version="1.0" encoding="UTF-8"?>
+<pdf2xml>
+<page number="1" position="absolute" top="0" left="0" height="1188" width="918">
+<fontspec id="0" size="11" family="Cambria" color="#000000"/>
+<text top="100" left="50" width="60" height="14" font="0"><b>outcome</b>s,</text>
+<text top="130" left="50" width="60" height="14" font="0"><i>two</i>-minute</text>
+<text top="160" left="50" width="60" height="14" font="0">plain<i>,</i></text>
+</page>
+</pdf2xml>
+"""
+
+
+class ProfileTests(unittest.TestCase):
+    """The per-letter profile, which replaced the majority-of-letters rule.
+
+    The old rule styled a whole word by whichever style most of its letters
+    carried, so a word Neave emphasised only part of was reported as whatever
+    the longer half was — #850. A profile has no majority to take.
+    """
+
+    def test_the_folded_form_is_the_one_the_streams_align_on(self):
+        """profile() has to fold exactly as norm() does, letter for letter,
+        or a profile would not line up with the word it describes and the
+        position-by-position comparison in _disagreement would be nonsense."""
+        for word in ("Deming", "na\u00efve", "\u201cif\u201d", "Rule-4", "\ufb01nish",
+                     "\u2026", "H2O", "don\u2019t"):
+            folded, styles = emphasis.profile((c, False, False) for c in word)
+            self.assertEqual(folded, emphasis.norm(word), word)
+            self.assertEqual(len(styles), len(folded), word)
+
+    def test_punctuation_carries_no_position(self):
+        """The case the majority rule existed to handle — "a trailing italic
+        comma should not make the word italic" — now needs no rule: the comma
+        folds away and never enters the profile at all."""
+        folded, styles = emphasis.profile(
+            [("h", False, False), ("i", False, False), (",", False, True)])
+        self.assertEqual(folded, "hi")
+        self.assertEqual(styles, ((False, False), (False, False)))
+
+
+class MixedStyleWordTests(unittest.TestCase):
+    """#850: a word whose letters do not agree, on either side of the compare.
+
+    These are the cases that made the two streams disagree about what a word
+    *was*. Each one is a shape measured in the corpus, not a hypothetical.
+    """
+
+    def setUp(self):
+        self.by_name = {w["n"]: w for w in emphasis.pdf_words(None, xml=MIXED_XML)}
+
+    # ── the PDF side keeps the printed word whole ──
+
+    def test_a_mixed_style_word_stays_one_token(self):
+        """Splitting it — #850's option 1 — was built and measured: it moves
+        `outcomes,` from reported to unaligned, because the site has one word
+        there and difflib then matches neither half."""
+        self.assertIn("outcomes", self.by_name)
+        self.assertNotIn("outcome", self.by_name)
+
+    def test_the_profile_says_which_letters_are_emphasised(self):
+        bold, plain = (True, False), (False, False)
+        self.assertEqual(self.by_name["outcomes"]["styles"],
+                         (bold,) * 7 + (plain,))
+
+    def test_a_trailing_italic_comma_still_does_not_italicise_the_word(self):
+        self.assertEqual(set(self.by_name["plain"]["styles"]), {(False, False)})
+
+    # ── the .qmd side joins what has no space between it ──
+
+    def test_adjacent_inlines_with_no_space_are_one_word(self):
+        """`*two*-minute` is Emph + Str with nothing between them. Emitting
+        per node gave two tokens against the PDF's one, so the site's own
+        *correct* markup was what broke the alignment."""
+        words = walk_qmd([{"t": "Para", "c": [
+            {"t": "Emph", "c": [{"t": "Str", "c": "two"}]},
+            {"t": "Str", "c": "-minute"}]}])
+        self.assertEqual([w["n"] for w in words], ["twominute"])
+        self.assertEqual(words[0]["styles"],
+                         ((False, True),) * 3 + ((False, False),) * 6)
+
+    def test_the_two_sides_now_produce_the_same_token(self):
+        """The whole refactor in one assertion: the printed word and the
+        marked-up word are the same alignment unit, whatever the markup."""
+        from_pdf = self.by_name["twominute"]
+        from_qmd = walk_qmd([{"t": "Para", "c": [
+            {"t": "Emph", "c": [{"t": "Str", "c": "two"}]},
+            {"t": "Str", "c": "-minute"}]}])[0]
+        self.assertEqual(from_pdf["n"], from_qmd["n"])
+        self.assertEqual(from_pdf["styles"], from_qmd["styles"])
+
+    def test_a_space_node_still_ends_a_word(self):
+        words = walk_qmd([{"t": "Para", "c": [
+            {"t": "Str", "c": "two"}, {"t": "Space"},
+            {"t": "Str", "c": "minute"}]}])
+        self.assertEqual([w["n"] for w in words], ["two", "minute"])
+
+    def test_a_word_cannot_span_two_blocks(self):
+        """Nothing separates the last Str of one paragraph from the first of
+        the next, so without a flush at the block boundary they would join."""
+        words = walk_qmd([
+            {"t": "Para", "c": [{"t": "Str", "c": "end"}]},
+            {"t": "Para", "c": [{"t": "Str", "c": "start"}]}])
+        self.assertEqual([w["n"] for w in words], ["end", "start"])
+
+    def test_a_footnote_does_not_glue_to_the_word_it_hangs_off(self):
+        words = walk_qmd([{"t": "Para", "c": [
+            {"t": "Str", "c": "word"},
+            {"t": "Note", "c": [{"t": "Para", "c": [{"t": "Str", "c": "aside"}]}]},
+            {"t": "Space"},
+            {"t": "Str", "c": "next"}]}])
+        self.assertEqual([w["n"] for w in words], ["word", "aside", "next"])
+
+
+class PartialFindingTests(unittest.TestCase):
+    """What a partial disagreement reports, end to end."""
+
+    @staticmethod
+    def run_compare(pdf, qmd):
+        record = emphasis.Record("test", "/nonexistent.pdf", "/tmp", [])
+        return emphasis.compare(record, pdf_stream=pdf, qmd_stream=qmd)
+
+    def test_a_partial_emphasis_the_site_dropped_is_still_reported(self):
+        """Day 3 printed page 53 (PDF p57): `outcome` is bold and `s,` roman
+        inside one printed word, and the site has it plain. That is card
+        E3-F19 from #849 — adjudicated by hand, kept deliberately, and
+        written up as item 2 of
+        docs/deviations/2026-09-22-day-03-emphasis-differences-kept.md.
+
+        It is the measurement that ruled out splitting the PDF word, so it is
+        the one case this refactor is not allowed to lose.
+        """
+        stats, findings = self.run_compare(
+            [mixed("outcomes", "bbbbbbb.", raw="outcomes,")],
+            [qmd_word("outcomes")])
+        self.assertEqual(stats["lost"], 1)
+        self.assertEqual(findings[0]["kind"], "lost")
+        self.assertEqual(findings[0]["marked"], "\u00aboutcome\u00bbs,")
+        self.assertTrue(findings[0]["partial"])
+
+    def test_a_partial_emphasis_the_site_kept_is_not_a_finding(self):
+        """`*two*-minute`: the site has exactly what Neave set. Before #850
+        this was a false `lost` on the whole compound, and the mechanical
+        proposal would have italicised the hyphen and `minute` too."""
+        stats, findings = self.run_compare(
+            [mixed("twominute", "iii......", raw="two-minute")],
+            [mixed("twominute", "iii......", raw="two-minute")])
+        self.assertEqual(findings, [])
+        self.assertEqual((stats["lost"], stats["added"], stats["swapped"]),
+                         (0, 0, 0))
+
+    def test_a_minority_emphasis_is_no_longer_invisible(self):
+        """3 of 9 letters italic. The majority rule called the whole word
+        upright, it matched the site's upright word, and the loss was never
+        offered for comparison — the recall gap #850 was opened for."""
+        stats, findings = self.run_compare(
+            [mixed("twominute", "iii......", raw="two-minute")],
+            [qmd_word("twominute", raw="two-minute")])
+        self.assertEqual(stats["lost"], 1)
+        self.assertEqual(findings[0]["marked"], "\u00abtwo\u00bb-minute")
+
+    def test_the_style_label_describes_the_letters_that_disagree(self):
+        """Not the whole word: for a minority italic the word is mostly
+        upright, and reporting `pdf=-` on a `lost` run would contradict
+        itself."""
+        _, findings = self.run_compare(
+            [mixed("twominute", "iii......", raw="two-minute")],
+            [qmd_word("twominute", raw="two-minute")])
+        self.assertEqual(findings[0]["pdf_style"], "i")
+        self.assertEqual(findings[0]["qmd_style"], "-")
+
+    def test_a_whole_word_finding_is_not_partial(self):
+        """The shape every finding had before #850, and still the common one:
+        `partial` has to stay false there or it means nothing."""
+        _, findings = self.run_compare([pdf_word("help", italic=True)],
+                                       [qmd_word("help")])
+        self.assertFalse(findings[0]["partial"])
+        self.assertEqual(findings[0]["marked"], "help",
+                         "a whole-word finding needs no marks, and putting "
+                         "them on every word of a run is noise")
+        self.assertNotIn("partial-word", findings[0]["notes"])
 
 
 class RecordTests(unittest.TestCase):
