@@ -48,6 +48,12 @@ and the site has its own colour conventions (`deming_blue`,
 Colour-only emphasis stays a human-auditor blind spot: see
 workflow/validation/audits/README.md.
 
+Text poppler cannot decode never enters the PDF stream. Some subset fonts come
+out as a substitution cipher (`1"20,+*3$4552".*"6*3$...`), which used to sit in
+the stream as words that aligned against nothing — counted as compared when
+it had never been read. scripts/lib/undecodable_fonts.py identifies those
+fonts; pdf_words() drops their characters (#852).
+
 Requires `pdftohtml` (poppler) and `quarto` on PATH. Python stdlib only.
 """
 import collections
@@ -59,6 +65,8 @@ import os
 import re
 import subprocess
 import unicodedata
+
+import undecodable_fonts
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MANIFEST_DIR = os.path.join(REPO_ROOT, "workflow", "validation")
@@ -356,6 +364,7 @@ def pdf_words(pdf_path, xml=None):
             capture_output=True, text=True, errors="replace").stdout
 
     specs = {m[1]: (int(m[2]), m[3], m[4]) for m in _FONTSPEC.finditer(xml)}
+    unreadable = undecodable_fonts.undecodable_fonts(xml)
     chars = []          # (char, bold, italic, page, font-id)
     size_chars = collections.Counter()
 
@@ -365,6 +374,12 @@ def pdf_words(pdf_path, xml=None):
         for element in _TEXT.finditer(page[0]):
             top, left, width = int(element[1]), int(element[2]), int(element[3])
             font_id, inner = element[4], element[5]
+            if font_id in unreadable:
+                # Ciphertext, not words (#852). A space in its place, so the
+                # words either side of it do not run together.
+                chars.append((" ", False, False, page_no, None))
+                previous = None
+                continue
             segments = _styled_segments(inner)
             text = "".join(t for t, _, _ in segments)
             if font_id in specs:
@@ -639,10 +654,11 @@ def align(pdf_stream, qmd_stream):
 
     `difflib.SequenceMatcher` over the folded forms, with autojunk off: at
     corpus scale the popular-element heuristic would discard exactly the
-    common words that hold the alignment together. 92% of PDF words align
+    common words that hold the alignment together. 94% of PDF words align
     corpus-wide; the rest is figure labels, tables rebuilt as images,
     reflowed lists and genuinely differing text, and emphasis in it is not
-    checked — see the blind spots in docs/emphasis-detection-spike.md.
+    checked — see the blind spots in workflow/validation/emphasis/README.md.
+    Undecodable text is not in the stream to begin with (#852).
     """
     matcher = difflib.SequenceMatcher(
         None, [w["n"] for w in pdf_stream], [w["n"] for w in qmd_stream],

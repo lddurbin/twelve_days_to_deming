@@ -4,13 +4,13 @@ record: index
 checked_at: 2026-09-23
 source_pdf: A.PLEASE.START.HERE.08Feb22.pdf
 source_sha256: 2e6226b87cdc56f92607140707b6cdc044db92485f54578f757afbb13193a8d6
-emphasis_version: f1fb00314679fd0a7fd0312bd70578b295d2cf6c
+emphasis_version: e3f220e61dfa89e91721fedb1e53c95fe03bd3ad
 files:
   compared: 1
 words:
-  pdf: 11164
+  pdf: 11140
   qmd: 7994
-  aligned: 7637
+  aligned: 7639
 runs:
   total: 61
   explained: 16

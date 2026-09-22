@@ -4,13 +4,13 @@ record: day-12
 checked_at: 2026-09-23
 source_pdf: O.Day.12.16Feb22.pdf
 source_sha256: 0367003cc56eaabc218479f42dd69cd382e174bc61d7348a65aed48608904769
-emphasis_version: f1fb00314679fd0a7fd0312bd70578b295d2cf6c
+emphasis_version: e3f220e61dfa89e91721fedb1e53c95fe03bd3ad
 files:
   compared: 8
 words:
-  pdf: 9783
+  pdf: 9661
   qmd: 9708
-  aligned: 9211
+  aligned: 9210
 runs:
   total: 43
   explained: 39

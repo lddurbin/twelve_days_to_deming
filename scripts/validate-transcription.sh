@@ -72,7 +72,7 @@
 #                 somewhere else entirely. See
 #                 scripts/lib/paragraph_similarity.py and issue #738.
 #
-# Requires: pdftotext (brew install poppler)
+# Requires: pdftotext and pdftohtml (brew install poppler)
 #           ruby (YAML parsing for appendix manifests)
 #           python3 (markup stripping and similarity scoring; stdlib only)
 #           git, and shasum or sha256sum (recording validation provenance)
@@ -161,6 +161,10 @@ usage() {
 check_deps() {
   if ! command -v pdftotext &>/dev/null; then
     echo "Error: pdftotext not found. Install with: brew install poppler"
+    exit 1
+  fi
+  if ! command -v pdftohtml &>/dev/null; then
+    echo "Error: pdftohtml not found (needed to find undecodable fonts). Install with: brew install poppler"
     exit 1
   fi
   if ! command -v python3 &>/dev/null; then
@@ -290,8 +294,17 @@ extract_pdf_text() {
   # text as well as the PDF, and it does so only to *veto* a strip; see the
   # bounds and their corpus counts in scripts/lib/pdf_callouts.py. That is why
   # main() extracts the QMD side first.
+  #
+  # The --strip pass right after page marking removes text set in fonts
+  # poppler cannot decode, which `pdftotext` emits as a substitution cipher
+  # (`1"20,+*3$4552".*"6*3$...`) rather than words (#852). It needs the page
+  # markers — removal is scoped to the page each garbled string was read
+  # from — and runs before `sed`, whose garbled-line rule only ever caught
+  # the lines of it that happened to contain no letters or digits. See
+  # scripts/lib/undecodable_fonts.py.
   pdftotext -layout "$pdf" - \
     | python3 "$REPO_ROOT/scripts/lib/paragraphs.py" --mark-pages \
+    | python3 "$REPO_ROOT/scripts/lib/undecodable_fonts.py" --strip "$pdf" \
     | sed -E '
     # Collapse runs of spaces
     s/  +/ /g

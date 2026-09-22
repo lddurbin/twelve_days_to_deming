@@ -1,8 +1,8 @@
 appendix: main
-validated_at: 2026-09-19
+validated_at: 2026-09-23
 source_pdf: P.Appendix.09Feb22.pdf
 source_sha256: 0ce090f5be18025dadfff9379d87163a77825a9ac772ce06f7098e6caf51f577
-scorer_version: bdea1acba6424634eaf74948a9c171bfbb7b729f
+scorer_version: 14ed7500625ba7ed99a34d63395d44de5f1be9df
 files:
   compared: 11
   not_compared:
@@ -14,29 +14,29 @@ thresholds:
   reference: 0.85
 counts:
   pdf_paragraphs: 310
-  qmd_paragraphs: 329
-  matched_cleanly: 189
-  altered: 118
-  flagged_sentences: 215
-  near_certain: 50
-  missing: 3
+  qmd_paragraphs: 337
+  matched_cleanly: 228
+  altered: 82
+  flagged_sentences: 152
+  near_certain: 16
+  missing: 0
   unsourced: 1
   unsourced_sentences: 2
-  reference_mismatches: 18
-  short_checked: 109
-  short_matched: 103
+  reference_mismatches: 19
+  short_checked: 113
+  short_matched: 107
   short_unmatched: 3
   short_unjudged: 3
 blocks:
   pdf:
-    total: 505
-    unreadable: 61
+    total: 455
+    unreadable: 7
     rejoined: 25
-    short: 109
+    short: 113
     compared: 310
   qmd:
-    total: 501
+    total: 509
     unreadable: 5
-    rejoined: 20
-    short: 147
-    compared: 329
+    rejoined: 21
+    short: 146
+    compared: 337

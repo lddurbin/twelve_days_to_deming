@@ -4,11 +4,11 @@ record: appendix-main
 checked_at: 2026-09-23
 source_pdf: P.Appendix.09Feb22.pdf
 source_sha256: 0ce090f5be18025dadfff9379d87163a77825a9ac772ce06f7098e6caf51f577
-emphasis_version: f1fb00314679fd0a7fd0312bd70578b295d2cf6c
+emphasis_version: e3f220e61dfa89e91721fedb1e53c95fe03bd3ad
 files:
   compared: 12
 words:
-  pdf: 24745
+  pdf: 24697
   qmd: 24848
   aligned: 24143
 runs:

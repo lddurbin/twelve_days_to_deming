@@ -1,8 +1,8 @@
 appendix: optional-extras
-validated_at: 2026-09-22
+validated_at: 2026-09-23
 source_pdf: S.Optional.Extras.09Jul21.pdf
 source_sha256: b36a8368163ecae67c72d89936e5362e9f18a1c06c79fc95069181c05b5a5884
-scorer_version: bdea1acba6424634eaf74948a9c171bfbb7b729f
+scorer_version: 14ed7500625ba7ed99a34d63395d44de5f1be9df
 files:
   compared: 7
 thresholds:
@@ -11,27 +11,27 @@ thresholds:
   unsourced: 0.25
   reference: 0.85
 counts:
-  pdf_paragraphs: 431
+  pdf_paragraphs: 428
   qmd_paragraphs: 499
-  matched_cleanly: 237
-  altered: 186
-  flagged_sentences: 488
-  near_certain: 166
-  missing: 8
+  matched_cleanly: 238
+  altered: 183
+  flagged_sentences: 486
+  near_certain: 165
+  missing: 7
   unsourced: 4
   unsourced_sentences: 4
-  reference_mismatches: 75
-  short_checked: 58
-  short_matched: 38
+  reference_mismatches: 74
+  short_checked: 62
+  short_matched: 42
   short_unmatched: 10
   short_unjudged: 10
 blocks:
   pdf:
-    total: 699
-    unreadable: 129
-    rejoined: 81
-    short: 58
-    compared: 431
+    total: 614
+    unreadable: 42
+    rejoined: 82
+    short: 62
+    compared: 428
   qmd:
     total: 661
     unreadable: 30

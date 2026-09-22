@@ -1,8 +1,8 @@
 day: 11
-validated_at: 2026-09-12
+validated_at: 2026-09-23
 source_pdf: N.Day.11.18Jan20.pdf
 source_sha256: e2e24a83e33d2c23f6aef971af00c41b2b89ed9e7c3a5713abff3e1e72d95eed
-scorer_version: bdea1acba6424634eaf74948a9c171bfbb7b729f
+scorer_version: 14ed7500625ba7ed99a34d63395d44de5f1be9df
 files:
   compared: 8
 thresholds:
@@ -27,8 +27,8 @@ counts:
   short_unjudged: 5
 blocks:
   pdf:
-    total: 220
-    unreadable: 42
+    total: 181
+    unreadable: 3
     rejoined: 4
     short: 30
     compared: 144

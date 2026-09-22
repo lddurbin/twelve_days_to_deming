@@ -138,6 +138,14 @@ total == unreadable + rejoined + short + compared
   in the strict sense: unmatchable by construction, and nothing downstream
   looks at it. Watch it for *movement*, not for its value — a day whose
   furniture count halves has had its extraction change underneath it.
+  [#852](https://github.com/lddurbin/twelve_days_to_deming/issues/852) is
+  one such change: text in fonts poppler cannot decode is now removed before
+  this filter runs, and the corpus total fell from 1,021 to 311. Most of the
+  difference is furniture that no longer reaches the filter at all. The rest
+  moved in both directions: real prose that had been glued to ciphertext and
+  discarded with it is compared now, and short lines that only cleared the
+  length floor *because* ciphertext was attached now go to the short-content
+  pass instead — a net ten more PDF paragraphs compared, corpus-wide.
 - **`rejoined`** is the benign one. Those blocks are not missing from the
   comparison; they are *inside* the paragraph before them. It is the count
   #741 made necessary and the reason `pdf_paragraphs` fell corpus-wide that

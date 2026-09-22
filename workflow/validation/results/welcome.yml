@@ -1,8 +1,8 @@
 manifest: welcome
-validated_at: 2026-09-12
+validated_at: 2026-09-23
 source_pdf: WELCOME-BOOKLET-(Aug21b).pdf
 source_sha256: b9bce5bbbb463c4dc27a2a0d30cf832193d618737c7992eda4152efb4bd9b884
-scorer_version: bdea1acba6424634eaf74948a9c171bfbb7b729f
+scorer_version: 14ed7500625ba7ed99a34d63395d44de5f1be9df
 files:
   compared: 1
 thresholds:

@@ -243,6 +243,57 @@ Reading the table:
   the abandoned option-1 measurement already suggested. The real number, with
   both sides agreeing on what a word is, is 27 open partial findings.
 
+## After excluding undecodable text (2026-09-23, `emphasis_version` e3f220e)
+
+Re-recorded when [#852](https://github.com/lddurbin/twelve_days_to_deming/issues/852)
+stopped text poppler cannot decode from entering the PDF stream. Some subset
+fonts come out as a substitution cipher — `1"20,+*3$4552".*"6*3$…` is Day 7's
+running banner — and until this run those tokens sat in the stream as words
+that aligned against nothing. `scripts/lib/undecodable_fonts.py` identifies the
+fonts; `pdf_words()` drops their characters. Both columns below are on the same
+content, old checker against new, so the only thing that moved is the
+extraction. **Bold is a record whose count moved.**
+
+| record | PDF words | aligned | lost | added | swapped |
+|---|---:|---:|---:|---:|---:|
+| `day-01` | 23781 → 23685 | 97% | 36 | 2 | 0 |
+| `day-02` | 14774 → 14689 | 90% → 91% | 3 | 2 | 0 |
+| `day-03` | 25766 → 25519 | 86% | 1 | 1 | 2 |
+| `day-04` | 9689 → 9598 | 94% → 95% | 41 | 5 | 4 |
+| `day-05` | 4972 → 4931 | 94% → 95% | 7 | 0 | 0 |
+| `day-06` | 11886 → 11769 | 93% → 94% | 8 → **10** | 1 | 0 |
+| `day-07` | 15384 → 14928 | 93% → 96% | 83 | 5 | 2 |
+| `day-08` | 9282 → 9238 | 92% → 93% | 64 → **66** | 7 | 2 |
+| `day-09` | 14798 → 14720 | 96% → 97% | 20 | 7 | 1 |
+| `day-10` | 8349 → 8259 | 96% → 97% | 7 | 2 | 4 |
+| `day-11` | 8538 → 8490 | 96% → 97% | 21 | 8 | 10 |
+| `day-12` | 9783 → 9661 | 94% → 95% | 3 | 1 | 0 |
+| `appendix-main` | 24745 → 24697 | 98% | 11 | 13 | 1 |
+| `appendix-optional-extras` | 45801 → 45586 | 95% | 93 | 35 | 7 |
+| `appendix-contributions-balaji-reddie` | 22350 → 22295 | 99% | 10 → **9** | 8 | 3 |
+| `appendix-references` | 1054 → 1049 | 94% | 6 | 0 | 0 |
+| `index` | 11164 → 11140 | 68% → 69% | 43 | 1 | 1 |
+| `welcome` | 4482 | 84% | 8 | 1 | 0 |
+| **all 18** | 266598 → **264736** | 92.97% → **93.62%** | 465 → **468** | 99 | 37 |
+
+Reading the table:
+
+- **1,862 PDF "words" left the stream, and four more words align.** The
+  alignment rise is almost entirely the denominator shrinking — ciphertext that
+  was being counted as checked-and-different is now counted as not read. That
+  is the point of the change: the percentage now describes text the checker
+  could actually see.
+- **Day 7 moves most** (93% → 96%), because it carries the most undecodable
+  text: its running banner on every page, and a whole page of Hansard
+  transcript (p21, printed page 17) — see *What this does not cover* below.
+- **The three new `lost` runs are alignment shifts, not new defects.** With the
+  ciphertext gone, difflib pairs the PDF's bold table labels with the site's
+  captions at slightly different points: `day-06` p19 `BEFORE`/`AFTER`, and
+  `day-08` pp19–21 `TABLE THREE`/`FOUR`/`FIVE` arrive while `TABLE TWO` (p18)
+  leaves. `appendix-contributions-balaji-reddie` p19 `Prelude C: Understanding
+  Learning.` drops out to unaligned. All six sit in the heading and caption
+  class the adjudication passes already handle.
+
 ## Staleness
 
 `scripts/check-validation-staleness.sh` checks this directory alongside
@@ -255,8 +306,11 @@ the other reports, so folding them into one would mean every emphasis-checker
 edit restaling all eighteen paragraph records — and under `main`'s
 `strict: true` protection with no merge queue, that staleness is a real
 merge-ordering cost, not a compute one. `tests/test_scorer_version.py` asserts
-the two file lists never overlap, so the coupling cannot come back by the back
-door.
+the two file lists share only what is named in its `SHARED_FILES`, so the
+coupling cannot come back by the back door. The one shared file is
+`scripts/lib/undecodable_fonts.py` (#852), which decides what text *both*
+pipelines read — leaving it out of either list would let that directory's
+records call themselves fresh after a behaviour change.
 
 ## What this does not cover
 
@@ -270,9 +324,14 @@ auditor:
    the text layer at all. Neave underlines words inside Comic Sans passages
    (Day 11 `natural`, `big`).
 3. **Emphasis by colour alone** — see above.
-4. **Unaligned text** — 7% of PDF words corpus-wide, 14% on Day 3 and 32% on
+4. **Unaligned text** — 6% of PDF words corpus-wide, 14% on Day 3 and 31% on
    `index`. Figure labels, tables rebuilt as images, reflowed lists and
    genuinely differing text. Emphasis in it is not checked.
+5. **Undecodable text** — set in subset fonts poppler cannot map back to
+   Unicode, and excluded from the stream since #852 rather than read as
+   words. Mostly running banners and footers, but not all of it: see the
+   audits README for the pages where it is body prose, including Day 7's
+   Hansard page, whose italic speaker names no tool can see.
 
 Figures and tables carried as images are out of scope entirely, and owned by
 spike [#725](https://github.com/lddurbin/twelve_days_to_deming/issues/725).
