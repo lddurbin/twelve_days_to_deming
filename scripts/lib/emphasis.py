@@ -17,6 +17,20 @@ This module is that spike's recommendation 1, built for production.
     compare    align the two word streams with difflib and report every
                aligned word whose emphasis disagrees, grouped into runs
 
+Both sides are read *per character* and cut into words at whitespace only, and
+each word carries a **profile**: one (bold, italic) pair per letter of its
+aligned form. That is what makes the comparison independent of markup, and
+#850 is why it has to be. Neave emphasises part of a word — `outcome` bold
+inside the printed word `outcomes,` — and pandoc hands `*two*-minute` over as
+two inlines. Until #850 this module styled a word by the majority of its
+letters and cut the .qmd side at every inline boundary, so the two streams
+disagreed about what a word *was*: one PDF token faced two .qmd tokens
+wherever the site's markup was correct, and a partial emphasis was rounded to
+whichever half was longer. Splitting the PDF side to match was measured and
+regresses — it moves `outcomes,` from *reported* to *unaligned*, which is the
+case the checker exists for. A profile instead leaves the token stream alone
+and makes a partial emphasis a mismatch on the letters it actually covers.
+
 Three kinds of run, counted separately (#846):
 
     lost      emphasised in the PDF, plain on the site  — the fix backlog
@@ -126,6 +140,12 @@ PAGE_FURNITURE = re.compile(r"^\d+$")
 SPLIT = re.compile(r"[\s—–/]+")
 
 
+def _fold(text):
+    """The letters `text` contributes to the form the streams align on."""
+    return re.sub(r"[^a-z0-9]", "",
+                  unicodedata.normalize("NFKD", text).lower())
+
+
 def norm(word):
     """Fold a word to the form the two streams are aligned on.
 
@@ -133,8 +153,30 @@ def norm(word):
     output and the .qmd (curly vs straight quotes, most often), and none of
     them bears on whether a word is emphasised.
     """
-    word = unicodedata.normalize("NFKD", word).lower()
-    return re.sub(r"[^a-z0-9]", "", word)
+    return _fold(word)
+
+
+def profile(chars):
+    """One word's aligned form, and the style each letter of it carries.
+
+    `chars` is a sequence of (character, bold, italic). Returns
+    (aligned form, styles) where `styles` has exactly one (bold, italic) pair
+    per character of the aligned form, so two words that aligned — which
+    means their aligned forms are equal — have profiles that compare position
+    by position.
+
+    Folding per character is what keeps those two in step, and it also
+    disposes of the problem the old majority-of-letters rule existed to
+    solve: punctuation folds to nothing, so a trailing italic comma
+    contributes no position and cannot make the word italic. Only letters a
+    reader would see emphasised are ever compared.
+    """
+    folded, styles = [], []
+    for character, bold, italic in chars:
+        letters = _fold(character)
+        folded.append(letters)
+        styles.extend(((bold, italic),) * len(letters))
+    return "".join(folded), tuple(styles)
 
 
 # ── Record resolution ──────────────────────────────────────────────────────
@@ -357,19 +399,13 @@ def pdf_words(pdf_path, xml=None):
         if not current:
             return
         raw = "".join(c[0] for c in current)
-        folded = norm(raw)
+        folded, styles = profile((c[0], c[1], c[2]) for c in current)
         if folded:
-            # A word's style is whatever the majority of its *letters* carry:
-            # a trailing italic comma should not make the word italic, nor a
-            # roman one undo it.
-            letters = [(c[1], c[2]) for c in current if c[0].isalnum()]
-            bold = sum(b for b, _ in letters) * 2 > len(letters)
-            italic = sum(i for _, i in letters) * 2 > len(letters)
             font_id = collections.Counter(
                 c[4] for c in current).most_common(1)[0][0]
             size, _family, colour = specs.get(font_id, (body_size, "", "#000000"))
             words.append(dict(
-                n=folded, raw=raw, page=current[0][3], bold=bold, italic=italic,
+                n=folded, raw=raw, styles=styles, page=current[0][3],
                 font=font_id, size=size,
                 # Informational only — colour never creates a finding.
                 coloured=colour.lower() not in ("#000000", "#000"),
@@ -409,13 +445,52 @@ def pandoc_ast(markdown):
     return json.loads(proc.stdout)
 
 
-def _emit(text, state, out, chapter):
-    for piece in SPLIT.split(text):
-        folded = norm(piece)
-        if folded:
-            out.append(dict(n=folded, raw=piece, bold=state["bold"],
-                            italic=state["italic"], ctx=state["ctx"],
-                            file=chapter))
+class WordStream:
+    """Assembles .qmd characters into whitespace-delimited words.
+
+    Per character rather than per AST node, because a word can span several
+    inline nodes and only an explicit `Space` (or `SoftBreak`, or the end of
+    a block) ends one: pandoc hands `*two*-minute` over as an `Emph` and a
+    `Str`, with nothing between them. Emitting per node — which this module
+    did until #850 — cut the site's word in two while the PDF side kept it
+    whole, so the site's *correct* markup was what broke the alignment.
+
+    A word's emphasis is the profile of the characters that built it, and its
+    context is every context they were in, in the order first seen. The
+    common case, a word wholly inside one node, gives exactly the single
+    node's context, so the contiguity test in group_runs is unaffected.
+    """
+
+    def __init__(self):
+        self.words = []
+        self._chars = []
+        self._ctx = []
+        self._file = None
+
+    def text(self, text, state, chapter):
+        for character in text:
+            if SPLIT.fullmatch(character):
+                self.gap()
+                continue
+            self._chars.append((character, state["bold"], state["italic"]))
+            for item in state["ctx"]:
+                if item not in self._ctx:
+                    self._ctx.append(item)
+            self._file = chapter
+
+    def gap(self):
+        """End the word in progress, if there is one.
+
+        Called for whitespace, and at every boundary a word cannot cross: the
+        end of a block, of a table cell, of a footnote, of a file.
+        """
+        if self._chars:
+            folded, styles = profile(self._chars)
+            if folded:
+                self.words.append(dict(
+                    n=folded, raw="".join(c[0] for c in self._chars),
+                    styles=styles, ctx=tuple(self._ctx), file=self._file))
+        self._chars, self._ctx = [], []
 
 
 def _push(state, **changes):
@@ -431,7 +506,9 @@ def walk_inlines(inlines, state, out, chapter):
     for node in inlines:
         kind, content = node["t"], node.get("c")
         if kind == "Str":
-            _emit(content, state, out, chapter)
+            out.text(content, state, chapter)
+        elif kind in ("Space", "SoftBreak", "LineBreak"):
+            out.gap()
         elif kind == "Strong":
             walk_inlines(content, _push(state, bold=True), out, chapter)
         elif kind == "Emph":
@@ -444,15 +521,21 @@ def walk_inlines(inlines, state, out, chapter):
         elif kind == "Link":
             walk_inlines(content[1], _push(state, ctx=["link"]), out, chapter)
         elif kind == "Image":
+            # Alt text is not part of the sentence around the image.
+            out.gap()
             walk_inlines(content[1], _push(state, ctx=["image"]), out, chapter)
+            out.gap()
         elif kind == "Span":
             walk_inlines(content[1],
                          _push(state, ctx=list(content[0][1]) or ["span"]),
                          out, chapter)
         elif kind == "Code":
-            _emit(content[1], _push(state, ctx=["code"]), out, chapter)
+            out.text(content[1], _push(state, ctx=["code"]), chapter)
         elif kind == "Note":
+            # A footnote's prose is not continuous with the word it hangs off.
+            out.gap()
             walk_blocks(content, _push(state, ctx=["note"]), out, chapter)
+            out.gap()
         elif kind == "RawInline":
             # Days 11 and others set emphasis with literal HTML, which pandoc
             # keeps as a raw inline rather than Strong/Emph. Track it, or
@@ -474,12 +557,17 @@ def walk_inlines(inlines, state, out, chapter):
                 key = "italic" if tag[2].lower() in ("em", "i") else "bold"
                 state[key] = not tag[1]
         elif kind == "Math":
-            _emit(content[1], _push(state, ctx=["math"]), out, chapter)
-        # Space, SoftBreak, LineBreak and RawInline that is not emphasis all
-        # contribute no words.
+            out.text(content[1], _push(state, ctx=["math"]), chapter)
+        # RawInline that is not emphasis contributes no words.
 
 
 def walk_blocks(blocks, state, out, chapter):
+    """Walk block nodes, ending the word in progress at every block boundary.
+
+    The trailing `out.gap()` is what keeps a word from spanning two blocks —
+    and it is also why `out.words` is complete as soon as this returns, with
+    nothing left buffered.
+    """
     for node in blocks:
         kind, content = node["t"], node.get("c")
         if kind in ("Para", "Plain"):
@@ -501,11 +589,13 @@ def walk_blocks(blocks, state, out, chapter):
         elif kind == "LineBlock":
             for line in content:
                 walk_inlines(line, state, out, chapter)
+                out.gap()
         elif kind == "Table":
             _walk_table(content, _push(state, ctx=["table"]), out, chapter)
         elif kind == "Figure":
             walk_blocks(content[2], state, out, chapter)
         # CodeBlock, RawBlock and HorizontalRule carry no prose.
+        out.gap()
 
 
 def _walk_table(content, state, out, chapter):
@@ -532,12 +622,13 @@ def _read_text(path):
 def qmd_words(paths, read=None):
     """The site's words, each with the emphasis its markup gives it."""
     reader = read or _read_text
-    words = []
+    stream = WordStream()
     base = dict(bold=False, italic=False, ctx=())
     for path in paths:
         ast = pandoc_ast(reader(path))
-        walk_blocks(ast["blocks"], base, words, os.path.basename(path))
-    return words
+        walk_blocks(ast["blocks"], base, stream, os.path.basename(path))
+        stream.gap()
+    return stream.words
 
 
 # ── Compare ────────────────────────────────────────────────────────────────
@@ -563,18 +654,39 @@ def align(pdf_stream, qmd_stream):
     return pairs
 
 
-def _kind(pdf_word, qmd_word):
-    pdf_emphasised = pdf_word["bold"] or pdf_word["italic"]
-    qmd_emphasised = qmd_word["bold"] or qmd_word["italic"]
+def _disagreement(pdf_word, qmd_word):
+    """How one aligned word's emphasis differs between the two sides.
+
+    The two profiles are the same length, because the words aligned at all
+    only by having equal folded forms and a profile carries one style per
+    letter of that form — so they compare position by position.
+
+    Only the positions that disagree decide the kind, which is what lets a
+    partial emphasis be reported for the letters it covers: `outcome` bold
+    inside `outcomes,` disagrees on seven of eight letters, all of them bold
+    against plain, and is `lost`. Where the disagreeing letters are
+    emphasised on both sides — bold here, italic there — it is `swapped`, the
+    same three-way split as before, and a word whose profiles match exactly
+    is no finding at all.
+
+    Returns (kind, pdf styles, qmd styles, span) over the disagreeing letters,
+    or None where the two sides agree.
+    """
+    pdf_styles, qmd_styles = pdf_word["styles"], qmd_word["styles"]
+    at = [i for i, (p, q) in enumerate(zip(pdf_styles, qmd_styles)) if p != q]
+    if not at:
+        return None
+    pdf_at = {pdf_styles[i] for i in at}
+    qmd_at = {qmd_styles[i] for i in at}
+    pdf_emphasised = any(bold or italic for bold, italic in pdf_at)
+    qmd_emphasised = any(bold or italic for bold, italic in qmd_at)
     if pdf_emphasised and not qmd_emphasised:
-        return "lost"
-    if qmd_emphasised and not pdf_emphasised:
-        return "added"
-    if pdf_emphasised and qmd_emphasised and (
-            (pdf_word["bold"], pdf_word["italic"])
-            != (qmd_word["bold"], qmd_word["italic"])):
-        return "swapped"
-    return None
+        kind = "lost"
+    elif qmd_emphasised and not pdf_emphasised:
+        kind = "added"
+    else:
+        kind = "swapped"
+    return kind, pdf_at, qmd_at, (at[0], at[-1] + 1)
 
 
 def group_runs(pairs, pdf_stream, qmd_stream):
@@ -585,7 +697,8 @@ def group_runs(pairs, pdf_stream, qmd_stream):
     """
     runs, current = [], None
     for pdf_index, qmd_index in pairs:
-        kind = _kind(pdf_stream[pdf_index], qmd_stream[qmd_index])
+        difference = _disagreement(pdf_stream[pdf_index], qmd_stream[qmd_index])
+        kind = difference[0] if difference else None
         contiguous = (current is not None
                       and current["kind"] == kind
                       and pdf_index == current["pdf"][-1] + 1
@@ -599,8 +712,10 @@ def group_runs(pairs, pdf_stream, qmd_stream):
         if kind and contiguous:
             current["pdf"].append(pdf_index)
             current["qmd"].append(qmd_index)
+            current["differences"].append(difference)
         elif kind:
-            current = dict(kind=kind, pdf=[pdf_index], qmd=[qmd_index])
+            current = dict(kind=kind, pdf=[pdf_index], qmd=[qmd_index],
+                           differences=[difference])
             runs.append(current)
         else:
             current = None
@@ -668,10 +783,47 @@ def explain(kind, pdf_words_in_run, qmd_words_in_run):
     return reasons
 
 
-def _style_label(words):
-    styles = {("b" if w["bold"] else "") + ("i" if w["italic"] else "")
-              for w in words}
-    return "".join(sorted(s for s in styles if s)) or "-"
+def _style_label(styles):
+    """`b`, `i`, `bi` or `-` for the styles one side carries on the letters a
+    run disagrees about — not on the whole word, which for a partial emphasis
+    would report the half that is not the finding."""
+    labels = {("b" if bold else "") + ("i" if italic else "")
+              for bold, italic in styles}
+    return "".join(sorted(s for s in labels if s)) or "-"
+
+
+# Guillemets rather than brackets: 59 of the corpus's finding texts contain a
+# square bracket of Neave's own — `[law-]suits`, `[my italics]` — and `[[law]-]`
+# is not something a reader should have to parse. No finding text anywhere in
+# the corpus contains « or ».
+MARK_OPEN, MARK_CLOSE = "\u00ab", "\u00bb"
+
+
+def _mark(word, span):
+    """`word`'s raw text with the letters the run disagrees about marked.
+
+    `outcomes,` where only `outcome` is bold reads `«outcome»s,`. Once
+    emphasis is a profile rather than a flag the word alone no longer says
+    which part of it is the finding, and that is exactly what an adjudicator
+    has to go and find on the page.
+
+    A word that disagrees end to end — every finding before #850, and still
+    most of them — is returned unmarked, so the marks appear only where they
+    carry information.
+    """
+    low, high = span
+    if (low, high) == (0, len(word["n"])):
+        return word["raw"]
+    out, position = [], 0
+    for character in word["raw"]:
+        letters = _fold(character)
+        if letters and position == low:
+            out.append(MARK_OPEN)
+        out.append(character)
+        position += len(letters)
+        if letters and position == high:
+            out.append(MARK_CLOSE)
+    return "".join(out)
 
 
 def compare(record, pdf_stream=None, qmd_stream=None):
@@ -698,20 +850,33 @@ def compare(record, pdf_stream=None, qmd_stream=None):
             ("[" if i == run["qmd"][0] else "") + qmd_stream[i]["raw"]
             + ("]" if i == run["qmd"][-1] else "")
             for i in range(low, high))
+        differences = run["differences"]
+        spans = [d[3] for d in differences]
+        # A run nobody has to read letter by letter: every word disagrees
+        # end to end, which is what every finding looked like before #850.
+        partial = any(span != (0, len(word["n"]))
+                      for span, word in zip(spans, pdf_run))
         findings.append(dict(
             kind=run["kind"],
             words=len(pdf_run),
             text=" ".join(w["raw"] for w in pdf_run),
-            pdf_style=_style_label(pdf_run),
-            qmd_style=_style_label(qmd_run),
+            # The same text with the disagreeing letters marked. Equal to
+            # `text` unless `partial`, and the only place a sub-word finding
+            # says which part of the word it is about.
+            marked=" ".join(_mark(w, span)
+                            for w, span in zip(pdf_run, spans)),
+            partial=partial,
+            pdf_style=_style_label(set().union(*(d[1] for d in differences))),
+            qmd_style=_style_label(set().union(*(d[2] for d in differences))),
             page=pdf_run[0]["page"],
             file=qmd_run[0]["file"],
             ctx=sorted(set(c for w in qmd_run for c in w["ctx"])),
             explained=reasons,
-            # Informational: colour and size are never why a run is reported,
-            # but they help a human triage one that already is.
+            # Informational: colour, size and extent are never why a run is
+            # reported, but they help a human triage one that already is.
             notes=(["pdf-coloured"] if any(w["coloured"] for w in pdf_run) else [])
-                  + (["pdf-large"] if any(w["large"] for w in pdf_run) else []),
+                  + (["pdf-large"] if any(w["large"] for w in pdf_run) else [])
+                  + (["partial-word"] if partial else []),
             snippet=snippet,
         ))
 

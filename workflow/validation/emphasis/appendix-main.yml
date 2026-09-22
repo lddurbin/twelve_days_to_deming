@@ -1,16 +1,16 @@
 # Emphasis check for appendix-main. Written by scripts/check-emphasis.py —
 # see workflow/validation/emphasis/README.md and issue #846.
 record: appendix-main
-checked_at: 2026-09-22
+checked_at: 2026-09-23
 source_pdf: P.Appendix.09Feb22.pdf
 source_sha256: 0ce090f5be18025dadfff9379d87163a77825a9ac772ce06f7098e6caf51f577
-emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
+emphasis_version: f1fb00314679fd0a7fd0312bd70578b295d2cf6c
 files:
   compared: 12
 words:
   pdf: 24745
-  qmd: 24857
-  aligned: 24140
+  qmd: 24848
+  aligned: 24143
 runs:
   total: 155
   explained: 130

@@ -1,16 +1,16 @@
 # Emphasis check for day-02. Written by scripts/check-emphasis.py —
 # see workflow/validation/emphasis/README.md and issue #846.
 record: day-02
-checked_at: 2026-09-22
+checked_at: 2026-09-23
 source_pdf: E.Day.2.12Oct21.pdf
 source_sha256: 86ff4005198a3bf2b4a34349e348113a8b347b3072769631962f686366f122e0
-emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
+emphasis_version: f1fb00314679fd0a7fd0312bd70578b295d2cf6c
 files:
   compared: 9
 words:
   pdf: 14774
-  qmd: 14427
-  aligned: 13320
+  qmd: 14425
+  aligned: 13322
 runs:
   total: 26
   explained: 21

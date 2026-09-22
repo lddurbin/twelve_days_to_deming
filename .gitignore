@@ -58,6 +58,12 @@ __pycache__/
 # Claude Code agent worktrees (harness-managed, never commit)
 .claude/worktrees/
 
+# Local Claude Code hook settings. Machine-specific (they shell out to paths
+# and tools that only exist on one checkout), so they stay local rather than
+# becoming something every clone has to satisfy. CI runs structure-check.yml
+# and interday-audit.yml directly; nothing here is load-bearing for it.
+.claude/settings.json
+
 # Vercel CLI project link + local Build Output API payloads (deploy.yml's
 # staging job assembles this fresh in CI each run — see #536)
 .vercel/
