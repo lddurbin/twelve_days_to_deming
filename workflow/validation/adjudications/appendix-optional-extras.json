@@ -1852,11 +1852,12 @@
      "flag": "validator report, altered section",
      "source_html": "...throughout all <mark class='src'>20 50 values</mark>, not one gets at all close to either limit...",
      "site_html": "...throughout all <mark class='gone'>50 values</mark>, not one gets at all close to either limit...",
-     "evidence_html": "<strong>About 40 further flags are this category.</strong> <code>pdftotext -layout</code> lifts y-axis tick labels off an adjacent control chart and drops them into the sentence running beside it. The stray numeral is never in Neave's prose. Cleared as a class; a further ~27 are the same numerals landing inside a hyphen line-wrap, which defeats #740's joiner — noted in #744 as worth its own issue if this appendix proved noisy, and it did.",
+     "evidence_html": "<strong>38 flags are this category.</strong> <code>pdftotext -layout</code> lifts y-axis tick labels off an adjacent control chart and drops them into the sentence running beside it. The stray numeral is never in Neave's prose, and <code>normalise()</code> keeps it deliberately — standalone digits are not stripped, because “14 Points” against “12 Points” is exactly the defect worth catching. Cleared as a class.<p><strong>Correction (2026-09-22).</strong> This finding originally added that “a further ~27 are the same numerals landing inside a hyphen line-wrap, which defeats #740's joiner”, citing #744's note that it was worth its own issue. That was wrong on both counts. The case was fixed on 2026-08-26 by <code>_TICK_IN_WRAP</code> in <code>scripts/lib/paragraph_similarity.py</code> (<a href='https://github.com/lddurbin/twelve_days_to_deming/issues/760'>#760</a>, PR <a href='https://github.com/lddurbin/twelve_days_to_deming/pull/762'>#762</a>), which normalises <code>“just for complete- 30 ness”</code> to <code>completeness</code> — and the report this pass adjudicated contains <strong>one</strong> occurrence of that shape, not 27, precisely because the fix was already suppressing them. The “27” is the pre-fix count quoted in that rule's own comment, read forward as though it were still live.",
      "decision": "accept",
      "decision_note": null,
      "decision_preset": true,
-     "outcome": "no_change_needed"
+     "outcome": "no_change_needed",
+     "outcome_note": "Verdict unchanged: the 38 bare tick numerals are a comparator artifact and stay cleared. Only the evidence text was wrong — see the correction in it."
     },
     {
      "id": "OE-97",
