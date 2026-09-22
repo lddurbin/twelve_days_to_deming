@@ -4,7 +4,7 @@ record: day-02
 checked_at: 2026-09-22
 source_pdf: E.Day.2.12Oct21.pdf
 source_sha256: 86ff4005198a3bf2b4a34349e348113a8b347b3072769631962f686366f122e0
-emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
 files:
   compared: 9
 words:

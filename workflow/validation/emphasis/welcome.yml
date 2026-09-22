@@ -4,7 +4,7 @@ record: welcome
 checked_at: 2026-09-22
 source_pdf: WELCOME-BOOKLET-(Aug21b).pdf
 source_sha256: b9bce5bbbb463c4dc27a2a0d30cf832193d618737c7992eda4152efb4bd9b884
-emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
 files:
   compared: 1
 words:

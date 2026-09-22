@@ -4,7 +4,7 @@ record: day-03
 checked_at: 2026-09-22
 source_pdf: F.Day.3.13Jan20.pdf
 source_sha256: 8475e848a2b9a0000871aaef39514b07a3dd66525b483f94b11888dc6168ef39
-emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
 files:
   compared: 13
 words:

@@ -4,7 +4,7 @@ record: day-04
 checked_at: 2026-09-22
 source_pdf: G.Day.4.09Jan20.pdf
 source_sha256: 923369e3dbdf50b90e2ae397e75c6568e9887375fe7c56e1e9a532997e257724
-emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
 files:
   compared: 4
 words:

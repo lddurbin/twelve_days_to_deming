@@ -81,7 +81,7 @@ findings, which is the more expensive mistake. `neave_note` is deliberately
 *not* in the list — it styles the block, not the words, which is why it needs
 the separate long-run rule.
 
-## The first full run (2026-09-22, `emphasis_version` 19a930c)
+## The first full run (2026-09-22, `emphasis_version` fd73b5c)
 
 Six of these eighteen records had never been run at all: the spike covered only
 the twelve days.

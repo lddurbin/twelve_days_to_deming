@@ -4,7 +4,7 @@ record: day-05
 checked_at: 2026-09-22
 source_pdf: H.Day.5.08Feb22.pdf
 source_sha256: 6080edb4e995aec859f4a42ee704d8601eb41afcb9d8fe33fd4bfdd5f18b21eb
-emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
 files:
   compared: 3
 words:

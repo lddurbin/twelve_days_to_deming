@@ -167,6 +167,32 @@ class PandocWalkTests(unittest.TestCase):
         self.assertTrue(words[0]["italic"])
         self.assertFalse(words[1]["italic"])
 
+    def test_an_unclosed_raw_tag_does_not_bleed_past_its_paragraph(self):
+        """An unclosed <em> runs to the end of its inline list and no further.
+
+        The RawInline branch has to carry state between sibling nodes, since
+        `<em>` and `</em>` are separate nodes. That makes an unclosed tag
+        bleed — but only within one paragraph, because walk_blocks hands each
+        block the caller's state rather than the previous block's. Pinned so
+        a refactor that shared state between blocks fails here instead of
+        silently italicising the rest of a chapter.
+        """
+        words = self.walk([
+            {"t": "Para", "c": [
+                {"t": "RawInline", "c": ["html", "<em>"]},
+                {"t": "Str", "c": "unclosed"},
+                {"t": "Str", "c": "sibling"},
+            ]},
+            {"t": "Para", "c": [{"t": "Str", "c": "after"}]},
+        ])
+        by_name = {w["n"]: w for w in words}
+        self.assertTrue(by_name["unclosed"]["italic"])
+        self.assertTrue(by_name["sibling"]["italic"],
+                        "an open tag must carry to later siblings — that is "
+                        "how <em>…</em> works at all")
+        self.assertFalse(by_name["after"]["italic"],
+                         "but it must not escape the paragraph")
+
     def test_math_is_marked_as_math(self):
         words = self.walk([{"t": "Para", "c": [
             {"t": "Math", "c": [{"t": "InlineMath"}, "n"]}]}])

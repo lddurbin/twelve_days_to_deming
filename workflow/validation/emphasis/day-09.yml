@@ -4,7 +4,7 @@ record: day-09
 checked_at: 2026-09-22
 source_pdf: L.Day.9.15Feb22.pdf
 source_sha256: 9a1d7ecaab3aa8d8a3f8557b65fddd06a1d0fe1ec40a0490323022427a54567f
-emphasis_version: 19a930c86316dded5c5787cbe00ffedd4ac1b434
+emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
 files:
   compared: 7
 words:

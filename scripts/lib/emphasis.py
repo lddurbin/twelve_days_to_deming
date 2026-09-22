@@ -457,6 +457,18 @@ def walk_inlines(inlines, state, out, chapter):
             # Days 11 and others set emphasis with literal HTML, which pandoc
             # keeps as a raw inline rather than Strong/Emph. Track it, or
             # every word inside reads as plain and flags as lost.
+            #
+            # This mutates the local copy made above, so it carries to later
+            # siblings in the same inline list — which is the whole point,
+            # since `<em>` and `</em>` are separate nodes. An *unclosed* tag
+            # therefore bleeds to the end of the inline list, and no further:
+            # walk_blocks hands each block the caller's state and walk_inlines
+            # copies it, so a paragraph is the blast radius. The corpus is
+            # balanced today (76 `<em>`/76 `</em>`, 17 `<strong>`/17
+            # `</strong>`), and test_an_unclosed_raw_tag_does_not_bleed_past_
+            # its_paragraph pins the containment so a future refactor that
+            # shared state between blocks would fail rather than quietly
+            # italicise the rest of a chapter.
             tag = _RAW_EMPHASIS.fullmatch(content[1].strip())
             if tag:
                 key = "italic" if tag[2].lower() in ("em", "i") else "bold"
@@ -512,9 +524,14 @@ def _walk_table(content, state, out, chapter):
                 walk_blocks(cell[4], state, out, chapter)
 
 
+def _read_text(path):
+    with open(path, encoding="utf-8") as handle:
+        return handle.read()
+
+
 def qmd_words(paths, read=None):
     """The site's words, each with the emphasis its markup gives it."""
-    reader = read or (lambda p: open(p, encoding="utf-8").read())
+    reader = read or _read_text
     words = []
     base = dict(bold=False, italic=False, ctx=())
     for path in paths:
