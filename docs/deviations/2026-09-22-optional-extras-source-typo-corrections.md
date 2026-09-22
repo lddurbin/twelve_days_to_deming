@@ -8,4 +8,4 @@
 - **Source reference** — `S.Optional.Extras.09Jul21.pdf`, printed pages 62, 72 and 92 (PDF pages 68, 78 and 98). Page 62 was read as a page image during adjudication, which is how the four `1.28` occurrences were confirmed against `pdftotext` output.
 - **Why** — Each slip has one plausible intended reading, and item 1 is a numerical constant a reader might otherwise carry into their own arithmetic. Under the rule settled in [#831](https://github.com/lddurbin/twelve_days_to_deming/issues/831), every typo correction gets an entry even when it is obvious, so that anyone checking the site against the PDF finds each changed character accounted for.
 - **Decided in** — Wave 2 Optional Extras adjudication ([#843](https://github.com/lddurbin/twelve_days_to_deming/issues/843), 2026-09-22), findings `OE-102`, `OE-06` and `OE-87`. `OE-06` and `OE-87` were decided *leave as-is, log it*; `OE-102` was decided *agree, raise separately* with no content change.
-- **Landed in** — PR TBD.
+- **Landed in** — PR [#844](https://github.com/lddurbin/twelve_days_to_deming/pull/844).
