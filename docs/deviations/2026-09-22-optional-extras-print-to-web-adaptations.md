@@ -1,0 +1,10 @@
+## 2026-09-22 — Two Optional Extras print-to-web navigation adaptations
+
+- **What** — Two of Neave's navigation instructions assume a reader holding paper, and are reworded on the site rather than reproduced:
+  1. **"make a separate copy of those pages" → "open those pages in a separate browser tab".** Neave tells the reader to photocopy the Day 3 data pages so they can chart from them without page-turning. There is nothing to photocopy on the site.
+  2. **"(Please move on to the next page for Rule 3 and then Rule 4.)" → "(Please move on to the next section for Rule 3 and then Rule 4.)".** The sentence was absent from the site altogether; it is restored here with *page* changed to *section*, since Rule 3 follows under a heading on the same web page rather than overleaf.
+- **Where** — `content/appendix/optional-extras/00-introduction.qmd` (item 1); `content/appendix/optional-extras/01-part-a-funnel-charts.qmd` (item 2).
+- **Source reference** — `S.Optional.Extras.09Jul21.pdf`, printed pages 0 and 11 (PDF pages 6 and 17).
+- **Why** — Both sentences are instructions about *how to move through the material*, and reproducing them verbatim would instruct the reader to do something the medium does not support. Item 1 already existed on the site but had never been logged, which is the gap this entry closes; item 2 is a restoration, and the wording change is the minimum needed to make the restored sentence true on the web. The pattern follows the existing Workbook-reference precedent — see [`2026-04-23-strip-inline-wb-nnn-cross-reference-suffixes.md`](2026-04-23-strip-inline-wb-nnn-cross-reference-suffixes.md), which is also why finding `OE-10`'s `[WB 43 and 45]` pointer stays out and needs no entry of its own.
+- **Decided in** — Wave 2 Optional Extras adjudication ([#843](https://github.com/lddurbin/twelve_days_to_deming/issues/843), 2026-09-22), findings `OE-01` (decided *leave as-is, log it*) and `OE-85` (decided *apply*, with the "next section" wording given in the decision note).
+- **Landed in** — PR TBD.

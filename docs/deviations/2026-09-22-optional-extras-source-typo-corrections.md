@@ -1,0 +1,11 @@
+## 2026-09-22 — Three Optional Extras source slips sanctioned
+
+- **What** — Wave 2's Optional Extras pass confirmed three places where the site departs from Neave's printed words because the printed words are wrong. All three corrections are kept, not reverted, and no `[sic]` marker is added:
+  1. **`1.28` → `1.128`, four times on one page.** Printed page 62 gives the conversion factor *h* for *n* = 2 as `1.28` in four separate sentences. The constant is `1.128`, and Neave himself prints `1.128` elsewhere in this same appendix (printed pages 57 and 65), so page 62 carries a repeated slip rather than a different claim. The site has always shown `1.128`.
+  2. **"guides you **to** start looking".** Printed page 72 reads "is a signal that guides you start looking for a special cause", dropping the infinitive *to*. The site supplies it.
+  3. **"but **becomes** increasingly unsymmetric".** Printed page 92 reads "but become increasingly unsymmetric" against the singular subject *The binomial distribution*. The site agrees the verb.
+- **Where** — `content/appendix/optional-extras/05-part-e-normality.qmd` (item 1, at every occurrence in that chapter); `content/appendix/optional-extras/06-part-f-technical.qmd` (items 2 and 3). No file was changed by this entry — all three corrections were already present on the site and simply unlogged.
+- **Source reference** — `S.Optional.Extras.09Jul21.pdf`, printed pages 62, 72 and 92 (PDF pages 68, 78 and 98). Page 62 was read as a page image during adjudication, which is how the four `1.28` occurrences were confirmed against `pdftotext` output.
+- **Why** — Each slip has one plausible intended reading, and item 1 is a numerical constant a reader might otherwise carry into their own arithmetic. Under the rule settled in [#831](https://github.com/lddurbin/twelve_days_to_deming/issues/831), every typo correction gets an entry even when it is obvious, so that anyone checking the site against the PDF finds each changed character accounted for.
+- **Decided in** — Wave 2 Optional Extras adjudication ([#843](https://github.com/lddurbin/twelve_days_to_deming/issues/843), 2026-09-22), findings `OE-102`, `OE-06` and `OE-87`. `OE-06` and `OE-87` were decided *leave as-is, log it*; `OE-102` was decided *agree, raise separately* with no content change.
+- **Landed in** — PR TBD.
