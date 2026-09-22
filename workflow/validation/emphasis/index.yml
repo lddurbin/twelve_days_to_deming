@@ -1,0 +1,23 @@
+# Emphasis check for index. Written by scripts/check-emphasis.py —
+# see workflow/validation/emphasis/README.md and issue #846.
+record: index
+checked_at: 2026-09-22
+source_pdf: A.PLEASE.START.HERE.08Feb22.pdf
+source_sha256: 2e6226b87cdc56f92607140707b6cdc044db92485f54578f757afbb13193a8d6
+emphasis_version: fd73b5c4c1622982ca1afd631538cbab08ec5871
+files:
+  compared: 1
+words:
+  pdf: 11164
+  qmd: 7994
+  aligned: 7637
+runs:
+  total: 61
+  explained: 16
+counts:
+  lost: 43
+  lost_words: 55
+  added: 1
+  added_words: 1
+  swapped: 1
+  swapped_words: 1

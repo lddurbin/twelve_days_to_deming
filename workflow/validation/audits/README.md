@@ -10,7 +10,7 @@ Wave 3 of epic [#734](https://github.com/lddurbin/twelve_days_to_deming/issues/7
 
 "Matched cleanly" is a similarity score, not a verdict. A single wrong word
 in a fifty-word sentence scores exactly the 0.98 threshold and classifies clean,
-and emphasis is invisible to the comparator entirely. Wave 2 has found defects
+and emphasis was invisible to the comparator entirely. Wave 2 has found defects
 of both kinds in text a person had already verified. So the claim this directory
 supports has to be measured — and it is two claims, not one, because a lost
 italic and a wrong word are both departures from Neave but support very
@@ -38,7 +38,8 @@ independent of Claude but not of the process — he verified the original
 conversion too. Two requirements follow, and the tool implements both.
 
 1. **Source first, then the site, clause by clause.** The page image before the
-   card, because that is the only way emphasis is in scope at all.
+   card, because that is the only way the remaining emphasis blind spots
+   (below) are in scope at all.
 2. **Planted defects, blind.** Some cards display a changed version of the site
    text. The share of those the auditor catches is their measured sensitivity,
    and the bound is divided by it rather than assuming perfect detection.
@@ -88,7 +89,7 @@ opening and closing words, read the source, then read the card's site text.
 | verdict | means |
 |---|---|
 | **Exact** | the site says what the source says. A difference the site's own conventions account for — a heading's case, an enriched cross-reference, curly quotes — is Exact too: the site is not departing from Neave |
-| **Minor** | a real difference that does not change the meaning. In practice: punctuation, or emphasis the source has and the site has lost |
+| **Minor** | a real difference that does not change the meaning. In practice: punctuation, or emphasis the source has and the site has lost — but see *Emphasis is no longer sampled* below, which took most of that second class out of this population |
 | **Substantive** | a real difference that does change it — a wrong word or number, a dropped or an added one |
 
 Minor and Substantive are both real and both get fixed. They are split only so
@@ -148,6 +149,49 @@ and filed it correctly, but had the old rubric's middle bucket still meant
 **Every entry in `findings` is a real transcription defect**, Minor as much as
 Substantive, and goes through the Wave 2 fix path — a cited issue and PR, like
 any other.
+
+## Emphasis is no longer sampled
+
+**Added 2026-09-22 (#846), acting on spike #825's recommendation 3. This
+changes what a bound from this directory covers, and Day 5's record predates
+it.**
+
+Emphasis was half of Day 5's four findings, and #825 called it *"the single
+largest known blind spot in the validation pipeline, and the reason Wave 3
+exists at all"*. It is no longer a blind spot. `scripts/check-emphasis.py`
+reads the style off the embedded font with `pdftohtml -xml` and checks it
+across **100% of every record** in ~1.5s each, at 40/40 measured precision.
+The first full run found 629 lost runs corpus-wide, 183 on Day 3 alone.
+
+Sampling twenty paragraphs to estimate the rate of a class that can be
+enumerated in full is backwards, so emphasis leaves this population. A bound
+computed from this directory is **not** a statement about the site's emphasis
+fidelity; `workflow/validation/emphasis/` is, and its findings go through the
+ordinary Wave 2 fix path rather than being counted here.
+
+What remains in scope for a human auditor, because no tool can see it:
+
+1. **Synthetic oblique** — the blue Comic Sans dialogue on Days 2, 10 and 11
+   is an upright font skewed by the text matrix, and poppler reports it
+   upright.
+2. **Underline** — drawn as a line rather than carried as a font property, so
+   it never reaches the text layer. Day 11 underlines `natural` and `big`
+   inside Comic Sans passages.
+3. **Emphasis by colour alone** — available mechanically, but what the site's
+   equivalent of one of Neave's colours should be is an editorial call, not a
+   mechanical one. Deliberately left here.
+4. **Unaligned text** — 7% of PDF words corpus-wide, 14% on Day 3, 32% on
+   `index`. The emphasis checker does not reach it.
+
+So a Minor verdict for lost emphasis is still correct when the auditor sees
+one: it will be in one of those four classes, which is exactly why they are
+worth a human's eye. What changed is that the *rate* it contributes no longer
+stands for emphasis generally.
+
+**Day 5 is scored under the old scope.** Two of its four deviations were lost
+emphases, both of a kind the checker now finds. Its `bound.any_deviation`
+therefore measures a population this directory no longer samples, and it
+should not be pooled with records drawn after this change without saying so.
 
 ## The record
 
@@ -214,6 +258,9 @@ them estimate p̂ well enough to divide by. The published claim is the pooled
 
 - **Flagged text** is not in this population; its evidence is the adjudication
   records.
+- **Emphasis** is not in this population either, since #846 — only the four
+  blind spots listed under *Emphasis is no longer sampled*. Its evidence is
+  `workflow/validation/emphasis/`.
 - **Figures and tables as images** are out of scope, owned by #725.
 - **Plants approximate real defects**, drawn from the classes Wave 2 found — word
   substitutions, dropped and inserted words, one wrong digit, a dropped or added

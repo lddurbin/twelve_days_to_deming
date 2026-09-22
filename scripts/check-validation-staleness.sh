@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 #
 # check-validation-staleness.sh — flag recorded validation results whose
-# scorer_version predates the comparison pipeline as it exists right now.
+# recorded version predates the pipeline that produced them, as it exists
+# right now.
+#
+# Two independent pipelines, two directories, two versions:
+#
+#   results/    the paragraph comparator   scorer_version    (#720, #737)
+#   emphasis/   the emphasis checker       emphasis_version  (#846)
+#
+# They are kept apart deliberately. Neither can change what the other reports
+# — different extractions, different questions — so folding them into one
+# version would mean every emphasis-checker edit restaling all eighteen
+# paragraph records, which under main's `strict: true` protection with no
+# merge queue is a real merge-ordering cost. See scripts/lib/emphasis-version.sh.
 #
 # Runs entirely without the source PDFs (which are gitignored and only ever
 # exist on the maintainer's machine — see workflow/validation/results/README.md
@@ -19,45 +31,80 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-RESULTS_DIR="$REPO_ROOT/workflow/validation/results"
 
 # shellcheck source-path=SCRIPTDIR source=lib/scorer-version.sh
 . "$REPO_ROOT/scripts/lib/scorer-version.sh"
+# shellcheck source-path=SCRIPTDIR source=lib/emphasis-version.sh
+. "$REPO_ROOT/scripts/lib/emphasis-version.sh"
 
-current_version=$(compute_scorer_version "$REPO_ROOT")
+failed=0
+checked_any=0
 
-shopt -s nullglob
-results=("$RESULTS_DIR"/*.yml)
-shopt -u nullglob
+# Compare every record in one directory against one current version.
+#
+# $1 directory under workflow/validation/, $2 the YAML key holding the
+# recorded version, $3 that version as it is now, $4 what changing it means,
+# and the remaining arguments the files the version covers.
+check_dir() {
+  local dir=$1 key=$2 current=$3 description=$4
+  shift 4
+  local pipeline_files=("$@")
+  local path="$REPO_ROOT/workflow/validation/$dir"
 
-if [[ "${#results[@]}" -eq 0 ]]; then
-  echo "No recorded validation results found in ${RESULTS_DIR#"$REPO_ROOT/"} — nothing to check."
-  exit 0
-fi
+  shopt -s nullglob
+  local records=("$path"/*.yml)
+  shopt -u nullglob
 
-stale=()
-for f in "${results[@]}"; do
-  recorded=$(sed -n 's/^scorer_version: *//p' "$f")
-  if [[ "$recorded" != "$current_version" ]]; then
-    stale+=("$(basename "$f")")
+  if [[ "${#records[@]}" -eq 0 ]]; then
+    echo "No recorded results in workflow/validation/$dir — nothing to check."
+    return 0
   fi
-done
+  checked_any=1
 
-if [[ "${#stale[@]}" -eq 0 ]]; then
-  echo "All ${#results[@]} recorded validation result(s) match the current pipeline ($current_version)."
+  local stale=() f recorded
+  for f in "${records[@]}"; do
+    recorded=$(sed -n "s/^$key: *//p" "$f")
+    if [[ "$recorded" != "$current" ]]; then
+      stale+=("$(basename "$f")")
+    fi
+  done
+
+  if [[ "${#stale[@]}" -eq 0 ]]; then
+    echo "All ${#records[@]} record(s) in workflow/validation/$dir match the current $description ($current)."
+    return 0
+  fi
+
+  echo ""
+  echo "The $description has changed since these results were recorded:"
+  for f in "${stale[@]}"; do
+    echo "  - workflow/validation/$dir/$f"
+  done
+  echo ""
+  echo "Pipeline files:"
+  for f in "${pipeline_files[@]}"; do
+    echo "  - $f"
+  done
+  failed=1
+  return 0
+}
+
+check_dir results scorer_version "$(compute_scorer_version "$REPO_ROOT")" \
+  "comparison pipeline" "${SCORER_VERSION_FILES[@]}"
+check_dir emphasis emphasis_version "$(compute_emphasis_version "$REPO_ROOT")" \
+  "emphasis checker" "${EMPHASIS_VERSION_FILES[@]}"
+
+if [[ "$checked_any" -eq 0 ]]; then
+  echo "No recorded validation results found at all — nothing to check."
   exit 0
 fi
 
-echo "The comparison pipeline has changed since these results were recorded:"
-for f in "${stale[@]}"; do
-  echo "  - workflow/validation/results/$f"
-done
+if [[ "$failed" -eq 0 ]]; then
+  exit 0
+fi
+
 echo ""
-echo "Pipeline files (SCORER_VERSION_FILES in scripts/lib/scorer-version.sh):"
-for f in "${SCORER_VERSION_FILES[@]}"; do
-  echo "  - $f"
-done
-echo ""
-echo "Re-run ./scripts/validate-transcription.sh for the affected day(s)/appendix(es)"
-echo "and commit the refreshed result file(s) once you've reviewed the new findings."
+echo "Re-run the tool that owns the affected directory and commit the refreshed"
+echo "record(s) once you have reviewed the new findings:"
+echo "  results/   ./scripts/validate-transcription.sh <day>|--manifest <name>"
+echo "  emphasis/  ./scripts/check-emphasis.py <day>|<manifest>|--all"
 exit 1

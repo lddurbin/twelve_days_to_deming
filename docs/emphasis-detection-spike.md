@@ -1,7 +1,7 @@
 # Can lost emphasis be detected mechanically? — spike outcome
 
 **Issue:** [#825](https://github.com/lddurbin/twelve_days_to_deming/issues/825) (part of epic [#734](https://github.com/lddurbin/twelve_days_to_deming/issues/734))
-**Status:** Recommendation. No production code ships from this document.
+**Status:** Recommendation, **acted on**. Built in [#846](https://github.com/lddurbin/twelve_days_to_deming/issues/846) as `scripts/check-emphasis.py` and `scripts/lib/emphasis.py`, recording to `workflow/validation/emphasis/` — see that directory's README for the production allowlist and the first full run over all eighteen records. Recommendation 4's two conventions were decided there: swapped runs are reported as their own class, colour-only emphasis stays out of scope. No production code ships from this document itself.
 **Date:** 2026-09-16
 **Script:** [`scripts/archive/emphasis-spike-825.py`](../scripts/archive/emphasis-spike-825.py) — throwaway, kept only so the numbers below can be reproduced
 **Measured against:** `main` at `a12c977`, before PR #824's Day 5 fixes landed

@@ -22,21 +22,33 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 LIB = REPO_ROOT / "scripts" / "lib" / "scorer-version.sh"
+EMPHASIS_LIB = REPO_ROOT / "scripts" / "lib" / "emphasis-version.sh"
 WRITER = REPO_ROOT / "scripts" / "validate-transcription.sh"
 READER = REPO_ROOT / "scripts" / "check-validation-staleness.sh"
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "validation-staleness.yml"
 
 # The library is the source of truth for the list; parse it rather than
 # restating it here, so this test can't itself become the drifting copy.
-SCORER_VERSION_FILES = re.findall(
-    r"^\s*(\S+)\s*$",
-    re.search(
-        r"^SCORER_VERSION_FILES=\((.*?)^\)",
-        LIB.read_text(),
-        re.MULTILINE | re.DOTALL,
-    ).group(1),
-    re.MULTILINE,
-)
+def _version_files(library, array_name):
+    return re.findall(
+        r"^\s*(\S+)\s*$",
+        re.search(
+            rf"^{array_name}=\((.*?)^\)",
+            library.read_text(),
+            re.MULTILINE | re.DOTALL,
+        ).group(1),
+        re.MULTILINE,
+    )
+
+
+SCORER_VERSION_FILES = _version_files(LIB, "SCORER_VERSION_FILES")
+
+# #846 added a second pipeline — the emphasis checker — over its own directory
+# with its own version. It is deliberately not folded into scorer_version (see
+# scripts/lib/emphasis-version.sh), but it shares this workflow and so needs
+# the same coverage rule: a hashed-but-unfiltered file is a check that never
+# fires. tests/test_emphasis.py owns that library's own behaviour.
+EMPHASIS_VERSION_FILES = _version_files(EMPHASIS_LIB, "EMPHASIS_VERSION_FILES")
 
 
 def run_bash(snippet):
@@ -155,6 +167,10 @@ class SharedDefinitionTests(unittest.TestCase):
             with self.subTest(script=script.name):
                 self.assertIn("lib/scorer-version.sh", script.read_text())
 
+    def test_the_reader_also_sources_the_emphasis_library(self):
+        """One check over both directories, each against its own definition."""
+        self.assertIn("lib/emphasis-version.sh", READER.read_text())
+
     def test_neither_consumer_hashes_the_pipeline_itself(self):
         """`git hash-object` on a pipeline file outside the library is a second definition."""
         for script in (WRITER, READER):
@@ -231,6 +247,25 @@ class WorkflowPathFilterTests(unittest.TestCase):
         """Not hashed, but editing the list must still trigger the check."""
         for block in self.path_filter_blocks():
             self.assertIn("scripts/lib/scorer-version.sh", block)
+
+    def test_every_hashed_emphasis_file_is_filtered(self):
+        """The emphasis checker shares this workflow, so it shares the rule."""
+        for block in self.path_filter_blocks():
+            for rel in EMPHASIS_VERSION_FILES:
+                with self.subTest(file=rel):
+                    self.assertIn(rel, block)
+
+    def test_the_emphasis_library_and_its_records_are_filtered(self):
+        for block in self.path_filter_blocks():
+            self.assertIn("scripts/lib/emphasis-version.sh", block)
+            self.assertIn("workflow/validation/emphasis/**", block)
+
+    def test_the_two_pipelines_do_not_share_a_file(self):
+        """Overlap would couple the two versions back together by the back
+        door: an edit to a shared file would restale both directories, which
+        is the cost keeping them apart exists to avoid."""
+        self.assertEqual(
+            set(SCORER_VERSION_FILES) & set(EMPHASIS_VERSION_FILES), set())
 
 
 if __name__ == "__main__":
