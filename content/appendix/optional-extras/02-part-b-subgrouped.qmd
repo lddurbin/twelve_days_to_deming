@@ -16,7 +16,7 @@ I first mentioned "a-few-at-a-time" data a long while ago: in the discussion on 
 
 Let me emphasise a few basics. By "a-few-at-a-time" data I am implying that we are now dealing with what were referred to above as "samples" rather than just single values. The implication of "at-a-time" is that the data concerned *are recorded pretty much at the same time and under the same conditions*. The adjective "*random*" is often seen, and a "random sample" effectively implies that, in addition to "recorded pretty much at the same time and under the same conditions", the data in the sample are otherwise not related to each other in any way. You may think that I am being rather fussy with my details here, but it turns out that such details are important regarding how these data will be regarded and used when being analysed on control charts. In fact, rather than just "samples" or "random samples", a different word has traditionally been used to refer to them in the control-charting context, namely "subgroups".
 
-Why "subgroups"? Actually, I can't recall ever having seen that word very precisely described! But presumably the idea is that there is some *group* of observations that were recorded "pretty much at the same time and under the same conditions" but that we only have a few of those observations observations available to use.
+Why "subgroups"? Actually, I can't recall ever having seen that word very precisely described! But presumably the idea is that there is some *group* of observations that were recorded "pretty much at the same time and under the same conditions" but that we only have a few of those observations available to use.
 
 ## 2. Calculations on a subgroup {#sec-optional-extras-page-18}
 

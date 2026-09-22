@@ -855,8 +855,9 @@
      "decision_note": null,
      "proposal": "almost always, the movement",
      "decision_preset": false,
-     "outcome": "fixed",
-     "page_pos": 2
+     "outcome": "no_change_needed",
+     "page_pos": 2,
+     "outcome_note": "Applied, then reverted on review. The site already read “almost always, the movement” before this pass — identical to the source. The validator's excerpt was truncated at the start (“…almost always, the movement…”), which hid the word it reported as dropped, and applying the fix produced “almost almost always”. No defect here; the line is byte-identical to its pre-pass state."
     },
     {
      "id": "OE-46",
@@ -1006,7 +1007,8 @@
      "proposal": "we only have a few of those observations",
      "decision_preset": false,
      "outcome": "fixed",
-     "page_pos": 2
+     "page_pos": 2,
+     "outcome_note": "Applied in part. “are only having” → “only have” is real and stands. The second half of the finding — a dropped “observations” — was a truncation artifact: the noun was already present, and applying that half produced “observations observations”. Reverted, leaving only the verb correction."
     },
     {
      "id": "OE-54",
@@ -1697,7 +1699,8 @@
      "decision_note": null,
      "proposal": "First, the standard deviation of *R*",
      "decision_preset": false,
-     "outcome": "fixed"
+     "outcome": "no_change_needed",
+     "outcome_note": "Applied, then reverted on review. The site already read “First, the standard deviation of $R$ is computed…” — identical to the source. Same truncation artifact as OE-45: the report's excerpt began mid-sentence, hiding the “First,” that was already there, and applying the fix produced “First, First,” and downgraded $R$ to bare R. The line is byte-identical to its pre-pass state."
     },
     {
      "id": "OE-91",
