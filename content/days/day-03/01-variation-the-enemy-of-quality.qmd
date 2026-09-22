@@ -8,21 +8,21 @@ execute:
 ---
 ## Variation—the enemy of quality {#sec-page1}
 
-I'll start by telling you of something extremely basic that puzzled me in the 1980s when I was just beginning to learn about Dr Deming's work. It was a basic matter involved with Statistics. Now, I had already been a University Lecturer in Statistics for some 12 years before ever hearing of Dr Deming. Despite that background, for a considerable time I couldn't understand what was arguably the most important of all the messages in his four-day seminars. It was the need to concentrate on understanding variation—apparently more than on anything else. Why was I puzzled?
+I'll start by telling you of something extremely basic that puzzled me in the 1980s when I was just beginning to learn about Dr Deming's work. It was a basic matter involved with Statistics. Now, I had already been a University Lecturer in Statistics for some 12 years before ever hearing of Dr Deming. Despite that background, for a considerable time I couldn't understand what was arguably the most important of all the messages in his four-day seminars. It was the need to concentrate on *understanding variation*—apparently more than on anything else. Why was I puzzled?
 
-As already indicated on [Day 1](../day-01/01-overture.qmd), much of the way Statistics is usually taught involves [A] data and [B] probability and probability distributions. (Again, as I made clear at the time, if you know little or nothing about [B] then that doesn't matter as far as this course is concerned—it might even be an advantage!) In both cases I was always used to working with averages and with variation—both of them but with averages being the more important. So I could understand Dr Deming's interest in variation, but I couldn't understand why he hardly ever mentioned the average. Particularly when considering processes, of course it is good to reduce the amount that things vary, but surely it's even more important to get the average right. So why didn't he say anything about that?
+As already indicated on [Day 1](../day-01/01-overture.qmd), much of the way Statistics is usually taught involves [A] data and [B] probability and probability distributions. (Again, as I made clear at the time, if you know little or nothing about [B] then that doesn't matter as far as this course is concerned—it might even be an advantage!) In both cases I was always used to working with *averages* and with *variation*—*both* of them but with averages being the more important. So I could understand Dr Deming's interest in variation, but I couldn't understand why he hardly ever mentioned the average. Particularly when considering *processes*, of course it is good to reduce the amount that things vary, but surely it's even more important to get the average right. So why didn't he say anything about that?
 
 Eventually, after many months, light dawned—through thinking about something from long ago: my schooldays!
 
 ### The school bus
 
-Throughout my schooldays, I lived out in the countryside, several miles from my school. School started at 9.00 each morning. I travelled to school by bus. The bus would usually arrive at the bus-stop near my home some time between 8.25 and 8.35, though occasionally a little earlier or a little later. Now and again, it was very late, e.g. because it had broken down, or had been held up by a road accident, etc. Other than on such rare occasions, it would always get me to school on time. But I was not happy!
+Throughout my schooldays, I lived out in the countryside, several miles from my school. School started at 9.00 each morning. I travelled to school by bus. The bus would usually arrive at the bus-stop near my home some time between 8.25 and 8.35, though occasionally a little earlier or a little later. Now and again, it was *very* late, e.g. because it had broken down, or had been held up by a road accident, etc. Other than on such rare occasions, it would always get me to school on time. But I was not happy!
 
-To be fairly sure of catching the bus, I had to be at the bus-stop by 8.25. To be really sure of catching it, I needed to be there by 8.20. But much of the time I'd then be waiting 10 to 15 minutes, or occasionally longer—often when the weather was cold and raining. (It seemed to rain a lot in England when I was young—and this was a bus-stop, not a bus-shelter!) So I could well be soaking wet and/or freezing cold by the time the bus arrived. Not a good start to the day!
+To be fairly sure of catching the bus, I had to be at the bus-stop by 8.25. To be *really* sure of catching it, I needed to be there by 8.20. But much of the time I'd then be waiting 10 to 15 minutes, or occasionally longer—often when the weather was cold and raining. (It seemed to rain a lot in England when I was young—and this was a bus-*stop*, not a bus-*shelter*!) So I could well be soaking wet and/or freezing cold by the time the bus arrived. Not a good start to the day!
 
-If only the bus could have arrived within, say, one minute either side of 8.30, rather than within 5 or even 10 minutes. Or one minute either side of 8.25, or one minute either side of 8.35, or indeed one minute either side of any suitable average time of arrival. Then I could have arranged my mornings much more efficiently—and, with very rare exceptions, suffered no more than a two-minute soaking!
+If only the bus could have arrived within, say, *one* minute either side of 8.30, rather than within 5 or even 10 minutes. Or one minute either side of 8.25, or one minute either side of 8.35, or indeed one minute either side of *any* suitable average time of arrival. Then I could have arranged my mornings much more efficiently—and, with very rare exceptions, suffered no more than a *two*-minute soaking!
 
-So I learned that the variation in the arrival-time of the bus seriously affected my quality of life! Note that the variation was actually more important than the average time of arrival. My process was easily adaptable to whatever the average happened to be. But the greater the variation, the more I risked either missing the bus altogether or getting wet through—irrespective of the average.
+So I learned that the *variation* in the arrival-time of the bus seriously affected my quality of life! Note that the variation was actually more important than the *average* time of arrival. My process was easily adaptable to whatever the average happened to be. But the greater the variation, the more I risked either missing the bus altogether or getting wet through—*irrespective* of the average.
 
 ***Variation is indeed the enemy of quality.***
 
@@ -42,7 +42,7 @@ Next, as promised on Day 1, here is a rather longer extract from Dr Deming's acc
 
 <span class="deming_quote">Dr Shewhart decided that this was the root of Western Electric's problems. They were failing to understand the difference between common causes and special causes, and that mixing them up makes things worse. It is pretty important that we understand those two kinds of mistakes. Sure we don't like mistakes, complaints from customers, accidents; but, if we wade in at them without understanding, we only make things worse. This is easy to prove."</span>
 
-Unexpected as it might be, it seems that Dr Deming first used the terms "common cause" and "special cause" around 1947 in discussions on *prison riots* (see *Out of the Crisis* page 270(pages 314–315)). Did something *special* occur to spark off a riot? Or was the riot due to the procedures, the environment, the morale of both the prisoners and the prison staff, the way the staff treated the prisoners, etc, etc? That is, was the *common* state of affairs (which Deming would refer to as the system) in the prison such that riots would be *bound* to occur from time to time? (Think back to Day 1's Major Activity.) Or would it take something special?
+Unexpected as it might be, it seems that Dr Deming first used the terms "common cause" and "special cause" around 1947 in discussions on *prison riots* (see *Out of the Crisis* page 270(pages 314–315)). Did something *special* occur to spark off a riot? Or was the riot due to the procedures, the environment, the morale of both the prisoners and the prison staff, the way the staff treated the prisoners, etc, etc? That is, was the *common* state of affairs (which Deming would refer to as the *system*) in the prison such that riots would be *bound* to occur from time to time? (Think back to Day 1's Major Activity.) Or would it take something *special*?
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
@@ -59,7 +59,7 @@ viewof activity_3a_1 = persist(
 )
 ```
 
-Unsurprisingly, I do not have any data available from all those decades ago from which we could construct control charts. So, with each of the causes you've suggested above, simply say whether you think the cause is likely to have been common or special, and why. (Be guided by the paragraph on prison riots that we have just seen on [page 2, in the Back to the Western Electric Company section above](01-variation-the-enemy-of-quality.qmd#sec-page2).)
+Unsurprisingly, I do not have any data available from all those decades ago from which we could construct control charts. So, with each of the causes you've suggested above, simply say whether you *think* the cause is likely to have been common or special, and why. (Be guided by the paragraph on prison riots that we have just seen on [page 2, in the Back to the Western Electric Company section above](01-variation-the-enemy-of-quality.qmd#sec-page2).)
 
 ```{ojs}
 viewof activity_3a_2 = persist(
@@ -73,7 +73,7 @@ Reveal suggested answer for Activity 3-a
 </button>
 
 <div class="collapse" id="collapse_3a">
-Being guided by the thoughts about prison riots, factors which result in somewhat random fluctuations from day to day would be interpreted as *common* causes, while relatively rare events which markedly affect the arrival time in a "one-off" manner would be interpreted as special causes. So e.g. if the bus is held up by a serious road accident or by freak weather conditions such as a flood or unusually heavy snowfall then we would regard these as special causes. On the other hand, normal fluctuations such as the number of people queuing at the bus-stops, the proportion of red traffic lights encountered along the journey, usual day-to-day variations in traffic-density, etc would be regarded as common causes.
+Being guided by the thoughts about prison riots, factors which result in somewhat random fluctuations from day to day would be interpreted as *common* causes, while relatively rare events which markedly affect the arrival time in a "one-off" manner would be interpreted as *special* causes. So e.g. if the bus is held up by a serious road accident or by freak weather conditions such as a flood or unusually heavy snowfall then we would regard these as special causes. On the other hand, normal fluctuations such as the number of people queuing at the bus-stops, the proportion of red traffic lights encountered along the journey, usual day-to-day variations in traffic-density, etc would be regarded as common causes.
 </div>
 </div>
 
@@ -92,7 +92,7 @@ viewof activity_3b_1 = persist(
 )
 ```
 
-And how might *reducing* variation lead to *increasing* variety?
+And how might *reducing variation* lead to *increasing variety*?
 
 ```{ojs}
 viewof activity_3b_2 = persist(
