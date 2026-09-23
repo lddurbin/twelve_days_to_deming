@@ -10,17 +10,17 @@ execute:
 
 Specifications are really no more and no less than two-sided numerical targets. Thus some of what has already been covered earlier today and also while you were discussing Point 11 on [Day 5 pages 10–11](../day-05/02-points-7-to-14.qmd#sec-page10) is immediately relevant here with minor rewording.
 
-One major difference in application of the concepts is that whereas targets, appraisals, league-tabling, etc almost invariably apply to people, singly or in groups, specifications are more often applied to things. In that case, the use of a "performance indicator" can be less problematic. Recalling the two particular difficulties with performance indicators spelled out in Pause for Thought 7–c on [page 6, in Performance Indicators](03-performance-indicators.qmd#sec-page6):
+One major difference in application of the concepts is that whereas targets, appraisals, league-tabling, etc almost invariably apply to *people*, singly or in groups, specifications are more often applied to *things*. In that case, the use of a "performance indicator" can be less problematic. Recalling the two particular difficulties with performance indicators spelled out in Pause for Thought 7–c on [page 6, in Performance Indicators](03-performance-indicators.qmd#sec-page6):
 
 (a) in some cases—but maybe not as many as might be thought—it may now be feasible for a single performance indicator to be an adequate measure of performance (e.g. the weight or length or volume of a product); and
 
-(b) if something goes wrong, it is rather less likely that the "thing" itself will get blamed, so investigators will instead now look for "What caused it?". This question at least admits the possibility of considering the system that caused it; sadly, of course, in many organisations the question gets replaced by "Who caused it?".
+(b) if something goes wrong, it is rather less likely that the "thing" itself will get blamed, so investigators will instead now look for "What caused it?". This question at least admits the possibility of considering the *system* that caused it; sadly, of course, in many organisations the question gets replaced by "*Who* caused it?".
 
 But, even if the "performance indicator" is a more reasonable proposition in the context of a "thing", the mentality of it being sufficient for that performance indicator to merely conform to specifications is still an obvious barrier to continual improvement. You know the idea. We have Lower (LSL) and Upper (USL) Specification Limits for the quantity to be measured or counted. If that quantity lies between the LSL and the USL then it is within specifications, i.e. it is "OK". But if it is below the LSL or above the USL then it is outside specifications and is thus "not OK".
 
 To confirm, this is just the same thinking as we have with targets except that "OK" now corresponds to being within the range defined by two numbers whereas, with targets, "OK" corresponds to reaching or going beyond the single defining number. The Gallery Furniture salesman would get his 10% commission if he sold $7,000 of furniture or more ([Day 6 page 8](../day-06/02-gallery-furniture.qmd#sec-page8)); Dr Deming's student, Christine, would have been "OK" if she made 25 or more calls per hour ([Day 6 page 22](../day-06/04-more-true-stories.qmd#sec-page22)); the performance of the police was "OK" if they reached the scene of the crime in 10 minutes or less (same page).
 
-The concept of specifications rather than a target normally arises where there is some "nominal" or "optimum" value for the number being recorded. Realising that perfection is rare, specifications are therefore provided to indicate how much error (deviation from optimum) is acceptable. But one of the two logical flaws in this is immediately obvious. The optimum is best—that's precisely what the Latin word "optimum" means. Thus anything which is not at the optimum is less than best! The general truth in practice is that, the further away the number is from the optimum, the less suitable the "thing" becomes for its intended purpose. So the criterion of conformance to specifications is, to put it mildly, a rather crude criterion of "goodness". Let me clarify what I mean.
+The concept of specifications rather than a target normally arises where there is some "nominal" or "optimum" value for the number being recorded. Realising that perfection is rare, specifications are therefore provided to indicate *how much error* (deviation from optimum) is acceptable. But one of the two logical flaws in this is immediately obvious. The optimum is *best*—that's precisely what the Latin word "optimum" means. Thus anything which is not at the optimum is less than best! The general truth in practice is that, the further away the number is from the optimum, the less suitable the "thing" becomes for its intended purpose. So the criterion of conformance to specifications is, to put it mildly, a rather crude criterion of "goodness". Let me clarify what I mean.
 
 Here is a scale on which I have marked the two specification limits and also four possible results:
 
@@ -35,7 +35,7 @@ A horizontal number line marked with two vertical tick-marks: **LSL** (Lower Spe
 
 </details>
 
-Results "a" and "c" are "OK": they are within specifications, they have met requirements, and so the "things" represented by those figures are presumed suitable to be passed on to the customer, be the customer external or internal. Results "b" and "d" are outside specifications, they have not met requirements, and so the "things" represented by those figures are presumed not suitable to be passed on to the customer: they must be scrapped or reworked. These are very different consequences: "b" and "d" result in costly wastage or remedial action; "a" and "c" do not. *Yet obviously there is essentially no practical difference between "a" and "b" nor between "c" and "d".* That's the second logical flaw.
+Results "a" and "c" are "OK": they are within specifications, they have met requirements, and so the "things" represented by those figures are presumed suitable to be passed on to the customer, be the customer external or internal. Results "b" and "d" are outside specifications, they have not met requirements, and so the "things" represented by those figures are presumed *not* suitable to be passed on to the customer: they must be scrapped or reworked. These are very different consequences: "b" and "d" result in costly wastage or remedial action; "a" and "c" do not. *Yet obviously there is essentially no practical difference between "a" and "b" nor between "c" and "d".* That's the second logical flaw.
 
 An effective way of representing a more realistic view was described and discussed by Genichi Taguchi at a famous meeting in Tokyo in 1960 at which Dr Deming was present. The "Taguchi loss function" was not really a new idea, especially amongst mathematicians; but Dr Taguchi did a good job of making it known and showing its relevance in "the real world". It is obvious why it appealed to Dr Deming: it wholly avoids the illogicalities just demonstrated with regard to conformance to specifications, and it is entirely consistent with his thesis of continual improvement.
 
@@ -89,7 +89,7 @@ Here are my own answers:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6°C &nbsp;&nbsp;&nbsp;&nbsp; 11°C &nbsp;&nbsp;&nbsp; 16°C &nbsp;&nbsp;&nbsp; 22°C &nbsp;&nbsp;&nbsp; 26°C &nbsp;&nbsp;&nbsp; 31°C &nbsp;&nbsp;&nbsp; 36°C
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [5 %]{.blue-text} &nbsp;&nbsp;&nbsp;&nbsp; [50 %]{.blue-text} &nbsp;&nbsp;&nbsp; [85 %]{.blue-text} &nbsp;&nbsp;&nbsp; [100%]{.blue-text} &nbsp;&nbsp;&nbsp;&nbsp; [90 %]{.blue-text} &nbsp;&nbsp;&nbsp; [55 %]{.blue-text} &nbsp;&nbsp;&nbsp; [15 %]{.blue-text}
 
-**4.** Now subtract your percentages from 100%, therefore obtaining the percentage loss in your work through having to suffer a temperature which is too high or too low:
+**4.** Now *subtract* your percentages from 100%, therefore obtaining the percentage *loss* in your work through having to suffer a temperature which is too high or too low:
 
 ```{ojs}
 viewof activity_7e_4 = persist(
@@ -108,7 +108,7 @@ If you are not very confident about plotting points and drawing graphs, please f
 
 ![Graph paper for plotting Taguchi loss function](/assets/images/day-07/taguchi-graph-paper.png){.lightbox}
 
-**6.** Finally, draw a smoothish curve approximately through your seven points. Don't bother about trying to be too artistic!
+**6.** Finally, draw a smoothish curve approximately through your seven points. Don't bother about trying to be *too* artistic!
 
 []{#sec-page22}
 
@@ -118,7 +118,7 @@ Just about everybody gets a graph which looks something like Figure 34 on *DemDi
 taguchi_loss_abstract()
 ```
 
-This picture shows the nicely symmetric model often illustrated and used by mathematicians as the Taguchi loss function. Mathematicians know it as a "parabola". Actual loss functions are not usually exactly symmetric about the nominal/optimum value. Mine isn't, for I tend to lose efficiency rather more if I'm cold than if I'm hot; for many people it may be the other way round. So the fine detail doesn't matter—but the general shape does. Here is my graph:
+This picture shows the nicely symmetric model often illustrated and used by mathematicians as the Taguchi loss function. Mathematicians know it as a "parabola". Actual loss functions are not usually *exactly* symmetric about the nominal/optimum value. Mine isn't, for I tend to lose efficiency rather more if I'm cold than if I'm hot; for many people it may be the other way round. So the fine detail doesn't matter—but the general shape does. Here is my graph:
 
 ```{r taguchi-loss-personal, fig.width=7, fig.height=5, fig.align="center", fig.cap="Neave's plotted personal graph: seven X markers at his temperature/loss readings (95% at 6°C, 50% at 11°C, 15% at 16°C, 0% at 21°C, 10% at 26°C, 45% at 31°C, 85% at 36°C) joined by a smooth curve — recognisably the same U-shape, but slightly asymmetric (losses rise faster on the cold side than on the hot)."}
 taguchi_loss_personal(
