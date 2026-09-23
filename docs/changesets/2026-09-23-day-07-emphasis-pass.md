@@ -1,0 +1,5 @@
+## 2026-09-23 — Day 7's emphasis backlog
+
+- **Section**: Fixed
+- **What**: Day 7 now shows the emphasis Neave printed. 79 corrections across all seven chapters cut the italic runs the site had dropped from 83 to one, and the runs it had added from 5 to none. **Neave's own comments in the true stories read as his again.** The course says *"My own few comments are printed in italics"*, but the OFSTED introduction, the BT call-centre preface and the letter to *The Independent* were printed plain, so they read as John's. **Titles inside those comments are upright again**, as Neave sets them: *The Independent*, *The Times*, the *Guardian* and Scholtes's *The Leader's Handbook*. The Scholtes aside had also been showing **literal asterisks** on the page; it now renders correctly. The contrasts Neave draws with italics are back: ***a*** performance indicator, ***singular***; *dis*incentives; the *left*-hand and *right*-hand halves of the cutting-process distribution; a loss cut to one-*seventieth*. Obstacle 5's *[i.e. Schools of Business]* is no longer blue, so it reads as Neave's aside rather than Deming's words. (#855)
+- **PR**: #857
