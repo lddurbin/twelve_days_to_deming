@@ -201,7 +201,6 @@ stops rendering) rather than failing loudly, so this is easy to miss:
 
 | Function | Purpose | Example |
 |----------|---------|---------|
-| `create_clock(hour, minute)` | Render a clock face showing the time | `create_clock(9, 30)` |
 | `run_chart_plot(values, ...)` | Parameterised run chart (line_width, y_limits, y_breaks, y_minor_breaks, hlines, hline_labels) | `run_chart_plot(c(13, 19, 18, ...))` |
 | `red_beads_control_chart(vec, LCL, UCL)` | Control chart with limits (wraps run_chart_plot) | `red_beads_control_chart(vec, 1.4, 18.2)` |
 | `make_redbeads_df(day1, day2, ...)` | Build Red Beads data table | See Day 2 `06-your-turn.qmd` |
@@ -294,27 +293,15 @@ make it unique per chapter.
 
 ### Clock (timing indicator)
 
-Clocks appear in a columns layout at the right edge:
-
-```markdown
-:::: {.columns}
-
-::: {.column width="85%"}
-Content paragraph that appears alongside the clock.
-:::
-
-::: {.column width="15%"}
-<div style="margin-top: 80px">
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-create_clock(3, 40)
-```
-</div>
-:::
-
-::::
-```
-
-Adjust `margin-top` to vertically align the clock with the relevant text.
+There is no clock element. Neave's clock icons are not reproduced on the
+page: `create_clock()` and its per-paragraph columns layout were removed in
+#286 (PR #288), and calling it now fails the build. The time budget his
+clocks carry is encoded instead as the `session_minutes` (and, rarely,
+`session_minutes_stats0`) front-matter field, which `filters/reading-time.lua`
+renders under the chapter's H1. See
+[`session_minutes` — author's recommended time](#session_minutes--authors-recommended-time)
+below for when and how to set it, and `assets/templates/chapter-template.qmd`
+for the front-matter form.
 
 ### Technical Aid
 

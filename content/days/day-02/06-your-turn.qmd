@@ -38,7 +38,7 @@ render_redbeads_table(df1)
 <details>
 <summary>Describe this table</summary>
 
-A six-column, four-row table of red-bead counts (workers across, weeks down). At this first step, only the very first cell — Worker 1, Week 1 — is filled in: a count of **16**. Every other cell is empty. Each successive table on this page adds one new count, building up the experiment value by value. The pedagogical point is that the Foreman reacts to *each new number as it lands*, attributing it to the worker, the day, the training, the appraisal — even though, taken as a whole series, these numbers are pure common-cause variation around a stable process.
+A table of red-bead counts with a row for each of the six workers (Audrey, John, Al, Carol, Ben and Ed) and a Daily Totals row beneath them, and a column for each of Days 1 to 4 plus a Totals column. At this first step, only the very first cell — Audrey, Day 1 — is filled in: a count of **16**. Every other cell is empty. Each successive table on this page adds one new count, building up the experiment value by value. The pedagogical point is that the Foreman reacts to *each new number as it lands*, attributing it to the worker, the day, the training, the appraisal — even though, taken as a whole series, these numbers are pure common-cause variation around a stable process.
 
 </details>
 
@@ -92,7 +92,7 @@ import { persist } from "../../../assets/scripts/workbook.js"
 viewof activity_2f_i = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_i",
   Inputs.text({
-  label: "Foreman's remark — Week 1, worker 5 result (9 red beads)",
+  label: "Foreman's remark — Day 1, Ben's result (9 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -109,7 +109,7 @@ render_redbeads_table(df1)
 viewof activity_2f_ii = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_ii",
   Inputs.text({
-  label: "Foreman's remark — Week 1 complete, worker 6 result (9 red beads)",
+  label: "Foreman's remark — Day 1 complete, Ed's result (9 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -127,7 +127,7 @@ render_redbeads_table(df1)
 viewof activity_2f_iii = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_iii",
   Inputs.text({
-  label: "Foreman's remark — Week 2, worker 1 result (10 red beads)",
+  label: "Foreman's remark — Day 2, Audrey's result (10 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -145,7 +145,7 @@ render_redbeads_table(df1)
 viewof activity_2f_iv = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_iv",
   Inputs.text({
-  label: "Foreman's remark — Week 2, worker 2 result (11 red beads)",
+  label: "Foreman's remark — Day 2, John's result (11 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -163,7 +163,7 @@ render_redbeads_table(df1)
 viewof activity_2f_v = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_v",
   Inputs.text({
-  label: "Foreman's remark — Week 2, worker 3 result (9 red beads)",
+  label: "Foreman's remark — Day 2, Al's result (9 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -181,7 +181,7 @@ render_redbeads_table(df1)
 viewof activity_2f_vi = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_vi",
   Inputs.text({
-  label: "Foreman's remark — Week 2, worker 4 result (11 red beads)",
+  label: "Foreman's remark — Day 2, Carol's result (11 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -199,7 +199,7 @@ render_redbeads_table(df1)
 viewof activity_2f_vii = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_vii",
   Inputs.text({
-  label: "Foreman's remark — Week 2, worker 5 result (17 red beads)",
+  label: "Foreman's remark — Day 2, Ben's result (17 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -217,7 +217,7 @@ render_redbeads_table(df1)
 viewof activity_2f_viii = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_viii",
   Inputs.text({
-  label: "Foreman's remark — Week 2 complete, worker 6 result (7 red beads)",
+  label: "Foreman's remark — Day 2 complete, Ed's result (7 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -236,7 +236,7 @@ render_redbeads_table(df1)
 viewof activity_2f_ix = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_ix",
   Inputs.text({
-  label: "Foreman's remark — Week 3, worker 1 result (7 red beads)",
+  label: "Foreman's remark — Day 3, Audrey's result (7 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -255,7 +255,7 @@ render_redbeads_table(df1)
 viewof activity_2f_x = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_x",
   Inputs.text({
-  label: "Foreman's remark — Week 3, worker 2 result (12 red beads)",
+  label: "Foreman's remark — Day 3, John's result (12 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -274,7 +274,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xi = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xi",
   Inputs.text({
-  label: "Foreman's remark — Week 3, worker 3 result (13 red beads)",
+  label: "Foreman's remark — Day 3, Al's result (13 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -293,7 +293,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xii = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xii",
   Inputs.text({
-  label: "Foreman's remark — Week 3, worker 4 result (14 red beads)",
+  label: "Foreman's remark — Day 3, Carol's result (14 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -312,7 +312,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xiii = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xiii",
   Inputs.text({
-  label: "Foreman's remark — Week 3, worker 5 result (9 red beads)",
+  label: "Foreman's remark — Day 3, Ben's result (9 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -331,7 +331,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xiv = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xiv",
   Inputs.text({
-  label: "Foreman's remark — Week 3 complete, worker 6 result (12 red beads)",
+  label: "Foreman's remark — Day 3 complete, Ed's result (12 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -351,7 +351,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xv = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xv",
   Inputs.text({
-  label: "Foreman's remark — Week 4, Audrey's result (6 red beads)",
+  label: "Foreman's remark — Day 4, Audrey's result (6 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -371,7 +371,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xvi = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xvi",
   Inputs.text({
-  label: "Foreman's remark — Week 4, worker 2 result (10 red beads)",
+  label: "Foreman's remark — Day 4, John's result (10 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -391,7 +391,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xvii = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xvii",
   Inputs.text({
-  label: "Foreman's remark — Week 4, worker 3 result (11 red beads)",
+  label: "Foreman's remark — Day 4, Al's result (11 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -411,7 +411,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xviii = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xviii",
   Inputs.text({
-  label: "Foreman's remark — Week 4, John's result (11 red beads)",
+  label: "Foreman's remark — Day 4, Carol's result (11 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -431,7 +431,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xix = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xix",
   Inputs.text({
-  label: "Foreman's remark — Week 4, worker 5 result (13 red beads)",
+  label: "Foreman's remark — Day 4, Ben's result (13 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -451,7 +451,7 @@ render_redbeads_table(df1)
 viewof activity_2f_xx = persist(
   "content/days/day-02/06-your-turn.qmd#activity_2f_xx",
   Inputs.text({
-  label: "Foreman's remark — Week 4 complete, worker 6 result (7 red beads)",
+  label: "Foreman's remark — Day 4 complete, Ed's result (7 red beads)",
   placeholder: "Type your comment here."
 })
 )
@@ -479,26 +479,26 @@ Here is every reaction you gave—to pure, random variation. Read them back and 
 ```{ojs transcript_2f}
 {
   const entries = [
-    { label: "Week 1 — worker 5 (9 red beads)", value: activity_2f_i },
-    { label: "Week 1 — worker 6 (9 red beads)", value: activity_2f_ii },
-    { label: "Week 2 — worker 1 (10 red beads)", value: activity_2f_iii },
-    { label: "Week 2 — worker 2 (11 red beads)", value: activity_2f_iv },
-    { label: "Week 2 — worker 3 (9 red beads)", value: activity_2f_v },
-    { label: "Week 2 — worker 4 (11 red beads)", value: activity_2f_vi },
-    { label: "Week 2 — worker 5 (17 red beads)", value: activity_2f_vii },
-    { label: "Week 2 — worker 6 (7 red beads)", value: activity_2f_viii },
-    { label: "Week 3 — worker 1 (7 red beads)", value: activity_2f_ix },
-    { label: "Week 3 — worker 2 (12 red beads)", value: activity_2f_x },
-    { label: "Week 3 — worker 3 (13 red beads)", value: activity_2f_xi },
-    { label: "Week 3 — worker 4 (14 red beads)", value: activity_2f_xii },
-    { label: "Week 3 — worker 5 (9 red beads)", value: activity_2f_xiii },
-    { label: "Week 3 — worker 6 (12 red beads)", value: activity_2f_xiv },
-    { label: "Week 4 — Audrey (6 red beads)", value: activity_2f_xv },
-    { label: "Week 4 — worker 2 (10 red beads)", value: activity_2f_xvi },
-    { label: "Week 4 — worker 3 (11 red beads)", value: activity_2f_xvii },
-    { label: "Week 4 — John (11 red beads)", value: activity_2f_xviii },
-    { label: "Week 4 — worker 5 (13 red beads)", value: activity_2f_xix },
-    { label: "Week 4 — worker 6 (7 red beads)", value: activity_2f_xx }
+    { label: "Day 1 — Ben (9 red beads)", value: activity_2f_i },
+    { label: "Day 1 — Ed (9 red beads)", value: activity_2f_ii },
+    { label: "Day 2 — Audrey (10 red beads)", value: activity_2f_iii },
+    { label: "Day 2 — John (11 red beads)", value: activity_2f_iv },
+    { label: "Day 2 — Al (9 red beads)", value: activity_2f_v },
+    { label: "Day 2 — Carol (11 red beads)", value: activity_2f_vi },
+    { label: "Day 2 — Ben (17 red beads)", value: activity_2f_vii },
+    { label: "Day 2 — Ed (7 red beads)", value: activity_2f_viii },
+    { label: "Day 3 — Audrey (7 red beads)", value: activity_2f_ix },
+    { label: "Day 3 — John (12 red beads)", value: activity_2f_x },
+    { label: "Day 3 — Al (13 red beads)", value: activity_2f_xi },
+    { label: "Day 3 — Carol (14 red beads)", value: activity_2f_xii },
+    { label: "Day 3 — Ben (9 red beads)", value: activity_2f_xiii },
+    { label: "Day 3 — Ed (12 red beads)", value: activity_2f_xiv },
+    { label: "Day 4 — Audrey (6 red beads)", value: activity_2f_xv },
+    { label: "Day 4 — John (10 red beads)", value: activity_2f_xvi },
+    { label: "Day 4 — Al (11 red beads)", value: activity_2f_xvii },
+    { label: "Day 4 — Carol (11 red beads)", value: activity_2f_xviii },
+    { label: "Day 4 — Ben (13 red beads)", value: activity_2f_xix },
+    { label: "Day 4 — Ed (7 red beads)", value: activity_2f_xx }
   ];
   const filled = entries.filter(e => e.value && e.value.trim());
   if (!filled.length) {
