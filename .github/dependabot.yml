@@ -1,6 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directory: "/"
+    # The second entry covers the local composite action, whose pinned
+    # r-lib and cache actions a "/" scan of .github/workflows never sees.
+    directories:
+      - "/"
+      - "/.github/actions/*"
     schedule:
       interval: "weekly"

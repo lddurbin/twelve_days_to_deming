@@ -1,0 +1,114 @@
+name: Set up R, Pandoc and Quarto
+description: >
+  The CI toolchain shared by every workflow that runs R or renders the book.
+  Each version is declared once, here, so a bump can't leave one workflow
+  rendering with a different toolchain than production. See #861.
+
+# Callers never pass the versions: they are inputs only so that each one has
+# a single declared home. The toggles let a job take only the slice it needs.
+inputs:
+  r-version:
+    description: R version. Do not override from a workflow.
+    default: '4.5.1'
+  pandoc-version:
+    description: Pandoc version. Do not override from a workflow.
+    default: '3.1.11'
+  quarto-version:
+    description: Quarto version. Do not override from a workflow.
+    default: '1.10.18'
+  system-deps:
+    description: Install the apt libraries R packages compile against.
+    default: 'true'
+  renv:
+    description: Restore the renv library (implies the R package cache).
+    default: 'true'
+  pandoc:
+    description: Install Pandoc.
+    default: 'true'
+  quarto:
+    description: Install Quarto and put it on PATH.
+    default: 'true'
+
+outputs:
+  quarto-version:
+    description: The Quarto version installed, for anything that reports it.
+    value: ${{ inputs.quarto-version }}
+
+runs:
+  using: composite
+  steps:
+  - name: Setup R
+    id: setup-r
+    uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05  # v2
+    with:
+      r-version: ${{ inputs.r-version }}
+      use-public-rspm: true
+
+  - name: Install system dependencies
+    if: inputs.system-deps == 'true'
+    shell: bash
+    run: |
+      sudo apt-get update
+      sudo apt-get install -y \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        libxml2-dev \
+        libpng-dev \
+        libjpeg-dev \
+        libcairo2-dev \
+        libfontconfig1-dev \
+        libfreetype6-dev \
+        build-essential \
+        gfortran \
+        libgmp3-dev \
+        libglpk-dev
+
+  - name: Setup Pandoc
+    if: inputs.pandoc == 'true'
+    uses: r-lib/actions/setup-pandoc@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05  # v2
+    with:
+      pandoc-version: ${{ inputs.pandoc-version }}
+
+  - name: Cache Quarto installation
+    id: cache-quarto
+    if: inputs.quarto == 'true'
+    uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
+    with:
+      path: /opt/quarto
+      key: quarto-${{ inputs.quarto-version }}
+
+  - name: Install Quarto
+    if: inputs.quarto == 'true' && steps.cache-quarto.outputs.cache-hit != 'true'
+    shell: bash
+    env:
+      QUARTO_VERSION: ${{ inputs.quarto-version }}
+    run: |
+      curl -LO "https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.deb"
+      sudo dpkg -i "quarto-${QUARTO_VERSION}-linux-amd64.deb"
+
+  - name: Add Quarto to PATH
+    if: inputs.quarto == 'true'
+    shell: bash
+    run: echo "/opt/quarto/bin" >> "$GITHUB_PATH"
+
+  # The key must stay byte-identical to what it was before this action
+  # existed. PRs restore the main-scoped cache that deploy.yml writes on
+  # every push to main (see #858), so any change here — or a caller that
+  # computes it differently — silently turns every PR run into a cold restore.
+  - name: Cache R packages
+    if: inputs.renv == 'true'
+    uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
+    with:
+      path: ~/.cache/R/renv
+      key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
+      restore-keys: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
+
+  # No separate renv install. The repo's .Rprofile sources renv/activate.R,
+  # which bootstraps the exact renv version renv.lock records before this
+  # script runs. The old `install.packages("renv", version = "1.0.3")` pin in
+  # deploy.yml never did anything: install.packages() has no `version`
+  # argument, so the value was silently swallowed by `...`.
+  - name: Restore R packages
+    if: inputs.renv == 'true'
+    shell: bash
+    run: Rscript -e 'renv::restore()'

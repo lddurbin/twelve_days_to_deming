@@ -100,7 +100,8 @@ is native `pagetitle:` behaviour, not a workaround, so there is no
 `filters/reading-time.lua`.
 
 **Quarto version:** production and CI are pinned to Quarto **1.10.18**
-(see #514), matching current local dev environments — there is no
+(see #514), declared once in `.github/actions/setup-r-quarto/action.yml`
+alongside the R and Pandoc versions (#861), matching current local dev environments — there is no
 version skew to account for here anymore.
 
 **`format.html.title-prefix: ""` in `_quarto.yml` is load-bearing.**

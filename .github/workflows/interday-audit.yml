@@ -16,6 +16,7 @@ on:
       - 'workflow/inter-day-refs.csv'
       - 'workflow/bare-page-refs.csv'
       - '.github/workflows/interday-audit.yml'
+      - '.github/actions/setup-r-quarto/**'
   # Merge queue: GitHub creates an ephemeral gh-readonly-queue/main/<sha>
   # branch and waits on required checks. We deliberately omit `paths` here so
   # the queue gets a status report even when a queued PR doesn't itself touch
@@ -46,11 +47,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
-    - name: Setup R
-      uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05  # v2
+    - name: Set up R
+      uses: ./.github/actions/setup-r-quarto
       with:
-        r-version: '4.5.1'
-        use-public-rspm: true
+        system-deps: 'false'
+        renv: 'false'
+        pandoc: 'false'
+        quarto: 'false'
 
     # The audit script only needs a small slice of the renv lockfile (no
     # rendering, no plotting). Install those packages directly from the public

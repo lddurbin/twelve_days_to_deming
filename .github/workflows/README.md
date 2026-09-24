@@ -23,7 +23,7 @@ passed them. See #858.
 
 **`build`** — produces the site, and never touches the server:
 1. **Checkout** your repository
-2. **Setup R**, Pandoc and Quarto (pinned to 1.10.18)
+2. **Setup R**, Pandoc and Quarto via the shared [`setup-r-quarto`](../actions/setup-r-quarto/action.yml) action, which declares every toolchain version once
 3. **Install dependencies** using `renv::restore()`
 4. **Build** the Quarto book with `quarto render`
 5. **Smoke test** the build output — fails closed before anything can ship

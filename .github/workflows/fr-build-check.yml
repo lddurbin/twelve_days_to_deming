@@ -16,6 +16,7 @@ on:
       - '_quarto-fr.yml'
       - '_quarto.yml'
       - '.github/workflows/fr-build-check.yml'
+      - '.github/actions/setup-r-quarto/**'
   workflow_dispatch:
 
 concurrency:
@@ -35,63 +36,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
-    - name: Setup R
-      id: setup-r
-      uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05  # v2
-      with:
-        r-version: '4.5.1'
-        use-public-rspm: true
-
-    - name: Install system dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          libcurl4-openssl-dev \
-          libssl-dev \
-          libxml2-dev \
-          libpng-dev \
-          libjpeg-dev \
-          libcairo2-dev \
-          libfontconfig1-dev \
-          libfreetype6-dev \
-          build-essential \
-          gfortran \
-          libgmp3-dev \
-          libglpk-dev
-
-    - name: Setup Pandoc
-      uses: r-lib/actions/setup-pandoc@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05  # v2
-      with:
-        pandoc-version: '3.1.11'
-
-    - name: Cache Quarto installation
-      id: cache-quarto
-      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
-      with:
-        path: /opt/quarto
-        key: quarto-1.10.18
-
-    - name: Install Quarto
-      if: steps.cache-quarto.outputs.cache-hit != 'true'
-      run: |
-        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.10.18/quarto-1.10.18-linux-amd64.deb
-        sudo dpkg -i quarto-1.10.18-linux-amd64.deb
-
-    - name: Add Quarto to PATH
-      run: echo "/opt/quarto/bin" >> $GITHUB_PATH
-
-    - name: Cache R packages
-      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
-      with:
-        path: ~/.cache/R/renv
-        key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
-        restore-keys: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
-
-    - name: Restore R packages
-      shell: Rscript {0}
-      run: |
-        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-        renv::restore()
+    - name: Set up R, Pandoc and Quarto
+      uses: ./.github/actions/setup-r-quarto
 
     # Same freeze cache scheme as deploy.yml: Quarto keys frozen outputs per
     # source path, so FR sources at content-fr/... seed their own
