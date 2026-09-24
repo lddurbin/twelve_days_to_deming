@@ -41,6 +41,8 @@ viewof stage2 = persist(
 )
 ```
 
+[]{#sec-page13}
+
 **Stage 3.** And now try to apply what you have learned during the first two stages to develop an "Organisation Viewed as a System" flow diagram of your own organisation.
 
 It would probably be sensible to start with the central track, broadly summarising the main aspects of what the organisation does. In Deming's diagram the central track starts at "Receipt and test of materials", then proceeds through production, assembly and inspection, and goes as far as "Distribution". A useful way to then proceed with the rest of the diagram is to ask yourself lots of questions. What comes into the system? Where does it come from? What important contributions enter the central track "from the side" (like the "Tests of processes, machines, methods, costs" in Deming's diagram)? What goes out of our system? To where, to whom? That is, who and where are our "consumers"? How do we get to learn what our consumers think about what they get from us? What do we do with that information? How do we use it to help improve the system?
@@ -51,6 +53,8 @@ viewof stage3 = persist(
   Inputs.textarea({label: "Stage 3: Develop an 'Organisation Viewed as a System' flow diagram for your own organisation", placeholder: "Develop an 'Organisation Viewed as a System' flow diagram for your own organisation.", rows: 15})
 )
 ```
+
+[]{#sec-page14}
 
 **Stage 4.** Next, considering your flow diagram constructed at Stage 3, describe examples of how what happens in one part of the flow diagram is being hindered by some things happening (or not happening) elsewhere in the flow diagram. Does consideration of the *conventional* organisation chart explain why those harmful things are happening? What could be done to *help* rather than *hinder*?
 
