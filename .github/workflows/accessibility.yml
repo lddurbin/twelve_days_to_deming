@@ -34,68 +34,17 @@ jobs:
   # local one, safe to publish as a preview.
   build:
     runs-on: ubuntu-latest
+    # Lets the preview comment name the Quarto version without restating it.
+    outputs:
+      quarto-version: ${{ steps.toolchain.outputs.quarto-version }}
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
-    - name: Setup R
-      id: setup-r
-      uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05  # v2
-      with:
-        r-version: '4.5.1'
-        use-public-rspm: true
-
-    - name: Install system dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          libcurl4-openssl-dev \
-          libssl-dev \
-          libxml2-dev \
-          libpng-dev \
-          libjpeg-dev \
-          libcairo2-dev \
-          libfontconfig1-dev \
-          libfreetype6-dev \
-          build-essential \
-          gfortran \
-          libgmp3-dev \
-          libglpk-dev
-
-    - name: Setup Pandoc
-      uses: r-lib/actions/setup-pandoc@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05  # v2
-      with:
-        pandoc-version: '3.1.11'
-
-    - name: Cache Quarto installation
-      id: cache-quarto
-      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
-      with:
-        path: /opt/quarto
-        key: quarto-1.10.18
-
-    - name: Install Quarto
-      if: steps.cache-quarto.outputs.cache-hit != 'true'
-      run: |
-        curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.10.18/quarto-1.10.18-linux-amd64.deb
-        sudo dpkg -i quarto-1.10.18-linux-amd64.deb
-
-    - name: Add Quarto to PATH
-      run: echo "/opt/quarto/bin" >> $GITHUB_PATH
-
-    - name: Cache R packages
-      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
-      with:
-        path: ~/.cache/R/renv
-        key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
-        restore-keys: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
-
-    - name: Restore R packages
-      shell: Rscript {0}
-      run: |
-        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-        renv::restore()
+    - name: Set up R, Pandoc and Quarto
+      id: toolchain
+      uses: ./.github/actions/setup-r-quarto
 
     # Fails fast, before the render below, if .pa11yci.json's `urls` list is
     # stale relative to _quarto-en.yml's chapters (a chapter added without
@@ -141,7 +90,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020  # v7.0.0
       with:
-        node-version: '20'
+        node-version: '24'
         cache: 'npm'
 
     - name: Install npm dependencies
@@ -275,6 +224,7 @@ jobs:
         PR_NUMBER: ${{ github.event.pull_request.number }}
         PREVIEW_URL: ${{ steps.deploy.outputs.url }}
         COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+        QUARTO_VERSION: ${{ needs.build.outputs.quarto-version }}
       run: |
         set -euo pipefail
         MARKER="<!-- preview-deployment -->"
@@ -285,7 +235,7 @@ jobs:
           echo ""
           echo "$PREVIEW_URL"
           echo ""
-          echo "Rendered by the production Quarto toolchain (1.10.18), built from \`${COMMIT_SHA:0:7}\`. Not indexed (\`X-Robots-Tag: noindex\`)."
+          echo "Rendered by the production Quarto toolchain (${QUARTO_VERSION}), built from \`${COMMIT_SHA:0:7}\`. Not indexed (\`X-Robots-Tag: noindex\`)."
         } > "$BODY_FILE"
 
         EXISTING=$(gh api "repos/${GH_REPO}/issues/${PR_NUMBER}/comments" --jq ".[] | select(.body | startswith(\"${MARKER}\")) | .id" | head -1)
