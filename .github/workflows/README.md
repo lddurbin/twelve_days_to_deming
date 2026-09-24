@@ -14,18 +14,20 @@ This workflow automatically builds and deploys your Quarto book to your remote s
 
 ### 2. How It Works
 
-The workflow runs as three jobs.
+The workflow runs as three jobs: `build`, `deploy`, and `staging`.
 
-**`test-js`** — runs the JavaScript unit tests.
+It runs no unit tests. The JS and R suites (`unit-tests.yml`) and the Python
+suite (`scorer-tests.yml`) are required checks on every PR, and `main` requires
+branches to be up to date before merging, so what lands on `main` has already
+passed them. See #858.
 
 **`build`** — produces the site, and never touches the server:
 1. **Checkout** your repository
 2. **Setup R**, Pandoc and Quarto (pinned to 1.10.18)
 3. **Install dependencies** using `renv::restore()`
-4. **Run** the R unit tests
-5. **Build** the Quarto book with `quarto render`
-6. **Smoke test** the build output — fails closed before anything can ship
-7. **Upload** `_book` as the `site` artifact
+4. **Build** the Quarto book with `quarto render`
+5. **Smoke test** the build output — fails closed before anything can ship
+6. **Upload** `_book` as the `site` artifact
 
 **`deploy`** — ships that artifact. Runs only on `main` or a `deploy-*` tag:
 1. **Download** the `site` artifact and check it arrived complete

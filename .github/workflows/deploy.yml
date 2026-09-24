@@ -15,39 +15,17 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  test-js:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
-
-    - name: Setup Node.js
-      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020  # v7.0.0
-      with:
-        node-version: '20'
-        cache: 'npm'
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Run JavaScript tests
-      run: npm test
-
-    # The transcription validator itself can't run here — it needs the source
-    # PDFs, which are gitignored and live only on the maintainer's machine.
-    # Its scoring logic has no such dependency, so the part that decides what
-    # counts as a transcription defect is covered even though the end-to-end
-    # run isn't. Stdlib unittest, no packages to install. See #677.
-    - name: Run Python tests
-      run: python3 -m unittest discover -s tests -p 'test_*.py' -v
-
+  # No test jobs here. The JS, R and Python unit tests gate the PR instead
+  # (unit-tests.yml, scorer-tests.yml), and branch protection's `strict: true`
+  # means the tree that lands on main is the one they passed on. Before #858
+  # the JS and R suites ran only here, so a PR that broke them merged green.
+  #
   # Build and deploy are separate jobs so the rendered site exists as a named
   # artifact rather than only as a directory inside the job that ships it.
   # That makes "deploy the same verified bytes somewhere else" — a PR preview,
   # a staging site, a different host — a matter of adding a consumer of the
   # artifact rather than rewriting this workflow. See #532.
   build:
-    needs: test-js
     runs-on: ubuntu-latest
     # Inherits the workflow-level `contents: read`. Only the deploy job needs
     # write, and only for the deploy tag.
@@ -115,9 +93,6 @@ jobs:
       run: |
         if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", version = "1.0.3")
         renv::restore()
-
-    - name: Run R unit tests
-      run: Rscript -e 'testthat::test_dir("tests/testthat")'
 
     - name: Cache Quarto freeze outputs
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0

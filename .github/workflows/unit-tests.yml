@@ -1,0 +1,108 @@
+name: Unit Tests
+
+permissions:
+  contents: read
+
+on:
+  # Deliberately NO `paths` filter, for the same reason as scorer-tests.yml:
+  # both jobs here are required status checks on main, and a path-filtered
+  # required check never reports on a PR whose paths didn't match, so it would
+  # hang every unrelated PR at "Expected — waiting for status to be reported".
+  #
+  # Before #858 these suites ran only in deploy.yml, on push to main — so a PR
+  # that broke either one merged green and the failure first surfaced by
+  # blocking the deploy, with main already red.
+  pull_request:
+    types: [opened, synchronize]
+  # Inert today — the merge queue is unavailable on personal-account repos
+  # (see AGENTS.md and #385) — but kept for the same reason the other
+  # required-check workflows keep theirs.
+  merge_group:
+    branches:
+      - main
+  # No `push: main`. Branch protection is `strict: true`, so a PR's head is
+  # already current with main when it merges, and the squash commit's tree is
+  # the one these jobs just passed on. Re-running them after merge would only
+  # re-test identical bytes.
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Opt r-lib/actions into Node 24 ahead of the Sept 2026 Node 20 removal.
+# Remove once r-lib publishes a v3 tag that runs on Node 24 natively.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  js-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    - name: Setup Node.js
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020  # v7.0.0
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run JavaScript tests
+      run: npm test
+
+  # Its own job rather than a step in accessibility.yml's `build`, even though
+  # that job already restores renv. A required check has to report its own
+  # context: as a step inside `build`, a testthat failure would surface only
+  # as `build` failing and `pa11y` (which `needs: build`) being skipped, and
+  # GitHub treats a skipped required check as satisfied. The renv cache key matches
+  # accessibility.yml's, so the restore below is a cache hit, not a rebuild.
+  r-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    - name: Setup R
+      id: setup-r
+      uses: r-lib/actions/setup-r@465b7d8e732ca3921382b1674c59bada9cbf3399  # v2
+      with:
+        r-version: '4.5.1'
+        use-public-rspm: true
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libcurl4-openssl-dev \
+          libssl-dev \
+          libxml2-dev \
+          libpng-dev \
+          libjpeg-dev \
+          libcairo2-dev \
+          libfontconfig1-dev \
+          libfreetype6-dev \
+          build-essential \
+          gfortran \
+          libgmp3-dev \
+          libglpk-dev
+
+    - name: Cache R packages
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
+      with:
+        path: ~/.cache/R/renv
+        key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
+        restore-keys: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
+
+    - name: Restore R packages
+      shell: Rscript {0}
+      run: |
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+        renv::restore()
+
+    - name: Run R unit tests
+      run: Rscript -e 'testthat::test_dir("tests/testthat")'

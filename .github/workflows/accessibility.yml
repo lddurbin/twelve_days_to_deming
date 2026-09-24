@@ -9,9 +9,14 @@ on:
   merge_group:
     branches:
       - main
-  push:
-    branches:
-      - main
+  # No `push: main` (removed in #858). Branch protection is `strict: true`, so
+  # a PR merges only once its head is current with main, and pa11y has already
+  # passed on those exact bytes. Running on push re-rendered the whole book a
+  # second time per merge, alongside deploy.yml's own render, to re-check
+  # nothing new. Nothing consumes a pa11y result on main itself: required
+  # checks are evaluated on the PR, and there is no status badge. PRs still
+  # restore main-scoped renv/freeze caches: deploy.yml's build writes the same
+  # cache keys on every push to main.
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

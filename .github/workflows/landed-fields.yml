@@ -9,8 +9,8 @@ permissions:
 # never reports, and main's protection is `strict: true`, so the PR would wait
 # on it forever. Every path-filtered workflow here (structure-check,
 # validation-staleness, interday-audit, build) is advisory for the same
-# reason; the three required checks — pa11y, claude-review, scorer-tests — all
-# run unconditionally. A failing run still shows red on the PR, and the
+# reason; the required checks — pa11y, claude-review, scorer-tests, js-tests,
+# r-tests — all run unconditionally. A failing run still shows red on the PR, and the
 # scheduled run below can't be a required check at all, since it isn't
 # attached to a PR.
 on:
