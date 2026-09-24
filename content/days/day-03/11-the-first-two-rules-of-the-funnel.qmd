@@ -107,6 +107,8 @@ We'll use my own dice-scores to start with so that you can follow my illustratio
 
 **Use the interactive below to step through Rule 2.** The first 5 stages use the author's worked example (dice-scores 10, 8, 6, 7, 4); from Stage 6 onward your own randomly-generated dice are used.
 
+OK, over to you—continue the experiment through a total of up to 40 stages. (Keep an eye on my timings though: if you get short of time then be content with fewer stages.)
+
 ```{ojs}
 //| output: false
 

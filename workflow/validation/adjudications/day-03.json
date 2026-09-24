@@ -841,11 +841,11 @@
           "source_html": "“OK, over to you—throw your own dice from now on! Continue the experiment through a total of up to 40 stages. Have patience—as mentioned earlier, this is by far the trickiest of all the four strategies to carry out: you'll be able to work through the other three much more quickly. (Keep an eye on my timings though: if you get short of time then be content with fewer stages.)”",
           "site_html": "<mark class='gone'>Absent.</mark>",
           "evidence_html": "Most of printed p42–p43's dropped text really is book-keeping mechanics the interactive supersedes, and is cleared under <code>N-06</code>. This paragraph is not: it sets the reader's expectation that Rule 2 is the hard one and the other three go faster, which is what stops a learner abandoning the Major Activity at the first Rule. The site's interactive makes all four equally quick, so the sentence needs adapting rather than dropping — worth a note if you accept it.",
-          "decision": "discuss",
-          "decision_note": null,
+          "decision": "accept",
+          "decision_note": "#831 (2026-09-25): adapt and log. Restore only the sentences still true of the interactive; drop the dice-throwing and the claim that Rule 2 is the slowest of the four.",
           "proposal": "OK, over to you—throw your own dice from now on! Continue the experiment through a total of up to 40 stages. Have patience—as mentioned earlier, this is by far the trickiest of all the four strategies to carry out: you'll be able to work through the other three much more quickly. (Keep an eye on my timings though: if you get short of time then be content with fewer stages.)",
           "page_pos": 1,
-          "outcome": "Carried to issue #831 — the paragraph needs adapting, not transcribing, because the interactive removes the dice-throwing and the \"fewer stages\" trade-off it describes."
+          "outcome": "Adapted per #831: restored as \"OK, over to you—continue the experiment through a total of up to 40 stages. (Keep an eye on my timings though: if you get short of time then be content with fewer stages.)\" Logged in docs/deviations/2026-09-25-day-03-over-to-you-adapted.md."
         },
         {
           "id": "D3-46",
