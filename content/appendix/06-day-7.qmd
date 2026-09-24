@@ -98,7 +98,7 @@ Awakening to the need for quality, and with no idea what quality means nor how t
 
 ### 7. Use of *[*Military Standard 105D and other*]* tables for acceptance.
 
-Many thousands of dollars worth of product changes hands hourly, lots *[i.e. batches]* subjected to acceptance or rejection, depending on tests of samples drawn from the lots. Such plans can only increase costs, as will be clear from Chapter 15 *[in* Out of the Crisis*]*. If used for quality audit of final product as it goes out the door, they guarantee that some customers will get defective product. *[Recall I have just pointed out that "an essential requirement for deciding on the details of such a plan is the specification of an acceptable proportion of defectives".]* The day of such plans is finished. American industry can not afford the losses that they cause.
+Many thousands of dollars worth of product changes hands hourly, lots *[i.e. batches]* subjected to acceptance or rejection, depending on tests of samples drawn from the lots. Such plans can only increase costs, as will be clear from Chapter 15 *\[in* Out of the Crisis*\]*. If used for quality audit of final product as it goes out the door, they guarantee that some customers will get defective product. *[Recall I have just pointed out that "an essential requirement for deciding on the details of such a plan is the specification of an acceptable proportion of defectives".]* The day of such plans is finished. American industry can not afford the losses that they cause.
 
 Incredibly, courses and books in statistical methods still devote time and pages to acceptance sampling.
 
