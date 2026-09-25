@@ -2,4 +2,4 @@
 
 - **Section**: Fixed
 - **What**: Day 8 now shows the emphasis Neave printed. 56 corrections across the introduction and the Major Activity cut the italic runs the site had dropped from 66 to none (the 12 the checker still reports are checked and cleared: 11 line up against figure captions and table descriptions, and one is a line the site already styles bold italic in HTML), and the runs it had added from 7 and set in the wrong style from 2 to none. The exercise's Areas are *A*, *B* and *C* in italic, as Neave sets them; *dis*advantageous and *single*-sided carry his part-word italics; and Mack's "intense ***cooperation*** where there was intense ***competition***" is bold italic again. **The Major Activity's closing note no longer has its signs reversed**: + signs represent less time spent, less hard work and less inconvenience, and − signs the opposite. The site had them the other way round. Two smaller punctuation slips are also restored, in Deming's "Figures are massaged, computations redefined" and in "(perhaps as little as possible!)". (#871)
-- **PR**: #TBD
+- **PR**: #872
