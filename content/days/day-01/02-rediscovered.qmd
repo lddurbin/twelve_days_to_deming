@@ -28,7 +28,7 @@ The inscription near the bottom of the medal[^a] is a quotation from Dr Deming:
   
 ><span class=deming_quote>“The right quality and uniformity are foundations of commerce, prosperity and peace.”</span>
   
-<span class=neave_note>NB Throughout this course, exact quotations from Dr Deming are printed in blue in order to set them apart from my own writing. His own quotations are especially valuable in that he had the rare ability of being able to say a very great deal in remarkably few words. I wouldn’t want to mislead you into thinking that I am capable of the same degree of either brevity or wisdom!</span>
+<span class=neave_note>**NB** Throughout this course, exact quotations from Dr Deming are printed in blue in order to set them apart from my own writing. His own quotations are especially valuable in that he had the rare ability of being able to say a very great deal in remarkably few words. I wouldn’t want to mislead you into thinking that I am capable of the same degree of either brevity or wisdom!</span>
   
 <div class="float-box-right">
 

@@ -18,7 +18,7 @@ with some insight on how and why his understanding and teaching developed in the
 one thing led to another, and where and how some of the themes from this Overture fit into the main event.
 Then, on future days, as we study particular aspects of his teaching in greater and deeper detail, you’ll
 begin to understand how they fit into the jigsaw. And, in many respects, Deming’s teaching is indeed like a
-jigsaw—with lots and lots of pieces! Also like a jigsaw, the pieces do all fit together—though sometimes it
+jigsaw—with lots and lots of pieces! Also like a jigsaw, the pieces *do* all fit together—though sometimes it
 can take a while to see how. But it will be worth the wait! For, yet again like a jigsaw, it is only when the
 pieces start fitting together, and you see *how* and *why* they fit together and thus become aware of how the
 picture is developing, that you will begin to appreciate the importance and potential and strength of Dr
@@ -41,7 +41,7 @@ order to gain a real appreciation of what they are saying and of their importanc
 The first of these important sections occurs later this morning: the one titled “Deming is different”. (And
 how!) Then, this afternoon, the second particularly important section follows my account of the 1920s
 which, as you would now expect, will focus on understanding variation. So far I have mostly concentrated
-on what Shewhart’s discoveries did not involve, namely ideas and techniques of “traditional” Statistics. In
+on what Shewhart’s discoveries did *not* involve, namely ideas and techniques of “traditional” Statistics. In
 contrast, at this stage of the afternoon I shall present a compact summary of what I’ll refer to there as
 “Shewhart’s breakthrough”, covering both what the main concepts are and why they are so important in
 practice. And later on, when we reach the 1950s, the last of these three vitally important short sections is
@@ -100,7 +100,7 @@ I expect you will be familiar with the old saying that “the road to Hell is pa
 ><span class=deming_quote>“The world is being ruined by best efforts.”</span>
 
 But what could be wrong with good intentions and best efforts? Nothing—*if* (and that’s a big “if”) they are
-guided by genuine understanding. But if they are not so guided then those good intentions and best efforts may not only fail to improve matters: they can all-too-easily make things worse, sometimes *much* worse.
+guided by genuine understanding. But if they are *not* so guided then those good intentions and best efforts may not only fail to improve matters: they can all-too-easily make things worse, sometimes *much* worse.
 (You might be able to think of some political examples of that effect!) Early this afternoon you will find
 Deming referring as follows to this phenomenon as he saw it happening in Western Electric, the company
 where he met and worked with Dr Shewhart:
@@ -165,7 +165,7 @@ of “bits and pieces” but instead a strongly coordinated whole. I believe we 
 Profound Knowledge as Dr Deming’s attempt to bring together and consolidate his whole long life’s learning as a rich legacy for us from which to continue learning after he was no longer with us.
 
 And lastly, the process of beginning to bring it all together—and making it happen—is the subject of our
-12th and final day. And I must surely emphasise “beginning” to do that. You have already seen me using
+12th and final day. And I must surely emphasise “*beginning*” to do that. You have already seen me using
 the phrase “lifelong learning” near the top of [page 13, in the Helpful Books and Videos section](04-resources.qmd#sec-page13). Believe me: if this is not lifelong learning then I cannot imagine what is. I hope you were not deluded by the title of this course to think that it will all be over by
 the end of the 12th day! Perhaps I should have simply titled Day 12 as “The End of the Beginning”.
 

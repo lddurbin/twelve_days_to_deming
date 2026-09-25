@@ -1,7 +1,7 @@
 # Emphasis check for day-01. Written by scripts/check-emphasis.py —
 # see workflow/validation/emphasis/README.md and issue #846.
 record: day-01
-checked_at: 2026-09-23
+checked_at: 2026-09-25
 source_pdf: D.Day.1.07Feb22.pdf
 source_sha256: eb37f915a5c09777e2822ff92c5ddddf0d1aced714b1bf290503e3d2f0959c47
 emphasis_version: e3f220e61dfa89e91721fedb1e53c95fe03bd3ad
@@ -12,12 +12,12 @@ words:
   qmd: 23685
   aligned: 22971
 runs:
-  total: 85
+  total: 53
   explained: 47
 counts:
-  lost: 36
-  lost_words: 51
-  added: 2
-  added_words: 2
+  lost: 5
+  lost_words: 8
+  added: 1
+  added_words: 1
   swapped: 0
   swapped_words: 0

@@ -15,7 +15,7 @@ in the *common* causes—the *system*, as Deming called it. When things go wrong
 conditions, the “company culture” within which individuals live, work, try to succeed, try to *survive*—yet so
 often a culture which repeatedly and consistently sabotages those aims and desires. There is a pertinent
 change of detail in *Out of the Crisis* from Deming’s earlier teaching. In *If Japan Can, Why Can’t We?*, the
-narrator Lloyd Dobyns states: “But one part of Deming’s programme is not likely to please them [management]. He insists that management causes 85% of all the problems.” This relates to an observation from
+narrator Lloyd Dobyns states: “But one part of Deming’s programme is not likely to please them *\[management\]*. He insists that management *causes* 85% of all the problems.” This relates to an observation from
 Dr Joseph Juran many years earlier concerning the relative prevalence of the two types of variation. But by
 1986, on *Out of the Crisis* page 270[315], Deming was instead saying:
   
