@@ -336,10 +336,68 @@ auditor:
 Figures and tables carried as images are out of scope entirely, and owned by
 spike [#725](https://github.com/lddurbin/twelve_days_to_deming/issues/725).
 
-## The fix backlog is not this tool's job
+## The residual after epic #848 (2026-09-25, `emphasis_version` e3f220e)
 
-629 `lost` runs is a backlog, not a result. `AGENTS.md` requires the user to
-verify transcription, so it goes through the generated review-page flow
-(`/wave-2-pass` shape), one record at a time with Day 3 first — issues created
-lazily, the way Wave 2's were. `added` and `swapped` runs go on the same pages,
-marked lower-confidence.
+[#848](https://github.com/lddurbin/twelve_days_to_deming/issues/848) worked
+the backlog one record or batch at a time, each through a decision record in
+[`../adjudications/`](../adjudications/) (`<record>-emphasis.json`) checked
+against the source page images. Every record was re-recorded in the same PR as
+its pass, and a full `--all` run on 2026-09-25 reproduced all eighteen
+committed files with no change except one `checked_at` date.
+
+**This is what fidelity statements should cite for emphasis.** Of the 629 lost
+runs the first run found, 54 remain open in the records, with 15 added and
+3 swapped. **None of the 72 is a defect waiting to be fixed.** Every one was
+read against the page image and left as it is, for one of these reasons:
+
+| class | lost | added | swapped | what it is | cards |
+|---|---:|---:|---:|---|---|
+| comparator artifact | 27 | 1 | 0 | text the PDF sets in bold (table captions, labels inside figures) aligned against unrelated site text, usually an image's caption or its *Describe this table* text | `AP-C03`–`C10`, `E1-C01`, `E1-C06`, `E6-C01`–`C02`, `E7-C01`, `E8-C01`–`C09`, `E8-C11`, `E12-C01`–`C02`, `WL-C01`–`C02`, and Day 8 p23 `of` (below) |
+| site convention | 12 | 10 | 1 | `neave_note` asides are set upright, so titles inside them are italicised to stay distinct; workbook references are `[*WB* nnn]` site-wide; Deming's blue text is italic | `E1-C03`–`C05`, `E3-C02`, `E10-C01`–`C04`, `E11-C01`–`C14`, `E11-C16` |
+| site-authored or adapted text | 10 | 2 | 0 | the site's own glossary, image descriptions, and the web-adapted printing and page-reference guidance in `index` (#802) | `AP-C01`–`C02`, `E2-C01`, `E4-C01`–`C02`, `E11-C15`, `E12-C03`, `I-C01`–`C05` |
+| styled with inline HTML | 4 | 0 | 0 | bold or italic set with a `style` attribute, which the checker's pandoc reading cannot see. Rendered, it matches the source | `E2-C02`–`C03`, `E8-C10`, `E12-C04` |
+| source typesetting | 0 | 2 | 2 | slips or glyph quirks in Neave's own setting: an upright `of` in a bold-italic line, an upright superscript, a script face poppler cannot read as italic, an italic span stopping one glyph early | `E1-C02`, `E3-C01`, `AP-C11`, and Day 3 p5 `bus-shelte«r»!)` (see *Partial findings* above) |
+| kept deliberately | 1 | 0 | 0 | Day 3's bold `«outcome»s`, a distinction the site's colour-free funnel activity does not carry | `E3-F19`, [deviation entry](../../../docs/deviations/2026-09-22-day-03-emphasis-differences-kept.md) |
+| **total** | **54** | **15** | **3** | | |
+
+Two runs have no card of their own. Day 8's `of` on PDF p23 is part of
+the bold header *Effects of Options*, set inside a table that is an image on
+the site. It is the same artifact as `E8-C04`, which cleared `Options` beside
+it, but the pass's run numbering folded the `of` into edit card `E8-27` on p22.
+Day 3's `bus-shelter` partial was already explained under *Partial findings*
+before the pass began.
+
+### What this does and does not verify
+
+It verifies that, **wherever the checker can align the site's words with the
+PDF's**, the site carries Neave's bold and italic or has a recorded reason
+not to. That is 93.6% of the source's decodable words (247,904 of 264,736).
+
+It says nothing about the blind spots under *What this does not cover*, and
+the residual touches three of them:
+
+- **Synthetic oblique and underline (1, 2).** `AP-C11` is the Foreman's
+  script-face remarks in the main Appendix. Its slant comes from the face, and
+  its underline never reaches the text layer. The page image shows both, and
+  the site matches it, but that was checked by eye, not by the tool. Elsewhere
+  the Comic Sans dialogue on Days 2, 10 and 11 is still unchecked by the tool.
+- **Colour (3).** `E3-F19` is the one run where bold carries a distinction the
+  site's colour-free rendering drops. Colour-only emphasis is out of scope.
+- **Unaligned and undecodable text (4, 5).** 6.4% of the source's decodable
+  words did not align, including 14% of Day 3 and 31% of `index`, whose
+  unaligned text is mostly source material the site does not reproduce
+  (#802). Emphasis in that text has not been compared.
+
+### The course title
+
+[#813](https://github.com/lddurbin/twelve_days_to_deming/issues/813) was settled
+alongside the residual. Neave italicises *12 Days to Deming* in running text
+(for example `index` printed p5, and the Balaji Reddie contributions), and the
+site now does too everywhere outside metadata: the site's own pages were
+normalised, and *The Deming Dimension* heading on Day 1 page 11 now carries the
+italic its source heading has. Two occurrences stay as they are. The Balaji
+Reddie introduction's italic line quotes the title in quotation marks, as its
+source does. Day 8's `*Day 8 of 12 Days to Deming*` line is a running page header
+that was transcribed into the prose by mistake, and is left for its own fix. `pagetitle` and
+`description` metadata carries the title plain, as #813 required, to leave
+#497's hand-written metadata alone.

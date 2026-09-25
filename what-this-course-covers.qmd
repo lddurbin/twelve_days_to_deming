@@ -6,7 +6,7 @@ execute:
   echo: false
 ---
 
-12 Days to Deming is a free, interactive course on Dr W. Edwards Deming's management philosophy, adapted for the web from Henry Neave's original active-learning course. It's built around doing rather than just reading: activities and reflections are woven through the material as you go, rather than saved for the end, and two substantial projects give you a chance to put what you've learned into practice before the course is over.
+*12 Days to Deming* is a free, interactive course on Dr W. Edwards Deming's management philosophy, adapted for the web from Henry Neave's original active-learning course. It's built around doing rather than just reading: activities and reflections are woven through the material as you go, rather than saved for the end, and two substantial projects give you a chance to put what you've learned into practice before the course is over.
 
 ## Who this course is for
 
