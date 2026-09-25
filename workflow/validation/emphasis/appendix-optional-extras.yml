@@ -1,7 +1,7 @@
 # Emphasis check for appendix-optional-extras. Written by scripts/check-emphasis.py —
 # see workflow/validation/emphasis/README.md and issue #846.
 record: appendix-optional-extras
-checked_at: 2026-09-23
+checked_at: 2026-09-25
 source_pdf: S.Optional.Extras.09Jul21.pdf
 source_sha256: b36a8368163ecae67c72d89936e5362e9f18a1c06c79fc95069181c05b5a5884
 emphasis_version: e3f220e61dfa89e91721fedb1e53c95fe03bd3ad
@@ -9,15 +9,15 @@ files:
   compared: 7
 words:
   pdf: 45586
-  qmd: 45439
-  aligned: 43337
+  qmd: 45448
+  aligned: 43358
 runs:
-  total: 514
-  explained: 379
+  total: 378
+  explained: 378
 counts:
-  lost: 93
-  lost_words: 147
-  added: 35
-  added_words: 74
-  swapped: 7
-  swapped_words: 19
+  lost: 0
+  lost_words: 0
+  added: 0
+  added_words: 0
+  swapped: 0
+  swapped_words: 0

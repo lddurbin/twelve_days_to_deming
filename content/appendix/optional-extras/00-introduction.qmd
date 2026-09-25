@@ -9,33 +9,33 @@ execute:
 ::: {style="text-align: center;"}
 **OPTIONAL EXTRAS**
 
-*(all more or less related to control-charting)*
+**(all more or less related to control-charting)**
 :::
 
 ---
 
 ## Contents
 
-- [Introduction](00-introduction.qmd#sec-optional-extras-introduction)
-- [Part A: Using control charts on Funnel Experiment data — an extension of Major Activity 3–h](01-part-a-funnel-charts.qmd#sec-optional-extras-part-a)
+- [**Introduction**](00-introduction.qmd#sec-optional-extras-introduction)
+- [**Part A: Using control charts on Funnel Experiment data — an extension of Major Activity 3–h**](01-part-a-funnel-charts.qmd#sec-optional-extras-part-a)
     1. Introduction
     2. Rules 1 and 2 of the Funnel *(**NB** See the Note below)*
     3. Rules 3 and 4 of the Funnel
     4. Control charts for the computer-generated data
     5. [Discussion](01-part-a-funnel-charts.qmd#sec-optional-extras-page-15)
-- [Part B: A-few-at-a-time data](02-part-b-subgrouped.qmd#sec-optional-extras-part-b)
+- [**Part B: A-few-at-a-time data**](02-part-b-subgrouped.qmd#sec-optional-extras-part-b)
     1. Introduction
     2. Calculations on a subgroup
     3. Control charts for subgrouped data
     4. Discussion
-- [Part C: Ne'er the twain shall meet?](03-part-c-ne-er-twain.qmd#sec-optional-extras-part-c)
+- [**Part C: Ne'er the twain shall meet?**](03-part-c-ne-er-twain.qmd#sec-optional-extras-part-c)
     1. Introduction
     2. The essence of the argument
         - Two types of "statistical studies"
         - A typical syllabus for an introductory Statistics course
         - The conventional statistician's view of control charts, …
         - … and what can be done about it
-- [Part D: A crash-course in conventional Statistics!](04-part-d-crash-course.qmd#sec-optional-extras-part-d)
+- [**Part D: A crash-course in conventional Statistics!**](04-part-d-crash-course.qmd#sec-optional-extras-part-d)
     - Histograms and sample statistics
     - Probability
     - Linking it all together
@@ -44,12 +44,12 @@ execute:
     - The Central Limit Theorem
     - Confidence intervals
     - Hypothesis tests (also known as significance tests or tests of significance)
-- [Part E: Is there *anything* normal about control charts?](05-part-e-normality.qmd#sec-optional-extras-part-e)
+- [**Part E: Is there *anything* normal about control charts?**](05-part-e-normality.qmd#sec-optional-extras-part-e)
     1. Back to basics
     2. Two computer simulation studies
     3. "Control-chart constants depend on normally-distributed data, so unless your data are normally distributed your control chart isn't valid."
     4. "If your data are normally distributed then the probability of a false signal is 0.0027."
-- [Part F: Technical section](06-part-f-technical.qmd#sec-optional-extras-part-f)
+- [**Part F: Technical section**](06-part-f-technical.qmd#sec-optional-extras-part-f)
     1. Length of the baseline
     2. "Expected" values — the great misnomer!
         - Some more notation (mathematical shorthand)
@@ -66,7 +66,7 @@ execute:
 ::: {.callout-note}
 ## NOTE
 
-*(This note would have been referred to elsewhere as an "Out-of-hours" note; however, of course, all of the Optional Extras section is "out-of-hours"!)*
+(This note would have been referred to elsewhere as an "Out-of-hours" note; however, of course, *all* of the Optional Extras section is "out-of-hours"!)
 
 If you are intending to study [Part A: "Using Control Charts on Funnel Experiment data"](01-part-a-funnel-charts.qmd#sec-optional-extras-part-a) then on [pages 6 and 7](01-part-a-funnel-charts.qmd#sec-optional-extras-page-6) you will need to draw run-charts and then control charts of your data for the first two Rules of the Funnel. Your data for Rule 1 and Rule 2 are in the [Day 3 chapter on the first two Rules of the Funnel](../../days/day-03/11-the-first-two-rules-of-the-funnel.qmd). You may therefore find it convenient to open those pages in a separate browser tab in order to save you from lots of page-turning while you are constructing those charts.
 :::
