@@ -2,4 +2,4 @@
 
 - **Section**: Fixed
 - **What**: Days 1 and 4 now show the emphasis the source prints, with 63 corrections. This completes the per-section emphasis pass across the whole course. On Day 1, the control chart is *the* invaluable tool, the Deming Story's "bare bones" italicise the *nature* and *causes* of variation, and Neave's bracketed interpolations (*[is what]*, *[management]*, *[see the small print below]*) are italic, as printed. On Day 4, the restaurant Activity's *dissatisfied*, *satisfied* and *delighted* customer is back, Point 2 reads "affects *what* we do and *how* we do it", and part-word italics (*non*-existence, *in*expensive) are restored. The "Now please read *DemDim*…" instruction is bold, and the Activity 4–b labels read "If *Yes* …" and "If *No* …" as printed, not in bold. Italics the site had added are removed (*plenty*, *not*, and the "Obsession" span, now "*Obsession* With Quality"). The pass changes emphasis only, not wording. (#879)
-- **PR**: TBD
+- **PR**: #880
