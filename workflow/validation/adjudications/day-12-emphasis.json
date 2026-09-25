@@ -1,0 +1,152 @@
+{
+ "pass": "day-12-emphasis",
+ "epic": 848,
+ "issue": 875,
+ "source_pdf": "O.Day.12.16Feb22.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/days/day-12",
+ "export_filename": "day-12-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 9210,
+  "alignment": "95%",
+  "disagreeing_runs": 43,
+  "explained_by_convention": 39,
+  "lost": 3,
+  "lost_words": 9,
+  "added": 1,
+  "swapped": 0
+ },
+ "pages_read": [
+  8,
+  14,
+  47
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #875 · emphasis pass",
+  "title": "Day 12: the emphasis the source set and the site lost",
+  "artifact_title": "Day 12 emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 3 lost runs on <code>day-12</code>, plus 1 added and 0 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 3 lost · 1 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "O.Day.12.16Feb22.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "3"
+   },
+   {
+    "label": "Runs",
+    "value": "3 lost · 1 added · 0 swapped"
+   },
+   {
+    "label": "After",
+    "value": "3 lost · 1 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "clear",
+   "kind": "k-clear",
+   "title": "Checked and cleared",
+   "tag": "No defect",
+   "labels": {
+    "accept": "Agreed, no change",
+    "reject": "Disagree — change it",
+    "discuss": "Discuss"
+   },
+   "note_html": "The residual after this pass: comparator artifacts, site conventions and site-authored text.",
+   "count": "4 findings",
+   "items": [
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 8,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      5
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "all the 14 Points and five Deadly Diseases. <mark class='src'>14 Points</mark> and Deadly Diseases KEY table for Activity 12",
+     "site_html": "image alt text / caption",
+     "evidence_html": "Comparator artifact. The KEY table is an image on the site; the PDF's bold <strong>14 POINTS</strong> / <strong>DEADLY DISEASES</strong> headers aligned against its alt text and caption.",
+     "id": "E12-C01",
+     "page": "PDF p8 · printed p4",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 8,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      6
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "Points and five Deadly Diseases. 14 Points and <mark class='src'>Deadly Diseases</mark> KEY table for Activity 12 a Interpretation of",
+     "site_html": "image alt text / caption",
+     "evidence_html": "Comparator artifact. The KEY table is an image on the site; the PDF's bold <strong>14 POINTS</strong> / <strong>DEADLY DISEASES</strong> headers aligned against its alt text and caption.",
+     "id": "E12-C02",
+     "page": "PDF p8 · printed p4",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 14,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      13
+     ],
+     "flag": "emphasis check, added run, 8 word(s)",
+     "source_html": "indignities; sadness, anguish, resentment; burnout; a crazy-making place; <mark class='src'>no joy in work, no pride of work.</mark> The diagram is funny only until you read",
+     "site_html": "site description of an image",
+     "evidence_html": "Site-authored text. The bold falls in the site's own prose description of Scholtes's diagram, which the source does not have; the diagram itself is an image.",
+     "id": "E12-C03",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 47,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      42
+     ],
+     "flag": "emphasis check, lost run, 5 word(s)",
+     "source_html": "with which invariably he concluded his four-day seminars: <mark class='src'>I have done my best.</mark>",
+     "site_html": "::: {.deming_blue style=&quot;…font-weight: bold…&quot;}",
+     "evidence_html": "The site sets this line bold with an inline <code>style</code> attribute (<code>font-weight: bold</code>), which the checker's pandoc reading cannot see. Rendered, the emphasis matches the source.",
+     "id": "E12-C04",
+     "page": "PDF p47 · printed p43",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    }
+   ]
+  }
+ ]
+}

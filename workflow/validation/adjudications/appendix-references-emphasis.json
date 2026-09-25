@@ -1,0 +1,97 @@
+{
+ "pass": "appendix-references-emphasis",
+ "epic": 848,
+ "issue": 875,
+ "source_pdf": "R.References.and.Sources.09Feb22.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/appendix",
+ "export_filename": "appendix-references-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 989,
+  "alignment": "94%",
+  "disagreeing_runs": 11,
+  "explained_by_convention": 5,
+  "lost": 6,
+  "lost_words": 9,
+  "added": 0,
+  "swapped": 0
+ },
+ "pages_read": [
+  8
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #875 · emphasis pass",
+  "title": "References and Sources: the emphasis the source set and the site lost",
+  "artifact_title": "References and Sources emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 6 lost runs on <code>appendix-references</code>, plus 0 added and 0 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 0 lost · 0 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "R.References.and.Sources.09Feb22.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "1"
+   },
+   {
+    "label": "Runs",
+    "value": "6 lost · 0 added · 0 swapped"
+   },
+   {
+    "label": "After",
+    "value": "0 lost · 0 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "1 findings",
+   "items": [
+    {
+     "file": "11-references-and-sources.qmd",
+     "line": 144,
+     "pdf_page": 8,
+     "old": "> *NB*  The Deming Transformation Forum's website is no longer online. The linked 2012 archived snapshot is preserved here as a historical reference; the Booklets referenced throughout this course are no longer available via its former \"Learning Store\".",
+     "proposal": "> *NB  The Deming Transformation Forum's website is no longer online. The linked 2012 archived snapshot is preserved here as a historical reference; the Booklets referenced throughout this course are no longer available via its former \"Learning Store\".*",
+     "runs": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+     ],
+     "flag": "emphasis check, lost — 6 run(s)",
+     "source_html": "https: www.demingalliance.org Deming Transformation Forum (UK): www.deming.org.uk NB <mark class='src'>The</mark> Deming Transformation Forum’s website is no longer online. · Forum (UK): www.deming.org.uk NB The Deming Transformation Forum’s <mark class='src'>website is</mark> no longer online. The linked 2012 archived snapshot · snapshot is preserved here as a historical reference; <mark class='src'>the Booklets</mark> referenced throughout this course are no longer available · historical reference; the Booklets referenced throughout this course <mark class='src'>are</mark> no longer available via its former Learning Store. · referenced throughout this course are no longer available <mark class='src'>via</mark> its former Learning Store. Deming Learning Network (Scotland): · course are no longer available via its former <mark class='src'>Learning Store.</mark> Deming Learning Network (Scotland): tony@jmiller.co.uk Gallery Furniture: https:",
+     "site_html": "&gt; *NB*  The Deming Transformation Forum&#x27;s website is no longer online. The linked 2012 archived snapshot is preserved here as a historical reference; the Booklets referenced throughout this course are no longer available via its former &quot;Learning Store&quot;.",
+     "evidence_html": "Verified against the page image for PDF p8 · printed p4. The source sets the whole NB note in italic. The site rewrote its wording for the archived link; this restores the note's styling, not its words.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "RF-01",
+     "page": "PDF p8 · printed p4",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,261 @@
+{
+ "pass": "welcome-emphasis",
+ "epic": 848,
+ "issue": 875,
+ "source_pdf": "WELCOME-BOOKLET-(Aug21b).pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": ".",
+ "export_filename": "welcome-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 3759,
+  "alignment": "84%",
+  "disagreeing_runs": 17,
+  "explained_by_convention": 8,
+  "lost": 8,
+  "lost_words": 21,
+  "added": 1,
+  "swapped": 0
+ },
+ "pages_read": [
+  2,
+  3,
+  5,
+  8
+ ],
+ "page_offset": 0,
+ "page": {
+  "eyebrow": "Epic #848 · issue #875 · emphasis pass",
+  "title": "Welcome booklet: the emphasis the source set and the site lost",
+  "artifact_title": "Welcome booklet emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 8 lost runs on <code>welcome</code>, plus 1 added and 0 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 1 lost · 1 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "WELCOME-BOOKLET-(Aug21b).pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "4"
+   },
+   {
+    "label": "Runs",
+    "value": "8 lost · 1 added · 0 swapped"
+   },
+   {
+    "label": "After",
+    "value": "1 lost · 1 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "6 findings",
+   "items": [
+    {
+     "file": "welcome.qmd",
+     "line": 35,
+     "pdf_page": 2,
+     "old": "awareness of the effects of that",
+     "proposal": "awareness of the *effects* of that",
+     "runs": [
+      1
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "listened, there certainly was widespread awareness of the <mark class='src'>effects</mark> of that visit. So: asked me to come",
+     "site_html": "awareness of the effects of that",
+     "evidence_html": "Verified against the page image for PDF p2 · printed p2.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "WL-01",
+     "page": "PDF p2 · printed p2",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "welcome.qmd",
+     "line": 41,
+     "pdf_page": 2,
+     "old": "what other parts do help or hinder us?",
+     "proposal": "what *other* parts do help or hinder *us*?",
+     "runs": [
+      2,
+      3
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "or our customers? or similarly How does what <mark class='src'>other</mark> parts do help or hinder us?. The aim · does what other parts do help or hinder <mark class='src'>us?.</mark> The aim is, of course, to continually increase",
+     "site_html": "what other parts do help or hinder us?",
+     "evidence_html": "Verified against the page image for PDF p2 · printed p2.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "WL-02",
+     "page": "PDF p2 · printed p2",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "welcome.qmd",
+     "line": 75,
+     "pdf_page": 3,
+     "old": "> \"The right quality and uniformity are foundations of commerce, prosperity and peace.\"",
+     "proposal": "> **\"The right quality and uniformity are foundations of commerce, prosperity and peace.\"**",
+     "runs": [
+      5
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "the medal is a quotation from Dr Deming: <mark class='src'>The right quality and uniformity are foundations of commerce, prosperity and peace.</mark> Almost five more years passed before Bill Conway",
+     "site_html": "&gt; &quot;The right quality and uniformity are foundations of commerce, prosperity and peace.&quot;",
+     "evidence_html": "Verified against the page image for PDF p3 · printed p3. The medal inscription is set bold and centred in the source.",
+     "chip": "bold",
+     "chip_class": "crit",
+     "id": "WL-03",
+     "page": "PDF p3 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "welcome.qmd",
+     "line": 163,
+     "pdf_page": 8,
+     "old": "because you *understand* why",
+     "proposal": "because you *understand why*",
+     "runs": [
+      14
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "want you to do it because you understand <mark class='src'>why</mark> Deming said so.” Well done. Congratulations!” Al Viswanathan,",
+     "site_html": "because you *understand* why",
+     "evidence_html": "Verified against the page image for PDF p8 · printed p8. Both words are italic in the source.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "WL-04",
+     "page": "PDF p8 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "welcome.qmd",
+     "line": 167,
+     "pdf_page": 8,
+     "old": "need to unlearn if",
+     "proposal": "need to *un*learn if",
+     "runs": [
+      15
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "you realise just how much you need to <mark class='src'>unlearn</mark> if you are to truly engage with and",
+     "site_html": "need to unlearn if",
+     "evidence_html": "Verified against the page image for PDF p8 · printed p8. A part-word italic: only <em>un</em> is italic.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "WL-05",
+     "page": "PDF p8 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "welcome.qmd",
+     "line": 167,
+     "pdf_page": 8,
+     "old": "impact it had on my people.",
+     "proposal": "impact it had on my *people*.",
+     "runs": [
+      16
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "efficient but the impact it had on my <mark class='src'>people.</mark> I have seen my teams move from feeling",
+     "site_html": "impact it had on my people.",
+     "evidence_html": "Verified against the page image for PDF p8 · printed p8.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "WL-06",
+     "page": "PDF p8 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    }
+   ]
+  },
+  {
+   "key": "clear",
+   "kind": "k-clear",
+   "title": "Checked and cleared",
+   "tag": "No defect",
+   "labels": {
+    "accept": "Agreed, no change",
+    "reject": "Disagree — change it",
+    "discuss": "Discuss"
+   },
+   "note_html": "The residual after this pass: comparator artifacts, site conventions and site-authored text.",
+   "count": "2 findings",
+   "items": [
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 3,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      4
+     ],
+     "flag": "emphasis check, lost run, 3 word(s)",
+     "source_html": "what Dr Deming had taught them that summer. <mark class='src'>William E Conway</mark> The inscription near the bottom of the medal",
+     "site_html": "image caption",
+     "evidence_html": "Figure caption. The source's bold caption under Conway's portrait is the site's image caption, <code>![William E Conway](…)</code>, which the site styles as a caption.",
+     "id": "WL-C01",
+     "page": "PDF p3 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 5,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      10
+     ],
+     "flag": "emphasis check, added run, 1 word(s)",
+     "source_html": "this course is my book The Deming Dimension <mark class='src'>The</mark> Deming Dimension is available direct from its publishers",
+     "site_html": "^[*The Deming Dimension* is available…",
+     "evidence_html": "Comparator artifact. The PDF's footnote marker runs into the next word (<code>1The Deming Dimension</code>), so the aligner pairs the site's italic <em>The</em> with a PDF token it cannot match. The title is italic in both.",
+     "id": "WL-C02",
+     "page": "PDF p5 · printed p5",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    }
+   ]
+  }
+ ]
+}

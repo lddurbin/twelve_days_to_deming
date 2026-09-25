@@ -1,0 +1,192 @@
+{
+ "pass": "day-02-emphasis",
+ "epic": 848,
+ "issue": 875,
+ "source_pdf": "E.Day.2.12Oct21.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/days/day-02",
+ "export_filename": "day-02-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 13323,
+  "alignment": "91%",
+  "disagreeing_runs": 26,
+  "explained_by_convention": 21,
+  "lost": 3,
+  "lost_words": 23,
+  "added": 2,
+  "swapped": 0
+ },
+ "pages_read": [
+  26,
+  27,
+  42,
+  45
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #875 · emphasis pass",
+  "title": "Day 2: the emphasis the source set and the site lost",
+  "artifact_title": "Day 2 emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 3 lost runs on <code>day-02</code>, plus 2 added and 0 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 3 lost · 0 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "E.Day.2.12Oct21.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "4"
+   },
+   {
+    "label": "Runs",
+    "value": "3 lost · 2 added · 0 swapped"
+   },
+   {
+    "label": "After",
+    "value": "3 lost · 0 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "2 findings",
+   "items": [
+    {
+     "file": "06-your-turn.qmd",
+     "line": 10,
+     "pdf_page": 26,
+     "old": "**to help you get ready to perform in that role, I recommend that you now go back and re-read that page and a half before continuing here.**",
+     "proposal": "to help you get ready to perform in that role, I recommend that you now **go back and re-read that page and a half before continuing here**.",
+     "runs": [
+      18
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "and 13, starting in A Brief Overview. So, <mark class='src'>to help you get ready to perform in that role, I recommend that you now</mark> go back and re-read that page and a",
+     "site_html": "**to help you get ready to perform in that role, I recommend that you now go back and re-read that page and a half before continuing here.**",
+     "evidence_html": "Verified against the page image for PDF p26 · printed p22. The bold starts at <em>go back</em> in the source; the site had started it a clause early.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E2-01",
+     "page": "PDF p26 · printed p22",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "08-major-activity.qmd",
+     "line": 26,
+     "pdf_page": 42,
+     "old": "*\"top and tail\"*",
+     "proposal": "\"top and tail\"",
+     "runs": [
+      22
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "on each of those groups of notes. Finally <mark class='src'>top and tail</mark> your account with some appropriate introductory and concluding",
+     "site_html": "*&quot;top and tail&quot;*",
+     "evidence_html": "Verified against the page image for PDF p42 · printed p38. The phrase is in quotation marks but upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E2-02",
+     "page": "PDF p42 · printed p38",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    }
+   ]
+  },
+  {
+   "key": "clear",
+   "kind": "k-clear",
+   "title": "Checked and cleared",
+   "tag": "No defect",
+   "labels": {
+    "accept": "Agreed, no change",
+    "reject": "Disagree — change it",
+    "discuss": "Discuss"
+   },
+   "note_html": "The residual after this pass: comparator artifacts, site conventions and site-authored text.",
+   "count": "3 findings",
+   "items": [
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 27,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      20
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "first step, only the very first cell Audrey, <mark class='src'>Day 1</mark> is filled in: a count of 16. Every",
+     "site_html": "site description of an image",
+     "evidence_html": "Site-authored text. The PDF's bold <strong>DAY 1</strong> table header aligned against the site's own description of the tables, which are images.",
+     "id": "E2-C01",
+     "page": "PDF p27 · printed p23",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 45,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      23
+     ],
+     "flag": "emphasis check, lost run, 11 word(s)",
+     "source_html": "Beads.” Maybe now you’ve already made a start! <mark class='src'>Yes, in some respects the Experiment on Red Beads is indeed</mark> stupidly simple. But the lessons to be learned",
+     "site_html": "::: {style=&quot;text-align: center; font-weight: bold;&quot;}",
+     "evidence_html": "The site sets this line bold with an inline <code>style</code> attribute (<code>font-weight: bold</code>), which the checker's pandoc reading cannot see. Rendered, the emphasis matches the source.",
+     "id": "E2-C02",
+     "page": "PDF p45 · printed p41",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 45,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      25
+     ],
+     "flag": "emphasis check, lost run, 10 word(s)",
+     "source_html": "Experiment on Red Beads is indeed stupidly simple. <mark class='src'>But the lessons to be learned from it are not.</mark> I didn’t complete the story about Spaniards’ performances",
+     "site_html": "::: {style=&quot;text-align: center; font-weight: bold;&quot;}",
+     "evidence_html": "The site sets this line bold with an inline <code>style</code> attribute (<code>font-weight: bold</code>), which the checker's pandoc reading cannot see. Rendered, the emphasis matches the source.",
+     "id": "E2-C03",
+     "page": "PDF p45 · printed p41",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    }
+   ]
+  }
+ ]
+}

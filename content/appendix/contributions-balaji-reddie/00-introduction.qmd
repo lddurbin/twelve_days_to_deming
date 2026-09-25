@@ -7,18 +7,18 @@ execute:
 ---
 
 ::: {style="text-align: center;"}
-*Contributions from Balaji Reddie*
+***Contributions from Balaji Reddie***
 
 **FOUR PRELUDES AND A CODA**
 
-**and**
+*and*
 
 **SOME LESSONS FROM HISTORY**
 :::
 
 *These contributions to the "12 Days to Deming" course are based on a series of 25 short newspaper articles written by*
 
-**Balaji S Reddie**
+*Balaji S Reddie*
 
 *Founder of the Deming Forum of India*
 
@@ -26,7 +26,7 @@ execute:
 
 ## An introduction to a System of Profound Knowledge
 
-When Dr Deming was asked what it was that the Japanese learned from him, one of his answers was that he taught them a different way of perceiving things around them. He pointed out that, although people see the same event, they may nonetheless observe different things. In the opening paragraph of Chapter 4 in *The New Economics*, Dr Deming described the purpose of that chapter using these words: ["The aim of this chapter is to provide an outside view—a lens—that I call a system of profound knowledge"]{.deming_quote}.
+When Dr Deming was asked what it was that the Japanese learned from him, one of his answers was that he taught them a different way of perceiving things around them. He pointed out that, although people *see* the same event, they may nonetheless *observe* different things. In the opening paragraph of Chapter 4 in *The New Economics*, Dr Deming described the purpose of that chapter using these words: ["The aim of this chapter is to provide an outside view—a lens—that I call a system of profound knowledge"]{.deming_quote}.
 
 The System of Profound Knowledge is the interaction of four substantial areas of thinking and understanding. Deming referred to them using titles such as
 

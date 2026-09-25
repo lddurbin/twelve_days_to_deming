@@ -1,0 +1,479 @@
+{
+ "pass": "appendix-contributions-balaji-reddie-emphasis",
+ "epic": 848,
+ "issue": 875,
+ "source_pdf": "Q.Contributions.from.Balaji.Reddie.11Sep21.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/appendix/contributions-balaji-reddie",
+ "export_filename": "appendix-contributions-balaji-reddie-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 22168,
+  "alignment": "99%",
+  "disagreeing_runs": 67,
+  "explained_by_convention": 47,
+  "lost": 9,
+  "lost_words": 9,
+  "added": 8,
+  "swapped": 3
+ },
+ "pages_read": [
+  3,
+  4,
+  5,
+  8,
+  10,
+  12,
+  18,
+  25,
+  26,
+  33,
+  38,
+  40
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #875 · emphasis pass",
+  "title": "Contributions from Balaji Reddie: the emphasis the source set and the site lost",
+  "artifact_title": "Contributions from Balaji Reddie emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 9 lost runs on <code>appendix-contributions-balaji-reddie</code>, plus 8 added and 3 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 0 lost · 0 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "Q.Contributions.from.Balaji.Reddie.11Sep21.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "12"
+   },
+   {
+    "label": "Runs",
+    "value": "9 lost · 8 added · 3 swapped"
+   },
+   {
+    "label": "After",
+    "value": "0 lost · 0 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "18 findings",
+   "items": [
+    {
+     "file": "00-introduction.qmd",
+     "line": 10,
+     "pdf_page": 3,
+     "old": "*Contributions from Balaji Reddie*",
+     "proposal": "***Contributions from Balaji Reddie***",
+     "runs": [
+      0
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "<mark class='src'>Contributions from Balaji Reddie</mark> FOUR PRELUDES AND A CODA and SOME LESSONS",
+     "site_html": "*Contributions from Balaji Reddie*",
+     "evidence_html": "Verified against the page image for PDF p3 · front matter. The title-page heading is bold italic.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "BR-01",
+     "page": "PDF p3 · front matter",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "00-introduction.qmd",
+     "line": 14,
+     "pdf_page": 3,
+     "old": "**and**",
+     "proposal": "*and*",
+     "runs": [
+      1
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "from Balaji Reddie FOUR PRELUDES AND A CODA <mark class='src'>and</mark> SOME LESSONS FROM HISTORY These contributions to the",
+     "site_html": "**and**",
+     "evidence_html": "Verified against the page image for PDF p3 · front matter. The linking word between the two titles is italic, not bold.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "BR-02",
+     "page": "PDF p3 · front matter",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "00-introduction.qmd",
+     "line": 21,
+     "pdf_page": 3,
+     "old": "**Balaji S Reddie**",
+     "proposal": "*Balaji S Reddie*",
+     "runs": [
+      2
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "series of 25 short newspaper articles written by <mark class='src'>Balaji S Reddie</mark> Founder of the Deming Forum of India An",
+     "site_html": "**Balaji S Reddie**",
+     "evidence_html": "Verified against the page image for PDF p3 · front matter. The author line is italic, not bold, like the lines around it.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "BR-03",
+     "page": "PDF p3 · front matter",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "00-introduction.qmd",
+     "line": 29,
+     "pdf_page": 4,
+     "old": "although people see the same event, they may nonetheless observe different",
+     "proposal": "although people *see* the same event, they may nonetheless *observe* different",
+     "runs": [
+      4,
+      5
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "around them. He pointed out that, although people <mark class='src'>see</mark> the same event, they may nonetheless observe different · people see the same event, they may nonetheless <mark class='src'>observe</mark> different things. In the opening paragraph of Chapter",
+     "site_html": "although people see the same event, they may nonetheless observe different",
+     "evidence_html": "Verified against the page image for PDF p4 · front matter.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "BR-04",
+     "page": "PDF p4 · front matter",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "01-prelude-a-system.qmd",
+     "line": 9,
+     "pdf_page": 5,
+     "old": "page 35 *[50]*",
+     "proposal": "page 35 [50]",
+     "runs": [
+      6
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "a system? On The New Economics page 35 <mark class='src'>[50</mark>] he provided this description: A system is a",
+     "site_html": "page 35 *[50]*",
+     "evidence_html": "Verified against the page image for PDF p5 · printed p1. The bracketed second-edition page number is upright in the source, as it is elsewhere on the site (compare E8-F02).",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "BR-05",
+     "page": "PDF p5 · printed p1",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "01-prelude-a-system.qmd",
+     "line": 25,
+     "pdf_page": 5,
+     "old": "page 36 *[51]*",
+     "proposal": "page 36 [51]",
+     "runs": [
+      8
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "of art. On The New Economics page 36 <mark class='src'>[51</mark>,] Dr Deming included a suggestion for the aim",
+     "site_html": "page 36 *[51]*",
+     "evidence_html": "Verified against the page image for PDF p5 · printed p1. The bracketed second-edition page number is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "BR-06",
+     "page": "PDF p5 · printed p1",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "01-prelude-a-system.qmd",
+     "line": 71,
+     "pdf_page": 8,
+     "old": "They're all \"most important\"",
+     "proposal": "They're *all* \"most important\"",
+     "runs": [
+      13
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "skin, nor the hair on our skin! They’re <mark class='src'>all</mark> most important because they all contribute to optimising",
+     "site_html": "They&#x27;re all &quot;most important&quot;",
+     "evidence_html": "Verified against the page image for PDF p8 · printed p4.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "BR-07",
+     "page": "PDF p8 · printed p4",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "01-prelude-a-system.qmd",
+     "line": 75,
+     "pdf_page": 8,
+     "old": "worse than choosing the most important",
+     "proposal": "worse than choosing *the* most important",
+     "runs": [
+      14
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "your pick! There is something worse than choosing <mark class='src'>the</mark> most important and sadly it is very common.",
+     "site_html": "worse than choosing the most important",
+     "evidence_html": "Verified against the page image for PDF p8 · printed p4.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "BR-08",
+     "page": "PDF p8 · printed p4",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "01-prelude-a-system.qmd",
+     "line": 89,
+     "pdf_page": 10,
+     "old": "There exist two kinds",
+     "proposal": "There exist *two* kinds",
+     "runs": [
+      16
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "were appalled by what they discovered. There exist <mark class='src'>two</mark> kinds of cholesterol: high-density lipoprotein and low-density lipoprotein.",
+     "site_html": "There exist two kinds",
+     "evidence_html": "Verified against the page image for PDF p10 · printed p6.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "BR-09",
+     "page": "PDF p10 · printed p6",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-prelude-b-statistical-thinking.qmd",
+     "line": 27,
+     "pdf_page": 12,
+     "old": "of the *inherent* properties",
+     "proposal": "of the inherent properties",
+     "runs": [
+      19
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "argued that this is simply because of the <mark class='src'>inherent</mark> properties of the process. Shewhart referred to such",
+     "site_html": "of the *inherent* properties",
+     "evidence_html": "Verified against the page image for PDF p12 · printed p8. <em>inherent</em> is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "BR-10",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-prelude-b-statistical-thinking.qmd",
+     "line": 41,
+     "pdf_page": 12,
+     "old": "have some chance",
+     "proposal": "have *some* chance",
+     "runs": [
+      21
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "to use the motorcycle then I would have <mark class='src'>some</mark> chance of getting there on time, although it",
+     "site_html": "have some chance",
+     "evidence_html": "Verified against the page image for PDF p12 · printed p8.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "BR-11",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-prelude-b-statistical-thinking.qmd",
+     "line": 161,
+     "pdf_page": 18,
+     "old": "that *real* understanding",
+     "proposal": "that real understanding",
+     "runs": [
+      31
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "many who believe that theory is unimportant, that <mark class='src'>real</mark> understanding instead comes from practice, examples, experience. Deming",
+     "site_html": "that *real* understanding",
+     "evidence_html": "Verified against the page image for PDF p18 · printed p14. <em>real</em> is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "BR-12",
+     "page": "PDF p18 · printed p14",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-prelude-d-people.qmd",
+     "line": 43,
+     "pdf_page": 25,
+     "old": "I would *start enjoying*",
+     "proposal": "I would start *enjoying*",
+     "runs": [
+      41
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "onto the appropriate kind of job, I would <mark class='src'>start</mark> enjoying what I do and begin to constructively",
+     "site_html": "I would *start enjoying*",
+     "evidence_html": "Verified against the page image for PDF p25 · printed p21. Only <em>enjoying</em> is italic in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "BR-13",
+     "page": "PDF p25 · printed p21",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-prelude-d-people.qmd",
+     "line": 47,
+     "pdf_page": 26,
+     "old": "rather than *inside* them",
+     "proposal": "rather than inside them",
+     "runs": [
+      42
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "to lighting a fire underneath people rather than <mark class='src'>inside</mark> them! The consequence is that, the moment you",
+     "site_html": "rather than *inside* them",
+     "evidence_html": "Verified against the page image for PDF p26 · printed p22. Here only <em>underneath</em> is italic; <em>inside</em> is italic in the previous paragraph, not this one.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "BR-14",
+     "page": "PDF p26 · printed p22",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "06-lessons-from-history.qmd",
+     "line": 66,
+     "pdf_page": 33,
+     "old": "simply because you want to carry",
+     "proposal": "simply because you *want* to carry",
+     "runs": [
+      51
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "an improvement (a beneficial change) simply because you <mark class='src'>want</mark> to carry it out you don’t need recognition",
+     "site_html": "simply because you want to carry",
+     "evidence_html": "Verified against the page image for PDF p33 · printed p29.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "BR-15",
+     "page": "PDF p33 · printed p29",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "06-lessons-from-history.qmd",
+     "line": 66,
+     "pdf_page": 33,
+     "old": "benefit of the system, the *organisation*",
+     "proposal": "benefit of the *system*, the *organisation*",
+     "runs": [
+      52
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "also encourages improvements for the benefit of the <mark class='src'>system,</mark> the organisation, not just for yourself indeed not",
+     "site_html": "benefit of the system, the *organisation*",
+     "evidence_html": "Verified against the page image for PDF p33 · printed p29.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "BR-16",
+     "page": "PDF p33 · printed p29",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "06-lessons-from-history.qmd",
+     "line": 174,
+     "pdf_page": 38,
+     "old": "*apply all of the above*",
+     "proposal": "apply *all* of the above",
+     "runs": [
+      62,
+      63
+     ],
+     "flag": "emphasis check, added — 2 run(s)",
+     "source_html": "have never really understood that we need to <mark class='src'>apply</mark> all of the above four sciences simultaneously in · really understood that we need to apply all <mark class='src'>of the above</mark> four sciences simultaneously in order to see things",
+     "site_html": "*apply all of the above*",
+     "evidence_html": "Verified against the page image for PDF p38 · printed p34. Only <em>all</em> is italic in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "BR-17",
+     "page": "PDF p38 · printed p34",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "07-indias-missed-opportunity.qmd",
+     "line": 13,
+     "pdf_page": 40,
+     "old": "en *route*",
+     "proposal": "*en route*",
+     "runs": [
+      64
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "in 1947. This was when he was also <mark class='src'>en</mark> route to Japan as Adviser in Sampling Techniques",
+     "site_html": "en *route*",
+     "evidence_html": "Verified against the page image for PDF p40 · printed p36. The whole phrase is italic in the source.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "BR-18",
+     "page": "PDF p40 · printed p36",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    }
+   ]
+  }
+ ]
+}

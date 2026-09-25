@@ -1,5 +1,5 @@
 day: 12
-validated_at: 2026-09-23
+validated_at: 2026-09-25
 source_pdf: O.Day.12.16Feb22.pdf
 source_sha256: 0367003cc56eaabc218479f42dd69cd382e174bc61d7348a65aed48608904769
 scorer_version: 14ed7500625ba7ed99a34d63395d44de5f1be9df
@@ -13,9 +13,9 @@ thresholds:
 counts:
   pdf_paragraphs: 143
   qmd_paragraphs: 151
-  matched_cleanly: 101
-  altered: 32
-  flagged_sentences: 65
+  matched_cleanly: 99
+  altered: 34
+  flagged_sentences: 73
   near_certain: 9
   missing: 10
   unsourced: 3

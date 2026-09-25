@@ -1,0 +1,351 @@
+{
+ "pass": "day-10-emphasis",
+ "epic": 848,
+ "issue": 875,
+ "source_pdf": "M.Day.10.16Feb22.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/days/day-10",
+ "export_filename": "day-10-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 7998,
+  "alignment": "97%",
+  "disagreeing_runs": 99,
+  "explained_by_convention": 86,
+  "lost": 7,
+  "lost_words": 10,
+  "added": 2,
+  "swapped": 4
+ },
+ "pages_read": [
+  6,
+  7,
+  9,
+  14,
+  18,
+  24,
+  26,
+  27,
+  29,
+  37
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #875 · emphasis pass",
+  "title": "Day 10: the emphasis the source set and the site lost",
+  "artifact_title": "Day 10 emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 7 lost runs on <code>day-10</code>, plus 2 added and 4 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 2 lost · 2 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "M.Day.10.16Feb22.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "10"
+   },
+   {
+    "label": "Runs",
+    "value": "7 lost · 2 added · 4 swapped"
+   },
+   {
+    "label": "After",
+    "value": "2 lost · 2 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "8 findings",
+   "items": [
+    {
+     "file": "01-second-project.qmd",
+     "line": 25,
+     "pdf_page": 6,
+     "old": "take a quick look at some of such",
+     "proposal": "take a *quick* look at some of such",
+     "runs": [
+      2
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "that, if you feel like it, take a <mark class='src'>quick</mark> look at some of such referenced material if",
+     "site_html": "take a quick look at some of such",
+     "evidence_html": "Verified against the page image for PDF p6 · printed p2.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E10-01",
+     "page": "PDF p6 · printed p2",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "01-second-project.qmd",
+     "line": 35,
+     "pdf_page": 6,
+     "old": "to gain some comprehensive idea of the whole System",
+     "proposal": "to gain *some* comprehensive idea of the *whole* System",
+     "runs": [
+      3,
+      4
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "this early stage is for you to gain <mark class='src'>some</mark> comprehensive idea of the whole System of Profound · you to gain some comprehensive idea of the <mark class='src'>whole</mark> System of Profound Knowledge, not just some detailed",
+     "site_html": "to gain some comprehensive idea of the whole System",
+     "evidence_html": "Verified against the page image for PDF p6 · printed p2.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E10-02",
+     "page": "PDF p6 · printed p2",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-appreciation-for-a-system.qmd",
+     "line": 81,
+     "pdf_page": 9,
+     "old": "is *not* the aim of the system, why should those",
+     "proposal": "is ***not*** the aim of the system, why ***should*** those",
+     "runs": [
+      19
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "to gain. But, if that in effect is <mark class='src'>not</mark> the aim of the system, why should those",
+     "site_html": "is *not* the aim of the system, why should those",
+     "evidence_html": "Verified against the page image for PDF p9 · printed p5. Both <em>not</em> and <em>should</em> are bold within Neave's italic aside. The checker flagged <em>not</em>; <em>should</em>, bold beside it on the same line, is restored with it.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E10-03",
+     "page": "PDF p9 · printed p5",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-appreciation-for-a-system.qmd",
+     "line": 161,
+     "pdf_page": 14,
+     "old": "bowling *team* can",
+     "proposal": "bowling ***team*** can",
+     "runs": [
+      25
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "the left and right. Paradoxically, a (ten-pin) bowling <mark class='src'>team</mark> can largely succeed through independent effort and brilliance",
+     "site_html": "bowling *team* can",
+     "evidence_html": "Verified against the page image for PDF p14 · printed p10. Bold within the italic aside.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E10-04",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-theory-of-variation.qmd",
+     "line": 69,
+     "pdf_page": 26,
+     "old": "the* control limits *indicate",
+     "proposal": "the **control limits** indicate",
+     "runs": [
+      68
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "when a process is in statistical control, the <mark class='src'>control limits</mark> indicate what it is capable of consistently producing.]",
+     "site_html": "the* control limits *indicate",
+     "evidence_html": "Verified against the page image for PDF p26 · printed p22. Bold within the italic aside; the site had broken the italics around it instead.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E10-05",
+     "page": "PDF p26 · printed p22",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-theory-of-variation.qmd",
+     "line": 88,
+     "pdf_page": 27,
+     "old": "[*The quality of the* **measurement process** *itself",
+     "proposal": "[*The quality of the **measurement process** itself",
+     "runs": [
+      69
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "stable, in statistical control? <mark class='src'>The quality of the [measurement process</mark> itself seems to be too little considered by",
+     "site_html": "[*The quality of the* **measurement process** *itself",
+     "evidence_html": "Verified against the page image for PDF p27 · printed p23. Bold italic: the site had closed the italics either side of the bold words, leaving them bold upright.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E10-06",
+     "page": "PDF p27 · printed p23",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-theory-of-variation.qmd",
+     "line": 144,
+     "pdf_page": 29,
+     "old": "imply no* **predictive** *ability",
+     "proposal": "imply no **predictive** ability",
+     "runs": [
+      70
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "data were collected; in particular they imply no <mark class='src'>predictive</mark> ability. Yet sensible practical interest is surely on",
+     "site_html": "imply no* **predictive** *ability",
+     "evidence_html": "Verified against the page image for PDF p29 · printed p25. Bold italic, as above.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E10-07",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "06-out-of-hours-note.qmd",
+     "line": 17,
+     "pdf_page": 37,
+     "old": "Therefore, if you have the time",
+     "proposal": "Therefore, *if* you have the time",
+     "runs": [
+      98
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "and Chapter 9 on the Deming Cycle. Therefore, <mark class='src'>if</mark> you have the time, you might also like",
+     "site_html": "Therefore, if you have the time",
+     "evidence_html": "Verified against the page image for PDF p37 · printed p33.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E10-08",
+     "page": "PDF p37 · printed p33",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    }
+   ]
+  },
+  {
+   "key": "clear",
+   "kind": "k-clear",
+   "title": "Checked and cleared",
+   "tag": "No defect",
+   "labels": {
+    "accept": "Agreed, no change",
+    "reject": "Disagree — change it",
+    "discuss": "Discuss"
+   },
+   "note_html": "The residual after this pass: comparator artifacts, site conventions and site-authored text.",
+   "count": "4 findings",
+   "items": [
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 7,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      6
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "3 14, starting with Part A below <mark class='src'>WB [154 165</mark>.] Step 2: Dr Deming’s May 1990 version 1.",
+     "site_html": "[*WB* 154–165] / [*WB* 171–178]",
+     "evidence_html": "Site convention. Workbook references are set <code>[*WB* 154–165]</code> throughout the site, all eight of them, with only <em>WB</em> italic; the source italicises the whole bracket. This is consistent site styling, not a lost emphasis.",
+     "id": "E10-C01",
+     "page": "PDF p7 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 24,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      60
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "20 27, starting with Part B below <mark class='src'>WB [171 178</mark>.] Step 2: Dr Deming’s May 1990 version Some",
+     "site_html": "[*WB* 154–165] / [*WB* 171–178]",
+     "evidence_html": "Site convention. Workbook references are set <code>[*WB* 154–165]</code> throughout the site, all eight of them, with only <em>WB</em> italic; the source italicises the whole bracket. This is consistent site styling, not a lost emphasis.",
+     "id": "E10-C02",
+     "page": "PDF p24 · printed p20",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 18,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      29
+     ],
+     "flag": "emphasis check, added run, 1 word(s)",
+     "source_html": "it in the 1992 version as used in <mark class='src'>DemDim</mark> Chapter 18. (See however Item 10 in Part",
+     "site_html": "*DemDim* / *The New Economics* inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so the titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the same inversion the source uses, flipped.",
+     "id": "E10-C03",
+     "page": "PDF p18 · printed p14",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 18,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      31
+     ],
+     "flag": "emphasis check, added run, 3 word(s)",
+     "source_html": "the system strikes me as particularly appropriate. In <mark class='src'>The New Economics</mark> it is one of the topics that has",
+     "site_html": "*DemDim* / *The New Economics* inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so the titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the same inversion the source uses, flipped.",
+     "id": "E10-C04",
+     "page": "PDF p18 · printed p14",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    }
+   ]
+  }
+ ]
+}

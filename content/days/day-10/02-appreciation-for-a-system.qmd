@@ -78,7 +78,7 @@ The aim proposed here for any organisation is for everybody to gain---stockholde
 </div>
 
 <div class="neave_note">
-[Were I ever asked to select just part of one sentence from Dr Deming's writing, and paint it in big letters for all to see, it would be the opening words of this paragraph: ["The aim proposed here ... is for everybody to gain."]{.deming_quote} It is one of those things from Deming that, at first glance, may seem hopelessly optimistic: ["everybody to gain".]{.deming_quote} But, if that in effect is *not* the aim of the system, why should those all-important "components" of the system---people---"work together" for achievement of whatever that other aim is? Would you, if you were going to lose out as a result?]
+[Were I ever asked to select just part of one sentence from Dr Deming's writing, and paint it in big letters for all to see, it would be the opening words of this paragraph: ["The aim proposed here ... is for everybody to gain."]{.deming_quote} It is one of those things from Deming that, at first glance, may seem hopelessly optimistic: ["everybody to gain".]{.deming_quote} But, if that in effect is ***not*** the aim of the system, why ***should*** those all-important "components" of the system---people---"work together" for achievement of whatever that other aim is? Would you, if you were going to lose out as a result?]
 </div>
 
 ```{ojs}
@@ -158,7 +158,7 @@ A horizontal scale labelled **LOW** at the left end and **HIGH** at the right en
 </details>
 
 <div class="neave_note">
-Low and high interdependence are respectively to the left and right. Paradoxically, a (ten-pin) bowling *team* can largely succeed through independent effort and brilliance of its players. An orchestra cannot: it needs a much higher degree of genuine teamwork. A business organisation needs even more.]
+Low and high interdependence are respectively to the left and right. Paradoxically, a (ten-pin) bowling ***team*** can largely succeed through independent effort and brilliance of its players. An orchestra cannot: it needs a much higher degree of genuine teamwork. A business organisation needs even more.]
 </div>
 
 <div class="deming_quote">
