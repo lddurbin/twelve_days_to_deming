@@ -1,0 +1,625 @@
+{
+ "pass": "appendix-main-emphasis",
+ "epic": 848,
+ "issue": 877,
+ "source_pdf": "P.Appendix.09Feb22.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/appendix",
+ "export_filename": "appendix-main-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 24143,
+  "alignment": "98%",
+  "disagreeing_runs": 154,
+  "explained_by_convention": 129,
+  "lost": 11,
+  "lost_words": 18,
+  "added": 13,
+  "swapped": 1
+ },
+ "pages_read": [
+  1,
+  3,
+  12,
+  19,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  51
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #877 · emphasis pass",
+  "title": "Appendix: the emphasis the source set and the site lost",
+  "artifact_title": "Appendix emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 11 lost runs on <code>appendix-main</code>, plus 13 added and 1 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 10 lost · 0 added · 1 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "P.Appendix.09Feb22.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "13"
+   },
+   {
+    "label": "Runs",
+    "value": "11 lost · 13 added · 1 swapped"
+   },
+   {
+    "label": "After",
+    "value": "10 lost · 0 added · 1 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "14 findings",
+   "items": [
+    {
+     "file": "02-day-2.qmd",
+     "line": 65,
+     "pdf_page": 12,
+     "old": "| Ed’s 7 | [to them all:] “***65?***",
+     "proposal": "| Ed’s 7 | *[to them all:]* “***65?***",
+     "runs": [
+      11
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "17 “Hold it stop the line!” Ed’s 7 <mark class='src'>[to them all:</mark>] “65? That’s a lot worse than the first",
+     "site_html": "| Ed’s 7 | [to them all:] “***65?***",
+     "evidence_html": "Verified against the page image for PDF p12 · printed p8. Neave's stage direction is small italic, in black, before the Foreman's remark.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "AP-01",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 11,
+     "pdf_page": 28,
+     "old": "*([Day 5 pages 2–3]",
+     "proposal": "([Day 5 pages 2–3]",
+     "runs": [
+      48
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "page 20.) Point 7. Institute leadership of people <mark class='src'>(Day 5 pages 2 3)</mark> Obsession With Quality This is leadership aimed at",
+     "site_html": "*([Day 5 pages 2–3]",
+     "evidence_html": "Verified against the page image for PDF p28 · printed p24. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-02",
+     "page": "PDF p28 · printed p24",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 25,
+     "pdf_page": 28,
+     "old": "*([Day 5 pages 4–5]",
+     "proposal": "([Day 5 pages 4–5]",
+     "runs": [
+      53
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "and manufacturing processes. Point 8. Drive out fear <mark class='src'>(Day 5 pages 4 5)</mark> Obsession With Quality This is a case where",
+     "site_html": "*([Day 5 pages 4–5]",
+     "evidence_html": "Verified against the page image for PDF p28 · printed p24. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-03",
+     "page": "PDF p28 · printed p24",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 39,
+     "pdf_page": 29,
+     "old": "*([Day 5 pages 6–7]",
+     "proposal": "([Day 5 pages 6–7]",
+     "runs": [
+      58
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "lies the fault? Point 9. Break down barriers <mark class='src'>(Day 5 pages 6 7)</mark> Obsession With Quality As we have seen several",
+     "site_html": "*([Day 5 pages 6–7]",
+     "evidence_html": "Verified against the page image for PDF p29 · printed p25. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-04",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 55,
+     "pdf_page": 29,
+     "old": "*([Day 5 pages 8–9]",
+     "proposal": "([Day 5 pages 8–9]",
+     "runs": [
+      63
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "even try anything else? Point 10. Eliminate exhortations <mark class='src'>(Day 5 pages 8 9)</mark> Obsession With Quality The kind of poster suggested",
+     "site_html": "*([Day 5 pages 8–9]",
+     "evidence_html": "Verified against the page image for PDF p29 · printed p25. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-05",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 69,
+     "pdf_page": 30,
+     "old": "*([Day 5 pages 10–11]",
+     "proposal": "([Day 5 pages 10–11]",
+     "runs": [
+      68
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "they look. Point 11. Eliminate arbitrary numerical targets <mark class='src'>(Day 5 pages 10 11)</mark> Obsession With Quality Again, this is quality across",
+     "site_html": "*([Day 5 pages 10–11]",
+     "evidence_html": "Verified against the page image for PDF p30 · printed p26. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-06",
+     "page": "PDF p30 · printed p26",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 83,
+     "pdf_page": 30,
+     "old": "*([Day 5 pages 12–13]",
+     "proposal": "([Day 5 pages 12–13]",
+     "runs": [
+      73
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "this paragraph Point 12. Permit pride of workmanship <mark class='src'>(Day 5 pages 12 13)</mark> Obsession With Quality Anything which is a barrier",
+     "site_html": "*([Day 5 pages 12–13]",
+     "evidence_html": "Verified against the page image for PDF p30 · printed p26. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-07",
+     "page": "PDF p30 · printed p26",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 97,
+     "pdf_page": 30,
+     "old": "*([Day 5 pages 14–15]",
+     "proposal": "([Day 5 pages 14–15]",
+     "runs": [
+      78
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "pride in our work. Point 13. Encourage education <mark class='src'>(Day 5 pages 14 15)</mark> Obsession With Quality First, whereas training is very",
+     "site_html": "*([Day 5 pages 14–15]",
+     "evidence_html": "Verified against the page image for PDF p30 · printed p26. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-08",
+     "page": "PDF p30 · printed p26",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 113,
+     "pdf_page": 31,
+     "old": "*([Day 5 pages 16–17]",
+     "proposal": "([Day 5 pages 16–17]",
+     "runs": [
+      83
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "reliably. Point 14. Top management commitment and action <mark class='src'>(Day 5 pages 16 17)</mark> Obsession With Quality Remember Dr Deming’s familiar observation:",
+     "site_html": "*([Day 5 pages 16–17]",
+     "evidence_html": "Verified against the page image for PDF p31 · printed p27. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-09",
+     "page": "PDF p31 · printed p27",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 127,
+     "pdf_page": 32,
+     "old": "*([Day 5 pages 18–19]",
+     "proposal": "([Day 5 pages 18–19]",
+     "runs": [
+      88
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "without Point 14? Disease 1. Lack of constancy <mark class='src'>(Day 5 pages 18 19)</mark> Obsession With Quality Recall the emphasis on innovation",
+     "site_html": "*([Day 5 pages 18–19]",
+     "evidence_html": "Verified against the page image for PDF p32 · printed p28. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-10",
+     "page": "PDF p32 · printed p28",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 141,
+     "pdf_page": 32,
+     "old": "*([Day 5 pages 20–21]",
+     "proposal": "([Day 5 pages 20–21]",
+     "runs": [
+      93
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "may be able to produce. Disease 2. Short-termism <mark class='src'>(Day 5 pages 20 21)</mark> Obsession With Quality When you think of the",
+     "site_html": "*([Day 5 pages 20–21]",
+     "evidence_html": "Verified against the page image for PDF p32 · printed p28. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-11",
+     "page": "PDF p32 · printed p28",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 159,
+     "pdf_page": 33,
+     "old": "*([Day 5 pages 22–23]",
+     "proposal": "([Day 5 pages 22–23]",
+     "runs": [
+      98
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "it can produce. Disease 3. Appraisal of performance <mark class='src'>(Day 5 pages 22 23)</mark> Obsession With Quality Obsession With Quality has to",
+     "site_html": "*([Day 5 pages 22–23]",
+     "evidence_html": "Verified against the page image for PDF p33 · printed p29. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-12",
+     "page": "PDF p33 · printed p29",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 175,
+     "pdf_page": 33,
+     "old": "*([Day 5 pages 24–25]",
+     "proposal": "([Day 5 pages 24–25]",
+     "runs": [
+      103
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "for improvement? The system. Disease 4. Management job-hopping <mark class='src'>(Day 5 pages 24 25)</mark> Obsession With Quality Obsession With Quality implies having",
+     "site_html": "*([Day 5 pages 24–25]",
+     "evidence_html": "Verified against the page image for PDF p33 · printed p29. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-13",
+     "page": "PDF p33 · printed p29",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "05-day-5.qmd",
+     "line": 191,
+     "pdf_page": 34,
+     "old": "*([Day 5 pages 26–27]",
+     "proposal": "([Day 5 pages 26–27]",
+     "runs": [
+      108
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "control. Disease 5. Use of only visible figures <mark class='src'>(Day 5 pages 26 27)</mark> Obsession With Quality With that summary of invisible",
+     "site_html": "*([Day 5 pages 26–27]",
+     "evidence_html": "Verified against the page image for PDF p34 · printed p30. The page cross-reference in the heading is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "AP-14",
+     "page": "PDF p34 · printed p30",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    }
+   ]
+  },
+  {
+   "key": "clear",
+   "kind": "k-clear",
+   "title": "Checked and cleared",
+   "tag": "No defect",
+   "labels": {
+    "accept": "Agreed, no change",
+    "reject": "Disagree — change it",
+    "discuss": "Discuss"
+   },
+   "note_html": "The residual after this pass: comparator artifacts, site conventions and site-authored text.",
+   "count": "11 findings",
+   "items": [
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 1,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      0
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "value of a glossary lives in being predictable <mark class='src'>and</mark> uncluttered, not exhaustive. For a much wider map",
+     "site_html": "glossary.qmd",
+     "evidence_html": "Site-authored text. The glossary appendix is the site's own; it has no counterpart in the source, and the aligner paired its words with unrelated bold text in the PDF.",
+     "id": "AP-C01",
+     "page": "PDF p1 · front matter",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 3,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      1
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "of Deming concepts each with a one-line orientation <mark class='src'>and</mark> a link to where the course teaches it,",
+     "site_html": "glossary.qmd",
+     "evidence_html": "Site-authored text. The glossary appendix is the site's own; it has no counterpart in the source, and the aligner paired its words with unrelated bold text in the PDF.",
+     "id": "AP-C02",
+     "page": "PDF p3 · front matter",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 19,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      36
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "the histograms here in that same order. Simulations <mark class='src'>A</mark> and B: Rule 2 (top) and Rule 1",
+     "site_html": "image caption",
+     "evidence_html": "Comparator artifact. <em>Simulation A</em> / <em>Simulation B</em> are labels inside the histogram figure, which is an image on the site; they aligned against its caption.",
+     "id": "AP-C03",
+     "page": "PDF p19 · printed p15",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 19,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      37
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "here in that same order. Simulations A and <mark class='src'>B:</mark> Rule 2 (top) and Rule 1 (bottom) histograms",
+     "site_html": "image caption",
+     "evidence_html": "Comparator artifact. <em>Simulation A</em> / <em>Simulation B</em> are labels inside the histogram figure, which is an image on the site; they aligned against its caption.",
+     "id": "AP-C04",
+     "page": "PDF p19 · printed p15",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 27,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      45
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "quality against time, and consider these two graphs: <mark class='src'>Graph A</mark> and Graph B We would all (including mathematicians)",
+     "site_html": "image caption",
+     "evidence_html": "Comparator artifact. <strong>Graph A</strong> / <strong>Graph B</strong> are labels inside the figure, which is an image on the site; they aligned against its caption.",
+     "id": "AP-C05",
+     "page": "PDF p27 · printed p23",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 27,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      46
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "and consider these two graphs: Graph A and <mark class='src'>Graph B</mark> We would all (including mathematicians) agree that Graph",
+     "site_html": "image caption",
+     "evidence_html": "Comparator artifact. <strong>Graph A</strong> / <strong>Graph B</strong> are labels inside the figure, which is an image on the site; they aligned against its caption.",
+     "id": "AP-C06",
+     "page": "PDF p27 · printed p23",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 51,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      144
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "of such tail areas, i.e. probabilities. Table of <mark class='src'>tail probabilities</mark> for the normal distribution at various sigma distances",
+     "site_html": "image caption",
+     "evidence_html": "Comparator artifact. The tail-probability table is an image on the site; its bold header aligned against the image's caption.",
+     "id": "AP-C07",
+     "page": "PDF p51 · printed p47",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 51,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      145
+     ],
+     "flag": "emphasis check, lost run, 3 word(s)",
+     "source_html": "areas, i.e. probabilities. Table of tail probabilities for <mark class='src'>the normal distribution</mark> at various sigma distances from the mean, including",
+     "site_html": "image caption",
+     "evidence_html": "Comparator artifact. The tail-probability table is an image on the site; its bold header aligned against the image's caption.",
+     "id": "AP-C08",
+     "page": "PDF p51 · printed p47",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 51,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      146
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "Table of tail probabilities for the normal distribution <mark class='src'>at</mark> various sigma distances from the mean, including 0.00000340",
+     "site_html": "image caption",
+     "evidence_html": "Comparator artifact. The tail-probability table is an image on the site; its bold header aligned against the image's caption.",
+     "id": "AP-C09",
+     "page": "PDF p51 · printed p47",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 51,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      147
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "the mean, including 0.00000340 (3.4 parts per million) <mark class='src'>at</mark> 4.5σ and 0.000000000987 at 6σ Can you see",
+     "site_html": "image caption",
+     "evidence_html": "Comparator artifact. The tail-probability table is an image on the site; its bold header aligned against the image's caption.",
+     "id": "AP-C10",
+     "page": "PDF p51 · printed p47",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 4
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 12,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      12
+     ],
+     "flag": "emphasis check, swapped run, 1 word(s)",
+     "source_html": "stop the line!” Ed’s 7 <mark class='src'>to them all:</mark> [“65?] That’s a lot worse than the first week!",
+     "site_html": "***65?***",
+     "evidence_html": "Font-descriptor artifact. The Foreman's remarks are set in a script face that is slanted by design, so poppler reads <strong>65?</strong> as bold but not italic. On the page image it is bold italic (and underlined; underline is a separate #848 blind spot), which the site's <code>***65?***</code> matches.",
+     "id": "AP-C11",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    }
+   ]
+  }
+ ]
+}

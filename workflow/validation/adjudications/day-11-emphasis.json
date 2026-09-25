@@ -1,0 +1,882 @@
+{
+ "pass": "day-11-emphasis",
+ "epic": 848,
+ "issue": 877,
+ "source_pdf": "N.Day.11.18Jan20.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/days/day-11",
+ "export_filename": "day-11-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 8235,
+  "alignment": "97%",
+  "disagreeing_runs": 193,
+  "explained_by_convention": 154,
+  "lost": 21,
+  "lost_words": 32,
+  "added": 8,
+  "swapped": 10
+ },
+ "pages_read": [
+  6,
+  7,
+  8,
+  9,
+  10,
+  12,
+  14,
+  17,
+  18,
+  22,
+  26,
+  29,
+  31,
+  32,
+  34,
+  40
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #877 · emphasis pass",
+  "title": "Day 11: the emphasis the source set and the site lost",
+  "artifact_title": "Day 11 emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 21 lost runs on <code>day-11</code>, plus 8 added and 10 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 8 lost · 8 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "N.Day.11.18Jan20.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "16"
+   },
+   {
+    "label": "Runs",
+    "value": "21 lost · 8 added · 10 swapped"
+   },
+   {
+    "label": "After",
+    "value": "8 lost · 8 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "21 findings",
+   "items": [
+    {
+     "file": "01-introduction.qmd",
+     "line": 21,
+     "pdf_page": 6,
+     "old": "it's about people---how",
+     "proposal": "it's about *people*---how",
+     "runs": [
+      1
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "comparison, Part D is on Psychology: it’s about <mark class='src'>people</mark> how people behave, how people react in various",
+     "site_html": "it&#x27;s about people---how",
+     "evidence_html": "Verified against the page image for PDF p6 · printed p2.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-01",
+     "page": "PDF p6 · printed p2",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-theory-of-knowledge-prediction.qmd",
+     "line": 23,
+     "pdf_page": 7,
+     "old": "Chapter 18) separately for each of the three areas rather than trying to deal with everything all together. Thus, in each case, you will only deal",
+     "proposal": "Chapter 18) *separately for each* of the three areas rather than trying to deal with everything all together. Thus, in each case, you will *only* deal",
+     "runs": [
+      3,
+      4
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "Deming’s May 1990 version, and DemDim Chapter 18) <mark class='src'>separately for each</mark> of the three areas rather than trying to · all together. Thus, in each case, you will <mark class='src'>only</mark> deal with the extracts from this morning’s material",
+     "site_html": "Chapter 18) separately for each of the three areas rather than trying to deal with everything all together. Thus, in each case, you will only deal",
+     "evidence_html": "Verified against the page image for PDF p7 · printed p3.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-02",
+     "page": "PDF p7 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-theory-of-knowledge-prediction.qmd",
+     "line": 25,
+     "pdf_page": 7,
+     "old": "recommend that you definitely read",
+     "proposal": "recommend that you *definitely* read",
+     "runs": [
+      5
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "Therefore, in this case, I recommend that you <mark class='src'>definitely</mark> read through all of what’s available during your",
+     "site_html": "recommend that you definitely read",
+     "evidence_html": "Verified against the page image for PDF p7 · printed p3.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-03",
+     "page": "PDF p7 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-theory-of-knowledge-prediction.qmd",
+     "line": 79,
+     "pdf_page": 9,
+     "old": "explanation that <em>does</em> require",
+     "proposal": "explanation that <strong><em>does</em></strong> require",
+     "runs": [
+      16
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "presumably referring to the kind of explanation that <mark class='src'>does</mark> require some knowledge! By the time of The",
+     "site_html": "explanation that &lt;em&gt;does&lt;/em&gt; require",
+     "evidence_html": "Verified against the page image for PDF p9 · printed p5. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E11-04",
+     "page": "PDF p9 · printed p5",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-theory-of-knowledge-prediction.qmd",
+     "line": 85,
+     "pdf_page": 9,
+     "old": "how to <em>use</em> information",
+     "proposal": "how to <strong><em>use</em></strong> information",
+     "runs": [
+      24
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "part of Theory of Knowledge concerns how to <mark class='src'>use</mark> information to create and develop knowledge. Again you",
+     "site_html": "how to &lt;em&gt;use&lt;/em&gt; information",
+     "evidence_html": "Verified against the page image for PDF p9 · printed p5. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E11-05",
+     "page": "PDF p9 · printed p5",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 4
+    },
+    {
+     "file": "02-theory-of-knowledge-prediction.qmd",
+     "line": 116,
+     "pdf_page": 10,
+     "old": "effectively ignored lest",
+     "proposal": "effectively <strong><em>ignored</em></strong> lest",
+     "runs": [],
+     "flag": "emphasis check, not flagged — 0 run(s)",
+     "source_html": "… <mark class='src'>ignored</mark> … (bold italic on the page image; inside a long aside the checker counts as one run)",
+     "site_html": "effectively ignored lest",
+     "evidence_html": "Verified against the page image for PDF p10 · printed p6. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent. Not flagged by the checker, which counts this long aside as one run, but set bold italic on the same page image.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-06",
+     "page": "PDF p10 · printed p6",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-theory-of-knowledge-prediction.qmd",
+     "line": 116,
+     "pdf_page": 10,
+     "old": "respectively predictability and",
+     "proposal": "respectively <strong><em>predictability</em></strong> and",
+     "runs": [],
+     "flag": "emphasis check, not flagged — 0 run(s)",
+     "source_html": "… <mark class='src'>predictability</mark> … (bold italic on the page image; inside a long aside the checker counts as one run)",
+     "site_html": "respectively predictability and",
+     "evidence_html": "Verified against the page image for PDF p10 · printed p6. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent. Not flagged by the checker, which counts this long aside as one run, but set bold italic on the same page image.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-07",
+     "page": "PDF p10 · printed p6",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "03-theory-of-knowledge-theory-and-learning.qmd",
+     "line": 23,
+     "pdf_page": 12,
+     "old": "it as the Shewhart Cycle. For reasons",
+     "proposal": "it as the *Shewhart* Cycle. For reasons",
+     "runs": [
+      40
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "Deming himself always referred to it as the <mark class='src'>Shewhart</mark> Cycle. For reasons that you will soon see,",
+     "site_html": "it as the Shewhart Cycle. For reasons",
+     "evidence_html": "Verified against the page image for PDF p12 · printed p8.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-08",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "03-theory-of-knowledge-theory-and-learning.qmd",
+     "line": 31,
+     "pdf_page": 12,
+     "old": "diagram), knowledge increases.",
+     "proposal": "diagram), *knowledge increases*.",
+     "runs": [
+      41
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "(referring to the bottom of Professor Box’s diagram), <mark class='src'>knowledge increases.</mark> I suggest that we have here yet another",
+     "site_html": "diagram), knowledge increases.",
+     "evidence_html": "Verified against the page image for PDF p12 · printed p8.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-09",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "03-theory-of-knowledge-theory-and-learning.qmd",
+     "line": 33,
+     "pdf_page": 12,
+     "old": "Cycle as PDSA (Plan-Do-**Study**-Act)",
+     "proposal": "Cycle as PD***S***A (Plan-Do-***Study***-Act)",
+     "runs": [
+      42
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "Deming always referred to the Shewhart Cycle as <mark class='src'>PDSA</mark> (Plan-Do-Study-Act). The difference is crucial: the third step",
+     "site_html": "Cycle as PDSA (Plan-Do-**Study**-Act)",
+     "evidence_html": "Verified against the page image for PDF p12 · printed p8. The source sets the <em>S</em> of PDSA, and <em>Study</em>, in bold italic, to mark Deming's difference from PDCA.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-10",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 4
+    },
+    {
+     "file": "03-theory-of-knowledge-theory-and-learning.qmd",
+     "line": 88,
+     "pdf_page": 14,
+     "old": "about <strong>any</strong> idea",
+     "proposal": "about <strong><em>any</em></strong> idea",
+     "runs": [
+      52
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "to find examples of success of just about <mark class='src'>any</mark> idea or proposal? The trouble is that you",
+     "site_html": "about &lt;strong&gt;any&lt;/strong&gt; idea",
+     "evidence_html": "Verified against the page image for PDF p14 · printed p10. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E11-11",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-theory-of-knowledge-operational-definitions.qmd",
+     "line": 23,
+     "pdf_page": 17,
+     "old": "concepts, an operational definition is concerned",
+     "proposal": "concepts, an *operational* definition is concerned",
+     "runs": [
+      63
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "definition is concerned with ideas and concepts, an <mark class='src'>operational</mark> definition is concerned with how something is to",
+     "site_html": "concepts, an operational definition is concerned",
+     "evidence_html": "Verified against the page image for PDF p17 · printed p13.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-12",
+     "page": "PDF p17 · printed p13",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "04-theory-of-knowledge-operational-definitions.qmd",
+     "line": 34,
+     "pdf_page": 17,
+     "old": "suggests a purpose for",
+     "proposal": "suggests a *purpose* for",
+     "runs": [
+      65
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "from the newspaper article there also suggests a <mark class='src'>purpose</mark> for the change of (operational) definition! unemployed: Similarly,",
+     "site_html": "suggests a purpose for",
+     "evidence_html": "Verified against the page image for PDF p17 · printed p13.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-13",
+     "page": "PDF p17 · printed p13",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "05-activity-11a.qmd",
+     "line": 13,
+     "pdf_page": 22,
+     "old": "is concerned with why things",
+     "proposal": "is concerned with *why* things",
+     "runs": [
+      83
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "the System of Profound Knowledge is concerned with <mark class='src'>why</mark> things should be done or not done. But",
+     "site_html": "is concerned with why things",
+     "evidence_html": "Verified against the page image for PDF p22 · printed p18.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-14",
+     "page": "PDF p22 · printed p18",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "05-activity-11a.qmd",
+     "line": 13,
+     "pdf_page": 22,
+     "old": "is concerned with how to learn and to improve rather than to why we should try.",
+     "proposal": "is concerned with *how* to learn and to improve rather than to *why* we should try.",
+     "runs": [
+      84,
+      85
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "an example, the PDSA Cycle is concerned with <mark class='src'>how</mark> to learn and to improve rather than to · to learn and to improve rather than to <mark class='src'>why</mark> we should try. Therefore, in this Activity, you",
+     "site_html": "is concerned with how to learn and to improve rather than to why we should try.",
+     "evidence_html": "Verified against the page image for PDF p22 · printed p18.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-15",
+     "page": "PDF p22 · printed p18",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "05-activity-11a.qmd",
+     "line": 15,
+     "pdf_page": 22,
+     "old": "is it to apply the Theory",
+     "proposal": "is it to *apply* the Theory",
+     "runs": [
+      86
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "and Diseases, e.g. how important is it to <mark class='src'>apply</mark> the Theory of Knowledge if we are to",
+     "site_html": "is it to apply the Theory",
+     "evidence_html": "Verified against the page image for PDF p22 · printed p18.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E11-16",
+     "page": "PDF p22 · printed p18",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "06-knowledge-of-psychology.qmd",
+     "line": 104,
+     "pdf_page": 29,
+     "old": "because of <em>wanting to</em>,",
+     "proposal": "because of <strong><em>wanting to</em></strong>,",
+     "runs": [
+      130
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "desire to do a good job because of <mark class='src'>wanting to,</mark> because of job-satisfaction, because of interest and excitement",
+     "site_html": "because of &lt;em&gt;wanting to&lt;/em&gt;,",
+     "evidence_html": "Verified against the page image for PDF p29 · printed p25. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E11-17",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "06-knowledge-of-psychology.qmd",
+     "line": 106,
+     "pdf_page": 29,
+     "old": "<strong>destroying</strong>",
+     "proposal": "<strong><em>destroying</em></strong>",
+     "runs": [
+      133
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "management concentrates on less-fruitful extrinsic motivation, regrettably simultaneously <mark class='src'>destroying</mark> much of that precious intrinsic motivation. Overjustification is",
+     "site_html": "&lt;strong&gt;destroying&lt;/strong&gt;",
+     "evidence_html": "Verified against the page image for PDF p29 · printed p25. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E11-18",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "06-knowledge-of-psychology.qmd",
+     "line": 152,
+     "pdf_page": 31,
+     "old": "to be <strong>incorrect</strong>, there may be some loss of dignity and self-esteem; there will certainly be loss of respect for the company and its management. If I am encouraged, or indeed required, to do what I know to be <strong>morally wrong</strong>",
+     "proposal": "to be <strong><em>incorrect</em></strong>, there may be some loss of dignity and self-esteem; there will certainly be loss of respect for the company and its management. If I am encouraged, or indeed required, to do what I know to be <strong><em>morally wrong</em></strong>",
+     "runs": [
+      139,
+      141
+     ],
+     "flag": "emphasis check, swapped — 2 run(s)",
+     "source_html": "encouraged to do what I believe to be <mark class='src'>incorrect,</mark> there may be some loss of dignity and · required, to do what I know to be <mark class='src'>morally wrong,</mark> these losses become vast.] No-one, child or other,",
+     "site_html": "to be &lt;strong&gt;incorrect&lt;/strong&gt;, there may be some loss of dignity and self-esteem; there will certainly be loss of respect for the company and its management. If I am encouraged, or indeed required, to do what I know to be &lt;strong&gt;morally wrong&lt;/strong&gt;",
+     "evidence_html": "Verified against the page image for PDF p31 · printed p27. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E11-19",
+     "page": "PDF p31 · printed p27",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "06-knowledge-of-psychology.qmd",
+     "line": 185,
+     "pdf_page": 32,
+     "old": "not an <strong>intrinsic</strong> motivator; there is also considerable evidence that it is often not as important an <strong>extrinsic</strong> one",
+     "proposal": "not an <strong><em>intrinsic</em></strong> motivator; there is also considerable evidence that it is often not as important an <strong><em>extrinsic</em></strong> one",
+     "runs": [
+      148,
+      150
+     ],
+     "flag": "emphasis check, swapped — 2 run(s)",
+     "source_html": "a motivator. <mark class='src'>At least, pay is not an [intrinsic</mark> motivator; there is also considerable evidence that it · that it is often not as important an <mark class='src'>extrinsic</mark> one as many people think. Some appreciation of",
+     "site_html": "not an &lt;strong&gt;intrinsic&lt;/strong&gt; motivator; there is also considerable evidence that it is often not as important an &lt;strong&gt;extrinsic&lt;/strong&gt; one",
+     "evidence_html": "Verified against the page image for PDF p32 · printed p28. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E11-20",
+     "page": "PDF p32 · printed p28",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "06-knowledge-of-psychology.qmd",
+     "line": 187,
+     "pdf_page": 32,
+     "old": "<strong>above a certain level</strong>",
+     "proposal": "<strong><em>above a certain level</em></strong>",
+     "runs": [
+      157
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "page 279 this is usefully qualified to pay, <mark class='src'>above a certain level,</mark> is not a motivator (my emphasis). One might",
+     "site_html": "&lt;strong&gt;above a certain level&lt;/strong&gt;",
+     "evidence_html": "Verified against the page image for PDF p32 · printed p28. Bold italic in the source: bold emphasis inside Neave's italic aside. The site had it in one style only. It is now bold italic, following the Day 7, Day 8 and Day 10 precedent.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E11-21",
+     "page": "PDF p32 · printed p28",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    }
+   ]
+  },
+  {
+   "key": "clear",
+   "kind": "k-clear",
+   "title": "Checked and cleared",
+   "tag": "No defect",
+   "labels": {
+    "accept": "Agreed, no change",
+    "reject": "Disagree — change it",
+    "discuss": "Discuss"
+   },
+   "note_html": "The residual after this pass: comparator artifacts, site conventions and site-authored text.",
+   "count": "16 findings",
+   "items": [
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 8,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      7
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "4 6, where Area 1: Prediction begins <mark class='src'>WB [186 188</mark>.] Area 1, Step 2: Dr Deming’s May 1990",
+     "site_html": "[*WB* nnn]",
+     "evidence_html": "Site convention. Workbook references are set <code>[*WB* nnn]</code> throughout the site, with only <em>WB</em> italic; the source italicises the whole bracket. This is consistent site styling (cleared the same way on Day 10), not a lost emphasis.",
+     "id": "E11-C01",
+     "page": "PDF p8 · printed p4",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 12,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      37
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "11, where Area 2’s Step 2 begins <mark class='src'>WB [190 191</mark>.] Area 2, Step 1a: A chapter from DemDim",
+     "site_html": "[*WB* nnn]",
+     "evidence_html": "Site convention. Workbook references are set <code>[*WB* nnn]</code> throughout the site, with only <em>WB</em> italic; the source italicises the whole bracket. This is consistent site styling (cleared the same way on Day 10), not a lost emphasis.",
+     "id": "E11-C02",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 17,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      60
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "15, where Area 3’s Step 2 begins <mark class='src'>WB [193 194</mark>.] Area 3, Step 1a: A chapter from DemDim",
+     "site_html": "[*WB* nnn]",
+     "evidence_html": "Site convention. Workbook references are set <code>[*WB* nnn]</code> throughout the site, with only <em>WB</em> italic; the source italicises the whole bracket. This is consistent site styling (cleared the same way on Day 10), not a lost emphasis.",
+     "id": "E11-C03",
+     "page": "PDF p17 · printed p13",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 26,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      110
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "pages 22 30, where Part D begins <mark class='src'>WB [201 209</mark>.] Step 2: Dr Deming’s May 1990 version Psychology",
+     "site_html": "[*WB* nnn]",
+     "evidence_html": "Site convention. Workbook references are set <code>[*WB* nnn]</code> throughout the site, with only <em>WB</em> italic; the source italicises the whole bracket. This is consistent site styling (cleared the same way on Day 10), not a lost emphasis.",
+     "id": "E11-C04",
+     "page": "PDF p26 · printed p22",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 40,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      190
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "extra copies of Day 12 page 9 <mark class='src'>WB [218</mark>] or, preferably, enlargements of the diagram on that",
+     "site_html": "[*WB* nnn]",
+     "evidence_html": "Site convention. Workbook references are set <code>[*WB* nnn]</code> throughout the site, with only <em>WB</em> italic; the source italicises the whole bracket. This is consistent site styling (cleared the same way on Day 10), not a lost emphasis.",
+     "id": "E11-C05",
+     "page": "PDF p40 · printed p36",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 40,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      191
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "the table on Day 12 page 4 <mark class='src'>WB [216</mark>] would save you some time as you fill",
+     "site_html": "[*WB* nnn]",
+     "evidence_html": "Site convention. Workbook references are set <code>[*WB* nnn]</code> throughout the site, with only <em>WB</em> italic; the source italicises the whole bracket. This is consistent site styling (cleared the same way on Day 10), not a lost emphasis.",
+     "id": "E11-C06",
+     "page": "PDF p40 · printed p36",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 9,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      18
+     ],
+     "flag": "emphasis check, added run, 3 word(s)",
+     "source_html": "does require some knowledge! By the time of <mark class='src'>The New Economics</mark> (page 69[102]), he had avoided the problem by",
+     "site_html": "&lt;em&gt;DemDim&lt;/em&gt; / &lt;em&gt;The New Economics&lt;/em&gt; / &lt;em&gt;The Essential Deming&lt;/em&gt; inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the source's inversion, flipped (cleared the same way on Day 10).",
+     "id": "E11-C07",
+     "page": "PDF p9 · printed p5",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 9,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      22
+     ],
+     "flag": "emphasis check, added run, 3 word(s)",
+     "source_html": "emphasis in the Theory of Knowledge part of <mark class='src'>The New Economics</mark> Chapter 4 (page 72 [106]) is that information",
+     "site_html": "&lt;em&gt;DemDim&lt;/em&gt; / &lt;em&gt;The New Economics&lt;/em&gt; / &lt;em&gt;The Essential Deming&lt;/em&gt; inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the source's inversion, flipped (cleared the same way on Day 10).",
+     "id": "E11-C08",
+     "page": "PDF p9 · printed p5",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 10,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      31
+     ],
+     "flag": "emphasis check, added run, 2 word(s)",
+     "source_html": "7: Management is Prediction on page 263 of <mark class='src'>The Essential</mark> Deming. Here Deming was primarily (but not wholly)",
+     "site_html": "&lt;em&gt;DemDim&lt;/em&gt; / &lt;em&gt;The New Economics&lt;/em&gt; / &lt;em&gt;The Essential Deming&lt;/em&gt; inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the source's inversion, flipped (cleared the same way on Day 10).",
+     "id": "E11-C09",
+     "page": "PDF p10 · printed p6",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 18,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      68
+     ],
+     "flag": "emphasis check, added run, 1 word(s)",
+     "source_html": "case with you had you not recently read <mark class='src'>DemDim</mark> Chapter 7 for careful thought concerning operational definitions",
+     "site_html": "&lt;em&gt;DemDim&lt;/em&gt; / &lt;em&gt;The New Economics&lt;/em&gt; / &lt;em&gt;The Essential Deming&lt;/em&gt; inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the source's inversion, flipped (cleared the same way on Day 10).",
+     "id": "E11-C10",
+     "page": "PDF p18 · printed p14",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 29,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      136
+     ],
+     "flag": "emphasis check, added run, 1 word(s)",
+     "source_html": "See also the Life Diagram (highly recommended) on <mark class='src'>DemDim</mark> page 389. All that follows on the next",
+     "site_html": "&lt;em&gt;DemDim&lt;/em&gt; / &lt;em&gt;The New Economics&lt;/em&gt; / &lt;em&gt;The Essential Deming&lt;/em&gt; inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the source's inversion, flipped (cleared the same way on Day 10).",
+     "id": "E11-C11",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 4
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 31,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      144
+     ],
+     "flag": "emphasis check, added run, 1 word(s)",
+     "source_html": "on the harm of merit rating etc, see <mark class='src'>DemDim</mark> Chapter 30; for particular arguments relating to education,",
+     "site_html": "&lt;em&gt;DemDim&lt;/em&gt; / &lt;em&gt;The New Economics&lt;/em&gt; / &lt;em&gt;The Essential Deming&lt;/em&gt; inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the source's inversion, flipped (cleared the same way on Day 10).",
+     "id": "E11-C12",
+     "page": "PDF p31 · printed p27",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 32,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      155
+     ],
+     "flag": "emphasis check, added run, 1 word(s)",
+     "source_html": "worth long consideration and discussion. Note that on <mark class='src'>DemDim</mark> page 279 this is usefully qualified to pay,",
+     "site_html": "&lt;em&gt;DemDim&lt;/em&gt; / &lt;em&gt;The New Economics&lt;/em&gt; / &lt;em&gt;The Essential Deming&lt;/em&gt; inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the source's inversion, flipped (cleared the same way on Day 10).",
+     "id": "E11-C13",
+     "page": "PDF p32 · printed p28",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 34,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      160
+     ],
+     "flag": "emphasis check, added run, 1 word(s)",
+     "source_html": "addressed with illustrations on the second half of <mark class='src'>DemDim</mark> page 279, at the end of the Psychology",
+     "site_html": "&lt;em&gt;DemDim&lt;/em&gt; / &lt;em&gt;The New Economics&lt;/em&gt; / &lt;em&gt;The Essential Deming&lt;/em&gt; inside a neave_note",
+     "evidence_html": "Site convention. Neave's italic aside is a <code>neave_note</code> on the site, set upright, so titles he set upright <em>inside</em> it are italicised to keep them distinct. This is the source's inversion, flipped (cleared the same way on Day 10).",
+     "id": "E11-C14",
+     "page": "PDF p34 · printed p30",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 29,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      127
+     ],
+     "flag": "emphasis check, lost run, 2 word(s)",
+     "source_html": "section (which continues all the way through to <mark class='src'>page 30,</mark> the final bullets on overjustification). Dr Deming placed",
+     "site_html": "[page 30, the final bullets on overjustification](…)",
+     "evidence_html": "Site-adapted link text. Inside Neave's aside the site's enriched cross-reference link, <q>page 30, the final bullets on overjustification</q>, breaks the aside into a short run; the aside itself is a <code>neave_note</code>, set upright by convention.",
+     "id": "E11-C15",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 31,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      142
+     ],
+     "flag": "emphasis check, lost run, 4 word(s)",
+     "source_html": "do what I know to be morally wrong, <mark class='src'>these losses become vast.</mark>] No-one, child or other, can enjoy learning if",
+     "site_html": "neave_note aside text",
+     "evidence_html": "Site convention. <q>these losses become vast.]</q> is the end of Neave's italic aside, which the site sets upright as a <code>neave_note</code>. The bold-italic <em>morally wrong</em> just before it splits it off from the long run the convention rule would otherwise explain.",
+     "id": "E11-C16",
+     "page": "PDF p31 · printed p27",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    }
+   ]
+  }
+ ]
+}

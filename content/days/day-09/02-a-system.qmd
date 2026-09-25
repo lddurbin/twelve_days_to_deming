@@ -16,7 +16,7 @@ Learning about what Dr Deming meant by a "system" can be described as "double-va
 1. appreciating the *Deming philosophy* as a system, and
 2. appreciating an *organisation* as a system.
 
-The former has been an ever-present and developing theme throughout this course. The Activities during the Second Project which occupies all of Days 10 and 11 will also repeatedly return us to that theme. But during both this morning and tomorrow morning we shall concentrate more particularly on the second aspect. This morning provides some broad and fundamental thoughts about appreciating an organisation as a system, while tomorrow morning we shall get down to more detail.
+The former has been an ever-present and developing theme throughout this course. The Activities during the Second Project which occupies all of Days 10 and 11 will also repeatedly return us to that theme. But during both this morning and tomorrow morning we shall concentrate more particularly on the second aspect. This morning provides some broad and fundamental thoughts about appreciating an *organisation* as a system, while tomorrow morning we shall get down to more detail.
 
 Had I ever produced a new edition of *DemDim*, one change I'd surely have made would be to put the topic of ["Appreciation for a System"]{.deming_quote} much more "up-front". Except for the appropriate section in my System of Profound Knowledge chapter (Chapter 18), the most relevant writing is tucked away in Chapter 8: "Processes and Systems", which is in the middle of the already substantial Part 2 of the book.
 
@@ -39,9 +39,9 @@ But there was certainly no doubt about the importance of the flow diagram in Dem
 
 > ["I believe that this diagram made the difference in Japan."]{.deming_quote}
 
-Quite a claim for a single and not particularly complicated sketch! Did he really mean it---that just that diagram (and, obviously, the learning which it portrays) had *made the difference* in Japan?
+Quite a claim for a single and not particularly complicated sketch! Did he really mean it---that just that diagram (and, obviously, the learning which it portrays) had made *the* difference in Japan?
 
-Yes, he did. If you read *The New Economics* page 41[57] then you'll be left in no doubt. There you will find a section headed with the question: ["What ignited Japan?"]{.deming_quote}. The section begins as follows---and this not only makes the claim but also explains *why he made it*:
+Yes, he did. If you read *The New Economics* page 41[57] then you'll be left in no doubt. There you will find a section headed with the question: ["What ignited Japan?"]{.deming_quote}. The section begins as follows---and this not only *makes* the claim but also explains *why* he made it:
 
 > ["The flow diagram ... was the spark that in 1950 and onward turned Japan around. It displayed to top management and to engineers a system of production. The Japanese had knowledge, great knowledge, but it was in bits and pieces, uncoordinated. This flow diagram directed their knowledge and efforts into a system of production, geared to the market---namely, prediction of needs of customers. The whole world knows about the results.]{.deming_quote}
 >
@@ -49,7 +49,7 @@ Yes, he did. If you read *The New Economics* page 41[57] then you'll be left in 
 >
 > [Action began to take place when top management and engineers saw how to use their knowledge."]{.deming_quote}
 
-That extract is versed in the context of production. Indeed, Dr Deming's own title for the flow diagram on *Out of the Crisis* page 3[4] was ["Production Viewed as a System"]{.deming_quote}. I prefer the more generic "Organisation Viewed as a System", for the concept is surely universal. In fact, within the small print under the diagram in *Out of the Crisis*, Dr Deming indicated such a universal nature by remarking how the diagram can easily be amended to apply to a service organisation by just changing a few words. That small-print description is well worth reproducing in full:
+That extract is versed in the context of production. Indeed, Dr Deming's own title for the flow diagram on *Out of the Crisis* page 3[4] was ["Production Viewed as a System"]{.deming_quote}. I prefer the more generic "*Organisation* Viewed as a System", for the concept is surely universal. In fact, within the small print under the diagram in *Out of the Crisis*, Dr Deming indicated such a universal nature by remarking how the diagram can easily be amended to apply to a service organisation by just changing a few words. That small-print description is well worth reproducing in full:
 
 > ["**Figure 1.** Production viewed as a system. Improvement of quality envelops the entire production line, from incoming materials to the consumer, and redesign of product and service for the future. This chart was first used in August 1950 at a conference with top management at the Hotel de Yama on Mount Hakone in Japan. In a service organisation, the sources A, B, C, etc, could be sources of data, or work from preceding operations, such as charges (as in a department store), calculation of charges, deposits, withdrawals, inventories in and out, transcriptions, shipping orders, and the like."]{.deming_quote}
 
@@ -74,7 +74,7 @@ Were there a prize for the best-ever combination of simple and profound, this wo
 
 ## PAUSE FOR THOUGHT 9–a {#sec-page4}
 
-So what is the important difference between the "Old Way" and the "New Way"?
+So what *is* the important difference between the "Old Way" and the "New Way"?
 
 ```{ojs}
 import { persist } from "../../../assets/scripts/workbook.js"
@@ -117,11 +117,11 @@ Click this after writing your comments
 
 **The "Old Way"**
 
-You do this (Step 1), then you do that (Step 2), then you do something else (Step 3)---and that's it! Done; finished; gone. And later, presumably you may do something similar again, one or more times. And each time it's simply: done; finished; gone!
+You do *this* (Step 1), then you do *that* (Step 2), then you do *something else* (Step 3)---and that's it! Done; finished; gone. And later, presumably you may do something similar again, one or more times. And each time it's simply: done; finished; *gone!*
 
 **The "New Way"**
 
-The circle immediately creates thoughts of feedback, learning, improvement. Having gone around the circle once, Step 3 leads back into Step 1. We learn from what happened the first time around and, as a result, we may appropriately alter (improve) Step 1, according to what has just been learned. And that in turn is likely to alter (improve) what happens in Step 2, which is likely to alter (improve) what happens in Step 3. And the learning from that second cycle is fed into the third cycle, improving what happens throughout yet further.
+The circle immediately creates thoughts of feedback, learning, improvement. Having gone around the circle once, *Step 3 leads back into Step 1*. We *learn* from what happened the first time around and, as a result, we may appropriately alter (improve) Step 1, according to what has just been learned. And that in turn is likely to alter (improve) what happens in Step 2, which is likely to alter (improve) what happens in Step 3. And the learning from that second cycle is fed into the third cycle, improving what happens throughout yet further.
 
 </div>
 </div>
@@ -150,7 +150,7 @@ And having done that, with the resulting change in thought and action, he now ob
 
 > "The three steps constitute a dynamic scientific process of acquiring knowledge."
 
-A dynamic scientific process of acquiring knowledge! Rather different from *done; finished; gone!* And this was back in 1939---hardly "rocket science"! But eminently profound. No wonder Dr Deming always spoke of Walter Shewhart with such warmth and gratitude.
+*A dynamic scientific process of acquiring knowledge!* Rather different from *done; finished; gone!* And this was back in 1939---hardly "rocket science"! But eminently profound. No wonder Dr Deming always spoke of Walter Shewhart with such warmth and gratitude.
 
 []{#sec-page6}
 
