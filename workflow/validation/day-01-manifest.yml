@@ -58,8 +58,8 @@ chapters:
     viewof_count: 3
     figures: []
     headings:
-      - "PAUSE FOR THOUGHT 1-a"
-      - "PAUSE FOR THOUGHT 1-b"
+      - "PAUSE FOR THOUGHT 1–a"
+      - "PAUSE FOR THOUGHT 1–b"
       - "PAUSE FOR THOUGHT 1–c"
     has_download_button: true
 
@@ -67,7 +67,7 @@ chapters:
     viewof_count: 3
     figures: []
     headings:
-      - "ACTIVITY 1-d"
+      - "ACTIVITY 1–d"
       - "PAUSE FOR THOUGHT 1–e"
     has_download_button: true
 

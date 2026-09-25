@@ -35,7 +35,9 @@ Finally, on Day 12, we shall do a number of things to finally "bring it all toge
 
 It will be helpful at this point for you to **read through a short section in *DemDim*: page 259 to two-thirds down page 261.** This will give you some general background and a brief history of the development of Dr Deming's work on "Profound Knowledge" during those final years of his life.
 
+<div class="neave_note">
 You may notice that the titles of the four parts of the System of Profound Knowledge as presented on *DemDim* page 261 are slightly different from those that you have just seen here. That is not unusual---Dr Deming himself did not always stick exactly to the same words. The same is true of other authors. For example, you already saw other slight variations in the titles long ago in Peter Scholtes's diagrammatic representation on [Day 1 page 39](../day-01/11-deming-story.qmd#sec-page39). Take a quick look at it again if you've forgotten it.
+</div>
 
 ### Sources of learning
 
@@ -95,6 +97,8 @@ Having finished your detailed work on the individual issues in each half-day, *t
 
 Here I will first ask you to comment on what you see as the importance of addressing the 14 Points and curing the Deadly Diseases *in light of your learning from that part of the System of Profound Knowledge*. You should not spend long over this. You have already become familiar with the 14 Points and Deadly Diseases on Days 4 and 5, and many of the links with the Joiner Triangle that you spotted there will be relevant here also.
 
+<div class="neave_note">
 To support that remark it is worth pointing out that, as you'll probably have realised, there are some pretty obvious connections between the three vertices of the Joiner Triangle and the four parts of the System of Profound Knowledge. For example, the first part of the System of Profound Knowledge is "Appreciation for a System". Surely our thoughts about the horizontal rather than the vertical "organisation chart" are wholly related to "All One Team". Similarly, "Optimisation of a System" and the *aim* or *purpose* of the system must surely have something to do with an "Obsession With Quality". Again, the "Scientific Approach" has clear connections with both the second and third parts of the System of Profound Knowledge: "Knowledge of Variation" and "Theory of Knowledge". Then the fourth part of the System of Profound Knowledge is "Psychology"---*people*---and there can be no doubt that all three emphases from the Joiner Triangle are very much to do with people: how they need to be treated and how they can be enabled to realise their full potential. So, if on Days 4 and 5 you saw plenty of connections between the 14 Points and curing the Deadly Diseases with messages from the Joiner Triangle, you will also immediately see plenty of connections with the System of Profound Knowledge. Use them!
+</div>
 
 The final phase of the work will be for you to indicate on a simple 0–5 scale what, at that stage, you understand and appreciate as the strength of the links between the relevant part of the System of Profound Knowledge and adopting the Points and curing the Diseases. These data will be used early on Day 12 to provide some personalised guidance for your further study and learning.

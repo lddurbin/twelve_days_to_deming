@@ -26,7 +26,9 @@ Four large boxes arranged in a 2×2 grid, each pointing inward toward a small em
 
 Particularly in your early days of learning about the System of Profound Knowledge, Peter's diagram here is well worth repeated attention. Although there are only two or three entries in each part, they are enough to remind you of the type and flavour of the content of each of the four parts, rather beyond that which merely their titles might imply. Take a little time to look through them carefully, say, three or four times before continuing.
 
+<div class="neave_note">
 Advance notice: On Day 12, for still further learning and also amusement, we shall see Peter's superb parody of the above diagram: "A System of Profound Trouble"!
+</div>
 
 Second, we have the short introduction to the System of Profound Knowledge in *DemDim*. Soon after you start reading it, you will recognise that it is not in my own normal style of writing! No, in fact almost all of the main text in Chapter 18 from this point onward is in Dr Deming's own words, with my contributions appearing in small print. However, both in that introduction and with each of the four parts, I was quoting from a variety of his presentations and writings. Therefore there is generally rather more text in my Chapter 18 than there is in Dr Deming's May 1990 version, including some material from his later versions. Nevertheless, his exceptional conciseness of style will still be well in evidence throughout the rest of Chapter 18. **I suggest you now read this introduction (*DemDim* from the bottom of page 261 through to page 264) two or three times before continuing.**
 
@@ -78,20 +80,28 @@ Dr Deming's short introduction here skilfully launches important material from a
 
 [Theory of variation *[*i.e. statistical theory*]* can play a vital part in optimisation of a system. Statistical theory is helpful for understanding differences between people and the systems that they work in.]{.deming_quote}
 
-*[*Optimisation of a system surely includes elimination of wasteful, undesirable variation. Inability to distinguish between variation caused by the system and that which might e.g. be due in some way to people who work within it thus prevents optimisation: indeed, as we know from the Funnel Experiment, it may well make things much worse.*]*
+<div class="neave_note">
+\[Optimisation of a system surely includes elimination of wasteful, undesirable variation. Inability to distinguish between variation caused by the system and that which might e.g. be due in some way to people who work within it thus prevents optimisation: indeed, as we know from the Funnel Experiment, it may well make things much worse.\]
+</div>
 
 [Assistance to systematic learning is a speciality of the statistician *[*or, at least, that is so in Dr Deming's wise view of what a statistician should be*]*. Statisticians that understand a system and optimisation thereof, along with some theory of knowledge and something about psychology, could apply their specialised knowledge of variation toward continual improvement of methods for better prediction, and hence for better management. They could help people to retain their intrinsic motivation to learn. Statisticians that understand their unique role will no longer teach tests of significance, tests of hypothesis, chi-square.]{.deming_quote}
 
-*[*These techniques from "conventional statistics" are only appropriate for so-called "enumerative studies". What ability do such techniques have to predict, to aid improvement? Are they designed for that? This will be covered in Paragraph 9 of Part B on [Day 10 page 25](../day-10/04-theory-of-variation.qmd#sec-page25) and additional discussion there. A brief description of "tests of significance, tests of hypothesis" is included on the final page (page 55) of Part D in the Optional Extras section. The meaning of the term "enumerative studies" and discussion of why they are inappropriate for interpreting process data are matters covered in Part C of the Optional Extras.*]*
+<div class="neave_note">
+\[These techniques from "conventional statistics" are only appropriate for so-called "enumerative studies". What ability do such techniques have to predict, to aid improvement? Are they designed for that? This will be covered in Paragraph 9 of Part B on [Day 10 page 25](../day-10/04-theory-of-variation.qmd#sec-page25) and additional discussion there. A brief description of "tests of significance, tests of hypothesis" is included on the final page (page 55) of Part D in the Optional Extras section. The meaning of the term "enumerative studies" and discussion of why they are inappropriate for interpreting process data are matters covered in Part C of the Optional Extras.\]
+</div>
 
 [Statistical theory, used cautiously, with the theory of knowledge, can be useful in the interpretation of the results of tests and experiments, to understand cause-and-effect relationships. The interpretation of the results of tests and experiments is for future use: prediction.]{.deming_quote}
 
 [If economists understood the theory of a system, and the role of cooperation in optimisation, they would no longer teach and preach salvation through adversarial competition. They would, instead, lead us into optimisation, in which everybody would come out ahead, including competitors.]{.deming_quote}
 
-*\[Useful reading on the advantages of cooperation over competition is to be found in the books* No Contest *by Alfie Kohn* and Beyond Negotiation *by John Carlisle and Robert Parker.\]*
+<div class="neave_note">
+\[Useful reading on the advantages of cooperation over competition is to be found in the books *No Contest* by Alfie Kohn and *Beyond Negotiation* by John Carlisle and Robert Parker.\]
+</div>
 
 [Indeed, if any two or more companies or institutions put their heads together for uniform prices, they would be fools to set the price higher than what would optimise the whole system---they themselves, their customers, suppliers, employees, and the communities that their people work in.]{.deming_quote}
 
 [The theory of knowledge helps us to understand that management in any form is prediction. *[*For example, the moment you contract to do or sell something for a particular price, you have **predicted** that some people will buy it, that it can be done for the price, that delivery on the agreed timescale can be achieved, that it will make a reasonable profit, etc.*]* The simplest plan---how may I go home tonight?---requires prediction that my automobile will start and run, or that the bus will come, or the train. Management acts on a causal system, and on changes in the causes.]{.deming_quote}
 
-*[*The main substance of this final paragraph will be revisited at the start of the Theory of Knowledge section on [Day 11 page 4](../day-11/02-theory-of-knowledge-prediction.qmd#sec-page4).*]*
+<div class="neave_note">
+\[The main substance of this final paragraph will be revisited at the start of the Theory of Knowledge section on [Day 11 page 4](../day-11/02-theory-of-knowledge-prediction.qmd#sec-page4).\]
+</div>

@@ -12,12 +12,12 @@ words:
   qmd: 15071
   aligned: 14225
 runs:
-  total: 31
-  explained: 31
+  total: 42
+  explained: 37
 counts:
-  lost: 0
-  lost_words: 0
-  added: 0
-  added_words: 0
+  lost: 3
+  lost_words: 11
+  added: 2
+  added_words: 4
   swapped: 0
   swapped_words: 0

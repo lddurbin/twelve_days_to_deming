@@ -51,7 +51,7 @@ viewof thought_3f = persist(
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3f" aria-expanded="false" aria-controls="collapse_3f">
-Reveal suggested answer for Pause for Thought 3-f
+Reveal suggested answer for Pause for Thought 3–f
 </button>
 
 <div class="collapse" id="collapse_3f">

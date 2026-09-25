@@ -170,7 +170,7 @@ viewof thought_2a = persist(
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_2a" aria-expanded="false" aria-controls="collapse_2a">
-Reveal suggested answer for Pause for Thought 2-a
+Reveal suggested answer for Pause for Thought 2–a
 </button>
 
 <div class="collapse" id="collapse_2a">
