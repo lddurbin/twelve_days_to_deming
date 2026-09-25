@@ -17,7 +17,7 @@
     "lost_words": 105,
     "added": 7,
     "swapped": 2,
-    "raised_by_this_pass": 3
+    "raised_by_this_pass": 4
   },
   "pages_read": [
     5,
@@ -421,9 +421,29 @@
           "decision_preset": false,
           "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
           "page_pos": 1
+        },
+        {
+          "id": "E8-W04",
+          "chip": "source typo",
+          "chip_class": "crit",
+          "file": "06-major-activity.qmd",
+          "line": 171,
+          "page": "PDF p32 · printed p28",
+          "pdf_page": 32,
+          "page_pos": 6,
+          "flag": "not flagged — raised in Lee's review of PR #872",
+          "source_html": "contribute to enhanced Joy in <mark class='src'>Word</mark> in that area?",
+          "site_html": "contribute to enhanced Joy in Word in that area?",
+          "evidence_html": "Neave's slip: the same paragraph names Joy in Work as the component in question. Corrected and logged in docs/deviations/2026-09-25-day-08-joy-in-word-typo-corrected.md.",
+          "proposal": "enhanced Joy in Work in that area",
+          "old": "enhanced Joy in Word in that area",
+          "runs": [],
+          "decision": "accept",
+          "decision_preset": false,
+          "decision_note": "Lee: \"should be corrected, with a deviations log\" (PR #872 review, 2026-09-25)."
         }
       ],
-      "count": "3 findings"
+      "count": "4 findings"
     },
     {
       "key": "emph",
