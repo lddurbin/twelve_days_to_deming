@@ -8,7 +8,7 @@ chapters:
     figures: []
     headings:
       - "DAY 6: GALLERY FURNITURE AND OTHER TRUE STORIES"
-      - "ACTIVITY 6-a"
+      - "ACTIVITY 6–a"
     has_download_button: true
 
   - file: "02-gallery-furniture.qmd"
@@ -26,9 +26,9 @@ chapters:
     figures:
       - "/assets/images/day-06/scoring-table.png"
     headings:
-      - "ACTIVITY 6-b: \"Pre-Deming\" Gallery Furniture"
-      - "ACTIVITY 6-b: \"Post-Deming\" Gallery Furniture"
-      - "ACTIVITY 6-b: Comparison with your organisation"
+      - "ACTIVITY 6–b: \"Pre-Deming\" Gallery Furniture"
+      - "ACTIVITY 6–b: \"Post-Deming\" Gallery Furniture"
+      - "ACTIVITY 6–b: Comparison with your organisation"
     has_download_button: true
 
   - file: "04-more-true-stories.qmd"

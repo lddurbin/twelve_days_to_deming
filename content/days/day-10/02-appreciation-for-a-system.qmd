@@ -285,4 +285,4 @@ createDownloadButton([
 ], "notes_10_appreciation_for_a_system.txt")
 ```
 
-*(After the break, continue to Activity 10-a overleaf.)*
+*(After the break, continue to Activity 10–a overleaf.)*

@@ -9,11 +9,11 @@ files:
   compared: 8
 words:
   pdf: 8490
-  qmd: 8391
-  aligned: 8235
+  qmd: 8393
+  aligned: 8239
 runs:
-  total: 172
-  explained: 156
+  total: 171
+  explained: 155
 counts:
   lost: 8
   lost_words: 16

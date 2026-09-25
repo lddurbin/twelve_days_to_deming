@@ -27,7 +27,7 @@ Early during the second morning of the seminar, Dr Deming invited the founder an
 
 The account which follows is all in Mack's own words. I have extracted it from three sources: the video just mentioned, his 1993 conference paper, and his 1999 conference presentation. I have had to be selective: Mack spoke so fast that e.g. a complete transcription of his 1999 conference presentation fills about four times the space that I am using here!
 
-After you have read Mack's account, I shall ask you to carry out a similar exercise with what you then know about Gallery as you have just done in connection with your own organisation in Activity 6-a. Note that you will find virtually *no* direct references to the 14 Points or Deadly Diseases in Mack's account (although you will certainly recognise a lot of familiar content). That is not surprising: Mack did not come across Dr Deming until late 1990, and by that time Dr Deming himself rarely referred to them explicitly. If there was a mention then it tended to be more in the spirit of the statement on *The New Economics* page 64[93]:
+After you have read Mack's account, I shall ask you to carry out a similar exercise with what you then know about Gallery as you have just done in connection with your own organisation in Activity 6–a. Note that you will find virtually *no* direct references to the 14 Points or Deadly Diseases in Mack's account (although you will certainly recognise a lot of familiar content). That is not surprising: Mack did not come across Dr Deming until late 1990, and by that time Dr Deming himself rarely referred to them explicitly. If there was a mention then it tended to be more in the spirit of the statement on *The New Economics* page 64[93]:
 
 > "The 14 points for management (*Out of the Crisis*, Ch. 2) in industry, education, and government follow naturally as application of this outside knowledge, for transformation from the present style of Western management to one of optimisation."
 
@@ -266,4 +266,4 @@ In finishing, I'd like to talk about the last time I saw Dr Deming. My son James
 
 We all do.
 
-*(Now please move on to [page 18, the start of Major Activity 6-b](03-activity-6b.qmd#sec-page18) to make a start on today's Major Activity.)*
+*(Now please move on to [page 18, the start of Major Activity 6–b](03-activity-6b.qmd#sec-page18) to make a start on today's Major Activity.)*

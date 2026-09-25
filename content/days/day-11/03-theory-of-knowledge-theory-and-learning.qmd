@@ -100,7 +100,7 @@ viewof note_11_theory_5 = persist(
 </div>
 
 <div class="neave_note">
-[Doubtless, the people to whom Daniel Boorstin referred, relating to Pause for Thought 2-b, had countless examples to confirm that the Earth is flat ... .]
+[Doubtless, the people to whom Daniel Boorstin referred, relating to Pause for Thought 2–b, had countless examples to confirm that the Earth is flat ... .]
 </div>
 
 ```{ojs}

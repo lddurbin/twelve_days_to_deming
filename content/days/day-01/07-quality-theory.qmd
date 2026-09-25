@@ -35,7 +35,7 @@ what the “request for action” is asking you to do. Preferably cover it up wi
 
 <div class="thought_commentary" role="note" aria-label="Commentary">
 
-## PAUSE FOR THOUGHT 1-a
+## PAUSE FOR THOUGHT 1–a {#pause-for-thought-1-a}
 
 <span class=deming_quote>“Quality is made at the top.”</span> Do you agree, and why?
 
@@ -49,7 +49,7 @@ viewof thought_1a = persist(
 ```
 
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_1a" aria-expanded="false" aria-controls="collapse_1a">
-Reveal suggested answer for Pause for Thought 1-a
+Reveal suggested answer for Pause for Thought 1–a
 </button>
 
 <div class="collapse" id="collapse_1a">
@@ -65,7 +65,7 @@ And then, as a case in point, Dr Deming’s third and final mention of “qualit
 <div class="neave_note" role="note" aria-label="Author's note">Unlike a red box, a green box indicates an Activity or Pause for Thought with no associated box of commentary.</div>
 
 <div class="thought" role="note" aria-label="Thought">
-## PAUSE FOR THOUGHT 1-b
+## PAUSE FOR THOUGHT 1–b {#pause-for-thought-1-b}
 
 Why do you think Dr Deming said that, if you manage by results, both quality and morale go down?
 

@@ -346,19 +346,21 @@ its pass, and a full `--all` run on 2026-09-25 reproduced all eighteen
 committed files with no change except one `checked_at` date.
 
 **This is what fidelity statements should cite for emphasis.** Of the 629 lost
-runs the first run found, 54 remain open in the records, with 15 added and
-3 swapped. **None of the 72 is a defect waiting to be fixed.** Every one was
+runs the first run found, 54 remained open in the records when the epic closed,
+with 15 added and 3 swapped. #798 then moved Day 9's small-print insets into
+`neave_note`, which added 3 lost and 2 added of the same site-convention kind,
+so the records now hold 57, 17 and 3. **None of the 77 is a defect waiting to be fixed.** Every one was
 read against the page image and left as it is, for one of these reasons:
 
 | class | lost | added | swapped | what it is | cards |
 |---|---:|---:|---:|---|---|
 | comparator artifact | 27 | 1 | 0 | text the PDF sets in bold (table captions, labels inside figures) aligned against unrelated site text, usually an image's caption or its *Describe this table* text | `AP-C03`–`C10`, `E1-C01`, `E1-C06`, `E6-C01`–`C02`, `E7-C01`, `E8-C01`–`C09`, `E8-C11`, `E12-C01`–`C02`, `WL-C01`–`C02`, and Day 8 p23 `of` (below) |
-| site convention | 12 | 10 | 1 | `neave_note` asides are set upright, so titles inside them are italicised to stay distinct; workbook references are `[*WB* nnn]` site-wide; Deming's blue text is italic | `E1-C03`–`C05`, `E3-C02`, `E10-C01`–`C04`, `E11-C01`–`C14`, `E11-C16` |
+| site convention | 15 | 12 | 1 | `neave_note` asides are set upright, so titles inside them are italicised to stay distinct; workbook references are `[*WB* nnn]` site-wide; Deming's blue text is italic | `E1-C03`–`C05`, `E3-C02`, `E10-C01`–`C04`, `E11-C01`–`C14`, `E11-C16`, and five Day 9 p29 runs from #798 (titles italicised and link text inside upright asides, as `E11-C07` and `E11-C15`) |
 | site-authored or adapted text | 10 | 2 | 0 | the site's own glossary, image descriptions, and the web-adapted printing and page-reference guidance in `index` (#802) | `AP-C01`–`C02`, `E2-C01`, `E4-C01`–`C02`, `E11-C15`, `E12-C03`, `I-C01`–`C05` |
 | styled with inline HTML | 4 | 0 | 0 | bold or italic set with a `style` attribute, which the checker's pandoc reading cannot see. Rendered, it matches the source | `E2-C02`–`C03`, `E8-C10`, `E12-C04` |
 | source typesetting | 0 | 2 | 2 | slips or glyph quirks in Neave's own setting: an upright `of` in a bold-italic line, an upright superscript, a script face poppler cannot read as italic, an italic span stopping one glyph early | `E1-C02`, `E3-C01`, `AP-C11`, and Day 3 p5 `bus-shelte«r»!)` (see *Partial findings* above) |
 | kept deliberately | 1 | 0 | 0 | Day 3's bold `«outcome»s`, a distinction the site's colour-free funnel activity does not carry | `E3-F19`, [deviation entry](../../../docs/deviations/2026-09-22-day-03-emphasis-differences-kept.md) |
-| **total** | **54** | **15** | **3** | | |
+| **total** | **57** | **17** | **3** | | |
 
 Two runs have no card of their own. Day 8's `of` on PDF p23 is part of
 the bold header *Effects of Options*, set inside a table that is an image on

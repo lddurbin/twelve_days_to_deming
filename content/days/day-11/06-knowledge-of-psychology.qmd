@@ -272,7 +272,7 @@ createDownloadButton([
 ], "notes_11_knowledge_of_psychology.txt")
 ```
 
-*(Continue to Activity 11-b overleaf.)*
+*(Continue to Activity 11–b overleaf.)*
 
 <div class="separator">
   <div class="separator_white">

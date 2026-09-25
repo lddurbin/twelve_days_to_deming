@@ -49,7 +49,7 @@ number of PhD theses! Since I’m calling this an “Activity” (not even a “
 that my preference lies toward the former of those two extremes!</div>
 
 <div class="thought" role="note" aria-label="Thought">
-## ACTIVITY 1-d
+## ACTIVITY 1–d {#activity-1-d}
 
 Considering the breadth indicated in the title of Dr Deming’s final book: *The New Economics for Industry, Government, Education*, it will be worthwhile for you to spend a little time thinking about the ways
 that the Government and Education systems in your country help or hinder Industry, and the quality of
