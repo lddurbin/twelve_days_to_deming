@@ -1,0 +1,862 @@
+{
+ "pass": "day-04-emphasis",
+ "epic": 848,
+ "issue": 879,
+ "source_pdf": "G.Day.4.09Jan20.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/days/day-04",
+ "export_filename": "day-04-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 9137,
+  "alignment": "95%",
+  "disagreeing_runs": 90,
+  "explained_by_convention": 40,
+  "lost": 41,
+  "lost_words": 63,
+  "added": 5,
+  "swapped": 4
+ },
+ "pages_read": [
+  7,
+  8,
+  10,
+  11,
+  12,
+  14,
+  16,
+  17,
+  20,
+  21,
+  22,
+  23,
+  24,
+  27,
+  28,
+  29,
+  30,
+  31
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #879 · emphasis pass",
+  "title": "Day 4: the emphasis the source set and the site lost",
+  "artifact_title": "Day 4 emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 41 lost runs on <code>day-04</code>, plus 5 added and 4 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: see record</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "G.Day.4.09Jan20.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "18"
+   },
+   {
+    "label": "Runs",
+    "value": "41 lost · 5 added · 4 swapped"
+   },
+   {
+    "label": "After",
+    "value": "see record"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "32 findings",
+   "items": [
+    {
+     "file": "01-introduction.qmd",
+     "line": 53,
+     "pdf_page": 7,
+     "old": "not just simple—it was",
+     "proposal": "not just *simple*—it was",
+     "runs": [
+      3
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "diagram of the Joiner Triangle was not just <mark class='src'>simple</mark> it was profound. I have already emphasised this",
+     "site_html": "not just simple—it was",
+     "evidence_html": "Verified against the page image for PDF p7 · printed p3.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-01",
+     "page": "PDF p7 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "01-introduction.qmd",
+     "line": 65,
+     "pdf_page": 7,
+     "old": "aria-label=\"Study resource\">Now please read *DemDim* from the bottom of page 31 to the end of page 36.</div>",
+     "proposal": "aria-label=\"Study resource\">**Now please read *DemDim* from the bottom of page 31 to the end of page 36.**</div>",
+     "runs": [
+      4,
+      5,
+      6
+     ],
+     "flag": "emphasis check, lost, swapped — 3 run(s)",
+     "source_html": "I’ll also get you to work on that. <mark class='src'>Now please read</mark> DemDim from the bottom of page 31 to · you to work on that. Now please read <mark class='src'>DemDim</mark> from the bottom of page 31 to the · to work on that. Now please read DemDim <mark class='src'>from the bottom of page 31 to the end of page 36.</mark> Don’t try to chase up all the references",
+     "site_html": "aria-label=&quot;Study resource&quot;&gt;Now please read *DemDim* from the bottom of page 31 to the end of page 36.&lt;/div&gt;",
+     "evidence_html": "Verified against the page image for PDF p7 · printed p3. The instruction is set bold in the source, with <em>DemDim</em> bold italic. The site keeps its study-resource box and now carries the weight too.",
+     "chip": "bold",
+     "chip_class": "crit",
+     "id": "E4-02",
+     "page": "PDF p7 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 18,
+     "pdf_page": 8,
+     "old": "I'm giving you *plenty* of time!",
+     "proposal": "I'm giving you plenty of time!",
+     "runs": [
+      9
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "involve some deep thought but I’m giving you <mark class='src'>plenty</mark> of time! In each of the three cases,",
+     "site_html": "I&#x27;m giving you *plenty* of time!",
+     "evidence_html": "Verified against the page image for PDF p8 · printed p4. <em>plenty</em> is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E4-03",
+     "page": "PDF p8 · printed p4",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 83,
+     "pdf_page": 10,
+     "old": "**If Yes …**",
+     "proposal": "If *Yes* …",
+     "runs": [
+      12,
+      13
+     ],
+     "flag": "emphasis check, added, swapped — 2 run(s)",
+     "source_html": "you are thinking operate as All One Team? <mark class='src'>If</mark> Yes what has brought about that All One · are thinking operate as All One Team? If <mark class='src'>Yes</mark> what has brought about that All One Team",
+     "site_html": "**If Yes …**",
+     "evidence_html": "Verified against the page image for PDF p10 · printed p6. The run-in label is regular weight in the source, with only <em>Yes</em> italic.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E4-04",
+     "page": "PDF p10 · printed p6",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 96,
+     "pdf_page": 11,
+     "old": "**If No …**",
+     "proposal": "If *No* …",
+     "runs": [
+      14,
+      15
+     ],
+     "flag": "emphasis check, added, swapped — 2 run(s)",
+     "source_html": "relationship? What would be some of the losses? <mark class='src'>If</mark> No what are some of the losses caused · What would be some of the losses? If <mark class='src'>No</mark> what are some of the losses caused by",
+     "site_html": "**If No …**",
+     "evidence_html": "Verified against the page image for PDF p11 · printed p7. The run-in label is regular weight in the source, with only <em>No</em> italic.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E4-05",
+     "page": "PDF p11 · printed p7",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 114,
+     "pdf_page": 12,
+     "old": "standards that have to be met",
+     "proposal": "standards that *have* to be met",
+     "runs": [
+      18
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "there are specifications or targets or standards that <mark class='src'>have</mark> to be met, set by legislators or by",
+     "site_html": "standards that have to be met",
+     "evidence_html": "Verified against the page image for PDF p12 · printed p8.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-06",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 114,
+     "pdf_page": 12,
+     "old": "much prefer *not* having",
+     "proposal": "much prefer not having",
+     "runs": [
+      19
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "the protection of warranties, but they much prefer <mark class='src'>not</mark> having to use them. Further, a number of",
+     "site_html": "much prefer *not* having",
+     "evidence_html": "Verified against the page image for PDF p12 · printed p8. <em>not</em> is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E4-07",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 173,
+     "pdf_page": 14,
+     "old": "you are a dissatisfied customer",
+     "proposal": "you are a *dissatisfied* customer",
+     "runs": [
+      24
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "of the evening… Scenario 1: you are a <mark class='src'>dissatisfied</mark> customer. The menu was unexciting, the food was",
+     "site_html": "you are a dissatisfied customer",
+     "evidence_html": "Verified against the page image for PDF p14 · printed p10.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-08",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 175,
+     "pdf_page": 14,
+     "old": "you are a satisfied customer",
+     "proposal": "you are a *satisfied* customer",
+     "runs": [
+      25
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "out of there). Scenario 2: you are a <mark class='src'>satisfied</mark> customer. There was nothing to complain about: the",
+     "site_html": "you are a satisfied customer",
+     "evidence_html": "Verified against the page image for PDF p14 · printed p10.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-09",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 177,
+     "pdf_page": 14,
+     "old": "you are a delighted customer. Everything was wonderful!",
+     "proposal": "you are a *delighted* customer. Everything was *wonderful*!",
+     "runs": [
+      26,
+      27
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "and so on. Scenario 3: you are a <mark class='src'>delighted</mark> customer. Everything was wonderful! The menu was so · 3: you are a delighted customer. Everything was <mark class='src'>wonderful!</mark> The menu was so crammed full of exciting",
+     "site_html": "you are a delighted customer. Everything was wonderful!",
+     "evidence_html": "Verified against the page image for PDF p14 · printed p10.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-10",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 183,
+     "pdf_page": 14,
+     "old": "(1) \"dissatisfied\":",
+     "proposal": "(1) *\"dissatisfied\"*:",
+     "runs": [
+      28,
+      31
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "it out for themselves? Suppose you had been… <mark class='src'>dissatisfied:</mark> satisfied: delighted: In a year’s time (the anniversary · are you somewhere else? Suppose you had been… <mark class='src'>dissatisfied:</mark> satisfied: delighted: So what has: dissatisfying you: satisfying",
+     "site_html": "(1) &quot;dissatisfied&quot;:",
+     "evidence_html": "Verified against the page image for PDF p14 · printed p10. Italic in both lists, (a) and (b).",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-11",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 4
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 195,
+     "pdf_page": 14,
+     "old": "(2) \"satisfied\":",
+     "proposal": "(2) *\"satisfied\"*:",
+     "runs": [
+      29,
+      32
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "out for themselves? Suppose you had been… dissatisfied: <mark class='src'>satisfied:</mark> delighted: In a year’s time (the anniversary or · you somewhere else? Suppose you had been… dissatisfied: <mark class='src'>satisfied:</mark> delighted: So what has: dissatisfying you: satisfying you:",
+     "site_html": "(2) &quot;satisfied&quot;:",
+     "evidence_html": "Verified against the page image for PDF p14 · printed p10. Italic in both lists, (a) and (b).",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-12",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 5
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 207,
+     "pdf_page": 14,
+     "old": "(3) \"delighted\":",
+     "proposal": "(3) *\"delighted\"*:",
+     "runs": [
+      30,
+      33
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "for themselves? Suppose you had been… dissatisfied: satisfied: <mark class='src'>delighted:</mark> In a year’s time (the anniversary or birthday · somewhere else? Suppose you had been… dissatisfied: satisfied: <mark class='src'>delighted:</mark> So what has: dissatisfying you: satisfying you: delighting",
+     "site_html": "(3) &quot;delighted&quot;:",
+     "evidence_html": "Verified against the page image for PDF p14 · printed p10. Italic in both lists, (a) and (b).",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-13",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 6
+    },
+    {
+     "file": "02-the-joiner-triangle.qmd",
+     "line": 317,
+     "pdf_page": 16,
+     "old": "heading [Scientific Approach] take",
+     "proposal": "heading *\\[Scientific Approach\\]* take",
+     "runs": [
+      37
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "which can be included under this general heading <mark class='src'>[Scientific Approach</mark>] take up a considerable proportion of this book.",
+     "site_html": "heading [Scientific Approach] take",
+     "evidence_html": "Verified against the page image for PDF p16 · printed p12. Neave's interpolation is small italic in the source.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-14",
+     "page": "PDF p16 · printed p12",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 25,
+     "pdf_page": 20,
+     "old": "Joiner's *Obsession With Quality*",
+     "proposal": "Joiner's *Obsession* With Quality",
+     "runs": [
+      43
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "trouble) is wholly in line with Joiner’s Obsession <mark class='src'>With Quality</mark> as compared e.g. with improvement merely in order",
+     "site_html": "Joiner&#x27;s *Obsession With Quality*",
+     "evidence_html": "Verified against the page image for PDF p20 · printed p16. Only <em>Obsession</em> is italic in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E4-15",
+     "page": "PDF p20 · printed p16",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 44,
+     "pdf_page": 21,
+     "old": "management: All One Team has both horizontal and vertical",
+     "proposal": "management: *All* One Team has both horizontal *and* vertical",
+     "runs": [
+      45,
+      46
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "purpose of continual improvement? But beware especially management: <mark class='src'>All</mark> One Team has both horizontal and vertical implications. · especially management: All One Team has both horizontal <mark class='src'>and</mark> vertical implications. It is far too common for",
+     "site_html": "management: All One Team has both horizontal and vertical",
+     "evidence_html": "Verified against the page image for PDF p21 · printed p17.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-16",
+     "page": "PDF p21 · printed p17",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 59,
+     "pdf_page": 21,
+     "old": "on the system and processes both",
+     "proposal": "on the *system* and *processes* both",
+     "runs": [
+      48,
+      49
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "or otherwise, because of its emphasis on the <mark class='src'>system</mark> and processes both in concept and in the · because of its emphasis on the system and <mark class='src'>processes</mark> both in concept and in the methods that",
+     "site_html": "on the system and processes both",
+     "evidence_html": "Verified against the page image for PDF p21 · printed p17.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-17",
+     "page": "PDF p21 · printed p17",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 59,
+     "pdf_page": 21,
+     "old": "definitely *not* in the sense",
+     "proposal": "definitely ***not*** in the sense",
+     "runs": [
+      50
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "and experiments for improvement are working (but definitely <mark class='src'>not</mark> in the sense of whether or not we’ve",
+     "site_html": "definitely *not* in the sense",
+     "evidence_html": "Verified against the page image for PDF p21 · printed p17. Bold italic in the source. It follows the Day 7, 8, 10 and 11 precedent.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E4-18",
+     "page": "PDF p21 · printed p17",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 78,
+     "pdf_page": 22,
+     "old": "This is a whole new philosophy",
+     "proposal": "This *is* a whole new philosophy",
+     "runs": [
+      52
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "to halt the continued decline of industry. This <mark class='src'>is</mark> a whole new philosophy. It’s not just optional",
+     "site_html": "This is a whole new philosophy",
+     "evidence_html": "Verified against the page image for PDF p22 · printed p18.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-19",
+     "page": "PDF p22 · printed p18",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 78,
+     "pdf_page": 22,
+     "old": "whole new way of thinking.",
+     "proposal": "whole new *way of thinking*.",
+     "runs": [
+      53
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "thinking. So this is indeed a whole new <mark class='src'>way of thinking.</mark> And, as I also said at the beginning,",
+     "site_html": "whole new way of thinking.",
+     "evidence_html": "Verified against the page image for PDF p22 · printed p18.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-20",
+     "page": "PDF p22 · printed p18",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 78,
+     "pdf_page": 22,
+     "old": "affects what we do and how we do it",
+     "proposal": "affects *what* we do and *how* we do it",
+     "runs": [
+      54,
+      55
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "what and how we think so greatly affects <mark class='src'>what</mark> we do and how we do it. This · think so greatly affects what we do and <mark class='src'>how</mark> we do it. This Point illuminates the danger",
+     "site_html": "affects what we do and how we do it",
+     "evidence_html": "Verified against the page image for PDF p22 · printed p18.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-21",
+     "page": "PDF p22 · printed p18",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 101,
+     "pdf_page": 23,
+     "old": "by the non-existence",
+     "proposal": "by the *non*-existence",
+     "runs": [
+      58
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "longer live…) are most usually caused by the <mark class='src'>non-existence</mark> of All One Team. Very often people cannot",
+     "site_html": "by the non-existence",
+     "evidence_html": "Verified against the page image for PDF p23 · printed p19. A part-word italic: only <em>non</em> is italic.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-22",
+     "page": "PDF p23 · printed p19",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 116,
+     "pdf_page": 23,
+     "old": "may not be capable of producing acceptable results even when it is not being affected by special causes. How would you know? These and other related questions cry out for the use of control charts, the fundamental plank of the Scientific Approach. Remember that the capability of the underlying system cannot even be assessed if its output is being disrupted by special causes. Also remember that (as was so clearly illustrated on Day 3) taking action appropriate for an unstable process when the process is in fact stable, or vice-versa,",
+     "proposal": "may not be *capable* of producing acceptable results even when it is *not* being affected by special causes. How would you know? These and other related questions cry out for the use of control charts, the fundamental plank of the Scientific Approach. Remember that the capability of the underlying system cannot even be assessed if its output is being disrupted by special causes. Also remember that (as was so clearly illustrated on Day 3) taking action appropriate for an unstable process when the process is in fact stable, or *vice-versa*,",
+     "runs": [
+      60,
+      61,
+      62
+     ],
+     "flag": "emphasis check, lost — 3 run(s)",
+     "source_html": "hand, the underlying system itself may not be <mark class='src'>capable</mark> of producing acceptable results even when it is · of producing acceptable results even when it is <mark class='src'>not</mark> being affected by special causes. How would you · when the process is in fact stable, or <mark class='src'>vice-versa,</mark> invariably makes things worse rather than better. Without",
+     "site_html": "may not be capable of producing acceptable results even when it is not being affected by special causes. How would you know? These and other related questions cry out for the use of control charts, the fundamental plank of the Scientific Approach. Remember that the capability of the underlying system cannot even be assessed if its output is being disrupted by special causes. Also remember that (as was so clearly illustrated on Day 3) taking action appropriate for an unstable process when the process is in fact stable, or vice-versa,",
+     "evidence_html": "Verified against the page image for PDF p23 · printed p19.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-23",
+     "page": "PDF p23 · printed p19",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 143,
+     "pdf_page": 24,
+     "old": "Notice again the words \"the need for\".",
+     "proposal": "Notice again the words **\"the need for\"**.",
+     "runs": [
+      65
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "inspection to verify it. Notice again the words <mark class='src'>the need for.</mark> Deming isn’t simply saying Stop doing it. He",
+     "site_html": "Notice again the words &quot;the need for&quot;.",
+     "evidence_html": "Verified against the page image for PDF p24 · printed p20. Bold in the source (and blue, as Deming's words; colour is a separate #848 blind spot).",
+     "chip": "bold",
+     "chip_class": "crit",
+     "id": "E4-24",
+     "page": "PDF p24 · printed p20",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 217,
+     "pdf_page": 27,
+     "old": "they are all part of the System",
+     "proposal": "they are *all* part of the System",
+     "runs": [
+      71
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "the organisation’s suppliers and its customers they are <mark class='src'>all</mark> part of the System. We saw this diagram",
+     "site_html": "they are all part of the System",
+     "evidence_html": "Verified against the page image for PDF p27 · printed p23.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-25",
+     "page": "PDF p27 · printed p23",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 221,
+     "pdf_page": 27,
+     "old": "part of optimisation of",
+     "proposal": "part of *optimisation* of",
+     "runs": [
+      72
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "benefit thereby implied. This is all part of <mark class='src'>optimisation</mark> of the system. Scientific Approach Anyone who has",
+     "site_html": "part of optimisation of",
+     "evidence_html": "Verified against the page image for PDF p27 · printed p23.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-26",
+     "page": "PDF p27 · printed p23",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 261,
+     "pdf_page": 28,
+     "old": "instead on reducing costs",
+     "proposal": "instead on *reducing* costs",
+     "runs": [
+      75
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "focus on improvement. His emphasis was instead on <mark class='src'>reducing</mark> costs, particularly through improvement of processes and reducing",
+     "site_html": "instead on reducing costs",
+     "evidence_html": "Verified against the page image for PDF p28 · printed p24.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-27",
+     "page": "PDF p28 · printed p24",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 261,
+     "pdf_page": 28,
+     "old": "very inexpensive yet",
+     "proposal": "very *in*expensive yet",
+     "runs": [
+      76
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "and reducing variation such improvements are frequently very <mark class='src'>inexpensive</mark> yet can produce considerable rewards. For confirmation, again",
+     "site_html": "very inexpensive yet",
+     "evidence_html": "Verified against the page image for PDF p28 · printed p24. A part-word italic: only <em>in</em> is italic.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-28",
+     "page": "PDF p28 · printed p24",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 278,
+     "pdf_page": 29,
+     "old": "forced to compete with each other (in total contradiction, of course, to All One Team). I am thinking of situations where lots of local \"improvements\" are made which look fine in their local context but whose side-effects elsewhere in the organisation are neither known about nor cared about. (Later you will find the examples of suboptimisation on Day 9 to be particularly relevant here; the same is true of both Day 8's Major Activity and also the powerful case study on ST",
+     "proposal": "forced to *compete* with each other (in total contradiction, of course, to All *One* Team). I am thinking of situations where lots of local \"improvements\" are made which look fine in their local context but whose side-effects elsewhere in the organisation are neither known about nor cared about. (Later you will find the examples of *suboptimisation* on Day 9 to be particularly relevant here; the same is true of both Day 8's Major Activity and also the powerful case study on *ST*",
+     "runs": [
+      78,
+      79,
+      80,
+      81
+     ],
+     "flag": "emphasis check, lost — 4 run(s)",
+     "source_html": "if teams are encouraged or even forced to <mark class='src'>compete</mark> with each other (in total contradiction, of course, · other (in total contradiction, of course, to All <mark class='src'>One</mark> Team). I am thinking of situations where lots · about. (Later you will find the examples of <mark class='src'>suboptimisation</mark> on Day 9 to be particularly relevant here; · Activity and also the powerful case study on <mark class='src'>ST</mark> my book of Statistics Tables pages 79 82.)",
+     "site_html": "forced to compete with each other (in total contradiction, of course, to All One Team). I am thinking of situations where lots of local &quot;improvements&quot; are made which look fine in their local context but whose side-effects elsewhere in the organisation are neither known about nor cared about. (Later you will find the examples of suboptimisation on Day 9 to be particularly relevant here; the same is true of both Day 8&#x27;s Major Activity and also the powerful case study on ST",
+     "evidence_html": "Verified against the page image for PDF p29 · printed p25.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-29",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 320,
+     "pdf_page": 30,
+     "old": "relevance of this to management.",
+     "proposal": "relevance of this to *management*.",
+     "runs": [
+      85
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "to emphasise the particular relevance of this to <mark class='src'>management.</mark> He quite clearly considered, and often said, that",
+     "site_html": "relevance of this to management.",
+     "evidence_html": "Verified against the page image for PDF p30 · printed p26.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-30",
+     "page": "PDF p30 · printed p26",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 337,
+     "pdf_page": 31,
+     "old": "contribute together to",
+     "proposal": "contribute *together* to",
+     "runs": [
+      87
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "others do their work. They can then contribute <mark class='src'>together</mark> to the improvement of processes, enhancing both stronger",
+     "site_html": "contribute together to",
+     "evidence_html": "Verified against the page image for PDF p31 · printed p27.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-31",
+     "page": "PDF p31 · printed p27",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-points-1-to-6.qmd",
+     "line": 354,
+     "pdf_page": 31,
+     "old": "work with both,",
+     "proposal": "work with *both*,",
+     "runs": [
+      89
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "the Deming area clearly need to work with <mark class='src'>both,</mark> and thus the version of the Scientific Approach",
+     "site_html": "work with both,",
+     "evidence_html": "Verified against the page image for PDF p31 · printed p27.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E4-32",
+     "page": "PDF p31 · printed p27",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    }
+   ]
+  },
+  {
+   "key": "clear",
+   "kind": "k-clear",
+   "title": "Checked and cleared",
+   "tag": "No defect",
+   "labels": {
+    "accept": "Agreed, no change",
+    "reject": "Disagree — change it",
+    "discuss": "Discuss"
+   },
+   "note_html": "The residual after this pass: comparator artifacts, site conventions and site-authored text.",
+   "count": "2 findings",
+   "items": [
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 17,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      38
+     ],
+     "flag": "emphasis check, lost run, 5 word(s)",
+     "source_html": "the course: same three corners (Obsession With Quality, <mark class='src'>All One Team, Scientific Approach)</mark> and same boxes for the first two corners",
+     "site_html": "Describe this diagram",
+     "evidence_html": "Site-authored text. The bold falls in the site's own <q>Describe this diagram</q> text for the expanded Joiner Triangle, which is an image; the source's bold corner labels are inside it.",
+     "id": "E4-C01",
+     "page": "PDF p17 · printed p13",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 17,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      39
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "corners as in the Joiner Associates version, but <mark class='src'>with</mark> the Scientific Approach box now replaced by Neave’s",
+     "site_html": "Describe this diagram",
+     "evidence_html": "Site-authored text. The bold falls in the site's own <q>Describe this diagram</q> text for the expanded Joiner Triangle, which is an image; the source's bold corner labels are inside it.",
+     "id": "E4-C02",
+     "page": "PDF p17 · printed p13",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    }
+   ]
+  }
+ ]
+}

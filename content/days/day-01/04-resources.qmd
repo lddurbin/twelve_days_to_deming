@@ -48,7 +48,7 @@ better organised. I heard from more than one source that certain of Dr Deming’
 America impressed on him the difficulties that some had found with *Out of the Crisis*. And, if I may suggest
 it, I believe he might have fallen into a trap which will be a big topic during the afternoon of Day 3: the
 danger of overcompensation! *The New Economics* is fantastically valuable for those who are, relatively
-speaking, already “in the know”. But the language is so simple, and important matters are treated so concisely, that there is substantial danger of the newcomer just skating over the surface and having no notion of the considerable depths that lie below that surface. As I have already indicated, Deming was brilliant at
+speaking, already “in the know”. But the language is *so* simple, and important matters are treated *so* concisely, that there is substantial danger of the newcomer just skating over the surface and having no notion of the considerable depths that lie below that surface. As I have already indicated, Deming was brilliant at
 saying a lot in only few words, and that skill is nowhere better demonstrated than in this, his final, book.
 
 <span class=neave_note>As a result, one could set literally hundreds of essay questions on examination papers which quote just a single sentence from *The New Economics* followed by the word “Discuss.”!</span>
@@ -68,7 +68,7 @@ that I have made no further revisions to its main content since 1992, and so you
 that all page references to it and quotations from it will still be current in your copy!)
 
 []{#sec-page12}
-<span class=neave_note>NB New editions of *Out of the Crisis* (Second Edition) and *The New Economics* (Third Edition) were published in 2018, both now including contributions from representatives of the Deming Institute. With both
+<span class=neave_note>**NB** New editions of *Out of the Crisis* (Second Edition) and *The New Economics* (Third Edition) were published in 2018, both now including contributions from representatives of the Deming Institute. With both
 books, Dr Deming’s text is largely unchanged but a smaller size of print is used in the new editions, and
 so almost all page references have changed. Seeing that, at the time of writing and for some time to
 come, there are bound to be many more copies of the previous editions still in circulation, clearly I need to
@@ -81,10 +81,10 @@ However, in my early days of studying Dr Deming’s work, I also found it useful
 am sure the relevant authors will not object to that description! I’ll mention the books that I particularly liked. The first to be published was Nancy Mann’s *The Keys to Excellence* (1985). Nancy’s organisation, Quality Enhancement Seminars, administered Dr Deming’s four-day seminars in the final years of his
 life. *The Keys to Excellence* was soon followed by Bill Scherkenbach’s *The Deming Route to Quality and Productivity* (1986); at that time, Bill was Director of Statistical Methods at the Ford Motor Company. In the
 same year came journalist Mary Walton’s *The Deming Management Method*. Bill’s book contains 14 chapters, one for each of Dr Deming’s 14 Points; Mary’s book also contains a chapter on each of the Points. All
-three of these books can easily be read cover-to-cover. Both of the latter two authors also produced a
+three of these books *can* easily be read cover-to-cover. Both of the latter two authors also produced a
 second book: Bill’s was *Deming’s Road to Continual Improvement* (1991) and Mary’s was *Deming Management at Work* (1989). Two other books I would commend are Rafael Aguayo’s *Dr Deming—the Man Who Taught the Japanese About Quality* (1990) and (at a rather deeper level—not for your first read) *Deming’s Profound Changes* by Ken Delavigne and Dan Robertson (1994).
 
-And last, but definitely not least, here is by far the newest of all my recommendations: *The Essential Deming*, subtitled Leadership Principles from the Father of Quality. This remarkable treasure, faithfully collected
+And last, but definitely not least, here is by far the newest of all my recommendations: *The Essential Deming*, subtitled *Leadership Principles from the Father of Quality*. This remarkable treasure, faithfully collected
 and assembled by Dr Joyce Orsini, was published almost 20 years after Dr Deming died. But, apart from
 some brief introductions, it is all in his own words! Joyce painstakingly sifted through literally thousands of
 articles, speeches, notes, presentations, lectures, audiotapes, etc to produce this masterpiece. But, as she

@@ -18,7 +18,7 @@ I can heap yet more coals onto the fire by quoting the way that Dr Deming was in
 *If Japan Can, Why Can’t We?* (see near the bottom of [page 4](02-rediscovered.qmd#sec-page4)). These are the words of the programme’s
 narrator, Lloyd Dobyns:
 
->We have said several times that much of what the Japanese are doing [is what] we taught them to
+>We have said several times that much of what the Japanese are doing *\[is what\]* we taught them to
 do. And the man who did most of the teaching is W Edwards Deming, statistical analyst, for whom
 Japan’s highest industrial award for quality and productivity is named. But in this country he is not
 widely recognised. That may be changing.
@@ -46,7 +46,7 @@ understanding variation is to do with being able to justifiably describe the beh
 or systems of any kind by words such as “stable” and “predictable” or, on the other hand, “unstable” and
 “unpredictable”. Those words indicate pretty well the difference between the two states, and I think you
 will easily understand that, if your work involves what we are referring to as “processes” or “systems” (and
-most work certainly does) then that difference is pretty darned important! And the control chart is the
+most work certainly does) then that difference is pretty darned important! And the control chart is *the*
 invaluable tool which best enables us to discriminate between those two states. The “official” terms for the
 two states that you will find both Drs Shewhart and Deming using are respectively “in statistical control”
 and “out of statistical control” although, in the former case, Deming also often refers to a “stable system”.
@@ -63,7 +63,7 @@ I’ve just detailed, you actually have the advantage: for then you don’t have
 <span class=neave_note>That comment might sound flippant. It isn’t. Over the nearly 20 years of my seminars on Dr Deming’s
 teaching I rarely suffered from having any “difficult” delegates. The few that I had could be divided into
 two types. One type were very senior managers, the other type were those with some qualification in
-Statistics. Of course, I don’t mean *all* senior managers or all statisticians: I mean those who came to the
+Statistics. Of course, I don’t mean *all* senior managers or *all* statisticians: I mean those who came to the
 seminar with the impression that they already knew all they needed to know—so really there wasn’t much
 point in their attending! Regarding statisticians, note well my first quotation below.</span>
 
@@ -76,7 +76,7 @@ Statistics fitted into Dr Deming’s management teaching. It didn’t! I believe
 mention of a probability, a probability distribution or a hypothesis test during the whole four days.
 Yet Deming was a *statistician*?! (And indeed a fine mathematician as well.) Further, the *only* statistical technique he used during the whole four days was the control chart … I had new and very different learning to face.
 
-Incidentally, the full title of *Statistics Tables is Statistics Tables for Mathematicians, Engineers, Economists
+Incidentally, the full title of *Statistics Tables* is *Statistics Tables for Mathematicians, Engineers, Economists
 and the Behavioural and Management Sciences* which, for obvious reasons, I shall henceforth abbreviate
 by *ST*! And, while I’m about it, I may as well also quote a couple of paragraphs from the “Welcome to the
 Second Edition” on page 2 of my *Elementary Statistics Tables* (to be similarly abbreviated by *EST*), which
@@ -85,7 +85,7 @@ was also published in 2011:
 >So, what’s new? The majority of the added material focuses on a remarkable statistical technique
 which, to all intents and purposes, was unknown at the time of the original edition. At this time of
 writing it is still largely unknown, especially in academia—it hasn’t yet reached most of the introductory Statistics books and courses. But, during the second half of my career (mostly spent outside
-academia, unlike the first half), I found the *process behaviour chart* <span style="font-family: serif; color: #333; font-size: 16px">[see the small print below]</span> unbelievably useful due to its (I believe) unique combination of simplicity and effectiveness. Of course,
+academia, unlike the first half), I found the *process behaviour chart* <span style="font-family: serif; color: #333; font-size: 16px">*\[see the small print below\]*</span> unbelievably useful due to its (I believe) unique combination of simplicity and effectiveness. Of course,
 you won’t find it on examination papers. But if you want to analyse and understand data out there
 in the ‘real world’, I believe you’ll find it invaluable. Many delegates, sent by their boss, would arrive
 at my public and in-house seminars in fear and trepidation: they’d never been able to ‘do Statistics’—they hated the subject! By the end of the day they could understand the process behaviour
@@ -139,7 +139,7 @@ tasks. Training is thus narrowly defined and finite in scale and scope. In contr
 in Point 13, ‘education’ is the opposite: very non-specific, very broadly defined, and essentially infinite in scale and scope.
 
 Thus, in Deming’s terms, teaching and learning details about how to *construct* control charts is *training*.
-Teaching and learning how to interpret the charts once they are drawn, and then how to proceed intelligently on the basis of such interpretation, is *education*. His seminars were most definitely *education*; what
+Teaching and learning how to *interpret* the charts once they are drawn, and then how to proceed intelligently on the basis of such interpretation, is *education*. His seminars were most definitely *education*; what
 he regarded as the simpler matter of training could be left to someone else. A couple of sentences from his diary entry for Monday 10 July 1950, regarding some lectures to the Japan Medical Association, will confirm
 the point:
 
@@ -163,7 +163,7 @@ about it! Makes good sense to me. And that is precisely what Dr Shewhart produce
 
 ## Control charts in this course {#sec-page8}
 
-So what does all this imply about my approach to control charts in this course? As in Dr Deming’s seminars, you will not have to construct any control charts if you’d prefer not to. However, you will see some
+So what does all this imply about my approach to control charts in this course? As in Dr Deming’s seminars, you will not have to construct any control charts if you’d prefer not to. However, you will *see* some
 control charts on Days 2 and 3, and so I shall include some relevant description there. But there is already
 plenty for you to do on both of those days, and so to insist that you also engage in any substantial training
 on control charts would be too much of a good thing! On the other hand, the educational aspect that I’ve
@@ -212,8 +212,8 @@ charts yourself.
 take time to go through it more thoroughly after Day 3 in order to consolidate your learning.
 
 **Stats-level 3**: As Stats-level 2 but take a look at what’s available in the Optional Extras section whenever
-you like (out of hours!). Remember that this extra material is only there for those who might be genuinely
-interested in some of it. Ignoring all of it will not harm your understanding of the rest of this course,
+you like (out of hours!). Remember that this extra material is *only* there for those who might be genuinely
+interested in some of it. Ignoring all of it will *not* harm your understanding of the rest of this course,
 although some of it might help to increase your confidence about dealing with control charts when the time
 comes that you need to. A sensible plan might therefore be to postpone the Optional Extras section until
 the main 12-day course is completed—unless you just can’t resist looking at some of it earlier than that!
@@ -234,7 +234,7 @@ make one crucial point. This is that, at least in Deming’s case, *theory* has 
 better *practice*. So, in Deming’s case, theory should be respected by *practical* people (possibly unlike
 some other theories!). I am assuming that *you* are interested in better *practice* as well as learning the theory, so this will surely mean that, sooner or later, you *will* want to move onto the second stage: the “how”.
 
-*How* can a control chart tell you what you need to know? That’s where you encounter the snag about skipping parts of the main text in the morning of Day 3. For, whereas they may be skipped if you were only
+*How* can a control chart tell you what you need to know? That’s where you encounter the snag about skipping parts of the main text in the morning of Day 3. For, whereas they may be skipped if you were *only*
 interested in theory, you *will* need to work through them when the time comes that you want to effectively
 turn some of the theory into practice—the “better practice” that I just mentioned.
 

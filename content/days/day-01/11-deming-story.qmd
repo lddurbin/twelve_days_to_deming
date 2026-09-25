@@ -46,7 +46,7 @@ feasible way.”</span>
 
 Even today, most people’s interpretation of that word “quality” is still hopelessly narrow and limited compared with Shewhart’s understanding in his great book from so long ago.
 
-Because of their importance, let us learn something of the circumstances in which Shewhart’s great discoveries took place, as that will help us to understand much better the prime purpose of those discoveries.
+Because of their importance, let us learn something of the circumstances in which Shewhart’s great discoveries took place, as that will help us to understand much better the prime *purpose* of those discoveries.
 
 People in the Western Electric Company at that time were heavily involved in the development of telephone
 technology and related equipment. They were investing massively to increase their knowledge and ability.
@@ -122,11 +122,11 @@ the environment in which it operates, including physical and cultural matters an
 style. So these are all factors that are present for the relatively “long haul”—they are not just temporary (unless something is done about them). Shewhart called them “constant” causes—because
 they are constantly present. A careless mathematician might possibly misinterpret that adjective: in
 Mathematics, something being “constant” means that it is “not varying”, so the careless misinterpretation might be that they do not cause *any* variation! That’s obviously wrong: the truth is that
-they are one of the two types of *causes* of variation. The valid inference is instead that the nature of
-the resulting variation is unchanging because the causes of that variation are effectively unchanging. Deming referred to Shewhart’s <span class=deming_quote>“constant”</span> causes as <dfn id="common-cause">“common” causes of variation</dfn>.
+they are one of the two types of *causes of* variation. The valid inference is instead that the *nature* of
+the resulting variation is unchanging because the *causes* of that variation are effectively unchanging. Deming referred to Shewhart’s <span class=deming_quote>“constant”</span> causes as <dfn id="common-cause">“common” causes of variation</dfn>.
 4. Whereas the common causes are always there (until the process gets changed in some way—
 hopefully improved!), the process’s variation may also sometimes be affected by additional causes
-that are not there all the time—perhaps some one-off happenings or a temporary change in something which has an important influence on how the process behaves. Of course, such additional
+that are *not* there all the time—perhaps some one-off happenings or a temporary change in something which has an important influence on how the process behaves. Of course, such additional
 causes may occur quite often, but if their effect is so small as not to materially affect the way the
 process behaves then obviously we can’t do much about them, and don’t need to. We can only
 notice them if there is something to be noticed, i.e. if we can recognise that the nature of the variation changes. Shewhart referred to such additional causes—ones which *do* noticeably affect the
@@ -137,7 +137,7 @@ into the future unless special causes arrive on the scene to change matters.
 6. Processes which are being affected by special causes are said to be “out of statistical control” or
 “unstable” or “unpredictable”—we cannot now predict with any justification how the variation will behave in the future. That will remain the case until the special causes are identified and either
 removed or, at least, have their effects negated or mitigated in some way.
-7. There are obvious ramifications regarding the vital matter of process improvement. If a process is
+7. There are obvious ramifications regarding the vital matter of *process improvement*. If a process is
 out of statistical control then special causes are affecting it and it is necessary to identify those special causes and deal with them first. Otherwise, if you try to improve the process, how could you
 tell whether a subsequent change in the nature of the variation is actually due to the improvement
 attempt rather than to special-cause effects?
@@ -164,7 +164,7 @@ If the 3% is big (and it is), the 97% is *massive*.
 ## 1930s–1940s: New statistics in non-manufacturing {#sec-page33}
 
 So it did all start with some new statistical thinking and methods in a manufacturing context. Regrettably, a
-few generations later, some people still seem to think that was all Dr Deming’s work was about, and all that
+few generations later, some people still seem to think that was *all* Dr Deming’s work was about, and all that
 it is relevant to. Nothing could be further from the truth. For a start, apart from his temporary work at
 Western Electric, Deming was never employed in a primarily manufacturing environment. His first permanent employment was in USDA, the United States Department of Agriculture (OK: still “manufacturing” of a
 kind, but obviously a rather different type). His appointment there was as a Mathematical Physicist—that

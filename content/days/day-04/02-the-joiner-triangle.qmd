@@ -15,7 +15,7 @@ Going right back to Dr Shewhart's formative work in the 1920s, we know that the 
 
 ## ACTIVITY 4–a
 
-This Activity is in three parts. All three parts are likely to involve some deep thought—but I'm giving you *plenty* of time! *In each of the three cases, if you have not made much progress after, say, five minutes or so then take a look at my brief suggestions on [Appendix page 22](../../appendix/04-day-4.qmd#sec-page22) to help get you started.*
+This Activity is in three parts. All three parts are likely to involve some deep thought—but I'm giving you plenty of time! *In each of the three cases, if you have not made much progress after, say, five minutes or so then take a look at my brief suggestions on [Appendix page 22](../../appendix/04-day-4.qmd#sec-page22) to help get you started.*
 
 (1) Identify some situations with which you are familiar where people are being prevented by the system in which they live and work from doing as good a job as they would much prefer to do. In this respect, what particular features of that system do you believe are doing the most harm? How could / should they be remedied?
 
@@ -80,7 +80,7 @@ Again consider situations familiar to you, perhaps at work, perhaps in your fami
 
 Do the groups of people of whom you are thinking operate as All One Team?
 
-**If Yes …** what has brought about that All One Team state and spirit? What are some of the gains that would otherwise not have been obtained? Are you aware of anything or any things that might, now or in the future, harm or even destroy that All One Team relationship? What would be some of the losses?
+If *Yes* … what has brought about that All One Team state and spirit? What are some of the gains that would otherwise not have been obtained? Are you aware of anything or any things that might, now or in the future, harm or even destroy that All One Team relationship? What would be some of the losses?
 
 ```{ojs}
 viewof activity_4b_yes = persist(
@@ -93,7 +93,7 @@ viewof activity_4b_yes = persist(
 )
 ```
 
-**If No …** what are some of the losses caused by them not being All One Team? What do you see as the biggest obstructions to their moving toward an All One Team state? What might be done to break down those obstacles? If you were to succeed in this, what would be some of the gains?
+If *No* … what are some of the losses caused by them not being All One Team? What do you see as the biggest obstructions to their moving toward an All One Team state? What might be done to break down those obstacles? If you were to succeed in this, what would be some of the gains?
 
 ```{ojs}
 viewof activity_4b_no = persist(
@@ -111,7 +111,7 @@ viewof activity_4b_no = persist(
 
 ## The Joiner Triangle: "Obsession With Quality" {#sec-page8}
 
-In all fields of activity, everyone recognises the importance of quality *to a certain extent*. If the quality of the product and/or service being provided by our organisation is so poor that we are losing business, who could argue against the need to improve quality? Also, often there are specifications or targets or standards that have to be met, set by legislators or by customers. If our company is not meeting those requirements, who could argue against the need to improve quality? Customers like having the protection of warranties, but they much prefer *not* having to use them. Further, "a number of companies set their own specifications based on what they *think* a very varied market will find acceptable. Often this is an R&D Department which is far removed from the practicalities of production" (my thanks to Dr Jackie Graham for this observation).
+In all fields of activity, everyone recognises the importance of quality *to a certain extent*. If the quality of the product and/or service being provided by our organisation is so poor that we are losing business, who could argue against the need to improve quality? Also, often there are specifications or targets or standards that *have* to be met, set by legislators or by customers. If our company is not meeting those requirements, who could argue against the need to improve quality? Customers like having the protection of warranties, but they much prefer not having to use them. Further, "a number of companies set their own specifications based on what they *think* a very varied market will find acceptable. Often this is an R&D Department which is far removed from the practicalities of production" (my thanks to Dr Jackie Graham for this observation).
 
 Two particular problems with this attitude to quality are as follows (wherever the specifications originate). First, having worked to reach the standard or target or specification, etc, there is often a tendency to breathe a sigh of relief ("We've made it!") and for the improvement effort to stagnate—at least for the time being. The other problem, which we'll address later (e.g. when working on the 11th of the 14 Points), is the temptation to try to "cheat" in order to *appear* to meet the requirements. Deming often spoke disparagingly about <span class="deming_quote">"fudging figures"</span> by means such as redefining methods of measurement or of counting—e.g. what exactly qualifies for descriptions such as "punctual" or "defective"? (The work on operational definitions on Day 11 will be very relevant here.)
 
@@ -170,17 +170,17 @@ But is it really beyond rhyme and reason to think of delighting the customer? Ra
 
 Imagine the following situation. You want to celebrate, say, an anniversary or a birthday. So you and your friend / spouse / partner arrange to go out to dinner, perhaps to a restaurant that you haven't previously visited. Let me suggest three scenarios to you. At the end of the evening…
 
-**Scenario 1:** … you are a dissatisfied customer. The menu was unexciting, the food was poorly prepared and cooked, the service was inattentive and slow (or alternatively, too fast—they seemed keen to rush you through your meal and get you out of there).
+**Scenario 1:** … you are a *dissatisfied* customer. The menu was unexciting, the food was poorly prepared and cooked, the service was inattentive and slow (or alternatively, too fast—they seemed keen to rush you through your meal and get you out of there).
 
-**Scenario 2:** … you are a satisfied customer. There was nothing to complain about: the food was OK, the service was OK, the menu was pretty much what you expected, and so on.
+**Scenario 2:** … you are a *satisfied* customer. There was nothing to complain about: the food was OK, the service was OK, the menu was pretty much what you expected, and so on.
 
-**Scenario 3:** … you are a delighted customer. Everything was wonderful! The menu was so crammed full of exciting possibilities that you'd need to come back several times to explore it properly. The food was delicious (it "melted in your mouth"). And the service was just right: immediate attention when you needed it, but without that irritatingly repeated "Is everything all right, Sir?".
+**Scenario 3:** … you are a *delighted* customer. Everything was *wonderful*! The menu was so crammed full of exciting possibilities that you'd need to come back several times to explore it properly. The food was delicious (it "melted in your mouth"). And the service was just right: immediate attention when you needed it, but without that irritatingly repeated "Is everything all right, Sir?".
 
 There are two questions I'd like you to consider in each of those three scenarios:
 
 (a) When you next go into work, or meet up with friends, do you talk about your experience at the restaurant? Do you recommend that they try it out for themselves? Suppose you had been…
 
-(1) "dissatisfied":
+(1) *"dissatisfied"*:
 
 ```{ojs}
 viewof activity_4d_a1 = persist(
@@ -192,7 +192,7 @@ viewof activity_4d_a1 = persist(
 )
 ```
 
-(2) "satisfied":
+(2) *"satisfied"*:
 
 ```{ojs}
 viewof activity_4d_a2 = persist(
@@ -204,7 +204,7 @@ viewof activity_4d_a2 = persist(
 )
 ```
 
-(3) "delighted":
+(3) *"delighted"*:
 
 ```{ojs}
 viewof activity_4d_a3 = persist(
@@ -220,7 +220,7 @@ viewof activity_4d_a3 = persist(
 
 (b) In a year's time (the anniversary or birthday again), are you back in the same restaurant, or are you somewhere else? Suppose you had been…
 
-(1) "dissatisfied":
+(1) *"dissatisfied"*:
 
 ```{ojs}
 viewof activity_4d_b1 = persist(
@@ -232,7 +232,7 @@ viewof activity_4d_b1 = persist(
 )
 ```
 
-(2) "satisfied":
+(2) *"satisfied"*:
 
 ```{ojs}
 viewof activity_4d_b2 = persist(
@@ -244,7 +244,7 @@ viewof activity_4d_b2 = persist(
 )
 ```
 
-(3) "delighted":
+(3) *"delighted"*:
 
 ```{ojs}
 viewof activity_4d_b3 = persist(
@@ -314,7 +314,7 @@ The Joiner Triangle (Obsession With Quality at top, All One Team bottom-left, Sc
 
 However, before we move on to the project, I need to consider further the Scientific Approach part of the Triangle. There are several reasons.
 
-First, you will have already read on *DemDim* page 35 that "Topics which can be included under this general heading [Scientific Approach] take up a considerable proportion of this book". That doesn't really tie in with the mixture of topics chosen by Brian in his expanded version of the Joiner Triangle that we have just seen on the previous page. Of course, everything there is useful but, in its context relevant here as representing foundations of Dr Deming's theory of management, some other choices could have been preferable. For example, I would have added two very important topics: Operational Definitions and the Deming Cycle. (However, I shall not include these in the box below since we won't be studying them here until Day 11.)
+First, you will have already read on *DemDim* page 35 that "Topics which can be included under this general heading *\[Scientific Approach\]* take up a considerable proportion of this book". That doesn't really tie in with the mixture of topics chosen by Brian in his expanded version of the Joiner Triangle that we have just seen on the previous page. Of course, everything there is useful but, in its context relevant here as representing foundations of Dr Deming's theory of management, some other choices could have been preferable. For example, I would have added two very important topics: Operational Definitions and the Deming Cycle. (However, I shall not include these in the box below since we won't be studying them here until Day 11.)
 
 Second, you will observe quite a large emphasis on *tools* in Brian's choice of topics, well beyond the control chart: the seven tools, flowcharting, problem-solving. Recall that, in his four-day seminars, Dr Deming didn't even discuss any technical details of how to construct the most important tool of all, the control chart (see [Day 1 pages 7–8](../day-01/03-statistics.qmd#sec-page7)): so such an emphasis would be out of place here (as you know, anything "beyond the basics" is instead optional/*extra-curricular*). Again, this isn't to say that the tools mentioned in the Triangle on [page 11, in the Joiner Triangle chapter](02-the-joiner-triangle.qmd#sec-page11) are not useful: indeed they are, but they can be useful *whatever* approach to improving quality is being adopted, whether or not it has any connection with what Deming taught.
 
