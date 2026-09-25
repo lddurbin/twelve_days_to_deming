@@ -95,7 +95,8 @@
      "page": "PDF p7 · Preface p1",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -115,7 +116,8 @@
      "page": "PDF p7 · Preface p1",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
     },
     {
      "file": "index.qmd",
@@ -135,7 +137,8 @@
      "page": "PDF p8 · Preface p2",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -155,7 +158,8 @@
      "page": "PDF p10 · printed p2",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -175,7 +179,8 @@
      "page": "PDF p10 · printed p2",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
     },
     {
      "file": "index.qmd",
@@ -195,7 +200,8 @@
      "page": "PDF p10 · printed p2",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
     },
     {
      "file": "index.qmd",
@@ -215,7 +221,8 @@
      "page": "PDF p11 · printed p3",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -235,7 +242,8 @@
      "page": "PDF p11 · printed p3",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
     },
     {
      "file": "index.qmd",
@@ -255,7 +263,8 @@
      "page": "PDF p11 · printed p3",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
     },
     {
      "file": "index.qmd",
@@ -275,7 +284,8 @@
      "page": "PDF p11 · printed p3",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 4
     },
     {
      "file": "index.qmd",
@@ -295,7 +305,8 @@
      "page": "PDF p11 · printed p3",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 5
     },
     {
      "file": "index.qmd",
@@ -315,7 +326,8 @@
      "page": "PDF p11 · printed p3",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 6
     },
     {
      "file": "index.qmd",
@@ -335,7 +347,8 @@
      "page": "PDF p11 · printed p3",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 7
     },
     {
      "file": "index.qmd",
@@ -355,7 +368,8 @@
      "page": "PDF p11 · printed p3",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 8
     },
     {
      "file": "index.qmd",
@@ -375,7 +389,8 @@
      "page": "PDF p11 · printed p3",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 9
     },
     {
      "file": "index.qmd",
@@ -395,7 +410,8 @@
      "page": "PDF p12 · printed p4",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -415,7 +431,8 @@
      "page": "PDF p12 · printed p4",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
     },
     {
      "file": "index.qmd",
@@ -435,7 +452,8 @@
      "page": "PDF p12 · printed p4",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
     },
     {
      "file": "index.qmd",
@@ -455,7 +473,8 @@
      "page": "PDF p12 · printed p4",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 4
     },
     {
      "file": "index.qmd",
@@ -475,7 +494,8 @@
      "page": "PDF p12 · printed p4",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 5
     },
     {
      "file": "index.qmd",
@@ -495,7 +515,8 @@
      "page": "PDF p13 · printed p5",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -515,7 +536,8 @@
      "page": "PDF p13 · printed p5",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
     },
     {
      "file": "index.qmd",
@@ -535,7 +557,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -555,7 +578,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
     },
     {
      "file": "index.qmd",
@@ -575,7 +599,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
     },
     {
      "file": "index.qmd",
@@ -595,7 +620,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 4
     },
     {
      "file": "index.qmd",
@@ -615,7 +641,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 5
     },
     {
      "file": "index.qmd",
@@ -635,7 +662,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 6
     },
     {
      "file": "index.qmd",
@@ -655,7 +683,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 7
     },
     {
      "file": "index.qmd",
@@ -675,7 +704,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 8
     },
     {
      "file": "index.qmd",
@@ -695,7 +725,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 9
     },
     {
      "file": "index.qmd",
@@ -715,7 +746,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 10
     },
     {
      "file": "index.qmd",
@@ -735,7 +767,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 11
     },
     {
      "file": "index.qmd",
@@ -755,7 +788,8 @@
      "page": "PDF p14 · printed p6",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 12
     },
     {
      "file": "index.qmd",
@@ -775,7 +809,8 @@
      "page": "PDF p15 · printed p7",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -795,7 +830,8 @@
      "page": "PDF p16 · printed p8",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -815,7 +851,8 @@
      "page": "PDF p16 · printed p8",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
     },
     {
      "file": "index.qmd",
@@ -835,7 +872,8 @@
      "page": "PDF p18 · printed p10",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -855,7 +893,8 @@
      "page": "PDF p21 · printed p13",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": "index.qmd",
@@ -875,7 +914,8 @@
      "page": "PDF p21 · printed p13",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
     }
    ]
   },
@@ -909,7 +949,8 @@
      "page": "PDF p16 · printed p8",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
     },
     {
      "file": null,
@@ -928,7 +969,8 @@
      "page": "PDF p17 · printed p9",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     },
     {
      "file": null,
@@ -947,7 +989,8 @@
      "page": "PDF p18 · printed p10",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
     },
     {
      "file": null,
@@ -966,7 +1009,8 @@
      "page": "PDF p18 · printed p10",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
     },
     {
      "file": "index.qmd",
@@ -985,7 +1029,8 @@
      "page": "PDF p19 · printed p11",
      "decision": "accept",
      "decision_preset": false,
-     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image."
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
     }
    ]
   }
