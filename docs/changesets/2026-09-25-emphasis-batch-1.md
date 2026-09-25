@@ -1,0 +1,5 @@
+## 2026-09-25 — Emphasis restored across seven smaller sections
+
+- **Section**: Fixed
+- **What**: Seven more sections now show the emphasis the source prints: the Welcome booklet, Days 2, 5, 10 and 12, Balaji Reddie's Contributions, and References and Sources. There are 42 corrections in all. The Contributions title page is set as printed: bold-italic title, italic *and*, italic author line. Day 5's Deadly Diseases pages get back Neave's italic *system*, *help* and *appraisal*. On Day 10, the bold words inside Neave's italic asides (***not***, ***should***, ***team***, ***control limits***, ***measurement process***, ***predictive***) are bold italic again, not bold upright. Italics the site had added where the source has none are removed: *inherent*, *real*, *inside* and the bracketed page numbers *[50]* and *[51]* in the Contributions, and *"top and tail"* on Day 2. The Welcome booklet's medal inscription is bold, as printed. The pass changes emphasis only, not wording. (#875)
+- **PR**: #876

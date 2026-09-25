@@ -1,0 +1,228 @@
+{
+ "pass": "day-05-emphasis",
+ "epic": 848,
+ "issue": 875,
+ "source_pdf": "H.Day.5.08Feb22.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/days/day-05",
+ "export_filename": "day-05-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 4682,
+  "alignment": "95%",
+  "disagreeing_runs": 29,
+  "explained_by_convention": 22,
+  "lost": 7,
+  "lost_words": 7,
+  "added": 0,
+  "swapped": 0
+ },
+ "pages_read": [
+  5,
+  24,
+  26,
+  28,
+  32
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #875 · emphasis pass",
+  "title": "Day 5: the emphasis the source set and the site lost",
+  "artifact_title": "Day 5 emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 7 lost runs on <code>day-05</code>, plus 0 added and 0 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 0 lost · 0 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "H.Day.5.08Feb22.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "5"
+   },
+   {
+    "label": "Runs",
+    "value": "7 lost · 0 added · 0 swapped"
+   },
+   {
+    "label": "After",
+    "value": "0 lost · 0 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "7 findings",
+   "items": [
+    {
+     "file": "01-introduction.qmd",
+     "line": 15,
+     "pdf_page": 5,
+     "old": "you now have two useful",
+     "proposal": "you now have *two* useful",
+     "runs": [
+      1
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "from mine, it probably means you now have <mark class='src'>two</mark> useful starters rather than one so twice as",
+     "site_html": "you now have two useful",
+     "evidence_html": "Verified against the page image for PDF p5 · printed p1.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E5-01",
+     "page": "PDF p5 · printed p1",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "03-the-deadly-diseases.qmd",
+     "line": 78,
+     "pdf_page": 24,
+     "old": "made to look better",
+     "proposal": "made to *look* better",
+     "runs": [
+      17
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "on page 10) can always be made to <mark class='src'>look</mark> better. In his first paragraph on this topic",
+     "site_html": "made to look better",
+     "evidence_html": "Verified against the page image for PDF p24 · printed p20.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E5-02",
+     "page": "PDF p24 · printed p20",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "03-the-deadly-diseases.qmd",
+     "line": 133,
+     "pdf_page": 26,
+     "old": "comes from the system, not the individual",
+     "proposal": "comes from the *system*, not the individual",
+     "runs": [
+      19
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "behaviour, results, quality, productivity, etc comes from the <mark class='src'>system,</mark> not the individual. In particular, if appraisal means",
+     "site_html": "comes from the system, not the individual",
+     "evidence_html": "Verified against the page image for PDF p26 · printed p22.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E5-03",
+     "page": "PDF p26 · printed p22",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "03-the-deadly-diseases.qmd",
+     "line": 137,
+     "pdf_page": 26,
+     "old": "that is there to help the",
+     "proposal": "that is there to *help* the",
+     "runs": [
+      20
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "reflect their appraisal system that is there to <mark class='src'>help</mark> the individual, for coaching, for seeing how management",
+     "site_html": "that is there to help the",
+     "evidence_html": "Verified against the page image for PDF p26 · printed p22.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E5-04",
+     "page": "PDF p26 · printed p22",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "03-the-deadly-diseases.qmd",
+     "line": 137,
+     "pdf_page": 26,
+     "old": "\"performance appraisal\"?",
+     "proposal": "\"performance *appraisal*\"?",
+     "runs": [
+      21
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "And also, if so, why call it performance <mark class='src'>appraisal?</mark> Consult your dictionary for its definitions of appraise",
+     "site_html": "&quot;performance appraisal&quot;?",
+     "evidence_html": "Verified against the page image for PDF p26 · printed p22.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E5-05",
+     "page": "PDF p26 · printed p22",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "03-the-deadly-diseases.qmd",
+     "line": 188,
+     "pdf_page": 28,
+     "old": "an organisation as a system, broad",
+     "proposal": "an organisation as a *system*, broad",
+     "runs": [
+      23
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "as we are viewing an organisation as a <mark class='src'>system,</mark> broad knowledge across the organisation as a whole",
+     "site_html": "an organisation as a system, broad",
+     "evidence_html": "Verified against the page image for PDF p28 · printed p24.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E5-06",
+     "page": "PDF p28 · printed p24",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "03-the-deadly-diseases.qmd",
+     "line": 322,
+     "pdf_page": 32,
+     "old": "in advance a single-sided",
+     "proposal": "in advance a *single-sided*",
+     "runs": [
+      28
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "recommend that you print out in advance a <mark class='src'>single-sided</mark> working copy of Day 6 pages 7 16,",
+     "site_html": "in advance a single-sided",
+     "evidence_html": "Verified against the page image for PDF p32 · printed p28.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E5-07",
+     "page": "PDF p32 · printed p28",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    }
+   ]
+  }
+ ]
+}

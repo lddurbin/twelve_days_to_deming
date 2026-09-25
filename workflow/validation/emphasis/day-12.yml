@@ -1,7 +1,7 @@
 # Emphasis check for day-12. Written by scripts/check-emphasis.py —
 # see workflow/validation/emphasis/README.md and issue #846.
 record: day-12
-checked_at: 2026-09-24
+checked_at: 2026-09-25
 source_pdf: O.Day.12.16Feb22.pdf
 source_sha256: 0367003cc56eaabc218479f42dd69cd382e174bc61d7348a65aed48608904769
 emphasis_version: e3f220e61dfa89e91721fedb1e53c95fe03bd3ad

@@ -23,7 +23,7 @@ But first, on [Appendix pages 10–12](../../appendix/02-day-2.qmd#sec-page10) I
 
 ---
 
-On your return from the Appendix, now spend a little time organising your notes into a small number of groups or categories, i.e. each containing somewhat related matters. Then develop your account of messages from the Red Beads Experiment by writing up a paragraph or two on each of those groups of notes. Finally *"top and tail"* your account with some appropriate introductory and concluding remarks.
+On your return from the Appendix, now spend a little time organising your notes into a small number of groups or categories, i.e. each containing somewhat related matters. Then develop your account of messages from the Red Beads Experiment by writing up a paragraph or two on each of those groups of notes. Finally "top and tail" your account with some appropriate introductory and concluding remarks.
 
 ```{ojs}
 import { persist } from "../../../assets/scripts/workbook.js"

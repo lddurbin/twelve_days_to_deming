@@ -66,7 +66,7 @@ viewof note_10_variation_12 = persist(
 </div>
 
 <div class="neave_note">
-[*How different, and how much more sensible, than traditional definitions of process capability that involve specifications. Deming is making the very simple point here that, when a process is in statistical control, the* control limits *indicate what it is capable of consistently producing.*]
+[*How different, and how much more sensible, than traditional definitions of process capability that involve specifications. Deming is making the very simple point here that, when a process is in statistical control, the **control limits** indicate what it is capable of consistently producing.*]
 </div>
 
 <div class="deming_quote">
@@ -85,7 +85,7 @@ viewof note_10_capability_leadership = persist(
 </div>
 
 <div class="neave_note">
-[*The quality of the* **measurement process** *itself seems to be too little considered by conventional statisticians, let alone non-statisticians. The numbers that are obtained using the measurement process are often never questioned. However, if you're wise, try carrying out repeated measurements of the same thing---e.g. the length of a piece of string (but at different times so that you don't remember what you got before)---you might surprise yourself! Or get some other people to take the measurements as well. This is even more important if that measurement process is likely to be employed under differing circumstances.*]
+[*The quality of the **measurement process** itself seems to be too little considered by conventional statisticians, let alone non-statisticians. The numbers that are obtained using the measurement process are often never questioned. However, if you're wise, try carrying out repeated measurements of the same thing---e.g. the length of a piece of string (but at different times so that you don't remember what you got before)---you might surprise yourself! Or get some other people to take the measurements as well. This is even more important if that measurement process is likely to be employed under differing circumstances.*]
 </div>
 
 <div class="deming_quote">
@@ -141,7 +141,7 @@ viewof note_10_shewhart_interaction = persist(
 
 *The essential issues in this item were briefly alluded to in Obstacle 6 on [Day 7 page 30](../day-07/07-major-activity.qmd#sec-page30). I'll expand a little on them here. A "frame" is some finite collection or "population". Examples are suggested above by Dr Deming. Given the time and money, a frame can be 100% inspected, enabling complete information about that frame to be obtained (within the limits of our observational powers, etc). Traditional statistical techniques are concerned with sampling some **fraction** of the frame, and trying to infer what **would** have happened in the case of 100% inspection. In either case, the only concern is **what** is in the frame, not **why** it is there. The **"what"** is an enumerative problem; the **"why"** is an analytic problem.*
 
-*Enumerative studies involve no temporal spread, i.e. no relevance over time except for the time during which the data were collected; in particular they imply no* **predictive** *ability. Yet sensible practical interest is surely on what is to come, not merely on what is past or present. In other words, most "real" problems are analytic, yet most statistical techniques are enumerative---the control chart being a notable exception.*
+*Enumerative studies involve no temporal spread, i.e. no relevance over time except for the time during which the data were collected; in particular they imply no **predictive** ability. Yet sensible practical interest is surely on what is to come, not merely on what is past or present. In other words, most "real" problems are analytic, yet most statistical techniques are enumerative---the control chart being a notable exception.*
 
 *These matters are further discussed in Part C of the Optional Extras.*]
 </div>
