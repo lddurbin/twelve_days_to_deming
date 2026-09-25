@@ -1,0 +1,285 @@
+{
+ "pass": "day-06-emphasis",
+ "epic": 848,
+ "issue": 877,
+ "source_pdf": "I.Day.6.19Feb22.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/days/day-06",
+ "export_filename": "day-06-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 11074,
+  "alignment": "94%",
+  "disagreeing_runs": 51,
+  "explained_by_convention": 40,
+  "lost": 10,
+  "lost_words": 14,
+  "added": 1,
+  "swapped": 0
+ },
+ "pages_read": [
+  10,
+  13,
+  19,
+  22,
+  29
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #877 · emphasis pass",
+  "title": "Day 6: the emphasis the source set and the site lost",
+  "artifact_title": "Day 6 emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 10 lost runs on <code>day-06</code>, plus 1 added and 0 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 2 lost · 0 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "I.Day.6.19Feb22.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "5"
+   },
+   {
+    "label": "Runs",
+    "value": "10 lost · 1 added · 0 swapped"
+   },
+   {
+    "label": "After",
+    "value": "2 lost · 0 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "7 findings",
+   "items": [
+    {
+     "file": "02-gallery-furniture.qmd",
+     "line": 30,
+     "pdf_page": 10,
+     "old": "find virtually no direct",
+     "proposal": "find virtually *no* direct",
+     "runs": [
+      8
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "Activity 6-a. Note that you will find virtually <mark class='src'>no</mark> direct references to the 14 Points or Deadly",
+     "site_html": "find virtually no direct",
+     "evidence_html": "Verified against the page image for PDF p10 · printed p6.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E6-01",
+     "page": "PDF p10 · printed p6",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-gallery-furniture.qmd",
+     "line": 32,
+     "pdf_page": 10,
+     "old": "for management (Out of the Crisis, Ch. 2)",
+     "proposal": "for management (*Out of the Crisis*, Ch. 2)",
+     "runs": [
+      9
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "Economics page 64<mark class='src'>93</mark>: The 14 points for management [(Out of the Crisis,] Ch. 2) in industry, education, and government follow",
+     "site_html": "for management (Out of the Crisis, Ch. 2)",
+     "evidence_html": "Verified against the page image for PDF p10 · printed p6. The book title is italic inside Deming's quotation.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E6-02",
+     "page": "PDF p10 · printed p6",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-gallery-furniture.qmd",
+     "line": 34,
+     "pdf_page": 10,
+     "old": "this is the only reference",
+     "proposal": "this is the *only* reference",
+     "runs": [
+      10
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "similar statement in the Preface, this is the <mark class='src'>only</mark> reference to the 14 Points in the whole",
+     "site_html": "this is the only reference",
+     "evidence_html": "Verified against the page image for PDF p10 · printed p6.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E6-03",
+     "page": "PDF p10 · printed p6",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "02-gallery-furniture.qmd",
+     "line": 76,
+     "pdf_page": 13,
+     "old": "being a winner or a loser.",
+     "proposal": "being a *winner* or a *loser*.",
+     "runs": [
+      16,
+      17
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "to cross that narrow line between being a <mark class='src'>winner</mark> or a loser. Some salespeople would work six · narrow line between being a winner or a <mark class='src'>loser.</mark> Some salespeople would work six or seven days",
+     "site_html": "being a winner or a loser.",
+     "evidence_html": "Verified against the page image for PDF p13 · printed p9.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E6-04",
+     "page": "PDF p13 · printed p9",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "03-activity-6b.qmd",
+     "line": 15,
+     "pdf_page": 22,
+     "old": "To focus on the *learning* from",
+     "proposal": "To focus on the learning from",
+     "runs": [
+      36
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "Activity.) Major Activity 6-b To focus on the <mark class='src'>learning</mark> from the Gallery Furniture story, and to help",
+     "site_html": "To focus on the *learning* from",
+     "evidence_html": "Verified against the page image for PDF p22 · printed p18. <em>learning</em> is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E6-05",
+     "page": "PDF p22 · printed p18",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-more-true-stories.qmd",
+     "line": 89,
+     "pdf_page": 29,
+     "old": "Transcript from ***\"The Week in Westminster\"***",
+     "proposal": "*Transcript from* ***\"The Week in Westminster\"***",
+     "runs": [
+      48
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "been included with the approval of the BBC. <mark class='src'>Transcript from</mark> The Week in Westminster Presented by Peter Oborne",
+     "site_html": "Transcript from ***&quot;The Week in Westminster&quot;***",
+     "evidence_html": "Verified against the page image for PDF p29 · printed p25. The lead-in <em>Transcript from</em> is italic, before the bold-italic programme title.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E6-06",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-more-true-stories.qmd",
+     "line": 96,
+     "pdf_page": 29,
+     "old": "such credible evidence, so credibly supported",
+     "proposal": "such *credible* evidence, so *credibly* supported",
+     "runs": [
+      49,
+      50
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "thought that we would finish up taking such <mark class='src'>credible</mark> evidence, so credibly supported by other police officers, · would finish up taking such credible evidence, so <mark class='src'>credibly</mark> supported by other police officers, serving and retired,",
+     "site_html": "such credible evidence, so credibly supported",
+     "evidence_html": "Verified against the page image for PDF p29 · printed p25.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E6-07",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    }
+   ]
+  },
+  {
+   "key": "clear",
+   "kind": "k-clear",
+   "title": "Checked and cleared",
+   "tag": "No defect",
+   "labels": {
+    "accept": "Agreed, no change",
+    "reject": "Disagree — change it",
+    "discuss": "Discuss"
+   },
+   "note_html": "The residual after this pass: comparator artifacts, site conventions and site-authored text.",
+   "count": "2 findings",
+   "items": [
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 19,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      32
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "how management has totally changed their view today: <mark class='src'>Before</mark> and After comparison Describe this table A two-column",
+     "site_html": "image caption / table description",
+     "evidence_html": "Comparator artifact. The PDF's bold <strong>BEFORE</strong> / <strong>AFTER</strong> table headers aligned against the site's image caption and its \"Describe this table\" text; the table is an image.",
+     "id": "E6-C01",
+     "page": "PDF p19 · printed p15",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": null,
+     "line": null,
+     "pdf_page": 19,
+     "chip": "no defect",
+     "chip_class": "clear",
+     "runs": [
+      33
+     ],
+     "flag": "emphasis check, lost run, 1 word(s)",
+     "source_html": "has totally changed their view today: Before and <mark class='src'>After</mark> comparison Describe this table A two-column Before After",
+     "site_html": "image caption / table description",
+     "evidence_html": "Comparator artifact. The PDF's bold <strong>BEFORE</strong> / <strong>AFTER</strong> table headers aligned against the site's image caption and its \"Describe this table\" text; the table is an image.",
+     "id": "E6-C02",
+     "page": "PDF p19 · printed p15",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    }
+   ]
+  }
+ ]
+}

@@ -101,9 +101,9 @@ viewof note_11_psych_4 = persist(
 <div class="neave_note">
 ["There is" is a rather innocent beginning to this substantial section (which continues all the way through to [page 30, the final bullets on overjustification](06-knowledge-of-psychology.qmd#sec-page30)). Dr Deming placed great value on a deep understanding of these three concepts.
 
-<em>Intrinsic motivation</em> for work (of any kind) is motivation coming "from within": i.e. one approaches the work with the desire to do a good job because of <em>wanting to</em>, because of job-satisfaction, because of interest and excitement in the task, because of desire to please the customer, indeed because of "joy in work".
+<em>Intrinsic motivation</em> for work (of any kind) is motivation coming "from within": i.e. one approaches the work with the desire to do a good job because of <strong><em>wanting to</em></strong>, because of job-satisfaction, because of interest and excitement in the task, because of desire to please the customer, indeed because of "joy in work".
 
-As opposed to this, <em>extrinsic motivation</em> is motivation for reasons unrelated to the job itself: e.g. to do with pay, or fear of being fired; external target-setting and competition also belong in this category. Dr Deming believed that we are all born with considerable natural intrinsic motivation but that management fails to recognise this; the consequence is that management concentrates on less-fruitful extrinsic motivation, regrettably simultaneously <strong>destroying</strong> much of that precious intrinsic motivation.
+As opposed to this, <em>extrinsic motivation</em> is motivation for reasons unrelated to the job itself: e.g. to do with pay, or fear of being fired; external target-setting and competition also belong in this category. Dr Deming believed that we are all born with considerable natural intrinsic motivation but that management fails to recognise this; the consequence is that management concentrates on less-fruitful extrinsic motivation, regrettably simultaneously <strong><em>destroying</em></strong> much of that precious intrinsic motivation.
 
 <em>Overjustification</em> is concerned with the devaluing effect of extrinsic reward being given when the intrinsic reward was more than sufficient. It demonstrates to the recipient that the giver does not understand or value intrinsic motivation. This can start to change the balance between the two in the recipient's mind, and a vicious circle is likely to be generated. See also the "Life Diagram" (highly recommended) on <em>DemDim</em> page 389.
 
@@ -149,7 +149,7 @@ viewof note_11_psych_5b = persist(
 </div>
 
 <div class="neave_note">
-["Wrong" can be interpreted in two ways. If I am encouraged to do what I believe to be <strong>incorrect</strong>, there may be some loss of dignity and self-esteem; there will certainly be loss of respect for the company and its management. If I am encouraged, or indeed required, to do what I know to be <strong>morally wrong</strong>, these losses become vast.]
+["Wrong" can be interpreted in two ways. If I am encouraged to do what I believe to be <strong><em>incorrect</em></strong>, there may be some loss of dignity and self-esteem; there will certainly be loss of respect for the company and its management. If I am encouraged, or indeed required, to do what I know to be <strong><em>morally wrong</em></strong>, these losses become vast.]
 </div>
 
 <div class="deming_quote">
@@ -182,9 +182,9 @@ viewof note_11_psych_5c = persist(
 </div>
 
 <div class="neave_note">
-[At least, pay is not an <strong>intrinsic</strong> motivator; there is also considerable evidence that it is often not as important an <strong>extrinsic</strong> one as many people think. Some appreciation of Maslow's well-known Hierarchy of Needs is helpful for understanding this matter. For a discussion of this and other related topics, see the BDA booklet A8: <em>Performance Appraisal and All That</em>.
+[At least, pay is not an <strong><em>intrinsic</em></strong> motivator; there is also considerable evidence that it is often not as important an <strong><em>extrinsic</em></strong> one as many people think. Some appreciation of Maslow's well-known Hierarchy of Needs is helpful for understanding this matter. For a discussion of this and other related topics, see the BDA booklet A8: <em>Performance Appraisal and All That</em>.
 
-"Pay is not a motivator" is worth long consideration and discussion. Note that on <em>DemDim</em> page 279 this is usefully qualified to "... pay, <strong>above a certain level</strong>, is not a motivator" (my emphasis). One might possibly add "... except to get yet more pay". And this, of course, is in contrast to motivation for doing a better job, which is what Deming is focusing on here. Recall one of the many points raised while contrasting the horizontal with the conventional vertical organisation chart---the contrast between (a) pleasing the customer and (b) pleasing the boss.
+"Pay is not a motivator" is worth long consideration and discussion. Note that on <em>DemDim</em> page 279 this is usefully qualified to "... pay, <strong><em>above a certain level</em></strong>, is not a motivator" (my emphasis). One might possibly add "... except to get yet more pay". And this, of course, is in contrast to motivation for doing a better job, which is what Deming is focusing on here. Recall one of the many points raised while contrasting the horizontal with the conventional vertical organisation chart---the contrast between (a) pleasing the customer and (b) pleasing the boss.
 
 Regarding these matters, recall also the reference to Norb Keller of General Motors on "Preludes" page 21.]
 </div>

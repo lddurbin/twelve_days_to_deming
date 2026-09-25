@@ -1,0 +1,574 @@
+{
+ "pass": "day-09-emphasis",
+ "epic": 848,
+ "issue": 877,
+ "source_pdf": "L.Day.9.15Feb22.pdf",
+ "scorer_version": "e3f220e61dfa89e91721fedb1e53c95fe03bd3ad",
+ "content_dir": "content/days/day-09",
+ "export_filename": "day-09-emphasis-decisions.json",
+ "adjudicated_at": "2026-09-25",
+ "decided_at": "2026-09-25",
+ "report": {
+  "aligned_words": 14225,
+  "alignment": "97%",
+  "disagreeing_runs": 59,
+  "explained_by_convention": 31,
+  "lost": 20,
+  "lost_words": 34,
+  "added": 7,
+  "swapped": 1
+ },
+ "pages_read": [
+  6,
+  7,
+  8,
+  9,
+  10,
+  12,
+  13,
+  14,
+  16,
+  24,
+  27,
+  28,
+  29,
+  30,
+  33
+ ],
+ "page_offset": 4,
+ "page": {
+  "eyebrow": "Epic #848 · issue #877 · emphasis pass",
+  "title": "Day 9: the emphasis the source set and the site lost",
+  "artifact_title": "Day 9 emphasis adjudication",
+  "standfirst_html": "<p>The checker reports 20 lost runs on <code>day-09</code>, plus 7 added and 1 swapped. Each was checked against the source page image. Decisions were delegated by Lee on 2026-09-25, so this record is evidence rather than a review request.</p><p><strong>After the pass: 0 lost · 0 added · 0 swapped</strong>, and every remaining run is cleared below.</p>",
+  "provenance": [
+   {
+    "label": "Source",
+    "value": "L.Day.9.15Feb22.pdf"
+   },
+   {
+    "label": "Checker",
+    "value": "scripts/check-emphasis.py"
+   },
+   {
+    "label": "Pages read",
+    "value": "15"
+   },
+   {
+    "label": "Runs",
+    "value": "20 lost · 7 added · 1 swapped"
+   },
+   {
+    "label": "After",
+    "value": "0 lost · 0 added · 0 swapped"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "key": "emph",
+   "kind": "k-emph",
+   "title": "Restore, remove or move",
+   "tag": "Emphasis",
+   "labels": {
+    "accept": "Apply",
+    "reject": "Leave as-is",
+    "discuss": "Discuss"
+   },
+   "note_html": "Emphasis the source sets and the site lost, italics the site added, and spans in the wrong place or weight.",
+   "count": "22 findings",
+   "items": [
+    {
+     "file": "02-a-system.qmd",
+     "line": 19,
+     "pdf_page": 6,
+     "old": "appreciating an organisation as a system, while",
+     "proposal": "appreciating an *organisation* as a system, while",
+     "runs": [
+      2
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "some broad and fundamental thoughts about appreciating an <mark class='src'>organisation</mark> as a system, while tomorrow morning we shall",
+     "site_html": "appreciating an organisation as a system, while",
+     "evidence_html": "Verified against the page image for PDF p6 · printed p2.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-01",
+     "page": "PDF p6 · printed p2",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-a-system.qmd",
+     "line": 42,
+     "pdf_page": 7,
+     "old": "had *made the difference* in Japan",
+     "proposal": "had made *the* difference in Japan",
+     "runs": [
+      4,
+      5
+     ],
+     "flag": "emphasis check, added — 2 run(s)",
+     "source_html": "(and, obviously, the learning which it portrays) had <mark class='src'>made</mark> the difference in Japan? Yes, he did. If · the learning which it portrays) had made the <mark class='src'>difference</mark> in Japan? Yes, he did. If you read",
+     "site_html": "had *made the difference* in Japan",
+     "evidence_html": "Verified against the page image for PDF p7 · printed p3. Only <em>the</em> is italic in the source; the site had widened the span.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E9-02",
+     "page": "PDF p7 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-a-system.qmd",
+     "line": 44,
+     "pdf_page": 7,
+     "old": "not only makes the claim but also explains *why he made it*",
+     "proposal": "not only *makes* the claim but also explains *why* he made it",
+     "runs": [
+      6,
+      7
+     ],
+     "flag": "emphasis check, added, lost — 2 run(s)",
+     "source_html": "section begins as follows and this not only <mark class='src'>makes</mark> the claim but also explains why he made · only makes the claim but also explains why <mark class='src'>he made it:</mark> “The flow diagram was the spark that in",
+     "site_html": "not only makes the claim but also explains *why he made it*",
+     "evidence_html": "Verified against the page image for PDF p7 · printed p3. Source italicises <em>makes</em> and <em>why</em> only.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-03",
+     "page": "PDF p7 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-a-system.qmd",
+     "line": 52,
+     "pdf_page": 7,
+     "old": "generic \"Organisation Viewed",
+     "proposal": "generic \"*Organisation* Viewed",
+     "runs": [
+      8
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "as a System. I prefer the more generic <mark class='src'>Organisation</mark> Viewed as a System, for the concept is",
+     "site_html": "generic &quot;Organisation Viewed",
+     "evidence_html": "Verified against the page image for PDF p7 · printed p3.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-04",
+     "page": "PDF p7 · printed p3",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "02-a-system.qmd",
+     "line": 77,
+     "pdf_page": 8,
+     "old": "So what is the important difference",
+     "proposal": "So what *is* the important difference",
+     "runs": [
+      11
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "important. PAUSE FOR THOUGHT 9 a So what <mark class='src'>is</mark> the important difference between the Old Way and",
+     "site_html": "So what is the important difference",
+     "evidence_html": "Verified against the page image for PDF p8 · printed p4.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-05",
+     "page": "PDF p8 · printed p4",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-a-system.qmd",
+     "line": 120,
+     "pdf_page": 9,
+     "old": "You do this (Step 1), then you do that (Step 2), then you do something else (Step 3)",
+     "proposal": "You do *this* (Step 1), then you do *that* (Step 2), then you do *something else* (Step 3)",
+     "runs": [
+      13,
+      14,
+      15
+     ],
+     "flag": "emphasis check, lost — 3 run(s)",
+     "source_html": "writing your comments The Old Way You do <mark class='src'>this</mark> (Step 1), then you do that (Step 2), · You do this (Step 1), then you do <mark class='src'>that</mark> (Step 2), then you do something else (Step · you do that (Step 2), then you do <mark class='src'>something else</mark> (Step 3) and that’s it! Done; finished; gone.",
+     "site_html": "You do this (Step 1), then you do that (Step 2), then you do something else (Step 3)",
+     "evidence_html": "Verified against the page image for PDF p9 · printed p5.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-06",
+     "page": "PDF p9 · printed p5",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "02-a-system.qmd",
+     "line": 120,
+     "pdf_page": 9,
+     "old": "it's simply: done; finished; gone!",
+     "proposal": "it's simply: done; finished; *gone!*",
+     "runs": [
+      16
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "times. And each time it’s simply: done; finished; <mark class='src'>gone!</mark> The New Way The circle immediately creates thoughts",
+     "site_html": "it&#x27;s simply: done; finished; gone!",
+     "evidence_html": "Verified against the page image for PDF p9 · printed p5.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-07",
+     "page": "PDF p9 · printed p5",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "02-a-system.qmd",
+     "line": 124,
+     "pdf_page": 9,
+     "old": "circle once, Step 3 leads back into Step 1. We learn from",
+     "proposal": "circle once, *Step 3 leads back into Step 1*. We *learn* from",
+     "runs": [
+      17,
+      18
+     ],
+     "flag": "emphasis check, lost — 2 run(s)",
+     "source_html": "learning, improvement. Having gone around the circle once, <mark class='src'>Step 3 leads back into Step 1.</mark> We learn from what happened the first time · Step 3 leads back into Step 1. We <mark class='src'>learn</mark> from what happened the first time around and,",
+     "site_html": "circle once, Step 3 leads back into Step 1. We learn from",
+     "evidence_html": "Verified against the page image for PDF p9 · printed p5.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-08",
+     "page": "PDF p9 · printed p5",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "02-a-system.qmd",
+     "line": 153,
+     "pdf_page": 10,
+     "old": "A dynamic scientific process of acquiring knowledge! Rather",
+     "proposal": "*A dynamic scientific process of acquiring knowledge!* Rather",
+     "runs": [
+      20
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "constitute a dynamic scientific process of acquiring knowledge. <mark class='src'>A dynamic scientific process of acquiring knowledge!</mark> Rather different from done; finished; gone! And this",
+     "site_html": "A dynamic scientific process of acquiring knowledge! Rather",
+     "evidence_html": "Verified against the page image for PDF p10 · printed p6.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-09",
+     "page": "PDF p10 · printed p6",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "03-activity-9c-and-organisation-charts.qmd",
+     "line": 44,
+     "pdf_page": 12,
+     "old": "it must be somebody's fault.",
+     "proposal": "it must be *somebody's fault*.",
+     "runs": [
+      23
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "blame! If something goes wrong, it must be <mark class='src'>somebody’s fault.</mark> The fundamental error in this is already familiar",
+     "site_html": "it must be somebody&#x27;s fault.",
+     "evidence_html": "Verified against the page image for PDF p12 · printed p8.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-10",
+     "page": "PDF p12 · printed p8",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "03-activity-9c-and-organisation-charts.qmd",
+     "line": 71,
+     "pdf_page": 13,
+     "old": "what does the *conventional* organisation chart do",
+     "proposal": "what does the conventional organisation chart do",
+     "runs": [
+      25
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "his job is. By contrast, what does the <mark class='src'>conventional</mark> organisation chart do, and what does it show?",
+     "site_html": "what does the *conventional* organisation chart do",
+     "evidence_html": "Verified against the page image for PDF p13 · printed p9. <em>conventional</em> is upright here in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E9-11",
+     "page": "PDF p13 · printed p9",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "03-activity-9c-and-organisation-charts.qmd",
+     "line": 97,
+     "pdf_page": 14,
+     "old": "It is the system that needs",
+     "proposal": "It is the *system* that needs",
+     "runs": [
+      27
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "the mercy of the system. It is the <mark class='src'>system</mark> that needs improvement, in order that people are",
+     "site_html": "It is the system that needs",
+     "evidence_html": "Verified against the page image for PDF p14 · printed p10.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-12",
+     "page": "PDF p14 · printed p10",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "04-major-activity.qmd",
+     "line": 24,
+     "pdf_page": 16,
+     "old": "do what you can first before turning",
+     "proposal": "do what you can first *before* turning",
+     "runs": [
+      29
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "However, as usual, do what you can first <mark class='src'>before</mark> turning to the Appendix, for that is Stage",
+     "site_html": "do what you can first before turning",
+     "evidence_html": "Verified against the page image for PDF p16 · printed p12.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-13",
+     "page": "PDF p16 · printed p12",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "05-of-profound-knowledge.qmd",
+     "line": 86,
+     "pdf_page": 24,
+     "old": "offering a range of",
+     "proposal": "offering a *range* of",
+     "runs": [
+      40
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "Remember that here I am deliberately offering a <mark class='src'>range</mark> of choices for how you spend the available",
+     "site_html": "offering a range of",
+     "evidence_html": "Verified against the page image for PDF p24 · printed p20.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-14",
+     "page": "PDF p24 · printed p20",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "06-introductions-to-the-system.qmd",
+     "line": 43,
+     "pdf_page": 27,
+     "old": "I suggest you start your",
+     "proposal": "I suggest you *start* your",
+     "runs": [
+      46
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "of the four parts. Indeed, I suggest you <mark class='src'>start</mark> your browsing session with it in order to",
+     "site_html": "I suggest you start your",
+     "evidence_html": "Verified against the page image for PDF p27 · printed p23.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-15",
+     "page": "PDF p27 · printed p23",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "06-introductions-to-the-system.qmd",
+     "line": 47,
+     "pdf_page": 28,
+     "old": "appear in *italics* and",
+     "proposal": "appear in italics and",
+     "runs": [
+      47
+     ],
+     "flag": "emphasis check, added — 1 run(s)",
+     "source_html": "My own comments within his writing appear in <mark class='src'>italics</mark> and are enclosed in square brackets. The same",
+     "site_html": "appear in *italics* and",
+     "evidence_html": "Verified against the page image for PDF p28 · printed p24. <em>italics</em> is upright in the source.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E9-16",
+     "page": "PDF p28 · printed p24",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "06-introductions-to-the-system.qmd",
+     "line": 91,
+     "pdf_page": 29,
+     "old": "*[*Useful reading on the advantages of cooperation over competition is to be found in the books No Contest by Alfie Kohn and Beyond Negotiation by John Carlisle and Robert Parker.*]*",
+     "proposal": "*\\[Useful reading on the advantages of cooperation over competition is to be found in the books* No Contest *by Alfie Kohn* and Beyond Negotiation *by John Carlisle and Robert Parker.\\]*",
+     "runs": [
+      48,
+      49
+     ],
+     "flag": "emphasis check, added — 2 run(s)",
+     "source_html": "competition is to be found in the books <mark class='src'>No Contest</mark> by Alfie Kohn and Beyond Negotiation by John · in the books No Contest by Alfie Kohn <mark class='src'>and Beyond Negotiation</mark> by John Carlisle and Robert Parker.] Indeed, if",
+     "site_html": "*[*Useful reading on the advantages of cooperation over competition is to be found in the books No Contest by Alfie Kohn and Beyond Negotiation by John Carlisle and Robert Parker.*]*",
+     "evidence_html": "Verified against the page image for PDF p29 · printed p25. Neave's italic aside with the two book titles, and the <em>and</em> between them, upright. The site had the whole line italic.",
+     "chip": "remove italics",
+     "chip_class": "crit",
+     "id": "E9-17",
+     "page": "PDF p29 · printed p25",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "07-out-of-hours.qmd",
+     "line": 10,
+     "pdf_page": 30,
+     "old": "work between the",
+     "proposal": "work *between* the",
+     "runs": [
+      51
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "you to do any significant amount of work <mark class='src'>between</mark> the individual days of this course. But now,",
+     "site_html": "work between the",
+     "evidence_html": "Verified against the page image for PDF p30 · printed p26.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-18",
+     "page": "PDF p30 · printed p26",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    },
+    {
+     "file": "07-out-of-hours.qmd",
+     "line": 12,
+     "pdf_page": 30,
+     "old": "adequate for both Days",
+     "proposal": "adequate for *both* Days",
+     "runs": [
+      52
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "of the three sections will be adequate for <mark class='src'>both</mark> Days 10 and 11, and so you will",
+     "site_html": "adequate for both Days",
+     "evidence_html": "Verified against the page image for PDF p30 · printed p26.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-19",
+     "page": "PDF p30 · printed p26",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 2
+    },
+    {
+     "file": "07-out-of-hours.qmd",
+     "line": 14,
+     "pdf_page": 30,
+     "old": "emphasis was always there",
+     "proposal": "emphasis was *always* there",
+     "runs": [
+      53
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "forgetting about understanding variation, but that emphasis was <mark class='src'>always</mark> there.) However, as you haven’t seen anything of",
+     "site_html": "emphasis was always there",
+     "evidence_html": "Verified against the page image for PDF p30 · printed p26.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-20",
+     "page": "PDF p30 · printed p26",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 3
+    },
+    {
+     "file": "07-out-of-hours.qmd",
+     "line": 18,
+     "pdf_page": 30,
+     "old": "the mechanics of",
+     "proposal": "the *mechanics* of",
+     "runs": [
+      54
+     ],
+     "flag": "emphasis check, lost — 1 run(s)",
+     "source_html": "yourself in advance with, as it were, the <mark class='src'>mechanics</mark> of the Second Project, i.e. what you will",
+     "site_html": "the mechanics of",
+     "evidence_html": "Verified against the page image for PDF p30 · printed p26.",
+     "chip": "emphasis",
+     "chip_class": "emph",
+     "id": "E9-21",
+     "page": "PDF p30 · printed p26",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 4
+    },
+    {
+     "file": "07-out-of-hours.qmd",
+     "line": 56,
+     "pdf_page": 33,
+     "old": "**Step 2 [analogous to the gymnast's \"strenuous exercise\"!]: Dr Deming's May 1990 version**",
+     "proposal": "**Step 2** *[analogous to the gymnast's \"strenuous exercise\"!]*: **Dr Deming's May 1990 version**",
+     "runs": [
+      56
+     ],
+     "flag": "emphasis check, swapped — 1 run(s)",
+     "source_html": "you’ll be limbering up your brain! Step 2 <mark class='src'>[analogous to the gymnast’s strenuous exercise!</mark>:] Dr Deming’s May 1990 version Choices for your",
+     "site_html": "**Step 2 [analogous to the gymnast&#x27;s &quot;strenuous exercise&quot;!]: Dr Deming&#x27;s May 1990 version**",
+     "evidence_html": "Verified against the page image for PDF p33 · printed p29. The bracketed aside in the heading is small italic, not bold; the words either side are bold.",
+     "chip": "swapped",
+     "chip_class": "crit",
+     "id": "E9-22",
+     "page": "PDF p33 · printed p29",
+     "decision": "accept",
+     "decision_preset": false,
+     "decision_note": "Delegated: Lee handed #848 emphasis decisions to Claude on 2026-09-25; decided by Claude against the page image.",
+     "page_pos": 1
+    }
+   ]
+  }
+ ]
+}

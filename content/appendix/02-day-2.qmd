@@ -62,7 +62,7 @@ That is not what the Foreman thought—he thought it was *all* due to the Willin
 | Al’s 9 | “You were yesterday’s top performer—must have let it go to your head.” |
 | Carol’s 11 | “This is ridiculous.” |
 | Ben’s 17 | “Hold it—stop the line!” |
-| Ed’s 7 | [to them all:] “***65?*** That’s a lot worse than the *first* week! Quite dreadful.” |
+| Ed’s 7 | *[to them all:]* “***65?*** That’s a lot worse than the *first* week! Quite dreadful.” |
 
 ### Day 3
 
