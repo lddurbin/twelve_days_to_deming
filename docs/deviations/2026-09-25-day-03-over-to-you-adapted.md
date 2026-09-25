@@ -1,0 +1,8 @@
+## 2026-09-25 — Day 3's "over to you" paragraph restored in adapted form
+
+- **What** — Neave's paragraph handing Rule 2 over to the reader was missing from the site. It is restored without the parts the interactive has made untrue. The source reads: "OK, over to you—throw your own dice from now on! Continue the experiment through a total of up to 40 stages. Have patience—as mentioned earlier, this is by far the trickiest of all the four strategies to carry out: you'll be able to work through the other three much more quickly. (Keep an eye on my timings though: if you get short of time then be content with fewer stages.)" The site now reads: "OK, over to you—continue the experiment through a total of up to 40 stages. (Keep an eye on my timings though: if you get short of time then be content with fewer stages.)"
+- **Where** — `content/days/day-03/11-the-first-two-rules-of-the-funnel.qmd`, below the instruction that introduces the Rule 2 interactive.
+- **Source reference** — `F.Day.3.13Jan20.pdf`, printed page 42 (PDF page 46).
+- **Why** — The interactive generates the reader's dice from Stage 6 onward, and it makes all four Rules equally quick to work through. "Throw your own dice" and "by far the trickiest of all the four strategies" would both be false on the site. The rest of the paragraph still holds, and without it the page never hands the experiment over to the reader.
+- **Decided in** — [#831](https://github.com/lddurbin/twelve_days_to_deming/issues/831) (2026-09-25), which settles Wave 2 Day 3 finding `D3-45` from [#830](https://github.com/lddurbin/twelve_days_to_deming/issues/830).
+- **Landed in** — PR [#868](https://github.com/lddurbin/twelve_days_to_deming/pull/868).
