@@ -302,7 +302,9 @@ def derive(record: Record) -> Population:
 
     # Identical paragraphs score identically, so removing the flagged ones as a
     # multiset leaves exactly the matched ones, duplicates and order intact.
-    flagged = collections.Counter(missing) + collections.Counter(p for p, _ in altered)
+    flagged = collections.Counter(p for p, _best, _covered in missing) + collections.Counter(
+        p for p, _ in altered
+    )
     population, seen = [], collections.Counter()
     for block in pdf_blocks:
         if flagged[block.text]:

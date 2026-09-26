@@ -1,23 +1,26 @@
 day: 12
-validated_at: 2026-09-25
+validated_at: 2026-09-26
 source_pdf: O.Day.12.16Feb22.pdf
 source_sha256: 0367003cc56eaabc218479f42dd69cd382e174bc61d7348a65aed48608904769
-scorer_version: 14ed7500625ba7ed99a34d63395d44de5f1be9df
+scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
 files:
   compared: 8
 thresholds:
   missing: 0.4
+  missing_coverage_floor: 0.5
+  missing_coverage: 0.4
+  missing_coverage_min_words: 20
   altered: 0.98
   unsourced: 0.25
   reference: 0.85
 counts:
   pdf_paragraphs: 143
   qmd_paragraphs: 151
-  matched_cleanly: 99
-  altered: 34
-  flagged_sentences: 73
-  near_certain: 9
-  missing: 10
+  matched_cleanly: 110
+  altered: 21
+  flagged_sentences: 32
+  near_certain: 8
+  missing: 12
   unsourced: 3
   unsourced_sentences: 4
   reference_mismatches: 5

@@ -475,6 +475,44 @@ class StructureTests(unittest.TestCase):
         self.assertEqual(strip_qmd("One line\n"), "One line\n")
 
 
+class ListMarkerTests(unittest.TestCase):
+    """Markdown bullets become the `•` glyph the sentence splitter already
+    breaks on (#834), so a list reaches the scorer as items rather than one
+    fused QMD "sentence" that none of the PDF's bullets can match."""
+
+    def test_hyphen_and_asterisk_bullets_become_glyphs(self):
+        self.assertEqual(strip_qmd("you need:\n\n- a funnel,\n* a marble,\n+ a table\n"),
+                         "you need:\n\n• a funnel,\n• a marble,\n• a table\n")
+
+    def test_indented_bullets_keep_their_indent(self):
+        self.assertEqual(strip_qmd("  - nested item\n"), "  • nested item\n")
+
+    def test_a_bullet_inside_a_blockquote(self):
+        self.assertEqual(strip_qmd("> - quoted item\n"), "• quoted item\n")
+
+    def test_a_bullet_is_not_paired_with_a_later_literal_asterisk(self):
+        """From Day 1's "different" chapter: the item carries a `ranking*`
+        footnote marker, and the italic rule used to pair the bullet's own `*`
+        with it and delete both, fusing the item into its neighbour."""
+        self.assertEqual(strip_qmd("* It's an environment with no place for ranking* people\n"),
+                         "• It's an environment with no place for ranking* people\n")
+
+    def test_bold_at_the_start_of_a_line_is_not_a_bullet(self):
+        self.assertEqual(strip_qmd("**Stage 5.** Finally.\n"), "Stage 5. Finally.\n")
+
+    def test_italic_at_the_start_of_a_line_is_not_a_bullet(self):
+        self.assertEqual(strip_qmd("*Out of the Crisis* is the book.\n"), "Out of the Crisis is the book.\n")
+
+    def test_a_hyphen_inside_prose_is_left_alone(self):
+        self.assertEqual(strip_qmd("pages 10 - 11 and well-known\n"), "pages 10 - 11 and well-known\n")
+
+    def test_a_list_splits_into_one_sentence_per_item(self):
+        """The point of the rule, end to end through the splitter."""
+        from paragraph_similarity import split_sentences
+        stripped = strip_qmd("- a funnel,\n- a marble which is small enough,\n").replace("\n", " ")
+        self.assertEqual(split_sentences(stripped), ["a funnel,", "a marble which is small enough,"])
+
+
 class FrontMatterTitleTests(unittest.TestCase):
     """The one front-matter field that is Neave's text rather than the site's.
 

@@ -13,7 +13,11 @@
 #   - Missing:    a PDF paragraph whose single best-scoring sentence still
 #                 falls below MISSING_SIMILARITY_THRESHOLD against every
 #                 sentence in the QMD text — nothing in the chapter resembles
-#                 any part of it closely enough to call it present. Derived
+#                 any part of it closely enough to call it present — or, from
+#                 COVERAGE_MIN_TOKENS words up, one with under
+#                 MISSING_COVERAGE_THRESHOLD of its words in sentences that
+#                 match at all well, so one loose match can no longer carry a
+#                 dropped paragraph past the check (#834). Derived
 #                 from the same sentence-level score distribution as
 #                 "Altered" below, rather than a separate presence check: see
 #                 scripts/lib/paragraph_similarity.py and issue #719.
@@ -684,6 +688,7 @@ main() {
   local missing matched altered flagged near_match unsourced unsourced_sentences
   local reference
   local missing_threshold altered_threshold unsourced_threshold reference_threshold
+  local coverage_floor coverage_threshold coverage_min_tokens
   missing=$(sed -n 's/^MISSING_COUNT=//p' "$altered_report")
   matched=$(sed -n 's/^MATCHED_COUNT=//p' "$altered_report")
   altered=$(sed -n 's/^ALTERED_COUNT=//p' "$altered_report")
@@ -693,6 +698,9 @@ main() {
   unsourced_sentences=$(sed -n 's/^UNSOURCED_SENTENCES=//p' "$altered_report")
   reference=$(sed -n 's/^REFERENCE_MISMATCHES=//p' "$altered_report")
   missing_threshold=$(sed -n 's/^MISSING_THRESHOLD=//p' "$altered_report")
+  coverage_floor=$(sed -n 's/^COVERAGE_FLOOR=//p' "$altered_report")
+  coverage_threshold=$(sed -n 's/^COVERAGE_THRESHOLD=//p' "$altered_report")
+  coverage_min_tokens=$(sed -n 's/^COVERAGE_MIN_TOKENS=//p' "$altered_report")
   altered_threshold=$(sed -n 's/^ALTERED_THRESHOLD=//p' "$altered_report")
   unsourced_threshold=$(sed -n 's/^UNSOURCED_THRESHOLD=//p' "$altered_report")
   reference_threshold=$(sed -n 's/^REFERENCE_THRESHOLD=//p' "$altered_report")
@@ -706,6 +714,9 @@ main() {
        && "$unsourced" =~ ^[0-9]+$ && "$unsourced_sentences" =~ ^[0-9]+$ \
        && "$reference" =~ ^[0-9]+$ \
        && "$missing_threshold" =~ ^[0-9]+\.[0-9]+$ \
+       && "$coverage_floor" =~ ^[0-9]+\.[0-9]+$ \
+       && "$coverage_threshold" =~ ^[0-9]+\.[0-9]+$ \
+       && "$coverage_min_tokens" =~ ^[0-9]+$ \
        && "$altered_threshold" =~ ^[0-9]+\.[0-9]+$ \
        && "$unsourced_threshold" =~ ^[0-9]+\.[0-9]+$ \
        && "$reference_threshold" =~ ^[0-9]+\.[0-9]+$ ]]; then
@@ -852,6 +863,9 @@ files:
   )
 thresholds:
   missing: $missing_threshold
+  missing_coverage_floor: $coverage_floor
+  missing_coverage: $coverage_threshold
+  missing_coverage_min_words: $coverage_min_tokens
   altered: $altered_threshold
   unsourced: $unsourced_threshold
   reference: $reference_threshold

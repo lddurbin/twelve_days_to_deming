@@ -1,12 +1,15 @@
 day: 2
-validated_at: 2026-09-25
+validated_at: 2026-09-26
 source_pdf: E.Day.2.12Oct21.pdf
 source_sha256: 86ff4005198a3bf2b4a34349e348113a8b347b3072769631962f686366f122e0
-scorer_version: 14ed7500625ba7ed99a34d63395d44de5f1be9df
+scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
 files:
   compared: 9
 thresholds:
   missing: 0.4
+  missing_coverage_floor: 0.5
+  missing_coverage: 0.4
+  missing_coverage_min_words: 20
   altered: 0.98
   unsourced: 0.25
   reference: 0.85
@@ -15,7 +18,7 @@ counts:
   qmd_paragraphs: 185
   matched_cleanly: 134
   altered: 29
-  flagged_sentences: 60
+  flagged_sentences: 48
   near_certain: 17
   missing: 31
   unsourced: 7

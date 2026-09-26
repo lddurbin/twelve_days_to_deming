@@ -18,6 +18,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts" / "lib"))
 
 from paragraph_similarity import (  # noqa: E402
     ALTERED_SIMILARITY_THRESHOLD as THRESHOLD,
+    COVERAGE_MIN_TOKENS,
+    COVERAGE_SENTENCE_FLOOR,
+    MISSING_COVERAGE_THRESHOLD,
     MISSING_SIMILARITY_THRESHOLD as MISSING_THRESHOLD,
     NEAR_MATCH_SCORE,
     REFERENCE_PAIR_THRESHOLD,
@@ -25,12 +28,14 @@ from paragraph_similarity import (  # noqa: E402
     UNSOURCED_SIMILARITY_THRESHOLD as UNSOURCED_THRESHOLD,
     analyse,
     classify_forward,
+    coverage,
     diff_window,
     find_best_sentence,
     normalise,
     reference_mismatch,
     reference_tokens,
     render,
+    render_missing,
     render_reference_mismatches,
     split_sentences,
     tokenise,
@@ -47,6 +52,16 @@ def verdicts(altered):
     written to say rather than accidentally also pinning the display.
     """
     return [(para, [f[:3] for f in flagged]) for para, flagged in altered]
+
+
+def missing_paras(missing):
+    """Just the paragraphs of a classify_forward() missing list.
+
+    #834 widened each entry to (paragraph, best_score, coverage) so the report
+    can say which route flagged it. Tests about *which* paragraphs are missing
+    compare through this.
+    """
+    return [para for para, _best, _coverage in missing]
 
 
 def score_of(pdf_sentence: str, qmd_sentence: str) -> float:
@@ -410,7 +425,7 @@ class ClassifyForwardTests(unittest.TestCase):
         pdf_paras = ["A wholly unrelated paragraph about beads and funnels here."]
         qmd_paras = ["Something completely different about quality management systems."]
         missing, altered, matched, _refs = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
-        self.assertEqual(missing, pdf_paras)
+        self.assertEqual(missing_paras(missing), pdf_paras)
         self.assertEqual(altered, [])
         self.assertEqual(matched, 0)
 
@@ -446,13 +461,13 @@ class ClassifyForwardTests(unittest.TestCase):
         pdf_paras = ["--- *** ---"]
         qmd_paras = ["Some ordinary sentence that exists on the site."]
         missing, altered, matched, _refs = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
-        self.assertEqual(missing, pdf_paras)
+        self.assertEqual(missing_paras(missing), pdf_paras)
         self.assertEqual(matched, 0)
 
     def test_empty_qmd_pool_marks_everything_missing(self):
         pdf_paras = ["Any paragraph at all, it doesn't matter what it says here."]
         missing, altered, matched, _refs = classify_forward(pdf_paras, [], MISSING_THRESHOLD, THRESHOLD)
-        self.assertEqual(missing, pdf_paras)
+        self.assertEqual(missing_paras(missing), pdf_paras)
         self.assertEqual(altered, [])
         self.assertEqual(matched, 0)
 
@@ -469,6 +484,105 @@ class ClassifyForwardTests(unittest.TestCase):
         ]
         missing, altered, matched, _refs = classify_forward(pdf_paras, qmd_paras, MISSING_THRESHOLD, THRESHOLD)
         self.assertEqual(len(missing) + len(altered) + matched, len(pdf_paras))
+
+
+class CoverageRouteTests(unittest.TestCase):
+    """The second route to "missing" (#834): too few of a paragraph's words
+    are accounted for, however well its best sentence scored."""
+
+    # A real drop, as the Balaji Reddie appendix shipped before #833 restored
+    # it. The pool is each sentence's actual closest match in that chapter,
+    # which reproduces the scores the full pool gave. "A family is a system."
+    # matched a Prelude heading at 0.60, and that one loose match carried
+    # the other 74 words past the old floor. The only report it reached was
+    # as altered-flag noise.
+    BALAJI_DROP = (
+        "Further, thinking positively, is this not also the truth with individuals? "
+        "A family is a system. Could you point a finger at one of them and say that "
+        "he or she is the “most important” member of the family? Could you? At first, "
+        "the answer to that question may seem paradoxical—but give it time! If you "
+        "realise that you cannot choose the “most important” member then you’re "
+        "thinking positively, i.e. in terms of optimising the system."
+    )
+    BALAJI_POOL = [
+        "Statistical Thinking is very helpful in this respect.",
+        "Prelude A: Understanding a System",
+        "We have seen that, since a family is a system, it is silly to talk of the "
+        '"most important" member of the family.',
+        "What do you think?",
+        "First: trying to be someone that you're not.",
+    ]
+
+    def test_the_balaji_drop_is_missing(self):
+        missing, altered, matched, _refs = classify_forward(
+            [self.BALAJI_DROP], self.BALAJI_POOL, MISSING_THRESHOLD, THRESHOLD
+        )
+        self.assertEqual(missing_paras(missing), [self.BALAJI_DROP])
+        self.assertEqual((altered, matched), ([], 0))
+
+    def test_the_balaji_drop_clears_the_best_sentence_floor(self):
+        """Which is the whole bug: the old route alone let it through."""
+        _para, best, covered = classify_forward(
+            [self.BALAJI_DROP], self.BALAJI_POOL, MISSING_THRESHOLD, THRESHOLD
+        )[0][0]
+        self.assertGreaterEqual(best, MISSING_THRESHOLD)
+        self.assertLess(covered, MISSING_COVERAGE_THRESHOLD)
+
+    def test_disabling_the_coverage_route_restores_the_old_verdict(self):
+        missing, altered, _m, _r = classify_forward(
+            [self.BALAJI_DROP], self.BALAJI_POOL, MISSING_THRESHOLD, THRESHOLD,
+            coverage_threshold=0.0,
+        )
+        self.assertEqual(missing, [])
+        self.assertEqual(len(altered), 1)
+
+    def test_one_dropped_sentence_among_present_ones_is_altered_not_missing(self):
+        """A partial drop is not a missing paragraph: most of it is on the
+        site, and its one absent sentence flags as altered."""
+        present = (
+            "The foreman praises the workers who drew few red beads today. "
+            "He criticises the workers who drew many red beads today. "
+            "Neither the praise nor the blame has anything to do with their work. "
+        )
+        pdf = present + "Zebras graze quietly beneath tall acacia trees on the savanna."
+        missing, altered, _m, _r = classify_forward([pdf], [present], MISSING_THRESHOLD, THRESHOLD)
+        self.assertEqual(missing, [])
+        self.assertEqual(len(altered), 1)
+
+    def test_short_paragraphs_are_left_to_the_best_sentence_floor(self):
+        """Under COVERAGE_MIN_TOKENS the coverage route would only raise the
+        floor for short blocks, so it stays out of their way."""
+        pdf = "A family is a system. Could you?"
+        self.assertLess(len(tokenise(pdf)), COVERAGE_MIN_TOKENS)
+        missing, _a, _m, _r = classify_forward([pdf], self.BALAJI_POOL, MISSING_THRESHOLD, THRESHOLD)
+        self.assertEqual(missing, [])
+
+    def test_each_missing_entry_carries_the_numbers_that_decided_it(self):
+        missing, _a, _m, _r = classify_forward(
+            ["A wholly unrelated paragraph about beads and funnels here."],
+            ["Something completely different about quality management systems."],
+            MISSING_THRESHOLD, THRESHOLD,
+        )
+        (_para, best, covered), = missing
+        self.assertLess(best, MISSING_THRESHOLD)
+        self.assertEqual(covered, 0.0)
+
+    def test_coverage_is_weighted_by_words_not_sentences(self):
+        scored = [(1.0, "One two three.", "", None), (0.0, "Four five six seven eight nine.", "", None)]
+        self.assertEqual(coverage(scored, COVERAGE_SENTENCE_FLOOR), (3 / 9, 9))
+
+    def test_coverage_of_nothing_fails_closed(self):
+        self.assertEqual(coverage([], COVERAGE_SENTENCE_FLOOR), (0.0, 0))
+
+    def test_the_coverage_floor_sits_above_the_best_sentence_floor(self):
+        """At the missing floor itself coverage caught 29 of the 39 calibration
+        drops, since a dropped sentence routinely finds a 0.40–0.50 partner by
+        shared vocabulary. Pinned so a re-tune can't quietly collapse them."""
+        self.assertGreater(COVERAGE_SENTENCE_FLOOR, MISSING_THRESHOLD)
+
+    def test_the_report_names_both_numbers(self):
+        body = "\n".join(render_missing([("Some paragraph.", 0.6, 0.06)], MISSING_THRESHOLD))
+        self.assertIn("[best sentence 60%, words covered 6%]", body)
 
 
 class UnsourcedTests(unittest.TestCase):
@@ -1026,18 +1140,35 @@ class ClassifyForwardReferenceTests(unittest.TestCase):
         )
         self.assertEqual(refs, [])
 
-    def test_a_missing_paragraph_contributes_no_reference_mismatch(self):
-        """Guaranteed structurally: REFERENCE_PAIR_THRESHOLD is well above
-        MISSING_SIMILARITY_THRESHOLD, so a paragraph holding a qualifying pair
-        cannot itself be missing. Pinned so the two constants can't be re-tuned
-        into overlapping without a test going red."""
+    def test_a_paragraph_missing_by_best_score_contributes_no_reference_mismatch(self):
+        """Guaranteed structurally for the best-sentence route:
+        REFERENCE_PAIR_THRESHOLD is well above MISSING_SIMILARITY_THRESHOLD, so
+        a paragraph holding a qualifying pair cannot be missing by that route.
+        Pinned so the two constants can't be re-tuned into overlapping without
+        a test going red."""
         self.assertGreater(REFERENCE_PAIR_THRESHOLD, MISSING_THRESHOLD)
         missing, _a, _c, refs = classify_forward(
             [self.PDF], ["Nothing here resembles that sentence at all, page 41."],
             MISSING_THRESHOLD, THRESHOLD,
         )
-        self.assertEqual(missing, [self.PDF])
+        self.assertEqual(missing_paras(missing), [self.PDF])
         self.assertEqual(refs, [])
+
+    def test_a_paragraph_missing_by_coverage_still_reports_its_mismatch(self):
+        """The coverage route (#834) has no such guarantee, by design: one
+        faithful sentence surviving among dropped ones is its whole shape.
+        The surviving pair is credibly the same sentence, so its numbers are
+        still worth checking."""
+        dropped = (
+            " Zebras graze quietly beneath tall acacia trees on the open savanna."
+            " Hippos wallow lazily in muddy rivers during the hottest afternoons."
+            " Giraffes browse the highest branches that no other animal can reach."
+        )
+        missing, _a, _c, refs = classify_forward(
+            [self.PDF + dropped], [self.QMD], MISSING_THRESHOLD, THRESHOLD,
+        )
+        self.assertEqual(missing_paras(missing), [self.PDF + dropped])
+        self.assertEqual(len(refs), 1)
 
     def test_findings_are_ordered_by_descending_similarity(self):
         """Triage order, matching every other section of the report.
