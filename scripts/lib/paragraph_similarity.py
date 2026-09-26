@@ -107,7 +107,8 @@ key and skip the header with `sed '1,/^$/d'` rather than by line number, so
 new keys can be added without breaking them.
 
   MISSING_COUNT=<n>       PDF paragraphs with no sentence close enough to
-                          anything in the QMD pool to count as present
+                          anything in the QMD pool to count as present, or
+                          too few of whose words are (#834)
   ALTERED_COUNT=<n>       PDF paragraphs with >=1 flagged sentence
   MATCHED_COUNT=<n>       PDF paragraphs with no flagged sentence, and not
                           missing — MISSING_COUNT + ALTERED_COUNT +
@@ -123,13 +124,16 @@ new keys can be added without breaking them.
                           the missing/altered/matched split — most of them
                           are *also* clean matches
   MISSING_THRESHOLD=<f>   the MISSING_SIMILARITY_THRESHOLD in effect
+  COVERAGE_FLOOR=<f>      the COVERAGE_SENTENCE_FLOOR in effect
+  COVERAGE_THRESHOLD=<f>  the MISSING_COVERAGE_THRESHOLD in effect
+  COVERAGE_MIN_TOKENS=<n>  the COVERAGE_MIN_TOKENS in effect
   ALTERED_THRESHOLD=<f>   the altered-sentence threshold in effect (the CLI
                           [threshold] override if given, else
                           ALTERED_SIMILARITY_THRESHOLD)
   UNSOURCED_THRESHOLD=<f>  the UNSOURCED_SIMILARITY_THRESHOLD in effect
   REFERENCE_THRESHOLD=<f>  the REFERENCE_PAIR_THRESHOLD in effect
 
-These four threshold lines let a caller record exactly what a run was
+These threshold lines let a caller record exactly what a run was
 scored against (see #720) without keeping its own copy of the numbers to
 drift out of sync with this module.
 """
@@ -182,6 +186,55 @@ TRUNCATE_LEN = 200
 # on short strings, not something a different cut fixes. See #645 for the
 # same shape of blind spot in the "unsourced" direction.
 MISSING_SIMILARITY_THRESHOLD = 0.40
+
+# The floor above asks only whether *any* sentence of a paragraph resembles
+# something on the site, and one loose match was enough to call a whole
+# paragraph present. That let dropped paragraphs through (#834). The Balaji
+# Reddie pass found four runs of them, about 450 words, and none reached the
+# missing report: "A family is a system" cleared 0.40 against the site's
+# "Sugar is a hydrocarbon". Each came out as a low-scoring altered flag
+# instead, indistinguishable from the noise at that end of the list.
+#
+# So a paragraph is also missing when too little of it is accounted for:
+# fewer than MISSING_COVERAGE_THRESHOLD of its words sit in sentences scoring
+# at least COVERAGE_SENTENCE_FLOOR. Coverage is weighted by words, not
+# sentences, so a stray six-word match cannot vouch for a hundred-word
+# paragraph.
+#
+# Calibrated against every paragraph a Wave 2 pass later restored (#734).
+# Each record's pre-fix content was re-scored with this pipeline, and a
+# paragraph counted as a real drop if the fix took it from under 25% to at
+# least 60% of its words matching at 0.80. That gave 39 paragraphs across
+# ten records. The old floor caught 19 of them. This rule catches 36 of them,
+# and adds 32 missing flags to the current, fixed corpus (2026-09-26). Every
+# one of those 32 was checked: each is already-adjudicated by-design
+# omission or PDF furniture, such as the index's printing guidance
+# (I-17–I-19), Day 3's paper funnel worksheets, contents pages, tables or
+# typeset maths. None is a newly found drop. The three it misses are partial
+# drops, where 45–65% of the paragraph really is present. Those still flag
+# sentence by sentence as altered, which is where a partial drop belongs.
+#
+#   floor  share   recall   added on the current corpus
+#   0.50   0.30    34/39    +30
+#   0.50   0.40    36/39    +32
+#   0.50   0.50    36/39    +44
+#   0.60   0.40    36/39    +46
+#   0.60   0.50    37/39    +57
+#
+# 0.50 rather than MISSING_SIMILARITY_THRESHOLD itself, because a dropped
+# sentence routinely finds a 0.40–0.50 partner by shared vocabulary alone.
+# Coverage at 0.40 caught only 29 of the 39.
+COVERAGE_SENTENCE_FLOOR = 0.50
+MISSING_COVERAGE_THRESHOLD = 0.40
+
+# The coverage rule applies only from this many words up. Below it a paragraph
+# is one short sentence or two, and coverage just restates the best-sentence
+# score, so applying the rule there would amount to raising
+# MISSING_SIMILARITY_THRESHOLD to COVERAGE_SENTENCE_FLOOR for short blocks.
+# Without the gate, 41 more flags landed on the current corpus, nearly all of
+# them contents lines and "(Return to Workbook page N)" pointers. No real drop
+# in the calibration set is shorter than 23 words.
+COVERAGE_MIN_TOKENS = 20
 
 # Below this similarity, a sentence is flagged as "altered" rather than counted
 # as a clean match. This module is the single definition: validate-transcription.sh
@@ -725,6 +778,22 @@ def analyse(
     return altered_by_para
 
 
+def coverage(scored: list[tuple[float, str, str, tuple[float, str] | None]], floor: float) -> tuple[float, int]:
+    """(share of words in sentences scoring >= `floor`, total words) for one
+    paragraph's score_paragraph() output.
+
+    Words rather than sentences, so that a six-word sentence matching by
+    coincidence cannot vouch for the ninety words around it (#834). A
+    paragraph with no scoreable words has coverage 0.0, which fails closed in
+    the same way its 0.0 best score does.
+    """
+    words = [(score, len(tokenise(sent))) for score, sent, _, _ in scored]
+    total = sum(n for _, n in words)
+    if not total:
+        return 0.0, 0
+    return sum(n for score, n in words if score >= floor) / total, total
+
+
 def classify_forward(
     pdf_paras: list[str],
     qmd_paras: list[str],
@@ -733,8 +802,11 @@ def classify_forward(
     reference_threshold: float = REFERENCE_PAIR_THRESHOLD,
     qmd_short: list[str] | None = None,
     evidence_floor: float = SHORT_EVIDENCE_FLOOR,
+    coverage_floor: float = COVERAGE_SENTENCE_FLOOR,
+    coverage_threshold: float = MISSING_COVERAGE_THRESHOLD,
+    coverage_min_tokens: int = COVERAGE_MIN_TOKENS,
 ) -> tuple[
-    list[str],
+    list[tuple[str, float, float]],
     list[tuple[str, list[tuple[float, str, str, tuple[float, str] | None]]]],
     int,
     list[tuple[float, str, str, list[str], list[str]]],
@@ -743,11 +815,16 @@ def classify_forward(
     cleanly, plus the reference-token mismatches found along the way.
     Supersedes find_in_qmd()'s fingerprint grep (#719).
 
-    A paragraph is "missing" when even its single best-scoring sentence
-    falls below `missing_threshold` against the whole QMD pool — nothing in
-    the chapter resembles any part of it closely enough to call it present.
-    A paragraph that clears that bar but still has >=1 sentence below
-    `altered_threshold` is "altered"; everything else is matched cleanly.
+    A paragraph is "missing" by either of two routes. Either even its single
+    best-scoring sentence falls below `missing_threshold` against the whole
+    QMD pool, so nothing in the chapter resembles any part of it. Or, from
+    `coverage_min_tokens` words up, fewer than `coverage_threshold` of its
+    words sit in sentences scoring `coverage_floor` or better (#834). The
+    second route catches the paragraph whose one loose match used to carry
+    the rest of it past the first; see MISSING_COVERAGE_THRESHOLD for the
+    calibration. A paragraph that clears both but still has >=1 sentence
+    below `altered_threshold` is "altered"; everything else is matched
+    cleanly.
 
     A paragraph with no scoreable sentence at all (all punctuation, or an
     empty QMD pool to compare against) has a best score of 0.0 by
@@ -761,9 +838,13 @@ def classify_forward(
     function taking the same two paragraph lists would double it. They cut
     across the three-way split rather than refining it: a mismatch is
     reported whether its paragraph classified altered or matched cleanly, and
-    the clean ones are the findings that motivated the check. No mismatch can
-    come from a "missing" paragraph, since reference_threshold is well above
-    missing_threshold, so a paragraph holding a qualifying pair cannot be one.
+    the clean ones are the findings that motivated the check. A paragraph
+    missing by the best-sentence route cannot hold a qualifying pair, since
+    reference_threshold is well above missing_threshold. One missing by the
+    coverage route can, because a single faithful sentence left behind among
+    dropped ones is exactly that route's shape. Its mismatch is still
+    reported: the pair scored as credibly the same sentence, and whether the
+    paragraph around it survived has no bearing on whether its numbers agree.
 
     `qmd_short` is the QMD's sub-floor blocks, offered as additional match
     candidates under the strict gate score_paragraph() documents (#761), and —
@@ -789,10 +870,12 @@ def classify_forward(
     `reference_threshold`, it exists so the constant can be re-tuned against
     evidence rather than by argument.
 
-    Returns (missing_paragraphs, altered_by_para, matched_count,
-    reference_mismatches). altered_by_para has the same shape analyse()
-    returns; reference_mismatches is (score, pdf_sentence, qmd_sentence,
-    pdf_only_tokens, qmd_only_tokens), highest score first.
+    Returns (missing, altered_by_para, matched_count, reference_mismatches).
+    missing is (pdf_paragraph, best_sentence_score, coverage) in PDF order,
+    so the report can say which route flagged each one. altered_by_para has
+    the same shape analyse() returns; reference_mismatches is (score,
+    pdf_sentence, qmd_sentence, pdf_only_tokens, qmd_only_tokens), highest
+    score first.
     """
     qmd_pool = build_pool(qmd_paras)
     # Admitted at `altered_threshold` — see score_paragraph() for why the gate
@@ -818,8 +901,11 @@ def classify_forward(
             if mismatch:
                 reference_mismatches.append((score, pdf_sent, qmd_sent, *mismatch))
         best_score = max((s for s, _, _, _ in scored), default=0.0)
-        if best_score < missing_threshold:
-            missing_paras.append(pdf_para)
+        covered, words = coverage(scored, coverage_floor)
+        if best_score < missing_threshold or (
+            words >= coverage_min_tokens and covered < coverage_threshold
+        ):
+            missing_paras.append((pdf_para, best_score, covered))
             continue
         flagged = [f for f in scored if f[0] < altered_threshold]
         if flagged:
@@ -879,30 +965,46 @@ def _format_findings(
     return out
 
 
-def render_missing(missing_paras: list[str], threshold: float) -> list[str]:
+def render_missing(
+    missing: list[tuple[str, float, float]],
+    threshold: float,
+    coverage_floor: float = COVERAGE_SENTENCE_FLOOR,
+    coverage_threshold: float = MISSING_COVERAGE_THRESHOLD,
+) -> list[str]:
     """Format the human-readable "potentially missing" report section.
 
     Unlike render()/render_unsourced(), there is no per-sentence finding to
-    show — a "missing" paragraph's best sentence still fell below threshold,
-    so nothing found is worth pointing at as "the closest match". The
-    paragraph itself, truncated, is the whole of what there is to show.
+    show. Whatever sentence matched best matched too loosely to point at, or
+    was too small a part of the paragraph to vouch for it. So each gap shows
+    the paragraph, truncated, and the two numbers that decided it. Which
+    route fired matters when triaging a gap. A best score under the floor
+    means nothing on the site resembles the paragraph at all. A low coverage
+    beside a respectable best score means part of it survived, and the
+    altered section will not show the rest (#834).
     """
     out = [
         "==========================================",
         "  Potentially Missing Content",
         "==========================================",
         "",
-        "The following PDF paragraphs had no sentence scoring a close match",
-        f"(>= {threshold:.0%}) anywhere in the QMD files. Review these to",
-        "determine if they are:",
+        "The following PDF paragraphs are not accounted for on the site: either",
+        f"no sentence scored a close match (>= {threshold:.0%}) anywhere in the QMD",
+        f"files, or under {coverage_threshold:.0%} of the paragraph's words are in sentences",
+        f"that scored {coverage_floor:.0%} or better. The second kind usually has one",
+        "sentence that did survive, and the rest dropped around it. Review",
+        "these to determine if they are:",
         "  - Genuinely missing from the transcription",
         "  - Page headers/footers, tables of contents, or other boilerplate",
         "    with no prose counterpart by design",
         "  - Content intentionally omitted or restructured",
         "",
     ]
-    for i, para in enumerate(missing_paras, start=1):
-        out += [f"--- Gap {i} ---", truncate(para), ""]
+    for i, (para, best, covered) in enumerate(missing, start=1):
+        out += [
+            f"--- Gap {i} [best sentence {best:.0%}, words covered {covered:.0%}] ---",
+            truncate(para),
+            "",
+        ]
     return out
 
 
@@ -1113,6 +1215,9 @@ def main(argv: list[str]) -> int:
     print(f"UNSOURCED_SENTENCES={sum(len(flagged) for _, flagged in unsourced_by_para)}")
     print(f"REFERENCE_MISMATCHES={len(reference_mismatches)}")
     print(f"MISSING_THRESHOLD={MISSING_SIMILARITY_THRESHOLD}")
+    print(f"COVERAGE_FLOOR={COVERAGE_SENTENCE_FLOOR}")
+    print(f"COVERAGE_THRESHOLD={MISSING_COVERAGE_THRESHOLD}")
+    print(f"COVERAGE_MIN_TOKENS={COVERAGE_MIN_TOKENS}")
     print(f"ALTERED_THRESHOLD={threshold}")
     print(f"UNSOURCED_THRESHOLD={UNSOURCED_SIMILARITY_THRESHOLD}")
     print(f"REFERENCE_THRESHOLD={REFERENCE_PAIR_THRESHOLD}")

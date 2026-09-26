@@ -1,12 +1,15 @@
 day: 5
-validated_at: 2026-09-25
+validated_at: 2026-09-26
 source_pdf: H.Day.5.08Feb22.pdf
 source_sha256: 6080edb4e995aec859f4a42ee704d8601eb41afcb9d8fe33fd4bfdd5f18b21eb
-scorer_version: 14ed7500625ba7ed99a34d63395d44de5f1be9df
+scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
 files:
   compared: 3
 thresholds:
   missing: 0.4
+  missing_coverage_floor: 0.5
+  missing_coverage: 0.4
+  missing_coverage_min_words: 20
   altered: 0.98
   unsourced: 0.25
   reference: 0.85

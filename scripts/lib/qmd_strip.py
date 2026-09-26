@@ -166,6 +166,21 @@ _WORKBOOK_REF = re.compile(
     re.VERBOSE,
 )
 
+# A Markdown bullet becomes the `•` glyph the PDF side already carries, which
+# paragraph_similarity.py's sentence splitter treats as a boundary (#834).
+# Without it a whole list reached the scorer as one QMD "sentence" — items end
+# in commas and semicolons, and the next item starts with `-` or `*`, never a
+# capital — so each of the PDF's bullets was scored against the fused run and
+# landed near 0.35. Enough of those in one paragraph read as a dropped
+# paragraph to the coverage rule, and as altered-flag noise before it: Day 1's
+# C-07 adjudication cleared eleven such flags by hand.
+#
+# Must run before _ITALIC. Day 1 has a bullet whose text carries a literal
+# `ranking*` footnote marker, and the italic rule paired the bullet's own `*`
+# with it and deleted both, leaving the item unmarked and fused to its
+# neighbour. Leading `>` markers are allowed for, because a list inside a
+# blockquote keeps them until _BLOCKQUOTE_MARKER runs further down.
+_LIST_MARKER = re.compile(r"^((?:> ?)*[^\S\n]*)[-*+][^\S\n]+(?=\S)")
 _BOLD = re.compile(r"\*\*([^*]*)\*\*")
 _ITALIC = re.compile(r"\*([^*]*)\*")
 _HEADING_MARKER = re.compile(r"^#{1,6} ")
@@ -455,6 +470,7 @@ def strip_qmd(text: str) -> str:
             continue
         line = resolve_brackets(workbook_stripped)
         line = _TRAILING_ATTRIBUTES.sub("", line)
+        line = _LIST_MARKER.sub(r"\1• ", line)
         line = _BOLD.sub(r"\1", line)
         line = _ITALIC.sub(r"\1", line)
         line = _HEADING_MARKER.sub("", line)

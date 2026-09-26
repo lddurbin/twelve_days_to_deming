@@ -1,26 +1,29 @@
 manifest: welcome
-validated_at: 2026-09-25
+validated_at: 2026-09-26
 source_pdf: WELCOME-BOOKLET-(Aug21b).pdf
 source_sha256: b9bce5bbbb463c4dc27a2a0d30cf832193d618737c7992eda4152efb4bd9b884
-scorer_version: 14ed7500625ba7ed99a34d63395d44de5f1be9df
+scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
 files:
   compared: 1
 thresholds:
   missing: 0.4
+  missing_coverage_floor: 0.5
+  missing_coverage: 0.4
+  missing_coverage_min_words: 20
   altered: 0.98
   unsourced: 0.25
   reference: 0.85
 counts:
   pdf_paragraphs: 40
   qmd_paragraphs: 55
-  matched_cleanly: 27
+  matched_cleanly: 26
   altered: 13
-  flagged_sentences: 47
+  flagged_sentences: 25
   near_certain: 5
-  missing: 0
-  unsourced: 1
-  unsourced_sentences: 1
-  reference_mismatches: 3
+  missing: 1
+  unsourced: 2
+  unsourced_sentences: 2
+  reference_mismatches: 2
   short_checked: 5
   short_matched: 4
   short_unmatched: 1

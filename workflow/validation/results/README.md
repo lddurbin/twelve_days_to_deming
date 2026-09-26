@@ -58,6 +58,9 @@ files:
     - content/appendix/glossary.qmd     # declared in ../no-source.yml
 thresholds:
   missing: 0.4
+  missing_coverage_floor: 0.5 # a sentence at or above this counts toward coverage (#834)
+  missing_coverage: 0.4       # under this share of words covered is missing too
+  missing_coverage_min_words: 20  # the coverage route applies from this many words up
   altered: 0.98
   unsourced: 0.25
   reference: 0.85
@@ -302,6 +305,33 @@ paragraphs did (41% and 40%, both PDF layout debris the site restructured),
 against a corpus-wide 27 more paragraphs matching cleanly and 32 fewer
 near-certain flags. Read a small `missing` rise beside `matched_cleanly` in
 the same run before treating it as a regression.
+
+`counts.missing` rose by 30 in #834, and that rise is the fix working rather
+than a regression. A paragraph used to count as present if any one of its
+sentences matched something at 0.40, so a dropped paragraph with a single
+loose match was reported as low-scoring altered noise. Re-scoring every
+record's pre-pass content showed 20 of the 39 paragraphs the Wave 2 passes
+later restored had escaped that way. A second route now also marks a
+paragraph missing when, from 20 words up, under 40% of its words sit in
+sentences scoring 0.50 or better. That catches 36 of the 39. The 30 it adds
+to the current corpus were each checked, and all are already-adjudicated
+by-design omissions or PDF furniture: contents pages, the index's printing
+guidance, Day 3's paper funnel worksheets, tables and typeset maths.
+`thresholds` gained three keys to record the route:
+`missing_coverage_floor`, `missing_coverage` and
+`missing_coverage_min_words`.
+
+The same change made `qmd_strip.py` turn Markdown bullets into the `•` the
+sentence splitter already breaks on. Until then a whole QMD list reached the
+scorer as one fused sentence, which none of the PDF's bullets could match.
+Together the two changes took `flagged_sentences` from 1439 to 1073 across
+the eighteen records, and `matched_cleanly` up by 48. `near_certain` barely
+moved (300 to 301), because the list fix mostly clears low-scoring flags.
+Where it touched the near-certain band, the effect was to pair a sentence
+with its true counterpart instead of a fused list. Six more `unsourced`
+sentences appear too, every one a site-only contents-list item such as
+"Coda" or "Videos / DVDs" that used to be absorbed into a longer fused
+sentence. `pdf_paragraphs` did not move on any record.
 
 There is deliberately no pass/fail verdict field. With 446 known near-certain
 findings outstanding across the corpus as of #719's baseline, every day would
