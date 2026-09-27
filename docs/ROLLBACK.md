@@ -89,7 +89,7 @@ Every deploy that passes SiteGround verification is tagged `deploy-YYYYMMDDHHMMS
    gh workflow run deploy.yml --ref deploy-20260927200556  # adjust tag
    ```
 
-3. Watch the run. If Vercel was in a rolled-back state from Option 1, the rebuilt deployment won't go live there by itself. Promote it with `vercel promote` as described in [After rolling back](#after-rolling-back-new-merges-dont-go-live).
+3. Watch the run. If Vercel was in a rolled-back state from Option 1, the rebuilt deployment won't go live there by itself. Promote it with `vercel promote` as described in [After rolling back](#after-rolling-back-new-merges-dont-go-live). The URL to promote is on this run's summary page, on the line *Vercel production deployment: https://…*.
 
 4. Check the site. See [Verification](#verification).
 
