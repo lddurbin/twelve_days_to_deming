@@ -39,6 +39,8 @@ passed them. See #858.
 
 Steps 4 and 5 are in that order deliberately: a deploy that fails verification never gets tagged, so every `deploy-*` tag is a known-good rollback target. See [docs/ROLLBACK.md](../../docs/ROLLBACK.md).
 
+**`vercel-production`**: ships the same artifact to the production Vercel project (`twelve-days-to-deming`), beside `deploy` and with the same triggers. It serves no public domain until `learndeming.org` launches there (#886), and it sends `X-Robots-Tag: noindex` on every host except `learndeming.org`. It needs a team-scoped `VERCEL_TOKEN` secret on the `production` environment. See #680.
+
 ### 3. Triggers
 
 - **Automatic**: Every push to the `main` branch
