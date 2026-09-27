@@ -19,6 +19,11 @@ jobs:
     if: github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]'
 
     runs-on: ubuntu-latest
+    # A normal review takes 1–4 minutes. Without a limit, a hung run holds
+    # this required check pending for GitHub's 6-hour default. On PR #891 a
+    # run posted its review and then never exited. Failing at 15 minutes
+    # turns that into a red check you can re-run.
+    timeout-minutes: 15
     permissions:
       contents: read
       pull-requests: write
