@@ -288,6 +288,15 @@ jobs:
     if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/deploy-')
     permissions:
       contents: read
+    # One deploy-and-verify at a time. Verification fetches the production
+    # alias, which always points at the newest --prod deployment. If two
+    # merges overlapped, the later deploy could move the alias while the
+    # earlier run was still checking it, and that run would fail on a
+    # mismatch with nothing actually wrong. Queued, never cancelled mid-run,
+    # so an in-flight deploy always finishes and gets verified.
+    concurrency:
+      group: vercel-production
+      cancel-in-progress: false
     # VERCEL_TOKEN here is the production environment's own team-scoped
     # token, not the staging or preview one, so the deploy credential stays
     # isolated per environment, as SSH_PRIVATE_KEY is (#534, #536).
@@ -296,6 +305,11 @@ jobs:
     environment: production
 
     steps:
+    # Only for scripts/verify-deployment.sh. The shipped bytes come from the
+    # artifact. Checkout runs first because it cleans the workspace.
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
     - name: Download site artifact
       uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
       with:
@@ -352,10 +366,6 @@ jobs:
     # --prod from the first deploy, so every deployment is an instant-rollback
     # target by the time #684 documents that path. --format json gives the
     # flat shape ({"url",...} at the top level), as noted in the preview job.
-    #
-    # Verifying what this deployed is #683's job. The hash URL printed here
-    # sits behind Vercel Authentication, so a plain curl gets a 302 to the
-    # login page rather than the site.
     - name: Deploy to Vercel production
       id: deploy
       env:
@@ -380,6 +390,19 @@ jobs:
         fi
         echo "url=$URL" >> "$GITHUB_OUTPUT"
         echo "Vercel production deployment: https://$URL" >> "$GITHUB_STEP_SUMMARY"
+
+    # The same byte-for-byte check `deploy` runs against SiteGround (#533),
+    # pointed at this host (#683). It targets the production alias rather
+    # than the hash URL printed above, because hash URLs sit behind Vercel
+    # Authentication and a plain curl gets a 302 to the login page. The
+    # job-level concurrency group keeps the alias on this run's deployment
+    # while the check runs. Once learndeming.org launches here (#886), point
+    # this at that domain instead.
+    - name: Verify Vercel production
+      env:
+        CACHE_BUST: ${{ github.run_id }}-${{ github.run_attempt }}
+        ROLLBACK_HINT: "Promote the previous production deployment: vercel rollback, or Instant Rollback in the dashboard."
+      run: ./scripts/verify-deployment.sh https://twelve-days-to-deming.vercel.app _book
 
   # Ships the same artifact to a persistent Vercel project that tracks
   # main — distinct from both production (rsync above) and the ephemeral

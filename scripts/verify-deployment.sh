@@ -5,6 +5,7 @@
 # Usage: ./scripts/verify-deployment.sh [BASE_URL] [LOCAL_DIR]
 #   e.g. ./scripts/verify-deployment.sh
 #        ./scripts/verify-deployment.sh https://deming.leedurbin.co.nz _book
+#        ./scripts/verify-deployment.sh https://twelve-days-to-deming.vercel.app _book
 #
 # Environment:
 #   VERIFY_PATHS     space-separated URL paths to check, replacing the default
@@ -13,6 +14,10 @@
 #   RETRY_DELAY      seconds between those attempts (default 5)
 #   CACHE_BUST       token appended as ?v=… to defeat the proxy cache
 #                    (default: timestamp-pid; CI passes the run id)
+#   ROLLBACK_HINT    what to do when the served bytes differ from the artifact.
+#                    The default describes the SiteGround host. The Vercel job
+#                    passes its own, because restoring a server-side backup
+#                    means nothing there.
 #
 # HTTP 202 ("accepted, not yet serving fresh content", from production's
 # reverse proxy warming up after rsync) is reported but never retried or
@@ -38,8 +43,10 @@
 # production on 2026-08-07 by diffing the live responses for /, /privacy.html,
 # /robots.txt and /sitemap.xml against the artifact of the run that deployed
 # them: all four hashes matched, so there is no minification, no injection, and
-# no rewriting in the path. A host that transformed HTML would need content
-# markers instead.
+# no rewriting in the path. The same holds on Vercel. On 2026-09-28 all six
+# default paths below matched the artifact byte for byte at
+# twelve-days-to-deming.vercel.app. A host that transformed HTML would need
+# content markers instead.
 #
 # Requires: curl, and sha256sum (Linux/CI) or shasum (macOS).
 
@@ -76,6 +83,8 @@ RETRY_DELAY="${RETRY_DELAY:-5}"
 # healthy. Confirmed the host serves an unknown query string normally rather
 # than 404ing on it.
 CACHE_BUST="${CACHE_BUST:-$(date +%s)-$$}"
+
+ROLLBACK_HINT="${ROLLBACK_HINT:-See docs/ROLLBACK.md — Option 1 restores the pre-deploy backup.}"
 
 # Deliberately short and stable — one representative of each thing that could
 # independently break, not broad coverage. Broad coverage is the build smoke
@@ -280,7 +289,7 @@ if [[ "$FAILURES" -gt 0 ]]; then
   if [[ "$FAILURES" -gt "$STALE_PATHS" ]]; then
     echo ""
     echo "The site is serving something other than what was just deployed."
-    echo "See docs/ROLLBACK.md — Option 1 restores the pre-deploy backup."
+    echo "$ROLLBACK_HINT"
   fi
 
   exit 1
