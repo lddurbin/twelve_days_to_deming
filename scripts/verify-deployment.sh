@@ -84,7 +84,7 @@ RETRY_DELAY="${RETRY_DELAY:-5}"
 # than 404ing on it.
 CACHE_BUST="${CACHE_BUST:-$(date +%s)-$$}"
 
-ROLLBACK_HINT="${ROLLBACK_HINT:-See docs/ROLLBACK.md — Option 1 restores the pre-deploy backup.}"
+ROLLBACK_HINT="${ROLLBACK_HINT:-See docs/ROLLBACK.md — Option 3 restores the pre-deploy backup.}"
 
 # Deliberately short and stable — one representative of each thing that could
 # independently break, not broad coverage. Broad coverage is the build smoke
