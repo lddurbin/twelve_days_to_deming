@@ -251,7 +251,7 @@ jobs:
     # verification must not mint one — otherwise a later rollback could target
     # the very release that broke.
     #
-    # Detection only. Rollback stays manual (ROLLBACK.md Option 1); for a
+    # Detection only. Rollback stays manual (ROLLBACK.md Option 3); for a
     # static site the worst case is a few minutes of bad HTML, which does not
     # justify automating a destructive action.
     #
@@ -401,7 +401,7 @@ jobs:
     - name: Verify Vercel production
       env:
         CACHE_BUST: ${{ github.run_id }}-${{ github.run_attempt }}
-        ROLLBACK_HINT: "Promote the previous production deployment: vercel rollback, or Instant Rollback in the dashboard."
+        ROLLBACK_HINT: "See docs/ROLLBACK.md — Option 1 (Vercel Instant Rollback) restores the previous production deployment."
       run: ./scripts/verify-deployment.sh https://twelve-days-to-deming.vercel.app _book
 
   # Ships the same artifact to a persistent Vercel project that tracks
