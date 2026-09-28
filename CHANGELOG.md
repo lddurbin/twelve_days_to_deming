@@ -11,6 +11,20 @@ and this project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-09-29
+
+### Reader Experience
+- Every page at deming.leedurbin.co.nz now forwards to the same page on learndeming.org, bringing your saved answers with it; everything else there redirects permanently. (#899)
+- When the old address starts redirecting, your saved answers, ratings and reading preferences come with you to learndeming.org, without replacing anything you've already saved there. (#898)
+
+### Infrastructure & Quality
+- Every page now tells search engines that its learndeming.org address is the one to index, so the old address isn't treated as a duplicate. (#897)
+- The course is now served at learndeming.org, which becomes the canonical address for search engines, the sitemap and llms.txt; the old address keeps working. (#895)
+- The site now sends its content security policy as a response header, and no other site can embed its pages in a frame. (#904)
+
+### Fixed
+- Day 9's two footnotes on where to get Booklets A9 and A10 no longer link to the Deming Transformation Forum's website, which is offline; they now say the Forum no longer appears to be trading, as the Welcome page already does. (#902)
+
 ## [0.3.2] - 2026-09-28
 
 ### Course Content
