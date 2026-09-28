@@ -27,7 +27,8 @@ passed them. See #858.
 3. **Install dependencies** using `renv::restore()`
 4. **Build** the Quarto book with `quarto render`
 5. **Smoke test** the build output — fails closed before anything can ship
-6. **Upload** `_book` as the `site` artifact
+6. **Verify canonical links** — every sitemap page names itself canonical (#896)
+7. **Upload** `_book` as the `site` artifact
 
 **`deploy`** — ships that artifact. Runs only on `main` or a `deploy-*` tag:
 1. **Download** the `site` artifact and check it arrived complete

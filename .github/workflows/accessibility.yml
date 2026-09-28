@@ -66,6 +66,12 @@ jobs:
     - name: Build Quarto book
       run: quarto render
 
+    # Every sitemap page must name itself canonical (#896). The link comes
+    # from a post-render step that matches Quarto's HTML, so a Quarto upgrade
+    # could silently stop it being inserted.
+    - name: Verify canonical links
+      run: Rscript scripts/add-canonical-links.R --check
+
     - name: Upload site artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
       with:
