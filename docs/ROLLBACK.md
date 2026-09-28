@@ -99,7 +99,7 @@ Every deploy that passes SiteGround verification is tagged `deploy-YYYYMMDDHHMMS
 
 ## Option 3: Restore a SiteGround server-side backup
 
-This only applies to `deming.leedurbin.co.nz`, and only while the rsync `deploy` job exists (#685 decides its future). Since #888, that docroot holds the bridge, so a backup restores an earlier bridge. The backups taken before the first bridge deploy hold the full site. Restoring one of those undoes #888, until five newer deploys rotate them out.
+This only applies to `deming.leedurbin.co.nz`. The rsync `deploy` job stays, shipping only that domain's files (#685), so this option stays with it. There's deliberately no warm copy of the site on SiteGround to repoint `learndeming.org` at: if `learndeming.org` is bad, use Option 1 or 2. Since #888, that docroot holds the bridge, so a backup restores an earlier bridge. The backups taken before the first bridge deploy hold the full site. Restoring one of those undoes #888, until five newer deploys rotate them out.
 
 Every rsync deploy first takes a timestamped backup on the server, and the five most recent are kept:
 

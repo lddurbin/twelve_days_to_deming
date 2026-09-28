@@ -188,8 +188,10 @@ jobs:
     # deming.leedurbin.co.nz serves a bridge page per page of the site, which
     # carries the reader's saved data (#887) to the same path on
     # learndeming.org, and 301s everything else. Shipping `_book/` here again
-    # would put the whole site back on the old domain. #685 decides whether
-    # this job survives Stage 2.
+    # would put the whole site back on the old domain. #685 settled that this
+    # job stays, shipping only the old domain's files: the bridge now, the
+    # permanent 301's `.htaccess` after Stage 2 (#901). There's no warm copy
+    # of the site on SiteGround to fall back to. Vercel rollback covers that.
     #
     # Runs every time, but the repo content it provides is used only by the
     # verify and tagging steps below. The shipped bytes come from the artifact.
@@ -323,12 +325,11 @@ jobs:
       if: always()
       run: rm -f ~/.ssh/id_rsa
 
-  # Ships the same artifact to the production Vercel project (#680, epic
-  # #678). Runs beside the rsync `deploy` above, not instead of it: until
-  # learndeming.org launches here (#886), SiteGround stays authoritative and
-  # this is a second copy of the same bytes, directly comparable with it.
-  # Independent of `deploy` (same `needs: build`, no ordering), so a failure
-  # on either host never blocks the other.
+  # Ships the site to the production Vercel project (#680, epic #678), which
+  # serves learndeming.org, the canonical origin since #886. The rsync
+  # `deploy` above ships only the old domain's bridge. Independent of
+  # `deploy` (same `needs: build`, no ordering), so a failure on either host
+  # never blocks the other.
   #
   # Same `if` as `deploy`, so a ROLLBACK.md Option 2 dispatch against a
   # `deploy-*` tag rolls this host back too rather than leaving it ahead.
@@ -366,7 +367,7 @@ jobs:
         name: site
         path: _book
 
-    # Same check as `deploy`: after #886 this is the host readers get, so a
+    # Same check as `deploy`: since #886 this is the host readers get, so a
     # truncated transfer must not reach it either.
     - name: Verify downloaded artifact
       env:
@@ -442,12 +443,11 @@ jobs:
         echo "Vercel production deployment: https://$URL" >> "$GITHUB_STEP_SUMMARY"
 
     # The same byte-for-byte check `deploy` runs against SiteGround (#533),
-    # pointed at this host (#683). It targets the production alias rather
-    # than the hash URL printed above, because hash URLs sit behind Vercel
+    # pointed at this host (#683). It targets learndeming.org rather than the
+    # hash URL printed above, because hash URLs sit behind Vercel
     # Authentication and a plain curl gets a 302 to the login page. The
-    # job-level concurrency group keeps the alias on this run's deployment
-    # while the check runs. Once learndeming.org launches here (#886), point
-    # this at that domain instead.
+    # job-level concurrency group keeps the domain on this run's deployment
+    # while the check runs.
     - name: Verify Vercel production
       env:
         CACHE_BUST: ${{ github.run_id }}-${{ github.run_attempt }}
@@ -455,12 +455,12 @@ jobs:
       run: ./scripts/verify-deployment.sh https://learndeming.org _book
 
   # Ships the same artifact to a persistent Vercel project that tracks
-  # main — distinct from both production (rsync above) and the ephemeral
-  # per-PR previews in accessibility.yml. See #536: a login or database
+  # main — distinct from both production (`vercel-production` above) and
+  # the ephemeral per-PR previews in accessibility.yml. See #536: a login or database
   # phase needs somewhere durable to test end-to-end flows against, which
   # neither production nor a preview that vanishes when its PR closes can
   # offer. Independent of `deploy` (same `needs: build`, no ordering
-  # between them) — a slow or failed rsync never blocks staging.
+  # between them) — a slow or failed production deploy never blocks staging.
   #
   # If this ever goes unused, tear it down rather than let it become a
   # second thing to maintain: `vercel project rm twelve-days-to-deming-staging`,
