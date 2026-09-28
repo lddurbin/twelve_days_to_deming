@@ -4,10 +4,12 @@ Every merge to `main` deploys the same build to two hosts. Before doing anything
 
 | Host | What it serves | Deployed by | Fastest rollback |
 |---|---|---|---|
-| **Vercel**, project `twelve-days-to-deming` | `learndeming.org` once #886 launches it. Until then, only `twelve-days-to-deming.vercel.app`, which isn't indexed and has no readers | `vercel-production` job | [Option 1: Instant Rollback](#option-1-vercel-instant-rollback) |
-| **SiteGround** | `deming.leedurbin.co.nz`: the public site until #886, then a redirect only (#888) | `deploy` job (rsync) | [Option 3: server-side backup](#option-3-restore-a-siteground-server-side-backup) |
+| **Vercel**, project `twelve-days-to-deming` | `learndeming.org`, the canonical origin. `www.learndeming.org` 308s to it | `vercel-production` job | [Option 1: Instant Rollback](#option-1-vercel-instant-rollback) |
+| **SiteGround** | `deming.leedurbin.co.nz`: the same site, in parallel, until #888 makes it a redirect only | `deploy` job (rsync) | [Option 3: server-side backup](#option-3-restore-a-siteground-server-side-backup) |
 
 [Option 2](#option-2-rebuild-from-a-deploy--tag) rebuilds from a known-good tag and redeploys to both hosts.
+
+DNS for `learndeming.org` lives in Vercel DNS, because the domain was bought through Vercel: there's no registrar to log in to. Vercel creates the records when a domain is attached to the project.
 
 To check which host is answering on a domain, run `curl -sI https://<domain>/ | grep -i '^server'`. Vercel answers `server: Vercel`.
 
@@ -19,7 +21,7 @@ Each deploy job ends by fetching a handful of real URLs and checking that each o
 
 | Step that went red | Job | Host it checked |
 |---|---|---|
-| **Verify Vercel production** | `vercel-production` | `twelve-days-to-deming.vercel.app` (`learndeming.org` after #886) |
+| **Verify Vercel production** | `vercel-production` | `learndeming.org` |
 | **Verify production** | `deploy` | `deming.leedurbin.co.nz` |
 
 Read the failure before acting. The script distinguishes two cases:
@@ -157,7 +159,7 @@ After any rollback, on the host you rolled back:
 
   ```bash
   gh run download <run-id> -n site -D /tmp/site
-  ./scripts/verify-deployment.sh https://twelve-days-to-deming.vercel.app /tmp/site
+  ./scripts/verify-deployment.sh https://learndeming.org /tmp/site
   ```
 
 ## Stateful rollback

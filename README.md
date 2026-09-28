@@ -16,7 +16,7 @@ An active-learning course based on the teachings of Dr. W. Edwards Deming, devel
 
 ## 🎯 Who This Course Is For, and How It's Structured
 
-See [**What This Course Covers**](https://deming.leedurbin.co.nz/what-this-course-covers.html) on the live site for the audience breakdown, the day-by-day structure, and the key topics — kept there rather than duplicated here so the two can't drift apart.
+See [**What This Course Covers**](https://learndeming.org/what-this-course-covers.html) on the live site for the audience breakdown, the day-by-day structure, and the key topics — kept there rather than duplicated here so the two can't drift apart.
 
 ## 🚀 Getting Started
 
@@ -39,7 +39,7 @@ See [**What This Course Covers**](https://deming.leedurbin.co.nz/what-this-cours
 ## 📥 Accessing the Course Material
 
 ### Interactive Online Version
-- **Live Course**: [deming.leedurbin.co.nz](https://deming.leedurbin.co.nz) - The interactive version with embedded activities and exercises
+- **Live Course**: [learndeming.org](https://learndeming.org) - The interactive version with embedded activities and exercises
 
 **Current Status**: All 12 days are fully converted from the original PDF format into the interactive experience. Dr Henry Neave reviewed this edition and, in May 2026, gave his blessing for it to be made publicly available. Accessibility improvements and activity refinements are ongoing.
 
@@ -49,7 +49,7 @@ See [**What This Course Covers**](https://deming.leedurbin.co.nz/what-this-cours
 - **In-page Text Inputs**: Capture your reflections, answers, and notes directly in the browser — this edition's substitute for the printable Workbook from the NZOQ PDF version
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Search and Navigation**: Easy content discovery and cross-referencing
-- **In-page Feedback**: A thumbs up/down at the foot of every chapter — thumbs-down opens an optional text box that sends the note straight to the maintainer, with the preferences panel's "Send email" link kept as a fallback. A separate [Share Your Experience](https://deming.leedurbin.co.nz/share-your-experience.html) page collects testimonials with explicit consent to be quoted, and the [Privacy](https://deming.leedurbin.co.nz/privacy.html) page sets out what is and isn't collected
+- **In-page Feedback**: A thumbs up/down at the foot of every chapter — thumbs-down opens an optional text box that sends the note straight to the maintainer, with the preferences panel's "Send email" link kept as a fallback. A separate [Share Your Experience](https://learndeming.org/share-your-experience.html) page collects testimonials with explicit consent to be quoted, and the [Privacy](https://learndeming.org/privacy.html) page sets out what is and isn't collected
 - **Print-Friendly**: Clean, formatted output for printing or PDF generation
 - **Accessibility**: Skip-link, reading-preferences panel (dark mode + dyslexia-friendly font), ARIA-labelled interactive elements, reduced-motion and high-contrast support — see the [Accessibility](#-accessibility) section below for the full list
 
@@ -111,7 +111,7 @@ quarto render
 
 ## 📚 Course Content
 
-Key topics are covered on the [**What This Course Covers**](https://deming.leedurbin.co.nz/what-this-course-covers.html) page linked above.
+Key topics are covered on the [**What This Course Covers**](https://learndeming.org/what-this-course-covers.html) page linked above.
 
 ### Learning Approach
 - **Active participation** through embedded exercises
@@ -148,7 +148,7 @@ The course content is reproduced with the explicit permission of its author, Dr 
 
 ## 🌐 Live Version
 
-The course is available online at: [deming.leedurbin.co.nz](https://deming.leedurbin.co.nz)
+The course is available online at: [learndeming.org](https://learndeming.org)
 
 ## 📞 Support
 
