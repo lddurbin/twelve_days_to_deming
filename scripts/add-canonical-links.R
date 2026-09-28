@@ -15,6 +15,7 @@
 source(here::here("R/functions/canonical-links.R"))
 
 site_url <- yaml::read_yaml(here::here("_quarto.yml"))$book$`site-url`
+if (is.null(site_url)) stop("_quarto.yml: book$site-url is not set")
 site_root <- here::here("_book")
 
 if ("--check" %in% commandArgs(trailingOnly = TRUE)) {

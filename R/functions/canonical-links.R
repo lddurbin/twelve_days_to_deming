@@ -111,9 +111,10 @@ check_canonical_links <- function(site_root, site_url) {
     return(sprintf("%s is missing", sitemap))
   }
 
+  sitemap_text <- .canonical_link_read(sitemap)
   locs <- regmatches(
-    .canonical_link_read(sitemap),
-    gregexpr("(?<=<loc>)[^<]+(?=</loc>)", .canonical_link_read(sitemap), perl = TRUE)
+    sitemap_text,
+    gregexpr("(?<=<loc>)[^<]+(?=</loc>)", sitemap_text, perl = TRUE)
   )[[1]]
   if (length(locs) == 0) {
     return(sprintf("%s lists no URLs", sitemap))
@@ -131,9 +132,10 @@ check_canonical_links <- function(site_root, site_url) {
       problems <- c(problems, sprintf("%s: %s is missing", loc, path))
       next
     }
+    page_text <- .canonical_link_read(path)
     tags <- regmatches(
-      .canonical_link_read(path),
-      gregexpr(.canonical_link_tag_re, .canonical_link_read(path), perl = TRUE)
+      page_text,
+      gregexpr(.canonical_link_tag_re, page_text, perl = TRUE)
     )[[1]]
     if (length(tags) != 1) {
       problems <- c(problems, sprintf("%s: %d canonical links, expected 1", loc, length(tags)))

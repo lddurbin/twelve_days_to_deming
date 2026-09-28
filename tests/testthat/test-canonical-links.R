@@ -58,7 +58,7 @@ test_that("add_canonical_link_in_file inserts one link before </head> and change
 
   expected <- sub("</head>", sprintf('<link rel="canonical" href="%s">\n</head>', url),
                   .page(), fixed = TRUE)
-  expect_identical(.read_raw(path), enc2native(expected))
+  expect_identical(charToRaw(.read_raw(path)), charToRaw(expected))
 })
 
 test_that("add_canonical_link_in_file is idempotent", {
@@ -83,7 +83,7 @@ test_that("pages that shouldn't be canonical are left untouched", {
   for (name in names(pages)) {
     path <- .write_raw(file.path(root, name), pages[[name]])
     expect_false(add_canonical_link_in_file(path, "https://learndeming.org/x.html"), label = name)
-    expect_identical(.read_raw(path), enc2native(pages[[name]]), label = name)
+    expect_identical(charToRaw(.read_raw(path)), charToRaw(pages[[name]]), label = name)
   }
   expect_false(add_canonical_link_in_file(file.path(root, "missing.html"), "u"))
 })
