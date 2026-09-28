@@ -402,7 +402,7 @@ jobs:
       env:
         CACHE_BUST: ${{ github.run_id }}-${{ github.run_attempt }}
         ROLLBACK_HINT: "See docs/ROLLBACK.md — Option 1 (Vercel Instant Rollback) restores the previous production deployment."
-      run: ./scripts/verify-deployment.sh https://twelve-days-to-deming.vercel.app _book
+      run: ./scripts/verify-deployment.sh https://learndeming.org _book
 
   # Ships the same artifact to a persistent Vercel project that tracks
   # main — distinct from both production (rsync above) and the ephemeral

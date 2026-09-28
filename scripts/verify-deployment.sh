@@ -4,8 +4,8 @@
 #
 # Usage: ./scripts/verify-deployment.sh [BASE_URL] [LOCAL_DIR]
 #   e.g. ./scripts/verify-deployment.sh
+#        ./scripts/verify-deployment.sh https://learndeming.org _book
 #        ./scripts/verify-deployment.sh https://deming.leedurbin.co.nz _book
-#        ./scripts/verify-deployment.sh https://twelve-days-to-deming.vercel.app _book
 #
 # Environment:
 #   VERIFY_PATHS     space-separated URL paths to check, replacing the default
@@ -52,7 +52,7 @@
 
 set -euo pipefail
 
-BASE_URL="${1:-https://deming.leedurbin.co.nz}"
+BASE_URL="${1:-https://learndeming.org}"
 LOCAL_DIR="${2:-_book}"
 
 # Retries cover a transient network blip on the runner. A genuinely bad

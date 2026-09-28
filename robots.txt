@@ -1,4 +1,4 @@
-Sitemap: https://deming.leedurbin.co.nz/sitemap.xml
+Sitemap: https://learndeming.org/sitemap.xml
 
 User-agent: *
 Allow: /

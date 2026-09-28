@@ -100,9 +100,9 @@ Reference cropped images in `.qmd` files:
 ## Deployment Architecture
 
 - **GitHub Actions**: `.github/workflows/deploy.yml` handles automated builds
-- **Production**: Deploys to `deming.leedurbin.co.nz`
+- **Production**: `learndeming.org`, served by the Vercel project `twelve-days-to-deming`. DNS is Vercel DNS
+- **Old host**: `deming.leedurbin.co.nz`, still deployed by rsync over SSH to SiteGround until #888 redirects it
 - **Build Environment**: Ubuntu with R, Quarto, and system dependencies
-- **Deploy Method**: rsync over SSH to production server
 
 ## URL and Content Policy
 

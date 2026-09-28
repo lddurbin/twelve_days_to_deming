@@ -47,7 +47,7 @@ book:
   title: "12 Days to Deming"
   subtitle: "An active-learning course"
   author: "Henry R. Neave"
-  site-url: https://deming.leedurbin.co.nz
+  site-url: https://learndeming.org
   description: >
     The complete text of Dr Henry R. Neave's 12 Days to Deming — a free,
     interactive active-learning course on W. Edwards Deming's management
@@ -206,11 +206,15 @@ format:
         Loaded conditionally, keyed on hostname, rather than as a static
         tag: the persistent staging site (#536) must not report pageviews
         under production's Simple Analytics site, and the per-PR previews
-        in accessibility.yml (never deming.leedurbin.co.nz either) get the
+        in accessibility.yml (never a production host either) get the
         same exclusion for free from the same check.
+
+        Both production hosts count while both serve the site (#886): each
+        hostname is its own site in Simple Analytics. Drop the old one when
+        #888 turns it into a redirect, since a redirect never runs this.
       -->
       <script>
-        if (location.hostname === "deming.leedurbin.co.nz") {
+        if (["learndeming.org", "deming.leedurbin.co.nz"].includes(location.hostname)) {
           var sa = document.createElement("script");
           sa.async = true;
           sa.dataset.collectDnt = "false";
