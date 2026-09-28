@@ -101,7 +101,7 @@ Reference cropped images in `.qmd` files:
 
 - **GitHub Actions**: `.github/workflows/deploy.yml` handles automated builds
 - **Production**: `learndeming.org`, served by the Vercel project `twelve-days-to-deming`. DNS is Vercel DNS
-- **Old host**: `deming.leedurbin.co.nz`, still deployed by rsync over SSH to SiteGround until #888 redirects it
+- **Old host**: `deming.leedurbin.co.nz` on SiteGround serves only the #888 bridge: a page per page of the site that carries readers' saved answers to the same path on `learndeming.org` (#887), plus an `.htaccess` 301 for everything else. The rsync `deploy` job ships it (`_bridge/`, built by `scripts/build-old-origin-bridge.R`) — never `_book/`
 - **Build Environment**: Ubuntu with R, Quarto, and system dependencies
 
 ## URL and Content Policy

@@ -1,11 +1,11 @@
 # Deployment Rollback Procedure
 
-Every merge to `main` deploys the same build to two hosts. Before doing anything, work out which host is serving the bad version, because each one rolls back differently.
+Every merge to `main` deploys to two hosts: the site to Vercel, and the old-origin bridge (#888) to SiteGround. Before doing anything, work out which host is serving the bad version, because each one rolls back differently.
 
 | Host | What it serves | Deployed by | Fastest rollback |
 |---|---|---|---|
 | **Vercel**, project `twelve-days-to-deming` | `learndeming.org`, the canonical origin. `www.learndeming.org` 308s to it | `vercel-production` job | [Option 1: Instant Rollback](#option-1-vercel-instant-rollback) |
-| **SiteGround** | `deming.leedurbin.co.nz`: the same site, in parallel, until #888 makes it a redirect only | `deploy` job (rsync) | [Option 3: server-side backup](#option-3-restore-a-siteground-server-side-backup) |
+| **SiteGround** | `deming.leedurbin.co.nz`: the #888 bridge, a page per page of the site that carries saved answers to `learndeming.org`, and a 301 for everything else | `deploy` job (rsync of `_bridge/`) | [Option 3: server-side backup](#option-3-restore-a-siteground-server-side-backup) |
 
 [Option 2](#option-2-rebuild-from-a-deploy--tag) rebuilds from a known-good tag and redeploys to both hosts.
 
@@ -22,7 +22,7 @@ Each deploy job ends by fetching a handful of real URLs and checking that each o
 | Step that went red | Job | Host it checked |
 |---|---|---|
 | **Verify Vercel production** | `vercel-production` | `learndeming.org` |
-| **Verify production** | `deploy` | `deming.leedurbin.co.nz` |
+| **Verify production** | `deploy` | `deming.leedurbin.co.nz`: bridge pages, then 301s and SiteGround's cache (`scripts/verify-old-origin.sh`) |
 
 Read the failure before acting. The script distinguishes two cases:
 
@@ -76,6 +76,8 @@ Every deploy that passes SiteGround verification is tagged `deploy-YYYYMMDDHHMMS
 
 **Tags before `deploy-20260927193853` predate the Vercel job.** Dispatching one of those redeploys SiteGround only.
 
+**Tags from before #888 predate the bridge.** Dispatching one of those also puts the whole site back on `deming.leedurbin.co.nz`, in place of the bridge, because their `deploy` job still ships `_book/`. That's the way to undo #888 entirely. It's also a trap when all you meant was to roll Vercel back.
+
 ### Steps
 
 1. Find the tag to roll back to:
@@ -97,7 +99,7 @@ Every deploy that passes SiteGround verification is tagged `deploy-YYYYMMDDHHMMS
 
 ## Option 3: Restore a SiteGround server-side backup
 
-This only applies to `deming.leedurbin.co.nz`, and only while the rsync `deploy` job exists (#685 decides its future).
+This only applies to `deming.leedurbin.co.nz`, and only while the rsync `deploy` job exists (#685 decides its future). Since #888, that docroot holds the bridge, so a backup restores an earlier bridge. The backups taken before the first bridge deploy hold the full site. Restoring one of those undoes #888, until five newer deploys rotate them out.
 
 Every rsync deploy first takes a timestamped backup on the server, and the five most recent are kept:
 

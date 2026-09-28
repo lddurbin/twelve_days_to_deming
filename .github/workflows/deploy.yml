@@ -132,15 +132,33 @@ jobs:
     - name: Verify canonical links
       run: Rscript scripts/add-canonical-links.R --check
 
+    # What the rsync `deploy` job ships to deming.leedurbin.co.nz since #888:
+    # a bridge page per page of the site, plus an .htaccess that 301s the
+    # rest to learndeming.org. See R/functions/old-origin-bridge.R.
+    - name: Build old-origin bridge
+      run: Rscript scripts/build-old-origin-bridge.R
+
+    - name: Upload old-origin bridge artifact
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      with:
+        name: old-origin-bridge
+        path: _bridge
+        # Not optional here: the tree's .htaccess is a hidden file, and
+        # without it every non-page path on the old origin would 404
+        # instead of redirecting.
+        include-hidden-files: true
+        if-no-files-found: error
+        retention-days: 7
+
     - name: Upload site artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
       with:
         name: site
         path: _book
-        # The site ships via `rsync --delete`, so anything silently dropped
-        # here would be *removed* from production. Hidden files are excluded
-        # by default, and _book has none today, but the failure mode is
-        # invisible enough to be worth closing outright.
+        # Hidden files are excluded by default, and _book has none today, but
+        # anything silently dropped here would be missing from production,
+        # and that failure mode is invisible enough to be worth closing
+        # outright.
         include-hidden-files: true
         if-no-files-found: error
         # Long enough to pull the exact bytes of a bad deploy for comparison,
@@ -166,8 +184,15 @@ jobs:
     environment: production
 
     steps:
+    # Since #888 this job ships the old-origin bridge, not the site:
+    # deming.leedurbin.co.nz serves a bridge page per page of the site, which
+    # carries the reader's saved data (#887) to the same path on
+    # learndeming.org, and 301s everything else. Shipping `_book/` here again
+    # would put the whole site back on the old domain. #685 decides whether
+    # this job survives Stage 2.
+    #
     # Runs every time, but the repo content it provides is used only by the
-    # tagging step below. The shipped bytes come from the artifact.
+    # verify and tagging steps below. The shipped bytes come from the artifact.
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
@@ -177,28 +202,30 @@ jobs:
     # corrupted one — garbled bytes inside a file keep the count intact. Since
     # whatever lands here goes straight into `rsync --delete`, having the
     # transport fail closed on a hash mismatch is worth the version skew.
-    - name: Download site artifact
+    - name: Download old-origin bridge artifact
       uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
       with:
-        name: site
-        path: _book
+        name: old-origin-bridge
+        path: _bridge
 
     # Splitting the jobs put an upload/download between the smoke test and the
     # `rsync --delete`, so "the build was complete" no longer implies "these
-    # bytes are complete". Comparing against the build's own count catches a
-    # truncated transfer, which a fixed threshold would not.
+    # bytes are complete". The bridge has one page per page of the site, so
+    # the build's own HTML count still applies, and catches a truncated
+    # transfer, which a fixed threshold would not.
     - name: Verify downloaded artifact
       env:
         EXPECTED_HTML_COUNT: ${{ needs.build.outputs.html_count }}
       run: |
-        test -f _book/index.html || { echo "FAIL: _book/index.html missing from artifact"; exit 1; }
+        test -f _bridge/index.html || { echo "FAIL: _bridge/index.html missing from artifact"; exit 1; }
+        test -f _bridge/.htaccess || { echo "FAIL: _bridge/.htaccess missing from artifact"; exit 1; }
 
-        ACTUAL=$(find _book -name "*.html" | wc -l)
+        ACTUAL=$(find _bridge -name "*.html" | wc -l)
         if [ "$ACTUAL" -ne "$EXPECTED_HTML_COUNT" ]; then
-          echo "FAIL: artifact has $ACTUAL HTML files, build produced $EXPECTED_HTML_COUNT — aborting deploy"
+          echo "FAIL: artifact has $ACTUAL bridge pages, build produced $EXPECTED_HTML_COUNT pages — aborting deploy"
           exit 1
         fi
-        echo "Artifact verified: $ACTUAL HTML files"
+        echo "Artifact verified: $ACTUAL bridge pages and .htaccess"
 
     - name: Setup SSH
       run: |
@@ -245,7 +272,7 @@ jobs:
 
     - name: Deploy to server
       run: |
-        rsync -avz --delete -e "ssh -p 18765" _book/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
+        rsync -avz --delete -e "ssh -p 18765" _bridge/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
 
     # Everything before this point validates bytes the runner can see. This is
     # the first check that asks the live site what it is actually serving, so
@@ -265,10 +292,17 @@ jobs:
     # deploy correctness, see scripts/verify-deployment.sh) does not fail
     # this step or block tagging. Only a real error (4xx/5xx/timeout/content
     # mismatch) does.
+    #
+    # robots.txt and sitemap.xml are left out of VERIFY_PATHS because they
+    # 301 now. The next step checks that.
     - name: Verify production
       env:
         CACHE_BUST: ${{ github.run_id }}-${{ github.run_attempt }}
-      run: ./scripts/verify-deployment.sh https://deming.leedurbin.co.nz _book
+        VERIFY_PATHS: / /privacy.html /content/days/day-11/05-activity-11a.html /content/appendix/glossary.html
+      run: ./scripts/verify-deployment.sh https://deming.leedurbin.co.nz _bridge
+
+    - name: Verify old-origin redirects
+      run: ./scripts/verify-old-origin.sh
 
     - name: Tag deployment
       run: |

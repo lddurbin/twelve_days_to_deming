@@ -28,13 +28,14 @@ passed them. See #858.
 4. **Build** the Quarto book with `quarto render`
 5. **Smoke test** the build output — fails closed before anything can ship
 6. **Verify canonical links** — every sitemap page names itself canonical (#896)
-7. **Upload** `_book` as the `site` artifact
+7. **Build the old-origin bridge** — `_bridge/`, a bridge page per page plus an `.htaccess` 301 (#888)
+8. **Upload** `_book` as the `site` artifact, and `_bridge` as the `old-origin-bridge` artifact
 
-**`deploy`** — ships that artifact. Runs only on `main` or a `deploy-*` tag:
-1. **Download** the `site` artifact and check it arrived complete
+**`deploy`** — ships the `old-origin-bridge` artifact to `deming.leedurbin.co.nz`, not the site (#888). Runs only on `main` or a `deploy-*` tag:
+1. **Download** the `old-origin-bridge` artifact and check it arrived complete
 2. **Back up** the current server-side deployment (5 retained)
 3. **Deploy** via `rsync --delete`
-4. **Verify production** — refetch live URLs and compare them against what was shipped
+4. **Verify production** — refetch bridge pages and compare them against what was shipped, then check the 301s and that plain URLs aren't served from SiteGround's cache (`scripts/verify-old-origin.sh`)
 5. **Tag** the deployment `deploy-YYYYMMDDHHMMSS`
 6. **Cleanup** SSH keys for security
 

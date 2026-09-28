@@ -220,12 +220,11 @@ format:
         in accessibility.yml (never a production host either) get the
         same exclusion for free from the same check.
 
-        Both production hosts count while both serve the site (#886): each
-        hostname is its own site in Simple Analytics. Drop the old one when
-        #888 turns it into a redirect, since a redirect never runs this.
+        Only learndeming.org counts. deming.leedurbin.co.nz serves the #888
+        bridge, which never runs this, so it no longer needs a place here.
       -->
       <script>
-        if (["learndeming.org", "deming.leedurbin.co.nz"].includes(location.hostname)) {
+        if (location.hostname === "learndeming.org") {
           var sa = document.createElement("script");
           sa.async = true;
           sa.dataset.collectDnt = "false";

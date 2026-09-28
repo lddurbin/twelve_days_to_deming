@@ -1,14 +1,16 @@
 <!doctype html>
 <!--
-  Old-origin bridge (#887). Once #888 redirects deming.leedurbin.co.nz, this
-  page is what the old origin serves in place of the site. It reads the
+  Old-origin bridge (#887, #888). This is what deming.leedurbin.co.nz serves
+  in place of the site during #888's Stage 1. It reads the
   reader's saved data, which only a first-party page on the old origin can
   see, and carries it to the same path on learndeming.org in a URL fragment.
   The logic lives in assets/scripts/origin-handoff.js on the new origin, so
   the sending and receiving halves can't drift apart; see its header.
 
-  How this page is served for every path, and its per-path canonical link and
-  <noscript> target, belong to #888.
+  It's a template. scripts/build-old-origin-bridge.R writes one copy per
+  page of the site, with the placeholder token replaced by that page's URL on the new
+  origin, so each copy has its own canonical link and a <noscript> redirect
+  to the same page. See R/functions/old-origin-bridge.R.
 
   Same bytes for every client, so it doesn't break AGENTS.md's rule that
   anonymous and crawler views are identical.
@@ -25,7 +27,8 @@
 -->
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>12 Days to Deming has moved to learndeming.org</title>
-<noscript><meta http-equiv="refresh" content="0; url=https://learndeming.org/"></noscript>
+<link rel="canonical" href="__NEW_URL__">
+<noscript><meta http-equiv="refresh" content="0; url=__NEW_URL__"></noscript>
 <style>
   body { font: 1.0625rem/1.6 system-ui, -apple-system, sans-serif; max-width: 36rem; margin: 3rem auto; padding: 0 1rem; color: #1f2933; background: #fff; }
   @media (prefers-color-scheme: dark) { body { color: #e4e7eb; background: #1f2933; } a { color: #7cc4fa; } }
@@ -36,13 +39,13 @@
 <body>
 <main>
   <h1>12 Days to Deming has moved</h1>
-  <p id="moving">Taking you to <a id="continue" href="https://learndeming.org/">learndeming.org</a>…</p>
+  <p id="moving">Taking you to <a id="continue" href="__NEW_URL__">learndeming.org</a>…</p>
 
   <div id="too-large" hidden>
     <p id="too-large-lead" tabindex="-1">Your saved answers are too large to carry over to the new address automatically. They are still saved in this browser, and nothing has been deleted.</p>
     <p>Download a copy now so you can keep them:</p>
     <p><button type="button" id="download">Download my saved answers</button></p>
-    <p>Then <a id="continue-large" href="https://learndeming.org/">continue to learndeming.org</a>.</p>
+    <p>Then <a id="continue-large" href="__NEW_URL__">continue to learndeming.org</a>.</p>
   </div>
 </main>
 
