@@ -45,7 +45,10 @@ const SAVE_DEBOUNCE_MS = 400;
 // type .value hands it, unconverted, so all three must be accepted here.
 // Rejecting any one of them would invalidate the *whole* store on the next
 // load the moment one field holds that value, not just that field.
-function isValidAnswers(value) {
+//
+// Exported so origin-handoff.js's tests can check its copy of this rule (it
+// is a classic script and can't import it) against the real one.
+export function isValidAnswers(value) {
   return (
     value !== null &&
     typeof value === "object" &&
