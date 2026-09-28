@@ -33,6 +33,10 @@ project:
     # page — a gt HTML-emission bug with no table-option workaround. See
     # #586 and R/functions/redbeads-headers-fix.R for the root cause.
     - Rscript scripts/fix-redbeads-headers.R
+    # Adds a self-referencing <link rel="canonical"> to every page, which
+    # site-url alone doesn't produce on this book project. See #896 and
+    # R/functions/canonical-links.R.
+    - Rscript scripts/add-canonical-links.R
 
 profile:
   default: en
