@@ -31,7 +31,7 @@ passed them. See #858.
 7. **Build the old-origin bridge** — `_bridge/`, a bridge page per page plus an `.htaccess` 301 (#888)
 8. **Upload** `_book` as the `site` artifact, and `_bridge` as the `old-origin-bridge` artifact
 
-**`deploy`** — ships the `old-origin-bridge` artifact to `deming.leedurbin.co.nz`, not the site (#888). Runs only on `main` or a `deploy-*` tag:
+**`deploy`** — ships the `old-origin-bridge` artifact to `deming.leedurbin.co.nz`, not the site (#888). It stays after #901 replaces the bridge with a permanent 301, shipping just the `.htaccess`, and SiteGround never holds a fallback copy of the site (#685). Runs only on `main` or a `deploy-*` tag:
 1. **Download** the `old-origin-bridge` artifact and check it arrived complete
 2. **Back up** the current server-side deployment (5 retained)
 3. **Deploy** via `rsync --delete`
