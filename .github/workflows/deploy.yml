@@ -274,6 +274,16 @@ jobs:
       run: |
         rsync -avz --delete -e "ssh -p 18765" _bridge/ u197-gmrgybn3hkn2@ssh.leedurbin.co.nz:www/deming.leedurbin.co.nz/public_html/
 
+    # SiteGround's dynamic cache kept serving the old site's / after the first
+    # bridge deploy (#888), just as it kept stale HTML on 2026-09-24. The
+    # cache-busted verify step can't see it. verify-old-origin.sh can, but
+    # only after the fact. Flushing here stops it happening at all.
+    # site-tools-client is SiteGround's own CLI on the server, and domain id 3
+    # is deming.leedurbin.co.nz (`site-tools-client -j domain list`). A PURGE
+    # request doesn't work: the edge answers 403 to one from outside.
+    - name: Flush SiteGround cache
+      run: ssh -p 18765 u197-gmrgybn3hkn2@ssh.leedurbin.co.nz 'site-tools-client domain update id=3 flush_cache=1'
+
     # Everything before this point validates bytes the runner can see. This is
     # the first check that asks the live site what it is actually serving, so
     # it is the only one that can catch a partial rsync, a permissions problem,
