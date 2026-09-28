@@ -47,6 +47,8 @@ Your reading preferences — light/dark theme and the dyslexia-friendly font tog
 
 Clearing your browser's site data for this page (or using it in a private/incognito window) resets all of it — including, this time, anything you've written. Losing a theme preference costs you a click to reset; losing written answers costs you the writing. If that matters to you, use the "Download Your Notes" button that appears alongside each set of activities to keep your own copy.
 
+**Moving from the old address.** This course used to live at `deming.leedurbin.co.nz`. Browsers keep saved data separately for each address, so when that address starts sending you here, a small page there reads what your browser saved for the old address and hands it to this one inside the link it sends you to. That hand-off happens entirely inside your browser: it travels in the part of a link after the `#`, which browsers never send to any server. This site then saves it the same way as everything above, removes it from the address bar, and never replaces anything you've already saved here. Your copy at the old address is left as it was.
+
 ## Why any of this exists at all
 
 This course spends a full day on the danger of managing by numbers you don't understand, so I'm cautious about instrumenting the site that teaches it. The intent here is narrow: find out where readers get stuck or drop off, and check whether the accessibility features are actually being used — not to build a dashboard for its own sake.

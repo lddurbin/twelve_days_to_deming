@@ -119,6 +119,13 @@ format:
       -->
       <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https://cdn.jsdelivr.net; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://cdn.jsdelivr.net https://queue.simpleanalyticscdn.com https://api.web3forms.com;">
       <!--
+        Must stay the first script here, and classic (not a module): it
+        carries saved answers across from the old domain (#887) and has to
+        write them before any module, including Quarto's OJS runtime and
+        workbook.js, reads storage. See the header of origin-handoff.js.
+      -->
+      <script src="/assets/scripts/origin-handoff.js"></script>
+      <!--
         Subresource Integrity (#581): audited every externally-hosted
         script/link the rendered site emits. None currently get `integrity`/
         `crossorigin` attributes — not an oversight, each is excluded for a
