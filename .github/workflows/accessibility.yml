@@ -145,6 +145,14 @@ jobs:
       pull-requests: write
 
     steps:
+    # Only for scripts/security-headers.sh. The shipped bytes come from the
+    # artifact below.
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      with:
+        sparse-checkout: scripts
+        persist-credentials: false
+
     - name: Download site artifact
       uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
       with:
@@ -156,22 +164,22 @@ jobs:
     # Vercel Authentication is off for this project) so they're reachable
     # directly from the PR comment link, and noindex is what keeps them out
     # of search results instead.
+    #
+    # The security-headers route is production's own (#681), so a PR that
+    # breaks the CSP or trips nosniff shows up here before it merges.
     - name: Assemble Build Output API v3 payload
       run: |
+        set -euo pipefail
         mkdir -p .vercel/output/static
         cp -r _book/. .vercel/output/static/
-        cat > .vercel/output/config.json <<'EOF'
-        {
-          "version": 3,
-          "routes": [
-            {
-              "src": "/(.*)",
-              "headers": { "X-Robots-Tag": "noindex" },
-              "continue": true
-            }
+        SECURITY_ROUTE=$(./scripts/security-headers.sh route _book)
+        jq -n --argjson security "$SECURITY_ROUTE" '{
+          version: 3,
+          routes: [
+            $security,
+            { src: "/(.*)", headers: { "X-Robots-Tag": "noindex" }, continue: true }
           ]
-        }
-        EOF
+        }' > .vercel/output/config.json
 
     # Pinned to the version verified in #531/#535 to serve byte-identical
     # HTML with no platform-injected script. A newer CLI could change the
@@ -219,6 +227,13 @@ jobs:
           exit 1
         fi
         echo "url=$URL" >> "$GITHUB_OUTPUT"
+
+    # Previews have no Vercel Authentication (see the payload step), so the
+    # hash URL answers a plain curl. `url` already carries its https://.
+    - name: Verify security headers
+      env:
+        PREVIEW_URL: ${{ steps.deploy.outputs.url }}
+      run: ./scripts/security-headers.sh check "$PREVIEW_URL" _book
 
     # Marker-based upsert (same pattern as link-check.yml's tracking issue)
     # so repeated pushes to the PR update one comment instead of spamming a

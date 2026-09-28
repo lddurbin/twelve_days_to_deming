@@ -99,6 +99,12 @@ format:
     css: assets/styles/main.css
     header-includes: |
       <!--
+        This meta tag is the CSP's only source. Every Vercel host also serves
+        it as a response header, with frame-ancestors 'none' added, and
+        scripts/security-headers.sh reads it out of the built HTML to do so
+        (#681). The tag stays because it's what `quarto preview` enforces
+        locally. Browsers apply both, so the header can only add to it.
+
         font-src includes cdn.jsdelivr.net because MathJax's CHTML renderer
         loads its own web font (mathjax-newcm-font) from there — the same
         host script-src/connect-src already trust for MathJax's JS, but
