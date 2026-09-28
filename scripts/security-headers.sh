@@ -38,6 +38,10 @@ usage() {
 csp_policy() {
   local book="$1"
   local policies
+  if [ ! -d "$book" ]; then
+    echo "FAIL: $book is not a directory" >&2
+    exit 1
+  fi
   # `|| true`: grep exits 1 when nothing matches, and under pipefail that
   # would end the script here, silently, before the FAIL below can explain.
   policies=$( { find "$book" -name '*.html' \
@@ -53,6 +57,14 @@ csp_policy() {
   if [ "$(printf '%s\n' "$policies" | wc -l)" -ne 1 ]; then
     echo "FAIL: pages under $book carry different CSPs; one header can't serve them all:" >&2
     printf '%s\n' "$policies" >&2
+    exit 1
+  fi
+
+  # The sed above decodes only the entities Quarto emits in this attribute.
+  # A CSP has no use for `&`, so any left over is an entity it missed, and
+  # would reach the browser as a malformed header.
+  if [[ "$policies" == *"&"* ]]; then
+    echo "FAIL: the CSP under $book holds an entity this script doesn't decode: $policies" >&2
     exit 1
   fi
 
@@ -81,9 +93,19 @@ case "${1:-}" in
     base="${2%/}"
     expected=$(headers_json "$3")
     # Two paths, since the headers must cover every response, not just /.
+    # Every path is checked before failing, so one log shows them all.
+    failed=0
     for path in / /privacy.html; do
       served=$(curl -sS -D - -o /dev/null --max-time 30 "${base}${path}" | tr -d '\r')
-      failed=0
+      # A redirect's headers would stand in for the page's. Not following it
+      # (-L) keeps this checking the response it asked for.
+      status=$(head -n 1 <<<"$served" | awk '{print $2}')
+      if [ "$status" != "200" ]; then
+        echo "FAIL: ${base}${path} answered HTTP ${status:-<none>}, not 200"
+        failed=1
+        continue
+      fi
+      path_failed=0
       for name in $(jq -r 'keys[]' <<<"$expected"); do
         want=$(jq -r --arg n "$name" '.[$n]' <<<"$expected")
         got=$(grep -i "^${name}:" <<<"$served" | head -n 1 | sed 's/^[^:]*: *//' || true)
@@ -91,12 +113,16 @@ case "${1:-}" in
           echo "FAIL: ${base}${path} ${name}"
           echo "  want: ${want}"
           echo "  got:  ${got:-<missing>}"
-          failed=1
+          path_failed=1
         fi
       done
-      [ "$failed" -eq 0 ] || exit 1
-      echo "OK: ${base}${path} serves the security headers"
+      if [ "$path_failed" -eq 0 ]; then
+        echo "OK: ${base}${path} serves the security headers"
+      else
+        failed=1
+      fi
     done
+    [ "$failed" -eq 0 ] || exit 1
     ;;
   *)
     usage
