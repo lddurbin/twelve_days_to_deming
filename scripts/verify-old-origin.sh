@@ -87,6 +87,7 @@ for path in "${PLAIN_PAGES[@]}"; do
     [[ $attempt -lt $ATTEMPTS ]] && sleep "$RETRY_DELAY"
   done
   status="${body##*$'\n'}"
+  [[ -z "$status" ]] && status="000"  # every attempt failed to connect
   if [[ "$status" == "202" ]]; then
     warn "${path}: HTTP 202 (proxy warming up), not verified"
   elif [[ "$status" != "200" ]]; then

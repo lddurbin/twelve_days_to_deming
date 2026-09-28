@@ -32,6 +32,7 @@
   "# Only paths with no file behind them reach Apache and this rule, and they",
   "# go to the same path on the new origin. The query string is kept. The",
   "# docroot's index.html is a bridge page too, so / is exempt.",
+  "DirectoryIndex index.html",
   "RewriteEngine On",
   "RewriteCond %{REQUEST_FILENAME} !-f",
   "RewriteCond %{REQUEST_FILENAME}/index.html !-f",

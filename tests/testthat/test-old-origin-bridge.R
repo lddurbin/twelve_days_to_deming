@@ -75,6 +75,7 @@ test_that(".htaccess 301s every path without a file to the same path on the new 
   build_old_origin_bridge(root, out, .template, "https://learndeming.org/")
 
   ht <- .read(file.path(out, ".htaccess"))
+  expect_match(ht, "DirectoryIndex index.html", fixed = TRUE)
   expect_match(ht, "RewriteCond %{REQUEST_FILENAME} !-f", fixed = TRUE)
   expect_match(ht, "RewriteCond %{REQUEST_FILENAME}/index.html !-f", fixed = TRUE)
   expect_match(ht, "RewriteRule ^ https://learndeming.org%{REQUEST_URI} [R=301,L,NE]", fixed = TRUE)
