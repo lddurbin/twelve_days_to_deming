@@ -394,19 +394,19 @@ jobs:
         set -euo pipefail
         mkdir -p .vercel/output/static
         cp -r _book/. .vercel/output/static/
-        cat > .vercel/output/config.json <<'EOF'
-        {
-          "version": 3,
-          "routes": [
+        SECURITY_ROUTE=$(./scripts/security-headers.sh route _book)
+        jq -n --argjson security "$SECURITY_ROUTE" '{
+          version: 3,
+          routes: [
+            $security,
             {
-              "src": "/(.*)",
-              "missing": [{ "type": "host", "value": "learndeming.org" }],
-              "headers": { "X-Robots-Tag": "noindex" },
-              "continue": true
+              src: "/(.*)",
+              missing: [{ type: "host", value: "learndeming.org" }],
+              headers: { "X-Robots-Tag": "noindex" },
+              continue: true
             }
           ]
-        }
-        EOF
+        }' > .vercel/output/config.json
 
     # Pinned to the version verified in #531/#535/#536 — see the matching
     # comment in accessibility.yml's preview job.
@@ -453,6 +453,12 @@ jobs:
         CACHE_BUST: ${{ github.run_id }}-${{ github.run_attempt }}
         ROLLBACK_HINT: "See docs/ROLLBACK.md — Option 1 (Vercel Instant Rollback) restores the previous production deployment."
       run: ./scripts/verify-deployment.sh https://learndeming.org _book
+
+    # The CSP, nosniff and Referrer-Policy the payload step asked for (#681).
+    # Also run on PR previews, so this only fails if production's routing
+    # differs from a preview's.
+    - name: Verify security headers
+      run: ./scripts/security-headers.sh check https://learndeming.org _book
 
   # Ships the same artifact to a persistent Vercel project that tracks
   # main — distinct from both production (rsync above) and the ephemeral
@@ -520,15 +526,15 @@ jobs:
         }
         EOF
 
-        cat > .vercel/output/config.json <<'EOF'
-        {
-          "version": 3,
-          "routes": [
-            { "src": "/(.*)", "headers": { "X-Robots-Tag": "noindex" }, "continue": true },
-            { "src": "/(.*)", "middlewarePath": "middleware" }
+        SECURITY_ROUTE=$(./scripts/security-headers.sh route _book)
+        jq -n --argjson security "$SECURITY_ROUTE" '{
+          version: 3,
+          routes: [
+            $security,
+            { src: "/(.*)", headers: { "X-Robots-Tag": "noindex" }, continue: true },
+            { src: "/(.*)", middlewarePath: "middleware" }
           ]
-        }
-        EOF
+        }' > .vercel/output/config.json
 
     # Pinned to the version verified in #531/#535/#536 — see the matching
     # comment in accessibility.yml's preview job.
