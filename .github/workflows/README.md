@@ -35,11 +35,12 @@ passed them. See #858.
 1. **Download** the `old-origin-bridge` artifact and check it arrived complete
 2. **Back up** the current server-side deployment (5 retained)
 3. **Deploy** via `rsync --delete`
-4. **Verify production** — refetch bridge pages and compare them against what was shipped, then check the 301s and that plain URLs aren't served from SiteGround's cache (`scripts/verify-old-origin.sh`)
-5. **Tag** the deployment `deploy-YYYYMMDDHHMMSS`
-6. **Cleanup** SSH keys for security
+4. **Flush** SiteGround's dynamic cache (`site-tools-client`), so no stale page outlives the deploy
+5. **Verify production** — refetch bridge pages and compare them against what was shipped, then check the 301s and that plain URLs aren't served from SiteGround's cache (`scripts/verify-old-origin.sh`)
+6. **Tag** the deployment `deploy-YYYYMMDDHHMMSS`
+7. **Cleanup** SSH keys for security
 
-Steps 4 and 5 are in that order deliberately: a deploy that fails verification never gets tagged, so every `deploy-*` tag is a known-good rollback target. See [docs/ROLLBACK.md](../../docs/ROLLBACK.md).
+Steps 5 and 6 are in that order deliberately: a deploy that fails verification never gets tagged, so every `deploy-*` tag is a known-good rollback target. See [docs/ROLLBACK.md](../../docs/ROLLBACK.md).
 
 **`vercel-production`**: ships the same artifact to the production Vercel project (`twelve-days-to-deming`), beside `deploy` and with the same triggers. It serves `learndeming.org`, the canonical origin since #886, and it sends `X-Robots-Tag: noindex` on every host except `learndeming.org`. After deploying, it runs the same `verify-deployment.sh` byte-for-byte check against `learndeming.org` (#683). One run at a time, so an overlapping deploy can't move the alias mid-check. It needs a team-scoped `VERCEL_TOKEN` secret on the `production` environment. See #680.
 

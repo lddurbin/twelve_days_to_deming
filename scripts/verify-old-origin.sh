@@ -93,7 +93,7 @@ for path in "${PLAIN_PAGES[@]}"; do
   elif [[ "$status" != "200" ]]; then
     fail "${path}: HTTP ${status}, expected 200"
   elif [[ "$body" != *"$BRIDGE_MARKER"* ]]; then
-    fail "${path}: serves something other than the bridge, probably SiteGround's cached copy of the old site. Flush it in Site Tools → Speed → Caching, then re-run this job."
+    fail "${path}: serves something other than the bridge, probably SiteGround's cached copy of the old site. The deploy job's 'Flush SiteGround cache' step should have cleared it: flush by hand over SSH with site-tools-client domain update id=3 flush_cache=1, then re-run this job."
   else
     ok "${path} serves the bridge"
   fi
