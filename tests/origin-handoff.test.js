@@ -113,6 +113,13 @@ describe("receive() guards", () => {
     expect(storage.store).toEqual({});
   });
 
+  it("still returns the page's own fragment on a rejected referrer, so it gets scrolled to", () => {
+    const url = sendFrom({ "td:workbook": JSON.stringify(WORKBOOK) }, { hash: "#sec-page3" }).navigated;
+    const { result, replaced } = receiveAt(url, { referrer: "https://evil.example/" });
+    expect(result).toEqual({ status: "rejected-referrer", restoredHash: "#sec-page3" });
+    expect(replaced).toBe("/content/days/day-01/01-overture.html#sec-page3");
+  });
+
   it.each([
     ["not base64", "#td-import=%%%"],
     ["not JSON", "#td-import=" + btoa("not json")],

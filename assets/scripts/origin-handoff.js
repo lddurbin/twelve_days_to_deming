@@ -206,7 +206,9 @@
 
     // Anyone can craft a link carrying this fragment. Only the bridge on the
     // old origin can make the browser report that origin as the referrer.
-    if (!fromOldOrigin(env.document.referrer)) return { status: "rejected-referrer" };
+    // A rejected import still puts the page's own fragment back, so it still
+    // needs the scroll.
+    if (!fromOldOrigin(env.document.referrer)) return { status: "rejected-referrer", restoredHash: restoredHash };
     if (!payload) return { status: "rejected-payload" };
 
     var changed;

@@ -39,7 +39,7 @@
   <p id="moving">Taking you to <a id="continue" href="https://learndeming.org/">learndeming.org</a>…</p>
 
   <div id="too-large" hidden>
-    <p>Your saved answers are too large to carry over to the new address automatically. They are still saved in this browser, and nothing has been deleted.</p>
+    <p id="too-large-lead" tabindex="-1">Your saved answers are too large to carry over to the new address automatically. They are still saved in this browser, and nothing has been deleted.</p>
     <p>Download a copy now so you can keep them:</p>
     <p><button type="button" id="download">Download my saved answers</button></p>
     <p>Then <a id="continue-large" href="https://learndeming.org/">continue to learndeming.org</a>.</p>
@@ -69,6 +69,9 @@
         document.getElementById("moving").hidden = true;
         document.getElementById("too-large").hidden = false;
         document.getElementById("continue-large").href = continueUrl;
+        // Move focus to the explanation so a screen reader announces it
+        // instead of the "Taking you to…" line it replaced.
+        document.getElementById("too-large-lead").focus();
         document.getElementById("download").addEventListener("click", function () {
           var a = document.createElement("a");
           a.href = URL.createObjectURL(new Blob([json], { type: "application/json" }));
