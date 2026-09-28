@@ -96,7 +96,9 @@ case "${1:-}" in
     # Every path is checked before failing, so one log shows them all.
     failed=0
     for path in / /privacy.html; do
-      served=$(curl -sS -D - -o /dev/null --max-time 30 "${base}${path}" | tr -d '\r')
+      # `|| true` so a curl error lands in the status check below, as HTTP
+      # <none>, rather than ending the run before the other paths.
+      served=$(curl -sS -D - -o /dev/null --max-time 30 "${base}${path}" | tr -d '\r') || true
       # A redirect's headers would stand in for the page's. Not following it
       # (-L) keeps this checking the response it asked for.
       status=$(head -n 1 <<<"$served" | awk '{print $2}')

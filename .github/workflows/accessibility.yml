@@ -229,11 +229,11 @@ jobs:
         echo "url=$URL" >> "$GITHUB_OUTPUT"
 
     # Previews have no Vercel Authentication (see the payload step), so the
-    # hash URL answers a plain curl.
+    # hash URL answers a plain curl. `url` already carries its https://.
     - name: Verify security headers
       env:
         PREVIEW_URL: ${{ steps.deploy.outputs.url }}
-      run: ./scripts/security-headers.sh check "https://$PREVIEW_URL" _book
+      run: ./scripts/security-headers.sh check "$PREVIEW_URL" _book
 
     # Marker-based upsert (same pattern as link-check.yml's tracking issue)
     # so repeated pushes to the PR update one comment instead of spamming a
