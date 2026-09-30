@@ -535,6 +535,37 @@ class TestScore(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "not planted"):
             cli.score(page, key, verdicts({f"A-0{i}": "reject" for i in range(1, 6)}), "Lee", other_defects={"A-01"})
 
+    def test_page_artefact_is_a_clean_paragraph_not_a_finding(self):
+        # Day 1's A-09: the page showed a footnote's label, `a`, where the site
+        # shows `1`; the auditor flagged it against the source's `d`.
+        page, key = page_and_key()
+        result = cli.score(page, key, verdicts(
+            {"A-01": "discuss", "A-02": "accept", "A-03": "discuss", "A-04": "accept", "A-05": "accept"}
+        ), auditor="Lee", page_artefacts={"A-01"})
+        self.assertEqual([f["id"] for f in result["findings"]], ["A-03"])
+        self.assertEqual(result["bound"]["any_deviation"]["real_defects"], 1)
+        self.assertEqual(result["sample"]["audited"], 3)  # still in n
+        entries = {p["id"]: p for p in result["paragraphs"]}
+        self.assertTrue(entries["A-01"]["page_artefact"])
+        self.assertEqual(entries["A-01"]["verdict"], "minor")  # as filed
+        self.assertNotIn("page_artefact", entries["A-03"])
+
+    def test_refuses_page_artefact_on_a_planted_or_exact_card(self):
+        page, key = page_and_key()
+        decided = verdicts({"A-01": "accept", "A-02": "reject", "A-03": "accept", "A-04": "accept", "A-05": "accept"})
+        for card in ("A-01", "A-02", "A-09"):
+            with self.subTest(card=card), self.assertRaisesRegex(ValueError, "--page-artefact"):
+                cli.score(page, key, decided, "Lee", page_artefacts={card})
+
+
+class TestFootnoteNumbers(unittest.TestCase):
+    def test_numbered_in_order_of_first_call_whatever_the_label(self):
+        qmd = "One[^d] two[^a] again[^d] inline^[a note] three[^b].\n\n[^d]: D.\n[^a]: A.\n[^b]: B.\n"
+        self.assertEqual(cli.footnote_numbers(qmd), {"d": 1, "a": 2, "b": 4})
+
+    def test_a_definition_is_not_a_call(self):
+        self.assertEqual(cli.footnote_numbers("[^a]: defined first\n\nText[^b].\n"), {"b": 1})
+
 
 class TestTemplateOverrides(unittest.TestCase):
     TEMPLATE = (REPO_ROOT / "workflow" / "validation" / "adjudication" / "template.html").read_text(encoding="utf-8")

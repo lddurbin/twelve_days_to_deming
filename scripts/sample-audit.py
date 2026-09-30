@@ -94,19 +94,42 @@ def pandoc_command() -> list[str]:
 
 _SPLIT = "<!-- sample-audit card break -->"
 
+# A footnote callout, `[^a]`, or an inline footnote, `^[text]` — both take the
+# next number. A definition (`[^a]:`) is not a callout.
+_FOOTNOTE = re.compile(r"\[\^([^\]]+)\](?!:)|\^\[")
 
-def render(markdowns: list[str]) -> list[str]:
+
+def footnote_numbers(qmd: str) -> dict[str, int]:
+    """Each footnote label in one chapter file, mapped to the number the site shows.
+
+    Pandoc numbers a page's footnotes 1, 2, 3… in the order they are first
+    called, whatever their labels, so Neave's lettered `d` is a `1` on the live
+    site. Day 1's audit page showed the label itself, and the auditor rightly
+    flagged its `a` against the source's `d` — a difference no reader could see.
+    """
+    numbers, count = {}, 0
+    for match in _FOOTNOTE.finditer(qmd):
+        label = match.group(1)
+        if label is None or label not in numbers:
+            count += 1
+            if label is not None:
+                numbers[label] = count
+    return numbers
+
+
+def render(markdowns: list[str], footnotes: list[dict[str, int]]) -> list[str]:
     """Each card's site markdown as the reader sees it, in one pandoc run.
 
     Rendered by pandoc rather than approximated, because the auditor is
     comparing emphasis and punctuation, and pandoc is what turns `--` into an
     en dash and straight quotes into curly ones on the live site. Links lose
     their targets (they point into the book, not into this page) and footnote
-    callouts keep their marker as a superscript.
+    callouts become the superscript number the site shows, from `footnotes`:
+    one label-to-number map per card, for the file the card came from.
     """
     prepared = []
-    for md in markdowns:
-        md = re.sub(r"\[\^([^\]]+)\]", r"^\1^", md)
+    for md, numbers in zip(markdowns, footnotes, strict=True):
+        md = re.sub(r"\[\^([^\]]+)\]", lambda m: f"^{numbers.get(m.group(1), m.group(1))}^", md)
         md = re.sub(r"\{\{<.*?>\}\}", "", md)
         prepared.append(md)
     source = f"\n\n{_SPLIT}\n\n".join(prepared)
@@ -293,7 +316,8 @@ def draw(args):
             shown.append(plant.apply(text) if plant and plant.line == n else text)
             previous = block
         markdowns.append("\n".join(shown))
-    rendered = render(markdowns)
+    numbering = {f: footnote_numbers("\n".join(text)) for f, text in raw.items()}
+    rendered = render(markdowns, [numbering[c["excerpt"].file] for c in cards_data])
 
     base = content_dir(record)
     offset = adj.get("page_offset") if adj else None
@@ -395,7 +419,8 @@ def draw(args):
             "note_html": (
                 "Page image first, then the card. <b>Exact</b>: the site says what the source says. A "
                 "difference the site's own conventions account for — a heading's case, an enriched "
-                "cross-reference, curly quotes — is Exact too, because the site is not departing from Neave. "
+                "cross-reference, curly quotes, a footnote numbered where Neave letters it — is Exact too, "
+                "because the site is not departing from Neave. "
                 "<b>Minor</b>: a real difference that does not change the meaning, which in practice means "
                 "punctuation, or emphasis the source has and the site has lost. <b>Substantive</b>: a real "
                 "difference that does change it — a wrong word or number, a dropped or an added one. Minor "
@@ -454,6 +479,7 @@ def reveal(args):
             auditor=args.auditor or git("config", "user.name"),
             other_defects=set(args.other_defect),
             also_defects=set(args.also_defect),
+            page_artefacts=set(args.page_artefact),
         )
     except ValueError as error:
         fail(str(error))
@@ -492,13 +518,18 @@ def reveal(args):
         if entry["id"] in severities:
             print(f"  {entry['id']} REAL DEFECT ({severities[entry['id']]}) at "
                   f"{entry['file']}:{entry['lines']} — {entry['note']!r}")
+            if not plant:
+                print("         check the live site shows it too; if only the review page did, re-run "
+                      f"with --page-artefact {entry['id']}")
+        elif entry.get("page_artefact"):
+            print(f"  {entry['id']} page artefact, not a finding — {entry['note']!r}")
     print(f"Record written: {path.relative_to(REPO_ROOT)}")
 
 
 def score(
     page: dict, key: dict, verdicts: dict, auditor: str,
     other_defects: set[str] = frozenset(), also_defects: set[str] = frozenset(),
-    today: str | None = None,
+    page_artefacts: set[str] = frozenset(), today: str | None = None,
 ) -> dict:
     """The committed audit record, from the draw, its key and the exported verdicts.
 
@@ -511,6 +542,13 @@ def score(
     not vanish because it shared a card with a plant. Neither enters the bound:
     a planted card's text was altered on the page, so it was never part of the
     audited sample the rate is measured over.
+
+    `page_artefacts` names unplanted cards whose note describes something the
+    review page showed and the live site does not, as Day 1's A-09 did with a
+    footnote label. The paragraph was still read against the source and nothing
+    else was found, so it stays in the bound as a clean paragraph, keeps the
+    verdict and note the auditor filed, and is marked `page_artefact` rather
+    than sent down the fix path.
     """
     if verdicts.get("pass") != page["pass"] or key.get("pass") != page["pass"]:
         raise ValueError(
@@ -539,6 +577,15 @@ def score(
         raise ValueError(
             f"--other-defect and --also-defect both name {', '.join(sorted(other_defects & also_defects))}: "
             "a note either names the plant or it does not"
+        )
+    stray = {
+        i for i in page_artefacts
+        if i not in decided or i in plants or sample.VERDICTS[decided[i]["decision"]] not in sample.DEVIATIONS
+    }
+    if stray:
+        raise ValueError(
+            "--page-artefact names cards that are not unplanted cards carrying a Minor or Substantive "
+            f"verdict: {', '.join(sorted(stray))}"
         )
 
     tally = {"exact": 0, "minor": 0, "substantive": 0}
@@ -570,13 +617,17 @@ def score(
                 "severity_match": hit and verdict == severity,
             }
             scored.append({"severity": severity, "caught": hit})
+        elif item["id"] in page_artefacts:
+            entry["page_artefact"] = True
         elif verdict in sample.DEVIATIONS:
             real[verdict] += 1
         # A planted card contributes a finding only when its note describes
         # something the plant does not account for: the whole note (--other-defect)
         # or the rest of it (--also-defect). Its text was altered on the page, so
         # it never enters the bound either way.
-        if verdict in sample.DEVIATIONS and (not plant or item["id"] in other_defects | also_defects):
+        if verdict in sample.DEVIATIONS and item["id"] not in page_artefacts and (
+            not plant or item["id"] in other_defects | also_defects
+        ):
             findings.append(
                 {k: entry[k] for k in ("id", "pdf_page", "file", "lines", "note")} | {"severity": verdict}
             )
@@ -638,6 +689,8 @@ def main():
                    help="a planted card whose note names something other than the plant (repeatable)")
     r.add_argument("--also-defect", action="append", default=[], metavar="ID",
                    help="a planted card whose note names the plant and a real defect beside it (repeatable)")
+    r.add_argument("--page-artefact", action="append", default=[], metavar="ID",
+                   help="an unplanted card whose note names something only the review page showed (repeatable)")
     r.add_argument("--output-dir", type=Path, default=WORK_DIR)
 
     args = parser.parse_args()
