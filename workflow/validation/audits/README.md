@@ -140,6 +140,16 @@ it does not, and both keep the card out of the bound either way:
 planted `!` exactly and, in the same note, a lost italic three clauses earlier.
 Without it a real defect disappears for having shared a card with a plant.
 
+It also prints every deviation on an unplanted card as a real defect. Check the
+live site shows it: the review page renders the site's markdown itself, so it
+can show something no reader sees. If only the page did, re-run with
+`--page-artefact <id>`. The card stays in the bound as a clean paragraph, since
+it was still read against the source and nothing else was found. It keeps the
+verdict and note as filed, is marked `page_artefact: true`, and stays out of
+`findings`. Day 1's A-09 was one: the page showed a footnote's label, `a`,
+against Neave's `d`, where the site shows `1`. The page now numbers footnotes
+as the site does.
+
 A plant counts as **caught** on either deviation verdict — detection is what
 sensitivity measures — while `severity_matched` records how often the auditor
 also filed it at the right severity. The two come apart: Day 5 caught its `!`
@@ -220,7 +230,7 @@ should not be pooled with records drawn after this change without saying so.
 | `plants` | `planted`; `caught` — a deviation verdict on a planted card whose note names the plant; and `severity_matched`, how many of those were also filed at the plant's own severity |
 | `bound` | two of them, `substantive` and `any_deviation` — see below |
 | `findings` | real defects found, each with its `severity`, for the fix path |
-| `paragraphs` | every card: page, file and lines, verdict, note, and `planted` — the key, `null` for an unplanted card |
+| `paragraphs` | every card: page, file and lines, verdict, note, and `planted` — the key, `null` for an unplanted card; `page_artefact: true` on a card re-run with `--page-artefact` |
 
 **Reproducing a draw.** Check out `commit` and run the same draw into another
 directory with `--output-dir`. Same seed, same content, same `scorer_version`

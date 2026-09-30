@@ -1,0 +1,199 @@
+# Wave 3 sampling audit of day-01 (epic #734, #746). Written by
+# scripts/sample-audit.py reveal — see workflow/validation/audits/README.md.
+record: "day-01"
+epic: 734
+source_pdf: "D.Day.1.07Feb22.pdf"
+scorer_version: "a59cf0e44bf3abc6f03324f8dab7a7c179334e05"
+rubric: "exact/minor/substantive"
+commit: "2aaf4ff6fdd2d42233e33c07689c84b77267b433"
+seed: 792
+drawn_at: "2026-09-29"
+revealed_at: "2026-09-30"
+auditor: "lddurbin"
+population: 239
+sample:
+  cards: 20
+  audited: 18
+  planted: 2
+verdicts:
+  exact: 18
+  minor: 2
+  substantive: 0
+plants:
+  planted: 2
+  caught: 1
+  severity_matched: 1
+bound:
+  confidence: 0.95
+  audited: 18
+  substantive:
+    real_defects: 0
+    planted: 1
+    caught: 0
+    upper: 0.1533
+    sensitivity: 0.0
+    adjusted_upper: 1.0
+  any_deviation:
+    real_defects: 0
+    planted: 2
+    caught: 1
+    upper: 0.1533
+    sensitivity: 0.5
+    adjusted_upper: 0.3066
+findings: []
+paragraphs:
+  - id: "A-01"
+    pdf_page: 6
+    file: "content/days/day-01/02-rediscovered.qmd"
+    lines: "10"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-02"
+    pdf_page: 10
+    file: "content/days/day-01/03-statistics.qmd"
+    lines: "70–77"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-03"
+    pdf_page: 10
+    file: "content/days/day-01/03-statistics.qmd"
+    lines: "96–103"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-04"
+    pdf_page: 13
+    file: "content/days/day-01/03-statistics.qmd"
+    lines: "214–219"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-05"
+    pdf_page: 15
+    file: "content/days/day-01/04-resources.qmd"
+    lines: "23–25"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-06"
+    pdf_page: 21
+    file: "content/days/day-01/06-outline.qmd"
+    lines: "93–94"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-07"
+    pdf_page: 21
+    file: "content/days/day-01/06-outline.qmd"
+    lines: "98–100"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-08"
+    pdf_page: 25
+    file: "content/days/day-01/07-quality-theory.qmd"
+    lines: "79"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-09"
+    pdf_page: 27
+    file: "content/days/day-01/08-attraction.qmd"
+    lines: "10–22"
+    verdict: "minor"
+    note: "The superscript after \"extract\" in the source text is a 'd', whereas here it's a 'a'."
+    planted: null
+    page_artefact: true
+  - id: "A-10"
+    pdf_page: 29
+    file: "content/days/day-01/08-attraction.qmd"
+    lines: "76–77"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-11"
+    pdf_page: 29
+    file: "content/days/day-01/08-attraction.qmd"
+    lines: "93–96"
+    verdict: "exact"
+    note: null
+    planted:
+      kind: "substitution"
+      line: 95
+      from: "for"
+      to: "of"
+      severity: "substantive"
+      caught: false
+      severity_match: false
+  - id: "A-12"
+    pdf_page: 31
+    file: "content/days/day-01/09-different.qmd"
+    lines: "20–24"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-13"
+    pdf_page: 32
+    file: "content/days/day-01/09-different.qmd"
+    lines: "51"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-14"
+    pdf_page: 32
+    file: "content/days/day-01/09-different.qmd"
+    lines: "60–63"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-15"
+    pdf_page: 34
+    file: "content/days/day-01/11-deming-story.qmd"
+    lines: "47"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-16"
+    pdf_page: 39
+    file: "content/days/day-01/11-deming-story.qmd"
+    lines: "229"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-17"
+    pdf_page: 39
+    file: "content/days/day-01/11-deming-story.qmd"
+    lines: "248"
+    verdict: "minor"
+    note: "\"throughout!\" here, but \"throughout.\" in the PDF (no exclamation mark)"
+    planted:
+      kind: "exclamation"
+      line: 248
+      from: "."
+      to: "!"
+      severity: "minor"
+      caught: true
+      severity_match: true
+  - id: "A-18"
+    pdf_page: 40
+    file: "content/days/day-01/11-deming-story.qmd"
+    lines: "252–254"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-19"
+    pdf_page: 43
+    file: "content/days/day-01/11-deming-story.qmd"
+    lines: "376–393"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-20"
+    pdf_page: 47
+    file: "content/days/day-01/13-major-activity.qmd"
+    lines: "89"
+    verdict: "exact"
+    note: null
+    planted: null
