@@ -604,8 +604,7 @@ class TestTemplateOverrides(unittest.TestCase):
         # Day 3's A-03: an `activity_afterthought` is italic on the site by its
         # class alone, so a page that ignored the class showed it upright and
         # the auditor flagged it against Neave's italic.
-        sys.path.insert(0, str(REPO_ROOT / "scripts" / "lib"))
-        from emphasis import STYLED_CLASSES
+        from emphasis import STYLED_CLASSES  # scripts/lib is on sys.path above
         for cls in STYLED_CLASSES:
             with self.subTest(cls=cls):
                 self.assertIn(f".side-text .{cls}", self.TEMPLATE)
