@@ -480,6 +480,7 @@ def reveal(args):
             other_defects=set(args.other_defect),
             also_defects=set(args.also_defect),
             page_artefacts=set(args.page_artefact),
+            conventions=set(args.convention),
         )
     except ValueError as error:
         fail(str(error))
@@ -520,16 +521,20 @@ def reveal(args):
                   f"{entry['file']}:{entry['lines']} — {entry['note']!r}")
             if not plant:
                 print("         check the live site shows it too; if only the review page did, re-run "
-                      f"with --page-artefact {entry['id']}")
+                      f"with --page-artefact {entry['id']}; if the site's own conventions account "
+                      f"for it, --convention {entry['id']}")
         elif entry.get("page_artefact"):
             print(f"  {entry['id']} page artefact, not a finding — {entry['note']!r}")
+        elif entry.get("convention"):
+            print(f"  {entry['id']} site convention, not a finding — {entry['note']!r}")
     print(f"Record written: {path.relative_to(REPO_ROOT)}")
 
 
 def score(
     page: dict, key: dict, verdicts: dict, auditor: str,
     other_defects: set[str] = frozenset(), also_defects: set[str] = frozenset(),
-    page_artefacts: set[str] = frozenset(), today: str | None = None,
+    page_artefacts: set[str] = frozenset(), conventions: set[str] = frozenset(),
+    today: str | None = None,
 ) -> dict:
     """The committed audit record, from the draw, its key and the exported verdicts.
 
@@ -549,6 +554,12 @@ def score(
     else was found, so it stays in the bound as a clean paragraph, keeps the
     verdict and note the auditor filed, and is marked `page_artefact` rather
     than sent down the fix path.
+
+    `conventions` names unplanted cards whose note describes a difference the
+    site's own conventions account for, which the rubric already calls Exact:
+    an enriched cross-reference, or a blue Deming quotation set in italics, as
+    on Day 3. They are treated exactly as page artefacts are, and marked
+    `convention` instead, so the record says which reason cleared them.
     """
     if verdicts.get("pass") != page["pass"] or key.get("pass") != page["pass"]:
         raise ValueError(
@@ -578,15 +589,22 @@ def score(
             f"--other-defect and --also-defect both name {', '.join(sorted(other_defects & also_defects))}: "
             "a note either names the plant or it does not"
         )
-    stray = {
-        i for i in page_artefacts
-        if i not in decided or i in plants or sample.VERDICTS[decided[i]["decision"]] not in sample.DEVIATIONS
-    }
-    if stray:
+    for flag, ids in (("--page-artefact", page_artefacts), ("--convention", conventions)):
+        stray = {
+            i for i in ids
+            if i not in decided or i in plants or sample.VERDICTS[decided[i]["decision"]] not in sample.DEVIATIONS
+        }
+        if stray:
+            raise ValueError(
+                f"{flag} names cards that are not unplanted cards carrying a Minor or Substantive "
+                f"verdict: {', '.join(sorted(stray))}"
+            )
+    if page_artefacts & conventions:
         raise ValueError(
-            "--page-artefact names cards that are not unplanted cards carrying a Minor or Substantive "
-            f"verdict: {', '.join(sorted(stray))}"
+            f"--page-artefact and --convention both name {', '.join(sorted(page_artefacts & conventions))}: "
+            "a difference either reaches the site or it does not"
         )
+    cleared = page_artefacts | conventions
 
     tally = {"exact": 0, "minor": 0, "substantive": 0}
     real = {"minor": 0, "substantive": 0}
@@ -619,13 +637,15 @@ def score(
             scored.append({"severity": severity, "caught": hit})
         elif item["id"] in page_artefacts:
             entry["page_artefact"] = True
+        elif item["id"] in conventions:
+            entry["convention"] = True
         elif verdict in sample.DEVIATIONS:
             real[verdict] += 1
         # A planted card contributes a finding only when its note describes
         # something the plant does not account for: the whole note (--other-defect)
         # or the rest of it (--also-defect). Its text was altered on the page, so
         # it never enters the bound either way.
-        if verdict in sample.DEVIATIONS and item["id"] not in page_artefacts and (
+        if verdict in sample.DEVIATIONS and item["id"] not in cleared and (
             not plant or item["id"] in other_defects | also_defects
         ):
             findings.append(
@@ -691,6 +711,8 @@ def main():
                    help="a planted card whose note names the plant and a real defect beside it (repeatable)")
     r.add_argument("--page-artefact", action="append", default=[], metavar="ID",
                    help="an unplanted card whose note names something only the review page showed (repeatable)")
+    r.add_argument("--convention", action="append", default=[], metavar="ID",
+                   help="an unplanted card whose note names a difference the site's conventions account for (repeatable)")
     r.add_argument("--output-dir", type=Path, default=WORK_DIR)
 
     args = parser.parse_args()

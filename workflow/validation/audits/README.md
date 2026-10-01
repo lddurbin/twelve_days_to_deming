@@ -150,6 +150,17 @@ verdict and note as filed, is marked `page_artefact: true`, and stays out of
 against Neave's `d`, where the site shows `1`. The page now numbers footnotes
 as the site does.
 
+If the note describes a difference the site's own conventions account for —
+which the rubric already calls Exact — re-run with `--convention <id>`
+instead. The effect is the same, and the card is marked `convention: true`, so
+the record says which reason cleared it. Day 3 had five: four enriched
+cross-references (`page 33, in the Six Processes Revisited section below`) and
+a blue Deming quotation set in italics, the `deming-quote-colour` convention in
+[`../emphasis/README.md`](../emphasis/README.md). Its sixth, A-03, was a page
+artefact: an `activity_afterthought` is italic on the site by its class alone,
+and the page ignored the class. The page now styles every class in
+`STYLED_CLASSES`.
+
 A plant counts as **caught** on either deviation verdict — detection is what
 sensitivity measures — while `severity_matched` records how often the auditor
 also filed it at the right severity. The two come apart: Day 5 caught its `!`
@@ -230,7 +241,7 @@ should not be pooled with records drawn after this change without saying so.
 | `plants` | `planted`; `caught` — a deviation verdict on a planted card whose note names the plant; and `severity_matched`, how many of those were also filed at the plant's own severity |
 | `bound` | two of them, `substantive` and `any_deviation` — see below |
 | `findings` | real defects found, each with its `severity`, for the fix path |
-| `paragraphs` | every card: page, file and lines, verdict, note, and `planted` — the key, `null` for an unplanted card; `page_artefact: true` on a card re-run with `--page-artefact` |
+| `paragraphs` | every card: page, file and lines, verdict, note, and `planted` — the key, `null` for an unplanted card; `page_artefact: true` on a card re-run with `--page-artefact`, `convention: true` on one re-run with `--convention` |
 
 **Reproducing a draw.** Check out `commit` and run the same draw into another
 directory with `--output-dir`. Same seed, same content, same `scorer_version`

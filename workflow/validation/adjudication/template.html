@@ -281,6 +281,14 @@ h1 {
 }
 .side-text blockquote { padding-left: 14px; border-left: 3px solid var(--rule-strong); }
 .side-text .link { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule-strong); }
+/* The site's classes that set emphasis by themselves (STYLED_CLASSES in
+   scripts/lib/emphasis.py), so a card shows the weight and slant a reader sees. */
+.side-text .principle_callout, .side-text .aside_callout, .side-text .deming_quote,
+.side-text .foreman-remark, .side-text .callout-emphasis { font-style: italic; font-weight: 600; }
+.side-text .activity_afterthought { font-style: italic; }
+.side-text .text-highlight-red, .side-text .table-cell-highlight, .side-text .centered-bold-callout,
+.side-text .analysis_box_title, .side-text .major_activity_title,
+.side-text .foreman-transcript-context { font-weight: 600; }
 mark { background: none; padding: 1px 0; border-radius: 2px; font-weight: 500; }
 mark.src { background: var(--accent-soft); color: var(--accent); box-shadow: inset 0 -1px 0 var(--accent); }
 mark.gone { background: var(--critical-soft); color: var(--critical); text-decoration: line-through; text-decoration-thickness: 1px; }
