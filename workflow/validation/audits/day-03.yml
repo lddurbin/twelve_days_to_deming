@@ -1,0 +1,204 @@
+# Wave 3 sampling audit of day-03 (epic #734, #746). Written by
+# scripts/sample-audit.py reveal — see workflow/validation/audits/README.md.
+record: "day-03"
+epic: 734
+source_pdf: "F.Day.3.13Jan20.pdf"
+scorer_version: "a59cf0e44bf3abc6f03324f8dab7a7c179334e05"
+rubric: "exact/minor/substantive"
+commit: "2aaf4ff6fdd2d42233e33c07689c84b77267b433"
+seed: 830
+drawn_at: "2026-09-29"
+revealed_at: "2026-10-01"
+auditor: "lddurbin"
+population: 196
+sample:
+  cards: 20
+  audited: 18
+  planted: 2
+verdicts:
+  exact: 12
+  minor: 8
+  substantive: 0
+plants:
+  planted: 2
+  caught: 2
+  severity_matched: 1
+bound:
+  confidence: 0.95
+  audited: 18
+  substantive:
+    real_defects: 0
+    planted: 1
+    caught: 1
+    upper: 0.1533
+    sensitivity: 1.0
+    adjusted_upper: 0.1533
+  any_deviation:
+    real_defects: 0
+    planted: 2
+    caught: 2
+    upper: 0.1533
+    sensitivity: 1.0
+    adjusted_upper: 0.1533
+findings: []
+paragraphs:
+  - id: "A-01"
+    pdf_page: 5
+    file: "content/days/day-03/01-variation-the-enemy-of-quality.qmd"
+    lines: "13"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-02"
+    pdf_page: 5
+    file: "content/days/day-03/01-variation-the-enemy-of-quality.qmd"
+    lines: "27"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-03"
+    pdf_page: 10
+    file: "content/days/day-03/02-at-the-ford-motor-company.qmd"
+    lines: "64"
+    verdict: "minor"
+    note: "Text looks italicised in the PDF"
+    planted: null
+    page_artefact: true
+  - id: "A-04"
+    pdf_page: 11
+    file: "content/days/day-03/03-the-importance-of-time.qmd"
+    lines: "64"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-05"
+    pdf_page: 22
+    file: "content/days/day-03/05-how-do-we-compute-control-limits.qmd"
+    lines: "207"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-06"
+    pdf_page: 24
+    file: "content/days/day-03/06-six-processes.qmd"
+    lines: "34"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-07"
+    pdf_page: 25
+    file: "content/days/day-03/06-six-processes.qmd"
+    lines: "61"
+    verdict: "minor"
+    note: "\"in the Six Processes Revisited section below\" is a site-specific additional which is presumably intentional due to the semantics of web-based navigation"
+    planted: null
+    convention: true
+  - id: "A-08"
+    pdf_page: 28
+    file: "content/days/day-03/07-a-favourite-example.qmd"
+    lines: "16"
+    verdict: "minor"
+    note: "Dr Deming's quote looks italicised here in the Site version, but in the source it's in blue (as are all Deming quotes) and not italicised"
+    planted: null
+    convention: true
+  - id: "A-09"
+    pdf_page: 30
+    file: "content/days/day-03/08-control-chart-and-brain.qmd"
+    lines: "15"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-10"
+    pdf_page: 31
+    file: "content/days/day-03/08-control-chart-and-brain.qmd"
+    lines: "42"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-11"
+    pdf_page: 33
+    file: "content/days/day-03/08-control-chart-and-brain.qmd"
+    lines: "86–88"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-12"
+    pdf_page: 35
+    file: "content/days/day-03/09-the-six-processes-revisited.qmd"
+    lines: "62"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-13"
+    pdf_page: 35
+    file: "content/days/day-03/09-the-six-processes-revisited.qmd"
+    lines: "76"
+    verdict: "minor"
+    note: "\"straightaway!\" here is \"straightaway.\" in the PDF"
+    planted:
+      kind: "exclamation"
+      line: 76
+      from: "."
+      to: "!"
+      severity: "minor"
+      caught: true
+      severity_match: true
+  - id: "A-14"
+    pdf_page: 35
+    file: "content/days/day-03/09-the-six-processes-revisited.qmd"
+    lines: "78"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-15"
+    pdf_page: 37
+    file: "content/days/day-03/09-the-six-processes-revisited.qmd"
+    lines: "119"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-16"
+    pdf_page: 37
+    file: "content/days/day-03/09-the-six-processes-revisited.qmd"
+    lines: "121"
+    verdict: "minor"
+    note: "\"in the Control Chart + Brain section above\" added to the site, presumably to aid web-based navigation"
+    planted: null
+    convention: true
+  - id: "A-17"
+    pdf_page: 39
+    file: "content/days/day-03/10-introduction-to-the-funnel-experiment.qmd"
+    lines: "14"
+    verdict: "minor"
+    note: "\"like a rather silly game\" - the \"a\" is missing in the site version here, but does appear in the PDF"
+    planted:
+      kind: "dropped-word"
+      line: 14
+      from: "a "
+      to: ""
+      severity: "substantive"
+      caught: true
+      severity_match: false
+  - id: "A-18"
+    pdf_page: 43
+    file: "content/days/day-03/11-the-first-two-rules-of-the-funnel.qmd"
+    lines: "27"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-19"
+    pdf_page: 60
+    file: "content/days/day-03/13-summary.qmd"
+    lines: "12"
+    verdict: "minor"
+    note: "\"in the Back to the Western Electric Company section\" added in the site version, presumably to aid web-based navigation"
+    planted: null
+    convention: true
+  - id: "A-20"
+    pdf_page: 60
+    file: "content/days/day-03/13-summary.qmd"
+    lines: "18"
+    verdict: "minor"
+    note: "\"in the Discussion section of the First Two Rules of the Funnel\" added in the site version, presumably to aid web-based navigation"
+    planted: null
+    convention: true
