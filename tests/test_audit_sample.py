@@ -557,6 +557,31 @@ class TestScore(unittest.TestCase):
             with self.subTest(card=card), self.assertRaisesRegex(ValueError, "--page-artefact"):
                 cli.score(page, key, decided, "Lee", page_artefacts={card})
 
+    def test_convention_is_a_clean_paragraph_marked_as_such(self):
+        # Day 3's A-07: an enriched cross-reference, which the rubric calls
+        # Exact, filed Minor with a note saying it was presumably intentional.
+        page, key = page_and_key()
+        result = cli.score(page, key, verdicts(
+            {"A-01": "discuss", "A-02": "accept", "A-03": "discuss", "A-04": "accept", "A-05": "discuss"}
+        ), auditor="Lee", page_artefacts={"A-03"}, conventions={"A-01", "A-05"})
+        self.assertEqual(result["findings"], [])
+        self.assertEqual(result["bound"]["any_deviation"]["real_defects"], 0)
+        self.assertEqual(result["sample"]["audited"], 3)
+        entries = {p["id"]: p for p in result["paragraphs"]}
+        self.assertTrue(entries["A-01"]["convention"])
+        self.assertNotIn("page_artefact", entries["A-01"])
+        self.assertEqual(entries["A-01"]["verdict"], "minor")  # as filed
+        self.assertNotIn("convention", entries["A-03"])
+
+    def test_refuses_convention_on_a_planted_exact_or_page_artefact_card(self):
+        page, key = page_and_key()
+        decided = verdicts({"A-01": "discuss", "A-02": "reject", "A-03": "accept", "A-04": "accept", "A-05": "accept"})
+        for card in ("A-02", "A-03", "A-09"):
+            with self.subTest(card=card), self.assertRaisesRegex(ValueError, "--convention"):
+                cli.score(page, key, decided, "Lee", conventions={card})
+        with self.assertRaisesRegex(ValueError, "both name A-01"):
+            cli.score(page, key, decided, "Lee", page_artefacts={"A-01"}, conventions={"A-01"})
+
 
 class TestFootnoteNumbers(unittest.TestCase):
     def test_numbered_in_order_of_first_call_whatever_the_label(self):
@@ -574,6 +599,15 @@ class TestTemplateOverrides(unittest.TestCase):
         for wording in ('"Accepted"', '"Declined"', '"findings"', "Anything I should know before making this edit"):
             with self.subTest(wording=wording):
                 self.assertIn(wording, self.TEMPLATE)
+
+    def test_every_class_the_site_styles_is_styled_on_the_page(self):
+        # Day 3's A-03: an `activity_afterthought` is italic on the site by its
+        # class alone, so a page that ignored the class showed it upright and
+        # the auditor flagged it against Neave's italic.
+        from emphasis import STYLED_CLASSES  # scripts/lib is on sys.path above
+        for cls in STYLED_CLASSES:
+            with self.subTest(cls=cls):
+                self.assertIn(f".side-text .{cls}", self.TEMPLATE)
 
     def test_the_overrides_an_audit_page_sets_are_read(self):
         for field in ("noun", "filters", "keys", "note_placeholder", "reject_tone", "outro_html"):
