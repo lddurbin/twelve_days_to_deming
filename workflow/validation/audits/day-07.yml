@@ -1,0 +1,218 @@
+# Wave 3 sampling audit of day-07 (epic #734, #746). Written by
+# scripts/sample-audit.py reveal — see workflow/validation/audits/README.md.
+record: "day-07"
+epic: 734
+source_pdf: "J.Day.7.14Feb22.pdf"
+scorer_version: "a59cf0e44bf3abc6f03324f8dab7a7c179334e05"
+rubric: "exact/minor/substantive"
+commit: "2aaf4ff6fdd2d42233e33c07689c84b77267b433"
+seed: 778
+drawn_at: "2026-09-29"
+revealed_at: "2026-10-13"
+auditor: "lddurbin"
+population: 129
+sample:
+  cards: 20
+  audited: 16
+  planted: 4
+verdicts:
+  exact: 16
+  minor: 4
+  substantive: 0
+plants:
+  planted: 4
+  caught: 4
+  severity_matched: 0
+bound:
+  confidence: 0.95
+  audited: 16
+  substantive:
+    real_defects: 0
+    planted: 4
+    caught: 4
+    upper: 0.1707
+    sensitivity: 1.0
+    adjusted_upper: 0.1707
+  any_deviation:
+    real_defects: 0
+    planted: 4
+    caught: 4
+    upper: 0.1707
+    sensitivity: 1.0
+    adjusted_upper: 0.1707
+findings:
+  - id: "A-13"
+    pdf_page: 18
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "160–162"
+    note: "This us Point 3 in the PDF, not Point 4. Also, “Who gives a hoot about profit?” in the PDF whereas it's “Who gives a hoot about profit!” here."
+    severity: "minor"
+paragraphs:
+  - id: "A-01"
+    pdf_page: 5
+    file: "content/days/day-07/01-introduction.qmd"
+    lines: "29"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-02"
+    pdf_page: 6
+    file: "content/days/day-07/01-introduction.qmd"
+    lines: "31"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-03"
+    pdf_page: 7
+    file: "content/days/day-07/02-numerical-targets.qmd"
+    lines: "25"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-04"
+    pdf_page: 8
+    file: "content/days/day-07/02-numerical-targets.qmd"
+    lines: "31"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-05"
+    pdf_page: 11
+    file: "content/days/day-07/03-performance-indicators.qmd"
+    lines: "56"
+    verdict: "minor"
+    note: "\"of the Deming philosophy\" - 'the' is missing here but present in the PDF"
+    planted:
+      kind: "dropped-word"
+      line: 56
+      from: "the "
+      to: ""
+      severity: "substantive"
+      caught: true
+      severity_match: false
+  - id: "A-06"
+    pdf_page: 12
+    file: "content/days/day-07/03-performance-indicators.qmd"
+    lines: "85"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-07"
+    pdf_page: 13
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "20–24"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-08"
+    pdf_page: 15
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "74"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-09"
+    pdf_page: 16
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "98"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-10"
+    pdf_page: 17
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "110"
+    verdict: "minor"
+    note: "\"still\" added in here, but not present in PDF (\"we are still independent\" vs \"we are independent\")"
+    planted:
+      kind: "inserted-word"
+      line: 110
+      from: ""
+      to: " still"
+      severity: "substantive"
+      caught: true
+      severity_match: false
+  - id: "A-11"
+    pdf_page: 17
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "122–124"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-12"
+    pdf_page: 17
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "126–138"
+    verdict: "minor"
+    note: "\"2,600 schools\" here is \"1,600 schools\" in the PDF"
+    planted:
+      kind: "number"
+      line: 130
+      from: "1"
+      to: "2"
+      severity: "substantive"
+      caught: true
+      severity_match: false
+  - id: "A-13"
+    pdf_page: 18
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "160–162"
+    verdict: "minor"
+    note: "This us Point 3 in the PDF, not Point 4. Also, “Who gives a hoot about profit?” in the PDF whereas it's “Who gives a hoot about profit!” here."
+    planted:
+      kind: "number"
+      line: 160
+      from: "3"
+      to: "4"
+      severity: "substantive"
+      caught: true
+      severity_match: false
+  - id: "A-14"
+    pdf_page: 19
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "164–166"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-15"
+    pdf_page: 19
+    file: "content/days/day-07/04-many-more-true-stories.qmd"
+    lines: "168–174"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-16"
+    pdf_page: 24
+    file: "content/days/day-07/05-thirteenth-obstacle.qmd"
+    lines: "44"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-17"
+    pdf_page: 27
+    file: "content/days/day-07/06-taguchi-reflections.qmd"
+    lines: "33"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-18"
+    pdf_page: 31
+    file: "content/days/day-07/07-major-activity.qmd"
+    lines: "14"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-19"
+    pdf_page: 32
+    file: "content/days/day-07/07-major-activity.qmd"
+    lines: "34"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-20"
+    pdf_page: 40
+    file: "content/days/day-07/07-major-activity.qmd"
+    lines: "214"
+    verdict: "exact"
+    note: null
+    planted: null
