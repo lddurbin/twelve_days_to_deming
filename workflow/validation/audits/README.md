@@ -320,8 +320,8 @@ What that does not cover, beyond the list below:
 - **Day 5**, the first record, is left out of the pool. It was audited under the
   old rubric and scope. It found no substantive deviation in 17 paragraphs, but
   missed its one substantive plant.
-- **Severity, as filed.** Only 2 of the 8 caught plants were filed at their own
-  severity. Every wrong-word plant on Days 7 and 11 was filed Minor. A plant
+- **Severity, as filed.** Of the 8 plants caught across both severities, only 2
+  were filed at their own severity. Every wrong-word plant on Days 7 and 11 was filed Minor. A plant
   counts as caught on either deviation verdict, so the bounds don't depend on
   this. But an auditor's Minor in these records is not evidence that a
   difference left the meaning alone. Read the note.
