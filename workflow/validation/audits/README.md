@@ -5,7 +5,8 @@ person decided about every flag it raised. Neither says anything about the text
 the validator matched **cleanly**: about 2,200 paragraphs across the eighteen
 records that no pass has flagged, so nobody has read them against the source
 since the original conversion. This directory holds the measurement of that
-population. See [#746](https://github.com/lddurbin/twelve_days_to_deming/issues/746),
+population. Wave 3 stopped at its four-record trial, so the measurement covers
+those records only. *The statistics* below gives the claim. See [#746](https://github.com/lddurbin/twelve_days_to_deming/issues/746),
 Wave 3 of epic [#734](https://github.com/lddurbin/twelve_days_to_deming/issues/734).
 
 "Matched cleanly" is a similarity score, not a verdict. A single wrong word
@@ -285,11 +286,50 @@ p̂ a coarse estimate. The adjustment is a point correction: it does not carry t
 uncertainty in p̂ itself. Day 5 on its own establishes almost nothing; what it
 establishes about the *instrument* is most of what it was worth.
 
-**The headline is corpus-wide.** Pooled over all eighteen records, roughly 300
-audited paragraphs with none found defective bound the escape rate at about 1%
-at 95% confidence if detection were perfect, and the 30–60 plants pooled with
-them estimate p̂ well enough to divide by. The published claim is the pooled
-3/(n·p̂), stated with that caveat and with what it does not cover:
+**The headline was meant to be corpus-wide, and isn't.** The plan was to pool
+all eighteen records, about 300 audited paragraphs, for a bound near 1%. Wave 3
+stopped at its trial instead (decided on #734, 2026-10-15). Auditing the other
+fourteen records would have meant reading about 280 more cards, and what that
+buys is a tighter bound, not fixes: the trial's four records found no real
+defect in the population at all. The trial is the evidence there is, so the
+claim is the trial's.
+
+Pooled over the four trial records, Days 1, 3, 7 and 11, all drawn at
+`2aaf4ff` under the current rubric and scope:
+
+| | substantive | any deviation |
+|---|---|---|
+| audited paragraphs | 70 | 70 |
+| real defects | 0 | 0 |
+| raw 95% upper bound | 4.2% | 4.2% |
+| plants caught | 6 of 8 | 8 of 10 |
+| adjusted upper bound | **5.6%** | **5.2%** |
+
+> Of the text the comparator calls clean on Days 1, 3, 7 and 11 — 691
+> paragraphs, about a third of the corpus's clean text — at most 5.6% changes
+> what Neave said, and at most 5.2% differs from him in any way, each at 95%
+> confidence.
+
+What that does not cover, beyond the list below:
+
+- **The other fourteen records.** They have no sampled bound. Lee chose the
+  four trial days, so they are not a random draw of records, and extending the
+  bound to the rest of the corpus is an assumption, not a measurement. The other
+  records' flagged text was adjudicated in Wave 2 like everyone else's, and
+  their emphasis is checked in full.
+- **Day 5**, the first record, is left out of the pool. It was audited under the
+  old rubric and scope. It found no substantive deviation in 17 paragraphs, but
+  missed its one substantive plant.
+- **Severity, as filed.** Of the 8 plants caught across both severities, only 2
+  were filed at their own severity. Every wrong-word plant on Days 7 and 11 was filed Minor. A plant
+  counts as caught on either deviation verdict, so the bounds don't depend on
+  this. But an auditor's Minor in these records is not evidence that a
+  difference left the meaning alone. Read the note.
+
+If Wave 3 is ever resumed, the protocol above still stands, and a record is
+still drawn once. The pooled claim would need re-computing, not extending.
+
+The claim, as the full rollout would have stated it, carries these caveats too:
 
 - **Flagged text** is not in this population; its evidence is the adjudication
   records.
