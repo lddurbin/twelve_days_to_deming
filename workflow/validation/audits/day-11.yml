@@ -1,0 +1,198 @@
+# Wave 3 sampling audit of day-11 (epic #734, #746). Written by
+# scripts/sample-audit.py reveal — see workflow/validation/audits/README.md.
+record: "day-11"
+epic: 734
+source_pdf: "N.Day.11.18Jan20.pdf"
+scorer_version: "a59cf0e44bf3abc6f03324f8dab7a7c179334e05"
+rubric: "exact/minor/substantive"
+commit: "2aaf4ff6fdd2d42233e33c07689c84b77267b433"
+seed: 780
+drawn_at: "2026-09-29"
+revealed_at: "2026-10-15"
+auditor: "lddurbin"
+population: 127
+sample:
+  cards: 20
+  audited: 18
+  planted: 2
+verdicts:
+  exact: 19
+  minor: 1
+  substantive: 0
+plants:
+  planted: 2
+  caught: 1
+  severity_matched: 0
+bound:
+  confidence: 0.95
+  audited: 18
+  substantive:
+    real_defects: 0
+    planted: 2
+    caught: 1
+    upper: 0.1533
+    sensitivity: 0.5
+    adjusted_upper: 0.3066
+  any_deviation:
+    real_defects: 0
+    planted: 2
+    caught: 1
+    upper: 0.1533
+    sensitivity: 0.5
+    adjusted_upper: 0.3066
+findings: []
+paragraphs:
+  - id: "A-01"
+    pdf_page: 5
+    file: "content/days/day-11/01-introduction.qmd"
+    lines: "9"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-02"
+    pdf_page: 5
+    file: "content/days/day-11/01-introduction.qmd"
+    lines: "17"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-03"
+    pdf_page: 5
+    file: "content/days/day-11/01-introduction.qmd"
+    lines: "19"
+    verdict: "exact"
+    note: null
+    planted:
+      kind: "substitution"
+      line: 19
+      from: "never"
+      to: "rarely"
+      severity: "substantive"
+      caught: false
+      severity_match: false
+  - id: "A-04"
+    pdf_page: 7
+    file: "content/days/day-11/02-theory-of-knowledge-prediction.qmd"
+    lines: "25"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-05"
+    pdf_page: 8
+    file: "content/days/day-11/02-theory-of-knowledge-prediction.qmd"
+    lines: "41"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-06"
+    pdf_page: 8
+    file: "content/days/day-11/02-theory-of-knowledge-prediction.qmd"
+    lines: "54–56"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-07"
+    pdf_page: 10
+    file: "content/days/day-11/02-theory-of-knowledge-prediction.qmd"
+    lines: "107"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-08"
+    pdf_page: 10
+    file: "content/days/day-11/02-theory-of-knowledge-prediction.qmd"
+    lines: "116–120"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-09"
+    pdf_page: 12
+    file: "content/days/day-11/03-theory-of-knowledge-theory-and-learning.qmd"
+    lines: "23"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-10"
+    pdf_page: 13
+    file: "content/days/day-11/03-theory-of-knowledge-theory-and-learning.qmd"
+    lines: "35"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-11"
+    pdf_page: 17
+    file: "content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd"
+    lines: "32–38"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-12"
+    pdf_page: 19
+    file: "content/days/day-11/04-theory-of-knowledge-operational-definitions.qmd"
+    lines: "79"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-13"
+    pdf_page: 25
+    file: "content/days/day-11/05-activity-11a.qmd"
+    lines: "216"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-14"
+    pdf_page: 25
+    file: "content/days/day-11/05-activity-11a.qmd"
+    lines: "242"
+    verdict: "minor"
+    note: "Mobility *of* management in the PDF"
+    planted:
+      kind: "substitution"
+      line: 242
+      from: "of"
+      to: "for"
+      severity: "substantive"
+      caught: true
+      severity_match: false
+  - id: "A-15"
+    pdf_page: 28
+    file: "content/days/day-11/06-knowledge-of-psychology.qmd"
+    lines: "69"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-16"
+    pdf_page: 31
+    file: "content/days/day-11/06-knowledge-of-psychology.qmd"
+    lines: "157"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-17"
+    pdf_page: 34
+    file: "content/days/day-11/06-knowledge-of-psychology.qmd"
+    lines: "232"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-18"
+    pdf_page: 37
+    file: "content/days/day-11/05-activity-11a.qmd"
+    lines: "99"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-19"
+    pdf_page: 38
+    file: "content/days/day-11/05-activity-11a.qmd"
+    lines: "138"
+    verdict: "exact"
+    note: null
+    planted: null
+  - id: "A-20"
+    pdf_page: 38
+    file: "content/days/day-11/05-activity-11a.qmd"
+    lines: "164"
+    verdict: "exact"
+    note: null
+    planted: null
