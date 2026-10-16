@@ -60,10 +60,12 @@ To change the limit itself, edit `WINDOW_SECONDS` or `REQUESTS` in the script, u
 The dashboard's Firewall tab shows traffic per rule, with top IPs, JA4 fingerprints and user agents. From a directory linked to the project, the CLI shows the same thing:
 
 ```sh
-vercel firewall traffic list --since 7d --top 20 \
+vercel firewall traffic list --top 20 \
   --dimension ip --dimension user-agent --dimension rule \
   --scope lees-projects-5b4a1017
 ```
+
+`firewall traffic` needs a recent CLI: 54.20 doesn't have it, so run `npm i -g vercel@latest` first. Without Observability Plus, which Hobby doesn't have, a query can only reach back about 24 hours. `--since 7d` is refused. So the log week is read **once a day**, noting each day's busiest addresses, not in one query at the end.
 
 Before switching to `enforce`, record in #911:
 

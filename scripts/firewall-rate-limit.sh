@@ -67,6 +67,8 @@ case "${1:-}" in
     settings=(
       --description "$DESCRIPTION"
       --condition '{"type":"path","op":"pre","value":"/"}'
+      # The rule's type, always rate_limit. What happens to a client over
+      # the limit is --rate-limit-action below.
       --action rate_limit
       --rate-limit-algo "$ALGO"
       --rate-limit-window "$WINDOW_SECONDS"
