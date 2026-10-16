@@ -7,7 +7,9 @@
 #          exists) and prints the draft diff: `log` only records clients over
 #          the limit, `enforce` sends them a 429
 #        ./scripts/firewall-rate-limit.sh show
-#          prints the live rule
+#          prints the rule, then any changes still waiting to be published.
+#          The rule is printed as the draft has it, so it only matches
+#          what's live when the diff says there's nothing pending
 #
 # Firewall rules live in Vercel, not in this repo, so this script is the
 # rule's source of truth: change the settings below and re-stage, rather
@@ -88,6 +90,7 @@ case "${1:-}" in
   show)
     vc link --yes --project "$PROJECT" >/dev/null
     vc firewall rules inspect "$RULE"
+    vc firewall diff
     ;;
   *)
     usage

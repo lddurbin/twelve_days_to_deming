@@ -51,7 +51,7 @@ Each change is a draft first and goes live only when someone publishes it:
 1. `./scripts/firewall-rate-limit.sh stage log` or `stage enforce`. This creates the rule, or edits it if it already exists, and prints the draft diff.
 2. Read the diff.
 3. Publish it with **Review Changes → Publish** in the project's Firewall tab, or run `vercel firewall publish --scope lees-projects-5b4a1017` from a directory linked to the project. `vercel firewall discard` drops the draft.
-4. `./scripts/firewall-rate-limit.sh show` confirms what's live.
+4. `./scripts/firewall-rate-limit.sh show` prints the rule, then any changes still waiting to be published. The rule includes unpublished changes, so it's only what's live once the diff says `No pending changes`.
 
 To change the limit itself, edit `WINDOW_SECONDS` or `REQUESTS` in the script, update the table above, and go through the same steps.
 
