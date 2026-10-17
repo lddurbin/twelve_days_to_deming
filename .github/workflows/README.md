@@ -60,6 +60,7 @@ Steps 5 and 6 are in that order deliberately: a deploy that fails verification n
 
 - SSH private key is stored as a secret on the `production` environment
 - The `production` and `staging` environments only accept runs on `main` (#917). A workflow on any other branch that names either one fails before its first step, so pushing a branch never gets anyone the deploy credentials. `preview` stays open to every branch, because PR previews need it
+- **Accepted residual (#917):** the `preview` environment's `VERCEL_TOKEN` is team-scoped, like the staging and production ones, because Vercel can't scope a token to one project. So it can deploy to the production project too, and any branch can reach it. Treat it as a production credential: rotate it whenever you'd rotate the production token
 - Key is only available during workflow execution
 - Key is automatically cleaned up after deployment
 - Your local `key` file is gitignored for security
