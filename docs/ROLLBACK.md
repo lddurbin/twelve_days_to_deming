@@ -72,11 +72,11 @@ Either one promotes that deployment and switches automatic promotion back on. Th
 
 ## Option 2: Rebuild from a `deploy-*` tag
 
-Every deploy that passes SiteGround verification is tagged `deploy-YYYYMMDDHHMMSS`. Dispatching the workflow against a tag rebuilds that version from source and redeploys it to **both** hosts.
+Every deploy that passes SiteGround verification is tagged `deploy-YYYYMMDDHHMMSS`. Dispatching the workflow on `main` with a tag as its `deploy_tag` input rebuilds that version from source and redeploys it to **both** hosts. Staging is left on `main`. The run then tags the rebuilt commit again, so the newest `deploy-*` tag always names what's live.
 
-**Tags before `deploy-20260927193853` predate the Vercel job.** Dispatching one of those redeploys SiteGround only.
+**The run stays on `main`; only the build checks out the tag.** The `production` and `staging` environments only accept runs on `main` (#917). Don't dispatch the workflow *against* the tag (`--ref deploy-…`): that runs the tag's own copy of `deploy.yml`, and its deploy jobs fail at the environment gate.
 
-**Tags from before #888 predate the bridge.** Dispatching one of those also puts the whole site back on `deming.leedurbin.co.nz`, in place of the bridge, because their `deploy` job still ships `_book/`. That's the way to undo #888 entirely. It's also a trap when all you meant was to roll Vercel back.
+**The oldest tag that can be rebuilt is `deploy-20260928075637`.** The build steps come from `main`, and they call scripts older tags don't have: #888's bridge and #896's canonical check. The workflow refuses an older tag, and a tag that isn't on `main`, before it starts rendering. So this option can't undo #888 any more. To do that, revert #888 on `main` instead.
 
 ### Steps
 
@@ -87,10 +87,10 @@ Every deploy that passes SiteGround verification is tagged `deploy-YYYYMMDDHHMMS
    git tag --list 'deploy-*' --sort=-creatordate | head -5
    ```
 
-2. Trigger a run from that tag. In the GitHub UI, go to **Actions → Build and Deploy → Run workflow** and select the tag. Or use the CLI:
+2. Trigger a run on `main` with that tag. In the GitHub UI, go to **Actions → Build and Deploy → Run workflow**, leave the branch as `main`, and enter the tag in the **deploy_tag** box. Or use the CLI:
 
    ```bash
-   gh workflow run deploy.yml --ref deploy-20260927200556  # adjust tag
+   gh workflow run deploy.yml --ref main -f deploy_tag=deploy-20261016192401  # adjust tag
    ```
 
 3. Watch the run. If Vercel was in a rolled-back state from Option 1, the rebuilt deployment won't go live there by itself. Promote it with `vercel promote` as described in [After rolling back](#after-rolling-back-new-merges-dont-go-live). The URL to promote is on this run's summary page, on the line *Vercel production deployment: https://…*.
