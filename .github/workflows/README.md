@@ -7,8 +7,8 @@ This workflow automatically builds and deploys your Quarto book to your remote s
 ### 1. Add SSH Private Key Secret
 
 1. Go to your GitHub repository
-2. Navigate to **Settings** → **Secrets and variables** → **Actions**
-3. Click **New repository secret**
+2. Navigate to **Settings** → **Environments** → **production**
+3. Under **Environment secrets**, click **Add environment secret**. Not a repository secret: any workflow on any branch can read one of those (#534, #917)
 4. Name: `SSH_PRIVATE_KEY`
 5. Value: Copy the entire contents of your `key` file (including the `-----BEGIN OPENSSH PRIVATE KEY-----` and `-----END OPENSSH PRIVATE KEY-----` lines)
 
@@ -31,7 +31,7 @@ passed them. See #858.
 7. **Build the old-origin bridge** — `_bridge/`, a bridge page per page plus an `.htaccess` 301 (#888)
 8. **Upload** `_book` as the `site` artifact, and `_bridge` as the `old-origin-bridge` artifact
 
-**`deploy`** — ships the `old-origin-bridge` artifact to `deming.leedurbin.co.nz`, not the site (#888). It stays after #901 replaces the bridge with a permanent 301, shipping just the `.htaccess`, and SiteGround never holds a fallback copy of the site (#685). Runs only on `main` or a `deploy-*` tag:
+**`deploy`** — ships the `old-origin-bridge` artifact to `deming.leedurbin.co.nz`, not the site (#888). It stays after #901 replaces the bridge with a permanent 301, shipping just the `.htaccess`, and SiteGround never holds a fallback copy of the site (#685). Runs only on `main`. That includes a rollback, which is a dispatch on `main` with a `deploy_tag` input (see [docs/ROLLBACK.md](../../docs/ROLLBACK.md) Option 2):
 1. **Download** the `old-origin-bridge` artifact and check it arrived complete
 2. **Back up** the current server-side deployment (5 retained)
 3. **Deploy** via `rsync --delete`
@@ -47,7 +47,7 @@ Steps 5 and 6 are in that order deliberately: a deploy that fails verification n
 ### 3. Triggers
 
 - **Automatic**: Every push to the `main` branch
-- **Manual**: Use the "workflow_dispatch" trigger in the Actions tab
+- **Manual**: Use the "workflow_dispatch" trigger in the Actions tab. On a branch other than `main`, only `build` runs. On `main` with `deploy_tag` set, it's a rollback
 
 ### 4. Server Details
 
@@ -58,7 +58,9 @@ Steps 5 and 6 are in that order deliberately: a deploy that fails verification n
 
 ### 5. Security Notes
 
-- SSH private key is stored as a GitHub secret
+- SSH private key is stored as a secret on the `production` environment
+- The `production` and `staging` environments only accept runs on `main` (#917). A workflow on any other branch that names either one fails before its first step, so pushing a branch never gets anyone the deploy credentials. `preview` stays open to every branch, because PR previews need it
+- **Accepted residual (#917):** the `preview` environment's `VERCEL_TOKEN` is team-scoped, like the staging and production ones, because Vercel can't scope a token to one project. So it can deploy to the production project too, and any branch can reach it. Treat it as a production credential: rotate it whenever you'd rotate the production token
 - Key is only available during workflow execution
 - Key is automatically cleaned up after deployment
 - Your local `key` file is gitignored for security

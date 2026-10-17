@@ -8,6 +8,16 @@ on:
     branches:
       - main
   workflow_dispatch:
+    # docs/ROLLBACK.md Option 2. The run stays on main, so the `production`
+    # and `staging` environments can be restricted to main (#917), and only
+    # the build checks out the tag. Dispatching the workflow *against* a tag
+    # would run that tag's own copy of this file, with its secrets, and the
+    # environments now refuse it.
+    inputs:
+      deploy_tag:
+        description: "Roll back: the deploy-* tag to rebuild and redeploy (leave empty to deploy main)"
+        required: false
+        default: ""
 
 # Opt r-lib/actions into Node 24 ahead of the Sept 2026 Node 20 removal.
 # Remove once r-lib publishes a v3 tag that runs on Node 24 natively.
@@ -31,10 +41,53 @@ jobs:
     # write, and only for the deploy tag.
     outputs:
       html_count: ${{ steps.smoke.outputs.html_count }}
+      sha: ${{ steps.built.outputs.sha }}
 
     steps:
+    # Only commits already on main can be rolled back to, so the tag can't
+    # bring in code that never went through a PR. The floor is the first tag
+    # that has every script the steps below call: #888's bridge and #896's
+    # canonical check. Older tags fail those steps, so they're refused here
+    # instead of ten minutes into a render. Move the floor forward whenever
+    # a build step starts calling a script that older tags don't have.
+    - name: Check rollback tag
+      if: inputs.deploy_tag != ''
+      env:
+        TAG: ${{ inputs.deploy_tag }}
+        OLDEST_TAG: deploy-20260928075637
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        set -euo pipefail
+        if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+          echo "FAIL: dispatch rollbacks on main (gh workflow run deploy.yml -f deploy_tag=$TAG)"
+          exit 1
+        fi
+        if ! [[ "$TAG" =~ ^deploy-[0-9]{14}$ ]]; then
+          echo "FAIL: '$TAG' isn't a deploy-YYYYMMDDHHMMSS tag"
+          exit 1
+        fi
+        if [[ "$TAG" < "$OLDEST_TAG" ]]; then
+          echo "FAIL: $TAG is older than $OLDEST_TAG, the oldest tag this build can rebuild. See docs/ROLLBACK.md Option 2."
+          exit 1
+        fi
+        # "behind" means the tag's commit is an ancestor of main.
+        STATUS=$(gh api "repos/$GITHUB_REPOSITORY/compare/$GITHUB_SHA...refs/tags/$TAG" --jq .status)
+        if [ "$STATUS" != "behind" ] && [ "$STATUS" != "identical" ]; then
+          echo "FAIL: $TAG is not on main (compare status: $STATUS)"
+          exit 1
+        fi
+        echo "Rolling back to $TAG" >> "$GITHUB_STEP_SUMMARY"
+
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      with:
+        ref: ${{ inputs.deploy_tag && format('refs/tags/{0}', inputs.deploy_tag) || '' }}
+
+    # What the deploy jobs tag and record, since on a rollback it isn't
+    # github.sha.
+    - name: Record built commit
+      id: built
+      run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
     - name: Set up R, Pandoc and Quarto
       uses: ./.github/actions/setup-r-quarto
@@ -171,16 +224,15 @@ jobs:
     # Build runs on whatever ref it was given; shipping is restricted to main.
     # This is what makes `gh workflow run deploy.yml --ref <branch>` a safe way
     # to exercise the build and artifact steps without touching production.
-    #
-    # The tag clause preserves docs/ROLLBACK.md Option 2, which rolls back by
-    # dispatching this workflow against a `deploy-*` tag — a bare main-only
-    # check would silently turn that documented procedure into a no-op.
-    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/deploy-')
+    # A rollback (the deploy_tag input) runs on main too.
+    if: github.ref == 'refs/heads/main'
     permissions:
       contents: write
     # Scopes SSH_PRIVATE_KEY to this job: the secret lives on the `production`
     # environment (GitHub Settings → Environments), not the repository, so no
-    # other job or workflow in this repo can read it. See #534.
+    # other job or workflow in this repo can read it. See #534. The
+    # environment only accepts runs on main (#917), so a workflow on any
+    # other branch that names it is refused before its first step.
     environment: production
 
     steps:
@@ -195,6 +247,8 @@ jobs:
     #
     # Runs every time, but the repo content it provides is used only by the
     # verify and tagging steps below. The shipped bytes come from the artifact.
+    # It's main even on a rollback, never the tag: the SSH key is on disk
+    # while these scripts run, so they have to be main's.
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
@@ -316,10 +370,17 @@ jobs:
     - name: Verify old-origin redirects
       run: ./scripts/verify-old-origin.sh
 
+    # Tags the commit that was built, which on a rollback is the old tag's,
+    # so the newest tag always names what's live.
     - name: Tag deployment
+      env:
+        BUILT_SHA: ${{ needs.build.outputs.sha }}
       run: |
-        git tag "deploy-$(date +%Y%m%d%H%M%S)"
-        git push --tags
+        set -euo pipefail
+        TAG="deploy-$(date +%Y%m%d%H%M%S)"
+        git fetch --no-tags --depth=1 origin "$BUILT_SHA"
+        git tag "$TAG" "$BUILT_SHA"
+        git push origin "refs/tags/$TAG"
 
     - name: Cleanup SSH
       if: always()
@@ -331,12 +392,12 @@ jobs:
   # `deploy` (same `needs: build`, no ordering), so a failure on either host
   # never blocks the other.
   #
-  # Same `if` as `deploy`, so a ROLLBACK.md Option 2 dispatch against a
-  # `deploy-*` tag rolls this host back too rather than leaving it ahead.
+  # Same `if` as `deploy`, so a ROLLBACK.md Option 2 rollback rolls this host
+  # back too rather than leaving it ahead.
   vercel-production:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/deploy-')
+    if: github.ref == 'refs/heads/main'
     permissions:
       contents: read
     # One deploy-and-verify at a time. Verification fetches the production
@@ -357,7 +418,8 @@ jobs:
 
     steps:
     # Only for scripts/verify-deployment.sh. The shipped bytes come from the
-    # artifact. Checkout runs first because it cleans the workspace.
+    # artifact. Checkout runs first because it cleans the workspace. Main's,
+    # even on a rollback, as in `deploy`.
     - name: Checkout repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
@@ -423,6 +485,7 @@ jobs:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
         VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+        BUILT_SHA: ${{ needs.build.outputs.sha }}
       run: |
         set -euo pipefail
         if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
@@ -432,7 +495,7 @@ jobs:
         RESPONSE=$(vercel deploy --prebuilt --prod --yes \
           --token="$VERCEL_TOKEN" \
           --format json \
-          --meta githubCommitSha="$GITHUB_SHA")
+          --meta githubCommitSha="$BUILT_SHA")
         echo "$RESPONSE"
         URL=$(echo "$RESPONSE" | jq -r '.url // empty')
         if [ -z "$URL" ]; then
@@ -471,10 +534,13 @@ jobs:
   # If this ever goes unused, tear it down rather than let it become a
   # second thing to maintain: `vercel project rm twelve-days-to-deming-staging`,
   # delete this job, delete deploy/staging-middleware.js.
+  #
+  # Skipped on a rollback: staging tracks main, not what production is
+  # serving.
   staging:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && inputs.deploy_tag == ''
     permissions:
       contents: read
     # VERCEL_TOKEN here is its own secret, not shared with the `preview`
