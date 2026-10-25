@@ -79,10 +79,12 @@ A plain loop from one machine **doesn't reach this rule**. Vercel's own DDoS mit
 
 Exempting your own address from the system mitigations (`vercel firewall system-bypass add`) would let a loop through, but Hobby refuses it with a 402. IP bypass needs Pro.
 
-So the check narrows the rule to your own address, with a limit low enough to reach at one request a second, which is far too slow to trip the DDoS mitigation. Nobody else can be rate-limited while it runs. Everyone else is simply unlimited for those couple of minutes, and the system mitigations still cover floods. From a directory linked to the project:
+So the check narrows the rule to your own address, with a limit low enough to reach at one request a second, which is far too slow to trip the DDoS mitigation. Nobody else can be rate-limited while it runs. Everyone else is simply unlimited for those couple of minutes, and the system mitigations still cover floods. Start from the repo root. `publish` needs a directory linked to the project, and the repo root isn't one, so everything below runs from a linked temp directory:
 
 ```sh
+REPO=$(pwd)
 S=--scope=lees-projects-5b4a1017
+cd "$(mktemp -d)" && vercel link --yes --project twelve-days-to-deming $S
 IP=$(curl -s https://api.ipify.org)
 vercel firewall rules edit "Rate limit per IP" \
   --condition "{\"type\":\"ip_address\",\"op\":\"eq\",\"value\":\"$IP\"}" \
@@ -95,12 +97,12 @@ for i in $(seq 20); do
 done
 ```
 
-The loop prints each status as it arrives. Expect about ten 200s, then 429s. Then restore the real rule from the script and publish it, straight away:
+The loop prints each status as it arrives. Expect about ten 200s, then 429s. Then restore the real rule from the script and publish it, straight away, in the same shell and directory:
 
 ```sh
-./scripts/firewall-rate-limit.sh stage enforce
-vercel firewall publish --yes $S
-./scripts/firewall-rate-limit.sh show
+"$REPO"/scripts/firewall-rate-limit.sh stage enforce
+vercel firewall publish --yes --scope=lees-projects-5b4a1017
+"$REPO"/scripts/firewall-rate-limit.sh show
 ```
 
 `show` should print `path starts with /` and 600 requests, then `No pending changes`. `traffic inspect ip <your-ip> --group-by rule` confirms the test afterwards: the 429s appear as `Rate Limited` under the rule's id. That's how it was verified on 2026-10-25.
