@@ -77,14 +77,34 @@ The staging project (`twelve-days-to-deming-staging`) has no rule. It sits behin
 
 A plain loop from one machine **doesn't reach this rule**. Vercel's own DDoS mitigation runs first and challenges a tight loop long before it gets to 600 a minute. On 2026-10-25, 700 back-to-back requests from one address got 39 × 200, then a challenge for every request after that. curl can't answer a challenge, so it sees each one as a 403. `traffic inspect ip <address> --group-by rule` shows them as `sys_dos_mitigation`, not this rule. The challenge outlasts the minute's window, so the same address keeps getting 403s afterwards (about 8 minutes that time), and `security-headers.sh check` fails from it until the challenge lapses.
 
-To see this rule's 429, exempt your own address from the system mitigations for the test only. A system bypass doesn't exempt it from custom rules. Remove the bypass straight afterwards:
+Exempting your own address from the system mitigations (`vercel firewall system-bypass add`) would let a loop through, but Hobby refuses it with a 402. IP bypass needs Pro.
+
+So the check narrows the rule to your own address, with a limit low enough to reach at one request a second, which is far too slow to trip the DDoS mitigation. Nobody else can be rate-limited while it runs. Everyone else is simply unlimited for those couple of minutes, and the system mitigations still cover floods. Start from the repo root. `publish` needs a directory linked to the project, and the repo root isn't one, so everything below runs from a linked temp directory:
 
 ```sh
-vercel firewall system-bypass add <your-ip> --notes "#911 check" --yes
-seq 1500 | xargs -P 10 -I{} \
-  curl -s -o /dev/null -w '%{http_code}\n' https://learndeming.org/robots.txt \
-  | sort | uniq -c
-vercel firewall system-bypass remove <your-ip> --yes
+REPO=$(pwd)
+S=--scope=lees-projects-5b4a1017
+cd "$(mktemp -d)" && vercel link --yes --project twelve-days-to-deming $S
+IP=$(curl -s https://api.ipify.org)
+vercel firewall rules edit "Rate limit per IP" \
+  --condition "{\"type\":\"ip_address\",\"op\":\"eq\",\"value\":\"$IP\"}" \
+  --action rate_limit --rate-limit-algo fixed_window --rate-limit-window 60 \
+  --rate-limit-requests 10 --rate-limit-keys ip --rate-limit-action rate_limit \
+  --yes $S
+vercel firewall publish --yes $S
+for i in $(seq 20); do
+  curl -s -o /dev/null -w '%{http_code}\n' https://learndeming.org/robots.txt; sleep 1
+done
 ```
 
-Run these from a directory linked to the project, or add `--cwd` and `--scope`. The loop runs in parallel because one request at a time may not pass 600 inside a single fixed window. Expect 200s, then 429s once the window's count passes 600. Normal browsing from the same machine should recover once the minute's window has passed. Counters are kept per Vercel region, so a client spread across regions could exceed the limit overall without tripping it.
+The loop prints each status as it arrives. Expect about ten 200s, then 429s. Then restore the real rule from the script and publish it, straight away, in the same shell and directory:
+
+```sh
+"$REPO"/scripts/firewall-rate-limit.sh stage enforce
+vercel firewall publish --yes --scope=lees-projects-5b4a1017
+"$REPO"/scripts/firewall-rate-limit.sh show
+```
+
+`show` should print `path starts with /` and 600 requests, then `No pending changes`. `traffic inspect ip <your-ip> --group-by rule` confirms the test afterwards: the 429s appear as `Rate Limited` under the rule's id. That's how it was verified on 2026-10-25.
+
+Counters are kept per Vercel region, so a client spread across regions could exceed the limit overall without tripping it.
