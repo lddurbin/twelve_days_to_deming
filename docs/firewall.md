@@ -19,7 +19,7 @@ Vercel's automatic DDoS mitigation works on every plan, but it targets floods. A
 | Counted by | client IP |
 | Algorithm | fixed window |
 | Limit | 600 requests per 60 seconds |
-| Over the limit | `log` during the trial week, then a 429 |
+| Over the limit | a 429, since 2026-10-25 (log mode from 2026-10-17) |
 
 It counts by rate, never by user agent. Every client over the limit gets the same response, whatever it says it is. That keeps anonymous and crawler views byte-identical, as the URL policy in `AGENTS.md` requires.
 
@@ -65,13 +65,9 @@ vercel firewall traffic list --top 20 \
   --scope lees-projects-5b4a1017
 ```
 
-`firewall traffic` needs a recent CLI: 54.20 doesn't have it, so run `npm i -g vercel@latest` first. Without Observability Plus, which Hobby doesn't have, a query can only reach back about 24 hours. `--since 7d` is refused. So the log week is read **once a day**, noting each day's busiest addresses, not in one query at the end.
+`firewall traffic` needs a recent CLI. 54.20 doesn't have it, so run `npm i -g vercel@latest` first, or use `npx vercel@latest firewall traffic …` without changing the global install. Without Observability Plus, which Hobby doesn't have, a query can only reach back about 24 hours. `--since 7d` is refused. So a trial week has to be read **once a day**, noting each day's busiest addresses, not in one query at the end. `traffic inspect ip <address>` breaks one address down by minute and by path.
 
-Before switching to `enforce`, record in #911:
-
-- the busiest addresses and their peak requests per minute
-- whether any were clearly a group of readers (a school or company network) rather than a crawler
-- the limit chosen as a result, if it differs from 600
+The log week's findings are in [#911](https://github.com/lddurbin/twelve_days_to_deming/issues/911#issuecomment-6392813080). The rule never fired. Site-wide traffic peaked at 150 requests an hour, and no address looked like a group of readers, so the limit stayed at 600. If the limit changes later, record the same three things on the issue that prompts it: the busiest addresses and their peak requests per minute, whether any were a group of readers rather than a crawler, and the limit chosen as a result.
 
 ## Staging
 
@@ -79,12 +75,16 @@ The staging project (`twelve-days-to-deming-staging`) has no rule. It sits behin
 
 ## Checking it works
 
-Once it's enforcing, a tight loop from one machine should start getting 429s past the limit:
+A plain loop from one machine **doesn't reach this rule**. Vercel's own DDoS mitigation runs first and challenges a tight loop long before it gets to 600 a minute. On 2026-10-25, 700 back-to-back requests from one address got 39 × 200, then a challenge for every request after that. curl can't answer a challenge, so it sees each one as a 403. `traffic inspect ip <address> --group-by rule` shows them as `sys_dos_mitigation`, not this rule. The challenge outlasts the minute's window, so the same address keeps getting 403s afterwards (about 8 minutes that time), and `security-headers.sh check` fails from it until the challenge lapses.
+
+To see this rule's 429, exempt your own address from the system mitigations for the test only. A system bypass doesn't exempt it from custom rules. Remove the bypass straight afterwards:
 
 ```sh
-for i in $(seq 700); do
-  curl -s -o /dev/null -w '%{http_code}\n' https://learndeming.org/robots.txt
-done | sort | uniq -c
+vercel firewall system-bypass add <your-ip> --notes "#911 check" --yes
+seq 1500 | xargs -P 10 -I{} \
+  curl -s -o /dev/null -w '%{http_code}\n' https://learndeming.org/robots.txt \
+  | sort | uniq -c
+vercel firewall system-bypass remove <your-ip> --yes
 ```
 
-Normal browsing from the same machine should recover once the minute's window has passed. Counters are kept per Vercel region, so a client spread across regions could exceed the limit overall without tripping it.
+Run these from a directory linked to the project, or add `--cwd` and `--scope`. The loop runs in parallel because one request at a time may not pass 600 inside a single fixed window. Expect 200s, then 429s once the window's count passes 600. Normal browsing from the same machine should recover once the minute's window has passed. Counters are kept per Vercel region, so a client spread across regions could exceed the limit overall without tripping it.
