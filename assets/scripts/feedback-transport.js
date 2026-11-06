@@ -19,9 +19,15 @@
 
 // Web3Forms access keys are designed to be public — they identify the
 // destination inbox, not the sender — so this sitting in client-side source
-// (and in a public repo) is the intended usage, not a leak. The worst a
-// scraped key allows is unsolicited mail to the same inbox, which is
-// Web3Forms' problem to rate-limit rather than a secret to protect.
+// (and in a public repo) is the intended usage, not a leak.
+//
+// It isn't harmless, though. Anyone can script POSTs with it, and every one
+// counts against the free plan's 250 submissions a month, which resets on
+// the 1st. Once that's used up, real readers get the failure state and the
+// mailto fallback, and nothing tells us. Web3Forms sends no quota alert, and
+// restricting the key to our domain is a paid feature, so the defence is
+// the account's spam filter plus a monthly look at usage. The dashboard's
+// "Disable form submissions" switch stops a flood (#915).
 const ACCESS_KEY = "00086f62-2350-4acf-a3b7-acd582fa9d6b";
 
 // Kept out of any STRINGS object for the reason feedback-prompt.js documents
