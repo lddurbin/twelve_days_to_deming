@@ -625,4 +625,5 @@ jobs:
       run: |
         vercel deploy --prebuilt --prod --yes \
           --token="$VERCEL_TOKEN" \
+          --scope team_hSkXjMnjfuh3SG292of3TunJ \
           --project twelve-days-to-deming-staging
