@@ -682,6 +682,11 @@ class FalsePositiveCategoryTests(unittest.TestCase):
         Load-bearing beyond the token it removes: the line ends `Quoting from a
         BBC News report:^[a]^`, so paragraphs.py's continues() saw a tail of
         `^` and refused the blockquote join #741 exists to make.
+
+        #906 found the shape was itself a typo (Pandoc reads `^[a]` as an
+        inline footnote) and Day 7 now uses the house form `^a^`, so no
+        `^[x]^` remains in the corpus. The rule stays so a reintroduced one
+        is still stripped.
         """
         self.assertEqual(
             strip_qmd("Quoting from a BBC News report:^[a]^\n"),

@@ -159,17 +159,19 @@ The sales representatives of this company do not sell to General Practitioners a
 
 **3.** Finally, a software company in Britain offered its developers a bonus for every "bug" they found and fixed in their systems. After a while, as the systems were improved, there were less and less bugs to find and therefore less bonuses to enjoy. The developers were not happy with their resultant loss of income, so they started to *introduce* new bugs into the systems and then fix them. Again, the directors were blissfully ignorant about all of this and the developers were delighted.
 
+[]{#sec-page15}
+
 *[A frequent quotation from Dr Deming that we haven't seen earlier was "Who gives a hoot about profit?".]*
 
 *A story rather similar to those above was widely reported in the Press on 30 October 2008. The headline in* The Times *was:*
 
 ### "BT staff phoned each other to hit Whitehall targets"
 
-*This concerned a call centre set up by the Ministry of Defence in Kettering, England and run by British Telecom. If calls were answered too slowly then service targets would not be met and a fine would be incurred. Staff would be financially penalised. Staff discovered that if they phoned each other at quiet times and answered quickly then the target would be met. This practice did not slow the system to give rise to any customer complaints and it went on for nearly six years before discovery. Quoting from a BBC News report:*^[a]^
+*This concerned a call centre set up by the Ministry of Defence in Kettering, England and run by British Telecom. If calls were answered too slowly then service targets would not be met and a fine would be incurred. Staff would be financially penalised. Staff discovered that if they phoned each other at quiet times and answered quickly then the target would be met. This practice did not slow the system to give rise to any customer complaints and it went on for nearly six years before discovery. Quoting from a BBC News report:*
 
 "BT has been forced to pay the Ministry of Defence £1.3m in compensation after some of its staff met call-answering targets by phoning each other. The National Audit Office found they fixed figures to help BT avoid fines for not answering calls quickly enough. The targets were part of a £3bn Private Finance Initiative (PFI) deal to operate the Forces' telephone system. BT has sacked some of the 'small number of staff' involved and the call centre no longer operates.
 
-The company has also paid £1,021,000 in service payments, the £122,000 cost of investigating the fraud, and the £197,000 cost of the fake calls."
+The company has also paid £1,021,000 in service payments, the £122,000 cost of investigating the fraud, and the £197,000 cost of the fake calls."^a^
 
 *[Apparently about 1.25 million bogus calls had been made!]*
 
@@ -280,4 +282,4 @@ createDownloadButton([viewof activity_7d], "day7_activity_7d.txt")
 
 ### Approvals, Acknowledgments and Information
 
-^[a]^ BBC News report quotation included with kind permission of the BBC. The BBC report (30 October 2008) can be found at [bbc.co.uk/news](https://www.bbc.co.uk/news).
+^a^ ([page 15, the BBC News report quotation](04-many-more-true-stories.qmd#sec-page15)) This quotation from a BBC News report published on 30 October 2008 is included with the approval of the BBC.
