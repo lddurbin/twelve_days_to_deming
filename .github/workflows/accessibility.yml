@@ -199,11 +199,13 @@ jobs:
     # support rather than a config mistake. Team scope is the narrowest
     # level that still works with `vercel deploy`.
     #
-    # --scope is explicit because the token's default scope is not
-    # guaranteed to be the team: after the 2026-11-06 token rotation,
-    # `--project` alone failed with 'Project "vercel-spike" was not found
-    # in the current scope' even though the project exists in the team.
-    # The production deploy gets the same pinning via VERCEL_ORG_ID.
+    # --scope pins the call to the team, not the token's default scope;
+    # the production deploy does the same via VERCEL_ORG_ID. Note that
+    # this CLI version misreports an invalid or expired token as a scope
+    # problem ('Project "vercel-spike" was not found in the current
+    # scope', or with --scope 'You do not have access to the specified
+    # account'). If either appears, check the token with
+    # `npx vercel@latest whoami --token ...` before anything else (#947).
     - name: Deploy preview to Vercel
       id: deploy
       env:
