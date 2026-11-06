@@ -198,6 +198,14 @@ jobs:
     # REST API directly, never the CLI — this looks like a real gap in CLI
     # support rather than a config mistake. Team scope is the narrowest
     # level that still works with `vercel deploy`.
+    #
+    # --scope pins the call to the team, not the token's default scope;
+    # the production deploy does the same via VERCEL_ORG_ID. Note that
+    # this CLI version misreports an invalid or expired token as a scope
+    # problem ('Project "vercel-spike" was not found in the current
+    # scope', or with --scope 'You do not have access to the specified
+    # account'). If either appears, check the token with
+    # `npx vercel@latest whoami --token ...` before anything else (#947).
     - name: Deploy preview to Vercel
       id: deploy
       env:
@@ -212,6 +220,7 @@ jobs:
         # actually observed and why this is the more robust fix).
         RESPONSE=$(vercel deploy --prebuilt --yes \
           --token="$VERCEL_TOKEN" \
+          --scope team_hSkXjMnjfuh3SG292of3TunJ \
           --project vercel-spike \
           --format json \
           --meta githubPrNumber="$PR_NUMBER" \
