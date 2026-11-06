@@ -136,6 +136,12 @@ _HTML_TAG = re.compile(r"</?[A-Za-z][A-Za-z0-9]*(?:\s[^<>]*?)?/?>")
 # line 168 ends `Quoting from a BBC News report:^[a]^`, so paragraphs.py's
 # continues() saw a tail of `^` instead of `:` and refused a blockquote join
 # that #741 would otherwise have made.
+#
+# #906 found `^[a]^` was itself a typo: Pandoc reads `^[a]` as an inline
+# footnote, so the page rendered two bogus footnotes and a stray `^`. Day 7
+# now uses the house form `^a^`, as Days 3, 9 and 11 do, and no `^[x]^`
+# remains in the corpus. The rule stays so a reintroduced one is still
+# stripped rather than silently reshaping a paragraph join.
 _FOOTNOTE_DEFINITION = re.compile(r"^\[\^[^\]]+\]:\s*")
 _FOOTNOTE_REFERENCE = re.compile(r"\[\^[^\]]+\]")
 _SUPERSCRIPT_MARKER = re.compile(r"\^\[[^\]]+\]\^")
