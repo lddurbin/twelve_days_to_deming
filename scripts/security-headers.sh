@@ -21,10 +21,28 @@
 # anything. Every page must carry the identical policy, or this fails, since
 # one header covers all of them.
 #
-# Strict-Transport-Security is left out: Vercel already sends
-# `max-age=63072000` on every custom domain. Referrer-Policy states the
-# browsers' own default, so it changes nothing today. It pins the value so a
-# future default can't widen it.
+# Referrer-Policy states the browsers' own default, so it changes nothing
+# today. It pins the value so a future default can't widen it.
+#
+# Permissions-Policy denies powerful features the site never uses, so an
+# injected script, or a compromised dependency under cdn.jsdelivr.net, can't
+# ask the reader for them (#916). Add a feature back here only when the site
+# starts using it. interest-cohort is FLoC's opt-out; browsers that no longer
+# know it ignore it.
+#
+# Strict-Transport-Security (#916). Vercel sends `max-age=63072000` on its
+# own; this route's value replaces it rather than adding a second header,
+# which `check` asserts. includeSubDomains is safe because Vercel DNS for
+# learndeming.org holds only the apex and a `*` wildcard, both pointing at
+# Vercel, which serves HTTPS on every host. There's no MX and no third-party
+# host. Before pointing a subdomain anywhere that can't serve HTTPS, drop
+# includeSubDomains first and wait out max-age (two years). That wait is why
+# it's checked here and not left to memory.
+#
+# Deliberately not `preload`. Leaving a browser's preload list takes months,
+# and it would bind every future subdomain for good. Reconsider no earlier
+# than 2027-09-28, a year after the move to learndeming.org (#884), and only
+# if the domain and its DNS have stayed stable that whole year.
 
 set -euo pipefail
 
@@ -79,7 +97,9 @@ headers_json() {
   jq -n --arg csp "$csp" '{
     "Content-Security-Policy": $csp,
     "X-Content-Type-Options": "nosniff",
-    "Referrer-Policy": "strict-origin-when-cross-origin"
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()",
+    "Strict-Transport-Security": "max-age=63072000; includeSubDomains"
   }'
 }
 
@@ -110,7 +130,15 @@ case "${1:-}" in
       path_failed=0
       for name in $(jq -r 'keys[]' <<<"$expected"); do
         want=$(jq -r --arg n "$name" '.[$n]' <<<"$expected")
-        got=$(grep -i "^${name}:" <<<"$served" | head -n 1 | sed 's/^[^:]*: *//' || true)
+        got=$(grep -i "^${name}:" <<<"$served" | sed 's/^[^:]*: *//' || true)
+        # More than one line means the platform's own header and this route's
+        # both reached the browser, which then applies whichever it likes.
+        if [ "$(grep -c . <<<"$got" || true)" -gt 1 ]; then
+          echo "FAIL: ${base}${path} sends ${name} more than once:"
+          sed 's/^/  got:  /' <<<"$got"
+          path_failed=1
+          continue
+        fi
         if [ "$got" != "$want" ]; then
           echo "FAIL: ${base}${path} ${name}"
           echo "  want: ${want}"
