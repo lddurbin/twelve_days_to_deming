@@ -30,7 +30,7 @@ jobs:
         PR_NUMBER: ${{ github.event.pull_request.number }}
       run: |
         set -euo pipefail
-        URLS=$(vercel list vercel-spike --token="$VERCEL_TOKEN" -m githubPrNumber="$PR_NUMBER" --format json --yes | jq -r '.deployments[].url')
+        URLS=$(vercel list vercel-spike --scope team_hSkXjMnjfuh3SG292of3TunJ --token="$VERCEL_TOKEN" -m githubPrNumber="$PR_NUMBER" --format json --yes | jq -r '.deployments[].url')
         if [ -z "$URLS" ]; then
           echo "No preview deployments found for PR #${PR_NUMBER}"
           exit 0
@@ -38,5 +38,5 @@ jobs:
         readarray -t urls <<< "$URLS"
         for url in "${urls[@]}"; do
           echo "Removing $url"
-          vercel remove "$url" --yes --token="$VERCEL_TOKEN"
+          vercel remove "$url" --scope team_hSkXjMnjfuh3SG292of3TunJ --yes --token="$VERCEL_TOKEN"
         done
