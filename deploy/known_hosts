@@ -1,0 +1,12 @@
+# SiteGround's SSH host keys for the rsync `deploy` job (#921). deploy.yml
+# installs this file as ~/.ssh/known_hosts instead of running ssh-keyscan, so
+# a host answering with any other key fails the deploy. Host keys are public.
+#
+# Recorded 2026-11-08; matched the keys already in the maintainer's own
+# known_hosts from earlier, independent connections:
+#   ED25519 SHA256:jhR+WUoWRIg5JGSvC/kCofZzTlG4X3B/K+K63rYv+mw
+#   RSA     SHA256:qHAXi9tf+kYn6SGI7+AWAwjbMQMa8NhDr8kajHQ83iQ
+#
+# To refresh after SiteGround rotates its keys, see .github/workflows/README.md.
+[ssh.leedurbin.co.nz]:18765 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFb5zkrYacyZZDMUSlpQV1LWj4kMsVbZVf44dR47vaCG
+[ssh.leedurbin.co.nz]:18765 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDm6EwYYo8peaz3GB86TPZRqAEE25Kq7Cf1rGHtoLqqk3wEwPJpGiX4I4iD4sNtyQdPpgATDuieaqvxYKKCDE4vba1d2/v3WoH/bcCz7/D5XDdPJ8ZPEZDGA2ohhRDvV3unAZsWCao+h87cnX+bU/vmfbRxxtpsK9gLd4dtTo2J4lSMkoqVUJ0/iKBGUoF75m7mhqK4F2Qg4e2IPGXPoDQ8VBd4Sd6V9SUmvoFiJsorh/Hn2PX7fetpqJTYFCfjeuQyI5NpVqDmi6Pc4sEpQAU20EtnzG4fjnBFKRJ4AZhK3DT901Kpq3/8s0LOzCTGcRuyIGiF/WcFjsOaTpaZEAHZ
