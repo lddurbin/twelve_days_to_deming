@@ -1,5 +1,7 @@
 # Deployment Rollback Procedure
 
+This page covers bad deploys. If the site is slow, down or burning through its allowance because of traffic, see [traffic-incidents.md](traffic-incidents.md) instead.
+
 Every merge to `main` deploys to two hosts: the site to Vercel, and the old-origin bridge (#888) to SiteGround. Before doing anything, work out which host is serving the bad version, because each one rolls back differently.
 
 | Host | What it serves | Deployed by | Fastest rollback |
