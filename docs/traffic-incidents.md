@@ -9,7 +9,6 @@ To tell them apart: if the trouble started right after a merge to `main`, and th
 Most commands below need a recent Vercel CLI and a directory linked to the project. The global install may be too old (54.20 has no `firewall traffic`, `attack-mode` or `metrics`), so use `npx vercel@latest`. The repo root has no Vercel link of its own, so link a throwaway directory, as [firewall.md](firewall.md) does:
 
 ```sh
-REPO=$(pwd)
 cd "$(mktemp -d)"
 vc() { npx -y vercel@latest "$@" --scope=lees-projects-5b4a1017; }
 vc link --yes --project twelve-days-to-deming
