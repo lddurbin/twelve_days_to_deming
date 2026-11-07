@@ -5,6 +5,8 @@ Allow: /
 
 # This is a free educational resource, published in full with Dr Henry Neave's
 # permission. AI crawlers — retrieval and training alike — are explicitly welcome.
+# That includes the heavy bulk crawlers (CCBot, Bytespider): a per-IP rate limit
+# caps what any one client can cost, so the welcome needs no exceptions (#914).
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ClaudeBot
