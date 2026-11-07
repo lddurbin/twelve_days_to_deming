@@ -119,11 +119,22 @@ anchors_by_day <- anchors |>
 # ---------------------------------------------------------------------------
 # 3. Extract concrete "Day N page M" references (multiple per line allowed)
 # ---------------------------------------------------------------------------
+#
+# Matches the plural range form too — "Day 9 pages 7–8", "Day 5 pages
+# 26--27" (the source spelling of an en dash), "Day 3 pages 4 to 6" — with
+# the range end in target_page_end, as the bare-page pass below does for
+# same-day ranges. Until #818 the pattern required singular "page", so every
+# cross-day range was invisible to this CSV. A range resolves against its
+# *first* page's anchor, which is the corpus convention for linking one
+# (e.g. [Day 2 pages 43–44](...#sec-page43)).
+#
+# "and" is deliberately not a range connector: "Day 3 pages 51 and 55" names
+# two pages, not 51 through 55, so it matches as "Day 3 pages 51" alone.
 
 concrete <- extract_matches(
   all_lines,
-  pattern = "([Dd]ay)\\s+([0-9]+)\\s+page\\s+([0-9]+)",
-  group_names = c("day_word", "target_day_chr", "target_page_chr")
+  pattern = "([Dd]ay)\\s+([0-9]+)\\s+pages?\\s+([0-9]+)(?:\\s*(?:--|[-–—]|to)\\s*([0-9]+))?",
+  group_names = c("day_word", "target_day_chr", "target_page_chr", "target_page_end_chr")
 ) |>
   transmute(
     source_file,
@@ -131,6 +142,8 @@ concrete <- extract_matches(
     match_text,
     target_day = as.integer(target_day_chr),
     target_page = as.integer(target_page_chr),
+    # str_match_all yields NA for an unmatched optional group.
+    target_page_end = as.integer(target_page_end_chr),
     context = str_trim(text)
   ) |>
   mutate(
@@ -167,6 +180,7 @@ concrete <- concrete |>
     match_text,
     target_day,
     target_page,
+    target_page_end,
     target_file,
     anchor_present,
     decision,
@@ -229,6 +243,7 @@ appendix_page <- extract_matches(
     anchor_present = if_else(!is.na(target_file), "Y", "N"),
     kind = "appendix-page",
     target_day = NA_integer_,
+    target_page_end = NA_integer_,
     decision = case_when(
       already_linked ~ "already-linked",
       notation_example ~ "notation-example",
@@ -253,6 +268,7 @@ appendix_page <- extract_matches(
     match_text,
     target_day,
     target_page,
+    target_page_end,
     target_file,
     anchor_present,
     decision,
@@ -358,8 +374,7 @@ bare_source <- all_lines |>
 # Matches "page"/"pages", singular mention or a range (hyphen, en dash, or
 # em dash). The lookbehind excludes anything the concrete/appendix-page
 # passes above already own — "Day N page(s) ..." and "Appendix page(s)
-# ..." — including their plural forms, which those two passes don't
-# themselves match (they only match singular "page").
+# ...", singular and plural alike.
 bare_pattern <- "(?<![Dd]ay\\s[0-9]{1,3}\\s)(?<!Appendix\\s)\\bpages?\\s+[0-9]+(?:\\s*[-–—]\\s*[0-9]+)?\\b"
 
 bare_locs <- str_locate_all(bare_source$text_masked, bare_pattern)
@@ -541,6 +556,7 @@ fuzzy_sample <- fuzzy_all |>
   arrange(source_file, source_line) |>
   mutate(
     target_page = NA_integer_,
+    target_page_end = NA_integer_,
     target_file = NA_character_,
     anchor_present = NA_character_,
     kind = "fuzzy",
@@ -554,6 +570,7 @@ fuzzy_sample <- fuzzy_all |>
     match_text,
     target_day,
     target_page,
+    target_page_end,
     target_file,
     anchor_present,
     decision,
