@@ -30,7 +30,7 @@ From [Vercel's rate-limiting docs](https://vercel.com/docs/vercel-firewall/verce
 - **Fixed window only.** Token bucket, which #911 originally proposed for its tolerance of a page load's burst, is Enterprise-only.
 - **One rate-limit rule per project**, out of three custom rules in total.
 - **A window of 10 seconds to 10 minutes.**
-- **1,000,000 allowed rate-limited requests a month** are included. Because the rule covers every path, every request it lets through counts toward this, so it tracks the edge-request count closely. The docs don't say what happens on Hobby once it runs out. [#912](https://github.com/lddurbin/twelve_days_to_deming/issues/912)'s usage watch should cover it.
+- **1,000,000 allowed rate-limited requests a month** are included. Because the rule covers every path, every request it lets through counts toward this, so it tracks the edge-request count closely. The docs don't say what happens on Hobby once it runs out. The weekly [usage watch](traffic-incidents.md#usage-watch) covers it.
 
 Requests the firewall blocks, rate-limits or challenges don't count as edge requests or data transfer. So once the rule is enforcing, a client over the limit stops costing the allowance.
 
@@ -42,7 +42,7 @@ At 600 a minute, then, a single address can view about 17 pages a minute. One re
 
 ### What it doesn't protect
 
-A per-IP limit stops one client from bursting. It can't protect the monthly allowance on its own. Even at the limit, one address could make 864,000 requests a day. A crawler that re-fetches the whole site every 15 minutes makes about 24 requests a minute and never comes close. Slow, steady overuse is what the usage watch in #912 is for.
+A per-IP limit stops one client from bursting. It can't protect the monthly allowance on its own. Even at the limit, one address could make 864,000 requests a day. A crawler that re-fetches the whole site every 15 minutes makes about 24 requests a minute and never comes close. Slow, steady overuse is what the [usage watch](traffic-incidents.md#usage-watch) is for. For an incident in progress, see [traffic-incidents.md](traffic-incidents.md).
 
 ## Changing the rule
 
