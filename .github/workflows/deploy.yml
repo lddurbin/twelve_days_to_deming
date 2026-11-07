@@ -289,26 +289,18 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
 
-        # Under `bash -e`, a non-zero ssh-keyscan used to abort the step right
-        # there, so the diagnostic below it never printed and `2>/dev/null` had
-        # already discarded the real error — a bare "exit code 1" with nothing
-        # to explain it (#653). Capturing stderr and retrying (this has been
-        # seen to fail transiently against a reachable host) fixes both.
-        for attempt in 1 2 3; do
-          if ssh-keyscan -p 18765 -H ssh.leedurbin.co.nz >> ~/.ssh/known_hosts 2>/tmp/keyscan.err; then
-            [ -s ~/.ssh/known_hosts ] && break
-            echo "ssh-keyscan exited 0 but wrote nothing (attempt ${attempt}/3)"
-          else
-            echo "ssh-keyscan failed (attempt ${attempt}/3):"
-            cat /tmp/keyscan.err
-          fi
-          [ "$attempt" -lt 3 ] && sleep 5
-        done
-
-        if [ ! -s ~/.ssh/known_hosts ]; then
-          echo "ERROR: ssh-keyscan failed to retrieve host key after 3 attempts"
-          exit 1
-        fi
+        # The host key is pinned in the repo rather than fetched with
+        # ssh-keyscan, which trusted whatever key answered on every run
+        # (#921). It comes from main's checkout above, even on a rollback.
+        # If SiteGround rotates its keys, every ssh below fails with "Host key
+        # verification failed": refresh deploy/known_hosts as
+        # .github/workflows/README.md describes. StrictHostKeyChecking=yes
+        # makes the refusal explicit rather than relying on there being no
+        # terminal to prompt on.
+        cp deploy/known_hosts ~/.ssh/known_hosts
+        chmod 644 ~/.ssh/known_hosts
+        printf 'Host ssh.leedurbin.co.nz\n  StrictHostKeyChecking yes\n' > ~/.ssh/config
+        chmod 600 ~/.ssh/config
 
     - name: Backup current deployment
       run: |
