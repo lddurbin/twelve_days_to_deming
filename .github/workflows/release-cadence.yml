@@ -17,6 +17,23 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Fails the weekly run 30 days before .well-known/security.txt's Expires
+  # (#919). Nothing else touches that file, and an expired one tells
+  # researchers its contact details can't be trusted, which is worse than
+  # having none. A separate job so a red run names the problem, and so it
+  # never stops the cadence nudge below from running.
+  security-txt-expiry:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+    - name: Check security.txt Expires
+      run: python3 scripts/check-security-txt.py
+
   release-cadence:
     runs-on: ubuntu-latest
 

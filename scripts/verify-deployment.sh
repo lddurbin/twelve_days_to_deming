@@ -103,6 +103,7 @@ else
     /content/appendix/glossary.html                   # appendix tree, separate from content/days
     /robots.txt                                       # crawler directives — silent SEO damage if lost
     /sitemap.xml                                      # ditto, and the only file listing all 123 URLs
+    /.well-known/security.txt                         # dot-directory, shipped only via a resources: entry (#919)
   )
 fi
 
