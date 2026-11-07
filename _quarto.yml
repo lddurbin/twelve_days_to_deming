@@ -15,6 +15,10 @@ project:
     # ship to _book/ (and deploy.yml's rsync --delete never notices), the
     # exact failure mode already documented above for assets/scripts/**.
     - "llms.txt"
+    # RFC 9116 contact file (#919). Quarto ignores dot-directories, so it only
+    # reaches _book/ because it's named here. scripts/check-security-txt.py,
+    # run weekly by release-cadence.yml, flags its Expires before it lapses.
+    - ".well-known/security.txt"
   pre-render:
     # Regenerates llms.txt (https://llmstxt.org) from _quarto-en.yml's
     # chapter list and each chapter's own `pagetitle`/`description` front
