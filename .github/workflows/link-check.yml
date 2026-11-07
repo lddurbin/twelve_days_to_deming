@@ -90,7 +90,7 @@ jobs:
       if: always() && (hashFiles('lychee-report.md') != '' || hashFiles('youtube-report.md') != '')
       uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
       with:
-        name: lychee-report
+        name: link-reports
         path: |
           lychee-report.md
           youtube-report.md

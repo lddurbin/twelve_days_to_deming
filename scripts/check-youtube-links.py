@@ -8,8 +8,9 @@ YouTube answers HTTP 200 for a video or playlist that does not exist: it
 renders a "This video isn't available" page instead of a 404. So the weekly
 lychee run in .github/workflows/link-check.yml, which reads status codes, sees
 a dead YouTube link as healthy and always has (#805). Two mistranscribed IDs
-on the References appendix went unreported that way (#420, #804), both in the
-0/O and 1/I confusion Neave warns his readers about on that same page.
+on the References appendix went unreported that way, both confusable glyphs:
+#420's capital I read as an 8, and #804's 3 read as a 0, beneath Neave's own
+warning on that page that 0/O and 1/I are easily confused.
 
 YouTube's oEmbed endpoint does tell them apart: 200 with the title for a live
 video or playlist, 404 for one that does not exist, 400 for an ID that is not
