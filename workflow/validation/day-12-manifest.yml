@@ -65,7 +65,7 @@ chapters:
   - file: "08-epilogue.qmd"
     viewof_count: 0
     figures:
-      - "/assets/images/day-12/deming-medal.png"
+      - "/assets/images/day-12/deming-medal.jpg"
     headings:
       - "Section 7: EPILOGUE"
     has_download_button: false
