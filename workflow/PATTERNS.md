@@ -131,6 +131,34 @@ Each day is a `part:` with nested `chapters:`:
     - content/days/day-XX/02-second-chapter.qmd
 ```
 
+### `freeze: auto` and pages that read other files
+
+The project sets `execute: freeze: auto`, so Quarto re-executes a page only
+when **that page's own source** changes. Anything else a page reads at render
+time can change without the page re-rendering. CI restores `_freeze/` from a
+cache whose key hashes `renv.lock`, `R/**/*.R`, `R/data/**` and
+`filters/**/*.lua`. A change to any of those starts from an empty `_freeze/`
+and re-renders the whole book, so a page may depend on them. (Until #808 the
+key had a hash-less restore fallback, so changes to those files didn't
+re-render anything either.)
+
+**Rule: if a page reads a file at render time that is neither the page itself
+nor covered by that key, set `freeze: false` in its front matter**, with a
+comment saying what it reads:
+
+```yaml
+execute:
+  # Content assembled at render time from docs/deviations/*.md, which the
+  # freeze cache key does not cover.
+  freeze: false
+```
+
+`changes-from-source.qmd` is the example: it builds its log from
+`docs/deviations/*.md` (#777). Choose between the two fixes by cost. Put the
+input under `R/data/` (or add it to the key in all three workflows) when it
+changes rarely and the page does heavy work. Use `freeze: false` when the page
+is cheap to run but its input changes often, as `docs/deviations/` does.
+
 ---
 
 ## Subresource Integrity (SRI) for the Observable Plot import

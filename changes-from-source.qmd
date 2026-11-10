@@ -7,10 +7,9 @@ execute:
   # This page's content is not in this file: the technical log below is
   # assembled at render time from docs/deviations/*.md. Under the project's
   # `freeze: auto`, Quarto re-executes only when the *document* changes, and
-  # CI restores _freeze/ from a cache keyed on renv.lock, R/**/*.R and
-  # filters/** — so adding or correcting an entry left this page frozen at
-  # whatever it last rendered, and it only refreshed when an unrelated R
-  # change happened to bust the cache. Found in #777: the PR that fixed 24
+  # CI restores _freeze/ from a cache keyed on renv.lock, R/**/*.R,
+  # R/data/** and filters/** — so adding or correcting an entry left this
+  # page frozen at whatever it last rendered. Found in #777: the PR that fixed 24
   # stale "Landed in" fields built a preview that still showed all 24 as
   # pending. Executing every build is cheap here — it reads ~50 small
   # markdown files and runs no computation.
