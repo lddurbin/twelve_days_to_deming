@@ -122,6 +122,19 @@ test_that("pa11y_urls_json keeps defaults verbatim and regenerates only urls", {
   expect_true("http://localhost:8765/day1/a.html" %in% unlist(built$urls))
 })
 
+test_that("pa11y_urls_json writes each URL as an object, not a bare string", {
+  # pa11y-ci shares one config object across every bare-string URL, which
+  # races at concurrency > 1 (see the comment in pa11y_urls_json()).
+  .setup_fixture_project()
+  built <- jsonlite::fromJSON(pa11y_urls_json(), simplifyVector = FALSE)
+
+  expect_gt(length(built$urls), 0)
+  for (entry in built$urls) {
+    expect_true(is.list(entry))
+    expect_identical(names(entry), "url")
+  }
+})
+
 # ---------------------------------------------------------------------------
 # 5. Drift detection: stale urls, and a hand-edited defaults block, both
 #    count as out of date.
