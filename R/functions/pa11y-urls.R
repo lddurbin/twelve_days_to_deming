@@ -85,7 +85,15 @@ pa11y_urls_orphaned_essays <- function(quarto_en_yml = "_quarto-en.yml",
 pa11y_urls_json <- function(quarto_en_yml = "_quarto-en.yml",
                             pa11yci_path = ".pa11yci.json") {
   existing <- jsonlite::fromJSON(pa11yci_path, simplifyVector = FALSE)
-  existing$urls <- as.list(pa11y_urls_build(quarto_en_yml))
+  # Each URL is written as an object, not a bare string, to dodge a race in
+  # pa11y-ci 4.x at `concurrency` > 1: for a string URL its testRunner reuses
+  # the one shared options object as that test's config and assigns
+  # `config.browser` (a fresh incognito context) onto it, so parallel tests
+  # overwrite each other's context and close ones still in use ("Protocol
+  # error (Target.closeTarget): No target with given id found"). An object
+  # URL gets its own config copy. See PR #966.
+  existing$urls <- lapply(pa11y_urls_build(quarto_en_yml),
+                          function(url) list(url = url))
   paste0(jsonlite::toJSON(existing, auto_unbox = TRUE, pretty = TRUE), "\n")
 }
 
