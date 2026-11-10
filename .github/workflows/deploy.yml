@@ -92,14 +92,21 @@ jobs:
     - name: Set up R, Pandoc and Quarto
       uses: ./.github/actions/setup-r-quarto
 
+    # `freeze: auto` re-executes a page only when the page's own source
+    # changes, so this key is the only thing that invalidates a page whose
+    # output depends on something else: R helpers, renv, Lua filters, and the
+    # data files under R/data/ (#808). There is deliberately no hash-less
+    # `freeze-` restore-key: with one, a changed hash fell back to the previous
+    # hash's _freeze/ and nothing was ever invalidated. A hash change now costs
+    # one cold render. A page that reads anything outside this key at render
+    # time must opt out with `freeze: false` instead (see workflow/PATTERNS.md).
     - name: Cache Quarto freeze outputs
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
       with:
         path: _freeze
-        key: ${{ runner.os }}-freeze-${{ hashFiles('renv.lock', 'R/**/*.R', 'filters/**/*.lua') }}-${{ github.sha }}
+        key: ${{ runner.os }}-freeze-${{ hashFiles('renv.lock', 'R/**/*.R', 'R/data/**', 'filters/**/*.lua') }}-${{ github.sha }}
         restore-keys: |
-          ${{ runner.os }}-freeze-${{ hashFiles('renv.lock', 'R/**/*.R', 'filters/**/*.lua') }}-
-          ${{ runner.os }}-freeze-
+          ${{ runner.os }}-freeze-${{ hashFiles('renv.lock', 'R/**/*.R', 'R/data/**', 'filters/**/*.lua') }}-
 
     - name: Build Quarto book (EN)
       run: quarto render
