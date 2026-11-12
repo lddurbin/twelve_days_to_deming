@@ -871,6 +871,22 @@ Link text names the destination Part (e.g. "in the Technical Section", "in
 Part B of these Optional Extras") rather than giving a bare page number,
 since the Part name doesn't otherwise appear anywhere in the link.
 
+Enrichment only ever **adds** words after Neave's own; it never changes them.
+Keep his numerals, dashes and phrasing exactly as printed and wrap the link
+around them. If his sentence already names the destination, add nothing:
+
+```markdown
+<!-- Wrong: "20–21" → "20 to 21", "in" → ", starting in", "below" added -->
+on [pages 20 to 21, starting in the discussion on Activity 3–j below](03-day-3.qmd#sec-page20).
+
+<!-- Right: source words untouched -->
+on [pages 20–21](03-day-3.qmd#sec-page20) in the discussion on Activity 3–j.
+```
+
+A link to a page range targets the **first** page of the range, never a later
+one. If that page has no anchor, add it (see the decision rules below) rather
+than linking mid-range. See #840.
+
 ### Link syntax
 
 Use plain Markdown links with a `.qmd` path — Quarto rewrites the extension to
