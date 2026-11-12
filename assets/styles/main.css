@@ -547,8 +547,8 @@ Usage:
   /* Copperplate ships with macOS/iOS and the Gothic cuts with some Windows
      installs; everywhere else falls back to Georgia, deliberately — the
      site loads no third-party web fonts (see disable-google-fonts.scss).
-     The bold weight is for that fallback: Copperplate's own bold cut is
-     what the source plates use, and Georgia needs it to read as display. */
+     The bold weight matches the heavy engraved face on Neave's plates, and
+     gives the Georgia fallback enough weight to read as display type. */
   font-family: Copperplate, "Copperplate Gothic Bold", "Copperplate Gothic Light", Georgia, serif;
   font-size: clamp(1.3rem, 5vw, 1.75rem);
   font-weight: 700;
