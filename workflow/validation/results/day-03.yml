@@ -1,8 +1,9 @@
 day: 3
-validated_at: 2026-09-26
+validated_at: 2026-11-12
 source_pdf: F.Day.3.13Jan20.pdf
 source_sha256: 8475e848a2b9a0000871aaef39514b07a3dd66525b483f94b11888dc6168ef39
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 000ddabb2afc690741c1c6f0ed86947656632fbd
+content_version: 6b0a11aacc8049846a65fdac8146a41be79514ec
 files:
   compared: 13
 thresholds:

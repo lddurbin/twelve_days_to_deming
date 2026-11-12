@@ -1,8 +1,9 @@
 day: 9
-validated_at: 2026-09-28
+validated_at: 2026-11-12
 source_pdf: L.Day.9.15Feb22.pdf
 source_sha256: 9a1d7ecaab3aa8d8a3f8557b65fddd06a1d0fe1ec40a0490323022427a54567f
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 000ddabb2afc690741c1c6f0ed86947656632fbd
+content_version: 617747cf335d3d4a72e944114c7d61e3591c95c4
 files:
   compared: 7
 thresholds:

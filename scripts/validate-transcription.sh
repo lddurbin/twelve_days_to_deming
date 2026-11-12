@@ -101,6 +101,8 @@
 # and what it found — see workflow/validation/results/README.md and #720.
 # The `scorer_version` it stamps there covers every file that can change what
 # a run reports, this script included: see scripts/lib/scorer-version.sh.
+# The `content_version` beside it covers the site files the run compared, and
+# the list of them: see scripts/lib/content-version.sh and #837.
 #
 # That record also states what a run did *not* check (#743). Its `blocks:`
 # section counts every block read on both sides and where each one went —
@@ -122,6 +124,10 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 # only ever come from one definition — see #737.
 # shellcheck source-path=SCRIPTDIR source=lib/scorer-version.sh
 . "$REPO_ROOT/scripts/lib/scorer-version.sh"
+# Likewise for which site files a run compares and `content_version`, their
+# hash — the reader recomputes both from the repo without a PDF (#837).
+# shellcheck source-path=SCRIPTDIR source=lib/content-version.sh
+. "$REPO_ROOT/scripts/lib/content-version.sh"
 
 PDF_DIR="$REPO_ROOT/12-Days-to-Deming/PDFs"
 MANIFEST_DIR="$REPO_ROOT/workflow/validation"
@@ -197,61 +203,9 @@ sha256_of() {
   $SHA256_CMD "$1" | awk '{print $1}'
 }
 
-# Read a manifest's identity and its chapter list.
-# Prints PDF_FILE=..., CONTENT_DIR=..., then one CHAPTER=... per chapter.
-#
-# The chapter list is why this reads more than two keys since #802. It used to
-# be ignored here and the content directory globbed instead, which quietly made
-# "every .qmd sitting in this folder" the definition of what a source PDF is
-# answerable for. Two chapters in content/appendix/ do not come from
-# P.Appendix.09Feb22.pdf at all, so every paragraph of both was reported
-# unsourced against it — 69 of that run's 70 unsourced findings, indistinguishable
-# from the one real one. The manifest already enumerated its chapters for
-# check-structure.sh; taking the list from there rather than from the filesystem
-# means a chapter is compared against a PDF because someone said it came from
-# that PDF, not because of where it happens to sit on disk.
-read_manifest() {
-  local manifest="$1"
-  if ! command -v ruby &>/dev/null; then
-    echo "Error: ruby not found (needed for YAML parsing)" >&2
-    exit 1
-  fi
-  ruby -ryaml -e '
-    begin
-      data = YAML.safe_load(File.read(ARGV[0]))
-    rescue => e
-      $stderr.puts "Error parsing manifest #{ARGV[0]}: #{e.message}"
-      exit 1
-    end
-    puts "PDF_FILE=#{data["pdf_file"] || ""}"
-    puts "CONTENT_DIR=#{data["content_dir"] || ""}"
-    (data["chapters"] || []).each { |ch| puts "CHAPTER=#{ch["file"]}" }
-  ' "$manifest"
-}
-
-# Print the repo-relative path of every page declared to have no source PDF.
-#
-# These are site originals — pages written for this edition rather than
-# transcribed from Neave — and they are declared in one file rather than simply
-# left out of every manifest, because "nobody wrote down where this came from"
-# and "someone checked and the answer is nowhere" are indistinguishable from
-# absence alone. See workflow/validation/no-source.yml and #802.
-read_no_source() {
-  local register="$REPO_ROOT/workflow/validation/no-source.yml"
-  if [[ ! -f "$register" ]]; then
-    echo "Error: no-source register not found at ${register#"$REPO_ROOT/"}" >&2
-    exit 1
-  fi
-  ruby -ryaml -e '
-    begin
-      data = YAML.safe_load(File.read(ARGV[0]))
-    rescue => e
-      $stderr.puts "Error parsing #{ARGV[0]}: #{e.message}"
-      exit 1
-    end
-    (data["pages"] || {}).each_key { |path| puts path }
-  ' "$register"
-}
+# read_manifest() and read_no_source() live in scripts/lib/content-version.sh
+# (#837): which files a run compares has to be decided in the same place the
+# staleness check recomputes it from, or the two drift.
 
 # QMD markup stripping lives in scripts/lib/qmd_strip.py (#739). It used to be
 # an untested awk + sed pipeline here; the constructs it has to take apart
@@ -489,55 +443,33 @@ main() {
 
   # ── Which files this run compares ──
   #
-  # In manifest mode the answer is the manifest's own chapter list; in day mode
-  # it is still the directory, because a day directory holds exactly one day's
-  # transcription and nothing else. Either way, pages declared to have no source
-  # PDF are removed and named in the record, so a reader can tell a page that was
-  # deliberately not compared from one nobody thought about (#802).
-  #
-  # Sorted, because the glob this replaced was sorted and the paragraph pool is
-  # built by concatenation: keeping the order identical means re-recording after
-  # this change moves a count only where a file actually entered or left.
-  local -a no_source=()
-  while IFS= read -r line; do
-    [[ -n "$line" ]] && no_source+=("$line")
-  done < <(read_no_source)
-
-  local -a qmd_rel=() skipped=()
-  if [[ -n "$manifest_name" ]]; then
-    local ch
-    for ch in "${manifest_chapters[@]}"; do
-      if [[ "$manifest_content" == "." ]]; then
-        qmd_rel+=("$ch")
-      else
-        qmd_rel+=("$manifest_content/$ch")
-      fi
-    done
-  else
-    local f
-    for f in "$qmd_dir"/*.qmd; do
-      [[ -e "$f" ]] && qmd_rel+=("${f#"$REPO_ROOT/"}")
-    done
-  fi
-
-  if [[ "${#qmd_rel[@]}" -eq 0 ]]; then
-    echo "Error: No QMD files found for $label"
+  # Decided by scripts/lib/content-version.sh, not here, because the staleness
+  # check has to recompute the same list in CI to tell whether this record
+  # still describes the content (#837). In manifest mode the answer is the
+  # manifest's own chapter list; in day mode it is the day's directory. Either
+  # way, pages declared to have no source PDF are held out and named in the
+  # record, so a reader can tell a page that was deliberately not compared from
+  # one nobody thought about (#802). The list is sorted, because the paragraph
+  # pool is built by concatenation in this order.
+  local record_name partition kind rel
+  record_name=$(basename "$result_file" .yml)
+  if ! partition=$(partition_content_files "$REPO_ROOT" "$record_name"); then
+    echo "Error: could not work out which files $label compares"
     exit 1
   fi
 
-  local -a kept=()
-  local rel skip
-  while IFS= read -r rel; do
-    skip=""
-    for f in ${no_source[@]+"${no_source[@]}"}; do
-      [[ "$rel" == "$f" ]] && skip=1 && break
-    done
-    if [[ -n "$skip" ]]; then
-      skipped+=("$rel")
-    else
-      kept+=("$rel")
-    fi
-  done < <(printf '%s\n' "${qmd_rel[@]}" | LC_ALL=C sort)
+  local -a kept=() skipped=()
+  while IFS=' ' read -r kind rel; do
+    case "$kind" in
+      compare) kept+=("$rel") ;;
+      skip)    skipped+=("$rel") ;;
+    esac
+  done <<< "$partition"
+
+  if [[ "${#kept[@]}" -eq 0 && "${#skipped[@]}" -eq 0 ]]; then
+    echo "Error: No QMD files found for $label"
+    exit 1
+  fi
 
   if [[ "${#kept[@]}" -eq 0 ]]; then
     echo "Error: no QMD files left to compare for $label"
@@ -843,15 +775,17 @@ main() {
   # same additive-not-positional reason docs/changesets/ and
   # docs/deviations/ already use — see workflow/validation/results/README.md.
   mkdir -p "$MANIFEST_DIR/results"
-  local source_sha256 scorer_version
+  local source_sha256 scorer_version content_version
   source_sha256=$(sha256_of "$pdf_file")
   scorer_version=$(compute_scorer_version "$REPO_ROOT")
+  content_version=$(compute_content_version "$REPO_ROOT" "$record_name")
   cat > "$result_file" <<EOF
 $result_identity
 validated_at: $(date +%Y-%m-%d)
 source_pdf: $(basename "$pdf_file")
 source_sha256: $source_sha256
 scorer_version: $scorer_version
+content_version: $content_version
 files:
   compared: ${#qmd_files[@]}$(
     if [[ "${#skipped[@]}" -gt 0 ]]; then

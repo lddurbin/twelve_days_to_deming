@@ -1,8 +1,9 @@
 day: 10
-validated_at: 2026-09-26
+validated_at: 2026-11-12
 source_pdf: M.Day.10.16Feb22.pdf
 source_sha256: 8756b9262b19f256d82ff20b6158e1bfe967f4d613e4f65569eb7e1678be615a
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 000ddabb2afc690741c1c6f0ed86947656632fbd
+content_version: 16f4184b94f18698fb5b78e8f77da57b5ff279d0
 files:
   compared: 6
 thresholds:

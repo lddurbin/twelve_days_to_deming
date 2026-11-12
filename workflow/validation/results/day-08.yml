@@ -1,8 +1,9 @@
 day: 8
-validated_at: 2026-09-26
+validated_at: 2026-11-12
 source_pdf: K.Day.8.11Jan20.pdf
 source_sha256: ef717bb2d860057bdd1c877ce4a8e86d930c9f66be6d38b5a35fd672e4f3b430
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 000ddabb2afc690741c1c6f0ed86947656632fbd
+content_version: 4110eca8e1c095ccf7b0bbdddfaad14a9cfd2836
 files:
   compared: 6
 thresholds:

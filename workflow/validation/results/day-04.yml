@@ -1,8 +1,9 @@
 day: 4
-validated_at: 2026-09-26
+validated_at: 2026-11-12
 source_pdf: G.Day.4.09Jan20.pdf
 source_sha256: 923369e3dbdf50b90e2ae397e75c6568e9887375fe7c56e1e9a532997e257724
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 000ddabb2afc690741c1c6f0ed86947656632fbd
+content_version: 89ec431d673a6ec9bec0bc89a06e6d98561df8d4
 files:
   compared: 4
 thresholds:
@@ -36,8 +37,8 @@ blocks:
     short: 52
     compared: 127
   qmd:
-    total: 188
+    total: 189
     unreadable: 0
     rejoined: 18
-    short: 34
+    short: 35
     compared: 136

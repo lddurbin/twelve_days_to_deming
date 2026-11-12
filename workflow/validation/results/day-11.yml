@@ -1,8 +1,9 @@
 day: 11
-validated_at: 2026-09-26
+validated_at: 2026-11-12
 source_pdf: N.Day.11.18Jan20.pdf
 source_sha256: e2e24a83e33d2c23f6aef971af00c41b2b89ed9e7c3a5713abff3e1e72d95eed
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 000ddabb2afc690741c1c6f0ed86947656632fbd
+content_version: c24bf6669ac6ab856b8536fd31c17ee850085f26
 files:
   compared: 8
 thresholds:

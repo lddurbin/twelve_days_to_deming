@@ -52,6 +52,7 @@ validated_at: 2026-08-26      # local date the run completed
 source_pdf: G.Day.4.09Jan20.pdf
 source_sha256: <sha-256 of the source PDF>   # catches a silent re-export
 scorer_version: <content hash of the comparison pipeline — see below>
+content_version: <hash of the site files compared, and their list — see below>
 files:
   compared: 4                 # how many .qmd files went into this run
   not_compared:               # present only when something was held out
@@ -225,6 +226,35 @@ and the script that checks them, so the two cannot drift apart about what
 requirement that every hashed file also appears in the staleness workflow's
 `paths:` filter — a file that is hashed but not filtered is a check that
 never fires on the edit it was added to catch.
+
+`content_version` answers the question the other two can't: does this record
+still describe the site? It hashes the `.qmd` files the run compared — and the
+list of them, so a chapter joining a manifest moves it just as an edit to one
+does. Without it, [#832](https://github.com/lddurbin/twelve_days_to_deming/pull/832)
+applied 52 corrections to Day 3 and `day-03.yml` went on quoting the old
+counts, with every check green, until someone noticed by hand
+([#836](https://github.com/lddurbin/twelve_days_to_deming/pull/836),
+[#837](https://github.com/lddurbin/twelve_days_to_deming/issues/837)). Adding
+the field found three more records in the same state: Day 4, Day 5 and
+`appendix-main`.
+
+Which files a record covers is defined once, in
+[`scripts/lib/content-version.sh`](../../../scripts/lib/content-version.sh): a
+day record covers every `.qmd` in its `content/days/day-NN/` directory, any
+other record the chapters its manifest lists, and either way minus the pages
+[`../no-source.yml`](../no-source.yml) holds out. The validator takes its file
+list from that library rather than working it out itself, and the staleness
+check recomputes the hash from it in CI, without a PDF. A mismatch gets its own
+message, naming the exact command that refreshes each record.
+
+**The cost:** every PR that edits a validated page turns that page's record
+stale until its author re-runs the validator (about half a second a record).
+That is the honest consequence of the counts depending on the content, and the
+same coupling `interday-audit` already has with `workflow/inter-day-refs.csv`.
+It is a hard failure of the `Validation Staleness` check, but that check is not
+one of `main`'s required checks, so it marks a PR red rather than blocking it.
+`tests/test_content_version.py` pins the shared definition and requires every
+covered file to match the workflow's `paths:` filters.
 
 `thresholds.reference` records `REFERENCE_PAIR_THRESHOLD`, which is 0.85
 rather than the 0.90 the other near-certain machinery uses. The enriched

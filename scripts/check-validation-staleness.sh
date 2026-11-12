@@ -26,6 +26,14 @@
 # scripts/lib/scorer-version.sh, and shared with the script that writes the
 # recorded values — see #737.
 #
+# results/ records are also checked against the *content* they were compared
+# against (#837): each stamps a `content_version`, a hash of the site files the
+# run compared and the list of them, and this recomputes it from the repo. A
+# mismatch means the record describes content that has since changed, which is
+# a different problem from pipeline drift with a different remedy, so it gets
+# its own message. Which files a record covers is defined once, in
+# scripts/lib/content-version.sh, and shared with the writer.
+#
 # Usage: ./scripts/check-validation-staleness.sh
 
 set -euo pipefail
@@ -36,6 +44,8 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 . "$REPO_ROOT/scripts/lib/scorer-version.sh"
 # shellcheck source-path=SCRIPTDIR source=lib/emphasis-version.sh
 . "$REPO_ROOT/scripts/lib/emphasis-version.sh"
+# shellcheck source-path=SCRIPTDIR source=lib/content-version.sh
+. "$REPO_ROOT/scripts/lib/content-version.sh"
 
 failed=0
 checked_any=0
@@ -93,6 +103,48 @@ check_dir results scorer_version "$(compute_scorer_version "$REPO_ROOT")" \
 check_dir emphasis emphasis_version "$(compute_emphasis_version "$REPO_ROOT")" \
   "emphasis checker" "${EMPHASIS_VERSION_FILES[@]}"
 
+# Compare every results/ record's content_version against the content it
+# covers as that content exists right now (#837). A record with no
+# content_version predates the field and is reported the same way: nothing
+# says what it was compared against, so nothing says it is still true.
+content_stale=()
+check_content() {
+  local path="$REPO_ROOT/workflow/validation/results"
+  shopt -s nullglob
+  local records=("$path"/*.yml)
+  shopt -u nullglob
+  [[ "${#records[@]}" -gt 0 ]] || return 0
+
+  local f record recorded current
+  for f in "${records[@]}"; do
+    record=$(basename "$f" .yml)
+    recorded=$(sed -n "s/^content_version: *//p" "$f")
+    if ! current=$(compute_content_version "$REPO_ROOT" "$record"); then
+      echo "Could not work out which files workflow/validation/results/$record.yml covers (see above)."
+      failed=1
+      continue
+    fi
+    if [[ "$recorded" != "$current" ]]; then
+      content_stale+=("$record")
+    fi
+  done
+
+  if [[ "${#content_stale[@]}" -eq 0 ]]; then
+    echo "All ${#records[@]} record(s) in workflow/validation/results describe the site content as it is now."
+    return 0
+  fi
+
+  echo ""
+  echo "These records describe site content that has changed since they were recorded."
+  echo "Their counts are no longer about the pages the site serves. Refresh each one:"
+  for record in "${content_stale[@]}"; do
+    echo "  - workflow/validation/results/$record.yml"
+    echo "      $(content_record_command "$record")"
+  done
+  failed=1
+}
+check_content
+
 if [[ "$checked_any" -eq 0 ]]; then
   echo "No recorded validation results found at all — nothing to check."
   exit 0
@@ -103,6 +155,7 @@ if [[ "$failed" -eq 0 ]]; then
 fi
 
 echo ""
+echo "The source PDFs are local-only, so CI cannot refresh these for you (#720)."
 echo "Re-run the tool that owns the affected directory and commit the refreshed"
 echo "record(s) once you have reviewed the new findings:"
 echo "  results/   ./scripts/validate-transcription.sh <day>|--manifest <name>"

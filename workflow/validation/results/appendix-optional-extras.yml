@@ -1,8 +1,9 @@
 appendix: optional-extras
-validated_at: 2026-09-26
+validated_at: 2026-11-12
 source_pdf: S.Optional.Extras.09Jul21.pdf
 source_sha256: b36a8368163ecae67c72d89936e5362e9f18a1c06c79fc95069181c05b5a5884
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 000ddabb2afc690741c1c6f0ed86947656632fbd
+content_version: bdef3310f6436e10f22e82b7e6b1242666d0fcb3
 files:
   compared: 7
 thresholds:
