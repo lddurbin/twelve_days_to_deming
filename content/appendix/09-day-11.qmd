@@ -8,7 +8,9 @@ execute:
 
 []{#sec-page41}
 
-![Second Project Continued](/assets/images/day-11/second-project-continued-banner.png){.lightbox}
+::: {.project-plate}
+SECOND PROJECT [CONTINUED]{.project-plate-sub}
+:::
 
 ## ACTIVITY 11–a
 

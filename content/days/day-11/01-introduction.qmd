@@ -8,9 +8,7 @@ execute:
 
 ## DAY 11: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS C AND D
 
-### SECOND PROJECT CONTINUED
-
-![Second Project Continued](/assets/images/day-11/second-project-continued-banner.png){fig-align="center" width="60%" .lightbox}
+### SECOND PROJECT [CONTINUED]{.project-plate-sub} {.project-plate}
 
 Welcome back to the second half of this major project. Here we shall study Parts C and D of the System of Profound Knowledge: respectively "Theory of Knowledge" and "Knowledge of Psychology".
 

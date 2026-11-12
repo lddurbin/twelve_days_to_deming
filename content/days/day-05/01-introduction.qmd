@@ -8,7 +8,7 @@ execute:
 ---
 ## DAY 5: THE JOINER TRIANGLE, THE 14 POINTS (part 2), AND THE DEADLY DISEASES {#sec-page1}
 
-![First Project Continued](/assets/images/day-05/first-project-continued.png){fig-align="center" width="55%" .lightbox}
+### FIRST PROJECT [CONTINUED]{.project-plate-sub} {.project-plate}
 
 Day 5 is devoted to continuing the good work which began on Day 4, now focusing on the remaining eight of the 14 Points and the five "Deadly Diseases". I suggest you begin by looking back at [Day 4 pages 14–15](../day-04/03-the-first-project.qmd#sec-page14) to briefly remind yourself of the guidance I gave you there about tackling this important project, followed by [Day 4 pages 16–27](../day-04/04-points-1-to-6.qmd#sec-page16) to browse through the work that you carried out on the first six Points.
 

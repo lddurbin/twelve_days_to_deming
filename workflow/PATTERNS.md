@@ -218,6 +218,8 @@ stops rendering) rather than failing loudly, so this is easy to miss:
 | `.separator_white` | Inner white space in divider | White bar |
 | `.separator_blue` | Inner blue line in divider | Blue line |
 | `.major_activity_title` | Major Activity heading pill | Blue rounded pill |
+| `.project-plate` | First/Second Project title plate | Orange–yellow gradient in a layered frame |
+| `.project-plate-sub` | Smaller "CONTINUED" line inside a plate | Block, 0.6em |
 | `.float-box` | Left-floating content box | 300px, left float |
 | `.float-box-right` | Right-floating content box | 300px, right float |
 | `.float-box-content` | Inner styling for float boxes | Border, background, rounded |
@@ -362,6 +364,30 @@ $$
 <h1>Major Activity X–y</h1>
 </div>
 ```
+
+### Project Plate
+
+Neave's FIRST PROJECT / SECOND PROJECT title plates are text, never a
+cropped image (#773). Where the plate opens a section, put the class on the
+heading:
+
+```markdown
+### SECOND PROJECT [CONTINUED]{.project-plate-sub} {.project-plate}
+```
+
+Where the page's h1 already carries the same words (Day 4's "THE FIRST
+PROJECT", the appendix discussion pages), use a block so the plate does not
+add a duplicate heading:
+
+```markdown
+::: {.project-plate}
+FIRST PROJECT
+:::
+```
+
+Pandoc also copies a heading's class onto the `<section>` that wraps it, so
+the CSS selects `.project-plate:not(section)`; any new rule for the
+component needs the same exclusion.
 
 ### Neave Note (author aside)
 
