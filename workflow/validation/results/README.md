@@ -6,6 +6,15 @@ remembered the last result: when was Day N (or an appendix) last checked
 against its source PDF, against which revision of that PDF, and what did it
 find? See [#720](https://github.com/lddurbin/twelve_days_to_deming/issues/720).
 
+> **These records are a snapshot, not a live measure.** They were the progress
+> tracker for the fidelity epic [#734](https://github.com/lddurbin/twelve_days_to_deming/issues/734),
+> which closed on 2026-10-15. Content edits made since then are not reflected
+> unless someone happened to re-run the validator, and nothing checks for that:
+> a record's `scorer_version` catches changes to the comparator, not to the
+> pages it compared. Re-run the validator before quoting a count as current.
+> Keeping them current automatically was considered and declined in
+> [#837](https://github.com/lddurbin/twelve_days_to_deming/issues/837).
+
 ## Why this layout
 
 One file per day/appendix, not a shared file, for the same reason
