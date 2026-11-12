@@ -45,7 +45,7 @@ The conclusion is surely that, quite simply, performance indicators cannot do wh
 </div>
 </div>
 
-## "JUST DO IT"?
+## "JUST DO IT"? {#sec-page7}
 
 At this time, as we have moved into the second half of the course, I think I can anticipate what some students may be beginning to think. You are learning about all this wonderful theory (and it is!): you are learning about what is good and what is bad—and, importantly, *why* it's good or *why* it's bad. And you know that the purpose of the theory is to guide better practice. But *how* can it be done? Even if you are in a senior management position, what do *you* do—what *can* you do—after Day 12? Will you be left high and dry with all these marvellous new ideas but with no guidance on how to set about things?
 

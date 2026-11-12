@@ -77,7 +77,7 @@ Substantially, the conventional statistician's case for requiring normality to m
 
 Now again, any acceptance of Shewhart's and Deming's teachings immediately leads to the denial of the conventional statistician's claims in both of these respects. The "*fortunate and remarkable*" facts alluded to *[on [page 34 of Part C](03-part-c-ne-er-twain.qmd#sec-optional-extras-page-34)]* are however that, even if we *ignore* what Shewhart and Deming said about both normality and probability interpretations (recall, in particular, [page 30](03-part-c-ne-er-twain.qmd#sec-optional-extras-part-c)), the above claims are *still* demonstrably wrong! In other words, we are able to wade right into the conventional statistician's camp, onto ground which both Shewhart and Deming believed to be without foundation yet which the conventional statistician needs to have faith in (for all that he has learned is built upon it), and to talk to him in language which he both understands and accepts (even if we don't), and to *still* produce evidence which disproves his beliefs!!
 
-That evidence is demonstrated in Part E on [pages 65 to 70, starting in Section 3 below](05-part-e-normality.qmd#sec-optional-extras-page-65).
+That evidence is demonstrated in Part E on [pages 65–70](05-part-e-normality.qmd#sec-optional-extras-page-65).
 
 A conclusion which must surely be drawn is that, if you hear (as one does) a conventional statistician proclaiming something to the effect that, for control charts to be "valid", the data must be normally distributed, the said statistician really does not know what he's talking about.
 
