@@ -32,8 +32,7 @@ chapters:
 
   - file: "03-the-first-project.qmd"
     viewof_count: 0
-    figures:
-      - "/assets/images/day-04/first-project-title.png"
+    figures: []
     headings:
       - "Notes on the First Project"
     has_download_button: false

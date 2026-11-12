@@ -5,8 +5,7 @@ day: 11
 chapters:
   - file: "01-introduction.qmd"
     viewof_count: 0
-    figures:
-      - "/assets/images/day-11/second-project-continued-banner.png"
+    figures: []
     headings:
       - "DAY 11: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS C AND D"
     has_download_button: false

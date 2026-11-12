@@ -8,7 +8,9 @@ execute:
 
 []{#sec-page39}
 
-![Second Project](/assets/images/appendix/second-project-banner.png){.lightbox}
+::: {.project-plate}
+SECOND PROJECT
+:::
 
 ## ACTIVITY 10–a
 

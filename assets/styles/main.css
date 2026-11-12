@@ -509,6 +509,84 @@ Usage:
   text-align: center;
 }
 
+/* ===== PROJECT PLATE ===== */
+/* Neave's "FIRST PROJECT" / "SECOND PROJECT" title plates: a few words of
+   engraved display type on an orange-to-yellow gradient inside a layered
+   frame (#773). They used to be cropped PNGs; the words are now real text
+   so they are selectable, searchable, read as content by screen readers,
+   picked up by the transcription comparator, and follow the dyslexia font
+   toggle. Used both on headings (`### … {.project-plate}`) where the plate
+   opens a section, and on a plain block (`::: {.project-plate}`) where the
+   page's h1 already says the same thing.
+
+   Pandoc's section-divs copies a heading's classes onto the <section> that
+   wraps it, so the heading form puts `.project-plate` on the whole section
+   too. Every selector here excludes `section` for that reason.
+
+   The frame is one solid border plus stacked inset shadows (first listed is
+   outermost), with ::before drawing the thin inner rule. The plate keeps its
+   light colours in dark mode — it is a self-contained object, like a figure
+   — so text colour is pinned to black rather than inherited from the
+   theme's heading colour. Black on #ff6a00 (the darkest stop) is 7.3:1. */
+.project-plate:not(section) {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.5rem auto 2rem;
+  padding: 1.4em clamp(1.25em, 6vw, 3em);
+  border: 5px solid #000;
+  background: linear-gradient(to top right, #ff6a00 10%, #ffb000 55%, #ffff00 95%);
+  box-shadow:
+    inset 0 0 0 2px #b8a400,
+    inset 0 0 0 4px #8c8c8c,
+    inset 0 0 0 6px #d0d0d0,
+    inset 0 0 0 8px #8c8c8c;
+  color: #000;
+  font-family: Copperplate, "Copperplate Gothic Bold", "Copperplate Gothic Light", Georgia, serif;
+  font-size: clamp(1.3rem, 5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  /* Quarto's theme fades h3 to 0.9, which washes out the gradient. */
+  opacity: 1;
+}
+
+/* Quarto appends its hover-only anchor link inside the heading. In the
+   text flow it adds a stray line after the block-level "CONTINUED" span,
+   or off-centres a one-line plate, so take it out of flow and tuck it
+   into the frame's bottom-right corner. */
+.project-plate:not(section) .anchorjs-link {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  margin: 0 !important;
+  color: #000;
+  font-size: 0.6em;
+}
+
+.project-plate:not(section)::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid #d0d0d0;
+  pointer-events: none;
+}
+
+div.project-plate p {
+  margin: 0;
+}
+
+/* The smaller "CONTINUED" line under the project name. */
+.project-plate-sub {
+  display: block;
+  margin-top: 0.3em;
+  font-size: 0.6em;
+}
+
 /* ===== UTILITY CLASSES ===== */
 .mt-sm { margin-top: 10px; }
 .mt-md { margin-top: 20px; }
@@ -1700,6 +1778,12 @@ body.quarto-dark .separator_white {
    either background, so only the outer border needs lifting. */
 body.quarto-dark .major_activity_title {
   border-color: #ccc;
+}
+
+/* Project plate: the gradient and black text stay as they are; a thin
+   light ring outside the black frame keeps its edge visible on #222. */
+body.quarto-dark .project-plate:not(section) {
+  outline: 1px solid #888;
 }
 
 /* Highlighted table cell: dark-green wash keeps text legible without

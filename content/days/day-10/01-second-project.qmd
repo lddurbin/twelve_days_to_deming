@@ -8,7 +8,7 @@ execute:
 
 ## DAY 10: A SYSTEM OF PROFOUND KNOWLEDGE, PARTS A AND B
 
-### SECOND PROJECT
+### SECOND PROJECT {.project-plate}
 
 Welcome to the Second Project! This is the big one: linking together Deming's teaching in the mid-1980s, particularly on the 14 Points and the Deadly Diseases, with his teaching on the System of Profound Knowledge near the end of his life as expressed in his May 1990 version that we'll be using throughout.
 
