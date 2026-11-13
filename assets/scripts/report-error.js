@@ -82,7 +82,8 @@ function init() {
   github.after(" or ", email);
 
   // Hash changes don't reload the page, so keep the reported address in
-  // step with whichever section the reader has since jumped to.
+  // step with whichever section the reader has since jumped to. The title
+  // is reused as captured: a hash change never changes it on a static page.
   window.addEventListener("hashchange", function () {
     const url = canonicalPageUrl(window.location.pathname, window.location.hash);
     github.href = githubReportHref(url, pageTitle);

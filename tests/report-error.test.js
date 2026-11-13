@@ -65,4 +65,10 @@ describe("emailReportHref", () => {
   it("identifies the page", () => {
     expect(params.get("body")).toContain(TITLE + "\n" + PAGE);
   });
+
+  it("still identifies the page when it has no title", () => {
+    const untitled = emailReportHref(PAGE, "");
+    const body = new URLSearchParams(untitled.slice(untitled.indexOf("?") + 1)).get("body");
+    expect(body).toContain("Page: " + PAGE);
+  });
 });
