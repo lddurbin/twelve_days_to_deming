@@ -3,6 +3,10 @@ name: wave-2-pass
 description: Run one Wave 2 content pass of epic #734 — adjudicate a day's or appendix's full transcription flag list against Neave's source PDF, publish the review page for Lee's sign-off, then apply only what he accepts
 ---
 
+> **Archived.** Epic #734 closed on 2026-10-15, so this no longer loads as a
+> skill. Kept for its method — reading page images, and replacing exact
+> strings rather than whole `proposal` excerpts — if a similar pass is ever run.
+
 One pass = one day or appendix, one issue, one PR. Take the argument as the pass
 (`5`, `day-05`, `appendix-main`). If none is given, pick the next one in the
 agreed order: Day 5 → 6 → 7, then ascending load, appendices last with Optional
@@ -10,8 +14,8 @@ Extras genuinely last.
 
 ## Three rules that are not yours to relax
 
-1. **Lee decides every word-for-word claim.** `AGENTS.md`: *"User will always
-   verify transcription accuracy."* You adjudicate and propose; you do not edit
+1. **Lee decides every word-for-word claim.** `AGENTS.md`: *"The user always
+   verifies transcription accuracy."* You adjudicate and propose; you do not edit
    the `.qmd` files until his decisions come back. This is the whole shape of
    the wave — see #734's *Autonomy differs by wave*.
 2. **Open the source page images, not just `pdftotext`.** The extractor discards
@@ -87,7 +91,7 @@ If the pass runs past roughly 100 findings, give the `emph`, `clear` and
 decides the fixes one by one and skims the rest for exceptions. Never preset
 `fix`.
 
-Publish the built HTML as an Artifact (favicon 📖🔍, `capabilities: {"downloads": true}`),
+Publish the built HTML as an Artifact (icon `book`, `capabilities: {"downloads": true}`),
 and give Lee the link. Do not write a findings table into the terminal instead —
 the page is the deliverable of this step, and it is what makes 20-plus
 word-for-word judgements reviewable.
@@ -131,11 +135,11 @@ diff of every edit before committing.
 Validation is ~0.5s per day, so re-running is free — never plan around it.
 
 **Wave 2 is not serial**, unlike Wave 1: `compute_scorer_version()` hashes the
-six files in `SCORER_VERSION_FILES` and no content at all, so a pass that edits
+files in `SCORER_VERSION_FILES` and no content at all, so a pass that edits
 only `.qmd` files and its own results file restales nothing. Two passes can be
 in flight.
 
-The corollary binds the other way: **any edit to those six files restales all
-fifteen records and invalidates the report an open pass is being adjudicated
+The corollary binds the other way: **any edit to those files restales every
+record and invalidates the report an open pass is being adjudicated
 against.** Comments and type annotations count — the hash covers file contents,
 not behaviour. So a scorer change is only cheap in a window with no pass open.
