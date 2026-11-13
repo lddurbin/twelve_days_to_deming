@@ -352,7 +352,7 @@ The well-known Japanese teacher, Kaoru Ishikawa, is often quoted (e.g. near the 
 
 In the very useful Volume 21 of *The Deming Library*: "A Theory of a System for Managers and Educators", Dr Deming asks:
 
-"What do we mean by quality in education?"
+"What do we mean by quality in education?"[^a^](03-the-deadly-diseases.qmd#approval-a){aria-label="Approvals note a"}
 
 Sharpening the point of his question, he enquires more specifically:
 

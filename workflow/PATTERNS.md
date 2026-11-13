@@ -528,17 +528,46 @@ Right column content.
 ::::
 ```
 
-### Footnotes
+### Approvals, Acknowledgments and Information
 
-```markdown
-Some text with a reference[^a].
+Neave's superscript letters point to the rights record at the end of a file:
+the permissions and acknowledgments for third-party photographs, diagrams and
+quotations. Every source that has one (Days 1, 3, 5, 6, 7, 9 and 11, the
+Appendix, and Balaji Reddie's Contributions) uses the same shape on the site
+([#796](https://github.com/lddurbin/twelve_days_to_deming/issues/796)):
 
-<!--
-FOOTNOTES
--->
+- **One section per Day**, at the end of the Day's last chapter file, as in
+  the source. Its heading is always `##`. It is a section of the page in its
+  own right, not part of the "Out-of-hours" note that often comes just before
+  it. Give it `{#sec-pageN}` when the approvals page is a printed page of its
+  own.
+- **Neave's letters, never renumbered.** Day 1 runs a–f across six chapters.
+- **The in-text marker** is the letter as a superscript link to its note,
+  placed exactly where the source prints it:
 
-[^a]: Footnote text here.
-```
+  ```markdown
+  ...reprint number[^a^](13-summary.qmd#approval-a){aria-label="Approvals note a"}).
+  ```
+
+- **The note** opens with the same letter carrying the target id. Then comes
+  an enriched back-link to the cited page in place of Neave's bare
+  "(page N)", and then his text:
+
+  ```markdown
+  ## Approvals, Acknowledgments and Information {#sec-page62}
+
+  [^a^]{#approval-a} ([page 5, the Ford Motor Company example](02-at-the-ford-motor-company.qmd#sec-page5)) The Ford Motor Company example and diagrams are included with the approval of Bill Scherkenbach.
+  ```
+
+Don't use Quarto footnotes (`[^a]` / `[^a]:`) for these. They renumber as
+1, 2, 3, and they render per chapter, not at the end of the Day.
+`scripts/check-structure.sh` counts notes only in this form, against each
+manifest's `approvals:` declaration. It also requires a marker linking to
+every note.
+
+A page-foot aside that is *not* lettered in the source, such as the "Epilogue"
+note in Contributions, is a `{.neave_note}` div after the paragraph it
+annotates, not a footnote.
 
 ---
 

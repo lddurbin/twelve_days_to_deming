@@ -35,4 +35,4 @@ It is in the television documentary having the tongue-in-cheek title *Doctor's O
 
 ## Approvals, Acknowledgments and Information
 
-^a^ ([page 35, the Deming Prize Ceremony quotation](06-lessons-from-history.qmd#sec-page35)) This quotation from *The Deming Management Method* has been included with the approval of Mary Walton.
+[^a^]{#approval-a} ([page 35, the Deming Prize Ceremony quotation](06-lessons-from-history.qmd#sec-page35)) This quotation from *The Deming Management Method* has been included with the approval of Mary Walton.

@@ -186,8 +186,10 @@ So some are forgetting the lessons learned from Dr Deming more than 60 years ago
 
 > "Western management operates on management by numbers, management by objective, QC Circles, quality of work life, employee involvement, daily reports on people, and/or rating on performance of people.
 >
-> It is important that Japanese management remain strong, not weakened and diluted by adoption of some of the practices that are largely responsible for the decline of Western industry. It is possible for a strong body to become infected, to become weak. Japanese management has responsibilities to continue to be strong and not to pick up infections from Western management."[^a]
+> It is important that Japanese management remain strong, not weakened and diluted by adoption of some of the practices that are largely responsible for the decline of Western industry. It is possible for a strong body to become infected, to become weak. Japanese management has responsibilities to continue to be strong and not to pick up infections from Western management."[^a^](07-indias-missed-opportunity.qmd#approval-a){aria-label="Approvals note a"}
 
 Quite some message for his audience! Did he have a premonition of things to come? I think so. Even at Toyota, things seemed to slip "off the rails" for a while. Fortunately, the great-grandson of one of the founders is back at the helm. He is causing things to move back to their older and better ways. Despite reports to the contrary, the Japanese are not finished—not just yet!
 
-[^a]: The "Epilogue" on pages 241–244 of Mary Walton's book *The Deming Management Method* contains a much more substantial account of Dr Deming's presentation at that Deming Prize Ceremony. The above extract comes from page 243.
+::: {.neave_note}
+The "Epilogue" on pages 241–244 of Mary Walton's book *The Deming Management Method* contains a much more substantial account of Dr Deming's presentation at that Deming Prize Ceremony. The above extract comes from page 243.
+:::

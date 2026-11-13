@@ -254,8 +254,8 @@ import { createDownloadButton } from "../../../assets/scripts/functions.js"
 createDownloadButton([viewof activity_3i, viewof activity_3j], "activities_3i_3j.txt")
 ```
 
-### Approvals, Acknowledgments and Information {#sec-page62}
+## Approvals, Acknowledgments and Information {#sec-page62}
 
-^a^ ([page 5, the Ford Motor Company example](02-at-the-ford-motor-company.qmd#sec-page5)) The Ford Motor Company example and diagrams are included with the approval of Bill Scherkenbach.
+[^a^]{#approval-a} ([page 5, the Ford Motor Company example](02-at-the-ford-motor-company.qmd#sec-page5)) The Ford Motor Company example and diagrams are included with the approval of Bill Scherkenbach.
 
-^b^ ([page 32, the quotations from *Understanding Statistical Process Control*](09-the-six-processes-revisited.qmd#sec-page32)) This and all other quotations from *Understanding Statistical Process Control* have been reproduced with the approval of SPC Press Inc.
+[^b^]{#approval-b} ([page 32, the quotations from *Understanding Statistical Process Control*](09-the-six-processes-revisited.qmd#sec-page32)) This and all other quotations from *Understanding Statistical Process Control* have been reproduced with the approval of SPC Press Inc.

@@ -218,3 +218,7 @@ import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
 createDownloadButton([viewof activity_7i_1, viewof activity_7i_2, viewof activity_7i_3, viewof activity_7i_4, viewof activity_7i_5, viewof activity_7i_6, viewof activity_7i_7, viewof activity_7i_8, viewof activity_7i_9, viewof activity_7i_10, viewof activity_7i_11, viewof activity_7i_12, viewof activity_7i_13, viewof activity_7i_14, viewof activity_7i_15, viewof activity_7i_16], "day7_major_activity_7i.txt")
 ```
+
+## Approvals, Acknowledgments and Information
+
+[^a^]{#approval-a} ([page 15, the BBC News report quotation](04-many-more-true-stories.qmd#sec-page15)) This quotation from a BBC News report published on 30 October 2008 is included with the approval of the BBC.

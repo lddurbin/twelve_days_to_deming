@@ -108,7 +108,7 @@ where he met and worked with Dr Shewhart:
 ><span class=deming_quote>“ ... the harder they tried, the worse were the effects. … When anything bad occurred, they went
 to work on it to try to correct it. A noble aim. There was only one little trouble—their noble efforts
 did not work. Things got worse. … Sure we don’t like things which go wrong—but if we wade in
-at them without understanding then we make things worse.”</span>[^a]
+at them without understanding then we make things worse.”</span>[^c^](13-major-activity.qmd#approval-c){aria-label="Approvals note c"}
 
 []{#sec-page18}
 
@@ -170,13 +170,3 @@ the phrase “lifelong learning” near the top of [page 13, in the Helpful Book
 the end of the 12th day! Perhaps I should have simply titled Day 12 as “The End of the Beginning”.
 
 
-<!--
-FOOTNOTES
--->
-
-[^a]: On 6 July 1989 Dr Deming spoke at a meeting which was organised by the Association Française
-Edwards Deming and held at the Palace of Versailles. I was present, recorded the proceedings and
-subsequently based BDA Booklet A6: *Profound Knowledge* on the event. This quotation on page 18
-is one of many from that day which I have included during this course. Copies of the BDA Booklets
-(which are now known as Deming A5 Booklets) are obtainable from the UK’s Deming Transformation
-Forum: [www.deming.org.uk](https://web.archive.org/web/20120105232234/http://www.deming.org.uk/) (site no longer online; 2012 archived snapshot linked).

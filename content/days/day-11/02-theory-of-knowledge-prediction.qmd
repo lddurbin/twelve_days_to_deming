@@ -94,7 +94,7 @@ Dr Deming was particularly conscious of the difference between information and k
 
 <em>Johnny with his head full of answers, like a dictionary, is not thinking. A dictionary is pretty important, of course. I use one frequently. But the dictionary can't think for me. The dictionary does not lay out a course of action for us. It does not contain knowledge. It contains words.</em>
 
-<em>Marking the right blocks [ticking the right boxes] does not explain anything. They don't help Johnny to predict or explain what happened in the past. Science has advanced by explaining what happened in the past, as in geology, geometry, anthropology, geography, chemistry. Science is not a dictionary full of words, but is knowledge of the world, and this means temporal spread to explain what happened in the past, and what to predict in the future."</em>
+<em>Marking the right blocks [ticking the right boxes] does not explain anything. They don't help Johnny to predict or explain what happened in the past. Science has advanced by explaining what happened in the past, as in geology, geometry, anthropology, geography, chemistry. Science is not a dictionary full of words, but is knowledge of the world, and this means temporal spread to explain what happened in the past, and what to predict in the future."</em>[^a^](08-coda.qmd#approval-a){aria-label="Approvals note a"}
 </div>
 
 ```{ojs}
@@ -115,7 +115,7 @@ viewof note_11_prediction_2 = persist(
 <div class="neave_note">
 [These last two sentences contain important emphases for statisticians in particular. Sometimes it seems that conventional statisticians act as if "knowledge of the subject-matter" should, on the contrary, be effectively <strong><em>ignored</em></strong> lest it bias or prejudice conclusions, i.e. as if conclusions should depend wholly on the data being analysed. Further, as regards the use of data for prediction purposes, we are again reminded that the essence of the difference between statistical control and the lack of it is respectively <strong><em>predictability</em></strong> and the lack of it.
 
-If you are a statistician, you might prefer to remain unaware of the following paragraph! It is an extract from Chapter 7: "Management is Prediction" on page 263 of <em>The Essential Deming</em>. Here Deming was primarily (but not wholly) discussing the area in which he first became famous: sampling and survey analysis.
+If you are a statistician, you might prefer to remain unaware of the following paragraph! It is an extract from Chapter 7: "Management is Prediction" on page 263 of <em>The Essential Deming</em>[^b^](08-coda.qmd#approval-b){aria-label="Approvals note b"}. Here Deming was primarily (but not wholly) discussing the area in which he first became famous: sampling and survey analysis.
 
 <em>"The procedure of sampling, the construction of a satisfactory questionnaire, and the proper procedure for interviewing, all require thorough knowledge of the subject and of the difficulties that are to be met in carrying out the survey. That is why it has been stated that applied statistics is 90 percent knowledge of the subject-matter and only 10 percent statistics; it was Shewhart who first made this statement with regard to statistical work in engineering and manufacturing."</em>]
 </div>

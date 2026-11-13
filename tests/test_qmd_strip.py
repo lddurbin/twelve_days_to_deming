@@ -697,6 +697,40 @@ class FalsePositiveCategoryTests(unittest.TestCase):
             " BBC News report quotation included with kind permission.\n",
         )
 
+    def test_6c_the_house_approvals_shape_is_stripped(self):
+        """#796 writes every callout as a superscript link, every note as `[^a^]{#approval-a}`.
+
+        Both go, as the `[^a]` pair does. Without their own rules,
+        _FOOTNOTE_REFERENCE would read `[^a^]` as a footnote reference and
+        leave the link's `(…#approval-a)` target and `{aria-label=…}` in the
+        prose.
+        """
+        self.assertEqual(
+            strip_qmd(
+                'from Western management."[^a^](07-indias-missed-opportunity.qmd#approval-a)'
+                '{aria-label="Approvals note a"}\n'
+            ),
+            'from Western management."\n',
+        )
+        self.assertEqual(
+            strip_qmd(
+                "[^a^]{#approval-a} ([page 5, the Ford Motor Company example]"
+                "(02-at-the-ford-motor-company.qmd#sec-page5)) The Ford Motor Company example.\n"
+            ),
+            "(page 5) The Ford Motor Company example.\n",
+        )
+
+    def test_6d_a_bare_superscript_letter_keeps_its_letter(self):
+        """Day 1's "Such superscript letters as ^a^ refer to…" is Neave's sentence.
+
+        The PDF prints that letter spaced rather than glued to a word, so
+        pdf_callouts.py leaves it in, and the QMD side has to keep it too.
+        """
+        self.assertEqual(
+            strip_qmd("(*Such superscript letters as ^a^ refer to the approvals.*)\n"),
+            "(Such superscript letters as a refer to the approvals.)\n",
+        )
+
     # ── Still open, and named to their owner ───────────────────
 
     def test_7_mid_sentence_page_break_truncates_a_word(self):

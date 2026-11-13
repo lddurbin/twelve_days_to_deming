@@ -6,7 +6,7 @@ day: 7
 # check-structure.sh (#797). `[]` means the source PDF was checked and has no
 # approvals page; it is not the same as leaving the key out.
 approvals:
-  - file: "04-many-more-true-stories.qmd"
+  - file: "07-major-activity.qmd"
     notes: 1
 
 chapters:
@@ -63,4 +63,5 @@ chapters:
     figures: []
     headings:
       - "INTRODUCTION TO THE MAJOR ACTIVITY: THE OBSTACLES TO THE TRANSFORMATION"
+      - "Approvals, Acknowledgments and Information"
     has_download_button: true

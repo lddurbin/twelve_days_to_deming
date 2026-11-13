@@ -1,8 +1,8 @@
 day: 1
-validated_at: 2026-09-26
+validated_at: 2026-11-14
 source_pdf: D.Day.1.07Feb22.pdf
 source_sha256: eb37f915a5c09777e2822ff92c5ddddf0d1aced714b1bf290503e3d2f0959c47
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 0095735d3f093583fb58566ffaa9a8172567e40f
 files:
   compared: 13
 thresholds:
@@ -15,10 +15,10 @@ thresholds:
   reference: 0.85
 counts:
   pdf_paragraphs: 288
-  qmd_paragraphs: 265
-  matched_cleanly: 239
-  altered: 40
-  flagged_sentences: 47
+  qmd_paragraphs: 267
+  matched_cleanly: 238
+  altered: 41
+  flagged_sentences: 48
   near_certain: 11
   missing: 9
   unsourced: 6
@@ -36,8 +36,8 @@ blocks:
     short: 37
     compared: 288
   qmd:
-    total: 336
+    total: 332
     unreadable: 0
     rejoined: 42
-    short: 29
-    compared: 265
+    short: 23
+    compared: 267
