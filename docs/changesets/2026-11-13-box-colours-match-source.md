@@ -2,4 +2,4 @@
 
 - **Section**: Fixed
 - **What**: Eighteen Activity and Pause for Thought boxes that Neave prints in green (no commentary follows) were shown in red on the site; they are now green, matching his Day 1 colour code.
-- **PR**: TBD
+- **PR**: #977
