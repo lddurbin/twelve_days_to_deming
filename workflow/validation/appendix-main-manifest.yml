@@ -31,6 +31,13 @@ pdf_file: P.Appendix.09Feb22.pdf
 content_dir: content/appendix
 interactive_checks: false
 
+# Approvals, Acknowledgments and Information notes, counted by
+# check-structure.sh (#797). `[]` means the source PDF was checked and has no
+# approvals page; it is not the same as leaving the key out.
+approvals:
+  - file: "10-optional-extras.qmd"
+    notes: 1
+
 chapters:
   - file: "glossary.qmd"
     figures: []
