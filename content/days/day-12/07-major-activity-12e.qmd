@@ -6,7 +6,7 @@ execute:
   echo: false
 ---
 
-<div class="thought_commentary" role="note" aria-label="Commentary">
+<div class="thought" role="note" aria-label="Activity">
 
 <div class="major_activity_title">
 

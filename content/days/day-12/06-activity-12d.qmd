@@ -6,7 +6,7 @@ execute:
   echo: false
 ---
 
-<div class="thought_commentary" role="note" aria-label="Commentary">
+<div class="thought" role="note" aria-label="Activity">
 
 ## Section 5: ACTIVITY 12–d {#sec-page30}
 

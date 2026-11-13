@@ -8,7 +8,7 @@ execute:
 
 ## Step 4: ACTIVITY 10–b {#sec-page29}
 
-<div class="thought_commentary" role="note" aria-label="Commentary">
+<div class="thought" role="note" aria-label="Activity">
 
 As in Activity 10–a, but now in connection with Part B: "Some Knowledge of Theory of Variation".
 

@@ -201,7 +201,7 @@ Reveal suggested answer for Activity 3–i
 
 *DemDim* Chapter 5 describes the original version of the Funnel Experiment and shows some typical results from it. The chapter is quite short: less than 12 pages, and you should now find it to be a very quick and easy read. So, for completeness, **do now please read it**—you will soon see the analogies with what you have produced during your experiment. In the second half of the chapter you will find some real-life illustrations of the messages coming from the Funnel Experiment—they are but a few of many.
 
-<div class="thought_commentary" role="note" aria-label="Commentary">
+<div class="thought" role="note" aria-label="Activity">
 
 ## ACTIVITY 3–j
 
