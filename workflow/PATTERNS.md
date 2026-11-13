@@ -258,8 +258,11 @@ red. See [#819](https://github.com/lddurbin/twelve_days_to_deming/issues/819).
 
 ### Pause for Thought or Activity (no commentary — green box)
 
+Set `aria-label="Thought"` for a Pause for Thought and `aria-label="Activity"`
+for an Activity. Red boxes use `aria-label="Commentary"` whatever their kind.
+
 ```markdown
-<div class="thought" role="note" aria-label="Activity">
+<div class="thought" role="note" aria-label="Thought">
 
 ## PAUSE FOR THOUGHT X–y
 
