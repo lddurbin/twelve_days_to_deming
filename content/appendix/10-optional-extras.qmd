@@ -142,4 +142,4 @@ I have but a single word for it: absurd.
 
 ## Approvals, Acknowledgments and Information {#sec-page51}
 
-^a^ (page 10)   This quotation from the Deming A5 Booklet W2 (formally BDA Booklet W2) has been reproduced with the approval of the Deming Transformation Forum.
+[^a^]{#approval-a} ([page 10, Myron Tribus’s randomly-generated data](02-day-2.qmd#sec-page10)) This quotation from the Deming A5 Booklet W2 (formally BDA Booklet W2) has been reproduced with the approval of the Deming Transformation Forum.

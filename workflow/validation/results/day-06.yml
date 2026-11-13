@@ -1,8 +1,8 @@
 day: 6
-validated_at: 2026-09-26
+validated_at: 2026-11-14
 source_pdf: I.Day.6.19Feb22.pdf
 source_sha256: 6624bbd47c0bd7267d06bbc9c7513d8b04dfb1430e667fb1924222b09dfa3d41
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 0095735d3f093583fb58566ffaa9a8172567e40f
 files:
   compared: 4
 thresholds:
@@ -15,7 +15,7 @@ thresholds:
   reference: 0.85
 counts:
   pdf_paragraphs: 159
-  qmd_paragraphs: 171
+  qmd_paragraphs: 172
   matched_cleanly: 112
   altered: 31
   flagged_sentences: 49
@@ -39,5 +39,5 @@ blocks:
     total: 227
     unreadable: 0
     rejoined: 11
-    short: 45
-    compared: 171
+    short: 44
+    compared: 172

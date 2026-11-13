@@ -6,10 +6,13 @@ session_minutes: 10
 execute:
   echo: false
 ---
+
+[]{#sec-page1}
+
 ![Dr Deming and Dr Neave](/assets/images/day-01/day_1_fig_1.jpg){.lightbox}
 
 Why an "Overture" rather than an "Introduction"? Simply because this half-day contains much more than
-you would expect in a mere introduction to this structured active-learning course on the approach to management developed by Dr W Edwards Deming—pictured above left (aged 88) with me in 1989[^a] (*Such superscript letters as a refer to the "Approvals, Acknowledgements and Information" at the end of the file.*)
+you would expect in a mere introduction to this structured active-learning course on the approach to management developed by Dr W Edwards Deming—pictured above left (aged 88) with me in 1989.[^a^](13-major-activity.qmd#approval-a){aria-label="Approvals note a"} (*Such superscript letters as ^a^ refer to the "Approvals, Acknowledgements and Information" at the end of the file.*)
 
 Continuing the musical analogy, let's suppose you've arranged an evening out at a theatre to enjoy some
 kind of musical production. Perhaps it's a light modern musical or musical comedy; at the other extreme,
@@ -31,9 +34,3 @@ case then I don't want to waste your time—that won't be of any benefit to eith
 straightaway and, in this case, you will only have wasted a little time, not a lot of money! Otherwise, please
 stay and enjoy. Maybe, before long, you'll find yourself climbing out of the audience to join those on the
 stage!
-
-<!--
-FOOTNOTES
--->
-
-[^a]: Photo by courtesy of SPC Press Inc.

@@ -425,11 +425,18 @@ external_book_signatures <- c(
 book_signature_pattern <- str_c("(", str_c(external_book_signatures, collapse = "|"), ")")
 signature_window <- 80L
 
+# An approvals callout (#796) is some 65 characters of link markup that can sit
+# between a book title and its page number, as in Day 9's
+# `*Deming's Road to Continual Improvement*[^b^](07-out-of-hours.qmd#approval-b){aria-label="Approvals note b"} page 10`
+# — enough on its own to push the title out of the window. The window is
+# measured on the text either side with those callouts taken out.
+approval_marker_pattern <- "\\[\\^[a-z]\\^\\]\\([^()\\s]*\\)(?:\\{[^{}]*\\})?"
+
 bare_page <- bare_page |>
   mutate(
-    .win_start = pmax(1L, .start - signature_window),
-    .win_end = pmin(str_length(text), .end + signature_window),
-    .window = str_sub(text, .win_start, .win_end),
+    .win_before = str_sub(str_remove_all(str_sub(text, 1L, .start - 1L), approval_marker_pattern), -signature_window),
+    .win_after = str_sub(str_remove_all(str_sub(text, .end + 1L), approval_marker_pattern), 1L, signature_window),
+    .window = str_c(.win_before, match_text, .win_after),
     .tail = str_sub(text, .end + 1L, pmin(str_length(text), .end + 10L)),
     bracket_signature = str_detect(
       .tail, "^\\s*\\*?\\[(?:pages?\\s*)?[0-9]+(?:[-–—][0-9]+)?\\]\\*?"

@@ -171,7 +171,7 @@ The sales representatives of this company do not sell to General Practitioners a
 
 "BT has been forced to pay the Ministry of Defence £1.3m in compensation after some of its staff met call-answering targets by phoning each other. The National Audit Office found they fixed figures to help BT avoid fines for not answering calls quickly enough. The targets were part of a £3bn Private Finance Initiative (PFI) deal to operate the Forces' telephone system. BT has sacked some of the 'small number of staff' involved and the call centre no longer operates.
 
-The company has also paid £1,021,000 in service payments, the £122,000 cost of investigating the fraud, and the £197,000 cost of the fake calls."^a^
+The company has also paid £1,021,000 in service payments, the £122,000 cost of investigating the fraud, and the £197,000 cost of the fake calls."[^a^](07-major-activity.qmd#approval-a){aria-label="Approvals note a"}
 
 *[Apparently about 1.25 million bogus calls had been made!]*
 
@@ -279,7 +279,3 @@ import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
 createDownloadButton([viewof activity_7d], "day7_activity_7d.txt")
 ```
-
-### Approvals, Acknowledgments and Information
-
-^a^ ([page 15, the BBC News report quotation](04-many-more-true-stories.qmd#sec-page15)) This quotation from a BBC News report published on 30 October 2008 is included with the approval of the BBC.

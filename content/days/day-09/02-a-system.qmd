@@ -37,7 +37,7 @@ Note that, with his usual precise choice of words, Deming does not write "Custom
 
 But there was certainly no doubt about the importance of the flow diagram in Deming's teaching later on. I'll refer here to a meeting held at the Queen Elizabeth Conference Centre, London in July 1990 that was jointly arranged by the European Federation for Quality Management and the British Deming Association. It was attended by top management representatives of around 20 "big-name" European companies. To those senior executives, Dr Deming simply said of the "Organisation Viewed as a System" flow diagram:
 
-> ["I believe that this diagram made the difference in Japan."]{.deming_quote}
+> ["I believe that this diagram made the difference in Japan."]{.deming_quote}[^a^](07-out-of-hours.qmd#approval-a){aria-label="Approvals note a"}
 
 Quite a claim for a single and not particularly complicated sketch! Did he really mean it---that just that diagram (and, obviously, the learning which it portrays) had made *the* difference in Japan?
 

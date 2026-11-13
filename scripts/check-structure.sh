@@ -28,12 +28,23 @@
 # the same as one that passed. CI cannot see the source PDFs, so the counts
 # are declared here rather than derived.
 #
-# A note marker is a line that starts with any of the forms in use:
-# `^a^`, `<sup>a</sup>`, or a Quarto footnote definition `[^a]:`, labelled
-# with a single lowercase letter as Neave labels them. A note labelled any
-# other way is not counted, so it shows up as a shortfall and fails. The check
-# counts them per named file and fails on any difference, in either
-# direction. It confirms a note is present, not that its wording is right —
+# Every note is written in the one house shape (#796), under a
+# `## Approvals, Acknowledgments and Information` heading at the end of the
+# Day, and labelled with Neave's own single lowercase letter:
+#
+#   [^a^]{#approval-a} ([page 5, the …](02-….qmd#sec-page5)) Note text.
+#
+# and each in-text marker is that letter as a superscript link to the note:
+#
+#   …reprint number[^a^](13-summary.qmd#approval-a){aria-label="Approvals note a"})
+#
+# A note line is one that opens `[^x^]{#approval-x}` with the two letters
+# agreeing. Anything else — an old `^a^`, `<sup>a</sup>` or `[^a]:` form, or a
+# mislabelled id — is not counted, so it shows up as a shortfall and fails.
+# The check counts notes per named file and fails on any difference, in
+# either direction, and then requires each counted note's marker: a link to
+# `<file>#approval-x` from some .qmd in the same content directory. It
+# confirms a note and its marker are present, not that the wording is right —
 # that stays the transcription comparator's job.
 #
 # Requires: ruby (for YAML parsing — ships with macOS).
@@ -120,10 +131,16 @@ count_viewof() {
   echo "${n:-0}"
 }
 
-# Count approvals note markers: lines starting ^a^, <sup>a</sup> or [^a]:
+# Letters of the approvals notes in a QMD file, one per line: lines that open
+# with the house form `[^a^]{#approval-a}`, the two letters agreeing.
+approval_note_letters() {
+  ruby -ne 'puts $1 if $_ =~ /\A\[\^([a-z])\^\]\{#approval-\1\}/' "$1" 2>/dev/null || true
+}
+
+# Count approvals notes in a QMD file (see approval_note_letters)
 count_approval_notes() {
   local n
-  n=$(grep -cE '^(\^[a-z]\^|<sup>[a-z]</sup>|\[\^[a-z]\]:)' "$1" 2>/dev/null) || true
+  n=$(approval_note_letters "$1" | grep -c .) || true
   echo "${n:-0}"
 }
 
@@ -448,6 +465,20 @@ main() {
         fail "approvals: $ap_file has $ap_actual note(s) (expected $ap_expected)"
         total_fail=$((total_fail + 1))
       fi
+      # Each note's in-text marker: a superscript link to it from this
+      # content directory (the note's own file included).
+      local ap_letter
+      while IFS= read -r ap_letter; do
+        [[ -z "$ap_letter" ]] && continue
+        total_checks=$((total_checks + 1))
+        if grep -qF "[^$ap_letter^]($ap_file#approval-$ap_letter)" "$qmd_dir"/*.qmd 2>/dev/null; then
+          pass "approvals: marker $ap_letter links to $ap_file#approval-$ap_letter"
+          total_pass=$((total_pass + 1))
+        else
+          fail "approvals: no marker links to $ap_file#approval-$ap_letter"
+          total_fail=$((total_fail + 1))
+        fi
+      done < <(approval_note_letters "$qmd_dir/$ap_file")
     done < "$tmpdir/approvals"
   fi
   echo ""

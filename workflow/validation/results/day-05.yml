@@ -1,8 +1,8 @@
 day: 5
-validated_at: 2026-09-26
+validated_at: 2026-11-14
 source_pdf: H.Day.5.08Feb22.pdf
 source_sha256: 6080edb4e995aec859f4a42ee704d8601eb41afcb9d8fe33fd4bfdd5f18b21eb
-scorer_version: a59cf0e44bf3abc6f03324f8dab7a7c179334e05
+scorer_version: 0095735d3f093583fb58566ffaa9a8172567e40f
 files:
   compared: 3
 thresholds:
@@ -15,18 +15,18 @@ thresholds:
   reference: 0.85
 counts:
   pdf_paragraphs: 73
-  qmd_paragraphs: 76
-  matched_cleanly: 64
-  altered: 6
-  flagged_sentences: 8
-  near_certain: 1
+  qmd_paragraphs: 77
+  matched_cleanly: 63
+  altered: 7
+  flagged_sentences: 9
+  near_certain: 2
   missing: 3
   unsourced: 0
   unsourced_sentences: 0
   reference_mismatches: 1
   short_checked: 56
-  short_matched: 52
-  short_unmatched: 2
+  short_matched: 54
+  short_unmatched: 0
   short_unjudged: 2
 blocks:
   pdf:
@@ -36,8 +36,8 @@ blocks:
     short: 56
     compared: 73
   qmd:
-    total: 150
+    total: 151
     unreadable: 0
-    rejoined: 8
-    short: 66
-    compared: 76
+    rejoined: 7
+    short: 67
+    compared: 77

@@ -15,7 +15,7 @@ of management whose first reaction when anything goes wrong is to look around fo
 scapegoat. I heard passionate criticism of unemployment—or rather of management, and indeed government, that brings it about, be it accidental or intentional. It wasn’t that he was thinking about the cost of
 supporting the unemployed. In contrast, it was the cost of the waste of human potential and self-respect
 that concerned him. For confirmation, one could open his book *Out of the Crisis* at the very first page of its
-*Preface*—there’s no need to even get into the main text! Here’s a brief extract[^a] from that page (in which I
+*Preface*—there’s no need to even get into the main text! Here’s a brief extract[^d^](13-major-activity.qmd#approval-d){aria-label="Approvals note d"} from that page (in which I
 wish the first few words were really true):
 
 ><span class=deming_quote>“It is no longer socially acceptable to dump employees on to the heap of unemployed. Loss of
@@ -145,10 +145,3 @@ import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
 createDownloadButton([viewof activity_1d, viewof activity_1e_1, viewof activity_1e_2], "activities_1d_1e1_1e2.txt")
 ```
-
-<!--
-FOOTNOTES
--->
-
-[^a]: This and all other quotations from *Out of the Crisis* have been reproduced with the approval of the
-W Edwards Deming Institute and MIT Press. See <https://mitpress.mit.edu/contributors/w-edwards-deming>.

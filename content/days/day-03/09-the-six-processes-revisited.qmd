@@ -90,7 +90,7 @@ individual_process_chart(six_processes, "E")
 
 </details>
 
-The data in Chart E3 are taken from an ancient but fascinating case study which Don Wheeler relates in a chapter on "Using Process Behaviour Charts for Continual Improvement" in his book with David Chambers: *Understanding Statistical Process Control*^b^. This is how Don introduces the story:
+The data in Chart E3 are taken from an ancient but fascinating case study which Don Wheeler relates in a chapter on "Using Process Behaviour Charts for Continual Improvement" in his book with David Chambers: *Understanding Statistical Process Control*[^b^](13-summary.qmd#approval-b){aria-label="Approvals note b"}. This is how Don introduces the story:
 
 "The ... chart was brought to this country by a group of executives from the Body and Assembly Division of Ford Motor Company, following a visit to the Tokai Rika Company in March, 1982. As the Ford group was touring the Tokai Rika plant, they observed eight production workers 'engaged in active discussion' around this ... Chart. To the people from Ford, it seemed that something must be wrong with the process represented by the chart, so they asked about it. They expected there to be an internal production problem, or an assembly plant problem, or a problem of too many rejects. However, they were told that this was simply a routine review of an ongoing process and, in fact, the process was currently operating predictably and was well within the specifications. To substantiate this, their hosts translated the chart, and presented a copy to the Ford group ..."
 

@@ -323,6 +323,6 @@ The material for [Day 6](../day-06/01-introduction.qmd) includes a substantial c
 
 One further considerable help with this Major Activity would be, if possible, for you to print out an enlargement of the table on [Day 6 page 19](../day-06/03-activity-6b.qmd#sec-page19). This is a table in which you will need to summarise the information you've just recorded alongside the case study, and so you would definitely benefit from having the extra space available on such an enlargement. Further guidance will be found in the middle of [Day 6 page 18](../day-06/03-activity-6b.qmd#sec-page18).
 
-**Approvals, Acknowledgments and Information**
+## Approvals, Acknowledgments and Information
 
-<sup>a</sup> ([page 14, in Point 13](02-points-7-to-14.qmd#sec-page14)) This and all other quotations from Volume 21 of *The Deming Library* have been included with the approval of Clare Crawford-Mason.
+[^a^]{#approval-a} ([page 14, in Point 13](02-points-7-to-14.qmd#sec-page14)) This and all other quotations from Volume 21 of *The Deming Library* have been included with the approval of Clare Crawford-Mason.

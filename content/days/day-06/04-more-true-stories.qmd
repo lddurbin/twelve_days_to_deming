@@ -48,7 +48,7 @@ While speaking with a headteacher some years ago, he mentioned his school's "Gra
 
 ### 7. Stafford Hospital
 
-*(extracted from The Telegraph and The Sunday Telegraph, January 2013---these were the best short summaries of this report that I could find)*[^a]
+*(extracted from The Telegraph and The Sunday Telegraph, January 2013---these were the best short summaries of this report that I could find[^a^](04-more-true-stories.qmd#approval-a){aria-label="Approvals note a"})*
 
 **Stafford Hospital scandal: deaths force NHS reforms**
 
@@ -78,15 +78,15 @@ For this illustration, I am reproducing something that was in my seminar materia
 >
 > The fundamental problem for the workforce is linking performance to pay. Nothing could be more sensitive to people in such situations than their earnings, and fluctuating weekly pay is disastrous for planning the family budget. It is clear that management have failed to come to grips with their own responsibilities for organising the work, and have failed to listen to their workers who continually point out the problems."
 
-### 9. "Lots of fat kids who hate reading"
+### 9. "Lots of fat kids who hate reading" {#sec-page25}
 
 I just have room here for one *very* short story, and so can't resist sharing this one told to me by Peter Scholtes. It concerned a school whose English teacher came up with a great idea for persuading his pupils to read more books. Every time they completed a book they were given a voucher for a free pizza. The result? Peter's words form the heading to this paragraph.
 
 ### 10. A politician speaks about the target culture and fudging figures
 
-Lastly for today, on 25 January 2014 I was fortunate to have the car radio switched on when an interview with Bernard Jenkin was being broadcast on BBC Radio 4. At the time of writing, Sir Bernard Jenkin is the Conservative Member of Parliament for the constituency of Harrow and North Essex in England; he was knighted in the 2018 Queen's Birthday Honours list. I was so impressed by the interview that later that day I recorded it via the BBC iPlayer and then transcribed it as follows. Yet again you may find some matters here which you might like to refer to during the Activities on Day 7 and, for that matter, which could also have been referenced on Days 4 and 5 during the First Project.[^b]
+Lastly for today, on 25 January 2014 I was fortunate to have the car radio switched on when an interview with Bernard Jenkin was being broadcast on BBC Radio 4. At the time of writing, Sir Bernard Jenkin is the Conservative Member of Parliament for the constituency of Harrow and North Essex in England; he was knighted in the 2018 Queen's Birthday Honours list. I was so impressed by the interview that later that day I recorded it via the BBC iPlayer and then transcribed it as follows. Yet again you may find some matters here which you might like to refer to during the Activities on Day 7 and, for that matter, which could also have been referenced on Days 4 and 5 during the First Project.
 
-*Transcript from* ***"The Week in Westminster"***
+*Transcript from* ***"The Week in Westminster"***[^b^](04-more-true-stories.qmd#approval-b){aria-label="Approvals note b"}
 *Presented by Peter Oborne of The Daily Telegraph*
 
 BBC Radio 4, Saturday 25 January 2014, 11.00 am
@@ -123,10 +123,8 @@ BBC Radio 4, Saturday 25 January 2014, 11.00 am
 
 *B J:* I think that's part of our democratic system. There are question-marks as to how the police treat whistle-blowers, and how the legislation for police treats whistle-blowers. But that will be something for the Home Affairs Select Committee.
 
-<!--
-FOOTNOTES
--->
+## Approvals, Acknowledgments and Information {#sec-page27}
 
-[^a]: These extracts from *The Telegraph* and *The Sunday Telegraph* have been included with the approval of The Telegraph Media Group.
+[^a^]{#approval-a} ([page 23, the Stafford Hospital extracts](04-more-true-stories.qmd#sec-page23)) These extracts from *The Telegraph* and *The Sunday Telegraph* have been included with the approval of The Telegraph Media Group.
 
-[^b]: This transcript from the Radio 4 programme *The Week in Westminster*, broadcast on 24 January 2014, has been included with the approval of the BBC.
+[^b^]{#approval-b} ([page 25, the transcript from *The Week in Westminster*](04-more-true-stories.qmd#sec-page25)) This transcript from the Radio 4 programme *The Week in Westminster*, broadcast on 24 January 2014, has been included with the approval of the BBC.

@@ -259,3 +259,17 @@ import { createDownloadButton } from "../../../assets/scripts/functions.js"
 
 createDownloadButton([viewof activity_1f_1a, viewof activity_1f_1b, viewof activity_1f_2a, viewof activity_1f_2b, viewof activity_1f_3a, viewof activity_1f_3b, viewof activity_1f_4a, viewof activity_1f_4b, viewof activity_1f_5a, viewof activity_1f_5b, viewof activity_1f_6a, viewof activity_1f_6b, viewof activity_1f_7a, viewof activity_1f_7b, viewof activity_1f_8a, viewof activity_1f_8b, viewof activity_1f_9a, viewof activity_1f_9b, viewof activity_1f_10a, viewof activity_1f_10b], "major_activity_1f.txt")
 ```
+
+## Approvals, Acknowledgments and Information {#sec-page45}
+
+[^a^]{#approval-a} ([page 1, the photograph of Dr Deming with me](01-overture.qmd#sec-page1)) Photo by courtesy of SPC Press Inc.
+
+[^b^]{#approval-b} ([page 2, the Deming Prize medal](02-rediscovered.qmd#sec-page2)) Copyright© Deming Prize Committee. All Rights Reserved. <https://www.juse.or.jp/deming_en/>
+
+[^c^]{#approval-c} ([page 18, the Versailles quotation](06-outline.qmd#sec-page18)) On 6 July 1989 Dr Deming spoke at a meeting which was organised by the Association Française Edwards Deming and held at the Palace of Versailles. I was present, recorded the proceedings and subsequently based BDA Booklet A6: *Profound Knowledge* on the event. This quotation on page 18 is one of many from that day which I have included during this course. Copies of the BDA Booklets (which are now known as Deming A5 Booklets) are obtainable from the UK’s Deming Transformation Forum: [www.deming.org.uk](https://web.archive.org/web/20120105232234/http://www.deming.org.uk/) (site no longer online; 2012 archived snapshot linked).
+
+[^d^]{#approval-d} ([page 23, the extract from *Out of the Crisis*](08-attraction.qmd#sec-page23)) This and all other quotations from *Out of the Crisis* have been reproduced with the approval of the W Edwards Deming Institute and MIT Press. See <https://mitpress.mit.edu/contributors/w-edwards-deming>.
+
+[^e^]{#approval-e} ([page 33, the “97%” quotation](11-deming-story.qmd#sec-page33)) This and all other quotations from *The New Economics for Industry, Government, Education* have been reproduced with the approval of the W Edwards Deming Institute and MIT Press. See <https://mitpress.mit.edu/contributors/w-edwards-deming>.
+
+[^f^]{#approval-f} ([page 34, the extract from Dr Deming’s diary](11-deming-story.qmd#sec-page34)) This and all other quotations from *The World of W Edwards Deming* have been reproduced with the approval of SPC Press Inc.

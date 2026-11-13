@@ -140,6 +140,23 @@ _FOOTNOTE_DEFINITION = re.compile(r"^\[\^[^\]]+\]:\s*")
 _FOOTNOTE_REFERENCE = re.compile(r"\[\^[^\]]+\]")
 _SUPERSCRIPT_MARKER = re.compile(r"\^\[[^\]]+\]\^")
 
+# The house shape every approvals note now takes (#796). The in-text marker is
+# the letter as a superscript link to its note, `[^a^](13-summary.qmd#approval-a)`
+# with an optional `{aria-label=…}`, and the note opens with the same letter
+# carrying the link's target id, `[^a^]{#approval-a}`. Both go, exactly as the
+# `[^a]` / `[^a]:` pair above does, and for the same reason: pdf_callouts.py
+# strips the PDF's glued callout letter, so a kept QMD letter would be a
+# manufactured difference. They must run before _FOOTNOTE_REFERENCE, which
+# would otherwise read `[^a^]` as a footnote reference, delete it, and strand
+# the `(…)` target and `{…}` attributes in the prose.
+#
+# The one bare `^a^` left is Day 1's illustrative "Such superscript letters as
+# ^a^ refer to…", which is part of Neave's sentence and is printed spaced, not
+# glued, so the PDF side keeps it. It is unwrapped to its letter, not dropped.
+_APPROVAL_NOTE = re.compile(r"^\[\^[a-z]\^\]\{#approval-[a-z]\}\s*")
+_APPROVAL_MARKER = re.compile(r"\[\^[a-z]\^\]\([^()\s]*\)(?:\{[^{}]*\})?")
+_BARE_SUPERSCRIPT_LETTER = re.compile(r"(?<![\w^\]])\^([a-z])\^(?![\w^\[(])")
+
 # `[WB 5]`, `[WB 38–39]`, `[WB 190--191]`, `[WB 105 and 106]`, `[or on WB 123]`
 # — every single-line shape the twenty source PDFs actually use, which is 171
 # of the 179 citations in them. See strip_workbook_refs().
@@ -462,6 +479,9 @@ def strip_qmd(text: str) -> str:
         line = _AUTOLINK.sub(r"\1", line)
         line = _HTML_COMMENT.sub("", line)
         line = _HTML_TAG.sub("", line)
+        line = _APPROVAL_NOTE.sub("", line)
+        line = _APPROVAL_MARKER.sub("", line)
+        line = _BARE_SUPERSCRIPT_LETTER.sub(r"\1", line)
         line = _FOOTNOTE_DEFINITION.sub("", line)
         line = _FOOTNOTE_REFERENCE.sub("", line)
         line = _SUPERSCRIPT_MARKER.sub("", line)

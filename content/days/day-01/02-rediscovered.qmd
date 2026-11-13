@@ -24,7 +24,7 @@ as 1950 by JUSE, the Japanese Union of Scientists and Engineers.
   
   ![The Deming Medal, showing a profile of W. Edwards Deming with the inscription 'The right quality and uniformity are foundations of commerce, prosperity and peace.'](/assets/images/day-01/day_1_fig_3.jpg){width=50% .lightbox}
 
-The inscription near the bottom of the medal[^a] is a quotation from Dr Deming:
+The inscription near the bottom of the medal[^b^](13-major-activity.qmd#approval-b){aria-label="Approvals note b"} is a quotation from Dr Deming:
   
 ><span class=deming_quote>“The right quality and uniformity are foundations of commerce, prosperity and peace.”</span>
   
@@ -147,9 +147,3 @@ Finally, during the second half of *12 Days to Deming*, you will be reading some
       is also a host website of the complete *12 Days to Deming* material.
     
 Further, some time spent searching the internet is likely to lead you to any number of other relevant blogs, LinkedIn contacts, podcasts, FaceBook material, etc, etc. Happy browsing!
-
-<!--
-FOOTNOTES
--->
-
-[^a]: Copyright© Deming Prize Committee. All Rights Reserved. <https://www.juse.or.jp/deming_en/>

@@ -157,7 +157,7 @@ those page numbers refer to page 27 of the Third Edition and page 37 of the Seco
 the application of the statistical control of quality to overall business strategy and companywide
 systems such as personnel, training, purchasing, legal and financial matters etc, i.e. to the *management* of the organisation, as:
 
-><span class=deming_quote>“Here are the big gains, 97%, waiting.”[^a]</span>
+><span class=deming_quote>“Here are the big gains, 97%, waiting.”</span>[^e^](13-major-activity.qmd#approval-e){aria-label="Approvals note e"}
 
 If the 3% is big (and it is), the 97% is *massive*.
 
@@ -183,6 +183,8 @@ Does that heading seem familiar? I’ll remind you a little later of where you f
 
 </div>
 
+[]{#sec-page34}
+
 A further visit to Japan, again to work with the Census, was planned for the early summer of 1950. By this
 time, Dr Deming’s name and reputation had become known to Ken-ichi Koyanagi, Managing Director of the
 Union of Japanese Scientists and Engineers. Accordingly, Koyanagi issued the all-important invitation for Dr Deming to also teach
@@ -196,7 +198,7 @@ But there was another important reason why the Japanese listened to, and learned
 
 >“Most of the Japanese were in a servile spirit as the vanquished, and among Allied personnel there were not a few with an air of importance <span class=neave_note>[which I imagine was something of an understatement]</span>. In striking contrast, Dr Deming showed his warm cordiality to every Japanese whom he met. ... His high personality deeply impressed all those who learned from him and became acquainted with him. ... The sincerity and enthusiasm with which he did his best for us still lives and will live forever in the memory of all concerned.”
 
-But *what* did the Japanese learn from him? *How* did he do his best for them? Was it just “Statistics”? That is what some well-known writers claim. For example, in the *Sunday Times* (London, 14 February 1988), Tom Peters asked: “Should you follow W Edwards Deming, father of the Japanese quality revolution, through Statistical Process Control?”. Important though SPC is, I think it must have taken a little more than that! First let me show you a slightly longer version of the entry in Dr Deming’s diary that I quoted earlier (from page 6 of Ceil Kilian’s superb biography *The World of W Edwards Deming*[^f]):
+But *what* did the Japanese learn from him? *How* did he do his best for them? Was it just “Statistics”? That is what some well-known writers claim. For example, in the *Sunday Times* (London, 14 February 1988), Tom Peters asked: “Should you follow W Edwards Deming, father of the Japanese quality revolution, through Statistical Process Control?”. Important though SPC is, I think it must have taken a little more than that! First let me show you a slightly longer version of the entry in Dr Deming’s diary that I quoted earlier (from page 6 of Ceil Kilian’s superb biography *The World of W Edwards Deming*[^f^](13-major-activity.qmd#approval-f){aria-label="Approvals note f"}):
 
 ><span class=deming_quote>“The lectures are being held at the Japan Medical Association in Ochanomizu. ... Over 600 men had applied, and the limit was finally over-strained to 230. Professor Masuyama and assistants will teach the statistical control of quality in the afternoon. I shall teach during the forenoon *the theory of a system, and cooperation*.”</span>
 
@@ -490,14 +492,3 @@ of the Deming philosophy—its values, its principles, its logic, its *practical
 I believe, hugely important, literally priceless, literally timeless. It is a real source of help and hope for
 making a better future, materially, socially, and mentally. That was the purpose of Dr Deming’s life’s work.
 What better purpose could there be?
-
-<!--
-FOOTNOTES
--->
-
-[^a]: This and all other quotations from *The New Economics for Industry, Government, Education* have
-been reproduced with the approval of the W Edwards Deming Institute and MIT Press. See
-<https://mitpress.mit.edu/contributors/w-edwards-deming>.
-
-[^f]: This and all other quotations from *The World of W Edwards Deming* have been reproduced with the
-approval of SPC Press Inc.
