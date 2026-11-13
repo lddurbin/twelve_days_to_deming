@@ -29,7 +29,9 @@
 # are declared here rather than derived.
 #
 # A note marker is a line that starts with any of the forms in use:
-# `^a^`, `<sup>a</sup>`, or a Quarto footnote definition `[^a]:`. The check
+# `^a^`, `<sup>a</sup>`, or a Quarto footnote definition `[^a]:`, labelled
+# with a single lowercase letter as Neave labels them. A note labelled any
+# other way is not counted, so it shows up as a shortfall and fails. The check
 # counts them per named file and fails on any difference, in either
 # direction. It confirms a note is present, not that its wording is right —
 # that stays the transcription comparator's job.
