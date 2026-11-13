@@ -8,9 +8,10 @@ repo follows along with `CLAUDE.md → AGENTS.md`.
 ## What belongs here, and what doesn't
 
 A skill belongs here when it can only make sense inside this repo: it names our
-issues, our scripts, our content, our source PDFs. `wave-2-pass` is the shape of
-it — it cannot run anywhere else, and changes to it should be reviewed alongside
-the work it governs.
+issues, our scripts, our content, our source PDFs. The archived
+[`wave-2-pass`](../../workflow/archive/wave-2-pass.md) is the shape of it — it
+could not run anywhere else, and changes to it were reviewed alongside the work
+it governed.
 
 A skill that would work unchanged in any repo — commit, push, open a PR, sync a
 branch — belongs at the personal layer, `~/.agents/skills/`. `ship-it`,

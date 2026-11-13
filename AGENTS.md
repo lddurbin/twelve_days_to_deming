@@ -1,119 +1,39 @@
 # AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for coding agents working in this repository. It records commitments, rationale, and gotchas that the code itself doesn't show; for structure, read the tree, `_quarto.yml`, `renv.lock` and `.github/workflows/`.
 
 ## Project Overview
 
-"12 Days to Deming" is an interactive educational course based on Dr. W. Edwards Deming's teachings, built as a Quarto book with R backend. The project converts traditional PDF-based course materials into an interactive web experience with embedded activities, timing indicators, and modern web features.
+"12 Days to Deming" is an interactive web edition of Henry Neave's course on Dr. W. Edwards Deming's teachings, built as a Quarto book with an R backend. All 12 days are converted from Neave's source PDFs. CSS classes, R helpers, interactive-element templates, accessibility conventions and cross-reference rules are documented in `workflow/PATTERNS.md`.
 
-## Development Commands
+## Content rules
 
-### Core Commands
-- **Build the book**: `quarto render`
-- **Preview during development**: `quarto preview` 
-- **Clean build artifacts**: `rm -rf _book/`
+- **Exact transcription required**: content is a word-for-word copy of Neave's original PDF text. The user always verifies transcription accuracy.
+- **Material departures from the source get logged**: add a per-entry file under `docs/deviations/` in the same PR.
+- Interactive elements enhance the original pedagogical flow; they never replace it.
 
-### R Environment
-- **Restore R dependencies**: `Rscript -e 'renv::restore()'`
-- **Check environment status**: `Rscript -e 'renv::status()'`
-- **Install new packages**: Use renv workflow - `Rscript -e 'renv::install("package_name"); renv::snapshot()'`
+## Source material
 
-### Deployment
-- **Manual deploy**: Handled via GitHub Actions on push to main
-- **Force rebuild**: Use GitHub Actions workflow dispatch
+Neave's source PDFs and their page renders live in `12-Days-to-Deming/` (`PDFs/`, `PNGs/`), which is local-only — not in git, so not available to cloud agents or fresh clones. PNG filenames carry a letter prefix per day: D=Day 1, E=Day 2, … O=Day 12, then P=Appendix, Q=Contributions from Balaji Reddie, R=References and Sources, S=Optional Extras (e.g. `E.Day.2.12Oct21_page_046.png`).
 
-## Architecture Overview
-
-### Core Structure
-- **Quarto Configuration**: `_quarto.yml` defines the book structure, theme, and build settings
-- **Content Organization**: `/content/days/` contains structured course material organized by day
-- **R Environment**: Uses `renv` for reproducible package management with `renv.lock`
-- **Assets**: `/assets/` contains CSS, JavaScript, images, and templates
-
-### Content Architecture
-- **Modular Design**: Each day is broken into multiple `.qmd` files for specific topics/activities
-- **Progressive Structure**: 12 days of content, with days 1-2 fully interactive, remaining days in development
-- **Active Learning**: Embedded activities, exercises, and interactive elements throughout
-
-### Key Components
-- **Interactive Elements**: Custom JavaScript in `/assets/scripts/functions.js` handles user interactions like note downloading
-- **Styling**: Custom CSS in `/assets/styles/main.css` with Cosmo theme base
-- **R Integration**: R scripts in `/R/` handle data analysis, visualizations, and statistical content
-- **Build Scripts**: `/scripts/` contains the PDF-to-PNG converter; obsolete tools are in `/scripts/archive/`
-
-### Data Flow
-1. **Source**: `.qmd` files with embedded R code and interactive elements
-2. **Processing**: Quarto renders through R/knitr with renv environment
-3. **Output**: Static HTML site in `/_book/` directory
-4. **Deploy**: GitHub Actions automates build and deployment to production server
-
-## Development Workflow
-
-### Local Development
-1. Ensure R and Quarto are installed
-2. Use `renv::restore()` to set up R environment
-3. Use `quarto preview` for live development
-4. Make changes to `.qmd` files in `/content/days/`
-5. Build with `quarto render` before committing
-
-### Content Structure Guidelines
-- Follow existing naming patterns: `day-XX/##-topic-name.qmd`
-- **Exact transcription required**: Provide word-for-word copy of original content from PDF sources
-- Interactive elements should enhance, not replace, original pedagogical flow
-- Use consistent timing indicators and activity formatting
-- User will always verify transcription accuracy
-
-### Key Dependencies
-- **Quarto**: Document publishing system
-- **R 4.4.0+**: Statistical computing environment  
-- **renv**: R package dependency management
-- **Core R packages**: DiagrammeR, ggplot2, dplyr, knitr, rmarkdown
-- **System dependencies**: pandoc, various system libraries for R package compilation
-
-## Image Extraction Workflow
-
-### Cropping Figures from PDF Sources
-When extracting tables, charts, photos, or other figures from original PDF materials in `12-Days-to-Deming/PNGs/`:
-
-1. **Identify Source**: Find the correct PNG file (e.g., `E.Day.2.12Oct21_page_046.png`)
-2. **Check Image Dimensions**: Use `magick identify filename.png` to understand scale
-3. **Iterative Cropping Process**:
-   - Start with approximate coordinates: `magick "source.png" -crop WIDTHxHEIGHT+X+Y "output.png"`
-   - View result with `Read` tool
-   - Adjust boundaries incrementally until perfect
-4. **Target Directory**: Save cropped images to `assets/images/day-XX/`
-5. **Naming Convention**: Use descriptive names (e.g., `postscript-table.png`, `control-chart-example.png`)
-
-**Key Tips**:
-- PDF conversions are high-resolution (typically 2550x3300+), so coordinates need scaling
-- Extend boundaries slightly in all directions to capture complete elements
-- Include all relevant headers, labels, and annotations
-- Stop cropping just before unwanted text or elements
-- Test multiple coordinate adjustments to get precise boundaries
-
-### Usage in Quarto
-Reference cropped images in `.qmd` files:
-```markdown
-![Description](/assets/images/day-XX/filename.png)
-```
+To extract a figure, crop the page PNG iteratively with `magick "source.png" -crop WxH+X+Y "output.png"`, viewing each attempt and adjusting until the figure, its headers and its annotations are complete. Save to `assets/images/day-XX/` with a descriptive name. The pages are ~2550x3300, above the image API's limit for multi-image requests, so downscale copies before viewing many at once.
 
 ## Deployment Architecture
 
-- **GitHub Actions**: `.github/workflows/deploy.yml` handles automated builds
 - **Production**: `learndeming.org`, served by the Vercel project `twelve-days-to-deming`. DNS is Vercel DNS
 - **Old host**: `deming.leedurbin.co.nz` on SiteGround serves only the #888 bridge: a page per page of the site that carries readers' saved answers to the same path on `learndeming.org` (#887), plus an `.htaccess` 301 for everything else. The rsync `deploy` job ships it (`_bridge/`, built by `scripts/build-old-origin-bridge.R`) — never `_book/`
-- **Build Environment**: Ubuntu with R, Quarto, and system dependencies
+- **Never run `quarto render` concurrently** in one working directory (e.g. two profiles at once). It corrupts output-dir resolution and can write rendered HTML across the source tree instead of into `_book/`.
 
 ## URL and Content Policy
 
 The accounts epic ([#529](https://github.com/lddurbin/twelve_days_to_deming/issues/529)) commits that the current course content stays free permanently. That commitment needs to be a structural rule that future work is checked against, not a remembered intention — the failure mode is gradual, and each individual step toward gating content looks reasonable in isolation. There's also a concrete asset at stake: epic [#497](https://github.com/lddurbin/twelve_days_to_deming/issues/497) put hand-written `pagetitle` and `description` metadata on all 123 pages, and gating or relocating any of those pages discards that investment.
 
-- **The current 123 paths are permanent.** They do not move, do not redirect behind auth, and do not change what they serve to an anonymous visitor.
-- **The host changes exactly once.** Epic [#884](https://github.com/lddurbin/twelve_days_to_deming/issues/884) moves the site from `deming.leedurbin.co.nz` to `learndeming.org`. Every path is served unchanged on the new host, and every path on the old host permanently redirects to the same path there. Once that move is done, the host is permanent too. `leedurbin.co.nz` stays renewed indefinitely, because the redirects only last as long as the old domain does.
+- **Every published path is permanent.** Paths do not move, do not redirect behind auth, and do not change what they serve to an anonymous visitor.
+- **The host changed exactly once**, from `deming.leedurbin.co.nz` to `learndeming.org` ([#884](https://github.com/lddurbin/twelve_days_to_deming/issues/884)), and is now permanent. Every path is served unchanged on the new host, and every path on the old host permanently redirects to the same path there — until [#901](https://github.com/lddurbin/twelve_days_to_deming/issues/901) lands, by way of a bridge page that carries readers' saved answers across first (see Deployment Architecture). `leedurbin.co.nz` stays renewed indefinitely, because the redirects only last as long as the old domain does.
 - **Gating is additive only.** New paid or member surfaces get new routes. Nothing existing is ever relocated behind a login.
 - **Anonymous and crawler views are byte-identical.** Serving a crawler something different from an anonymous reader is cloaking, and risks a manual action against the whole site. Any personalisation happens client-side, after load — never server-side by request signature.
 - **Paid content lives in the same Quarto project**, under a distinct path, so it inherits the build, the CSS, the accessibility conventions, and the `workflow/PATTERNS.md` standards rather than forking into a parallel stack.
-- **New gated routes need a CI story before they ship.** `.pa11yci.json` enumerates every current page explicitly (no auto-discovery) and `link-check` will 401 on anything gated, so accessibility coverage silently stops at the login wall unless someone deliberately extends it. This used to be an existing ~60-page backlog gap too (#569 closed it), so today's baseline is full coverage — don't let a new gated route quietly reopen the gap it took a dedicated pass to close. Whoever adds the first gated route owns that extension.
+- **New gated routes need a CI story before they ship.** `.pa11yci.json` enumerates every current page explicitly (no auto-discovery) and `link-check` will 401 on anything gated, so accessibility coverage silently stops at the login wall unless someone deliberately extends it. Today's baseline is full coverage ([#569](https://github.com/lddurbin/twelve_days_to_deming/issues/569)) — don't let a new gated route quietly reopen that gap. Whoever adds the first gated route owns that extension.
 - **This GitHub repo itself stays fully public.** GitHub visibility is per-repo, not per-path, so gating cannot be a folder permission on `twelve_days_to_deming` — only the paid content's source files live elsewhere, in a private repo pulled into the build during CI. See [`docs/paid-content-repository-split.md`](docs/paid-content-repository-split.md) for the mechanism and its open questions.
 
 This rule is inert with respect to `structure-check.yml`, which validates `.qmd` files against `workflow/validation/*.yml` manifests, not against this file.
@@ -134,7 +54,7 @@ The required checks are `pa11y`, `claude-review`, `scorer-tests`, `js-tests` and
 
 `main`'s branch protection requires status checks to be up to date (`strict: true`), so under concurrent merges each remaining open PR goes `BEHIND` as soon as another merges ahead of it, and needs an explicit branch update before it can merge — a cascade `--auto` does NOT resolve by itself (each PR still needs `gh api -X PUT repos/<owner>/<repo>/pulls/<n>/update-branch`, then a wait for CI, before merging). This rebase/re-CI cost was evaluated and explicitly accepted in #385 as tolerable for a solo project's occasional PR fleets, rather than migrating to an org to unlock a real queue.
 
-The four workflows that were wired for `merge_group` triggers (`accessibility`, `claude-code-review`, `interday-audit`, `structure-check`) are inert on this repo — `merge_group` never fires without a queue — but were left in place in case of a future org migration, at which point enabling "Require merge queue" in Settings → Rules → Rulesets is the only remaining step.
+The `merge_group` triggers in `.github/workflows/` are inert on this repo — `merge_group` never fires without a queue — but were left in place in case of a future org migration, at which point enabling "Require merge queue" in Settings → Rules → Rulesets is the only remaining step.
 
 ## Changelog and releases
 
@@ -153,26 +73,10 @@ this repo follows keeps one real copy of a skill at the layer it belongs to.
 It discovers this convention from `docs/changesets/README.md`, so that file —
 not the skill — is what makes the rule binding here. `.agents/skills/` holds
 only skills specific to this project. See
-[#767](https://github.com/lddurbin/twelve_days_to_deming/issues/767). When it's time to
-cut a release, `./scripts/cut-release.sh <version>` rolls up every pending
-entry into a new `CHANGELOG.md` section and stages the consumed entry files
-for removal; it deliberately stops short of committing, tagging, pushing, or
-calling `gh release create` itself, so a release is always a reviewed,
-explicit action rather than something that happens as a side effect of a
-script run.
+[#767](https://github.com/lddurbin/twelve_days_to_deming/issues/767).
 
-The project's only release before this workflow existed is
-[`v0.1.0`](https://github.com/lddurbin/twelve_days_to_deming/releases/tag/v0.1.0)
-(2026-04-27, "Course Complete"), cut by hand from a manually assembled PR
-list. `CHANGELOG.md` is seeded with that release's notes as a baseline.
-
-There's deliberately no automated trigger for *when* to cut a release —
-that stays a judgment call. What there is instead is a nudge:
-`.github/workflows/release-cadence.yml` runs weekly (same slot as
-`link-check`) and opens/updates a tracking issue titled
-`[release-cadence] docs/changesets/ ready for a release cut` once pending
-entries in `docs/changesets/` cross 5 files or the oldest entry is 14+
-days old. It's read-only — it never runs `cut-release.sh` or touches
-`CHANGELOG.md` — and it closes that issue automatically on a later run
-once the count/age drops back under threshold (i.e. once someone cuts a
-release). See [#608](https://github.com/lddurbin/twelve_days_to_deming/issues/608).
+Releases are always a reviewed, explicit action: `./scripts/cut-release.sh <version>`
+deliberately stops short of committing, tagging, pushing or creating the
+GitHub release. *When* to cut one stays a judgment call — the weekly
+`release-cadence.yml` workflow only nudges, via a tracking issue, and never
+cuts anything itself. See [#608](https://github.com/lddurbin/twelve_days_to_deming/issues/608).
