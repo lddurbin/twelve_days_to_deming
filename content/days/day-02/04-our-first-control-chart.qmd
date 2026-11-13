@@ -71,7 +71,7 @@ some of the time. The control chart is also a tool, albeit a statistical tool ra
 
 As a new user of the control chart, here is your obvious Pause for Thought:
 
-<div class="thought_commentary" role="note" aria-label="Commentary">
+<div class="thought" role="note" aria-label="Thought">
 
 ## PAUSE FOR THOUGHT 2–e {#sec-page16}
 What does the control chart on [page 15, above](04-our-first-control-chart.qmd#sec-page15) tell you?

@@ -202,8 +202,8 @@ stops rendering) rather than failing loudly, so this is easy to miss:
 
 | Class | Purpose | Visual |
 |-------|---------|--------|
-| `.thought` | Pause for Thought (no commentary) | Green border |
-| `.thought_commentary` | Pause for Thought with commentary | Red border |
+| `.thought` | Pause for Thought or Activity that Neave prints in **green** (no commentary follows) | Green border |
+| `.thought_commentary` | Pause for Thought or Activity that Neave prints in **red** (his commentary follows) | Red border |
 | `.thought_commentary .collapse` | Hidden commentary revealed by button | Red background |
 | `.technical_aid` | Technical Aid box | Purple background, black border, ⚙ icon |
 | `.neave_note` | Author's explanatory aside | Serif font, left-aligned |
@@ -240,10 +240,29 @@ stops rendering) rather than failing loudly, so this is easy to miss:
 
 ## Interactive Element Templates
 
-### Pause for Thought (no commentary — green box)
+### Choosing green (`.thought`) or red (`.thought_commentary`)
+
+The box colour follows Neave's own convention, set out on Day 1 page 15
+(`content/days/day-01/05-activities.qmd`) and again on pages 20–21: **red** means
+his discussion of the request follows immediately, so the reader should not
+look ahead; **green** means no such discussion follows in the text. The colour
+says nothing about whether the box is a Pause for Thought or an Activity —
+both kinds come in both colours. Major Activities are not colour-coded in the
+source; on the site they use `.thought`.
+
+Take the colour from the source page image, not from the box kind and not
+from whether the site happens to wrap the discussion in a `.collapse`. A red
+box usually has its commentary behind a reveal button, but some (Activities
+2–f and 7–e) print their discussion as ordinary prose after the box, and stay
+red. See [#819](https://github.com/lddurbin/twelve_days_to_deming/issues/819).
+
+### Pause for Thought or Activity (no commentary — green box)
+
+Set `aria-label="Thought"` for a Pause for Thought and `aria-label="Activity"`
+for an Activity. Red boxes use `aria-label="Commentary"` whatever their kind.
 
 ```markdown
-<div class="thought" role="note" aria-label="Activity">
+<div class="thought" role="note" aria-label="Thought">
 
 ## PAUSE FOR THOUGHT X–y
 
@@ -257,7 +276,7 @@ viewof thought_Xy = Inputs.textarea({placeholder: "Type your comments here.", ro
 </div>
 ```
 
-### Pause for Thought (with commentary — red box)
+### Pause for Thought or Activity (with commentary — red box)
 
 ```markdown
 <div class="thought_commentary" role="note" aria-label="Commentary">
@@ -282,8 +301,11 @@ Commentary text here.
 
 ### Activity with Text Input
 
+Shown here as a green Activity, the common case. Use the red wrapper above
+instead when the source prints the Activity in red.
+
 ```markdown
-<div class="thought_commentary" role="note" aria-label="Commentary">
+<div class="thought" role="note" aria-label="Activity">
 
 ## ACTIVITY X–y
 

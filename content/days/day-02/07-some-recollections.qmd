@@ -60,7 +60,7 @@ It is with those experiences in mind that I'll ask you to take on the role of Fo
 
 There will then remain just two further items on today's agenda. First comes the Major Activity of writing up your comprehensive summary of messages to be learned from the Experiment on Red Beads. So, in preparation for that, keep adding to your list of notes as you now work through the statisticians' and the Spaniards' experiments. Then finally, after the Major Activity, there will be a short Postscript to complete the day.
 
-<div class="thought_commentary" role="note" aria-label="Commentary">
+<div class="thought" role="note" aria-label="Activity">
 
 ## ACTIVITY 2–g
 
