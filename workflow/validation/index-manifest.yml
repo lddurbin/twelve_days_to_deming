@@ -21,6 +21,11 @@ pdf_file: A.PLEASE.START.HERE.08Feb22.pdf
 content_dir: "."
 interactive_checks: false
 
+# Approvals, Acknowledgments and Information notes, counted by
+# check-structure.sh (#797). `[]` means the source PDF was checked and has no
+# approvals page; it is not the same as leaving the key out.
+approvals: []
+
 chapters:
   - file: "index.qmd"
     figures: []

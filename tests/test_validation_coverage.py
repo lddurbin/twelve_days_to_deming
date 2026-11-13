@@ -91,7 +91,14 @@ def manifest_pages():
         else:
             raise AssertionError(f"{manifest.name} declares no content_dir")
 
-        files = re.findall(r"^\s*-\s*file:\s*[\"'](.+?)[\"']\s*$", text, re.MULTILINE)
+        # Only the `chapters:` block claims pages. Other top-level keys list
+        # files too — `approvals:` (#797) names the chapters carrying approvals
+        # notes, which are already claimed here — so the block runs from
+        # `chapters:` to the next top-level key, not to the end of the file.
+        chapters = re.search(r"^chapters:\s*\n((?:[ \t#].*\n|\n)*)", text, re.MULTILINE)
+        if not chapters:
+            raise AssertionError(f"{manifest.name} has no top-level chapters: key")
+        files = re.findall(r"^\s*-\s*file:\s*[\"'](.+?)[\"']\s*$", chapters.group(1), re.MULTILINE)
         if not files:
             raise AssertionError(f"{manifest.name} lists no chapters — has its shape changed?")
 

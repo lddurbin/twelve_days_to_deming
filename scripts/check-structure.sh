@@ -14,6 +14,26 @@
 # download button. Other manifests can opt out of interactive checks for
 # prose-only content (set `interactive_checks: false`).
 #
+# Every manifest also declares a top-level `approvals:` key (#797): the notes
+# on Neave's "Approvals, Acknowledgments and Information" page, the rights
+# record for third-party material the course reproduces. It is day-level, not
+# chapter-level, because one source page's notes can land in several files:
+#
+#   approvals:
+#     - file: "08-coda.qmd"   # relative to the manifest's content directory
+#       notes: 3              # note markers expected in that file
+#
+# `approvals: []` means the source PDF was checked and has no such page. A
+# missing key fails the check: otherwise a manifest nobody audited would look
+# the same as one that passed. CI cannot see the source PDFs, so the counts
+# are declared here rather than derived.
+#
+# A note marker is a line that starts with any of the forms in use:
+# `^a^`, `<sup>a</sup>`, or a Quarto footnote definition `[^a]:`. The check
+# counts them per named file and fails on any difference, in either
+# direction. It confirms a note is present, not that its wording is right —
+# that stays the transcription comparator's job.
+#
 # Requires: ruby (for YAML parsing — ships with macOS).
 # CI installs it via ruby/setup-ruby in .github/workflows/structure-check.yml.
 
@@ -72,6 +92,13 @@ expand_manifest() {
       interactive = data.key?("interactive_checks") ? data["interactive_checks"] : true
       f.puts "INTERACTIVE=#{interactive ? "true" : "false"}"
     end
+    File.open("#{outdir}/approvals", "w") do |f|
+      if !data.key?("approvals")
+        f.puts "UNDECLARED"
+      else
+        (data["approvals"] || []).each { |a| f.puts "#{a["file"]}|#{a["notes"]}" }
+      end
+    end
     data["chapters"].each_with_index do |ch, i|
       File.open("#{outdir}/ch_#{format("%02d", i)}", "w") do |f|
         f.puts "FILE=#{ch["file"]}"
@@ -88,6 +115,13 @@ expand_manifest() {
 count_viewof() {
   local n
   n=$(grep -cE 'viewof [a-zA-Z_][a-zA-Z0-9_]* =' "$1" 2>/dev/null) || true
+  echo "${n:-0}"
+}
+
+# Count approvals note markers: lines starting ^a^, <sup>a</sup> or [^a]:
+count_approval_notes() {
+  local n
+  n=$(grep -cE '^(\^[a-z]\^|<sup>[a-z]</sup>|\[\^[a-z]\]:)' "$1" 2>/dev/null) || true
   echo "${n:-0}"
 }
 
@@ -378,6 +412,43 @@ main() {
 
     echo ""
   done
+
+  # ── Check 5: approvals notes ──
+  printf "${BOLD}Approvals, Acknowledgments and Information${RESET}\n"
+  if [[ "$(head -1 "$tmpdir/approvals")" == "UNDECLARED" ]]; then
+    total_checks=$((total_checks + 1))
+    fail "approvals: not declared in manifest (use \`approvals: []\` if the source has none)"
+    total_fail=$((total_fail + 1))
+  elif [[ ! -s "$tmpdir/approvals" ]]; then
+    total_checks=$((total_checks + 1))
+    pass "approvals: none in source"
+    total_pass=$((total_pass + 1))
+  else
+    while IFS='|' read -r ap_file ap_expected; do
+      [[ -z "$ap_file" ]] && continue
+      total_checks=$((total_checks + 1))
+      if [[ ! "$ap_expected" =~ ^[0-9]+$ ]]; then
+        fail "approvals: $ap_file has no valid \`notes:\` count"
+        total_fail=$((total_fail + 1))
+        continue
+      fi
+      if [[ ! -f "$qmd_dir/$ap_file" ]]; then
+        fail "approvals: file not found: $ap_file"
+        total_fail=$((total_fail + 1))
+        continue
+      fi
+      local ap_actual
+      ap_actual=$(count_approval_notes "$qmd_dir/$ap_file")
+      if [[ "$ap_actual" -eq "$ap_expected" ]]; then
+        pass "approvals: $ap_file has $ap_actual note(s) (expected $ap_expected)"
+        total_pass=$((total_pass + 1))
+      else
+        fail "approvals: $ap_file has $ap_actual note(s) (expected $ap_expected)"
+        total_fail=$((total_fail + 1))
+      fi
+    done < "$tmpdir/approvals"
+  fi
+  echo ""
 
   # ── Summary ──
   echo "=========================================="

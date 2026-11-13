@@ -2,6 +2,13 @@
 # Generated from completed QMD files — baseline for regression checks
 day: 6
 
+# Approvals, Acknowledgments and Information notes, counted by
+# check-structure.sh (#797). `[]` means the source PDF was checked and has no
+# approvals page; it is not the same as leaving the key out.
+approvals:
+  - file: "04-more-true-stories.qmd"
+    notes: 2
+
 chapters:
   - file: "01-introduction.qmd"
     viewof_count: 1
