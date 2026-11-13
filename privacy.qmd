@@ -21,7 +21,7 @@ A small number of named actions on this site — for example, opening the feedba
 
 ## When you send me something
 
-Everything above happens in the background. Three things on this site let you send me something on purpose, and none of them send anything unless you choose to.
+Everything above happens in the background. Four things on this site let you send me something on purpose, and none of them send anything unless you choose to.
 
 **The thumbs up or down at the end of each chapter.** Clicking one records a single value — up or down, plus which chapter you were on — as a Simple Analytics event, exactly like the events described above. Nothing else goes with it.
 
@@ -36,6 +36,13 @@ One thing worth being plain about, though: like any request to any server anywhe
 The box is entirely optional. If you leave it empty, nothing is sent at all, and the thumbs rating on its own never goes anywhere near it.
 
 If that send fails for any reason, you'll be offered an ordinary email link instead — which, unlike everything else on this page, would show me your email address. That's your call to make at the time, and declining it costs you nothing.
+
+**The "Found an error?" link in every page's footer.** This is for telling me that a word, number or emphasis differs from Neave's original. It offers two routes, and this site sends nothing through either of them itself — each one only opens something you then choose whether to send:
+
+- **On GitHub**, it opens a new-issue form with the address of the page you were on already filled in. GitHub issues on this project are public, need a GitHub account, and are governed by [GitHub's privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) rather than anything here.
+- **By email**, it opens your own email program with a short message already started, including the address of the page you were on. Like the fallback above, sending it shows me your email address.
+
+Clicking either one is also recorded as one of the named Simple Analytics events described above — that a report was started, and by which route — and nothing more.
 
 **The testimonial form**, linked from [Share Your Experience](/share-your-experience.html) and hosted by [Tally](https://tally.so/). It's a normal form: you can see every field before you fill anything in. It only asks for your name and role if you've said you're happy to be quoted, and an email address is optional and used only if I need to reply to you.
 

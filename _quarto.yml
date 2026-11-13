@@ -77,8 +77,12 @@ book:
     # maintainer. See #631 and docs/blog-location-spike.md Constraint 9.
     left: |
       Course content © Dr Henry R. Neave. Reproduced with permission (May 2026). Essays and other original writing are © their respective authors.
+    # "Found an error?" (#929): the GitHub link is static and page-blind
+    # here; assets/scripts/report-error.js fills in the current page and
+    # appends the "or by email" fallback client-side, after load, so every
+    # visitor and crawler is still served the same bytes.
     right: |
-      Web edition by [Lee Durbin](https://leedurbin.co.nz) <span aria-hidden="true">·</span> [Privacy](/privacy.html)
+      Found an error? [Report it on GitHub](https://github.com/lddurbin/twelve_days_to_deming/issues/new?template=transcription-error.yml){.report-error-github} <span aria-hidden="true">·</span> Web edition by [Lee Durbin](https://leedurbin.co.nz) <span aria-hidden="true">·</span> [Privacy](/privacy.html)
 
 filters:
   - filters/reading-time.lua
@@ -274,6 +278,7 @@ format:
       -->
       <script type="module" src="/assets/scripts/chapter-rating.js"></script>
       <script type="module" src="/assets/scripts/share-your-experience.js"></script>
+      <script type="module" src="/assets/scripts/report-error.js"></script>
       <script>
         (function () {
           try {

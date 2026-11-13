@@ -1,0 +1,40 @@
+name: Transcription error
+description: A word, number or emphasis on the site that differs from Neave's original.
+title: "Transcription error: "
+labels: ["transcription-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this. The course is meant to be a word-for-word copy of Dr Henry Neave's original, so every difference matters. We check each report against the page image of Neave's source before changing anything.
+
+        If you came here from the "Found an error?" link in the site footer, the page address below is already filled in.
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The address of the page on learndeming.org.
+      placeholder: https://learndeming.org/content/day-01/...
+    validations:
+      required: true
+  - type: textarea
+    id: passage
+    attributes:
+      label: The passage
+      description: Copy the sentence or two around the error, so we can find it on the page.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What you think it should say
+      description: Your suggested correction, and why if it isn't obvious (for example, "the original has 'not' here").
+    validations:
+      required: true
+  - type: input
+    id: neave-page
+    attributes:
+      label: Neave's page number (if you have it)
+      description: The page number in Neave's original course notes, if you have a copy. Leave blank if not.
+    validations:
+      required: false
