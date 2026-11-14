@@ -1,5 +1,26 @@
+# Keeps the workflows' pinned actions and the root package.json current
+# (#948). Security updates are a repo setting, separate from this file, and
+# open their PRs whenever an alert does.
+#
+# Dependabot can't see these, so they stay manual:
+# - R packages in renv.lock (Dependabot has no renv support).
+# - R, Pandoc and Quarto versions: the input defaults in
+#   .github/actions/setup-r-quarto/action.yml.
+# - Node's `node-version` in accessibility.yml and unit-tests.yml, and Ruby's
+#   `ruby-version` in structure-check.yml.
+#
+# Each entry waits seven days before offering a new release, so one that's
+# compromised has time to be caught and pulled first. The cost is that an
+# ordinary bug fix arrives a week later too; security updates skip the wait.
+#
+# Minor and patch bumps are grouped into one PR per ecosystem a week. Under
+# `strict: true` every merge sends the other open PRs BEHIND, so one PR costs
+# far less than several.
 version: 2
 updates:
+  # Every `uses:` is pinned to a full commit SHA with its exact version in a
+  # trailing comment (`# v1.2.3`, never `# v1`): Dependabot reads the comment
+  # to tell which release a SHA is, and moves both together (#949).
   - package-ecosystem: "github-actions"
     # The second entry covers the local composite action, whose pinned
     # r-lib and cache actions a "/" scan of .github/workflows never sees.
@@ -8,3 +29,21 @@ updates:
       - "/.github/actions/*"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+
+  # pa11y-ci, vitest and http-server. All three run in required checks
+  # (pa11y, js-tests), so CI does test a major bump; majors arrive as their
+  # own ungrouped PRs rather than being ignored.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
