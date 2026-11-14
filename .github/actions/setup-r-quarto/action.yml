@@ -16,9 +16,13 @@ inputs:
   quarto-version:
     description: Quarto version. Do not override from a workflow.
     default: '1.10.18'
+  # Off by default: use-public-rspm serves a prebuilt Linux binary for every
+  # package in renv.lock, so nothing compiles and the -dev headers go unused.
+  # The binaries' runtime libraries are already on ubuntu-latest. Kept as an
+  # input for the day a package has no binary. See #967.
   system-deps:
-    description: Install the apt libraries R packages compile against.
-    default: 'true'
+    description: Install the apt build headers needed to compile R packages from source.
+    default: 'false'
   renv:
     description: Restore the renv library (implies the R package cache).
     default: 'true'

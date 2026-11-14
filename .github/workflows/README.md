@@ -86,3 +86,20 @@ For local development, you can still use:
 ```
 
 The GitHub Action replaces this functionality for automated deployments. 
+## Job timeouts
+
+Every job in every workflow sets `timeout-minutes`. Without one, a hung
+`quarto render`, pa11y Chromium or `rsync` holds a runner, and a PR's required
+checks, for GitHub's default of six hours. See #969.
+
+- **30 minutes** for any job that uses the shared `setup-r-quarto` action. A
+  warm run takes 1–8 minutes, but `r-lib/actions/setup-r` always runs its own
+  `apt-get install`, and on a day the Ubuntu mirrors are slow that step alone
+  has taken 16 minutes (deploy run 42270466654, 2026-11-06).
+  The cap is set for that, not for the warm case.
+- **10–15 minutes** for other jobs that do real work (pa11y, link-check, the
+  deploy and Vercel jobs, js-tests, structure-check).
+- **5 minutes** for jobs that finish in seconds (scorer-tests, staleness,
+  landed-fields, release-cadence, preview-cleanup).
+
+A new job gets a timeout too: roughly 2–3× its slowest normal run.
