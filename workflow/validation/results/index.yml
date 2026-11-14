@@ -2,7 +2,7 @@ manifest: index
 validated_at: 2026-11-14
 source_pdf: A.PLEASE.START.HERE.08Feb22.pdf
 source_sha256: 2e6226b87cdc56f92607140707b6cdc044db92485f54578f757afbb13193a8d6
-scorer_version: 0095735d3f093583fb58566ffaa9a8172567e40f
+scorer_version: 422a07addac14f4ec1f805c8dd9877c8303f12f6
 files:
   compared: 1
 thresholds:

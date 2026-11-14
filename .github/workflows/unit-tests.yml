@@ -57,9 +57,13 @@ jobs:
     # ShellCheck over scripts/ (#950). A step here rather than its own job, so
     # it rides on js-tests' existing required check instead of needing a new
     # one adding to main's branch protection. ShellCheck is preinstalled on
-    # GitHub's Ubuntu runners.
+    # GitHub's Ubuntu runners, at whatever version the image carries, so the
+    # version is printed first: if a runner image update brings new findings,
+    # the log shows which ShellCheck raised them.
     - name: Lint shell scripts
-      run: npm run lint:scripts
+      run: |
+        shellcheck --version
+        npm run lint:scripts
 
   # Its own job rather than a step in accessibility.yml's `build`, even though
   # that job already restores renv. A required check has to report its own
