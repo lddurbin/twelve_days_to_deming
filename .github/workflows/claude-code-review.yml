@@ -38,7 +38,7 @@ jobs:
 
       - name: Run Claude Code Review
         id: claude-review
-        uses: anthropics/claude-code-action@725b9c36f61150e9be5b9ec02289a9a0cfc21c04  # v1
+        uses: anthropics/claude-code-action@f3b070c88125d33dbae5653df5f143101d4ea9dc  # v1.0.276
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
@@ -77,4 +77,8 @@ jobs:
             1. Use the Write tool to write your complete review to /tmp/review.md
             2. Post it with: gh pr comment ${{ github.event.pull_request.number }} --body-file /tmp/review.md
 
-          claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Read,Glob,Grep,Write"'
+          # --permission-mode default: since v1.0.273 the action runs in auto
+          # mode, where a safety review can approve tools outside
+          # --allowed-tools. This keeps the list strict, as it was.
+          # --max-turns caps a review that loops, alongside timeout-minutes.
+          claude_args: '--permission-mode default --max-turns 40 --allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Read,Glob,Grep,Write"'
