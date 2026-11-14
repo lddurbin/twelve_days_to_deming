@@ -2,7 +2,7 @@ day: 12
 validated_at: 2026-11-14
 source_pdf: O.Day.12.16Feb22.pdf
 source_sha256: 0367003cc56eaabc218479f42dd69cd382e174bc61d7348a65aed48608904769
-scorer_version: 0095735d3f093583fb58566ffaa9a8172567e40f
+scorer_version: 422a07addac14f4ec1f805c8dd9877c8303f12f6
 files:
   compared: 8
 thresholds:

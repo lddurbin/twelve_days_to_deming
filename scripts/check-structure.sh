@@ -92,6 +92,7 @@ fail() { printf "  ${RED}FAIL${RESET} %s\n" "$1"; }
 expand_manifest() {
   local manifest="$1"
   local outdir="$2"
+  # shellcheck disable=SC2016  # Ruby source: its $ and #{} are Ruby's, not the shell's
   ruby -ryaml -e '
     begin
       data = YAML.safe_load(File.read(ARGV[0]))
@@ -134,6 +135,7 @@ count_viewof() {
 # Letters of the approvals notes in a QMD file, one per line: lines that open
 # with the house form `[^a^]{#approval-a}`, the two letters agreeing.
 approval_note_letters() {
+  # shellcheck disable=SC2016  # Ruby source: $1 and $_ are Ruby's, not the shell's
   ruby -ne 'puts $1 if $_ =~ /\A\[\^([a-z])\^\]\{#approval-\1\}/' "$1" 2>/dev/null || true
 }
 
@@ -433,7 +435,7 @@ main() {
   done
 
   # ── Check 5: approvals notes ──
-  printf "${BOLD}Approvals, Acknowledgments and Information${RESET}\n"
+  printf '%b\n' "${BOLD}Approvals, Acknowledgments and Information${RESET}"
   if [[ "$(head -1 "$tmpdir/approvals")" == "UNDECLARED" ]]; then
     total_checks=$((total_checks + 1))
     fail "approvals: not declared in manifest (use \`approvals: []\` if the source has none)"
@@ -498,7 +500,7 @@ main() {
   echo ""
 
   if (( total_fail == 0 )); then
-    printf "${GREEN}All structural checks passed.${RESET}\n"
+    printf '%b\n' "${GREEN}All structural checks passed.${RESET}"
   else
     printf "${RED}%d check(s) failed — review above for details.${RESET}\n" "$total_fail"
   fi
