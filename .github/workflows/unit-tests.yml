@@ -45,7 +45,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1  # v7.1.0
       with:
-        node-version: '24'
+        node-version-file: '.node-version'
         cache: 'npm'
 
     - name: Install dependencies
@@ -53,6 +53,13 @@ jobs:
 
     - name: Run JavaScript tests
       run: npm test
+
+    # ShellCheck over scripts/ (#950). A step here rather than its own job, so
+    # it rides on js-tests' existing required check instead of needing a new
+    # one adding to main's branch protection. ShellCheck is preinstalled on
+    # GitHub's Ubuntu runners.
+    - name: Lint shell scripts
+      run: npm run lint:scripts
 
   # Its own job rather than a step in accessibility.yml's `build`, even though
   # that job already restores renv. A required check has to report its own

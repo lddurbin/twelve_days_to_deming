@@ -135,6 +135,7 @@ case "${1:-}" in
         # both reached the browser, which then applies whichever it likes.
         if [ "$(grep -c . <<<"$got" || true)" -gt 1 ]; then
           echo "FAIL: ${base}${path} sends ${name} more than once:"
+          # shellcheck disable=SC2001  # prefixes every line; ${var//} can't anchor per line
           sed 's/^/  got:  /' <<<"$got"
           path_failed=1
           continue

@@ -6,7 +6,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "a11y": "pa11y-ci --config .pa11yci.json",
-    "a11y:serve": "http-server _book -p 8765 --silent"
+    "a11y:serve": "http-server _book -p 8765 --silent",
+    "lint:scripts": "shellcheck -x scripts/*.sh scripts/lib/*.sh"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
