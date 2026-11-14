@@ -104,8 +104,8 @@ runs:
     uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9  # v6.1.0
     with:
       path: ~/.cache/R/renv
-      key: exp967-${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
-      restore-keys: exp967-${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
+      key: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-${{ hashFiles('renv.lock') }}
+      restore-keys: ${{ runner.os }}-r${{ steps.setup-r.outputs.installed-r-version }}-renv-
 
   # No separate renv install. The repo's .Rprofile sources renv/activate.R,
   # which bootstraps the exact renv version renv.lock records before this
