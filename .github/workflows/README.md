@@ -85,7 +85,8 @@ For local development, you can still use:
 ./upload.sh
 ```
 
-The GitHub Action replaces this functionality for automated deployments. 
+The GitHub Action replaces this functionality for automated deployments.
+
 ## Job timeouts
 
 Every job in every workflow sets `timeout-minutes`. Without one, a hung
