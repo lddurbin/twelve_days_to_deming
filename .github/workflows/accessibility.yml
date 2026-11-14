@@ -34,6 +34,7 @@ jobs:
   # local one, safe to publish as a preview.
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     # Lets the preview comment name the Quarto version without restating it.
     outputs:
       quarto-version: ${{ steps.toolchain.outputs.quarto-version }}
@@ -88,6 +89,7 @@ jobs:
   pa11y:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
     - name: Checkout repository
@@ -139,6 +141,7 @@ jobs:
     # `preview` isn't a required check, so skipping it costs no coverage.
     if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment: preview
     permissions:
       contents: read

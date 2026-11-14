@@ -37,6 +37,7 @@ env:
 jobs:
   js-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
     - name: Checkout repository
@@ -74,6 +75,7 @@ jobs:
   # below is a cache hit, not a rebuild.
   r-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
     - name: Checkout repository

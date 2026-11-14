@@ -24,6 +24,7 @@ jobs:
   # never stops the cadence nudge below from running.
   security-txt-expiry:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     permissions:
       contents: read
 
@@ -36,6 +37,7 @@ jobs:
 
   release-cadence:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
     - name: Checkout repository

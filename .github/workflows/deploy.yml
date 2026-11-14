@@ -37,6 +37,7 @@ jobs:
   # artifact rather than rewriting this workflow. See #532.
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     # Inherits the workflow-level `contents: read`. Only the deploy job needs
     # write, and only for the deploy tag.
     outputs:
@@ -228,6 +229,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     # Build runs on whatever ref it was given; shipping is restricted to main.
     # This is what makes `gh workflow run deploy.yml --ref <branch>` a safe way
     # to exercise the build and artifact steps without touching production.
@@ -396,6 +398,7 @@ jobs:
   vercel-production:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     if: github.ref == 'refs/heads/main'
     permissions:
       contents: read
@@ -539,6 +542,7 @@ jobs:
   staging:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     if: github.ref == 'refs/heads/main' && inputs.deploy_tag == ''
     permissions:
       contents: read
