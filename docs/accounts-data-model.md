@@ -1,6 +1,6 @@
 # Account data model, storage location, export and deletion
 
-_Last updated: 2026-08-24_
+_Last updated: 2026-11-14_
 
 Design note for [#547](https://github.com/lddurbin/twelve_days_to_deming/issues/547), part of the accounts epic ([#529](https://github.com/lddurbin/twelve_days_to_deming/issues/529)). No code. This is written before any account data is collected, so every question here is answered on paper rather than discovered later while already holding data.
 
@@ -53,13 +53,13 @@ Progress and ratings are not encrypted at rest; there's nothing in them to prote
 
 ## 4. Export
 
-Readers can export everything on their account in a usable format (JSON, containing progress, ratings, and workbook answers) on request.
+Readers can export everything on their account in a usable format (JSON) on request. In the first release that is the account's email address and its workbook answers, with their keys and timestamps ([#702](https://github.com/lddurbin/twelve_days_to_deming/issues/702)). Progress and ratings are not synced in that release ([#546](https://github.com/lddurbin/twelve_days_to_deming/issues/546) stays out of scope), so there is nothing of them on the account to export. If they are synced later, the export grows to include them in the same change.
 
 This extends an existing precedent rather than inventing one: `functions.js`'s `downloadNotes` already lets a reader download their per-page written answers as a `.txt` file. A whole-account export is the same idea at account scope, and should ship as part of the same feature rather than as a follow-up.
 
 ## 5. Deletion
 
-"Delete my account" removes the account record, all synced progress/ratings, and all workbook answers from the primary store **immediately** on confirmed request.
+"Delete my account" removes the account record, all workbook answers, and anything else synced to the account (progress and ratings, if they are ever synced) from the primary store **immediately** on confirmed request.
 
 Proposed defaults, for the maintainer to confirm or adjust when the implementation issue is scoped (not fixed by this note, since no storage vendor exists yet to size the real numbers against):
 
@@ -70,7 +70,7 @@ Proposed defaults, for the maintainer to confirm or adjust when the implementati
 
 **Dormant accounts are auto-deleted after 2 years of inactivity**, with advance notice to the reader before deletion happens (proposed: an email warning 30 days out, to the account's email address, with a one-click "keep my account" action).
 
-"Inactivity" means no login and no reading-progress event in that window — matching the existing `engagement.js` model of what counts as activity today.
+"Inactivity" means no sign-in and no saved answer in that window: the last time a session was created for the account, or an answer was written to it, whichever is later. A "keep my account" click from the warning email also counts as activity. Reading progress cannot count, because it is not synced in the first release and the server never sees it. (An earlier draft defined inactivity by reading-progress events, matching `engagement.js`; that was corrected on 2026-11-14, in [#704](https://github.com/lddurbin/twelve_days_to_deming/issues/704).)
 
 ## 7. Anonymous readers are unaffected
 
