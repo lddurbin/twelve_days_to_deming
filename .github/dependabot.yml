@@ -6,8 +6,9 @@
 # - R packages in renv.lock (Dependabot has no renv support).
 # - R, Pandoc and Quarto versions: the input defaults in
 #   .github/actions/setup-r-quarto/action.yml.
-# - Node's `node-version` in accessibility.yml and unit-tests.yml, and Ruby's
-#   `ruby-version` in structure-check.yml.
+# - Node's version: .node-version (which every workflow that sets up Node
+#   reads) and the `engines` floor in package.json, bumped together (#951).
+# - Ruby's `ruby-version` in structure-check.yml.
 #
 # Each entry waits seven days before offering a new release, so one that's
 # compromised has time to be caught and pulled first. The cost is that an

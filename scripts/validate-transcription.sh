@@ -132,6 +132,7 @@ SHA256_CMD=""  # set by check_deps()
 # ASCII: D=68, day 1 → offset 0 → D, day 2 → offset 1 → E, etc.
 day_to_prefix() {
   local day=$1
+  # shellcheck disable=SC2059  # the format is the escape \NNN, built to print that character
   printf "\\$(printf '%03o' $((67 + day)))"
 }
 
@@ -216,6 +217,7 @@ read_manifest() {
     echo "Error: ruby not found (needed for YAML parsing)" >&2
     exit 1
   fi
+  # shellcheck disable=SC2016  # Ruby source: its $ and #{} are Ruby's, not the shell's
   ruby -ryaml -e '
     begin
       data = YAML.safe_load(File.read(ARGV[0]))
@@ -242,6 +244,7 @@ read_no_source() {
     echo "Error: no-source register not found at ${register#"$REPO_ROOT/"}" >&2
     exit 1
   fi
+  # shellcheck disable=SC2016  # Ruby source: its $ and #{} are Ruby's, not the shell's
   ruby -ryaml -e '
     begin
       data = YAML.safe_load(File.read(ARGV[0]))
