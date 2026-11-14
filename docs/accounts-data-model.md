@@ -30,7 +30,7 @@ Two things this does *not* resolve:
 
 Two categories, deliberately handled differently:
 
-- **Progress and ratings** (which chapters are read, funnel-experiment state, thumbs up/down) — low sensitivity, no free text, synced in plain form.
+- **Progress and ratings** (which chapters are read, funnel-experiment state, thumbs up/down) — low sensitivity, no free text, synced in plain form if they are ever synced. The first release does not sync them ([#546](https://github.com/lddurbin/twelve_days_to_deming/issues/546) stays out of scope).
 - **Written workbook answers** — free text a reader has written about their own workplace. Day 12 explicitly asks for a report to a named Chief Executive. This is the one category where "what can the operator read" matters.
 
 **Decision (2026-08-09) — superseded, see the amendment below.** Workbook answers are encrypted at rest, using a client-side model. The encryption key is derived from something only the reader's device or credential holds — for example a WebAuthn PRF-derived key, if passkeys are chosen as the auth mechanism (see [#548](https://github.com/lddurbin/twelve_days_to_deming/issues/548)) — never a key the server holds on the reader's behalf. That's the only model consistent with the guarantee this note is making: the operator (me) should not be able to read a reader's saved answers by querying the database directly, even with full database *and* key-store access, because no single thing the server holds is sufficient to decrypt them.
